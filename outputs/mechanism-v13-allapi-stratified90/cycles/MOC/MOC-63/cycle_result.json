@@ -1,0 +1,457 @@
+{
+  "state": {
+    "question": "How many white cars on the same side as {B1} completely pass {B1}?",
+    "round_id": 4,
+    "summary": "The best-supported count is one white car on B1's side completely passing B1. The only confirmed behind-to-ahead pass is the white car passing stationary A1/B1 in v1 0-8s. Additional white-car observations are not confirmed as same-side complete passes, and gaps are not negative evidence.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-26: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.",
+      "A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.",
+      "A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.",
+      "A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.",
+      "A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r3-r2-01.s01",
+          "v2.zoom.r3-r2-02.s01"
+        ],
+        "attempts": [
+          "A1/B1 is the same annotated track 17 car; v1 shows A1 stationary on the right side during the synchronized overlap, and v2 shows B1 as a car with a stationary white sedan near it."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r3-r2-01.s01",
+          "v2.zoom.r3-r2-02.s01",
+          "v2.zoom.r3-r2-03.s01"
+        ],
+        "attempts": [
+          "One white car is explicitly observed passing stationary A1/B1. Other observed white cars are either stationary near B1, in upper lanes, or seen while B1 is not visible, so no additional same-side complete pass is confirmed."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r3-r2-01.s01",
+          "v2.zoom.r3-r2-03.s01"
+        ],
+        "attempts": [
+          "The v1 fine span supports a pass around the synchronized interval, but v2 lacks B1 after 3.267s and unobserved gaps cannot establish additional passes or absence."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+        "uncertainty": "Identity of {B1} is not explicitly defined in the visual data.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+        "uncertainty": "Whether the red bus corresponds to {B1} is assumed for context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red bus labeled B1 is stationary on the right side of the road. A white car is positioned directly behind it.",
+        "uncertainty": "Whether the white car passes B1 between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+        "uncertainty": "Exact moment of passing is in the gap between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "The B1 overlay tracks a red car. A white car is positioned immediately to the left of the red car in the same lane.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A stationary red bus is visible on the right side of the road, marked with a yellow bounding box labeled 'A1 car'.",
+        "uncertainty": "The object is a bus, not a car, despite the label.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Traffic flows continuously on the multi-lane road, with vehicles moving in both directions past the stationary bus.",
+        "uncertainty": "The specific count of white cars passing is not established.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          7.0
+        ],
+        "description": "A white sedan (labeled A1) is stationary on the right side of the road, adjacent to a row of red buses.",
+        "uncertainty": "A1 disappears from frame in F08.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          7.0
+        ],
+        "description": "A white car travels forward in the middle lane, passing the intersection and the stationary A1 sedan.",
+        "uncertainty": "Initial position before F03 is not clearly defined.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red truck travels left across the intersection. A white sedan is stationary near the B1 car, while another white car moves left in the upper lanes.",
+        "uncertainty": "The specific path of the lower white sedan relative to B1 is unclear.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "A white car moves continuously from left to right in the lower-middle lanes of the road, passing the B2 car label.",
+        "uncertainty": "B1 location not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "A red bus moves from left to right along the bottom edge of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l3.e3",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "A red truck moves from left to right in the upper lanes of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local v2 evidence on whether the B1 overlay marks a car or a red bus and whether the white car is on B1's side.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U06",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "In v2 0-2s, is the object under the B1 overlay a car or a red bus, and is the white car on the same side as it?",
+        "next_probe_goal": "Check v2 4-8s for whether the same white car moves ahead of the B1-labeled object.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need focused v1 evidence to count distinct white cars on B1's side that fully pass B1 during 0-8s, especially while B1 remains visible.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.c002"
+        ],
+        "evidence_goal": "In v1 0-8s, how many distinct white cars on the same side/lane as the B1/source_track=17 object completely pass that object?",
+        "next_probe_goal": "Are the candidate white cars in this v1 interval distinct physical vehicles rather than duplicate observations of one vehicle?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Fresh state: B1/A1 identity and side are inconsistent across synchronized views. v1 provides a 0-8s fine view of a red bus-like B1/A1 object with traffic passing, but does not establish the count of white cars. v2 shows one white car near B1 in 0-2s and another observation of a white car ahead of the bus-like B1 object in 4-8s, with the exact passing moment in an unobserved 2-4s gap. The key unresolved issue is whether the v1 and v2 white-car observations are duplicate synchronized views of one physical passing event or represent distinct physical white cars, and whether any additional white cars pass during the synchronized relevant interval.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.zoom.r2-r3-01.s01",
+          "v2.zoom.r1-U06-01.s01",
+          "v2.c002"
+        ],
+        "evidence_goal": "Determine whether the white sedan in v1 and the white car in v2 are the same physical white car completely passing B1, or distinct white cars on B1's side, by comparing synchronized positions and movement across v1 0-8s and v2 0-2s/4-8s.",
+        "next_probe_goal": "Use fine v1 coverage of the synchronized passing interval and v2 before/after observations to merge duplicate synchronized transitions into a physical count of distinct white cars completely passing B1 on the same side.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The best-supported count is one white car on B1's side completely passing B1. The only confirmed behind-to-ahead pass is the white car passing stationary A1/B1 in v1 0-8s. Additional white-car observations are not confirmed as same-side complete passes, and gaps are not negative evidence.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "A",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "A",
+    "evidence_refs": [
+      "v1.zoom.r3-r2-01.s01",
+      "v2.zoom.r3-r2-02.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 5,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether the red bus corresponds to {B1} is assumed for context."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r2-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A white sedan (labeled A1) is stationary on the right side of the road, adjacent to a row of red buses. A white car travels forward in the middle lane, passing the intersection and the stationary A1 sedan.",
+      "evidence": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "uncertainty": [
+        "A1 disappears from frame in F08.",
+        "Initial position before F03 is not clearly defined.",
+        "Unresolved: Comparison with v2 timestamps and vehicle positions"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A red truck travels left across the intersection. A white sedan is stationary near the B1 car, while another white car moves left in the upper lanes.",
+      "evidence": [
+        "v2.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "The specific path of the lower white sedan relative to B1 is unclear.",
+        "Unresolved: Continuous tracking of the white sedan's movement to determine if it passes B1."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-03.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A white car moves continuously from left to right in the lower-middle lanes of the road, passing the B2 car label. A red bus moves from left to right along the bottom edge of the road. A red truck moves from left to right in the upper lanes of the road.",
+      "evidence": [
+        "v2.focus.r3.l3.e1",
+        "v2.focus.r3.l3.e2",
+        "v2.focus.r3.l3.e3"
+      ],
+      "uncertainty": [
+        "B1 location not visible.",
+        "None.",
+        "Unresolved: B1 location"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Check v2 4-8s for whether the same white car moves ahead of the B1-labeled object.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 5,
+    "visual_calls_remaining": 3,
+    "maximum_visual_calls_for_current_stage": 3,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

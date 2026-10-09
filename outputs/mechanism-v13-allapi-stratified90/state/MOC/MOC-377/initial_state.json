@@ -1,0 +1,183 @@
+{
+  "question": "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "v1 reports A1 visible in the bottom right lane of view A during 0-2s."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "v1 reports A1 no longer present in view A during 4-8s."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "v1 reports view B during 12-16s with B1 assumed in the top lane."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 reports B1 visible in the lower-left lane of view A during 0-2s."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "v2 reports B1 no longer visible in view A during 4-8s."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "v2 reports view B during 12-16s with B3 labeled but B1 location unknown."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 report the same A1/B1 track in view A during overlapping early spans, but only v1 explicitly reports A1 absence.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 provide incomplete or non-agreeing view B lane information for B1 at their 12-16s spans.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The lane occupied by B1 in view B at the synchronized timestamp when A1 disappears remains unresolved.",
+      "reason": "The supplied view B events cover only 12-16s and do not identify B1's lane at the early trigger timestamp.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of cars behind B1's lane in view B at the synchronized timestamp when A1 disappears remains unresolved.",
+      "reason": "No supplied event reports count unlabelled cars behind a view B lane at the trigger timestamp.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Identify the view B lane containing B1 at the synchronized timestamp just after A1 is absent in view A.",
+      "purpose": "This would resolve the missing B1 lane location needed for the count.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count the cars behind the identified B1 lane in view B at that synchronized timestamp and compare the count with 0, 3, 6, and 9.",
+      "purpose": "This would resolve the missing car count.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-377",
+    "task": "MOC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-377/report.json",
+    "report_sha256": "45b3885d411f97a82f106e94bc3b11a53719d213c1f0ffe68b7c381ca2c2b9c4",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "The woman holds a yellow apple, places it on a cutting board, cuts it, and squeezes juice into a glass."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0001-e6",
+        "v2-b0001-e7",
+        "v2-b0001-e8"
+      ],
+      "statement": "The woman prepares a salad by adding oil, seasoning, and spice to a bowl, then gestures while speaking."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6",
+        "v3-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "statement": "The woman prepares parsley, onion, and tomatoes, then adds them to a bowl and picks up a lemon."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v4-b0001-e6"
+      ],
+      "statement": "The woman rinses grains, steams them in a pot, and holds an empty measuring cup."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3",
+        "v5-b0001-e4"
+      ],
+      "statement": "The woman transfers cooked grain into a bowl with vegetables, mixes it, and gestures while speaking."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The woman prepares an apple and then adds dressing to a salad bowl.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v2-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v5"
+      ],
+      "statement": "The woman prepares vegetables and transfers them to a bowl with cooked grain.",
+      "supporting_events": [
+        "v3-b0002-e1",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "The woman steams grains and later transfers them to a bowl with vegetables.",
+      "supporting_events": [
+        "v4-b0001-e5",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "The relative stage relationship between the apple preparation and parsley preparation remains unresolved.",
+      "reason": "The time spans of the events do not overlap or provide a clear sequence.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "The relative stage relationship between the salad dressing and vegetable preparation remains unresolved.",
+      "reason": "The time spans of the events do not overlap or provide a clear sequence.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "issue": "The relative stage relationship between the grain steaming and vegetable preparation remains unresolved.",
+      "reason": "The time spans of the events do not overlap or provide a clear sequence.",
+      "related_events": [
+        "v4-b0001-e5",
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Which event occurs first: the apple juice being poured into a bowl or the parsley being scraped into a glass bowl?",
+      "purpose": "To resolve the relative stage relationship between the apple preparation and parsley preparation.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Which event occurs first: the oil being poured into the salad bowl or the parsley being scraped into a glass bowl?",
+      "purpose": "To resolve the relative stage relationship between the salad dressing and vegetable preparation.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Which event occurs first: the grains being poured into the steaming pot or the parsley being scraped into a glass bowl?",
+      "purpose": "To resolve the relative stage relationship between the grain steaming and vegetable preparation.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-62",
+    "task": "PSS",
+    "ground_truth": "4->3->1->2->5",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/PSS/PSS-62/report.json",
+    "report_sha256": "dd9992372da00d97a8bbd57600fc381f866653fdf47bf7ae4d0d0d6946b83843",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

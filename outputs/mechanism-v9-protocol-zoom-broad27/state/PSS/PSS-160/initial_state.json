@@ -1,0 +1,188 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Chef shapes rice mound on wooden board. Salmon slice and wasabi are visible nearby."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Chef forms sushi by pressing rice onto salmon slice with both hands."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Chef continues shaping sushi, adjusting rice and fish with hands."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "Chef refines sushi shape, pressing and rotating salmon with fingers."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "Person places salmon slice on wooden board, then moves hand away. Rice and wasabi remain stationary."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "Chef uses chopsticks to place topping on rice, then pauses and looks forward."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 shows rice mound shaping before v2 shows sushi forming.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 shows sushi shaping after v3 shows salmon placement.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "statement": "v2 shows sushi shaping before v4 shows topping placement.",
+      "supporting_events": [
+        "v2-b0001-e3",
+        "v4-b0001-e1"
+      ],
+      "status": "evidence_complete",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "The relative stage relationship between v1 and v3 remains unresolved.",
+      "reason": "v1 shows rice mound shaping and v3 shows salmon placement, but the order is not clear.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Which video shows the earlier stage of the process: rice mound shaping or salmon placement?",
+      "purpose": "Resolve the relative stage relationship between v1 and v3.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-160",
+    "task": "PSS",
+    "ground_truth": "1->3->2->4",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/PSS/PSS-160/report.json",
+    "report_sha256": "8278703f65774c3c17b78104c8e8b4206547457713c5e2ad407222e00fbb6451",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

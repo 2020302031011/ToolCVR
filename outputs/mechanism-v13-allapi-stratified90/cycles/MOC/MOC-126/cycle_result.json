@@ -1,0 +1,373 @@
+{
+  "state": {
+    "question": "When {A3} is parallel to {A2} in view A, how many cars are parked between {B2} and {B4} in view B?",
+    "round_id": 4,
+    "summary": "Fresh working state: the trigger timestamp is unresolved because v1 coarse evidence says A3 aligns parallel to A2 between 0-6s, while v1 fine evidence from 6-12s says no parallel alignment is visible. View B identities and the parked-car count between B2 and B4 remain unresolved because available coarse observations do not label B2/B4 or provide a complete count. Competing interpretations are preserved rather than resolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-31: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=49; declared=bicycle; A1_visible=0-359 (0.000-12.000s)/360_frames; B1_visible=0-359 (0.000-12.000s)/360_frames.",
+      "A2/B2 is source_track=69; declared=car; A2_visible=0-359 (0.000-12.000s)/360_frames; B2_visible=0-359 (0.000-12.000s)/360_frames.",
+      "A3/B3 is source_track=110; declared=car; A3_visible=180-329 (6.000-11.000s)/360_frames; B3_visible=70-339 (2.333-11.333s)/360_frames.",
+      "A4/B4 is source_track=130; declared=car; A4_visible=260-359 (8.667-12.000s)/360_frames; B4_visible=299-359 (9.967-12.000s)/360_frames.",
+      "A5/B5 is source_track=121; declared=car; A5_visible=309-359 (10.300-12.000s)/360_frames; B5_visible=314-359 (10.467-12.000s)/360_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c002",
+          "v2.c001"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e2",
+          "v2-b0001-e1"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "View A captures a traffic intersection. A3 (green car) moves from the bottom left to the bottom center, aligning parallel to A2 (blue car) in the upper left lane.",
+        "uncertainty": "View B is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          10.0
+        ],
+        "description": "View B shows a street scene. A3 (green car) is visible on the right. A row of parked cars is visible on the left, though B2 and B4 are not explicitly labeled.",
+        "uncertainty": "B2 and B4 labels are missing, preventing a count between them.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "The video shows a static aerial view of a city intersection with traffic. Cars are parked in a lot on the right side, adjacent to a plaza.",
+        "uncertainty": "The specific identities of A2, A3, B2, and B4 are not labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "A3 car travels in the lower lanes while A2 car remains parked on the upper side, never aligning parallel to A2.",
+        "uncertainty": "Parallel alignment between A3 and A2 not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          11.0
+        ],
+        "description": "A3 car is visible in the lower right quadrant, moving left, while A2 car is visible in the upper right quadrant, parked.",
+        "uncertainty": "A3 is not visible in frame F02.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          11.0
+        ],
+        "description": "A3 car is visible in the bottom right at 10.0s and moves out of frame by 11.0s. A2 car remains parked in the top right.",
+        "uncertainty": "Parallel orientation between A3 and A2 not visible.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need exact v1 view-A trigger time when A3 parallel A2 in 6-10 near B4 onset.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u002"
+        ],
+        "evidence_goal": "Identify the exact v1 timestamp between 6 and 10 when A3 is parallel to A2 in view A.",
+        "next_probe_goal": "Use that timestamp to locate B2 and B4 in view B and count parked cars strictly between them.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Trigger unresolved: A3 is visible in view A from 6.0s, fine 6.0-10.0s shows no A3/A2 parallelism, and B4 is visible in view B only after 9.967s; need check v1 10.0-12.0s for the parallel event.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.u003"
+        ],
+        "evidence_goal": "During v1 10.0-12.0s, does A3 become visibly parallel to A2 in view A, and if so at what timestamp?",
+        "next_probe_goal": "If a parallel timestamp is found, locate B2 and B4 in view B at that timestamp and count parked cars strictly between them.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The synchronized trigger is still unresolved. The early coarse alignment claim is incompatible with authoritative A3 visibility, and the late fine view-A observation has not confirmed parallel alignment. View B remains too coarse to identify B2 and B4 or count cars between them. A focused late view-A probe is the smallest next step.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.zoom.r2-r1-01.s01"
+        ],
+        "evidence_goal": "Determine whether A3 becomes visibly parallel to A2 in view A during the late fine interval where A3 remains visible, using the smallest focused refinement.",
+        "next_probe_goal": "If that synchronized view-A relation is established, focus view B at the corresponding synchronized time to identify B2 and B4 and count physical parked cars strictly between them.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Fresh working state: the trigger timestamp is unresolved because v1 coarse evidence says A3 aligns parallel to A2 between 0-6s, while v1 fine evidence from 6-12s says no parallel alignment is visible. View B identities and the parked-car count between B2 and B4 remain unresolved because available coarse observations do not label B2/B4 or provide a complete count. Competing interpretations are preserved rather than resolved.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k002', 'k003']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k002', 'k003']"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "View A captures a traffic intersection. A3 (green car) moves from the bottom left to the bottom center, aligning parallel to A2 (blue car) in the upper left lane.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "View B is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A3 car travels in the lower lanes while A2 car remains parked on the upper side, never aligning parallel to A2.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Parallel alignment between A3 and A2 not visible in supplied frames.",
+        "Unresolved: Exact timestamp where A3 is parallel to A2"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows a street scene. A3 (green car) is visible on the right. A row of parked cars is visible on the left, though B2 and B4 are not explicitly labeled.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "B2 and B4 labels are missing, preventing a count between them."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r1-01.s01",
+      "video": "v1",
+      "time": [
+        10.0,
+        11.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A3 car is visible in the bottom right at 10.0s and moves out of frame by 11.0s. A2 car remains parked in the top right.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "Parallel orientation between A3 and A2 not visible.",
+        "Unresolved: A3 and A2 parallel alignment in view A"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "The video shows a static aerial view of a city intersection with traffic. Cars are parked in a lot on the right side, adjacent to a plaza.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "The specific identities of A2, A3, B2, and B4 are not labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Use that timestamp to locate B2 and B4 in view B and count parked cars strictly between them.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

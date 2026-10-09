@@ -1,0 +1,224 @@
+{
+  "question": "When {B4} leaves view B, where is {A3} approximately located in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A3 bicycle is visible at the top edge of view A during 0.0-2.0s."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A3 bicycle remains at the top edge of view A during 4.0-6.0s."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A3 bicycle is still visible at the top edge of view A during 8.0-10.0s."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "The A4/B4 car track is reported visible in view B during 0.0-2.0s."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "The A4/B4 car track is reported no longer visible in view B during 4.0-6.0s."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B4 car is visible in the upper portion of view B during 0.0-6.0s."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "B4 car is reported no longer visible in view B during 8.0-10.0s."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "The B4 exit from view B is reported as occurring between 6.0s and 8.0s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 share the same source-frame clock, so B4's view-B exit and A3's view-A position can be compared at synchronized timestamps.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The A4 car reported in v1 view B and the B4 car reported in v2 view B denote the same annotated track.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both synchronized views report B4/A4 as present early in view B and absent later, but they bracket the exit differently.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact synchronized timestamp when B4 leaves view B remains undetermined.",
+      "reason": "v1 reports absence by 4.0-6.0s while v2 reports visibility through 6.0s and absence only at 8.0-10.0s, leaving no precise exit event.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "A3's approximate location in view A at the exact B4 exit moment remains undetermined.",
+      "reason": "v1 reports A3 at the top edge at 0.0-2.0s, 4.0-6.0s, and 8.0-10.0s, but it does not directly report A3 during the 6.0-8.0s interval where the exit may occur.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare B4 visibility in view B across synchronized timestamps between 6.0s and 8.0s to identify the first timestamp at which B4 is absent.",
+      "purpose": "Resolve the exact B4 exit timestamp.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare A3's location in view A across synchronized timestamps between 6.0s and 8.0s to determine whether it is at the top edge, bottom edge, center, or absent.",
+      "purpose": "Resolve A3's location when B4 leaves view B.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare B4 presence in view B and A3 position in view A at the same synchronized timestamps between 4.0s and 8.0s.",
+      "purpose": "Reconcile the conflicting exit brackets and locate A3 at the confirmed exit time.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-593",
+    "task": "MSR",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-593/report.json",
+    "report_sha256": "4b7a1f8b573436dfc165d636a62e9d9a66288f0422e5d96126779c2f04ed17bc",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

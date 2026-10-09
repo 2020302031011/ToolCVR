@@ -1,0 +1,136 @@
+{
+  "question": "After {A4} completely leaves view A, how many red cars in view B overtake {B5}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A4 car is no longer visible in view A at 2.0 seconds."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A5 person is visible in view B, walking on sidewalk, and red cars are visible in view B, moving in traffic lanes between 10.0 and 16.0 seconds."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Person B5 is visible in view B, moving forward on road, and car B4 is parked on the right side of the road between 0.0 and 4.0 seconds."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "A5 and B5 are the same person based on the alias convention.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The exact time when A4 completely leaves view A is not confirmed.",
+      "reason": "The event reports do not confirm A4's complete exit from view A.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The number of red cars in view B that overtake B5 after A4 completely leaves view A is not confirmed.",
+      "reason": "The event reports do not provide sufficient information about overtaking events or the timing of A4's complete exit from view A.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Confirm the exact time when A4 completely leaves view A.",
+      "purpose": "To determine the starting point for counting red cars that overtake B5.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Observe and count the number of red cars in view B that overtake B5 after A4 completely leaves view A.",
+      "purpose": "To resolve the number of red cars that overtake B5 after A4's complete exit from view A.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-81",
+    "task": "MOC",
+    "ground_truth": "D",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/MOC/MOC-81/report.json",
+    "report_sha256": "94ee6c7f41b22eeee19f67e1723cf3fcdfefb396e6a99d5c5f9825379efe0b18",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

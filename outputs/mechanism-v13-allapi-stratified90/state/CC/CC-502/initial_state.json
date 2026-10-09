@@ -1,0 +1,312 @@
+{
+  "question": "Which recipe uses two distinct creamy components in its dressing?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A jar of Hellmann's Real Mayonnaise is shown and mayonnaise is added to the macaroni."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A jar of Grey Poupon Dijon Mustard is displayed near the macaroni and mayonnaise bowl."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "A creamy white dressing is added to a bowl containing chopped peppers and pasta."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "A yellow liquid dressing is poured onto the mixed pasta salad."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e6"
+      ],
+      "statement": "Sliced tomatoes and cubed white cheese are added to the drained pasta."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e4"
+      ],
+      "statement": "Glass bowls contain pasta, corn, and two distinct white creamy ingredients."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e2"
+      ],
+      "statement": "Two small bowls containing distinct creamy components, one white and one pale yellow, are added to the pasta."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e3"
+      ],
+      "statement": "The pasta is mixed with a wooden spoon into a creamy salad."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e3"
+      ],
+      "statement": "The ingredients list specifies Mayo as the only creamy dressing component."
+    },
+    {
+      "id": "I10",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0004-e3"
+      ],
+      "statement": "A creamy white dressing from a jar is added to the salad."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v3 shows two distinct creamy components added to the pasta, while v1 confirms only one creamy mayonnaise addition and leaves the later creamy white dressing ambiguous.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v3 adds two distinct creamy components, while v2 shows only one yellow liquid dressing with unclear creamy texture.",
+      "supporting_events": [
+        "v2-b0002-e3",
+        "v3-b0002-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "statement": "v3 adds two distinct creamy components, while v4's ingredient list names Mayo as the only creamy dressing and the later creamy white addition is ambiguous.",
+      "supporting_events": [
+        "v3-b0002-e2",
+        "v4-b0001-e3",
+        "v4-b0004-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "v1 and v4 both contain an observed creamy white dressing addition whose distinctness from the earlier or listed creamy component is unresolved.",
+      "supporting_events": [
+        "v1-b0002-e1",
+        "v4-b0004-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether v1 contains two distinct creamy components in its dressing remains unresolved.",
+      "reason": "The reports show mayonnaise added and later a creamy white dressing added, but do not identify whether the creamy white dressing is a second component or the same mayonnaise.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether v2 contains two distinct creamy components in its dressing remains unresolved.",
+      "reason": "The reports show a yellow liquid dressing and cubed white cheese, but do not show whether any creamy dressing component besides the yellow dressing is present.",
+      "related_events": [
+        "v2-b0001-e6",
+        "v2-b0002-e3",
+        "v2-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v4"
+      ],
+      "issue": "Whether v4 contains two distinct creamy components in its dressing remains unresolved.",
+      "reason": "The ingredient list specifies Mayo as the only creamy dressing, but a later creamy white dressing is added without clear identification as distinct.",
+      "related_events": [
+        "v4-b0001-e3",
+        "v4-b0004-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the two creamy components in v3 are both dressing components remains unresolved.",
+      "reason": "The events show two distinct creamy components added to the pasta and mixed into a creamy salad, but do not explicitly label them as part of the dressing.",
+      "related_events": [
+        "v3-b0002-e2",
+        "v3-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare the number and visible distinctness of creamy dressing additions in v1 with the two creamy components added in v3.",
+      "purpose": "Determine whether v1's creamy white dressing is a second distinct creamy component.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the texture and count of dressing components poured in v2 with the two creamy components added in v3.",
+      "purpose": "Determine whether v2 has two distinct creamy components.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Compare the creamy dressing additions in v4 with the two creamy components added in v3, focusing on whether v4's later creamy white dressing is distinct from Mayo.",
+      "purpose": "Determine whether v4 has two distinct creamy components.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the state of the two creamy components before mixing with their state in the mixed creamy salad in v3.",
+      "purpose": "Determine whether v3's two creamy components are both dressing components.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-502",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CC/CC-502/report.json",
+    "report_sha256": "a77601f28ddb4756d0881de23ef77da1fb6af6dab8dde6a3ad9ad0086218ec35",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

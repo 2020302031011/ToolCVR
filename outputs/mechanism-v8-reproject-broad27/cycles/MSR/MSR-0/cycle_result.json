@@ -1,0 +1,164 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 3,
+    "summary": "The evidence supports the hypothesis that {A2} is behind and to the right of {A5} in view A when {B5} leaves view B.",
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "The evidence indicates that {A2} is on the sidewalk to the right of the road where {A5} is moving forward on the highway. This suggests that {A2} is behind and to the right of {A5} in view A."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person walks on sidewalk right of road.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "B5 car visible in view B from 0.0s to 4.0s, exiting view B by 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "B5 car visible moving right on middle road lane. B4 car visible in top lane. B2 person visible on sidewalk right.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person remains on sidewalk right of road.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine A2's location relative to A5 in view A at the moment B5 leaves view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2-b0001-e1.slot"
+        ],
+        "evidence_goal": "When does B5 completely leave view B?",
+        "next_probe_goal": "Where is A2 located relative to A5 in view A at the moment B5 leaves view B?"
+      }
+    },
+    {
+      "summary": "Determine the position of {A2} relative to {A5} in view A when {B5} leaves view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1-b0001-e1.slot"
+        ],
+        "evidence_goal": "Where is {A2} located relative to {A5} in view A when {B5} completely leaves view B?",
+        "next_probe_goal": "Where is {A2} located relative to {A5} in view A at the moment {B5} leaves view B?"
+      }
+    },
+    {
+      "summary": "The evidence supports the hypothesis that {A2} is behind and to the right of {A5} in view A when {B5} leaves view B.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r2-r1-01.s01",
+      "v2.zoom.r1-U01-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A5 car moves forward on highway. A2 person remains on sidewalk right of road.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "B5 car visible moving right on middle road lane. B4 car visible in top lane. B2 person visible on sidewalk right.",
+      "evidence": [
+        "v2.focus.r1.l1.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Where is A2 located relative to A5 in view A at the moment B5 leaves view B?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

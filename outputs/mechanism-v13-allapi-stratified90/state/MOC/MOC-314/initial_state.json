@@ -1,0 +1,246 @@
+{
+  "question": "When the red truck driving to the right in view A is parallel to {A3}, how many blue cars are in the lane directly behind {B1}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "v1 reports a red truck with a yellow trailer driving left to right in the lower lanes from 6.0 to 16.0 seconds."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "v1 reports a red truck with a red box trailer driving right to left in the upper roadway from 6.0 to 10.0 seconds."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "v1 reports a white box truck driving left to right in the upper roadway from 10.0 to 16.0 seconds."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "v1 reports the A2 car tracked in the upper lanes of the lower roadway moving left to right from 8.0 to 16.0 seconds."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 reports the B2 car tracked in a lane adjacent to tram tracks from 6.0 to 8.0 seconds, with red trucks visible in the distance."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "v2 reports the B2 car continuing forward while red trucks on the right side become closer and parallel to the tracked vehicle from 10.0 to 12.0 seconds."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "v2 reports the red trucks moving slightly ahead and no blue cars clearly visible in the lane directly behind the tracked vehicle from 14.0 to 16.0 seconds."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 explicitly states that the identities of A3 and B1 are not established."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The A2/B2 annotated car appears in v1 and v2 during overlapping reported spans, indicating the videos cover the same physical scene under the shared clock.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The right-moving red truck in v1 and the closer red trucks in v2 overlap at 10.0 to 12.0 seconds, making them possible counterparts under the synchronized clock.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The synchronized target timestamp for the red truck driving to the right in view A being parallel to A3 remains undetermined.",
+      "reason": "No supplied event describes A3 or a red-truck/A3 parallel relation, and the reported events begin at 6.0 seconds while A3 is visible only until 4.567 seconds in view A.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The identity and lane position of B1 at the trigger timestamp remain undetermined.",
+      "reason": "B1 is not described in any supplied event, and v2 states that the identity of B1 is not established.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The number of blue cars in the lane directly behind B1 at the trigger timestamp remains undetermined.",
+      "reason": "The only blue-car observation in v2 is about the lane behind B2 at 14.0 to 16.0 seconds, not about B1 and not at the trigger time.",
+      "related_events": [
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the right-moving red truck in v1 and the closer red trucks in v2 are the same physical vehicles relevant to the trigger remains undetermined.",
+      "reason": "The reports overlap in time but do not confirm vehicle identity, direction in v2, or parallelism to A3.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At equal source-frame timestamps, determine whether a right-moving red truck in view A is spatially parallel to A3 and record the timestamp.",
+      "purpose": "Establish the synchronized target timestamp required by the question.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At the trigger timestamp, locate the A1/B1 car and identify the lane directly behind it.",
+      "purpose": "Resolve the missing identity and lane position of B1.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Count the blue cars in the lane directly behind B1 at the trigger timestamp and compare the count with the supplied alternatives 4, 3, 2, and 1.",
+      "purpose": "Resolve the missing count needed to distinguish the options.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare red-truck positions and directions in v1 and v2 at equal timestamps to confirm whether the reported right-moving truck and the closer red trucks are the same physical vehicles.",
+      "purpose": "Resolve whether the trigger vehicle is correctly identified across views.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-314",
+    "task": "MOC",
+    "ground_truth": "D",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-314/report.json",
+    "report_sha256": "3db26b92b04f324af3aa2aca0058a7c7e85522c3307534304d5e114ba8615608",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

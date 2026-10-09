@@ -1,0 +1,127 @@
+{
+  "question": "Which video contains a corrective action to fix a prior assembly error?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e4"
+      ],
+      "statement": "Person uses screwdriver to reattach a component to the toy part."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "Person attaches a white curved part to a black component on the table."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0003-e3"
+      ],
+      "statement": "Person adjusts the toy vehicle's track alignment with an orange tool."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "Each video shows an assembly or reattachment action, but none explicitly reference a prior assembly error.",
+      "supporting_events": [
+        "v1-b0002-e4",
+        "v2-b0001-e3",
+        "v3-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether any of the reattachment or adjustment actions are corrective to a prior assembly error",
+      "reason": "None of the events explicitly describe a prior error or confirm the action as a correction to it.",
+      "related_events": [
+        "v1-b0002-e4",
+        "v2-b0001-e3",
+        "v3-b0003-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Visual confirmation of a prior assembly error preceding the corrective action",
+      "purpose": "To determine if any of the actions are indeed corrective",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-350",
+    "task": "PEA",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/PEA/PEA-350/report.json",
+    "report_sha256": "a8a91c80b4c99a39b4c7a3f073211692e221c02706796de8859d849d5a909f0b",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 3,
+    "summary": "Reference timing places B5/A5 departure from view B around 2.733s, and A2 is annotated as visible in view A through 14.533s. View A evidence shows A5 moving forward in a center lane with A2 stationary on the right sidewalk, but it does not resolve A2's front-versus-behind relation to A5 at the exact synchronized target. A competing visibility claim for A5 in the target frame remains unresolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.",
+      "A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.",
+      "A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.",
+      "A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.",
+      "A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01",
+          "v1.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.focus.r2.l1.e1"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.focus.r1.l1.e2",
+          "v1.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view shows a highway with moving vehicles and a parallel service road with parked cars. A2 person and A5 car are tracked, with A5 moving forward and A2 remaining on the right service road.",
+        "uncertainty": "B5 object is not visible in the frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "The B5 car is tracked in view B, moving from the left side of the frame to the right side.",
+        "uncertainty": "Exact moment B5 leaves the frame is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          4.0
+        ],
+        "description": "The B5 car is no longer visible in view B. The A2 person is visible in view A, located behind and to the left of the A5 bicycle.",
+        "uncertainty": "The exact frame where B5 first becomes invisible is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          3.0
+        ],
+        "description": "B5 car is visible in view B.",
+        "uncertainty": "B5 disappears in F03.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          4.0
+        ],
+        "description": "A2 person is visible in view A.",
+        "uncertainty": "A5 is not visible in the provided frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view shows A5 car moving forward in a center lane. A2 person is stationary on the sidewalk to the right. A4 car is parked on the far left.",
+        "uncertainty": "B5-departure event is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need fine trigger-time evidence for A2 relative to A5 in v2 when B5 leaves view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "At the first frame in v2.c002 where B5 is completely absent in view B, where is A2 relative to A5 in view A?",
+        "next_probe_goal": "At the same synchronized timestamp, does v1 show A2 in the same relative position to A5?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need localized A2/A5 relation in view A at B5 departure time",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "At the synchronized B5-departure time (~2.7s), is A2 behind/left/right/front of A5 in view A?",
+        "next_probe_goal": "Confirm exact B5 departure frame in v2 if needed",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Reference timing places B5/A5 departure from view B around 2.733s, and A2 is annotated as visible in view A through 14.533s. View A evidence shows A5 moving forward in a center lane with A2 stationary on the right sidewalk, but it does not resolve A2's front-versus-behind relation to A5 at the exact synchronized target. A competing visibility claim for A5 in the target frame remains unresolved.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k1.zoom.r2-r2-01.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k1.zoom.r2-r2-01.s01']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r2-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "Aerial view shows A5 car moving forward in a center lane. A2 person is stationary on the sidewalk to the right. A4 car is parked on the far left.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "B5-departure event is not visible in these frames.",
+        "Unresolved: Confirmation of B5-departure time",
+        "Unresolved: Visibility of A2 relative to A5 at 2.7s"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coarse",
+      "content": "The B5 car is tracked in view B, moving from the left side of the frame to the right side.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact moment B5 leaves the frame is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        2.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "B5 car is visible in view B. A2 person is visible in view A.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "B5 disappears in F03.",
+        "A5 is not visible in the provided frames.",
+        "Unresolved: Position of A5 relative to A2 in F03"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "At the same synchronized timestamp, does v1 show A2 in the same relative position to A5?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

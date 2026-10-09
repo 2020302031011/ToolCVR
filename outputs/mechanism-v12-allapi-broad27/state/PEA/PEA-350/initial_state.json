@@ -1,0 +1,226 @@
+{
+  "question": "Which video contains a corrective action to fix a prior assembly error?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A person uses an orange screwdriver to adjust a screw on the assembly and then sets the tool down."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2",
+        "v1-b0002-e3"
+      ],
+      "statement": "A person picks up a black and yellow track piece and manipulates the top surface of the assembly, possibly aligning the track piece."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "A person grasps a dark mechanical component and manipulates or inspects its underside while holding it."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "A person uses a blue tool to manipulate a small black object during a continuous assembly or adjustment task."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e3"
+      ],
+      "statement": "A person uses a blue tool to manipulate a grey assembly attached to an orange base while focusing on the connection point."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2"
+      ],
+      "statement": "The person places the black object on the table and pauses the assembly task."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "The supplied events show assembly or adjustment actions in each video, but none explicitly connects an action to a visible prior assembly error.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v3-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether the v1 screwdriver and track-piece adjustments are corrective actions following a prior assembly error remains unresolved.",
+      "reason": "The event descriptions state that the purpose or intent of the adjustments is not visually explicit.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the v2 component manipulation or inspection is a corrective action remains unresolved.",
+      "reason": "The events describe grasping and manipulating the component but do not show a prior error or a correction outcome.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the v3 tool actions are corrective actions following a prior assembly error remains unresolved.",
+      "reason": "The events describe assembly or adjustment actions and ambiguous tool use without an explicit correction intent.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether any video contains a visible corrective action to fix a prior assembly error remains unresolved.",
+      "reason": "After comparing the supplied events, each video contains ambiguous assembly or adjustment actions but no event explicitly identifies a prior error being corrected.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v3-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the assembly state before and after the screwdriver adjustment to see whether a misaligned or detached component is corrected.",
+      "purpose": "To resolve whether v1 contains a corrective action.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the component's orientation before and after the underside manipulation to see whether the action realigns a previously incorrect placement.",
+      "purpose": "To resolve whether v2 contains a corrective action.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the grey assembly and orange base before and after the blue tool action to see whether a misconnected part is reattached.",
+      "purpose": "To resolve whether v3 contains a corrective action.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare all three videos for a visible prior assembly error immediately followed by a corrective action.",
+      "purpose": "To resolve whether all videos have corrections.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-350",
+    "task": "PEA",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/PEA/PEA-350/report.json",
+    "report_sha256": "a57e2e6e2a3dbdc857a17f9a5f5b55f85a3a95916234c33aab894c0004a42b27",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

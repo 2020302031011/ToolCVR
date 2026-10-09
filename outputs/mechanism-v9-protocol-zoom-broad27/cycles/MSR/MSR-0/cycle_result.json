@@ -1,0 +1,282 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 4,
+    "summary": "A5 is not visible in view A at the timestamp when B5 completely leaves view B, but A2 is visible on the right sidewalk near parked cars in view A. However, the exact relative position of A2 to A5 is not directly observable due to the lack of visibility of A5 in view A at that timestamp.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets."
+    ],
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-req2-01.s01",
+          "v2.c001"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r3-req2-01.s01",
+          "v2.zoom.r3-req2-02.s01"
+        ],
+        "attempts": [
+          "A5 is not visible in view A at the timestamp when B5 completely leaves view B."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-req2-01.s01",
+          "v2.zoom.r3-req2-02.s01"
+        ],
+        "attempts": [
+          "A2 is visible in view A at the timestamp when B5 completely leaves view B."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person walks on sidewalk right of road.",
+        "uncertainty": "No frame shows B5 leaving view B. Cannot confirm when or if this occurs.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "B5 car visible in view B from 0.0s to 4.0s, exiting view B by 4.0s.",
+        "uncertainty": "B5 car exits view B at 4.0s, but view A is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person remains stationary on sidewalk right.",
+        "uncertainty": "A2's exact position relative to A5 at 4.0s not fully resolved due to distance and angle.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A2 person visible on right sidewalk near parked cars, moving slightly forward.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A5 car visible in upper right lane of main road.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A person labeled B2 is visible on sidewalk near parked cars. A bicycle labeled B3 is visible on far sidewalk.",
+        "uncertainty": "A5 is not visible in this frame or any other supplied frame.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine A2's location relative to A5 in view A at 4.0s",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "A2's position relative to A5 in view A at 4.0s",
+        "next_probe_goal": "Is A2 visible in view A at 4.0s?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to confirm if A2 is visible in view A at 4.0s to determine its location relative to A5.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req2",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Is A2 visible in view A at 4.0s?",
+        "next_probe_goal": "If A2 is visible, determine its position relative to A5 in view A at 4.0s.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The question asks for the approximate location of A2 relative to A5 in view A at the timestamp when B5 completely leaves view B. The evidence indicates that B5 exits view B at 4.0s, but view A is not shown during this time. In view A, A2 is visible on the right sidewalk near parked cars during [0.0s, 4.0s], but there is no direct evidence of A5's position or visibility during this interval. The required information about A5's location and visibility in view A at 4.0s is not available in the provided evidence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req2",
+        "slot_ids": [
+          "v1.u001",
+          "v2.u001"
+        ],
+        "evidence_goal": "Confirm whether A5 is visible in view A at 4.0s.",
+        "next_probe_goal": "Is A5 visible in view A at 4.0s?",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "A5 is not visible in view A at the timestamp when B5 completely leaves view B, but A2 is visible on the right sidewalk near parked cars in view A. However, the exact relative position of A2 to A5 is not directly observable due to the lack of visibility of A5 in view A at that timestamp.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "A",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "A",
+    "evidence_refs": [
+      "v1.zoom.r3-req2-01.s01",
+      "v2.zoom.r3-req2-02.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-req2-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A2 person visible on right sidewalk near parked cars, moving slightly forward.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-req2-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A5 car visible in upper right lane of main road.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "B5 car visible in view B from 0.0s to 4.0s, exiting view B by 4.0s.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "B5 car exits view B at 4.0s, but view A is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-req2-02.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A person labeled B2 is visible on sidewalk near parked cars. A bicycle labeled B3 is visible on far sidewalk.",
+      "evidence": [
+        "v2.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "A5 is not visible in this frame or any other supplied frame.",
+        "Unresolved: A5 is not visible in any frame at 4.0s or nearby timestamps"
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Is A2 visible in view A at 4.0s?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

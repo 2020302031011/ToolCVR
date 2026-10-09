@@ -1,0 +1,103 @@
+{
+  "question": "What is the final driving trajectory of {B1}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "B1 travels straight in the right lane, crosses a pedestrian crosswalk, and continues forward without changing lanes during 2.0-8.0s."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B1 travels rightward along the main road and maintains a consistent lane position relative to lane markings during 2.0-8.0s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The synchronized views agree that B1 keeps a straight, lane-consistent path through the observed 2.0-8.0s span.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether B1's final trajectory after the observed span is straight through the intersection, a left lane change, a right lane change, or a stop remains unresolved.",
+      "reason": "The reports cover only the 2.0-8.0s span and v2 explicitly notes that the final trajectory after the clip is not visible.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare B1's lateral position relative to adjacent lane markings and its longitudinal stop state at synchronized timestamps near the end of B1's visible span.",
+      "purpose": "to distinguish a left lane change, right lane change, straight-through intersection, or stop for the final trajectory.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-66",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-66/report.json",
+    "report_sha256": "49291be5600054f85647812af3e78117a6d44065c5454e34eb350f312197d638",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

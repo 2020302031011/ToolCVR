@@ -1,0 +1,1230 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "The clips show distinct stages of salad preparation. v2 shows the creation of the dressing (adding powders and liquids to a bowl and whisking). v4 shows the assembly of the salad base (adding vegetables, lettuce, and herbs to a bowl). v1 shows the addition of flatbread to the salad and the initial tossing. v3 shows the final mixing stage where the salad (containing lettuce, herbs, flatbread, and tomatoes) is being tossed thoroughly.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c005",
+          "v4.c004"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v3.zoom.r1-U03-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v4.zoom.r2-r1-01.s01",
+          "v1.c002"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A hand sprinkles chopped green herbs onto a salad containing lettuce, cucumber, and tomato chunks in a glass bowl.",
+        "uncertainty": "State of salad before herb addition is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          6.0
+        ],
+        "description": "A hand adds torn flatbread pieces to the top of the salad, which now sits on a wooden surface.",
+        "uncertainty": "Exact moment of bread addition start is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "Both hands vigorously toss the salad, mixing the flatbread pieces with the vegetables and herbs.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          18.0,
+          18.0
+        ],
+        "description": "A person wearing a black shirt with red trim stands behind the bowl, having finished tossing the salad.",
+        "uncertainty": "Whether this is the final step is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A person uses a spoon to scoop a dark brown powder from a small wooden bowl.",
+        "uncertainty": "Destination of the powder is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          10.0
+        ],
+        "description": "A person adds a white ingredient into a large glass bowl using a spoon.",
+        "uncertainty": "Ingredient identity is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          10.0
+        ],
+        "description": "A person pours a clear liquid from a small glass jar into the large mixing bowl.",
+        "uncertainty": "Liquid identity is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          26.0,
+          26.0
+        ],
+        "description": "The large glass bowl sits on the table with a spoon inside, while the person is out of frame.",
+        "uncertainty": "Action occurring during this time is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          30.0,
+          30.0
+        ],
+        "description": "A person pours a clear liquid from a glass bottle into the mixing bowl.",
+        "uncertainty": "Liquid identity is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          34.0,
+          34.0
+        ],
+        "description": "A person pours a dark liquid from a bottle into the bowl while holding a whisk.",
+        "uncertainty": "Liquid identity is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          42.0,
+          44.0
+        ],
+        "description": "The person is seen holding a bottle and then placing it down near the bowl.",
+        "uncertainty": "Purpose of holding the bottle is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          50.0,
+          52.0
+        ],
+        "description": "A person whisks the contents of the large glass bowl while holding an oil bottle.",
+        "uncertainty": "Whether oil is added during whisking is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A woman stands at a counter placing green vegetables into a clear bowl. A plate with greens and a dish of meat are visible on the counter.",
+        "uncertainty": "Only the start of the segment is visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          16.0,
+          16.0
+        ],
+        "description": "The woman is seen from a distance, actively tossing the salad contents in the bowl with her hands.",
+        "uncertainty": "Single frame view of the action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          20.0,
+          40.0
+        ],
+        "description": "A close-up view shows hands vigorously mixing salad ingredients, including lettuce, tomatoes, and cucumbers, in a bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A woman stands behind a table with a large empty glass bowl and a platter of chopped vegetables, holding the platter and preparing to add ingredients.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "The woman transfers chopped green vegetables from the platter into the large glass bowl.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          24.0,
+          24.0
+        ],
+        "description": "The woman sprinkles seasoning over the green vegetables already in the bowl.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          28.0,
+          30.0
+        ],
+        "description": "The woman adds a large quantity of leafy green lettuce from a plate into the bowl.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e5",
+        "video_id": "v4",
+        "time_span": [
+          34.0,
+          34.0
+        ],
+        "description": "The glass bowl is shown filled with the mixed green salad ingredients.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e6",
+        "video_id": "v4",
+        "time_span": [
+          38.0,
+          38.0
+        ],
+        "description": "The woman reaches for a small plate containing spices and garlic cloves.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e7",
+        "video_id": "v4",
+        "time_span": [
+          44.0,
+          44.0
+        ],
+        "description": "The woman sprinkles brown spices over the finished green salad in the bowl.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3.focus.r1.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          20.0,
+          35.0
+        ],
+        "description": "Hands continuously toss a salad in a clear bowl. The mixture contains green leafy vegetables, chopped herbs, red tomato wedges, and pale torn flatbread pieces.",
+        "uncertainty": "None; target ingredients are clearly visible throughout.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          35.0,
+          39.0
+        ],
+        "description": "Hands toss a salad containing green leaves, red chunks, and pale torn flatbread pieces in a clear bowl.",
+        "uncertainty": "Torn flatbread pieces are visible, but chopped green herbs are not clearly distinguished.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          30.0,
+          36.0
+        ],
+        "description": "A person transfers torn green lettuce from a plate into a glass bowl, mixing it by hand.",
+        "uncertainty": "Pale flatbread pieces are not visible in the bowl.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v4.focus.r2.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          37.0,
+          38.0
+        ],
+        "description": "A person sprinkles dried herbs from a small plate over the bowl of green lettuce.",
+        "uncertainty": "Pale flatbread pieces are not visible in the bowl.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need local v3 tossing contents to compare with v1 additions",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v3.c003"
+        ],
+        "evidence_goal": "In v3.c003, are torn flatbread pieces and chopped green herbs already visible mixed into the salad during tossing?",
+        "next_probe_goal": "If absent, inspect v1.c001 for whether the salad is already dressed before herb addition",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need local visibility of v4 bowl contents at 34s to test for flatbread pieces.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v4.c005"
+        ],
+        "evidence_goal": "In v4 slot 40, are pale torn flatbread pieces visible in the glass bowl, or only green vegetables and lettuce?",
+        "next_probe_goal": "If flatbread is absent, use v1 bread addition as the later transition candidate.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "The clips show distinct stages of salad preparation. v2 shows the creation of the dressing (adding powders and liquids to a bowl and whisking). v4 shows the assembly of the salad base (adding vegetables, lettuce, and herbs to a bowl). v1 shows the addition of flatbread to the salad and the initial tossing. v3 shows the final mixing stage where the salad (containing lettuce, herbs, flatbread, and tomatoes) is being tossed thoroughly.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v2->v4->v1->v3",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v2->v4->v1->v3",
+    "evidence_refs": [
+      "v2.c008",
+      "v4.c004",
+      "v1.c002",
+      "v3.zoom.r1-U03-01.s01"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand sprinkles chopped green herbs onto a salad containing lettuce, cucumber, and tomato chunks in a glass bowl.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "State of salad before herb addition is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        6.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand adds torn flatbread pieces to the top of the salad, which now sits on a wooden surface.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact moment of bread addition start is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "Both hands vigorously toss the salad, mixing the flatbread pieces with the vegetables and herbs.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        12.0,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        18.0,
+        18.0
+      ],
+      "resolution": "coarse",
+      "content": "A person wearing a black shirt with red trim stands behind the bowl, having finished tossing the salad.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Whether this is the final step is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "A person uses a spoon to scoop a dark brown powder from a small wooden bowl.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Destination of the powder is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "A person adds a white ingredient into a large glass bowl using a spoon.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Ingredient identity is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        10.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "A person pours a clear liquid from a small glass jar into the large mixing bowl.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Liquid identity is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.001000000000005,
+        25.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        25.001000000000005,
+        26.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        26.0,
+        26.0
+      ],
+      "resolution": "coarse",
+      "content": "The large glass bowl sits on the table with a spoon inside, while the person is out of frame.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Action occurring during this time is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        26.001000000000005,
+        30.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        30.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "A person pours a clear liquid from a glass bottle into the mixing bowl.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "Liquid identity is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        30.001000000000005,
+        34.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        34.0,
+        34.0
+      ],
+      "resolution": "coarse",
+      "content": "A person pours a dark liquid from a bottle into the bowl while holding a whisk.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "Liquid identity is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        34.001000000000005,
+        42.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        42.0,
+        44.0
+      ],
+      "resolution": "coarse",
+      "content": "The person is seen holding a bottle and then placing it down near the bowl.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "Purpose of holding the bottle is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        44.001000000000005,
+        50.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        50.0,
+        52.0
+      ],
+      "resolution": "coarse",
+      "content": "A person whisks the contents of the large glass bowl while holding an oil bottle.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [
+        "Whether oil is added during whisking is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        52.001000000000005,
+        53.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman stands at a counter placing green vegetables into a clear bowl. A plate with greens and a dish of meat are visible on the counter.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Only the start of the segment is visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        15.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        16.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman is seen from a distance, actively tossing the salad contents in the bowl with her hands.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Single frame view of the action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        16.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U03-01.s01",
+      "video": "v3",
+      "time": [
+        20.0,
+        35.0
+      ],
+      "resolution": "fine",
+      "content": "Hands continuously toss a salad in a clear bowl. The mixture contains green leafy vegetables, chopped herbs, red tomato wedges, and pale torn flatbread pieces.",
+      "evidence": [
+        "v3.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "None; target ingredients are clearly visible throughout."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U03-01.s02",
+      "video": "v3",
+      "time": [
+        35.0,
+        39.96666666666667
+      ],
+      "resolution": "fine",
+      "content": "Hands toss a salad containing green leaves, red chunks, and pale torn flatbread pieces in a clear bowl.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Torn flatbread pieces are visible, but chopped green herbs are not clearly distinguished.",
+        "Unresolved: Clear visual confirmation of chopped green herbs mixed into the salad."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman stands behind a table with a large empty glass bowl and a platter of chopped vegetables, holding the platter and preparing to add ingredients.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        8.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman transfers chopped green vegetables from the platter into the large glass bowl.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        8.0,
+        23.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        23.0,
+        24.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        24.0,
+        24.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman sprinkles seasoning over the green vegetables already in the bowl.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        24.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        28.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman adds a large quantity of leafy green lettuce from a plate into the bowl.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        30.0,
+        34.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-r1-01.s01",
+      "video": "v4",
+      "time": [
+        30.0,
+        38.0
+      ],
+      "resolution": "fine",
+      "content": "A person transfers torn green lettuce from a plate into a glass bowl, mixing it by hand. A person sprinkles dried herbs from a small plate over the bowl of green lettuce.",
+      "evidence": [
+        "v4.focus.r2.l1.e1",
+        "v4.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Pale flatbread pieces are not visible in the bowl."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        34.0,
+        36.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u007",
+      "video": "v4",
+      "time": [
+        36.001,
+        38.000999999999976
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c006",
+      "video": "v4",
+      "time": [
+        38.0,
+        38.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman reaches for a small plate containing spices and garlic cloves.",
+      "evidence": [
+        "v4-b0001-e6"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u008",
+      "video": "v4",
+      "time": [
+        38.000999999999976,
+        44.000999999999976
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c007",
+      "video": "v4",
+      "time": [
+        44.0,
+        44.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman sprinkles brown spices over the finished green salad in the bowl.",
+      "evidence": [
+        "v4-b0001-e7"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u009",
+      "video": "v4",
+      "time": [
+        44.000999999999976,
+        45.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If absent, inspect v1.c001 for whether the salad is already dressed before herb addition",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

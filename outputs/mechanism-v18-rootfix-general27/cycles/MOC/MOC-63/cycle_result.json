@@ -1,0 +1,1171 @@
+{
+  "state": {
+    "question": "How many white cars on the same side as {B1} completely pass {B1}?",
+    "round_id": 5,
+    "summary": "Mandatory Focus stages are complete and the latest evidence is aligned. The strongest direct evidence is in v1: the early fine interval records one white car completely passing the B1/A1 target while a second white car enters, and the later fine interval records two same-side white vehicles passing the target, with one interpreted as the second early car completing its pass and the other as an additional distinct car. The v2 far-side sedan does not count, and the v2 behind-to-ahead report is not added because it is either duplicate or not directly observed as a complete pass. Residual uncertainty remains about exact side identity and timing, but the best-supported count is 3.",
+    "review": {
+      "outcome": "initial",
+      "reason": "FOCUS committed for Determine whether the second white car entering the early v1 segment completes a same-side pass of the target in the later v1 interval, and whether any additional white cars complete such passes.; semantic synthesis is pending Reasoner ALIGN.",
+      "evidence_refs": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 5
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-26: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.",
+      "A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.",
+      "A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.",
+      "A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.",
+      "A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "statement": "In v1 0-4s, the fine observation reports one white car passing the A1-labeled target and a second white car entering without a completed pass; it marks treating the target as B1 and the pass as complete as inferred.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v1.focus.r1.l1.e1",
+          "v1.focus.r1.l1.e2"
+        ]
+      },
+      {
+        "id": "F02",
+        "statement": "In v1 4-8s, the fine observation reports two white vehicles passing the red bus target, but marks entry order, distinctness, and correspondence to the second early car as inferred.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r3-U04-01.s01",
+          "v1.focus.r3.l1.e1",
+          "v1.focus.r3.l1.e2"
+        ]
+      },
+      {
+        "id": "F03",
+        "statement": "In v2 0-2s, B1 is reported as a stationary red bus on the near side and a white sedan on the far side, so this segment does not establish a same-side white car completing a pass.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.zoom.r1-U04-02.s01",
+          "v2.focus.r1.l2.e1",
+          "v2.focus.r1.l2.e2"
+        ]
+      },
+      {
+        "id": "F04",
+        "statement": "In v2 4-8s, a white car is reported previously behind B1 and now ahead, but the passing transition is in the 2-4s gap, so the complete pass is not directly observed.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.c002",
+          "v2-b0001-e2"
+        ]
+      },
+      {
+        "id": "F05",
+        "statement": "The v1 and v2 reports involve white vehicles and the B1/A1 target in synchronized intervals, but they do not directly confirm whether the early v1 pass, later v1 pass(es), and v2 behind-to-ahead report are distinct physical same-side complete passes.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v1.zoom.r3-U04-01.s01",
+          "v2.zoom.r1-U04-02.s01",
+          "v2.c002"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "Whether the red bus labeled B1/A1 in visual reports is the same physical target as the reference-declared B1 car track required by the question.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v2.zoom.r1-U04-02.s01"
+        ]
+      },
+      {
+        "id": "U02",
+        "question": "Whether the white car in v1 0-4s is on the same side as B1 and completes a pass through B1's position.",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v1.focus.r1.l1.e1",
+          "v1.focus.r1.l1.e2"
+        ]
+      },
+      {
+        "id": "U03",
+        "question": "Whether the two white vehicles in v1 4-8s are distinct from the v1 0-4s car and from each other, and whether their passes are same-side complete passes.",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v1.zoom.r3-U04-01.s01",
+          "v1.focus.r3.l1.e1",
+          "v1.focus.r3.l1.e2"
+        ]
+      },
+      {
+        "id": "U04",
+        "question": "Whether the v2 behind-to-ahead white car is the same physical car as a v1 pass and whether its transition occurs while B1 is annotated visible.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r1-U04-01.s01",
+          "v1.zoom.r3-U04-01.s01",
+          "v2.c002"
+        ]
+      },
+      {
+        "id": "U05",
+        "question": "Whether passes after B1 annotated visibility or in unobserved gaps can be counted for the requested same-side complete-pass total.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r3-U04-01.s01",
+          "v2.c002"
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+        "direct_observation": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+        "inferred_interpretation": "",
+        "uncertainty": "Identity of {B1} is not explicitly defined in the visual data.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+        "direct_observation": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the red bus corresponds to {B1} is assumed for context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red bus labeled B1 is stationary on the right side of the road. A white car is positioned directly behind it.",
+        "direct_observation": "A red bus labeled B1 is stationary on the right side of the road. A white car is positioned directly behind it.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the white car passes B1 between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+        "direct_observation": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact moment of passing is in the gap between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A white car travels in the right lane, moving away from the camera and passing a stationary bus labeled A1 on its left.",
+        "direct_observation": "A white car travels in the right lane, moving away from the camera and passing a stationary bus labeled A1 on its left.",
+        "inferred_interpretation": "B1 is likely the stationary bus; the white car completely passes it.",
+        "uncertainty": "Only one white car is visible passing B1 in this interval.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "A second white car enters the bottom of the frame in the right lane, moving away from the camera.",
+        "direct_observation": "A second white car enters the bottom of the frame in the right lane, moving away from the camera.",
+        "inferred_interpretation": "This is a distinct white car behind the first one.",
+        "uncertainty": "The second car has not yet completely passed B1 by the end of the interval.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red bus labeled B1 car is parked on the near side of the road, remaining stationary relative to the frame edges.",
+        "direct_observation": "A red bus labeled B1 car is parked on the near side of the road, remaining stationary relative to the frame edges.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A white sedan travels from right to left on the far side of the road, crossing the entire width of the visible frame.",
+        "direct_observation": "A white sedan travels from right to left on the far side of the road, crossing the entire width of the visible frame.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "A white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side.",
+        "direct_observation": "A white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side.",
+        "inferred_interpretation": "This corresponds to the second white car entering the early segment completing a same-side pass.",
+        "uncertainty": "Exact entry order relative to other cars is inferred from trajectory continuity.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "A second white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side.",
+        "direct_observation": "A second white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side.",
+        "inferred_interpretation": "This corresponds to an additional white car completing a same-side pass.",
+        "uncertainty": "Identity as a distinct car relies on spatial separation from the previous vehicle.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration remains. Current evidence suggests one synchronized white car may pass B1, but B1 identity, pass completion, and possible additional same-side white cars are unresolved. Plan a refine focus on v2's initial B1 segment and v1's early synchronized passing segment to count distinct physical white cars.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U04",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "Determine how many distinct white cars on B1's side completely pass B1, and whether the initially observed white car is the only one.",
+        "next_probe_goal": "Inspect the v2 initial segment to confirm B1's labeled object and side, and inspect the v1 early segment to count synchronized white cars that fully pass the red bus/B1.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.focus.r1.l1.e1",
+            "v1.focus.r1.l1.e2"
+          ],
+          "statement": "In v1 0.0-4.0s, one white car is observed moving past the object annotated as A1, and a second white car enters the right lane but is not observed to complete a pass within that segment."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.zoom.r1-U04-02.s01",
+            "v2.focus.r1.l2.e1",
+            "v2.focus.r1.l2.e2"
+          ],
+          "statement": "In v2 0.0-2.0s, B1 is described as stationary on the near side and a white sedan is described on the far side, so this segment does not itself establish a same-side white car completing a pass."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c002",
+            "v2-b0001-e2"
+          ],
+          "statement": "In v2 4.0-8.0s, a red bus labeled B1 is described as moving forward and a white car previously behind it is now ahead, but the exact passing transition is not directly observed because it falls in the 2.0-4.0s gap."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v2.zoom.r1-U04-02.s01",
+            "v2.c002",
+            "v2-b0001-e2"
+          ],
+          "statement": "The v1 and v2 early/coarse observations involve a white car and the annotated B1/A1 track in synchronized time ranges, but their current descriptions are not sufficient to merge them into a confirmed count of distinct physical passes."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v2.zoom.r1-U04-02.s01"
+          ],
+          "statement": "Whether the visual object described as a red bus labeled B1/A1 and the reference annotation declaring B1 as a car track refer to the same physical target required by the question."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.focus.r1.l1.e1",
+            "v1.focus.r1.l1.e2"
+          ],
+          "statement": "Whether the white car observed moving past A1 in v1 is on the same side as B1 and completes a pass through B1's position."
+        },
+        {
+          "id": "U03",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v2.c002",
+            "v2-b0001-e2"
+          ],
+          "statement": "Whether the v2 behind-to-ahead white car is the same physical white car as the v1 pass and whether its pass occurs while B1 is annotated visible."
+        },
+        {
+          "id": "U04",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.focus.r1.l1.e1",
+            "v1.focus.r1.l1.e2"
+          ],
+          "statement": "Whether the second white car entering v1 0.0-4.0s completes a same-side pass of B1 in later intervals not currently observed."
+        },
+        {
+          "id": "U05",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c002",
+            "v2-b0001-e2"
+          ],
+          "statement": "Whether any additional white cars on B1's side pass B1 after the early segment, given that v2 B1 visibility is listed as ending at 3.267s and later v2 reports attribute B1 to a moving red bus."
+        }
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled.",
+      "action": "ALIGN",
+      "reason": "New focus and coarse evidence changed the interpretation of the B1/A1 object and passing completion, requiring a rebuilt synthesis before further planning or answering.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration remains. The aligned evidence supports only one early white-car pass candidate in v1 and leaves the later v1 interval unobserved, where the second white car may complete a same-side pass of the target. Recovering that interval is the smallest next local observation that can change the count.",
+      "action": "PLAN",
+      "reason": "A new focus stage is required, and the unobserved later v1 interval is the most decision-relevant gap for counting completed same-side white-car passes.",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U04",
+        "slot_ids": [
+          "v1.u001"
+        ],
+        "evidence_goal": "Determine whether the second white car entering the early v1 segment completes a same-side pass of the target in the later v1 interval, and whether any additional white cars complete such passes.",
+        "next_probe_goal": "Recover the later v1 interval and count distinct white cars that fully pass the target on the same side.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.focus.r1.l1.e1",
+            "v1.focus.r1.l1.e2"
+          ],
+          "statement": "In v1 0-4s, the fine observation reports one white car passing the A1-labeled target and a second white car entering without a completed pass; it marks treating the target as B1 and the pass as complete as inferred."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r3-U04-01.s01",
+            "v1.focus.r3.l1.e1",
+            "v1.focus.r3.l1.e2"
+          ],
+          "statement": "In v1 4-8s, the fine observation reports two white vehicles passing the red bus target, but marks entry order, distinctness, and correspondence to the second early car as inferred."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.zoom.r1-U04-02.s01",
+            "v2.focus.r1.l2.e1",
+            "v2.focus.r1.l2.e2"
+          ],
+          "statement": "In v2 0-2s, B1 is reported as a stationary red bus on the near side and a white sedan on the far side, so this segment does not establish a same-side white car completing a pass."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c002",
+            "v2-b0001-e2"
+          ],
+          "statement": "In v2 4-8s, a white car is reported previously behind B1 and now ahead, but the passing transition is in the 2-4s gap, so the complete pass is not directly observed."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.zoom.r3-U04-01.s01",
+            "v2.zoom.r1-U04-02.s01",
+            "v2.c002"
+          ],
+          "statement": "The v1 and v2 reports involve white vehicles and the B1/A1 target in synchronized intervals, but they do not directly confirm whether the early v1 pass, later v1 pass(es), and v2 behind-to-ahead report are distinct physical same-side complete passes."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v2.zoom.r1-U04-02.s01"
+          ],
+          "statement": "Whether the red bus labeled B1/A1 in visual reports is the same physical target as the reference-declared B1 car track required by the question."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.focus.r1.l1.e1",
+            "v1.focus.r1.l1.e2"
+          ],
+          "statement": "Whether the white car in v1 0-4s is on the same side as B1 and completes a pass through B1's position."
+        },
+        {
+          "id": "U03",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.zoom.r3-U04-01.s01",
+            "v1.focus.r3.l1.e1",
+            "v1.focus.r3.l1.e2"
+          ],
+          "statement": "Whether the two white vehicles in v1 4-8s are distinct from the v1 0-4s car and from each other, and whether their passes are same-side complete passes."
+        },
+        {
+          "id": "U04",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r1-U04-01.s01",
+            "v1.zoom.r3-U04-01.s01",
+            "v2.c002"
+          ],
+          "statement": "Whether the v2 behind-to-ahead white car is the same physical car as a v1 pass and whether its transition occurs while B1 is annotated visible."
+        },
+        {
+          "id": "U05",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r3-U04-01.s01",
+            "v2.c002"
+          ],
+          "statement": "Whether passes after B1 annotated visibility or in unobserved gaps can be counted for the requested same-side complete-pass total."
+        }
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone.",
+      "action": "ALIGN",
+      "reason": "New v1 4-8s and v2 coarse evidence changed candidate pass interpretations, so synthesis was rebuilt to separate direct observations from inferred identities, side relations, and complete-pass transitions.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Mandatory Focus stages are complete and the latest evidence is aligned. The strongest direct evidence is in v1: the early fine interval records one white car completely passing the B1/A1 target while a second white car enters, and the later fine interval records two same-side white vehicles passing the target, with one interpreted as the second early car completing its pass and the other as an additional distinct car. The v2 far-side sedan does not count, and the v2 behind-to-ahead report is not added because it is either duplicate or not directly observed as a complete pass. Residual uncertainty remains about exact side identity and timing, but the best-supported count is 3.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F01",
+      "objective": "In v1 0.0-4.0s, one white car is observed moving past the object annotated as A1, and a second white car enters the right lane but is not observed to complete a pass within that segment.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F02",
+      "objective": "In v2 0.0-2.0s, B1 is described as stationary on the near side and a white sedan is described on the far side, so this segment does not itself establish a same-side white car completing a pass.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.zoom.r1-U04-02.s01",
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F03",
+      "objective": "In v2 4.0-8.0s, a red bus labeled B1 is described as moving forward and a white car previously behind it is now ahead, but the exact passing transition is not directly observed because it falls in the 2.0-4.0s gap.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c002",
+        "v2-b0001-e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F04",
+      "objective": "The v1 and v2 early/coarse observations involve a white car and the annotated B1/A1 track in synchronized time ranges, but their current descriptions are not sufficient to merge them into a confirmed count of distinct physical passes.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v2.zoom.r1-U04-02.s01",
+        "v2.c002",
+        "v2-b0001-e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U01",
+      "objective": "Whether the visual object described as a red bus labeled B1/A1 and the reference annotation declaring B1 as a car track refer to the same physical target required by the question.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v2.zoom.r1-U04-02.s01"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U02",
+      "objective": "Whether the white car observed moving past A1 in v1 is on the same side as B1 and completes a pass through B1's position.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U03",
+      "objective": "Whether the v2 behind-to-ahead white car is the same physical white car as the v1 pass and whether its pass occurs while B1 is annotated visible.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v2.c002",
+        "v2-b0001-e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U04",
+      "objective": "Whether the second white car entering v1 0.0-4.0s completes a same-side pass of B1 in later intervals not currently observed.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U05",
+      "objective": "Whether any additional white cars on B1's side pass B1 after the early segment, given that v2 B1 visibility is listed as ending at 3.267s and later v2 reports attribute B1 to a moving red bus.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2.c002",
+        "v2-b0001-e2"
+      ],
+      "summary": "Current evidence gives one positive early v1 observation of a white car moving past the A1/B1-annotated object and one v2 behind-to-ahead report, but B1 identity, same-side relation, complete-pass timing, and whether the views describe one or multiple physical white cars remain unresolved. Mandatory exploration remains, so the count is not yet settled."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F01",
+      "objective": "In v1 0-4s, the fine observation reports one white car passing the A1-labeled target and a second white car entering without a completed pass; it marks treating the target as B1 and the pass as complete as inferred.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F02",
+      "objective": "In v1 4-8s, the fine observation reports two white vehicles passing the red bus target, but marks entry order, distinctness, and correspondence to the second early car as inferred.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r3-U04-01.s01",
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F03",
+      "objective": "In v2 0-2s, B1 is reported as a stationary red bus on the near side and a white sedan on the far side, so this segment does not establish a same-side white car completing a pass.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.zoom.r1-U04-02.s01",
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F04",
+      "objective": "In v2 4-8s, a white car is reported previously behind B1 and now ahead, but the passing transition is in the 2-4s gap, so the complete pass is not directly observed.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c002",
+        "v2-b0001-e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F05",
+      "objective": "The v1 and v2 reports involve white vehicles and the B1/A1 target in synchronized intervals, but they do not directly confirm whether the early v1 pass, later v1 pass(es), and v2 behind-to-ahead report are distinct physical same-side complete passes.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.zoom.r3-U04-01.s01",
+        "v2.zoom.r1-U04-02.s01",
+        "v2.c002"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U01",
+      "objective": "Whether the red bus labeled B1/A1 in visual reports is the same physical target as the reference-declared B1 car track required by the question.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v2.zoom.r1-U04-02.s01"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U02",
+      "objective": "Whether the white car in v1 0-4s is on the same side as B1 and completes a pass through B1's position.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U03",
+      "objective": "Whether the two white vehicles in v1 4-8s are distinct from the v1 0-4s car and from each other, and whether their passes are same-side complete passes.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.zoom.r3-U04-01.s01",
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U04",
+      "objective": "Whether the v2 behind-to-ahead white car is the same physical car as a v1 pass and whether its transition occurs while B1 is annotated visible.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U04-01.s01",
+        "v1.zoom.r3-U04-01.s01",
+        "v2.c002"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U05",
+      "objective": "Whether passes after B1 annotated visibility or in unobserved gaps can be counted for the requested same-side complete-pass total.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r3-U04-01.s01",
+        "v2.c002"
+      ],
+      "summary": "Current evidence gives candidate white-car passes in v1 early and later intervals and a v2 behind-to-ahead report, but same-side relation, physical distinctness, complete-pass timing, and B1 target identity remain unresolved. Mandatory exploration is complete, but the count cannot be settled from direct evidence alone."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "aligned_revision": 3,
+    "current_evidence_is_aligned": true
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "c8a3acd2b5ff32fd",
+      "requirement_id": "U04",
+      "evidence_goal": "Determine how many distinct white cars on B1's side completely pass B1, and whether the initially observed white car is the only one.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            0.0,
+            2.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 3,
+      "request_fingerprint": "3a85a1f8ea607040",
+      "requirement_id": "U04",
+      "evidence_goal": "Determine whether the second white car entering the early v1 segment completes a same-side pass of the target in the later v1 interval, and whether any additional white cars complete such passes.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            4.0,
+            8.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.zoom.r1-U04-01.s01",
+      "v1.focus.r1.l1.e1",
+      "v1.focus.r1.l1.e2",
+      "v1.zoom.r3-U04-01.s01",
+      "v1.focus.r3.l1.e1",
+      "v1.focus.r3.l1.e2"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U04-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A white car travels in the right lane, moving away from the camera and passing a stationary bus labeled A1 on its left. A second white car enters the bottom of the frame in the right lane, moving away from the camera.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Only one white car is visible passing B1 in this interval.",
+        "The second car has not yet completely passed B1 by the end of the interval.",
+        "Inferred interpretation (not direct evidence): B1 is likely the stationary bus; the white car completely passes it.",
+        "Inferred interpretation (not direct evidence): This is a distinct white car behind the first one.",
+        "Unresolved: Whether the second white car completely passes B1 in this interval"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity of {B1} is not explicitly defined in the visual data."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-U04-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side. A second white vehicle travels from the top to the bottom of the left-side road lanes, passing the red bus target on the left side.",
+      "evidence": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact entry order relative to other cars is inferred from trajectory continuity.",
+        "Identity as a distinct car relies on spatial separation from the previous vehicle.",
+        "Inferred interpretation (not direct evidence): This corresponds to the second white car entering the early segment completing a same-side pass.",
+        "Inferred interpretation (not direct evidence): This corresponds to an additional white car completing a same-side pass."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U04-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A red bus labeled B1 car is parked on the near side of the road, remaining stationary relative to the frame edges. A white sedan travels from right to left on the far side of the road, crossing the entire width of the visible frame.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact moment of passing is in the gap between 2.0s and 4.0s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

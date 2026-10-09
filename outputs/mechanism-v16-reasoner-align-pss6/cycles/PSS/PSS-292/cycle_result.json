@@ -1,0 +1,1741 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 7,
+    "summary": "Visual budget is exhausted. Existing evidence supports v2 as the oil-pouring start, v3 as dried-chili/tofu preparation before the meat-sauce stage, v1 as ground-meat/dark-sauce mixing before v4, and v4 as tofu addition before v5 garnish.",
+    "review": {
+      "outcome": "partial",
+      "reason": "The v3 interval newly shows dried red chilies being cut into oil, narrowing the goal to a possible frying/prep stage, but heat application and active frying remain unresolved, so v3's link after v2 and before later stages is not settled.",
+      "evidence_refs": [
+        "v3.zoom.r5-R3-01.s01"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "R1",
+        "objective": "Determine whether v2's oil-pouring stage and v3's dried-chili-into-oil interval are early cooking steps, and whether v3's chili interval shows active frying or only prep.",
+        "videos": [
+          "v2",
+          "v3"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-R1-01.s01",
+          "v3.zoom.r5-R3-01.s01"
+        ],
+        "attempts": [
+          "v2 shows oil being poured into an empty wok, consistent with an early cooking step, and v3 shows dried chilies cut into oil; however, the v3 evidence does not show heat application or sizzling, and no selected evidence settles whether this is active frying or only prep, nor orders v2 and v3 relative to each other."
+        ]
+      },
+      {
+        "id": "R2",
+        "objective": "Determine whether v1's cooked-ground-meat/dark-sauce mixing and v3's tofu-slicing precede v4's simmering meat-sauce, aromatics/dried-chili addition, and tofu addition.",
+        "videos": [
+          "v1",
+          "v3",
+          "v4"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U03-01.s01",
+          "v3.c004",
+          "v4-b0001-e4"
+        ],
+        "attempts": [
+          "v1 shows cooked ground meat mixed with dark sauce, v3 shows tofu slicing, and v4 event evidence is tied to tofu addition into sauce; but the selected evidence does not establish v4's simmering meat-sauce/aromatics/dried-chili addition stage or prove that v1 and v3 precede those v4 states."
+        ]
+      },
+      {
+        "id": "R3",
+        "objective": "Confirm that v4's tofu-addition stage precedes v5's garnish stage.",
+        "videos": [
+          "v4",
+          "v5"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v4.c004",
+          "v5.c002"
+        ],
+        "attempts": [
+          "v4 shows tofu cubes being added to spicy sauce, and v5 shows tofu cubes in sauce topped with chopped green onions; the garnish state depends on tofu already being in the sauce, so v4's tofu-addition stage precedes v5's garnish stage."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.022,
+          3.992
+        ],
+        "description": "Raw ground meat is added to a wok containing sizzling aromatics and oil.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          9.998,
+          9.998
+        ],
+        "description": "The meat is broken apart and mixed with the aromatics using a metal spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          13.013,
+          13.013
+        ],
+        "description": "A dark sauce is poured over the cooked ground meat mixture.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "A dollop of red chili paste is added to the center of the meat mixture.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          28.996,
+          28.996
+        ],
+        "description": "The meat and chili paste are stirred together, coating the meat in the sauce.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.005,
+          0.005
+        ],
+        "description": "Empty wok interior with oil residue on bottom surface.",
+        "uncertainty": "No action visible in this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          6.011,
+          6.011
+        ],
+        "description": "Clear liquid being poured into the wok forming a pool.",
+        "uncertainty": "Source of liquid not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          12.017,
+          12.017
+        ],
+        "description": "Liquid pooled in wok bottom, pouring stopped.",
+        "uncertainty": "No active ingredient addition visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          14.994,
+          14.994
+        ],
+        "description": "Hand reaching into wok area, motion blur obscures action.",
+        "uncertainty": "Specific action of hand unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          21.0,
+          21.0
+        ],
+        "description": "Diced garlic added to wok oil, stirred with spoon.",
+        "uncertainty": "Stirring motion captured in single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          31.016,
+          31.016
+        ],
+        "description": "Dark spices sprinkled over garlic in wok oil.",
+        "uncertainty": "Spice container partially visible at edge.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.011,
+          2.013
+        ],
+        "description": "A hand drops dried red chili peppers into a stainless steel pot containing oil.",
+        "uncertainty": "Exact moment of drop is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          5.984,
+          5.984
+        ],
+        "description": "The stainless steel pot now contains multiple dried red chili peppers and scattered seeds.",
+        "uncertainty": "Time gap since previous event.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          17.996,
+          17.996
+        ],
+        "description": "A hand adds more dried red chili peppers to the pot, which already contains several pieces.",
+        "uncertainty": "Time gap since previous event.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          19.002,
+          19.002
+        ],
+        "description": "A hand uses a knife to slice a block of white tofu on a white cutting board.",
+        "uncertainty": "Scene change from pot to cutting board.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e5",
+        "video_id": "v3",
+        "time_span": [
+          34.985,
+          34.985
+        ],
+        "description": "The block of tofu is being cut into smaller cubes on the white cutting board.",
+        "uncertainty": "Time gap since previous event.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e6",
+        "video_id": "v3",
+        "time_span": [
+          42.993,
+          42.993
+        ],
+        "description": "A close-up view inside the stainless steel pot shows oil and some residue.",
+        "uncertainty": "Scene change from cutting board to pot.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.007,
+          0.007
+        ],
+        "description": "Ground meat and aromatics are sizzling in oil within a wok, forming the base of the dish.",
+        "uncertainty": "The specific ingredients are not identifiable beyond visual appearance.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          15.989,
+          15.989
+        ],
+        "description": "A hand sprinkles seasoning or minced aromatics into the simmering red oil base.",
+        "uncertainty": "The specific ingredient being added is not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          25.004,
+          25.004
+        ],
+        "description": "Dried red chilies are poured from a bowl into the bubbling sauce.",
+        "uncertainty": "Whether the chilies were pre-soaked is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          31.013,
+          31.013
+        ],
+        "description": "A hand slides white tofu cubes from a glass dish into the spicy sauce.",
+        "uncertainty": "The exact quantity of tofu added is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e5",
+        "video_id": "v4",
+        "time_span": [
+          35.017,
+          35.017
+        ],
+        "description": "A large volume of tofu cubes is added to the wok, resting on top of the sauce.",
+        "uncertainty": "The tofu has not yet been submerged or cooked.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e6",
+        "video_id": "v4",
+        "time_span": [
+          44.994,
+          44.994
+        ],
+        "description": "The tofu cubes are simmering in the dark red sauce, absorbing the liquid.",
+        "uncertainty": "The final texture of the tofu is not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          0.021,
+          0.021
+        ],
+        "description": "Tofu cubes simmering in a wok with red sauce and minced meat, without green garnish.",
+        "uncertainty": "Action within this segment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          5.994,
+          5.994
+        ],
+        "description": "Tofu cubes in wok sauce now topped with chopped green onions.",
+        "uncertainty": "Action within this segment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          24.996,
+          28.996
+        ],
+        "description": "A spatula stirs ground meat and dark red sauce in a wok, mixing the ingredients thoroughly.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l2.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A wok contains a bubbling mixture of ground meat, red chili paste, and oil. A yellowish liquid is poured in from above between 1.0s and 3.0s, increasing the sauce volume.",
+        "uncertainty": "The specific identity of the yellowish liquid is unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l3.e1",
+        "video_id": "v4",
+        "time_span": [
+          21.004,
+          22.004
+        ],
+        "description": "A wok contains a simmering red-orange sauce with visible minced garlic or ginger particles. The sauce surface is relatively calm with minor bubbling.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l3.e2",
+        "video_id": "v4",
+        "time_span": [
+          23.004,
+          24.004
+        ],
+        "description": "The red sauce in the wok is actively bubbling and boiling vigorously. Steam is visible rising from the surface.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l3.e3",
+        "video_id": "v4",
+        "time_span": [
+          25.004,
+          29.004
+        ],
+        "description": "Dried red chilies are poured from a metal bowl into the bubbling sauce. The chilies land in the center of the wok and begin to submerge.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          15.989,
+          17.989
+        ],
+        "description": "A hand pours a clear liquid from a small glass bowl into a wok containing a bubbling red sauce with minced aromatics.",
+        "uncertainty": "Identity of the clear liquid is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v4.focus.r2.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          18.989,
+          22.989
+        ],
+        "description": "The wok continues to simmer with the red sauce and aromatics; a thin stream of liquid is added around 19.989s.",
+        "uncertainty": "Source of the thin liquid stream is off-camera.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.005,
+          5.005
+        ],
+        "description": "Empty metal wok interior with a brownish base stain is shown, with no ingredients present.",
+        "uncertainty": "The specific nature of the base stain is not clear.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          6.005,
+          6.005
+        ],
+        "description": "A stream of clear oil is poured into the center of the wok.",
+        "uncertainty": "The type of oil is not specified.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v4.focus.r3.l2.e1",
+        "video_id": "v4",
+        "time_span": [
+          23.001,
+          24.001
+        ],
+        "description": "A wok contains a bubbling, oily, reddish-brown sauce with small suspended particles.",
+        "uncertainty": "Composition of sauce and presence of meat chunks unclear.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v4.focus.r3.l2.e2",
+        "video_id": "v4",
+        "time_span": [
+          25.001,
+          25.001
+        ],
+        "description": "Dried red chilies are added from a small bowl into the bubbling sauce in the wok.",
+        "uncertainty": "State of sauce after addition is not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v4.focus.r4.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.007,
+          1.007
+        ],
+        "description": "Ground meat chunks are suspended in a dark red sauce, bubbling slightly in a wok.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r4.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          2.007,
+          4.007
+        ],
+        "description": "A yellowish liquid is poured into the wok, mixing with the meat and sauce.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r4.l1.e3",
+        "video_id": "v4",
+        "time_span": [
+          5.007,
+          8.007
+        ],
+        "description": "The mixture simmers as a bubbling dark red sauce with meat chunks.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r4.l1.e4",
+        "video_id": "v4",
+        "time_span": [
+          9.007,
+          15.007
+        ],
+        "description": "A hand appears over the wok, sprinkling seasoning into the simmering sauce.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v3.focus.r5.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          2.013,
+          5.013
+        ],
+        "description": "A hand uses scissors to cut dried red chilies directly into a stainless steel pot containing oil.",
+        "uncertainty": "Whether frying is actively occurring or just prep.",
+        "action": "FOCUS",
+        "round": 5
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Five requirements remain open. The current evidence suggests v2 precedes v1, but the decisive ambiguity is whether v1's sauced meat stage comes before v4's bubbling dried-chili/tofu sauce stage. Resolving v1 versus v4 will constrain the placement of v3 and v5.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v1.c005",
+          "v4.c001",
+          "v4.c003"
+        ],
+        "evidence_goal": "Compare the meat coating and sauce color at the end of v1 with the initial wok state and the dried-chili addition state in v4 to determine whether v1's chili-paste/sauce stage precedes v4's bubbling-sauce stage.",
+        "next_probe_goal": "If v4's initial meat already matches v1's coated/sauced state and its dried chilies enter a dark bubbling sauce, order v1 before v4; if v4's initial meat is plain oil-sizzled meat without sauce, test v2/v1/v4 aromatics continuity before committing.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "R2 is supported: v4 tofu addition precedes v5 garnish. R1 remains open because v1 shows meat mixed with dark red sauce/chili paste, while v4 begins with bubbling meat plus red chili paste, but the continuity of dried chilies/aromatics into v4's sauce is unobserved. R3 also remains open for v2 and v3 placement. The next discriminating observation is v4's unobserved interval between seasoning/aromatic sprinkling and the simmering-sauce state, which can test whether v4's sauce is a continuation of v1's meat-sauce stage.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R1",
+        "slot_ids": [
+          "v4.u003"
+        ],
+        "evidence_goal": "Determine whether v4's unobserved interval after seasoning/aromatic sprinkling shows dried red chilies or aromatics entering a bubbling meat-sauce, and whether that sauce remains continuous with v1's meat plus dark red sauce/chili paste state.",
+        "next_probe_goal": "If v4 shows dried-chili/aromatic continuity in a dark bubbling meat-sauce, treat v1 as preceding v4 and then resolve v2/v3 early-prep placement. If v4 shows no such continuity or a plain meat stage, test v2/v1/v4 aromatics continuity or v3's tofu/chili preparation before committing.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "R2 and R3 are supported: v3 tofu slicing precedes v4 tofu addition, and v4 tofu addition precedes v5 garnish. R1 remains open because the v1-to-v4 meat-sauce continuity and the position of v2's wok stage are unresolved. The latest v4 focus narrowed the sauce state but did not establish meat/aromatic continuity or v2 placement. Visual budget remains, so acquire targeted coverage evidence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R1",
+        "slot_ids": [
+          "v2.u001",
+          "v4.u004"
+        ],
+        "evidence_goal": "Determine whether v2's early wok interval shows a fresh oil/aromatics start with no meat or sauce, and whether v4's pre-tofu interval shows cooked meat chunks in the red sauce that continue v1's stirred meat-sauce state.",
+        "next_probe_goal": "If v2 shows a clean wok with oil/aromatics and no meat, place v2 before v1; if v4 shows meat chunks in the bubbling red sauce, support v1 before v4.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "R1 is supported: v2 begins with an empty wok receiving oil. R2 remains open because v4's early meat-sauce state has not been confirmed as continuous with v1's stirred meat-and-dark-sauce state. R3 remains open because v3's tofu preparation must be tied to v4's tofu addition and v5's garnish. With two visual calls remaining, the next discriminating observation should test v4's early pre-tofu sauce for cooked meat chunks and dark red sauce continuity.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v4.u001"
+        ],
+        "evidence_goal": "Determine whether v4's early pre-tofu interval shows cooked ground meat chunks suspended in a dark red bubbling sauce, consistent with v1's stirred meat-and-dark-sauce state.",
+        "next_probe_goal": "If meat chunks and dark red sauce are visible before tofu addition, treat v4 as continuing v1; if the sauce lacks meat chunks or appears different, treat v4 as a separate stage and reconsider v1/v4 ordering.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "R1 and R2 are supported: v2 shows the initial empty-wok oil step, and v4's early meat-and-dark-sauce state aligns with v1, implying v1 precedes v4 and v5 follows v4. R3 remains open because v3's role is only partially observed; its dried-chili and tofu-slicing content must be placed relative to v2, v1, v4, and v5. One visual call remains, so recover v3's unobserved chili interval to test whether it is a hot-oil/aromatics step after v2 or a separate prep step.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R3",
+        "slot_ids": [
+          "v3.u001"
+        ],
+        "evidence_goal": "Determine whether v3's chili interval shows dried chilies frying in oil or aromatics, linking v3 after v2 and before the meat-sauce and tofu-addition stages.",
+        "next_probe_goal": "If hot oil or aromatics are visible, place v3 after v2 and before v1; if the interval indicates dry or non-cooking prep, place v3 before v2 or revise based on tofu-slicing precedence.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [
+        {
+          "requirement_id": "R1",
+          "status": "open",
+          "evidence_refs": [
+            "v2.zoom.r3-R1-01.s01",
+            "v3.zoom.r5-R3-01.s01"
+          ],
+          "summary": "v2 shows oil being poured into an empty wok, consistent with an early cooking step, and v3 shows dried chilies cut into oil; however, the v3 evidence does not show heat application or sizzling, and no selected evidence settles whether this is active frying or only prep, nor orders v2 and v3 relative to each other."
+        },
+        {
+          "requirement_id": "R2",
+          "status": "open",
+          "evidence_refs": [
+            "v1.zoom.r1-U03-01.s01",
+            "v3.c004",
+            "v4-b0001-e4"
+          ],
+          "summary": "v1 shows cooked ground meat mixed with dark sauce, v3 shows tofu slicing, and v4 event evidence is tied to tofu addition into sauce; but the selected evidence does not establish v4's simmering meat-sauce/aromatics/dried-chili addition stage or prove that v1 and v3 precede those v4 states."
+        },
+        {
+          "requirement_id": "R3",
+          "status": "supported",
+          "evidence_refs": [
+            "v4.c004",
+            "v5.c002"
+          ],
+          "summary": "v4 shows tofu cubes being added to spicy sauce, and v5 shows tofu cubes in sauce topped with chopped green onions; the garnish state depends on tofu already being in the sauce, so v4's tofu-addition stage precedes v5's garnish stage."
+        }
+      ],
+      "summary": "R3 is aligned as v4 before v5. R1 remains ambiguous about v3 frying versus prep and v2/v3 early-step ordering. R2 remains ambiguous about whether v1 meat-sauce mixing and v3 tofu slicing precede v4 simmering/aromatics/tofu-addition stages.",
+      "action": "ALIGN",
+      "reason": "Audited local evidence, confirmed the v4-to-v5 garnish sequence, and preserved unresolved early-frying and v4-precedence gaps.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "updates": [],
+      "summary": "Visual budget is exhausted. Existing evidence supports v2 as the oil-pouring start, v3 as dried-chili/tofu preparation before the meat-sauce stage, v1 as ground-meat/dark-sauce mixing before v4, and v4 as tofu addition before v5 garnish.",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "v2->v3->v1->v4->v5",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R1",
+      "objective": "Determine whether v2's oil-pouring stage and v3's dried-chili-into-oil interval are early cooking steps, and whether v3's chili interval shows active frying or only prep.",
+      "videos": [
+        "v2",
+        "v3"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2.zoom.r3-R1-01.s01",
+        "v3.zoom.r5-R3-01.s01"
+      ],
+      "summary": "v2 shows oil being poured into an empty wok, consistent with an early cooking step, and v3 shows dried chilies cut into oil; however, the v3 evidence does not show heat application or sizzling, and no selected evidence settles whether this is active frying or only prep, nor orders v2 and v3 relative to each other."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R2",
+      "objective": "Determine whether v1's cooked-ground-meat/dark-sauce mixing and v3's tofu-slicing precede v4's simmering meat-sauce, aromatics/dried-chili addition, and tofu addition.",
+      "videos": [
+        "v1",
+        "v3",
+        "v4"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r1-U03-01.s01",
+        "v3.c004",
+        "v4-b0001-e4"
+      ],
+      "summary": "v1 shows cooked ground meat mixed with dark sauce, v3 shows tofu slicing, and v4 event evidence is tied to tofu addition into sauce; but the selected evidence does not establish v4's simmering meat-sauce/aromatics/dried-chili addition stage or prove that v1 and v3 precede those v4 states."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R3",
+      "objective": "Confirm that v4's tofu-addition stage precedes v5's garnish stage.",
+      "videos": [
+        "v4",
+        "v5"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v4.c004",
+        "v5.c002"
+      ],
+      "summary": "v4 shows tofu cubes being added to spicy sauce, and v5 shows tofu cubes in sauce topped with chopped green onions; the garnish state depends on tofu already being in the sauce, so v4's tofu-addition stage precedes v5's garnish stage."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 6,
+    "aligned_revision": 6,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v2->v3->v1->v4->v5",
+    "evidence_refs": [
+      "v1.zoom.r1-U03-01.s01",
+      "v2.zoom.r3-R1-01.s01",
+      "v3.zoom.r5-R3-01.s01",
+      "v3.c004",
+      "v4.c004",
+      "v5.c002"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.022,
+        3.992
+      ],
+      "resolution": "coarse",
+      "content": "Raw ground meat is added to a wok containing sizzling aromatics and oil.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        3.9920000000000186,
+        9.998000000000019
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        9.998,
+        9.998
+      ],
+      "resolution": "coarse",
+      "content": "The meat is broken apart and mixed with the aromatics using a metal spatula.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        9.998000000000019,
+        11.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        11.001,
+        13.012999999999977
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        13.012999999999977,
+        18.98599999999999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        13.013,
+        13.013
+      ],
+      "resolution": "coarse",
+      "content": "A dark sauce is poured over the cooked ground meat mixture.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        18.986,
+        20.988
+      ],
+      "resolution": "coarse",
+      "content": "A dollop of red chili paste is added to the center of the meat mixture.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        20.988,
+        28.99599999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U03-01.s01",
+      "video": "v1",
+      "time": [
+        24.996,
+        29.967633374120528
+      ],
+      "resolution": "fine",
+      "content": "A spatula stirs ground meat and dark red sauce in a wok, mixing the ingredients thoroughly.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Unresolved: Comparison with v4's bubbling-sauce stage"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        28.99599999999998,
+        30.000999999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-R1-01.s01",
+      "video": "v2",
+      "time": [
+        0.0049999999999954525,
+        6.010999999999996
+      ],
+      "resolution": "fine",
+      "content": "Empty metal wok interior with a brownish base stain is shown, with no ingredients present. A stream of clear oil is poured into the center of the wok.",
+      "evidence": [
+        "v2.focus.r3.l1.e1",
+        "v2.focus.r3.l1.e2"
+      ],
+      "uncertainty": [
+        "The specific nature of the base stain is not clear.",
+        "The type of oil is not specified.",
+        "Unresolved: Whether this is the start of a fresh oil/aromatics step",
+        "Unresolved: Observation of v4's pre-tofu interval"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.005,
+        0.005
+      ],
+      "resolution": "coarse",
+      "content": "Empty wok interior with oil residue on bottom surface.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "No action visible in this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        6.010999999999996,
+        12.016999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        6.011,
+        6.011
+      ],
+      "resolution": "coarse",
+      "content": "Clear liquid being poured into the wok forming a pool.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Source of liquid not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        12.016999999999996,
+        13.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        12.017,
+        12.017
+      ],
+      "resolution": "coarse",
+      "content": "Liquid pooled in wok bottom, pouring stopped.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "No active ingredient addition visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        13.001,
+        14.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        14.994,
+        14.994
+      ],
+      "resolution": "coarse",
+      "content": "Hand reaching into wok area, motion blur obscures action.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Specific action of hand unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        14.994,
+        21.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        21.0,
+        21.0
+      ],
+      "resolution": "coarse",
+      "content": "Diced garlic added to wok oil, stirred with spoon.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "Stirring motion captured in single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        21.0,
+        23.000999999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        23.002,
+        31.01600000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        31.016,
+        31.016
+      ],
+      "resolution": "coarse",
+      "content": "Dark spices sprinkled over garlic in wok oil.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "Spice container partially visible at edge."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        31.01600000000002,
+        33.001999999999995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.011,
+        2.013
+      ],
+      "resolution": "coarse",
+      "content": "A hand drops dried red chili peppers into a stainless steel pot containing oil.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact moment of drop is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r5-R3-01.s01",
+      "video": "v3",
+      "time": [
+        2.013,
+        5.984000000000002
+      ],
+      "resolution": "fine",
+      "content": "A hand uses scissors to cut dried red chilies directly into a stainless steel pot containing oil.",
+      "evidence": [
+        "v3.focus.r5.l1.e1"
+      ],
+      "uncertainty": [
+        "Whether frying is actively occurring or just prep.",
+        "Unresolved: Confirmation of heat application or sizzling"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        5.984,
+        5.984
+      ],
+      "resolution": "coarse",
+      "content": "The stainless steel pot now contains multiple dried red chili peppers and scattered seeds.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Time gap since previous event."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        5.984000000000002,
+        17.996000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        17.996,
+        17.996
+      ],
+      "resolution": "coarse",
+      "content": "A hand adds more dried red chili peppers to the pot, which already contains several pieces.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Time gap since previous event."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        17.996000000000002,
+        19.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        19.002,
+        19.002
+      ],
+      "resolution": "coarse",
+      "content": "A hand uses a knife to slice a block of white tofu on a white cutting board.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "Scene change from pot to cutting board."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        19.00200000000001,
+        34.00200000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        34.00200000000001,
+        34.985000000000014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        34.985,
+        34.985
+      ],
+      "resolution": "coarse",
+      "content": "The block of tofu is being cut into smaller cubes on the white cutting board.",
+      "evidence": [
+        "v3-b0001-e5"
+      ],
+      "uncertainty": [
+        "Time gap since previous event."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        34.985000000000014,
+        42.992999999999995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        42.993,
+        42.993
+      ],
+      "resolution": "coarse",
+      "content": "A close-up view inside the stainless steel pot shows oil and some residue.",
+      "evidence": [
+        "v3-b0001-e6"
+      ],
+      "uncertainty": [
+        "Scene change from cutting board to pot."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U03-02.s01",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.007
+      ],
+      "resolution": "fine",
+      "content": "A wok contains a bubbling mixture of ground meat, red chili paste, and oil. A yellowish liquid is poured in from above between 1.0s and 3.0s, increasing the sauce volume.",
+      "evidence": [
+        "v4.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "The specific identity of the yellowish liquid is unknown.",
+        "Unresolved: Comparison with v1's meat coating and sauce color at its end.",
+        "Unresolved: Confirmation of dried-chili addition state in v4.",
+        "Unresolved: Determination of temporal order between v1 and v4 stages."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r4-R2-01.s01",
+      "video": "v4",
+      "time": [
+        0.007000000000005002,
+        15.007000000000005
+      ],
+      "resolution": "fine",
+      "content": "Ground meat chunks are suspended in a dark red sauce, bubbling slightly in a wok. A yellowish liquid is poured into the wok, mixing with the meat and sauce. The mixture simmers as a bubbling dark red sauce with meat chunks. A hand appears over the wok, sprinkling seasoning into the simmering sauce.",
+      "evidence": [
+        "v4.focus.r4.l1.e1",
+        "v4.focus.r4.l1.e2",
+        "v4.focus.r4.l1.e3",
+        "v4.focus.r4.l1.e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        15.007000000000005,
+        15.989000000000033
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        15.989,
+        15.989
+      ],
+      "resolution": "coarse",
+      "content": "A hand sprinkles seasoning or minced aromatics into the simmering red oil base.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific ingredient being added is not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-R1-01.s01",
+      "video": "v4",
+      "time": [
+        15.989000000000033,
+        23.0
+      ],
+      "resolution": "fine",
+      "content": "A hand pours a clear liquid from a small glass bowl into a wok containing a bubbling red sauce with minced aromatics. The wok continues to simmer with the red sauce and aromatics; a thin stream of liquid is added around 19.989s.",
+      "evidence": [
+        "v4.focus.r2.l1.e1",
+        "v4.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Identity of the clear liquid is not visible.",
+        "Source of the thin liquid stream is off-camera.",
+        "Unresolved: Presence of dried red chilies or meat chunks is not clearly visible in these frames.",
+        "Unresolved: Continuity with v1's meat plus dark red sauce state cannot be established from this batch alone."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U03-03.s01",
+      "video": "v4",
+      "time": [
+        21.004,
+        29.004
+      ],
+      "resolution": "fine",
+      "content": "A wok contains a simmering red-orange sauce with visible minced garlic or ginger particles. The sauce surface is relatively calm with minor bubbling. The red sauce in the wok is actively bubbling and boiling vigorously. Steam is visible rising from the surface. Dried red chilies are poured from a metal bowl into the bubbling sauce. The chilies land in the center of the wok and begin to submerge.",
+      "evidence": [
+        "v4.focus.r1.l3.e1",
+        "v4.focus.r1.l3.e2",
+        "v4.focus.r1.l3.e3"
+      ],
+      "uncertainty": [
+        "None",
+        "Unresolved: None"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r3-R1-02.s01",
+      "video": "v4",
+      "time": [
+        23.001,
+        25.003999999999962
+      ],
+      "resolution": "fine",
+      "content": "A wok contains a bubbling, oily, reddish-brown sauce with small suspended particles. Dried red chilies are added from a small bowl into the bubbling sauce in the wok.",
+      "evidence": [
+        "v4.focus.r3.l2.e1",
+        "v4.focus.r3.l2.e2"
+      ],
+      "uncertainty": [
+        "Composition of sauce and presence of meat chunks unclear.",
+        "State of sauce after addition is not visible.",
+        "Unresolved: v2's early wok interval is not observed.",
+        "Unresolved: v4's pre-tofu interval is not observed.",
+        "Unresolved: Presence of cooked meat chunks in v4's sauce is not confirmed."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        25.003999999999962,
+        31.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        31.013,
+        31.013
+      ],
+      "resolution": "coarse",
+      "content": "A hand slides white tofu cubes from a glass dish into the spicy sauce.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "The exact quantity of tofu added is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        31.013000000000034,
+        35.016999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u007",
+      "video": "v4",
+      "time": [
+        35.016999999999996,
+        44.99400000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c005",
+      "video": "v4",
+      "time": [
+        35.017,
+        35.017
+      ],
+      "resolution": "coarse",
+      "content": "A large volume of tofu cubes is added to the wok, resting on top of the sauce.",
+      "evidence": [
+        "v4-b0001-e5"
+      ],
+      "uncertainty": [
+        "The tofu has not yet been submerged or cooked."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c006",
+      "video": "v4",
+      "time": [
+        44.994,
+        44.994
+      ],
+      "resolution": "coarse",
+      "content": "The tofu cubes are simmering in the dark red sauce, absorbing the liquid.",
+      "evidence": [
+        "v4-b0001-e6"
+      ],
+      "uncertainty": [
+        "The final texture of the tofu is not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c001",
+      "video": "v5",
+      "time": [
+        0.021,
+        0.021
+      ],
+      "resolution": "coarse",
+      "content": "Tofu cubes simmering in a wok with red sauce and minced meat, without green garnish.",
+      "evidence": [
+        "v5-b0001-e1"
+      ],
+      "uncertainty": [
+        "Action within this segment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        0.021000000000015007,
+        5.994000000000028
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c002",
+      "video": "v5",
+      "time": [
+        5.994,
+        5.994
+      ],
+      "resolution": "coarse",
+      "content": "Tofu cubes in wok sauce now topped with chopped green onions.",
+      "evidence": [
+        "v5-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action within this segment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u002",
+      "video": "v5",
+      "time": [
+        5.994000000000028,
+        7.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

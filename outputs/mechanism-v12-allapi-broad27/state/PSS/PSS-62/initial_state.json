@@ -1,0 +1,417 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v4-b0001-e4"
+      ],
+      "statement": "v4 reports rinsing dry grains, adding water to a pot, straining steaming liquid, and returning the strained contents to the pot."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6",
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3"
+      ],
+      "statement": "v3 reports parsley, onion, and tomatoes being chopped or sliced into a glass bowl, followed by handling a whole lemon."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v1-b0001-e6"
+      ],
+      "statement": "v1 reports a lemon being rolled, cut, squeezed into a cup, poured into a bowl of chopped ingredients, and a bottle and spoon being held."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "statement": "v2 reports dressing being poured into a salad bowl, a close-up of a quinoa-containing salad, and seasonings being added."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3"
+      ],
+      "statement": "v5 reports cooked grains being spooned into a glass bowl of greens and tomatoes, the salad being tossed, and the finished salad being presented."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "event_refs": [
+        "v1-b0001-e6",
+        "v2-b0001-e1"
+      ],
+      "statement": "v1-b0001-e6 and v2-b0001-e1 are reported at source time 895.995 and both show the woman holding a bottle and spoon."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2",
+        "v5"
+      ],
+      "event_refs": [
+        "v2-b0001-e3",
+        "v5-b0001-e1"
+      ],
+      "statement": "v2-b0001-e3 reports a finished salad containing quinoa at source time 927.994, while v5-b0001-e1 reports cooked grains being added to greens and tomatoes at source time 1014.013."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3",
+        "v1"
+      ],
+      "event_refs": [
+        "v3-b0002-e3",
+        "v1-b0001-e1"
+      ],
+      "statement": "v3-b0002-e3 reports a whole lemon being held at source time 859.992, and v1-b0001-e1 reports a lemon being placed on a cutting board at source time 864.997."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 and v1 share a chopped-ingredient bowl state, with v3 showing ingredients being assembled and v1 showing lemon juice being poured into chopped ingredients.",
+      "supporting_events": [
+        "v3-b0001-e3",
+        "v3-b0001-e5",
+        "v3-b0002-e1",
+        "v1-b0001-e5"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 share a bottle-and-spoon handling state at the reported 895.995 boundary.",
+      "supporting_events": [
+        "v1-b0001-e6",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "v4 and v5 share a grain-preparation state, with v4 showing grains cooked and strained and v5 showing cooked grains transferred to the salad.",
+      "supporting_events": [
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v5-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v3",
+        "v5"
+      ],
+      "statement": "v3 and v5 share a glass bowl containing greens and tomatoes, with v3 showing those ingredients being added and v5 showing grains being added to them.",
+      "supporting_events": [
+        "v3-b0001-e3",
+        "v3-b0001-e5",
+        "v3-b0002-e1",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v2",
+        "v5"
+      ],
+      "statement": "v2 and v5 both report salad presentation stages, but v2 describes a quinoa-containing salad before seasoning while v5 describes grain addition before tossing and presentation.",
+      "supporting_events": [
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R06",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 and v1 share a whole-lemon handling state near the reported 859.992 to 864.997 boundary.",
+      "supporting_events": [
+        "v3-b0002-e3",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "issue": "Whether the bowl of chopped ingredients receiving lemon juice in v1 is the same bowl assembled in v3 remains unresolved.",
+      "reason": "The reports do not provide a continuous visual comparison of bowl identity or contents across the two segments.",
+      "related_events": [
+        "v3-b0001-e3",
+        "v3-b0001-e5",
+        "v3-b0002-e1",
+        "v1-b0001-e5"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the bottle and spoon held at the end of v1 is the same dressing bottle used at the start of v2 remains unresolved.",
+      "reason": "The reports use different labels for the bottle and do not show a continuous pour or identifying label.",
+      "related_events": [
+        "v1-b0001-e6",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2",
+        "v5"
+      ],
+      "issue": "The relative stage relationship between the v2 salad close-up and the v5 grain addition remains unresolved.",
+      "reason": "v2 reports quinoa already present in a finished salad, while v5 reports cooked grains being added to greens and tomatoes, and no event directly connects these states.",
+      "related_events": [
+        "v2-b0001-e3",
+        "v5-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "issue": "Whether the grains spooned in v5 are the grains cooked in v4 remains unresolved.",
+      "reason": "The reports do not show a continuous transfer from the v4 pot or strainer to the v5 metal bowl.",
+      "related_events": [
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v5-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "issue": "The visible state link between grain cooking in v4 and vegetable chopping in v3 remains unresolved.",
+      "reason": "No supplied event connects the grain container or cooked grain state to the vegetable bowl state in either segment.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U06",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "issue": "Whether the lemon held at the end of v3 is the same lemon rolled in v1 remains unresolved.",
+      "reason": "The reports do not show a continuous handling sequence or distinctive lemon features across the two segments.",
+      "related_events": [
+        "v3-b0002-e3",
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v3",
+        "v1"
+      ],
+      "observable": "Compare the bowl shape, contents, and cutting-board position at v3-b0002-e1 and v1-b0001-e5.",
+      "purpose": "Determine whether the v1 bowl of chopped ingredients is the same bowl assembled in v3.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the bottle label, bottle color, spoon position, and bowl contents at v1-b0001-e6 and v2-b0001-e1.",
+      "purpose": "Determine whether the v1 bottle-and-spoon state continues into the v2 dressing pour.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2",
+        "v5"
+      ],
+      "observable": "Compare the salad bowl contents in v2-b0001-e3 with the bowl before and after v5-b0001-e1.",
+      "purpose": "Determine whether the quinoa shown in v2 corresponds to the grains added in v5.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v4",
+        "v5"
+      ],
+      "observable": "Compare the grain appearance and container in v4-b0001-e4 with the grains spooned in v5-b0001-e1.",
+      "purpose": "Determine whether v5's grains are the cooked grains from v4.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v3",
+        "v4"
+      ],
+      "observable": "Compare the visible counter setup and ingredient containers to identify any continuous state linking grain cooking and vegetable chopping.",
+      "purpose": "Determine whether grain cooking and vegetable chopping share a continuous visible transition.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q06",
+      "target_videos": [
+        "v3",
+        "v1"
+      ],
+      "observable": "Compare the lemon size, color, and handling position at v3-b0002-e3 and v1-b0001-e1.",
+      "purpose": "Determine whether the lemon state is continuous from v3 into v1.",
+      "related_issue": "U06"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 5,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v5"
+      ],
+      [
+        "v3",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-62",
+    "task": "PSS",
+    "ground_truth": "4->3->1->2->5",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/PSS/PSS-62/report.json",
+    "report_sha256": "c80f4b89239a4df86b24b9490fa9e3b30b36572b77fc4479559ad28e34a9c691",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

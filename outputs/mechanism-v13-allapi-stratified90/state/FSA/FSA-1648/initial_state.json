@@ -1,0 +1,247 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Video 1 reports potato chunks boiling in water inside a pot on a stove burner."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Video 1 reports a hand holding a metal bowl containing boiled potato chunks."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e2"
+      ],
+      "statement": "Video 2 reports potato chunks being placed into a stainless steel pot and filled with water."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "Video 2 reports a covered pot of potatoes being boiled on the stove."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3"
+      ],
+      "statement": "Video 2 reports boiling liquid being drained from a pot into the sink."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e4"
+      ],
+      "statement": "Video 2 reports cooked potatoes being transferred from a colander into a pot."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e2"
+      ],
+      "statement": "Video 2 reports cooked potatoes being transferred from a saucepan into a metal bowl."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e3",
+        "v2-b0004-e4"
+      ],
+      "statement": "Video 2 reports cooked potatoes being pressed through a ricer into a bowl."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 boiling report and the v2 boiling report describe the same visible state of potato chunks boiling in a pot on a stove.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 metal-bowl report and the v2 saucepan-to-bowl report describe boiled potatoes being placed or held in a metal bowl.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0004-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference consists of two single-frame states, while the v2 reports separate boiling, draining, transferring, and ricing into different intervals.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0002-e3",
+        "v2-b0003-e3",
+        "v2-b0004-e2",
+        "v2-b0004-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The functional step represented by the reference frames in v1 remains undetermined.",
+      "reason": "The v1 events are single-frame reports and do not establish whether the reference step is boiling, bowl holding, or the transition between them.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The v2 interval functionally equivalent to the reference step remains undetermined.",
+      "reason": "The v1 frames could match either the v2 boiling interval or the v2 bowl-transfer interval, and the reports do not specify which state transition defines the reference step.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0002-e3",
+        "v2-b0004-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end seconds of the matching v2 interval remain undetermined.",
+      "reason": "The supplied v2 events describe candidate actions but do not establish the boundaries of the interval that would satisfy the reference state transition.",
+      "related_events": [
+        "v2-b0002-e3",
+        "v2-b0003-e3",
+        "v2-b0004-e2",
+        "v2-b0004-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Observe the continuous action around the v1 frames to determine whether the reference cooking step is boiling potato chunks in a pot, holding a bowl of boiled potato chunks, or the transition between those states.",
+      "purpose": "Resolves the reference functional-step ambiguity.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the reference state transition from v1 with the v2 boiling, draining, colander-transfer, saucepan-to-bowl, and ricing intervals to identify which transition is functionally equivalent.",
+      "purpose": "Resolves which v2 interval corresponds to the reference step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Observe the v2 candidate intervals around boiling, draining, transferring to a bowl, and ricing to establish the exact start and end seconds of the interval that matches the reference transition.",
+      "purpose": "Resolves the v2 boundary uncertainty.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-1648",
+    "task": "FSA",
+    "ground_truth": [
+      129,
+      143
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-1648/report.json",
+    "report_sha256": "fc994656f387df7c07c0d4a516e92cf9a15a8cc27ba849ec0a5129b328ddf266",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

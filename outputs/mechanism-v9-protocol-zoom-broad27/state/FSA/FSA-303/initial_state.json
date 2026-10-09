@@ -1,0 +1,116 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "Video 1 shows a woman adding sesame oil, soy sauce, salt, and mixing meat and seasonings in a bowl."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video 1 contains cooking steps involving seasoning and mixing meat, while Video 2 contains steps involving preparing ingredients and assembling a sandwich.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v2-b0006-e1",
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0006-e5",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The functionally equivalent step to Video 1's seasoning and mixing of meat in a bowl is not clearly identified in Video 2.",
+      "reason": "Video 2 contains steps involving ingredient preparation and sandwich assembly, but no explicit step of seasoning and mixing meat in a bowl is observed.",
+      "related_events": [
+        "v2-b0006-e1",
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0006-e5",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Identify the time interval in Video 2 where the woman mixes ingredients in a bowl, similar to the mixing step in Video 1.",
+      "purpose": "To resolve the unresolved issue of identifying the functionally equivalent step in Video 2.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-303",
+    "task": "FSA",
+    "ground_truth": [
+      282,
+      291
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/FSA/FSA-303/report.json",
+    "report_sha256": "1969adfa57820e09e34d901e74271b1e8b1320239319481635ac01131f76a65d",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

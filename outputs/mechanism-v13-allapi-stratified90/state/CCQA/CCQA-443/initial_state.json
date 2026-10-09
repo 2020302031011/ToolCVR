@@ -1,0 +1,240 @@
+{
+  "question": "How do the breading processes differ between video A and video B when preparing the chicken?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A baking pan containing four breaded chicken cutlets is placed on a counter."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Red sauce is spread over the breaded chicken cutlets in the pan."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Shredded white cheese is poured over the sauce-covered chicken cutlets."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "A baking pan containing four cooked, breaded chicken pieces is placed on a black stovetop."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2"
+      ],
+      "statement": "A breaded chicken piece is lifted from the pan onto a plate with broccoli and pasta."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Raw chicken pieces are arranged on a white cutting board and pounded with a metal meat tenderizer."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Chicken pieces are coated in dry crumbs and placed into a pan with oil."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "A woman coats chicken in a bowl of dry crumbs and places it into a pan with oil."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video A's supplied events show chicken already breaded before serving or topping, while Video B's supplied events show chicken being coated in dry crumbs before cooking.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0002-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video A's visible post-breading steps add sauce and cheese, whereas Video B's visible coating step is immediately followed by placing the chicken into oil.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video B shows raw chicken being pounded before coating, while Video A's earliest visible chicken is already breaded.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The actual breading steps and coating material for Video A's chicken remain undetermined.",
+      "reason": "The supplied Video A events begin with chicken already breaded and state that pre-cooking breading steps are not visible.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether Video B uses a wet batter or egg-wash step before the dry-crumb coating remains undetermined.",
+      "reason": "The supplied Video B events show dry-crumb coating but state that wet batter steps are not visible in the sequence.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The complete difference between the full breading processes in Video A and Video B remains undetermined.",
+      "reason": "Video A lacks visible breading steps, and Video B lacks visible wet-batter steps, so the available events compare only partial coating evidence.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the chicken state before and after the first visible cooking or serving step in Video A to detect any coating action.",
+      "purpose": "This would resolve the missing Video A breading process and coating material.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the chicken state before and after the dry-crumb coating in Video B to detect any wet-batter or egg-wash step.",
+      "purpose": "This would resolve whether Video B's breading includes wet steps before dry crumbs.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the earliest visible chicken-preparation stages in Video A and Video B to determine whether the breading processes use dry crumbs, wet batter, or another coating.",
+      "purpose": "This would resolve the comparative gap in the full breading-process difference.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-443",
+    "task": "CCQA",
+    "ground_truth": "Video A uses a two-step breading process: first coating chicken in flour before dipping in egg and quinoa mixture. Video B skips the flour stage entirely, directly dipping chicken in egg then panko breadcrumbs. The flour in Video A creates a base layer that helps the quinoa adhere, while Video B achieves crispiness through seasoned panko applied directly to the egg-washed chicken.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CCQA/CCQA-443/report.json",
+    "report_sha256": "b594735fce3f705394828f0f8e1968310630f521566ca8bc546e9ebd4b738915",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

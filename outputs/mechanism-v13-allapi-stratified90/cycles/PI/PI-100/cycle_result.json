@@ -1,0 +1,1102 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "The beginning shows a distressed woman, while the ending shows four women gathered in a closet-like social space with shopping bags, plus a later bench interaction with a man holding a gift box and fireworks scenes. The most directly supported missing-interval explanation is that she contacted three friends to create a support network, though the bench and fireworks material leave some ambiguity about later relationship outcomes.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c002",
+          "v2.zoom.r1-U04-01.s01",
+          "v2.c007"
+        ],
+        "attempts": [
+          "v2 shows four women together in a closet/social setting and one woman carrying shopping bags, consistent with a female support network. The direct causal link to the v1 woman is inferred from story continuity rather than explicitly observed."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v2.c013"
+        ],
+        "attempts": [
+          "The bench scene with a man holding a gift box could reflect closure, apology, or reconciliation, but there is no visible red box, letter, or confrontational action confirming that specific interpretation."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c014",
+          "v2.c015"
+        ],
+        "attempts": [
+          "Waterfront and fireworks scenes show night outings and couples but do not distinguish a spontaneous trip, family reconciliation, or public embarrassment event."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          28.0,
+          30.0
+        ],
+        "description": "Close-up of a crying woman calling out a name ('Jian Xi').",
+        "uncertainty": "Identity of person addressed is not visually confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          32.0,
+          38.0
+        ],
+        "description": "The woman walks through an outdoor area at night, passing a red telephone booth.",
+        "uncertainty": "Destination and purpose of walking are unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          182.0,
+          184.0
+        ],
+        "description": "The video sequence begins with a black screen, transitioning into a dimly lit view of a room.",
+        "uncertainty": "Context of the dark screen is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          186.0,
+          200.0
+        ],
+        "description": "A group of four young women are shown relaxing on a bed in a high-rise apartment at night, watching a video on a TV screen.",
+        "uncertainty": "The specific relationship between the women is not explicitly stated.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          202.0,
+          210.0
+        ],
+        "description": "The women continue their gathering, toasting with champagne glasses and taking selfies together, displaying cheerful and celebratory behavior.",
+        "uncertainty": "The occasion for the celebration is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          214.0,
+          218.0
+        ],
+        "description": "The scene shifts to a walk-in closet where the women are interacting with clothing and accessories; one woman is holding a glass of champagne.",
+        "uncertainty": "The transition from the bedroom to the closet is abrupt.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          220.0,
+          222.0
+        ],
+        "description": "A woman with short hair poses in a black dress in a brightly lit room.",
+        "uncertainty": "Context of the photoshoot is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          248.0,
+          258.0
+        ],
+        "description": "The woman is seen with three friends in a closet, laughing and interacting.",
+        "uncertainty": "The reason for their gathering is not stated.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          260.0,
+          262.0
+        ],
+        "description": "The woman walks through the closet holding several large shopping bags.",
+        "uncertainty": "It is unclear if she purchased the items or is returning them.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          264.0,
+          266.0
+        ],
+        "description": "A man is shown alone at night, looking down with a somber expression.",
+        "uncertainty": "The cause of his distress is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          278.0,
+          278.0
+        ],
+        "description": "The man is now with another man, who is wearing a white beanie.",
+        "uncertainty": "The nature of their interaction is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e6",
+        "video_id": "v2",
+        "time_span": [
+          280.0,
+          284.0
+        ],
+        "description": "A man sits alone in a dark apartment, looking out the window.",
+        "uncertainty": "His emotional state and thoughts are not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          286.0,
+          292.0
+        ],
+        "description": "A man with dark hair is shown in close-up profile, looking off-screen with a serious or concerned expression.",
+        "uncertainty": "Who he is looking at is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          294.0,
+          300.0
+        ],
+        "description": "A woman is seen sleeping on a sofa in an office. A hand touches her shoulder to wake her, and subtitles indicate someone is waiting for her outside.",
+        "uncertainty": "The identity of the person waiting outside is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          310.0,
+          318.0
+        ],
+        "description": "The woman walks out of a building and sits on a bench outside with a man, who is holding a gift box.",
+        "uncertainty": "The content of their conversation is not audible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          320.0,
+          328.0
+        ],
+        "description": "Two figures in winter coats stand by a waterfront at night, looking at fireworks over a city skyline.",
+        "uncertainty": "The specific location and the relationship of the figures are not explicitly shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          330.0,
+          340.0
+        ],
+        "description": "Two men watch fireworks from a pier, then a couple walks at night. A man is later seen watching fireworks on a TV screen indoors.",
+        "uncertainty": "Relationship between the men and the couple is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          402.0,
+          414.0
+        ],
+        "description": "A woman in a beige dress holds a glass on a balcony with city fireworks. She then joins two other women on a sofa, laughing and talking.",
+        "uncertainty": "The specific dialogue and context of the gathering are not fully clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          466.0,
+          470.0
+        ],
+        "description": "A panoramic shot of a city skyline at night with illuminated buildings.",
+        "uncertainty": "No specific action or event occurs in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          472.0,
+          472.0
+        ],
+        "description": "A person is sleeping in a large bed in a dimly lit room. There are white pillows, a dark headboard, and a glass table with a lamp nearby.",
+        "uncertainty": "The person's identity is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          248.0,
+          250.0
+        ],
+        "description": "The video starts with a close-up of two women, then widens to show a third woman entering the frame and sitting down with the group in a walk-in closet.",
+        "uncertainty": "Identity of the women is not established.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          251.0,
+          258.0
+        ],
+        "description": "A fourth woman is visible sitting with the group. The four women are seated together, smiling, holding champagne flutes, and interacting supportively.",
+        "uncertainty": "The specific conversation or context is not audible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          32.0,
+          33.0
+        ],
+        "description": "Woman in white fur coat stands with back to camera near a decorated wall and red stairs, looking towards a plaza.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          34.0,
+          38.0
+        ],
+        "description": "Woman walks along a sidewalk past a red telephone booth, carrying a handbag, without entering or interacting with the booth.",
+        "uncertainty": "Target action of placing a call not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local confirmation that v2 closet scene shows the woman with three friends in a supportive gathering.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U04",
+        "slot_ids": [
+          "v2.c006"
+        ],
+        "evidence_goal": "In v2.c006, is the woman accompanied by exactly three other women who appear as friends in a supportive interaction?",
+        "next_probe_goal": "If yes, inspect v1.c002 for whether she used the red telephone booth to contact them.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need determine whether v1's red telephone booth is used to contact friends rather than merely passed.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.c002"
+        ],
+        "evidence_goal": "Does the woman enter or use the red telephone booth to place a call, rather than just walking past it?",
+        "next_probe_goal": "If she uses the booth, inspect v2.zoom.r1-U04-01.s01 for friend-group cues.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The beginning shows a distressed woman, while the ending shows four women gathered in a closet-like social space with shopping bags, plus a later bench interaction with a man holding a gift box and fireworks scenes. The most directly supported missing-interval explanation is that she contacted three friends to create a support network, though the bench and fireworks material leave some ambiguity about later relationship outcomes.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.c001",
+      "v2.c002",
+      "v2.zoom.r1-U04-01.s01",
+      "v2.c007"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        15.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        28.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a crying woman calling out a name ('Jian Xi').",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity of person addressed is not visually confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r2-01.s01",
+      "video": "v1",
+      "time": [
+        32.0,
+        38.0
+      ],
+      "resolution": "fine",
+      "content": "Woman in white fur coat stands with back to camera near a decorated wall and red stairs, looking towards a plaza. Woman walks along a sidewalk past a red telephone booth, carrying a handbag, without entering or interacting with the booth.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Target action of placing a call not visible in supplied frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        182.0,
+        184.0
+      ],
+      "resolution": "coarse",
+      "content": "The video sequence begins with a black screen, transitioning into a dimly lit view of a room.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Context of the dark screen is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        186.0,
+        192.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        186.0,
+        200.0
+      ],
+      "resolution": "coarse",
+      "content": "A group of four young women are shown relaxing on a bed in a high-rise apartment at night, watching a video on a TV screen.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific relationship between the women is not explicitly stated."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        200.0,
+        202.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        202.0,
+        210.0
+      ],
+      "resolution": "coarse",
+      "content": "The women continue their gathering, toasting with champagne glasses and taking selfies together, displaying cheerful and celebratory behavior.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The occasion for the celebration is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        210.0,
+        214.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        214.0,
+        218.0
+      ],
+      "resolution": "coarse",
+      "content": "The scene shifts to a walk-in closet where the women are interacting with clothing and accessories; one woman is holding a glass of champagne.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The transition from the bedroom to the closet is abrupt."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        220.0,
+        222.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman with short hair poses in a black dress in a brightly lit room.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Context of the photoshoot is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        222.0,
+        237.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        237.0,
+        248.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U04-01.s01",
+      "video": "v2",
+      "time": [
+        248.0,
+        258.0
+      ],
+      "resolution": "fine",
+      "content": "The video starts with a close-up of two women, then widens to show a third woman entering the frame and sitting down with the group in a walk-in closet. A fourth woman is visible sitting with the group. The four women are seated together, smiling, holding champagne flutes, and interacting supportively.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Identity of the women is not established.",
+        "The specific conversation or context is not audible."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        260.0,
+        262.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman walks through the closet holding several large shopping bags.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "It is unclear if she purchased the items or is returning them."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        264.0,
+        266.0
+      ],
+      "resolution": "coarse",
+      "content": "A man is shown alone at night, looking down with a somber expression.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "The cause of his distress is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        266.0,
+        278.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        278.0,
+        278.0
+      ],
+      "resolution": "coarse",
+      "content": "The man is now with another man, who is wearing a white beanie.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [
+        "The nature of their interaction is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        280.0,
+        284.0
+      ],
+      "resolution": "coarse",
+      "content": "A man sits alone in a dark apartment, looking out the window.",
+      "evidence": [
+        "v2-b0002-e6"
+      ],
+      "uncertainty": [
+        "His emotional state and thoughts are not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        286.0,
+        292.0
+      ],
+      "resolution": "coarse",
+      "content": "A man with dark hair is shown in close-up profile, looking off-screen with a serious or concerned expression.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Who he is looking at is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        286.0,
+        292.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        294.0,
+        300.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman is seen sleeping on a sofa in an office. A hand touches her shoulder to wake her, and subtitles indicate someone is waiting for her outside.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "The identity of the person waiting outside is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        300.0,
+        310.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        310.0,
+        318.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman walks out of a building and sits on a bench outside with a man, who is holding a gift box.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "The content of their conversation is not audible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        320.0,
+        328.0
+      ],
+      "resolution": "coarse",
+      "content": "Two figures in winter coats stand by a waterfront at night, looking at fireworks over a city skyline.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The specific location and the relationship of the figures are not explicitly shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        328.0,
+        330.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        330.0,
+        340.0
+      ],
+      "resolution": "coarse",
+      "content": "Two men watch fireworks from a pier, then a couple walks at night. A man is later seen watching fireworks on a TV screen indoors.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Relationship between the men and the couple is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        340.0,
+        355.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        355.0,
+        370.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        370.0,
+        385.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        385.0,
+        400.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        400.0,
+        402.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        402.0,
+        414.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman in a beige dress holds a glass on a balcony with city fireworks. She then joins two other women on a sofa, laughing and talking.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "The specific dialogue and context of the gathering are not fully clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        414.0,
+        429.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        429.0,
+        444.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        444.0,
+        459.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        459.0,
+        466.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        466.0,
+        470.0
+      ],
+      "resolution": "coarse",
+      "content": "A panoramic shot of a city skyline at night with illuminated buildings.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "No specific action or event occurs in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        472.0,
+        472.0
+      ],
+      "resolution": "coarse",
+      "content": "A person is sleeping in a large bed in a dimly lit room. There are white pillows, a dark headboard, and a glass table with a lamp nearby.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "The person's identity is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If yes, inspect v1.c002 for whether she used the red telephone booth to contact them.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

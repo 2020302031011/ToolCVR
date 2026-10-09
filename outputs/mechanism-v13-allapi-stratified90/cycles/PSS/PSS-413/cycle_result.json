@@ -1,0 +1,707 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "Visible transitions support seasoned-flour preparation (v3), raw fillets soaking in orange wet batter/marinade (v4), batter-to-flour coating and oil immersion (v1), then post-fry resting, salting, and plating (v2). The best-supported chronological sequence is v3 -> v4 -> v1 -> v2.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "open",
+        "evidence_refs": [
+          "v4.c002",
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req2",
+        "status": "open",
+        "evidence_refs": [
+          "v3.zoom.r1-U01-03.s01",
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c002",
+          "v1.zoom.r2-r1-01.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          8.012
+        ],
+        "description": "A man in a blue shirt coats a piece of fish in flour, then dips it into a batter bowl.",
+        "uncertainty": "The exact cooking recipe or final dish.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          16.02,
+          16.02
+        ],
+        "description": "A close-up shot shows food bubbling in hot oil inside a deep fryer basket.",
+        "uncertainty": "What specific food item is being fried.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.038,
+          6.002
+        ],
+        "description": "Fried fish fillets are removed from the fryer basket using tongs and placed onto a paper-towel-lined tray.",
+        "uncertainty": "Exact number of fillets transferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          7.005,
+          11.009
+        ],
+        "description": "Three fish fillets rest on the paper towel; tongs are set down and the chef seasons the fish with salt.",
+        "uncertainty": "Whether additional fillets were transferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          15.013,
+          17.015
+        ],
+        "description": "The chef places fried fish fillets into a wire basket lined with paper, arranged on top of french fries.",
+        "uncertainty": "Exact count of fillets placed in the basket.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          18.018,
+          20.02
+        ],
+        "description": "The chef adds a lemon wedge to the basket of fish and chips for garnish.",
+        "uncertainty": "Final presentation of the dish.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.031,
+          1.992
+        ],
+        "description": "A man adds red spice powder from a small bowl into a large bowl containing white flour.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          7.998,
+          10.0
+        ],
+        "description": "The man vigorously mixes the ingredients in the bowl with a spoon, incorporating the red spice into the flour.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.009,
+          4.013
+        ],
+        "description": "A chef stands in a kitchen. He holds a small bowl and pours a substance into a larger glass bowl containing white liquid. A blue plate with three white fillets sits in the foreground.",
+        "uncertainty": "Exact contents of the small bowl are unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          7.017,
+          12.982
+        ],
+        "description": "The chef dips a white fillet into the glass bowl, which now contains a swirling orange-tinted liquid. He places the fillet into the liquid, joining other fillets already soaking.",
+        "uncertainty": "The transition of liquid color between segments is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          2.004
+        ],
+        "description": "A man in a blue shirt dips a piece of food into a bowl of wet batter, then transfers it to a bowl of dry flour.",
+        "uncertainty": "Specific ingredients in the wet batter are not identifiable.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          3.004,
+          6.004
+        ],
+        "description": "The man coats the food in the flour mixture, pressing it down to ensure coverage. The flour appears white with reddish speckles.",
+        "uncertainty": "The specific type of seasoning causing the speckles is unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          7.004,
+          8.004
+        ],
+        "description": "The floured food item is lifted and placed into the metal basket of a deep fryer.",
+        "uncertainty": "The state of the oil (temperature/level) is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          0.031,
+          1.031
+        ],
+        "description": "A man reaches for a small bowl of red spice, lifts it, and tilts it over a larger bowl of white flour.",
+        "uncertainty": "Exact moment the spice enters the flour is not captured.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          7.998,
+          9.998
+        ],
+        "description": "A man in a blue shirt stands in a kitchen, holding a spoon over a bowl of seasoned flour. He stirs the mixture, combining white flour with visible red and yellow seasonings.",
+        "uncertainty": "The specific ingredients of the seasonings are not explicitly labeled.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          12.02,
+          13.02
+        ],
+        "description": "A man coats a rectangular food item in flour from a bowl, then holds it over a fryer basket. The item appears to be a fillet.",
+        "uncertainty": "Exact species of the fillet is not visually confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          14.02,
+          16.02
+        ],
+        "description": "The man places the flour-coated fillets into the fryer basket and lowers them into the oil, where they begin to bubble.",
+        "uncertainty": "None significant regarding the action shown.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need to verify if the flour used in v1 matches the seasoned flour from v3 to establish the link between v3 and v1.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v3.c001",
+          "v3.c002"
+        ],
+        "evidence_goal": "Compare the appearance of the flour in v1's coating step with the seasoned flour in v3's mixing steps.",
+        "next_probe_goal": "Verify if the batter in v1 matches the liquid prepared in v4.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Identify v1 frying food to link it to v2 plated fish",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c002"
+        ],
+        "evidence_goal": "In the v1 frying close-up, is the bubbling food a flour-coated fish fillet?",
+        "next_probe_goal": "In v2 before plating, are the fillets shown as fried fish being drained or rested?",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Visible transitions support seasoned-flour preparation (v3), raw fillets soaking in orange wet batter/marinade (v4), batter-to-flour coating and oil immersion (v1), then post-fry resting, salting, and plating (v2). The best-supported chronological sequence is v3 -> v4 -> v1 -> v2.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v3 -> v4 -> v1 -> v2",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v3 -> v4 -> v1 -> v2",
+    "evidence_refs": [
+      "v3.zoom.r1-U01-02.s01",
+      "v3.zoom.r1-U01-03.s01",
+      "v4.c002",
+      "v1.zoom.r1-U01-01.s01",
+      "v1.zoom.r2-r1-01.s01",
+      "v2.c002"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.004,
+        8.012
+      ],
+      "resolution": "fine",
+      "content": "A man in a blue shirt dips a piece of food into a bowl of wet batter, then transfers it to a bowl of dry flour. The man coats the food in the flour mixture, pressing it down to ensure coverage. The flour appears white with reddish speckles. The floured food item is lifted and placed into the metal basket of a deep fryer.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "Specific ingredients in the wet batter are not identifiable.",
+        "The specific type of seasoning causing the speckles is unknown.",
+        "The state of the oil (temperature/level) is not visible.",
+        "Unresolved: Visual comparison with v3's seasoned flour mixing steps"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        8.012,
+        16.019999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        12.02,
+        16.958291644204852
+      ],
+      "resolution": "fine",
+      "content": "A man coats a rectangular food item in flour from a bowl, then holds it over a fryer basket. The item appears to be a fillet. The man places the flour-coated fillets into the fryer basket and lowers them into the oil, where they begin to bubble.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact species of the fillet is not visually confirmed.",
+        "None significant regarding the action shown."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.019999999999996,
+        17.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.038,
+        6.002
+      ],
+      "resolution": "coarse",
+      "content": "Fried fish fillets are removed from the fryer basket using tongs and placed onto a paper-towel-lined tray.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact number of fillets transferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        6.0020000000000095,
+        7.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        7.005,
+        11.009
+      ],
+      "resolution": "coarse",
+      "content": "Three fish fillets rest on the paper towel; tongs are set down and the chef seasons the fish with salt.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether additional fillets were transferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        11.009000000000015,
+        15.013000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        15.013,
+        17.015
+      ],
+      "resolution": "coarse",
+      "content": "The chef places fried fish fillets into a wire basket lined with paper, arranged on top of french fries.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact count of fillets placed in the basket."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        17.015000000000015,
+        18.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        18.018,
+        20.02
+      ],
+      "resolution": "coarse",
+      "content": "The chef adds a lemon wedge to the basket of fish and chips for garnish.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Final presentation of the dish."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        20.02000000000001,
+        21.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-02.s01",
+      "video": "v3",
+      "time": [
+        0.031,
+        1.992
+      ],
+      "resolution": "fine",
+      "content": "A man reaches for a small bowl of red spice, lifts it, and tilts it over a larger bowl of white flour.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Exact moment the spice enters the flour is not captured.",
+        "Unresolved: Visual appearance of the seasoned flour after mixing is complete."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        1.9920000000000044,
+        7.998000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-03.s01",
+      "video": "v3",
+      "time": [
+        7.998,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A man in a blue shirt stands in a kitchen, holding a spoon over a bowl of seasoned flour. He stirs the mixture, combining white flour with visible red and yellow seasonings.",
+      "evidence": [
+        "v3.focus.r1.l3.e1"
+      ],
+      "uncertainty": [
+        "The specific ingredients of the seasonings are not explicitly labeled.",
+        "Unresolved: Appearance of flour in v1's coating step"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        0.009,
+        4.013
+      ],
+      "resolution": "coarse",
+      "content": "A chef stands in a kitchen. He holds a small bowl and pours a substance into a larger glass bowl containing white liquid. A blue plate with three white fillets sits in the foreground.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact contents of the small bowl are unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        4.012999999999998,
+        5.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        5.001,
+        7.016999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        7.017,
+        12.982
+      ],
+      "resolution": "coarse",
+      "content": "The chef dips a white fillet into the glass bowl, which now contains a swirling orange-tinted liquid. He places the fillet into the liquid, joining other fillets already soaking.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "The transition of liquid color between segments is unobserved."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        12.982,
+        14.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Verify if the batter in v1 matches the liquid prepared in v4.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

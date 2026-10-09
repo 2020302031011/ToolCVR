@@ -1,0 +1,233 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A person pours sesame oil from a green and white tin into a glass bowl containing meat."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A person pours a dark liquid from a bottle with a green cap into the bowl."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e5"
+      ],
+      "statement": "A person sprinkles salt from a blue and white cylindrical container into the bowl."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e6"
+      ],
+      "statement": "The person mixes the meat and marinade ingredients inside the bowl with a gloved hand."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e2"
+      ],
+      "statement": "A woman peels and chops a garlic clove into small pieces on a wooden cutting board."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "Chopped garlic, green chilies, and green onions are sequentially added into a clear glass bowl."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e1"
+      ],
+      "statement": "A person prepares a sauce in a glass bowl, adding ingredients and pouring a dark liquid from a bottle."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3"
+      ],
+      "statement": "A person uses a wire mesh skimmer to place pieces of raw meat into a pot of hot oil to fry."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0006-e1"
+      ],
+      "statement": "A close-up shows a glass bowl containing cooked meat pieces while a spoon stirs the contents."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show ingredients being added to a glass bowl, but v1 adds liquids and salt to meat and then mixes it by hand, while v2 adds chopped aromatics or sauce ingredients into a bowl.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e3",
+        "v1-b0001-e5",
+        "v1-b0001-e6",
+        "v2-b0002-e3",
+        "v2-b0003-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1's bowl action occurs with meat before or during marinade mixing, whereas v2 has separate bowl actions before frying and after frying, leaving the meat-state correspondence open.",
+      "supporting_events": [
+        "v1-b0001-e6",
+        "v2-b0002-e3",
+        "v2-b0003-e1",
+        "v2-b0003-e3",
+        "v2-b0006-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The exact reference cooking step within v1 is not fixed among the listed v1 events.",
+      "reason": "The question calls v1 a reference cooking step but the supplied events describe several sequential actions without a designated reference interval.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e3",
+        "v1-b0001-e5",
+        "v1-b0001-e6",
+        "v1-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The functionally equivalent v2 step and its interval remain unresolved because v2 contains multiple bowl-related actions with different meat states.",
+      "reason": "The reports show v2 adding aromatics or sauce ingredients to a bowl and later stirring cooked meat, but do not establish which action matches v1's state transition.",
+      "related_events": [
+        "v1-b0001-e6",
+        "v2-b0002-e3",
+        "v2-b0003-e1",
+        "v2-b0006-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the visual continuity and state transition of v1-b0001-e1, v1-b0001-e3, v1-b0001-e5, and v1-b0001-e6 to identify which single action is the reference cooking step.",
+      "purpose": "This would fix the reference state transition needed to compare v2 candidates.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare whether the v1 reference step involves raw meat being seasoned and mixed in a glass bowl, while v2-b0002-e3 and v2-b0003-e1 involve adding ingredients to a bowl without visible raw meat mixing.",
+      "purpose": "This would resolve whether the v2 bowl ingredient addition is functionally equivalent to the v1 reference step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare v2-b0006-e1 with v2-b0003-e3 to determine whether the bowl contents are cooked meat after frying rather than raw meat before frying.",
+      "purpose": "This would resolve whether the post-frying bowl action matches the v1 state transition.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-303",
+    "task": "FSA",
+    "ground_truth": [
+      282,
+      291
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/FSA/FSA-303/report.json",
+    "report_sha256": "e797ea6be993f9337a22d499ec724ada137826b07fc2be0841e22f24feb7b7bc",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "options": [],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->",
+      "Determine the chronological order of the shuffled clips based on the sequence of actions and events in the cooking process"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 4,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          10.01,
+          10.01
+        ],
+        [
+          16.016000000000002,
+          16.016000000000002
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b1-audit-b1-1",
+          "time_span": [
+            10.01,
+            10.01
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v1-b1-audit-b1-2",
+          "time_span": [
+            16.016000000000002,
+            16.016000000000002
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=2/4 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b1-audit-b1-1 [10.010-10.010s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01 | confidence=0.000\n- v1-b1-audit-b1-2 [16.016-16.016s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b1-audit-b1-1 [10.010-10.010s] Selection proposal only for segment S1.\n- v1-b1-audit-b1-2 [16.016-16.016s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b1-audit-b1-1,v1-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b1-audit-b1-1",
+            "v1-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 10.01,
+          "actual_timestamp_seconds": 10.01,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 16.016000000000002,
+          "actual_timestamp_seconds": 16.016000000000002,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 7,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          24.991633333333336,
+          28.995633333333334
+        ],
+        [
+          32.999633333333335,
+          37.00363333333333
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b1-audit-b1-1",
+          "time_span": [
+            24.991633333333336,
+            28.995633333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-2",
+          "time_span": [
+            32.999633333333335,
+            37.00363333333333
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02",
+            "S2-F03"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=6/7 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b1-audit-b1-1 [24.992-28.996s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.000\n- v2-b1-audit-b1-2 [33.000-37.004s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01,S2-F02,S2-F03 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b1-audit-b1-1 [24.992-28.996s] Selection proposal only for segment S1.\n- v2-b1-audit-b1-2 [33.000-37.004s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b1-audit-b1-1,v2-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b1-audit-b1-1",
+            "v2-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 24.991633333333336,
+          "actual_timestamp_seconds": 24.991633333333336,
+          "requested_frame_index": 749,
+          "actual_frame_index": 749,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 26.993633333333335,
+          "actual_timestamp_seconds": 26.993633333333335,
+          "requested_frame_index": 809,
+          "actual_frame_index": 809,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 28.995633333333334,
+          "actual_timestamp_seconds": 28.995633333333334,
+          "requested_frame_index": 869,
+          "actual_frame_index": 869,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 32.999633333333335,
+          "actual_timestamp_seconds": 32.999633333333335,
+          "requested_frame_index": 989,
+          "actual_frame_index": 989,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 35.00163333333334,
+          "actual_timestamp_seconds": 35.00163333333334,
+          "requested_frame_index": 1049,
+          "actual_frame_index": 1049,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 37.00363333333333,
+          "actual_timestamp_seconds": 37.00363333333333,
+          "requested_frame_index": 1109,
+          "actual_frame_index": 1109,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v3",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 2,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          18.985633333333332,
+          20.987633333333335
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v3-b1-audit-b1-1",
+          "time_span": [
+            18.985633333333332,
+            20.987633333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v3\nCOVERAGE selected=2/2 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT all sparse candidates retained; moments between sampled frames remain unobserved\nEVENT INDEX\n- v3-b1-audit-b1-1 [18.986-20.988s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v3-b1-audit-b1-1 [18.986-20.988s] Selection proposal only for segment S1.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v3-b1-audit-b1-1 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v3-b1-audit-b1-1"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v3",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 18.985633333333332,
+          "actual_timestamp_seconds": 18.985633333333332,
+          "requested_frame_index": 569,
+          "actual_frame_index": 569,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v3",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 20.987633333333335,
+          "actual_timestamp_seconds": 20.987633333333335,
+          "requested_frame_index": 629,
+          "actual_frame_index": 629,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v4",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 4,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          43.00963333333333,
+          43.00963333333333
+        ],
+        [
+          49.015633333333334,
+          49.015633333333334
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v4-b1-audit-b1-1",
+          "time_span": [
+            43.00963333333333,
+            43.00963333333333
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v4-b1-audit-b1-2",
+          "time_span": [
+            49.015633333333334,
+            49.015633333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v4\nCOVERAGE selected=2/4 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v4-b1-audit-b1-1 [43.010-43.010s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01 | confidence=0.000\n- v4-b1-audit-b1-2 [49.016-49.016s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v4-b1-audit-b1-1 [43.010-43.010s] Selection proposal only for segment S1.\n- v4-b1-audit-b1-2 [49.016-49.016s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v4-b1-audit-b1-1,v4-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v4-b1-audit-b1-1",
+            "v4-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v4",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 43.00963333333333,
+          "actual_timestamp_seconds": 43.00963333333333,
+          "requested_frame_index": 1289,
+          "actual_frame_index": 1289,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v4",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 49.015633333333334,
+          "actual_timestamp_seconds": 49.015633333333334,
+          "requested_frame_index": 1469,
+          "actual_frame_index": 1469,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "PSS-160",
+    "task": "PSS",
+    "ground_truth": "1->3->2->4",
+    "rewrite_model": "Qwen3-14B",
+    "clip_model": "openai/clip-vit-large-patch14-336",
+    "selection_only": true,
+    "duration_stratified_audit": false,
+    "selection_profile": null,
+    "configured_retention_ratio": null,
+    "query_plan_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-selection-broad27/PSS/PSS-160/query_plan.json",
+    "adaptation_notes": [],
+    "inputs": [
+      {
+        "video_id": "v1",
+        "source_time_spans": [
+          [
+            10.0,
+            17.0
+          ]
+        ],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      },
+      {
+        "video_id": "v2",
+        "source_time_spans": [
+          [
+            25.0,
+            32.0
+          ],
+          [
+            33.0,
+            38.0
+          ]
+        ],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      },
+      {
+        "video_id": "v3",
+        "source_time_spans": [
+          [
+            19.0,
+            22.0
+          ]
+        ],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      },
+      {
+        "video_id": "v4",
+        "source_time_spans": [
+          [
+            43.0,
+            49.0
+          ]
+        ],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      }
+    ]
+  }
+}

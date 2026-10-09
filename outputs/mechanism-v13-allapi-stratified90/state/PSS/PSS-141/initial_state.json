@@ -1,0 +1,301 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3"
+      ],
+      "statement": "Three whole eggs are cracked into a white bowl and cream is poured over them."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "A yellow mixture is whisked in a white bowl while small bowls containing butter and shredded cheese are visible."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2"
+      ],
+      "statement": "A frying pan is held above a stovetop and rests on a burner with eggs and butter visible nearby."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e4",
+        "v2-b0001-e6",
+        "v2-b0001-e7",
+        "v2-b0002-e1",
+        "v2-b0002-e2"
+      ],
+      "statement": "A knob of butter is placed in a pan, melts, the pan is swirled, and a yellow mixture is poured in and cooks as a thin base."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "statement": "Parmesan cheese is grated into a pan containing a yellow mixture, which later thickens into a creamy mass."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v5",
+        "v3"
+      ],
+      "statement": "v5 shows a white bowl receiving cracked eggs and cream, while v3 shows a white bowl being whisked into a yellow mixture.",
+      "supporting_events": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "statement": "v3 shows whisking of a yellow mixture with butter and shredded cheese nearby, while v2 shows whisking of a yellow mixture and butter being placed into a pan.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e3",
+        "v2-b0001-e7"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v1"
+      ],
+      "statement": "v2 shows the yellow mixture poured into a pan and cooking as a thin base, while v1 shows cheese being grated into a pan mixture that later thickens.",
+      "supporting_events": [
+        "v2-b0001-e7",
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v4",
+        "v2"
+      ],
+      "statement": "v4 shows a pan being held and placed on a stovetop, while v2 shows butter being placed into and melted in a pan.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e4"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "v4 shows eggs and butter visible near a pan, while v5 shows eggs and butter staged on a counter.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v4",
+        "v5",
+        "v2"
+      ],
+      "issue": "The relative stage of the pan positioning in v4 compared with the egg staging in v5 and the butter placement in v2 remains unresolved.",
+      "reason": "v4 reports only that a pan is held and placed near eggs and butter, without showing whether the eggs are whole, cracked, or mixed.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v5-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "issue": "The relative stage relationship between v3 and v2 remains unresolved.",
+      "reason": "Both videos show whisking and butter, but the reports do not show whether v3's staged butter and cheese precede v2's butter placement or occur during the same segment.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e7"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2",
+        "v1"
+      ],
+      "issue": "The transition from the thin cooking base in v2 to the cheese addition and thickened mass in v1 remains unresolved.",
+      "reason": "v2 reports a thin bubbly base and v1 reports cheese being grated into a liquid mixture that later thickens, but no supplied event connects these pan states.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v4",
+        "v5"
+      ],
+      "observable": "compare whether the eggs near the pan in v4 are whole in a ramekin or already cracked into the bowl shown in v5",
+      "purpose": "resolve U01",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v4",
+        "v2"
+      ],
+      "observable": "compare the pan contents in v4 with the pan contents when butter is placed in v2 to see whether v4 shows an empty pan",
+      "purpose": "resolve U01",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3",
+        "v2"
+      ],
+      "observable": "compare whether the butter bowl visible in v3 is still present and full when v2 places butter into the pan",
+      "purpose": "resolve U02",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2",
+        "v1"
+      ],
+      "observable": "compare whether the pan contents at the start of v1 already show the thin bubbly base seen at the end of v2",
+      "purpose": "resolve U03",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 5,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v2",
+        "v5"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-141",
+    "task": "PSS",
+    "ground_truth": "5->3->4->2->1",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-141/report.json",
+    "report_sha256": "c1b2d07e339205665b0f12296d0f6dc082b749492d32cf88a58941a5aca0e205",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

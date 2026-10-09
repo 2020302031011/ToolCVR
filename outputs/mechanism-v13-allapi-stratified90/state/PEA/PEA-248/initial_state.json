@@ -1,0 +1,319 @@
+{
+  "question": "Which assembly error is directly caused by wrong action order?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2",
+        "v1-b0002-e3"
+      ],
+      "statement": "In v1, the blue cabin is attached to the black chassis while the white dump bed remains separate on the table."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0004-e4",
+        "v1-b0005-e1"
+      ],
+      "statement": "In v1, the white dump bed is shown attached to a blue truck chassis and also attached to a blue base."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0005-e3",
+        "v1-b0005-e4"
+      ],
+      "statement": "In v1, the white dump bed is separated from the blue base and the blue base is then attached directly to the black chassis."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0006-e2"
+      ],
+      "statement": "In v1, the blue cabin is placed onto the truck base and secured with a screwdriver."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3"
+      ],
+      "statement": "In v2, the dump bed is already mounted on the chassis while wheels are attached, and the cabin is attached afterward."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, a rectangular component of uncertain identity is placed on the table and then attached to a larger assembly."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "In v3, wheels are attached to the underside of a black chassis component."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e4"
+      ],
+      "statement": "In v3, the final visible assembly has the white dump bed attached to the blue cab and sitting on the black chassis."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e1",
+        "v3-b0002-e3"
+      ],
+      "statement": "In v3, the truck already has a white dump bed attached when an orange component is handled, and a gray cabin is later visible on the chassis."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 shows cabin attachment while the dump bed is separate, whereas v2 shows cabin attachment after the dump bed and wheels are already on the chassis.",
+      "supporting_events": [
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 contains explicit attempts to attach the dump bed to chassis or base, while v3 only shows the dump bed attached to cab and chassis in a final state.",
+      "supporting_events": [
+        "v1-b0002-e1",
+        "v1-b0004-e4",
+        "v3-b0001-e4"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show dump-bed/cab/chassis configurations without a visually explicit error in the cited spans.",
+      "supporting_events": [
+        "v2-b0002-e1",
+        "v2-b0002-e3",
+        "v3-b0001-e4",
+        "v3-b0002-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether attaching the white dump bed to the black chassis in v1 is an assembly error caused by a wrong action order remains unresolved.",
+      "reason": "v1 shows bed/chassis attachment attempts and alternate bed/base/chassis sequences, but does not show the intended order or a visible error.",
+      "related_events": [
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0004-e4",
+        "v1-b0005-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether attaching the blue cabin to the black chassis in v1 is an assembly error caused by a wrong action order remains unresolved.",
+      "reason": "v1 shows cabin attachment while the dump bed is separate and later cabin placement on truck base, but no event identifies an error caused by that sequence.",
+      "related_events": [
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0006-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the v2 sequence of mounting the dump bed, attaching wheels, and attaching the cabin causes a visible assembly error remains unresolved.",
+      "reason": "v2 shows the order of those attachments but does not show a resulting error or intended order.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether a roof component is attached to the cabin in v2 and whether that order causes an assembly error remains unresolved.",
+      "reason": "v2 reports a rectangular component of uncertain identity and a cab, leaving the roof identity and any roof-related error undetermined.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether attaching the dump bed and base in v3 is an assembly error caused by a wrong action order remains unresolved.",
+      "reason": "v3 shows wheels attached to a chassis/base and a final bed/cab/chassis state, but does not show the bed/base attachment order or an error.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the v1 spans around bed/chassis attachment and cabin attachment to see whether the bed is attached before the cabin and whether an error appears.",
+      "purpose": "resolve whether v1 dump bed/chassis order caused an assembly error",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the v1 cabin attachment spans to see whether the cabin is attached to the chassis before the dump bed and whether that causes a visible error.",
+      "purpose": "resolve whether v1 cabin/chassis order caused an assembly error",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the v2 spans showing bed mounted, wheels attached, and cabin attached to see whether the order produces a visible assembly error.",
+      "purpose": "resolve whether v2 bed/wheel/cabin sequence caused an error",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the v2 rectangular component and cab spans to determine whether a roof is present and whether roof-cabin attachment order causes an error.",
+      "purpose": "resolve whether v2 roof/cabin option has evidence",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the v3 chassis/base wheel spans with the final bed/cab/chassis state to determine whether dump bed/base attachment order caused an error.",
+      "purpose": "resolve whether v3 dump bed/base order caused an error",
+      "related_issue": "U05"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-248",
+    "task": "PEA",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PEA/PEA-248/report.json",
+    "report_sha256": "04ce3a6f43089592fdb2952d1d724abbfa09893d9744f29e0b54fb4c8d706261",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

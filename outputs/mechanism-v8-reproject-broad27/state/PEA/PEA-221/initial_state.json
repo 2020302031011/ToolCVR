@@ -1,0 +1,181 @@
+{
+  "question": "Which action is incorrectly performed in exactly two videos?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0002-e4"
+      ],
+      "statement": "Multiple actions involving screwdrivers and assembling parts are observed in v1, but the correctness of these actions is not visible in the frames."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "statement": "In v2, the person uses a screwdriver to attach wheels to a chassis, and there is no evidence of incorrect action in this sequence."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3",
+        "v3-b0002-e4",
+        "v3-b0003-e1",
+        "v3-b0003-e2",
+        "v3-b0003-e3",
+        "v3-b0003-e4",
+        "v3-b0004-e1",
+        "v3-b0004-e2"
+      ],
+      "statement": "In v3, multiple assembly actions are observed, but the correctness of these actions is not verifiable from the frames."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "All three videos show assembly actions involving screwdrivers, but the correctness of these actions is not visible in the frames.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0002-e4",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3",
+        "v3-b0002-e4",
+        "v3-b0003-e1",
+        "v3-b0003-e2",
+        "v3-b0003-e3",
+        "v3-b0003-e4",
+        "v3-b0004-e1",
+        "v3-b0004-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "Which action is incorrectly performed in exactly two videos?",
+      "reason": "The correctness of the actions in all three videos is not visible in the frames, making it impossible to determine which action is incorrectly performed in exactly two videos.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0002-e4",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3",
+        "v3-b0002-e4",
+        "v3-b0003-e1",
+        "v3-b0003-e2",
+        "v3-b0003-e3",
+        "v3-b0003-e4",
+        "v3-b0004-e1",
+        "v3-b0004-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Which action is incorrectly performed in exactly two videos?",
+      "purpose": "To determine which action is incorrectly performed in exactly two videos.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-221",
+    "task": "PEA",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/PEA/PEA-221/report.json",
+    "report_sha256": "9a5cd2a311a96e71850636f26ddd413fb24598cbdaaa948b4003ce88da984dce",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

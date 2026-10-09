@@ -1,0 +1,487 @@
+{
+  "state": {
+    "question": "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?",
+    "round_id": 5,
+    "summary": "Fresh state: A1 and B1 are the same annotated source_track 21, and the reference visibility range places A1's disappearance near the early synchronized interval, but the exact complete-disappearance timestamp remains unresolved. At comparable early v2 evidence, B1 is observed moving in a left lane, while a later coarse v1 note describes View B with B1 as a top-lane car; these lane interpretations are not reconciled. The number of cars behind B1's lane at the target timestamp remains unresolved, and later coarse observations cannot establish the count or absence at the trigger.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-57: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=21; declared=car; A1_visible=0-19 (0.000-0.667s)/490_frames; B1_visible=0-29 (0.000-1.000s)/490_frames.",
+      "A2/B2 is source_track=23; declared=car; A2_visible=0-49 (0.000-1.667s)/490_frames; B2_visible=0-69 (0.000-2.333s)/490_frames.",
+      "A3/B3 is source_track=56; declared=car; A3_visible=469-489 (15.633-16.333s)/490_frames; B3_visible=379-489 (12.633-16.333s)/490_frames.",
+      "A4/B4 is source_track=15; declared=car; A4_visible=0-89 (0.000-3.000s)/490_frames; B4_visible=0-89 (0.000-3.000s)/490_frames.",
+      "A5/B5 is source_track=54; declared=car; A5_visible=0-189 (0.000-6.333s)/490_frames; B5_visible=0-149 (0.000-5.000s)/490_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v1.focus.r2.l1.e2"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r4-r2-01.s01",
+          "v1.c003"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r4-r2-01.s01",
+          "v2.focus.r4.l1.e4"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "View A shows an intersection with labeled cars A1, A2, A4, A5. A1 is visible in the bottom right lane.",
+        "uncertainty": "A1 disappears after 2.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "View A shows the intersection with cars A4 and A5 visible, but A1 is no longer present in the frame.",
+        "uncertainty": "A1 has completely disappeared from view A.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "View B shows a highway segment with cars in multiple lanes. Car B1 is not explicitly labeled but is in the top lane.",
+        "uncertainty": "B1 is not labeled, assuming top lane car.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "View A captures B1, B2, B4, and B5 cars. B1 is visible in the lower-left lane.",
+        "uncertainty": "A1 not explicitly identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "View A shows the intersection with general traffic flow. B1 car is no longer visible.",
+        "uncertainty": "A1 disappearance time not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "View B shows a straight road with a green B3 car label visible.",
+        "uncertainty": "B1 car location in View B is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "At 0.000s, B1 is visible in the left-turn lane. By 1.000s, the B1 label and car are no longer visible. B2, B4, and B5 remain tracked.",
+        "uncertainty": "B1 disappears from tracking.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A1 car is visible in the bottom right quadrant of the frame, marked with a yellow bounding box.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          1.0,
+          2.0
+        ],
+        "description": "A1 car is not present in the frame; other vehicles like A2, A4, and A5 remain visible.",
+        "uncertainty": "Exact disappearance time between 0.0s and 1.0s is unobserved.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "B1 car is visible in the left-turn lane at 0.0s, but the label is absent at 1.0s and 2.0s.",
+        "uncertainty": "Whether B1 is still present but unlabeled after 0.0s.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "Cars are visible in the lanes behind B1's position at 0.0s.",
+        "uncertainty": "Exact count of cars behind B1 is not established.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r4.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "B5 car remains stationary on the right side road throughout the interval.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v2.focus.r4.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "B4 car is stationary at the intersection on the right side.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v2.focus.r4.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "B2 car moves forward through the intersection.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v2.focus.r4.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "B1 car is visible moving forward in the left lane.",
+        "uncertainty": "B1 not visible in F03.",
+        "action": "FOCUS",
+        "round": 4
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need count behind B1 lane in view B at A1 disappearance",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "At the early synchronized interval covering A1's reference disappearance, how many cars are behind the lane containing B1 in view B?",
+        "next_probe_goal": "Identify B1's lane if the count cannot be attributed to a specific lane.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need refine view-A A1 disappearance timestamp before counting view-B cars behind B1 lane.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "In v1 during 0.0-2.0s, identify the last local timestamp when A1 is visible and the first timestamp when it is completely absent, resolving whether disappearance occurs around 0.667s or later.",
+        "next_probe_goal": "If A1 disappears near 0.667s, inspect v2.zoom.r1-U02-01.s01 at that synchronized time to establish B1's lane and count cars behind that lane.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized target is fixed by the authoritative A1 visibility endpoint, but the required view-B relation remains unresolved: B1's target-time lane and the number of distinct cars behind that lane are not yet established. Existing early view-B evidence only partially supports a left-turn-lane reading and does not provide the needed count. A focused reobservation of the early view-B slot is the smallest sufficient next probe.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v2.zoom.r1-U02-01.s01"
+        ],
+        "evidence_goal": "At the synchronized A1-disappearance time in view B, determine which lane contains B1 and count distinct cars physically behind that lane, excluding B1 itself and excluding duplicate synchronized observations.",
+        "next_probe_goal": "If the early view-B reobservation cannot resolve the lane or count because of occlusion or ambiguity, select another early view-B observation or recover coverage that can distinguish the lane geometry and behind-lane vehicles.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized trigger is resolved from authoritative A1/B1 visibility, but the target count in view B is not yet supported. Plan a refine of the existing fine v2 slot to count unique cars behind B1's lane at the target timestamp and resolve the lane-behind ambiguity.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r3-r3-01.s01"
+        ],
+        "evidence_goal": "At the synchronized target timestamp when A1 has disappeared in view A, identify B1's lane in view B and count unique physical cars behind that lane, including whether the count should be same-lane behind B1 or lanes behind B1's lane.",
+        "next_probe_goal": "Re-observe the fine v2 interval around the synchronized target, confirm B1's lane or unlabeled track continuity, and count distinct cars behind that lane without duplicate or frame-based counting.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Fresh state: A1 and B1 are the same annotated source_track 21, and the reference visibility range places A1's disappearance near the early synchronized interval, but the exact complete-disappearance timestamp remains unresolved. At comparable early v2 evidence, B1 is observed moving in a left lane, while a later coarse v1 note describes View B with B1 as a top-lane car; these lane interpretations are not reconciled. The number of cars behind B1's lane at the target timestamp remains unresolved, and later coarse observations cannot establish the count or absence at the trigger.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k2.zoom.r4-r2-01.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['k2.zoom.r4-r2-01.s01']"
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A1 car is visible in the bottom right quadrant of the frame, marked with a yellow bounding box. A1 car is not present in the frame; other vehicles like A2, A4, and A5 remain visible.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact disappearance time between 0.0s and 1.0s is unobserved.",
+        "Unresolved: Precise timestamp of A1 disappearance within the 0.0-1.0s gap."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "View A shows the intersection with cars A4 and A5 visible, but A1 is no longer present in the frame.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "A1 has completely disappeared from view A."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows a highway segment with cars in multiple lanes. Car B1 is not explicitly labeled but is in the top lane.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "B1 is not labeled, assuming top lane car."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r4-r2-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "B5 car remains stationary on the right side road throughout the interval. B4 car is stationary at the intersection on the right side. B2 car moves forward through the intersection. B1 car is visible moving forward in the left lane.",
+      "evidence": [
+        "v2.focus.r4.l1.e1",
+        "v2.focus.r4.l1.e2",
+        "v2.focus.r4.l1.e3",
+        "v2.focus.r4.l1.e4"
+      ],
+      "uncertainty": [
+        "B1 not visible in F03.",
+        "Unresolved: A1's disappearance timestamp",
+        "Unresolved: Lane count behind B1"
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "View A shows the intersection with general traffic flow. B1 car is no longer visible.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "A1 disappearance time not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows a straight road with a green B3 car label visible.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "B1 car location in View B is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Identify B1's lane if the count cannot be attributed to a specific lane.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

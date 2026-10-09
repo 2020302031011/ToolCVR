@@ -1,0 +1,252 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1, a white creamy substance identified as mayonnaise is scraped from a white spatula into a dark bowl."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1, a spoon with yellow liquid identified as honey and a white substance is shown near the bowl at an uncertain moment of addition."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "In v1, a hand uses a spoon to stir the mixture and incorporate the yellow liquid into the white base."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, mayonnaise and other creamy ingredients are added to a glass bowl and the mixture is seasoned with pepper."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "In v2, cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "statement": "In v2, walnuts, red onion, celery, apple pieces, and cooked chicken are chopped on a wooden cutting board."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e2"
+      ],
+      "statement": "In v2, chopped ingredients are combined in a glass bowl with a creamy dressing and mixed using a utensil."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 shows addition of mayonnaise and honey followed by stirring, while v2 shows addition of mayonnaise and creamy ingredients but does not clearly show the stirring action in the same interval.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v2's later mixing of chopped ingredients with a creamy dressing is a possible functional comparison to v1's stirring step, but it occurs after pasta and chopped ingredients have been prepared.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0002-e1",
+        "v2-b0002-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1's reference sequence is a short dressing-preparation segment, whereas v2 contains multiple separate salad-preparation stages including dressing addition, pasta transfer, chopping, and final mixing.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0002-e1",
+        "v2-b0002-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "It remains unresolved which v2 interval is functionally equivalent to the v1 reference cooking step.",
+      "reason": "The reports show both an early creamy-ingredient addition interval and a later mixing-with-dressing interval, but they do not settle whether the equivalent step is dressing preparation, ingredient incorporation, or final salad mixing.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0002-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end seconds for the v2 creamy-ingredient addition interval remain unresolved.",
+      "reason": "The event description notes that the mixing action itself is not clearly visible in the cited frames, so the functional boundaries of that step are not established.",
+      "related_events": [
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end seconds for the v2 mixing interval remain unresolved.",
+      "reason": "The transition from chopping to mixing is reported as occurring in an unobserved gap, and the mixing event has uncertainty about its precise boundaries.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v2-b0002-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Whether v2 around 8.008 to 34.001 visually shows a yellow liquid being added to a white creamy base and stirred, as in v1 around 1.001 to 11.011.",
+      "purpose": "This would determine whether the early creamy-ingredient interval is functionally equivalent to the v1 reference step.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Whether the utensil motion in v2 around 65.999 to 68.001 is visually analogous to v1's spoon stirring of honey into mayonnaise rather than to final salad assembly.",
+      "purpose": "This would distinguish the later mixing interval from the early dressing-preparation interval as the functional equivalent.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "The first visible frame of creamy-ingredient addition and the last visible frame before or during stirring within v2 around 8.008 to 34.001.",
+      "purpose": "This would establish the exact interval boundaries for the early creamy-ingredient step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "The first visible frame of mixing with the creamy dressing and the last visible frame of that mixing action within v2 around 63.997 to 68.001.",
+      "purpose": "This would establish the exact interval boundaries for the later mixing step.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-1386",
+    "task": "FSA",
+    "ground_truth": [
+      8,
+      37
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-1386/report.json",
+    "report_sha256": "136713f2a17c21ed862431765ca5086d447818e1e015fe5f66fea7f9b42bb0dd",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

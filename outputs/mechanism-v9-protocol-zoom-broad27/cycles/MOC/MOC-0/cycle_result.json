@@ -1,0 +1,313 @@
+{
+  "state": {
+    "question": "How many red cars parked by the roadside does {A1} pass in total?",
+    "round_id": 3,
+    "summary": "The total number of red cars passed by A1 is supported as two, based on evidence from both videos. No additional red cars are visible in later segments, and unobserved intervals do not provide evidence of additional red cars.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets."
+    ],
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-02.s01",
+          "v1.zoom.r2-req3-01.s01",
+          "v2.zoom.r2-req3-02.s01"
+        ],
+        "attempts": [
+          "Evidence from both videos shows that A1 passes one red car in each video, totaling two red cars."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-req3-01.s01",
+          "v2.zoom.r2-req3-02.s01"
+        ],
+        "attempts": [
+          "No additional red cars are visible in the later segments of both videos."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.u002",
+          "v2.u002"
+        ],
+        "attempts": [
+          "Unobserved intervals do not provide evidence of additional red cars passed by A1."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 bicycle is visible moving along the road, passing parked cars including a red car.",
+        "uncertainty": "Only one red car passed in visible frames; more may exist outside this clip.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 passes parked red cars on roadside. One red car visible at 0.0s, another at 4.0s.",
+        "uncertainty": "Only two red cars visible; may be more in unobserved gaps.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 bicycle moves rightward along sidewalk, passing parked cars including one red car.",
+        "uncertainty": "Red car count not verifiable across all frames due to occlusion and motion blur.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 (white truck) moves rightward across visible lanes. No red cars are passed in this segment.",
+        "uncertainty": "No red cars are visible in the path of A1 across these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A red car is visible on the left side of the road, near a traffic sign.",
+        "uncertainty": "No other red cars visible in subsequent frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A red car is visible parked on the right side of the road, near the sidewalk.",
+        "uncertainty": "No other red cars visible in subsequent frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to resolve discrepancy in red car count between videos",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "How many red cars does A1 pass in the visible portion of each video?",
+        "next_probe_goal": "Are there any additional red cars passed during unobserved intervals?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Verify red car count during unobserved intervals in v1 and v2",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req3",
+        "slot_ids": [
+          "v1.u001",
+          "v2.u001"
+        ],
+        "evidence_goal": "Are there any additional red cars passed during unobserved intervals?",
+        "next_probe_goal": "Are there any additional red cars passed during unobserved intervals?",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The total number of red cars passed by A1 is supported as two, based on evidence from both videos. No additional red cars are visible in later segments, and unobserved intervals do not provide evidence of additional red cars.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v2.zoom.r1-U01-02.s01",
+      "v1.zoom.r2-req3-01.s01",
+      "v2.zoom.r2-req3-02.s01",
+      "v1.u002",
+      "v2.u002"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A1 bicycle moves rightward along sidewalk, passing parked cars including one red car.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Red car count not verifiable across all frames due to occlusion and motion blur.",
+        "Unresolved: Count of red cars passed by A1 bicycle in visible frames is not established due to motion and occlusion."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-req3-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A red car is visible on the left side of the road, near a traffic sign.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No other red cars visible in subsequent frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A1 (white truck) moves rightward across visible lanes. No red cars are passed in this segment.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No red cars are visible in the path of A1 across these frames.",
+        "Unresolved: No red cars are visible in the path of A1 across these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req3-02.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A red car is visible parked on the right side of the road, near the sidewalk.",
+      "evidence": [
+        "v2.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "No other red cars visible in subsequent frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Are there any additional red cars passed during unobserved intervals?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

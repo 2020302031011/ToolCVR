@@ -1,0 +1,170 @@
+{
+  "question": "After {A2} completely leaves view A, how many cycles in view B pass by the lane near the residential building and exceed {B4}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "v1 reports A2 visible in view A during the 0-4s segment, while the supplied reference range ends A2 visibility at 2.967s and establishes the post-trigger timestamp."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "v1 reports no moving cycles visible passing by the lane near the residential building in view B during the 10-14s segment."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 reports view S1 during 0-4s with tracked car B2 and persons B1/B5 while leaving the identity of view A and A2 unknown."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "v2 reports B4 in view S2 during 10-14s, and the supplied reference range declares B4 visible in view B from 13.333s to 15.000s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 both report a 0-4s segment containing the same numeric car alias A2/B2, but only v1 explicitly labels the scene as view A.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 both report a 10-14s segment involving a building-side road and the B4 person alias, but v2 does not state whether S2 is view B or provide a cycle count.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of cycles in view B that pass by the residential-building lane after 2.967s and exceed B4 remains unresolved because the reports cover only part of the post-trigger interval and do not state the exceed relation.",
+      "reason": "v1-b0001-e2 reports no cycles only for 10-14s, v2-b0001-e2 does not count cycles or confirm view B, and no event covers 2.967-10s or 14-15s.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether v2's S1/S2 scenes and B4 track correspond to the question's view A/view B and the same annotated B4 track remains unresolved.",
+      "reason": "v2-b0001-e1 and v2-b0001-e2 explicitly leave view A, view B, A2, and B4 identity unknown.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count every two-wheeled vehicle passing the residential-building lane in view B from 2.967s to 15.0s and record whether each exceeds the B4 track.",
+      "purpose": "Resolves the missing qualifying-cycle count and distinguishes the options 0, 1, 2, and 3.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Observe view B in v1 during 2.967-10.0s and 14.0-15.0s for cycles passing the residential-building lane relative to B4.",
+      "purpose": "Fills the uncovered portions of the post-trigger counting window.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the road layout and annotated track IDs in v2 S1/S2 with v1 view A/view B to confirm whether B4 in v2 is the same track as B4 in the question.",
+      "purpose": "Resolves the view and track identity gap.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-188",
+    "task": "MOC",
+    "ground_truth": "D",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-188/report.json",
+    "report_sha256": "e46c8b982f8efcaa98934314d3dd3e6f40494a8ad1c77071b9fa0c9ee910f54c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

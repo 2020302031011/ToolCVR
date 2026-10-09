@@ -1,0 +1,342 @@
+{
+  "state": {
+    "question": "When {A5} completely disappears from view A, where is {B4} approximately located relative to {B2}?",
+    "round_id": 3,
+    "summary": "Reference alias timing places A5 disappearance at 5.667s, but local view-A observations only bracket it around 4-6s. View-B evidence shows B4 ahead of B2 near that time, with competing interpretations: one span suggests same-lane ahead directly before/after interpolation, while another span from 6.0s places B4 ahead and to the left. The exact synchronized relation remains open.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-58: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=12; declared=car; A1_visible=0-389 (0.000-13.000s)/390_frames; B1_visible=0-389 (0.000-13.000s)/390_frames.",
+      "A2/B2 is source_track=13; declared=car; A2_visible=0-389 (0.000-13.000s)/390_frames; B2_visible=0-389 (0.000-13.000s)/390_frames.",
+      "A3/B3 is source_track=26; declared=car; A3_visible=373-389 (12.433-13.000s)/390_frames; B3_visible=259-389 (8.633-13.000s)/390_frames.",
+      "A4/B4 is source_track=24; declared=car; A4_visible=299-389 (9.967-13.000s)/390_frames; B4_visible=79-389 (2.633-13.000s)/390_frames.",
+      "A5/B5 is source_track=6; declared=car; A5_visible=0-169 (0.000-5.667s)/390_frames; B5_visible=0-169 (0.000-5.667s)/390_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01",
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v1.c002"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car is visible in the upper right quadrant of the intersection, moving leftward.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "A5 car is no longer visible in the frame. A4 car appears on the far right edge at 10.0s.",
+        "uncertainty": "B4 identity is not explicitly labeled in the frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "B1 and B2 cars are visible moving through the intersection. B5 car is visible in the first three frames.",
+        "uncertainty": "A5 car is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "B4 car appears in the upper part of the frame, moving downwards.",
+        "uncertainty": "The exact moment of appearance is between 4s and 6s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          5.0
+        ],
+        "description": "B2 car is visible moving through the intersection. B4 car is not yet visible in the frame.",
+        "uncertainty": "B4 car visibility is not established in this time span.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "B4 car enters the top of the frame, appearing ahead of B2 car. B2 car continues moving forward in the lower part of the frame.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "B4 is visible ahead of B2 and to the left of B2 in the frames from 6.0s to 10.0s.",
+        "uncertainty": "No uncertainty.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "B2 and B5 are stationary at an intersection; B1 is stopped in the adjacent lane. B4 is not visible in the supplied frames.",
+        "uncertainty": "B4 visibility is not established.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          5.0,
+          10.0
+        ],
+        "description": "B2 moves forward; B4 becomes visible further ahead in the same lane, positioned directly in front of B2.",
+        "uncertainty": "Exact 5.667s state is interpolated from 5.0s and 6.0s.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need v2 evidence at synchronized A5 disappearance to locate B4 relative to B2.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c001",
+          "v2.c002"
+        ],
+        "evidence_goal": "At v2 frames near 5.667s-6.0s, what is B4's approximate front/back and left/right position relative to B2?",
+        "next_probe_goal": "If B2 or B4 identity/position is ambiguous at 5.667s, refine the nearby v2 span to confirm both tracks at the trigger.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need v2 local observation at synchronized 5.667s to locate B4 relative to B2.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "In v2 around 5.667s, is B4 visible, and is it approximately front-left, directly in front, back-right, or back-left of B2?",
+        "next_probe_goal": "If B4 is not identifiable at 5.667s, refine the nearby v2 span to determine when B4 first becomes locatable relative to B2.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Reference alias timing places A5 disappearance at 5.667s, but local view-A observations only bracket it around 4-6s. View-B evidence shows B4 ahead of B2 near that time, with competing interpretations: one span suggests same-lane ahead directly before/after interpolation, while another span from 6.0s places B4 ahead and to the left. The exact synchronized relation remains open.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['s01']"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A5 car is visible in the upper right quadrant of the intersection, moving leftward.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "A5 car is no longer visible in the frame. A4 car appears on the far right edge at 10.0s.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "B4 identity is not explicitly labeled in the frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        10.0,
+        13.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "B2 and B5 are stationary at an intersection; B1 is stopped in the adjacent lane. B4 is not visible in the supplied frames. B2 moves forward; B4 becomes visible further ahead in the same lane, positioned directly in front of B2.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "B4 visibility is not established.",
+        "Exact 5.667s state is interpolated from 5.0s and 6.0s."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "B4 is visible ahead of B2 and to the left of B2 in the frames from 6.0s to 10.0s.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No uncertainty."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        10.0,
+        13.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If B2 or B4 identity/position is ambiguous at 5.667s, refine the nearby v2 span to confirm both tracks at the trigger.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

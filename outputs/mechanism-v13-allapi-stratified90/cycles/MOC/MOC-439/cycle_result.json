@@ -1,0 +1,504 @@
+{
+  "state": {
+    "question": "When {B4} completely disappears from view B, how many blue cars are traveling in the same direction as {A2} in view A?",
+    "round_id": 8,
+    "summary": "B4's annotated exit gives a synchronized target near 8.333s, but direct disappearance evidence is absent; A2 is visible then and appears right-to-left in both conflicting color descriptions, leaving the blue-car count and A2's color/identity unresolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-64: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=5; declared=person; A1_visible=0-89 (0.000-3.000s)/490_frames; B1_visible=0-89 (0.000-3.000s)/490_frames.",
+      "A2/B2 is source_track=20; declared=car; A2_visible=240-329 (8.000-11.000s)/490_frames; B2_visible=240-319 (8.000-10.667s)/490_frames.",
+      "A3/B3 is source_track=21; declared=car; A3_visible=240-329 (8.000-11.000s)/490_frames; B3_visible=250-319 (8.333-10.667s)/490_frames.",
+      "A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.",
+      "A5/B5 is source_track=50; declared=person; A5_visible=180-428 (6.000-14.300s)/490_frames; B5_visible=210-419 (7.000-14.000s)/490_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c001",
+          "v1.zoom.r7-r3-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v1.zoom.r7-r3-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r7-r3-01.s01",
+          "v1.c001"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "View S1 tracks a magenta box labeled 'A4 car' moving right-to-left. A cyan car (A2) is visible moving right-to-left.",
+        "uncertainty": "B4 not visible in S1",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "View S2 shows traffic moving right-to-left. In S2-F02, a cyan car (A2) is visible moving right-to-left. S2-F03 shows traffic moving left-to-right.",
+        "uncertainty": "B4 not visible in S2",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "B4 car is visible in the left lane of view B, moving away from the camera. B1 person is visible on the right sidewalk.",
+        "uncertainty": "B4's exact exit time from view B is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "View B shows a different road segment without B4. View A shows traffic moving in both directions.",
+        "uncertainty": "The specific moment B4 disappears is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "At 8.0s, A2 car is a cyan vehicle on the right. At 9.0s, A2 car label moves to a yellow bus entering the intersection from the right.",
+        "uncertainty": "A2 label identity is ambiguous between frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          9.0,
+          12.0
+        ],
+        "description": "The yellow bus labeled A2 car proceeds from the right side across the intersection towards the left, exiting the frame by 12.0s.",
+        "uncertainty": "Exact exit time between 11.0s and 12.0s.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "Cyan-colored vehicles are visible moving in the lower lanes from left to right and in the upper lanes from right to left.",
+        "uncertainty": "Specific identity of blue vs cyan vehicles.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A2 is identified as a yellow bus moving west (left) through the intersection. Multiple cyan cars are visible moving in the same direction, while other vehicles move east.",
+        "uncertainty": "No distinct blue cars visible, only cyan.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A2 car (blue bus) travels leftward in the upper lanes. Numerous cyan cars are visible in the lower lanes and crosswalks, but no blue cars are seen moving in the same direction as A2.",
+        "uncertainty": "B4 disappearance timestamp not explicitly marked.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r4.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "A2 yellow bus moves east; A4 car is visible in top-left. Multiple blue cars travel in same direction.",
+        "uncertainty": "B4 disappearance frame not visible",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v1.focus.r4.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "A2 yellow bus continues east; A4 car no longer visible in frame. Blue cars continue moving.",
+        "uncertainty": "Exact B4 disappearance frame not visible",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v1.focus.r5.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          10.0
+        ],
+        "description": "A yellow bus labeled A2 and a white car labeled A3 move through the intersection. Several blue cars are visible traveling in the same direction as A2.",
+        "uncertainty": "The specific synchronization to B4's last frame is not established.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          11.0,
+          12.0
+        ],
+        "description": "The camera pans right. A red bus and a white van are visible. Blue cars are seen moving right-to-left on the top road and left-to-right on the bottom road.",
+        "uncertainty": "The specific synchronization to B4's last frame is not established.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r6.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "A2 car is visible in the upper right quadrant, moving leftward.",
+        "uncertainty": "B4 disappearance time not visible.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v1.focus.r6.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          10.0
+        ],
+        "description": "Blue cars in view A (left side) are observed moving leftward in the top lanes.",
+        "uncertainty": "Exact count at synchronized moment unresolved.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v1.focus.r7.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A yellow bus labeled A2 moves right-to-left across the intersection. A white car labeled A3 and a red car also travel right-to-left. A yellow bus labeled A4 moves left-to-right.",
+        "uncertainty": "A2 is yellow, not blue. No blue cars moving right-to-left.",
+        "action": "FOCUS",
+        "round": 7
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need visual count of blue view-A cars moving with A2 at B4 disappearance 8.333s.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u001"
+        ],
+        "evidence_goal": "At 8.333s in view A, which cars appear blue and are moving in the same direction as A2?",
+        "next_probe_goal": "At 8.333s in view A, confirm A2 is visible and record its travel direction.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need refine view A at 8.333s to resolve A2 identity/direction and count same-direction blue cars.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "At 8.333s in view A, determine which vehicle is A2 and its direction, then count blue cars moving in that same direction while distinguishing blue from cyan and excluding opposite-direction vehicles.",
+        "next_probe_goal": "Recover view B 8-12s to visually confirm B4 is absent at the 8.333s disappearance boundary.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger is tied to the synchronized B4 visibility end in view B, while A2's west/right-to-left direction in view A is supported. The remaining decision-relevant gap is the exact count of blue cars moving with A2 at that synchronized moment, because current fine view-A evidence reports multiple cyan cars but does not resolve blue-versus-cyan classification or the physical count.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.zoom.r2-r3-01.s01"
+        ],
+        "evidence_goal": "At the synchronized B4-disappearance timestamp in view A, count the physical blue cars traveling in the same direction as A2, explicitly distinguishing blue from cyan and excluding A2 if it is not blue.",
+        "next_probe_goal": "Map the resolved count to the available option labels; if blue and cyan remain ambiguous, report the number of cyan cars moving with A2 as the closest candidate.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "B4's disappearance trigger is fixed by the sidecar, but the synchronized view-A count remains ambiguous because A2's class/color and inclusion are unresolved. Refine the existing fine v1 slot to resolve the target count.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.zoom.r3-r3-01.s01"
+        ],
+        "evidence_goal": "At the synchronized B4 disappearance frame in view A, determine A2's vehicle class and color and count distinct blue cars moving in A2's heading, explicitly indicating whether A2 itself is included.",
+        "next_probe_goal": "Observe the trigger frame in the fine v1 interval, classify A2 as car or bus, and enumerate leftward-moving blue cars without using cyan vehicles as negative evidence.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "B4/A4 reference visibility anchors the target to the synchronized moment after B4's last visible frame in view B. Existing view-A evidence covers the relevant interval and suggests blue cars moving with A2, but it lacks an exact count and leaves an A2 identity/direction conflict unresolved.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.zoom.r4-r2-01.s01"
+        ],
+        "evidence_goal": "At the synchronized moment in view A corresponding to B4's last visible frame in view B, determine A2's actual visible identity/color and travel direction, then count distinct blue cars in view A traveling in that same direction, excluding A2, duplicate synchronized observations, and non-blue vehicles.",
+        "next_probe_goal": "Obtain an exact integer count of blue cars moving with A2 at the target frame, and record whether A2 is the cyan car moving right-to-left or the yellow bus moving east if either description remains visible.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "B4's annotated last visibility defines the synchronized target moment, but exact visual disappearance confirmation and A2 direction/count remain open. Current fine evidence supports multiple blue cars moving with A2 but not an option label; use remaining visual budget to refine the v1 fine interval for exact count.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.zoom.r5-r2-01.s01"
+        ],
+        "evidence_goal": "At the synchronized B4-disappearance moment in v1, determine A2's visible travel direction and count distinct blue cars in view A moving in that same direction, avoiding duplicate counts of the same physical vehicle.",
+        "next_probe_goal": "If A2's direction or the blue-car count is still ambiguous, inspect the same fine v1 interval around the synchronized moment to separate A2's lane/direction and enumerate unique blue cars.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger time is fixed by authoritative alias visibility at about 8.333s, and A2's direction in view A is leftward. The remaining decision-changing gap is the distinct count of blue cars moving with A2 at that synchronized timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.zoom.r6-r3-01.s01"
+        ],
+        "evidence_goal": "At the synchronized B4-disappearance timestamp (~8.333s) in view A, determine whether A2 is blue and count distinct blue cars moving leftward/right-to-left in the same direction as A2.",
+        "next_probe_goal": "Use the counted distinct blue cars to select one of the supplied option labels.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "B4's annotated exit gives a synchronized target near 8.333s, but direct disappearance evidence is absent; A2 is visible then and appears right-to-left in both conflicting color descriptions, leaving the blue-car count and A2's color/identity unresolved.",
+      "action": "STOP",
+      "reason": "unparseable Reasoner action: Reasoner emitted an invalid action after one structural repair; initial=reasoner PLAN slot_ids must be nonempty; repaired=reasoner PLAN slot_ids must be nonempty; raw='{\\n  \"updates\": [\\n    {\\n      \"requirement_id\": \"r1\",\\n      \"status\": \"supported\",\\n      \"evidence_refs\": [\\n       ],\\n      \"summary\": \"The synchronized target is fixed by B4\\'s annotated visibility, and A2 is visible and right-to-left.\"\\n    },\\n    {\\n      \"requirement_id\": \"r2\",\\n      \"status\": \"supported\",\\n      \"evidence_refs\": [\\n       ],\\n      \"summary\": \"A2 is observed moving right",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unparseable Reasoner action: Reasoner emitted an invalid action after one structural repair; initial=reasoner PLAN slot_ids must be nonempty; repaired=reasoner PLAN slot_ids must be nonempty; raw='{\\n  \"updates\": [\\n    {\\n      \"requirement_id\": \"r1\",\\n      \"status\": \"supported\",\\n      \"evidence_refs\": [\\n       ],\\n      \"summary\": \"The synchronized target is fixed by B4\\'s annotated visibility, and A2 is visible and right-to-left.\"\\n    },\\n    {\\n      \"requirement_id\": \"r2\",\\n      \"status\": \"supported\",\\n      \"evidence_refs\": [\\n       ],\\n      \"summary\": \"A2 is observed moving right"
+  },
+  "visual_calls_used": 7,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "View S1 tracks a magenta box labeled 'A4 car' moving right-to-left. A cyan car (A2) is visible moving right-to-left.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "B4 not visible in S1"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r7-r3-01.s01",
+      "video": "v1",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "fine",
+      "content": "A yellow bus labeled A2 moves right-to-left across the intersection. A white car labeled A3 and a red car also travel right-to-left. A yellow bus labeled A4 moves left-to-right.",
+      "evidence": [
+        "v1.focus.r7.l1.e1"
+      ],
+      "uncertainty": [
+        "A2 is yellow, not blue. No blue cars moving right-to-left.",
+        "Unresolved: A2 is not blue. No blue cars moving right-to-left."
+      ],
+      "revision": 7,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View S2 shows traffic moving right-to-left. In S2-F02, a cyan car (A2) is visible moving right-to-left. S2-F03 shows traffic moving left-to-right.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "B4 not visible in S2"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "B4 car is visible in the left lane of view B, moving away from the camera. B1 person is visible on the right sidewalk.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "B4's exact exit time from view B is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows a different road segment without B4. View A shows traffic moving in both directions.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific moment B4 disappears is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "At 8.333s in view A, confirm A2 is visible and record its travel direction.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 7,
+    "visual_calls_remaining": 1,
+    "maximum_visual_calls_for_current_stage": 1,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

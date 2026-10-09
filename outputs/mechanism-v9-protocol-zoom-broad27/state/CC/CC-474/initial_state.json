@@ -1,0 +1,118 @@
+{
+  "question": "Which video includes a chilling step not present in others?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e3"
+      ],
+      "statement": "The bowl is shown being placed in a refrigerator, which may indicate a chilling step."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "statement": "None of the videos explicitly show a chilling step except for v3, which shows the bowl being placed in a refrigerator.",
+      "supporting_events": [
+        "v3-b0001-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "issue": "Whether these videos include a chilling step not present in others remains unresolved.",
+      "reason": "No explicit chilling step is visible in these videos.",
+      "related_events": [],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "observable": "Whether a chilling step is visible in these videos",
+      "purpose": "To determine if they include a chilling step not present in others",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-474",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/CC/CC-474/report.json",
+    "report_sha256": "7f2efcc56cde99feae55bf883752c924abe53b1dfa1a4282e8db96ac2f078ff7",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

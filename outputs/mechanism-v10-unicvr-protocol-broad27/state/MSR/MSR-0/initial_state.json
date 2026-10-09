@@ -1,0 +1,93 @@
+{
+  "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B5 car exits view B at 4.0s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "A5 and B5 are the same car in different views.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The location of A2 relative to A5 in view A at 4.0s is unknown.",
+      "reason": "View A is not shown in v2, and v1 does not provide information about A2's position relative to A5 at 4.0s.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "A2's position relative to A5 in view A at 4.0s.",
+      "purpose": "To resolve the location of A2 relative to A5 at the time B5 leaves view B.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-0",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/MSR/MSR-0/report.json",
+    "report_sha256": "07166c7c73f19257bce2696f21fdc28afd9650d5e64f426ba2bf1fc1344ac66a",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

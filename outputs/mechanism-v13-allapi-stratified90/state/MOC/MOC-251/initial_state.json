@@ -1,0 +1,149 @@
+{
+  "question": "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1, an A1 car is reported visible in the center lane during 10-12s and then exits the frame."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "In v1, a yellow bus is reported visible in the upper right lane during 10-14s and is noted as not a car."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2, a yellow truck is reported visible in view B during 4-6s."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, a yellow bus is reported visible in view B during 8-14s."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, a car labeled B1 is reported visible in view A during 8-14s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Synchronized reports place the A1/B1 track in overlapping intervals around the disappearance window, with v1 describing A1 exiting and v2 describing a B1-labeled car in view A.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The supplied reports describe yellow buses and trucks near the disappearance window but do not describe yellow cars.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The number of yellow cars in view B at the synchronized timestamp when A1 is completely absent from view A remains undetermined.",
+      "reason": "The v2 reports mention a yellow truck and a yellow bus but do not enumerate yellow cars at that timestamp.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "At the synchronized timestamp immediately after A1's last visible frame in view A, count yellow passenger cars in view B while excluding trucks and buses.",
+      "purpose": "Resolve the missing trigger-time yellow-car count in view B.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-251",
+    "task": "MOC",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-251/report.json",
+    "report_sha256": "1e66e8f5639e12ff44a5752b409a2a34f3be9a768c577b9ba246f74fe6be0856",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

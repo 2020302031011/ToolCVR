@@ -1,0 +1,889 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "The beginning shows caregiving, a somber woman, and an intimate bridge embrace; the ending shows a wet distressed elderly man in a bathroom, then lying on a tiled floor while a younger man attends to him. The missing interval remains unresolved, with competing interpretations including accidental bathing fall, illness-related collapse, or trauma connected to caregiving.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U03-01.s01",
+          "v2.zoom.r1-U03-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v2.zoom.r2-r1-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c004",
+          "v2.c002"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A young woman's hand passes a round pastry to a young man's hand across a table, while an elderly man in a bib sits in the background.",
+        "uncertainty": "The dialogue 'You have it' suggests a specific context for the gift.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          16.0,
+          22.0
+        ],
+        "description": "The young woman feeds a piece of pastry to the elderly man, who is wearing a protective bib. The young man watches from the side.",
+        "uncertainty": "The elderly man's condition and ability to eat independently are not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          24.0,
+          30.0
+        ],
+        "description": "The young man gently wipes the elderly man's mouth with a tissue after he has eaten. The woman watches the interaction.",
+        "uncertainty": "The emotional tone of the caregiving is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          32.0,
+          34.0
+        ],
+        "description": "Close-up on the young woman's face. She has a serious, pensive expression and looks slightly downward.",
+        "uncertainty": "The cause of her somber expression is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          36.0,
+          38.0
+        ],
+        "description": "The young man and woman walk side-by-side across a pedestrian bridge at night, holding hands.",
+        "uncertainty": "Their conversation or destination is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e6",
+        "video_id": "v1",
+        "time_span": [
+          86.0,
+          86.0
+        ],
+        "description": "The couple stands close together on the bridge at night, embracing. The woman's hands are on the man's shoulders.",
+        "uncertainty": "The nature of their embrace (comfort, goodbye, etc.) is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          88.0,
+          102.0
+        ],
+        "description": "The man and woman stand close together on a bridge at night, holding hands and embracing intimately.",
+        "uncertainty": "Reason for the embrace is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          114.0,
+          128.0
+        ],
+        "description": "The woman steps back, smiles, and begins to dance playfully while the man watches her.",
+        "uncertainty": "The trigger for her sudden mood shift is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          126.0,
+          128.0
+        ],
+        "description": "The couple walks forward together, holding hands and smiling.",
+        "uncertainty": "Destination of their walk is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          344.0,
+          358.0
+        ],
+        "description": "An elderly man with a white goatee, shirtless and covered in water droplets, looks down with a distressed or exhausted expression.",
+        "uncertainty": "The cause of his distress is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          386.0,
+          388.0
+        ],
+        "description": "A younger man in a white tank top appears in a tiled bathroom, coughing into his hand and grimacing.",
+        "uncertainty": "The nature of his illness or distress is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          390.0,
+          400.0
+        ],
+        "description": "The elderly man is seen lying on the bathroom floor with the younger man's hand on his chest, suggesting a medical emergency or caregiving moment.",
+        "uncertainty": "The exact nature of the interaction is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          402.0,
+          414.0
+        ],
+        "description": "Close-up of a shirtless man's back and profile. He appears tense or distressed, with heavy breathing or grimacing visible in the side profile.",
+        "uncertainty": "Exact cause of distress not visible in close-up.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          416.0,
+          422.0
+        ],
+        "description": "High-angle view through a doorway showing the man kneeling over an elderly person lying on a tiled floor, possibly performing CPR or attending to a collapse.",
+        "uncertainty": "Whether the elderly person is deceased or alive is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          424.0,
+          426.0
+        ],
+        "description": "The man stands up and walks away. His chest is revealed to have red marks or blood streaks on it.",
+        "uncertainty": "Origin of the blood/marks on the chest is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          344.0,
+          346.0
+        ],
+        "description": "An elderly man, shirtless and wet, holds a razor blade near his chin, appearing to shave or inspect it. He is in a bathroom setting.",
+        "uncertainty": "Exact intent of holding the razor is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          347.0,
+          358.0
+        ],
+        "description": "The man's gaze drops downward. His expression becomes somber and distressed, with water droplets visible on his face.",
+        "uncertainty": "The cause of his distress is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          390.0,
+          390.0
+        ],
+        "description": "An elderly man lies supine on a tiled floor, appearing wet, with a hand placed on his chest.",
+        "uncertainty": "The cause of the fall is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          391.0,
+          399.0
+        ],
+        "description": "The camera focuses on the profile of a young man's face, looking downward.",
+        "uncertainty": "The context of the gaze is not established.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          358.0,
+          359.0
+        ],
+        "description": "Close-up of an elderly man's face, appearing distressed with sweat or tears, set against a dark background.",
+        "uncertainty": "Elderly man's body position relative to floor is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          360.0,
+          368.0
+        ],
+        "description": "A younger man in a white tank top sits on the floor with knees drawn up, holding his head in distress.",
+        "uncertainty": "The identity of the man (elderly vs younger) is not confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          369.0,
+          371.0
+        ],
+        "description": "Close-up of feet in grey sandals on a tiled floor, surrounded by a spreading orange liquid stain.",
+        "uncertainty": "The person to whom the feet belong is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          372.0,
+          373.0
+        ],
+        "description": "The younger man remains seated on the floor, holding his head, with the background showing a shelf and basin.",
+        "uncertainty": "The man's identity is not confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local v2 evidence of wet bathroom collapse to test accidental fall during bathing.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v2.c001",
+          "v2.c003"
+        ],
+        "evidence_goal": "Does v2 show the elderly man wet in a bathroom and then lying on the floor, supporting an accidental bathing fall?",
+        "next_probe_goal": "Check whether the younger man's chest contact reads as post-fall caregiving rather than an unrelated medical event.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need observe transition after wet bathroom in v2 to distinguish fall vs collapse.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.u002"
+        ],
+        "evidence_goal": "In v2.u002, does the elderly man visibly slip or fall from a wet bathroom surface to the floor, or is he seen upright/assisted without a fall?",
+        "next_probe_goal": "If no fall is visible, check adjacent interval for collapse or assisted lowering.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The beginning shows caregiving, a somber woman, and an intimate bridge embrace; the ending shows a wet distressed elderly man in a bathroom, then lying on a tiled floor while a younger man attends to him. The missing interval remains unresolved, with competing interpretations including accidental bathing fall, illness-related collapse, or trauma connected to caregiving.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['f2.u003']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['f2.u003']"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A young woman's hand passes a round pastry to a young man's hand across a table, while an elderly man in a bib sits in the background.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "The dialogue 'You have it' suggests a specific context for the gift."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        16.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "The young woman feeds a piece of pastry to the elderly man, who is wearing a protective bib. The young man watches from the side.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The elderly man's condition and ability to eat independently are not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        24.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "The young man gently wipes the elderly man's mouth with a tissue after he has eaten. The woman watches the interaction.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The emotional tone of the caregiving is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        32.0,
+        34.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up on the young woman's face. She has a serious, pensive expression and looks slightly downward.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "The cause of her somber expression is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        36.0,
+        38.0
+      ],
+      "resolution": "coarse",
+      "content": "The young man and woman walk side-by-side across a pedestrian bridge at night, holding hands.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "Their conversation or destination is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        38.0,
+        53.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        53.0,
+        68.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        68.0,
+        83.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        83.0,
+        86.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        86.0,
+        86.0
+      ],
+      "resolution": "coarse",
+      "content": "The couple stands close together on the bridge at night, embracing. The woman's hands are on the man's shoulders.",
+      "evidence": [
+        "v1-b0001-e6"
+      ],
+      "uncertainty": [
+        "The nature of their embrace (comfort, goodbye, etc.) is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        88.0,
+        102.0
+      ],
+      "resolution": "coarse",
+      "content": "The man and woman stand close together on a bridge at night, holding hands and embracing intimately.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Reason for the embrace is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        102.0,
+        114.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        114.0,
+        128.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman steps back, smiles, and begins to dance playfully while the man watches her.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "The trigger for her sudden mood shift is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        126.0,
+        128.0
+      ],
+      "resolution": "coarse",
+      "content": "The couple walks forward together, holding hands and smiling.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "Destination of their walk is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        342.0,
+        344.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-01.s01",
+      "video": "v2",
+      "time": [
+        344.0,
+        358.0
+      ],
+      "resolution": "fine",
+      "content": "An elderly man, shirtless and wet, holds a razor blade near his chin, appearing to shave or inspect it. He is in a bathroom setting. The man's gaze drops downward. His expression becomes somber and distressed, with water droplets visible on his face.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact intent of holding the razor is unclear.",
+        "The cause of his distress is not visible.",
+        "Unresolved: The frames show the man wet in a bathroom, but do not show him lying on the floor or any fall."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        358.0,
+        373.0
+      ],
+      "resolution": "fine",
+      "content": "Close-up of an elderly man's face, appearing distressed with sweat or tears, set against a dark background. A younger man in a white tank top sits on the floor with knees drawn up, holding his head in distress. Close-up of feet in grey sandals on a tiled floor, surrounded by a spreading orange liquid stain. The younger man remains seated on the floor, holding his head, with the background showing a shelf and basin.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4"
+      ],
+      "uncertainty": [
+        "Elderly man's body position relative to floor is not visible.",
+        "The identity of the man (elderly vs younger) is not confirmed.",
+        "The person to whom the feet belong is not visible.",
+        "The man's identity is not confirmed.",
+        "Unresolved: Visual confirmation of the elderly man's full body movement or fall."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        373.0,
+        386.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        386.0,
+        388.0
+      ],
+      "resolution": "coarse",
+      "content": "A younger man in a white tank top appears in a tiled bathroom, coughing into his hand and grimacing.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The nature of his illness or distress is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-02.s01",
+      "video": "v2",
+      "time": [
+        390.0,
+        400.0
+      ],
+      "resolution": "fine",
+      "content": "An elderly man lies supine on a tiled floor, appearing wet, with a hand placed on his chest. The camera focuses on the profile of a young man's face, looking downward.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "The cause of the fall is not visible.",
+        "The context of the gaze is not established.",
+        "Unresolved: The specific moment of the fall is not shown."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        394.0,
+        396.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        402.0,
+        414.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a shirtless man's back and profile. He appears tense or distressed, with heavy breathing or grimacing visible in the side profile.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact cause of distress not visible in close-up."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        404.0,
+        410.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        416.0,
+        422.0
+      ],
+      "resolution": "coarse",
+      "content": "High-angle view through a doorway showing the man kneeling over an elderly person lying on a tiled floor, possibly performing CPR or attending to a collapse.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Whether the elderly person is deceased or alive is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        424.0,
+        426.0
+      ],
+      "resolution": "coarse",
+      "content": "The man stands up and walks away. His chest is revealed to have red marks or blood streaks on it.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Origin of the blood/marks on the chest is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        426.0,
+        441.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        441.0,
+        449.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Check whether the younger man's chest contact reads as post-fall caregiving rather than an unrelated medical event.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

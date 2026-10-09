@@ -1,0 +1,306 @@
+{
+  "state": {
+    "question": "When {A1} appears in view A, where is {B3} in view B compared to {B1}?",
+    "round_id": 3,
+    "summary": "The evidence shows A1 and A3 in v1 and B1/B3 motion in v2, but it does not yet fix the synchronized timestamp of A1's appearance or the B3-to-B1 spatial relation at that timestamp. The A3/B3 identity mapping is protocol-supported but remains visually unconfirmed in the cited observations.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-31: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=84; declared=car; A1_visible=50-277 (1.667-9.267s)/360_frames; B1_visible=0-299 (0.000-10.000s)/360_frames.",
+      "A2/B2 is source_track=99; declared=bicycle; A2_visible=0-339 (0.000-11.333s)/360_frames; B2_visible=0-329 (0.000-11.000s)/360_frames.",
+      "A3/B3 is source_track=105; declared=car; A3_visible=170-359 (5.667-12.000s)/360_frames; B3_visible=0-359 (0.000-12.000s)/360_frames.",
+      "A4/B4 is source_track=29; declared=person; A4_visible=0-339 (0.000-11.333s)/360_frames; B4_visible=0-329 (0.000-11.000s)/360_frames.",
+      "A5/B5 is source_track=16; declared=person; A5_visible=0-289 (0.000-9.667s)/360_frames; B5_visible=0-319 (0.000-10.667s)/360_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.focus.r2.l1.e1"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.focus.r1.l1.e2",
+          "v2.focus.r2.l1.e1"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "A red bus moves rightward through an intersection, while a white car in the foreground moves leftward.",
+        "uncertainty": "The specific identities of objects A1, B1, and B3 are not defined.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "Aerial view of a city intersection with traffic moving in multiple directions. Various vehicles including cars and a bus are visible on the road.",
+        "uncertainty": "The specific identities of objects {A1}, {B1}, and {B3} are not provided in the prompt.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          10.0
+        ],
+        "description": "A1 car overlay appears on a black sedan in the lower-left lane, moving rightward through the intersection.",
+        "uncertainty": "B1 and B3 overlays are not visible in this view.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "A3 car overlay appears on a white vehicle in the bottom-left corner, moving rightward along the curb.",
+        "uncertainty": "A3 is visible but distinct from the queried B3 overlay.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "Aerial view of an intersection with a yellow-boxed vehicle (B1) and a green-boxed vehicle (B3) present in the B view. A1 is not visible.",
+        "uncertainty": "A1 is not visible in the provided frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "B1 vehicle travels southbound along the left lane; B3 vehicle travels northbound in the opposing lane to the right.",
+        "uncertainty": "A1 presence in v1 is not visible in this frame batch.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need synchronized B3-B1 relation at A1 onset and view A/B mapping.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "At the first visible A1 timestamp, in each selected video, identify which view contains A1 versus B1/B3 overlays and, in the B view, where B3 lies relative to B1: directly behind, behind-right, behind-left, or not visible.",
+        "next_probe_goal": "If overlay labels are ambiguous, compare traffic direction and annotated track presence to map v1/v2 to view A/B.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need synchronized v2 positions of B1 and B3 at A1's first appearance timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "In v2 at the synchronized timestamp when A1 first appears in v1, where is B3 located relative to B1?",
+        "next_probe_goal": "If the relation is ambiguous, inspect later synchronized v2 frames during A1's visible interval to check whether B3's position relative to B1 changes.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The evidence shows A1 and A3 in v1 and B1/B3 motion in v2, but it does not yet fix the synchronized timestamp of A1's appearance or the B3-to-B1 spatial relation at that timestamp. The A3/B3 identity mapping is protocol-supported but remains visually unconfirmed in the cited observations.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['x2.zoom.r2-r2-01.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['x2.zoom.r2-r2-01.s01']"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A1 car overlay appears on a black sedan in the lower-left lane, moving rightward through the intersection. A3 car overlay appears on a white vehicle in the bottom-left corner, moving rightward along the curb.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "B1 and B3 overlays are not visible in this view.",
+        "A3 is visible but distinct from the queried B3 overlay.",
+        "Unresolved: B1 and B3 overlay visibility and relative position"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "B1 vehicle travels southbound along the left lane; B3 vehicle travels northbound in the opposing lane to the right.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "A1 presence in v1 is not visible in this frame batch.",
+        "Unresolved: synchronized timestamp of A1 in v1"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If overlay labels are ambiguous, compare traffic direction and annotated track presence to map v1/v2 to view A/B.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

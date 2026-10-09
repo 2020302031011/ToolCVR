@@ -1,0 +1,968 @@
+{
+  "question": "What ingredients do the chefs mix with the eggs before cooking in each video, and how does this differ between them?",
+  "options": [],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "What ingredients do the chefs mix with the eggs before cooking in each video, and how does this differ between them?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a chef whisking eggs in a bowl",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "ingredients being added to raw eggs",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "What ingredients do the chefs mix with the eggs before cooking in each video, and how does this differ between them?",
+      "Identify specific ingredients mixed with eggs in each video",
+      "Compare the ingredient lists between the two videos to determine differences",
+      "No answer options were provided; rely on visual identification of ingredients"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 70.333,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 36,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          6.0
+        ],
+        [
+          10.0,
+          10.0
+        ],
+        [
+          14.0,
+          14.0
+        ],
+        [
+          20.0,
+          20.0
+        ],
+        [
+          30.0,
+          38.0
+        ],
+        [
+          44.0,
+          46.0
+        ],
+        [
+          50.0,
+          52.0
+        ],
+        [
+          66.0,
+          66.0
+        ],
+        [
+          70.0,
+          70.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            20.0,
+            30.0
+          ],
+          "description": "A hand places a knob of butter into a clear glass bowl, then adds milk and whisks the mixture until frothy.",
+          "evidence_frame_ids": [
+            "S4-F01",
+            "S5-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Exact quantity of milk added is not visible."
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            32.0,
+            36.0
+          ],
+          "description": "Raw eggs are cracked into the frothy milk and butter mixture, and the contents are whisked together.",
+          "evidence_frame_ids": [
+            "S5-F02",
+            "S5-F03",
+            "S5-F04"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "The specific number of eggs is not clearly countable."
+        },
+        {
+          "event_id": "v1-b0001-e3",
+          "time_span": [
+            38.0,
+            46.0
+          ],
+          "description": "The egg mixture is poured into a heated black pan with a blue spatula and cooked until scrambled.",
+          "evidence_frame_ids": [
+            "S5-F05",
+            "S6-F01",
+            "S6-F02"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Heat source intensity is not visible."
+        },
+        {
+          "event_id": "v1-b0002-e1",
+          "time_span": [
+            66.0,
+            70.0
+          ],
+          "description": "The video displays a static end card featuring the 'an allrecipes production' logo and a URL for more videos on an orange background.",
+          "evidence_frame_ids": [
+            "S8-F01",
+            "S9-F01"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "The actual cooking process and ingredients are not visible."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 2,
+      "selected_frames": 18,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=18/36 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [20.000-30.000s] A hand places a knob of butter into a clear glass bowl, then adds milk and whisks the mixture until frothy. | evidence=S4-F01,S5-F01 | confidence=0.950\n- v1-b0001-e2 [32.000-36.000s] Raw eggs are cracked into the frothy milk and butter mixture, and the contents are whisked together. | evidence=S5-F02,S5-F03,S5-F04 | confidence=0.900\n- v1-b0001-e3 [38.000-46.000s] The egg mixture is poured into a heated black pan with a blue spatula and cooked until scrambled. | evidence=S5-F05,S6-F01,S6-F02 | confidence=0.950\n- v1-b0002-e1 [66.000-70.000s] The video displays a static end card featuring the 'an allrecipes production' logo and a URL for more videos on an orange background. | evidence=S8-F01,S9-F01 | confidence=1.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [20.000-30.000s] Exact quantity of milk added is not visible.\n- v1-b0001-e2 [32.000-36.000s] The specific number of eggs is not clearly countable.\n- v1-b0001-e3 [38.000-46.000s] Heat source intensity is not visible.\n- v1-b0002-e1 [66.000-70.000s] The actual cooking process and ingredients are not visible.\nQUERY ASSESSMENT\n- batch=1 relevance=direct evidence=v1-b0001-e1,v1-b0001-e2 unresolved=Comparison with ingredients used in other videos suggested_tools=none\n- batch=2 relevance=insufficient evidence=none unresolved=Visuals of ingredients being mixed with eggs; Identification of specific ingredients suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "direct",
+          "evidence_event_ids": [
+            "v1-b0001-e1",
+            "v1-b0001-e2"
+          ],
+          "unresolved_needs": [
+            "Comparison with ingredients used in other videos"
+          ],
+          "suggested_tools": []
+        },
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [],
+          "unresolved_needs": [
+            "Visuals of ingredients being mixed with eggs",
+            "Identification of specific ingredients"
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 48,
+          "actual_frame_index": 48,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 96,
+          "actual_frame_index": 96,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 144,
+          "actual_frame_index": 144,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 336,
+          "actual_frame_index": 336,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S4",
+          "frame_id": "S4-F01",
+          "timeline_index": 10,
+          "requested_timestamp_seconds": 20.0,
+          "actual_timestamp_seconds": 20.0,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S5",
+          "frame_id": "S5-F01",
+          "timeline_index": 15,
+          "requested_timestamp_seconds": 30.0,
+          "actual_timestamp_seconds": 30.0,
+          "requested_frame_index": 720,
+          "actual_frame_index": 720,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S5",
+          "frame_id": "S5-F02",
+          "timeline_index": 16,
+          "requested_timestamp_seconds": 32.0,
+          "actual_timestamp_seconds": 32.0,
+          "requested_frame_index": 768,
+          "actual_frame_index": 768,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S5",
+          "frame_id": "S5-F03",
+          "timeline_index": 17,
+          "requested_timestamp_seconds": 34.0,
+          "actual_timestamp_seconds": 34.0,
+          "requested_frame_index": 816,
+          "actual_frame_index": 816,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S5",
+          "frame_id": "S5-F04",
+          "timeline_index": 18,
+          "requested_timestamp_seconds": 36.0,
+          "actual_timestamp_seconds": 36.0,
+          "requested_frame_index": 864,
+          "actual_frame_index": 864,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S5",
+          "frame_id": "S5-F05",
+          "timeline_index": 19,
+          "requested_timestamp_seconds": 38.0,
+          "actual_timestamp_seconds": 38.0,
+          "requested_frame_index": 912,
+          "actual_frame_index": 912,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S6",
+          "frame_id": "S6-F01",
+          "timeline_index": 22,
+          "requested_timestamp_seconds": 44.0,
+          "actual_timestamp_seconds": 44.0,
+          "requested_frame_index": 1056,
+          "actual_frame_index": 1056,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S6",
+          "frame_id": "S6-F02",
+          "timeline_index": 23,
+          "requested_timestamp_seconds": 46.0,
+          "actual_timestamp_seconds": 46.0,
+          "requested_frame_index": 1104,
+          "actual_frame_index": 1104,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S7",
+          "frame_id": "S7-F01",
+          "timeline_index": 25,
+          "requested_timestamp_seconds": 50.0,
+          "actual_timestamp_seconds": 50.0,
+          "requested_frame_index": 1200,
+          "actual_frame_index": 1200,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S7",
+          "frame_id": "S7-F02",
+          "timeline_index": 26,
+          "requested_timestamp_seconds": 52.0,
+          "actual_timestamp_seconds": 52.0,
+          "requested_frame_index": 1248,
+          "actual_frame_index": 1248,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v1",
+          "segment_id": "S8",
+          "frame_id": "S8-F01",
+          "timeline_index": 33,
+          "requested_timestamp_seconds": 66.0,
+          "actual_timestamp_seconds": 66.0,
+          "requested_frame_index": 1584,
+          "actual_frame_index": 1584,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v1",
+          "segment_id": "S9",
+          "frame_id": "S9-F01",
+          "timeline_index": 35,
+          "requested_timestamp_seconds": 70.0,
+          "actual_timestamp_seconds": 70.0,
+          "requested_frame_index": 1680,
+          "actual_frame_index": 1680,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 87.02,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 44,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          2.0020000000000002
+        ],
+        [
+          10.01,
+          10.01
+        ],
+        [
+          16.016000000000002,
+          18.018
+        ],
+        [
+          22.022000000000002,
+          24.024
+        ],
+        [
+          29.997,
+          36.003
+        ],
+        [
+          40.007,
+          50.017
+        ],
+        [
+          66.033,
+          70.037
+        ],
+        [
+          74.041,
+          76.043
+        ],
+        [
+          80.047,
+          82.015
+        ],
+        [
+          86.019,
+          86.019
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            2.002
+          ],
+          "description": "A close-up shot shows a fork stuck in a pile of cooked scrambled eggs, garnished with green herbs and black pepper.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "Ingredients mixed before cooking are not shown."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            10.01,
+            18.018
+          ],
+          "description": "A woman introduces herself as Stephanie Gallagher, standing in a kitchen with wooden cabinets behind her.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S3-F01"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "Her specific cooking actions are not yet shown."
+        },
+        {
+          "event_id": "v2-b0001-e3",
+          "time_span": [
+            18.018,
+            24.024
+          ],
+          "description": "Ingredients are displayed sequentially: two large eggs in a white bowl, one tablespoon of butter in a wrapper, and half a cup of shredded cheese in a measuring cup.",
+          "evidence_frame_ids": [
+            "S3-F02",
+            "S4-F01",
+            "S4-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "It is not yet clear which ingredients are mixed directly into the eggs."
+        },
+        {
+          "event_id": "v2-b0001-e4",
+          "time_span": [
+            29.997,
+            36.003
+          ],
+          "description": "A person cracks two eggs into a metal mixing bowl and begins whisking them with a fork.",
+          "evidence_frame_ids": [
+            "S5-F01",
+            "S5-F02",
+            "S5-F03",
+            "S5-F04"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "No additional ingredients are visible being added to the bowl during the whisking."
+        },
+        {
+          "event_id": "v2-b0001-e5",
+          "time_span": [
+            40.007,
+            42.009
+          ],
+          "description": "The whisking continues vigorously in the metal bowl, showing the eggs becoming a uniform yellow liquid.",
+          "evidence_frame_ids": [
+            "S6-F01"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "The frame is blurry due to motion; specific contents are hard to discern beyond the yellow mixture."
+        },
+        {
+          "event_id": "v2-b0001-e6",
+          "time_span": [
+            42.009,
+            46.013
+          ],
+          "description": "A pat of butter is placed in a frying pan and melted with a spatula before the whisked egg mixture is poured in.",
+          "evidence_frame_ids": [
+            "S6-F02",
+            "S6-F03",
+            "S6-F04"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "The cheese shown earlier is not visible in this sequence."
+        },
+        {
+          "event_id": "v2-b0001-e7",
+          "time_span": [
+            48.015,
+            48.015
+          ],
+          "description": "The eggs are cooked in the pan, with a red spatula pushing the set egg curds.",
+          "evidence_frame_ids": [
+            "S6-F05"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "No cheese is visible in the pan at this stage."
+        },
+        {
+          "event_id": "v2-b0002-e1",
+          "time_span": [
+            50.017,
+            66.033
+          ],
+          "description": "Liquid yellow egg mixture is stirred and folded in a pan with a red spatula, beginning to set.",
+          "evidence_frame_ids": [
+            "S6-F06",
+            "S7-F01"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Ingredients mixed into the raw egg are not visible in these frames."
+        },
+        {
+          "event_id": "v2-b0002-e2",
+          "time_span": [
+            68.035,
+            70.037
+          ],
+          "description": "Shredded orange and white ingredients are added on top of the cooking eggs in the pan.",
+          "evidence_frame_ids": [
+            "S7-F02",
+            "S7-F03"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Exact type of shredded ingredient is not explicitly identified."
+        },
+        {
+          "event_id": "v2-b0002-e3",
+          "time_span": [
+            74.041,
+            74.041
+          ],
+          "description": "The eggs and shredded ingredients are fully mixed together into solid curds in the pan.",
+          "evidence_frame_ids": [
+            "S8-F01"
+          ],
+          "confidence": 0.9,
+          "uncertainty": ""
+        },
+        {
+          "event_id": "v2-b0002-e4",
+          "time_span": [
+            76.043,
+            80.047
+          ],
+          "description": "Finished scrambled eggs are plated on a white dish and topped with green herbs.",
+          "evidence_frame_ids": [
+            "S8-F02",
+            "S9-F01"
+          ],
+          "confidence": 0.9,
+          "uncertainty": ""
+        },
+        {
+          "event_id": "v2-b0002-e5",
+          "time_span": [
+            82.015,
+            86.019
+          ],
+          "description": "A woman stands in a kitchen with a website URL displayed at the bottom of the frame.",
+          "evidence_frame_ids": [
+            "S9-F02",
+            "S10-F01"
+          ],
+          "confidence": 0.9,
+          "uncertainty": ""
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 2,
+      "selected_frames": 25,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=25/44 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-2.002s] A close-up shot shows a fork stuck in a pile of cooked scrambled eggs, garnished with green herbs and black pepper. | evidence=S1-F01,S1-F02 | confidence=1.000\n- v2-b0001-e2 [10.010-18.018s] A woman introduces herself as Stephanie Gallagher, standing in a kitchen with wooden cabinets behind her. | evidence=S2-F01,S3-F01 | confidence=1.000\n- v2-b0001-e3 [18.018-24.024s] Ingredients are displayed sequentially: two large eggs in a white bowl, one tablespoon of butter in a wrapper, and half a cup of shredded cheese in a measuring cup. | evidence=S3-F02,S4-F01,S4-F02 | confidence=1.000\n- v2-b0001-e4 [29.997-36.003s] A person cracks two eggs into a metal mixing bowl and begins whisking them with a fork. | evidence=S5-F01,S5-F02,S5-F03,S5-F04 | confidence=1.000\n- v2-b0001-e5 [40.007-42.009s] The whisking continues vigorously in the metal bowl, showing the eggs becoming a uniform yellow liquid. | evidence=S6-F01 | confidence=1.000\n- v2-b0001-e6 [42.009-46.013s] A pat of butter is placed in a frying pan and melted with a spatula before the whisked egg mixture is poured in. | evidence=S6-F02,S6-F03,S6-F04 | confidence=1.000\n- v2-b0001-e7 [48.015-48.015s] The eggs are cooked in the pan, with a red spatula pushing the set egg curds. | evidence=S6-F05 | confidence=1.000\n- v2-b0002-e1 [50.017-66.033s] Liquid yellow egg mixture is stirred and folded in a pan with a red spatula, beginning to set. | evidence=S6-F06,S7-F01 | confidence=0.900\n- v2-b0002-e2 [68.035-70.037s] Shredded orange and white ingredients are added on top of the cooking eggs in the pan. | evidence=S7-F02,S7-F03 | confidence=0.900\n- v2-b0002-e3 [74.041-74.041s] The eggs and shredded ingredients are fully mixed together into solid curds in the pan. | evidence=S8-F01 | confidence=0.900\n- v2-b0002-e4 [76.043-80.047s] Finished scrambled eggs are plated on a white dish and topped with green herbs. | evidence=S8-F02,S9-F01 | confidence=0.900\n- v2-b0002-e5 [82.015-86.019s] A woman stands in a kitchen with a website URL displayed at the bottom of the frame. | evidence=S9-F02,S10-F01 | confidence=0.900\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-2.002s] Ingredients mixed before cooking are not shown.\n- v2-b0001-e2 [10.010-18.018s] Her specific cooking actions are not yet shown.\n- v2-b0001-e3 [18.018-24.024s] It is not yet clear which ingredients are mixed directly into the eggs.\n- v2-b0001-e4 [29.997-36.003s] No additional ingredients are visible being added to the bowl during the whisking.\n- v2-b0001-e5 [40.007-42.009s] The frame is blurry due to motion; specific contents are hard to discern beyond the yellow mixture.\n- v2-b0001-e6 [42.009-46.013s] The cheese shown earlier is not visible in this sequence.\n- v2-b0001-e7 [48.015-48.015s] No cheese is visible in the pan at this stage.\n- v2-b0002-e1 [50.017-66.033s] Ingredients mixed into the raw egg are not visible in these frames.\n- v2-b0002-e2 [68.035-70.037s] Exact type of shredded ingredient is not explicitly identified.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v2-b0001-e3,v2-b0001-e4,v2-b0001-e5,v2-b0001-e6 unresolved=Whether the cheese is mixed into the eggs or added later is not explicitly shown in the mixing phase. suggested_tools=temporal_expand\n- batch=2 relevance=indirect evidence=v2-b0002-e1,v2-b0002-e2,v2-b0002-e3,v2-b0002-e4 unresolved=Ingredients added to the raw egg mixture before cooking are not visible in these frames. suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v2-b0001-e3",
+            "v2-b0001-e4",
+            "v2-b0001-e5",
+            "v2-b0001-e6"
+          ],
+          "unresolved_needs": [
+            "Whether the cheese is mixed into the eggs or added later is not explicitly shown in the mixing phase."
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        },
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v2-b0002-e1",
+            "v2-b0002-e2",
+            "v2-b0002-e3",
+            "v2-b0002-e4"
+          ],
+          "unresolved_needs": [
+            "Ingredients added to the raw egg mixture before cooking are not visible in these frames."
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0020000000000002,
+          "actual_timestamp_seconds": 2.0020000000000002,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.01,
+          "actual_timestamp_seconds": 10.01,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.016000000000002,
+          "actual_timestamp_seconds": 16.016000000000002,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F02",
+          "timeline_index": 9,
+          "requested_timestamp_seconds": 18.018,
+          "actual_timestamp_seconds": 18.018,
+          "requested_frame_index": 540,
+          "actual_frame_index": 540,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S4",
+          "frame_id": "S4-F01",
+          "timeline_index": 11,
+          "requested_timestamp_seconds": 22.022000000000002,
+          "actual_timestamp_seconds": 22.022000000000002,
+          "requested_frame_index": 660,
+          "actual_frame_index": 660,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S4",
+          "frame_id": "S4-F02",
+          "timeline_index": 12,
+          "requested_timestamp_seconds": 24.024,
+          "actual_timestamp_seconds": 24.024,
+          "requested_frame_index": 720,
+          "actual_frame_index": 720,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F01",
+          "timeline_index": 15,
+          "requested_timestamp_seconds": 29.997,
+          "actual_timestamp_seconds": 29.997,
+          "requested_frame_index": 899,
+          "actual_frame_index": 899,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F02",
+          "timeline_index": 16,
+          "requested_timestamp_seconds": 31.999000000000002,
+          "actual_timestamp_seconds": 31.999000000000002,
+          "requested_frame_index": 959,
+          "actual_frame_index": 959,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F03",
+          "timeline_index": 17,
+          "requested_timestamp_seconds": 34.001,
+          "actual_timestamp_seconds": 34.001,
+          "requested_frame_index": 1019,
+          "actual_frame_index": 1019,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F04",
+          "timeline_index": 18,
+          "requested_timestamp_seconds": 36.003,
+          "actual_timestamp_seconds": 36.003,
+          "requested_frame_index": 1079,
+          "actual_frame_index": 1079,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F01",
+          "timeline_index": 20,
+          "requested_timestamp_seconds": 40.007,
+          "actual_timestamp_seconds": 40.007,
+          "requested_frame_index": 1199,
+          "actual_frame_index": 1199,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F02",
+          "timeline_index": 21,
+          "requested_timestamp_seconds": 42.009,
+          "actual_timestamp_seconds": 42.009,
+          "requested_frame_index": 1259,
+          "actual_frame_index": 1259,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F03",
+          "timeline_index": 22,
+          "requested_timestamp_seconds": 44.011,
+          "actual_timestamp_seconds": 44.011,
+          "requested_frame_index": 1319,
+          "actual_frame_index": 1319,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F04",
+          "timeline_index": 23,
+          "requested_timestamp_seconds": 46.013,
+          "actual_timestamp_seconds": 46.013,
+          "requested_frame_index": 1379,
+          "actual_frame_index": 1379,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F05",
+          "timeline_index": 24,
+          "requested_timestamp_seconds": 48.015,
+          "actual_timestamp_seconds": 48.015,
+          "requested_frame_index": 1439,
+          "actual_frame_index": 1439,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F06",
+          "timeline_index": 25,
+          "requested_timestamp_seconds": 50.017,
+          "actual_timestamp_seconds": 50.017,
+          "requested_frame_index": 1499,
+          "actual_frame_index": 1499,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F01",
+          "timeline_index": 33,
+          "requested_timestamp_seconds": 66.033,
+          "actual_timestamp_seconds": 66.033,
+          "requested_frame_index": 1979,
+          "actual_frame_index": 1979,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F02",
+          "timeline_index": 34,
+          "requested_timestamp_seconds": 68.035,
+          "actual_timestamp_seconds": 68.035,
+          "requested_frame_index": 2039,
+          "actual_frame_index": 2039,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F03",
+          "timeline_index": 35,
+          "requested_timestamp_seconds": 70.037,
+          "actual_timestamp_seconds": 70.037,
+          "requested_frame_index": 2099,
+          "actual_frame_index": 2099,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S8",
+          "frame_id": "S8-F01",
+          "timeline_index": 37,
+          "requested_timestamp_seconds": 74.041,
+          "actual_timestamp_seconds": 74.041,
+          "requested_frame_index": 2219,
+          "actual_frame_index": 2219,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S8",
+          "frame_id": "S8-F02",
+          "timeline_index": 38,
+          "requested_timestamp_seconds": 76.043,
+          "actual_timestamp_seconds": 76.043,
+          "requested_frame_index": 2279,
+          "actual_frame_index": 2279,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S9",
+          "frame_id": "S9-F01",
+          "timeline_index": 40,
+          "requested_timestamp_seconds": 80.047,
+          "actual_timestamp_seconds": 80.047,
+          "requested_frame_index": 2399,
+          "actual_frame_index": 2399,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S9",
+          "frame_id": "S9-F02",
+          "timeline_index": 41,
+          "requested_timestamp_seconds": 82.015,
+          "actual_timestamp_seconds": 82.015,
+          "requested_frame_index": 2458,
+          "actual_frame_index": 2458,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S10",
+          "frame_id": "S10-F01",
+          "timeline_index": 43,
+          "requested_timestamp_seconds": 86.019,
+          "actual_timestamp_seconds": 86.019,
+          "requested_frame_index": 2578,
+          "actual_frame_index": 2578,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "CCQA-726",
+    "task": "CCQA",
+    "ground_truth": "In video A, the chef mixes mayonnaise and water with the eggs before cooking, creating an emulsion. In video B, the chef uses only plain cracked eggs without any additional ingredients. Video A's mixture includes dairy fat from mayo and hydration from water, while video B maintains a pure egg base.",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/CCQA/CCQA-726/result.json",
+    "selection_sha256": "f01423be11b7429b56de20cd546ce49a7bf079200bf8618cae95f0c020bb52b9",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is nonempty free text in the format requested by the question.",
+      "v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.",
+      "The final answer is free text, not an option label."
+    ]
+  }
+}

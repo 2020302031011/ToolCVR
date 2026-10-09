@@ -1,0 +1,339 @@
+{
+  "state": {
+    "question": "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+    "round_id": 4,
+    "summary": "The exact timestamp of {A4}'s disappearance from view A is unresolved, and the relative positions of {B1} and {B4} in view B at that timestamp are unknown.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices.",
+      "Videos v1, v2 share clock uav-scene-36: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets."
+    ],
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r3-r1-01.s01",
+          "v2.zoom.r3-r1-02.s01"
+        ],
+        "attempts": [
+          "The exact timestamp of {A4}'s disappearance from view A is unresolved."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r1-02.s01"
+        ],
+        "attempts": [
+          "The relative positions of {B1} and {B4} in view B at the timestamp when {A4} disappears from view A are unknown."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r1-02.s01"
+        ],
+        "attempts": [
+          "It is unknown if {B1} and {B4} are both visible in view B at the timestamp when {A4} disappears from view A."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A4 car and A3 person remain visible together in bottom-right corner across all frames.",
+        "uncertainty": "A4 car not visible in any frame after S1-F03, but B1/B4 not visible in any frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "B4 car and B2 person visible near crosswalk in frame S1-F01.",
+        "uncertainty": "B4 car and B2 person not visible in later frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A4 car and A3 person remain visible together at bottom right throughout all frames.",
+        "uncertainty": "A4 car not visible in any frame after F01, so disappearance time unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "B1 car enters view at 4.0s, positioned below B4 car in view B.",
+        "uncertainty": "A4's disappearance from view A not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A4 car remains visible in bottom-right corner throughout all frames.",
+        "uncertainty": "No frame shows A4 car exiting view. Cannot confirm disappearance.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A4 car visible in frame F01, then disappears from view by F05.",
+        "uncertainty": "A4 car not visible in F02-F05; disappearance not confirmed in supplied frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A4 car remains visible in bottom-right corner across all frames.",
+        "uncertainty": "A4 car not visible beyond F07; no later frames provided.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A4 car visible in frames F01 to F05, moving rightward across intersection.",
+        "uncertainty": "A4 car not visible after F05; cannot confirm exact disappearance timestamp.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r4.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A4 car visible at bottom right, near pedestrian crossing, throughout all frames.",
+        "uncertainty": "A4 car remains visible in all supplied frames; no disappearance observed.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v2.focus.r4.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A4 car visible in frames F01 to F05, moving rightward across intersection.",
+        "uncertainty": "A4 car not visible after F05; no later frame provided.",
+        "action": "FOCUS",
+        "round": 4
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine the relative location of B1 to B4 in view B when A4 disappears from view A.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "The position of B1 relative to B4 in view B when A4 disappears from view A.",
+        "next_probe_goal": "The visibility of A4 in view A and the positions of B1 and B4 in view B around the time A4 disappears from view A.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to determine the exact timestamp when {A4} disappears from view A and the positions of {B1} and {B4} in view B at that moment.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req1",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "When does {A4} completely disappear from view A?",
+        "next_probe_goal": "Are {B1} and {B4} visible in view B at the timestamp when {A4} disappears from view A?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The disappearance of {A4} from view A and the relative positions of {B1} and {B4} in view B at that moment remain unresolved due to limited evidence. Further observations are required to confirm these details.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.zoom.r2-req1-01.s01",
+          "v2.zoom.r2-req1-02.s01"
+        ],
+        "evidence_goal": "Confirm the exact timestamp when {A4} completely disappears from view A.",
+        "next_probe_goal": "The visibility of A4 in view A and the positions of B1 and B4 in view B around the time A4 disappears from view A.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The exact timestamp of {A4}'s disappearance from view A is unresolved, and the relative positions of {B1} and {B4} in view B at that timestamp are unknown.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req1",
+        "slot_ids": [
+          "v1.zoom.r3-r1-01.s01",
+          "v2.zoom.r3-r1-02.s01"
+        ],
+        "evidence_goal": "Identify the exact timestamp when {A4} completely disappears from view A.",
+        "next_probe_goal": "Confirm the visibility of {B1} and {B4} in view B at the timestamp when {A4} disappears from view A.",
+        "mode": "refine"
+      }
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "evidence reprojection failed: projector stayed invalid after structural repair: initial=projected requirement has invalid video scope; repaired=projected requirement has invalid video scope"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r4-req1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car visible at bottom right, near pedestrian crossing, throughout all frames.",
+      "evidence": [
+        "v1.focus.r4.l1.e1"
+      ],
+      "uncertainty": [
+        "A4 car remains visible in all supplied frames; no disappearance observed.",
+        "Unresolved: A4 car not observed to disappear in any frame; no timestamp for disappearance."
+      ],
+      "revision": 4,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        6.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r4-req1-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car visible in frames F01 to F05, moving rightward across intersection.",
+      "evidence": [
+        "v2.focus.r4.l2.e1"
+      ],
+      "uncertainty": [
+        "A4 car not visible after F05; no later frame provided.",
+        "Unresolved: exact timestamp of A4 car's complete disappearance from view A"
+      ],
+      "revision": 4,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        6.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "The visibility of A4 in view A and the positions of B1 and B4 in view B around the time A4 disappears from view A.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

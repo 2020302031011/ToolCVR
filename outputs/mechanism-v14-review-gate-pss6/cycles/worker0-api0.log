@@ -1,0 +1,37 @@
+[h264 @ 0x1213a40] mmco: unref short failure
+[h264 @ 0x1213a40] mmco: unref short failure
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 647, in project
+    return _parse_projected_state(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 738, in _parse_projected_state
+    raise ValueError("resolved review must cite evidence produced by the last Focus")
+ValueError: resolved review must cite evidence produced by the last Focus
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 665, in project
+    return _parse_projected_state(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 738, in _parse_projected_state
+    raise ValueError("resolved review must cite evidence produced by the last Focus")
+ValueError: resolved review must cite evidence produced by the last Focus
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 1402, in run
+    projected = projector.project(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 673, in project
+    raise ValueError(f"projector stayed invalid after structural repair: initial={first}; repaired={second}") from second
+ValueError: projector stayed invalid after structural repair: initial=resolved review must cite evidence produced by the last Focus; repaired=resolved review must cite evidence produced by the last Focus
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_real_reasoning_cycle.py", line 502, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_real_reasoning_cycle.py", line 465, in main
+    result = CycleRunner(config=CycleConfig(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/reasoning_cycle.py", line 1418, in run
+    raise RuntimeError(
+RuntimeError: evidence reprojection failed after a valid visual action: projector stayed invalid after structural repair: initial=resolved review must cite evidence produced by the last Focus; repaired=resolved review must cite evidence produced by the last Focus

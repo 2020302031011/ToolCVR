@@ -1,0 +1,1304 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 4,
+    "summary": "v1 begins with alien presence, shocked humans, a human-only lab-console struggle, and blue-skinned aliens moving through a jungle-like environment. v2 ends with vehicle combat, cargo loading in a glowing swamp, an aircraft flight, and a sick person on a monitor. The strongest before/after pattern is humans and aliens becoming separated or transported amid conflict, which best supports a sympathetic-human escape/aid plan, though cargo contents and the exact cause of the combat remain uncertain.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r3-r1-01.s01",
+          "v1.zoom.r3-r1-02.s01"
+        ],
+        "attempts": [
+          "The observed v1 lab-console struggle spans show human participants only, supporting human conflict rather than visible alien infiltration within those cited spans."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c008",
+          "v2.c009"
+        ],
+        "attempts": [
+          "v2 shows cargo being secured and loaded near a bioluminescent swamp and an aircraft flying over the swamp, but the cargo contents and destination remain unresolved."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c006",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": [
+          "v1 shows human chest-gripping distress and v2 shows vehicle combat and firing at a swarm, but the evidence does not yet establish whether these are the same threat, a rescue event, or a bioweapon/environmental consequence."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          46.0,
+          46.0
+        ],
+        "description": "A blue-skinned humanoid alien figure stands in a misty, jungle-like environment with warm backlighting.",
+        "uncertainty": "Identity and context of the alien figure.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          48.0,
+          52.0
+        ],
+        "description": "Humans in a control room look upwards with expressions of shock and concern, observing something off-screen.",
+        "uncertainty": "What specific event triggered their reaction.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          54.0,
+          62.0
+        ],
+        "description": "A chaotic scene unfolds in a futuristic lab; military personnel and scientists engage in a physical altercation.",
+        "uncertainty": "The cause of the fight and the outcome of the struggle.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          88.0,
+          96.0
+        ],
+        "description": "A man in a black tank top restrains a soldier in camouflage, appearing to subdue him during a struggle.",
+        "uncertainty": "The man's motivation for attacking the soldier.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          100.0,
+          102.0
+        ],
+        "description": "A red-haired woman shouts while being physically held back by a soldier in the lab environment.",
+        "uncertainty": "The target of the woman's aggression.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          104.0,
+          106.0
+        ],
+        "description": "A human woman with curly hair grimaces intensely and grips her chest in a dark, indoor facility with monitors in the background.",
+        "uncertainty": "Cause of distress is not visually explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          106.0,
+          108.0
+        ],
+        "description": "The scene transitions to a black screen, indicating a cut or temporal gap between the two environments.",
+        "uncertainty": "Content of the transition is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          108.0,
+          116.0
+        ],
+        "description": "A group of blue-skinned aliens walks through a jungle environment, carrying injured individuals and children, with a large fire and smoke in the background.",
+        "uncertainty": "The specific source of the fire is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          235.0,
+          237.0
+        ],
+        "description": "Person in a dark cockpit or vehicle interior manipulates an overhead control panel or handle.",
+        "uncertainty": "Identity of the person and specific action's purpose.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          239.0,
+          249.0
+        ],
+        "description": "Military personnel monitor screens in a control center; a grey-haired officer moves through the room and observes a monitor showing a cockpit view.",
+        "uncertainty": "Officer's specific intent or reaction to the monitor content.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          255.0,
+          263.0
+        ],
+        "description": "A person in a helmet reacts; the grey-haired officer grabs a weapon, runs through a corridor, and aims it from a railing.",
+        "uncertainty": "What triggered the officer's sudden armed response.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          271.0,
+          275.0
+        ],
+        "description": "Two people in helmets struggle on the ground; the officer fires a weapon and aims at a large outdoor vehicle bay.",
+        "uncertainty": "Identity of the struggling individuals and the target of the officer's fire.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          277.0,
+          289.0
+        ],
+        "description": "A military leader aims a large firearm from a corridor, taking cover behind a railing while observing the area.",
+        "uncertainty": "Target of aim is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          291.0,
+          295.0
+        ],
+        "description": "The leader and another soldier don clear protective face shields, preparing for potential exposure.",
+        "uncertainty": "Reason for shielding is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          297.0,
+          325.0
+        ],
+        "description": "Multiple individuals in aircraft cockpits wear face shields; some appear distressed while others look focused on flying.",
+        "uncertainty": "Connection between soldiers and pilots is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          327.0,
+          347.0
+        ],
+        "description": "A person secures cargo on a floating platform in a bioluminescent swamp; a tilt-rotor aircraft arrives to load the cargo.",
+        "uncertainty": "Cargo contents and destination are unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          367.0,
+          379.0
+        ],
+        "description": "The aircraft flies over the glowing swamp; a male crew member monitors a screen showing a sick person's face.",
+        "uncertainty": "The identity of the person on the screen is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          381.0,
+          385.0
+        ],
+        "description": "Inside the aircraft, a crew member administers a medical injection to a patient lying on a stretcher.",
+        "uncertainty": "Whether the patient is the person from the screen is not visually confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          387.0,
+          413.0
+        ],
+        "description": "A man with facial scratches sits in a dim interior, looking down at a sleeping figure in a bed, with a window showing dark blue light behind him.",
+        "uncertainty": "Dialogue or context explaining the man's intent is missing.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          415.0,
+          419.0
+        ],
+        "description": "A wide shot of a misty alien landscape featuring massive curved arch structures and small flying vehicles moving through the fog.",
+        "uncertainty": "Location identity and destination of the vehicles are unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          445.0,
+          449.0
+        ],
+        "description": "A yellow industrial hover-transport moves through a dense, lush green jungle, navigating between tree branches and ferns.",
+        "uncertainty": "Cargo contents and operational purpose are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          271.0,
+          272.0
+        ],
+        "description": "Two struggling individuals wearing helmets and light-colored shirts are shown in a dark, chaotic environment.",
+        "uncertainty": "Skin tone ambiguous due to low light",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          273.0,
+          275.0
+        ],
+        "description": "A soldier in digital camouflage fires a weapon from a vehicle, then aims at a fleet of drones.",
+        "uncertainty": "Relationship to struggling pair unclear",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          271.0,
+          272.0
+        ],
+        "description": "Two humans struggle physically inside a dark vehicle cabin.",
+        "uncertainty": "Reason for the physical struggle is unknown.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          273.0,
+          273.0
+        ],
+        "description": "A soldier in camouflage fires a handgun with a visible muzzle flash.",
+        "uncertainty": "Target of the shot is not visible in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          274.0,
+          274.0
+        ],
+        "description": "Two humans in the vehicle cabin brace themselves against sudden motion.",
+        "uncertainty": "Source of the vehicle motion is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          275.0,
+          275.0
+        ],
+        "description": "The soldier aims a handgun at a swarm of small flying drones.",
+        "uncertainty": "If the soldier is the same individual is not confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          54.0,
+          54.0
+        ],
+        "description": "Wide shot of a futuristic lab with a group of humans in military and civilian clothing gathered around a console with holographic displays.",
+        "uncertainty": "Intent of gathering not clear from still.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          55.0,
+          57.0
+        ],
+        "description": "Close-up of a man in a patterned shirt shouting aggressively and gesturing towards another person, initiating a physical confrontation.",
+        "uncertainty": "Verbal content of shouting unknown.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          58.0,
+          61.0
+        ],
+        "description": "The shouting man physically grapples with a soldier in camouflage, pushing him while other personnel observe in the background.",
+        "uncertainty": "Exact outcome of the struggle is cut off.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e4",
+        "video_id": "v1",
+        "time_span": [
+          62.0,
+          62.0
+        ],
+        "description": "A hand in a rolled-up sleeve operates a handheld control panel displaying a red interface, suggesting an attempt to activate or sabotage a system.",
+        "uncertainty": "Identity of person using the panel is not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          88.0,
+          91.0
+        ],
+        "description": "Close-up of a blond man in profile and a dark-haired man lying down, looking upwards with an intense expression.",
+        "uncertainty": "Facial expressions suggest distress but exact emotion is unclear.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          92.0,
+          94.0
+        ],
+        "description": "The blond man, wearing a patterned shirt, is seen struggling and moving violently near a control console.",
+        "uncertainty": "Specific cause of the struggle is not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e3",
+        "video_id": "v1",
+        "time_span": [
+          95.0,
+          96.0
+        ],
+        "description": "The dark-haired man physically restrains the blond man from behind in a grappling hold.",
+        "uncertainty": "Intent (defense vs. attack) is ambiguous without context.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need visible identity of the helmeted combatants in v2 corridor to test alien-initiated attack/sabotage.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c004"
+        ],
+        "evidence_goal": "Are the two struggling helmeted people in v2.c004 blue-skinned aliens or human soldiers?",
+        "next_probe_goal": "If alien identity is not visible, inspect v1.c003 lab altercation participants for alien presence.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local species/action evidence for v2 struggling pair to distinguish alien counterattack from human defense or sabotage.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "What is the visible species and action relationship of the struggling pair to the soldier firing at drones?",
+        "next_probe_goal": "",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "v1 establishes alien presence, lab conflict, and aliens fleeing with injured/children; v2 shows military/aircraft action and swamp loading with a sick person. The missing interval is most plausibly an escape/aid plan, but r1 motive is unresolved. With visual budget remaining, refine v1 lab altercation to see if humans protect aliens or attack/sabotage them.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c003",
+          "v1.c004"
+        ],
+        "evidence_goal": "Determine whether the lab altercation includes visible alien escort/aid or human defense/sabotage by inspecting participants, weapons, gestures, and any alien presence.",
+        "next_probe_goal": "If humans appear to protect or move aliens, refine v2.c008 and v2.c009 for escape logistics; if humans appear hostile to aliens or technology, refine v2.zoom.r2-r2-01.s01 for alien counterattack or sabotage.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "v1 begins with alien presence, shocked humans, a human-only lab-console struggle, and blue-skinned aliens moving through a jungle-like environment. v2 ends with vehicle combat, cargo loading in a glowing swamp, an aircraft flight, and a sick person on a monitor. The strongest before/after pattern is humans and aliens becoming separated or transported amid conflict, which best supports a sympathetic-human escape/aid plan, though cargo contents and the exact cause of the combat remain uncertain.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.c008",
+      "v2.c008",
+      "v2.c009",
+      "v1.zoom.r3-r1-01.s01",
+      "v2.zoom.r2-r2-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        30.0,
+        45.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        45.0,
+        46.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        46.0,
+        46.0
+      ],
+      "resolution": "coarse",
+      "content": "A blue-skinned humanoid alien figure stands in a misty, jungle-like environment with warm backlighting.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity and context of the alien figure."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        48.0,
+        52.0
+      ],
+      "resolution": "coarse",
+      "content": "Humans in a control room look upwards with expressions of shock and concern, observing something off-screen.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "What specific event triggered their reaction."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r1-01.s01",
+      "video": "v1",
+      "time": [
+        54.0,
+        62.0
+      ],
+      "resolution": "fine",
+      "content": "Wide shot of a futuristic lab with a group of humans in military and civilian clothing gathered around a console with holographic displays. Close-up of a man in a patterned shirt shouting aggressively and gesturing towards another person, initiating a physical confrontation. The shouting man physically grapples with a soldier in camouflage, pushing him while other personnel observe in the background. A hand in a rolled-up sleeve operates a handheld control panel displaying a red interface, suggesting an attempt to activate or sabotage a system.",
+      "evidence": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2",
+        "v1.focus.r3.l1.e3",
+        "v1.focus.r3.l1.e4"
+      ],
+      "uncertainty": [
+        "Intent of gathering not clear from still.",
+        "Verbal content of shouting unknown.",
+        "Exact outcome of the struggle is cut off.",
+        "Identity of person using the panel is not visible.",
+        "Unresolved: Confirmation of whether the participants are human or alien species."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        62.0,
+        77.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        77.0,
+        88.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r1-02.s01",
+      "video": "v1",
+      "time": [
+        88.0,
+        96.0
+      ],
+      "resolution": "fine",
+      "content": "Close-up of a blond man in profile and a dark-haired man lying down, looking upwards with an intense expression. The blond man, wearing a patterned shirt, is seen struggling and moving violently near a control console. The dark-haired man physically restrains the blond man from behind in a grappling hold.",
+      "evidence": [
+        "v1.focus.r3.l2.e1",
+        "v1.focus.r3.l2.e2",
+        "v1.focus.r3.l2.e3"
+      ],
+      "uncertainty": [
+        "Facial expressions suggest distress but exact emotion is unclear.",
+        "Specific cause of the struggle is not visible.",
+        "Intent (defense vs. attack) is ambiguous without context.",
+        "Unresolved: Confirmation of whether the struggle constitutes sabotage or defense."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        96.0,
+        100.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        100.0,
+        102.0
+      ],
+      "resolution": "coarse",
+      "content": "A red-haired woman shouts while being physically held back by a soldier in the lab environment.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "The target of the woman's aggression."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        104.0,
+        106.0
+      ],
+      "resolution": "coarse",
+      "content": "A human woman with curly hair grimaces intensely and grips her chest in a dark, indoor facility with monitors in the background.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Cause of distress is not visually explicit."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        106.0,
+        108.0
+      ],
+      "resolution": "coarse",
+      "content": "The scene transitions to a black screen, indicating a cut or temporal gap between the two environments.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Content of the transition is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        108.0,
+        116.0
+      ],
+      "resolution": "coarse",
+      "content": "A group of blue-skinned aliens walks through a jungle environment, carrying injured individuals and children, with a large fire and smoke in the background.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "The specific source of the fire is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        116.0,
+        128.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        235.0,
+        237.0
+      ],
+      "resolution": "coarse",
+      "content": "Person in a dark cockpit or vehicle interior manipulates an overhead control panel or handle.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity of the person and specific action's purpose."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        239.0,
+        249.0
+      ],
+      "resolution": "coarse",
+      "content": "Military personnel monitor screens in a control center; a grey-haired officer moves through the room and observes a monitor showing a cockpit view.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Officer's specific intent or reaction to the monitor content."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        249.0,
+        255.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        255.0,
+        263.0
+      ],
+      "resolution": "coarse",
+      "content": "A person in a helmet reacts; the grey-haired officer grabs a weapon, runs through a corridor, and aims it from a railing.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "What triggered the officer's sudden armed response."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        263.0,
+        271.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        271.0,
+        275.0
+      ],
+      "resolution": "fine",
+      "content": "Two humans struggle physically inside a dark vehicle cabin. A soldier in camouflage fires a handgun with a visible muzzle flash. Two humans in the vehicle cabin brace themselves against sudden motion. The soldier aims a handgun at a swarm of small flying drones.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4"
+      ],
+      "uncertainty": [
+        "Reason for the physical struggle is unknown.",
+        "Target of the shot is not visible in this frame.",
+        "Source of the vehicle motion is not visible.",
+        "If the soldier is the same individual is not confirmed.",
+        "Unresolved: Visual or narrative link between the struggling humans and the soldier."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        277.0,
+        289.0
+      ],
+      "resolution": "coarse",
+      "content": "A military leader aims a large firearm from a corridor, taking cover behind a railing while observing the area.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Target of aim is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        279.0,
+        281.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        291.0,
+        295.0
+      ],
+      "resolution": "coarse",
+      "content": "The leader and another soldier don clear protective face shields, preparing for potential exposure.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Reason for shielding is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        297.0,
+        325.0
+      ],
+      "resolution": "coarse",
+      "content": "Multiple individuals in aircraft cockpits wear face shields; some appear distressed while others look focused on flying.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Connection between soldiers and pilots is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        299.0,
+        314.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        314.0,
+        319.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        327.0,
+        339.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        327.0,
+        347.0
+      ],
+      "resolution": "coarse",
+      "content": "A person secures cargo on a floating platform in a bioluminescent swamp; a tilt-rotor aircraft arrives to load the cargo.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Cargo contents and destination are unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        347.0,
+        362.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        362.0,
+        367.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        367.0,
+        379.0
+      ],
+      "resolution": "coarse",
+      "content": "The aircraft flies over the glowing swamp; a male crew member monitors a screen showing a sick person's face.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "The identity of the person on the screen is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        377.0,
+        379.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        381.0,
+        385.0
+      ],
+      "resolution": "coarse",
+      "content": "Inside the aircraft, a crew member administers a medical injection to a patient lying on a stretcher.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Whether the patient is the person from the screen is not visually confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        387.0,
+        401.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        387.0,
+        413.0
+      ],
+      "resolution": "coarse",
+      "content": "A man with facial scratches sits in a dim interior, looking down at a sleeping figure in a bed, with a window showing dark blue light behind him.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Dialogue or context explaining the man's intent is missing."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        409.0,
+        411.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        415.0,
+        419.0
+      ],
+      "resolution": "coarse",
+      "content": "A wide shot of a misty alien landscape featuring massive curved arch structures and small flying vehicles moving through the fog.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Location identity and destination of the vehicles are unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        419.0,
+        434.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        434.0,
+        445.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        445.0,
+        449.0
+      ],
+      "resolution": "coarse",
+      "content": "A yellow industrial hover-transport moves through a dense, lush green jungle, navigating between tree branches and ferns.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Cargo contents and operational purpose are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        449.0,
+        450.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If alien identity is not visible, inspect v1.c003 lab altercation participants for alien presence.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

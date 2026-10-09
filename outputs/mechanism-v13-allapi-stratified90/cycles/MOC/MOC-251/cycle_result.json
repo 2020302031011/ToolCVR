@@ -1,0 +1,381 @@
+{
+  "state": {
+    "question": "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+    "round_id": 3,
+    "summary": "The trigger is tied to A1 ending around 11.233s in view A, but view B yellow-car count remains unresolved. Current observations note no yellow passenger cars over 8-14s and mention yellow truck/bus, while exact state at the synchronized disappearance time and vehicle-class distinction remain open.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-49: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=65; declared=car; A1_visible=283-336 (9.433-11.233s)/500_frames; B1_visible=252-329 (8.400-11.000s)/500_frames.",
+      "A2/B2 is source_track=77; declared=car; A2_visible=411-483 (13.700-16.133s)/500_frames; B2_visible=376-481 (12.533-16.067s)/500_frames.",
+      "A3/B3 is source_track=80; declared=car; A3_visible=474-499 (15.800-16.667s)/500_frames; B3_visible=423-499 (14.100-16.667s)/500_frames.",
+      "A4/B4 is source_track=54; declared=car; A4_visible=118-182 (3.933-6.100s)/500_frames; B4_visible=80-178 (2.667-5.967s)/500_frames.",
+      "A5/B5 is source_track=47; declared=car; A5_visible=47-102 (1.567-3.433s)/500_frames; B5_visible=10-92 (0.333-3.100s)/500_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c002",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c001",
+          "v1.c003"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "A4 car (red) is visible in the upper right area of the highway scene, moving right.",
+        "uncertainty": "A4 car disappears after 6s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "A1 car (white) is visible in the center lane, moving right, then exits the frame.",
+        "uncertainty": "A1 car disappears after 12s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          14.0
+        ],
+        "description": "A yellow bus is visible in the upper right lane, moving left.",
+        "uncertainty": "Bus is not a car.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "A red car with a magenta bounding box labeled 'D4 car' is visible in view A. A yellow truck is visible in view B.",
+        "uncertainty": "Target vehicle A1 identity is not explicitly labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          14.0
+        ],
+        "description": "A red car with a yellow bounding box labeled 'B1 car' is visible in view A. A yellow bus is visible in view B.",
+        "uncertainty": "Target vehicle A1 identity is not explicitly labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          14.0
+        ],
+        "description": "Aerial view of a highway with vehicles moving in both directions, including cars, trucks, and buses.",
+        "uncertainty": "No yellow passenger cars visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          9.0,
+          10.0
+        ],
+        "description": "A yellow B1 car label appears and tracks a white vehicle in the left lane, while a red truck travels in the opposite direction.",
+        "uncertainty": "No yellow passenger cars are visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "A blue B2 car label tracks a white vehicle in the left lane.",
+        "uncertainty": "No yellow passenger cars are visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need fine yellow-car count in view B at the synchronized A1 disappearance timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "At the synchronized timestamp just after A1's last visible frame in view A, how many yellow passenger cars are visible in view B, excluding yellow buses and trucks?",
+        "next_probe_goal": "Confirm the A1 disappearance boundary in view A so the target timestamp is not shifted.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need confirm v2 is view B and count yellow passenger cars at 11.233s, excluding bus/truck.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "At 11.233s in v2, how many yellow passenger cars are visible while checking B1/view-B labels?",
+        "next_probe_goal": "If view-B identity is not established, inspect v1 around 11.233s for A1 exit and v2 for B1 presence.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger is tied to A1 ending around 11.233s in view A, but view B yellow-car count remains unresolved. Current observations note no yellow passenger cars over 8-14s and mention yellow truck/bus, while exact state at the synchronized disappearance time and vehicle-class distinction remain open.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['.zoom.r2-r2-01.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['.zoom.r2-r2-01.s01']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        4.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "A4 car (red) is visible in the upper right area of the highway scene, moving right.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "A4 car disappears after 6s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "A1 car (white) is visible in the center lane, moving right, then exits the frame.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "A1 car disappears after 12s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "A yellow bus is visible in the upper right lane, moving left.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Bus is not a car."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        14.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        4.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "A red car with a magenta bounding box labeled 'D4 car' is visible in view A. A yellow truck is visible in view B.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Target vehicle A1 identity is not explicitly labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        8.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A yellow B1 car label appears and tracks a white vehicle in the left lane, while a red truck travels in the opposite direction. A blue B2 car label tracks a white vehicle in the left lane.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "No yellow passenger cars are visible.",
+        "Unresolved: The exact state at 11.233s is not directly visible."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        14.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Confirm the A1 disappearance boundary in view A so the target timestamp is not shifted.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "question": "Which video does NOT slice the completed roll into multiple pieces?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "statement": "v1 shows fillings placed on nori and a bamboo mat used to roll the nori enclosing the fillings."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e1",
+        "v2-b0003-e2"
+      ],
+      "statement": "v2 shows a completed whole sushi roll placed on the cutting board and then sliced into multiple pieces with a knife."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "v2 shows a plate containing multiple pieces of sliced sushi rolls."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0005-e3"
+      ],
+      "statement": "v3 shows a completed sushi roll removed from the mat and placed on the cutting board while remaining whole."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0006-e1"
+      ],
+      "statement": "v3 shows a person slicing a long sushi roll into multiple pieces on a cutting board."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0006-e2"
+      ],
+      "statement": "v3 shows sliced sushi pieces arranged on a white rectangular plate with wasabi and ginger."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0007-e1"
+      ],
+      "statement": "v3 shows a man eating a whole cylindrical roll that is not sliced into pieces before consumption."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "v4 shows a person holding a knife above a whole sushi roll while the roll remains uncut throughout the event."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1's supplied events show roll formation but do not show a completed roll being sliced, while v2's supplied events explicitly show a completed roll being sliced into multiple pieces.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e1",
+        "v2-b0003-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both have supplied events describing a sushi roll being sliced into multiple pieces.",
+      "supporting_events": [
+        "v2-b0003-e2",
+        "v3-b0006-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "v3 has both a sliced-roll event and a whole-roll consumption event, while v4 has a whole-roll uncut event without a supplied slicing event.",
+      "supporting_events": [
+        "v3-b0006-e1",
+        "v3-b0007-e1",
+        "v4-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "v1 and v4 have supplied events showing a roll or whole roll without an explicit completed-roll slicing event.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v4-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether v1 slices the completed roll into multiple pieces remains unresolved.",
+      "reason": "The supplied v1 events show rolling enclosing fillings but do not show a completed roll being cut.",
+      "related_events": [
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the long sushi roll sliced in v3-b0006-e1 is the completed roll from v3-b0005-e3 remains unresolved.",
+      "reason": "The reports do not explicitly connect the sliced roll to the completed whole roll.",
+      "related_events": [
+        "v3-b0005-e3",
+        "v3-b0006-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the whole cylindrical roll eaten in v3-b0007-e1 is separate from the sliced roll in v3-b0006-e1 remains unresolved.",
+      "reason": "The reports do not establish identity or continuity between the whole roll and the previously sliced roll.",
+      "related_events": [
+        "v3-b0006-e1",
+        "v3-b0007-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v4"
+      ],
+      "issue": "Whether v4 slices the completed roll into multiple pieces outside the supplied event remains unresolved.",
+      "reason": "The only supplied v4 event shows the roll uncut and does not cover later slicing.",
+      "related_events": [
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Does v1 show a completed whole roll being sliced into multiple pieces after v1-b0001-e2, comparable to v2-b0003-e2?",
+      "purpose": "This would resolve whether v1 slices the completed roll into multiple pieces.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3",
+        "v2"
+      ],
+      "observable": "Does the roll sliced in v3-b0006-e1 visually match the completed roll placed on the board in v3-b0005-e3, as v2-b0003-e2 matches v2-b0003-e1?",
+      "purpose": "This would resolve whether v3 slices the completed roll.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Is the whole cylindrical roll eaten in v3-b0007-e1 visually separate from the sliced pieces arranged after v3-b0006-e1?",
+      "purpose": "This would resolve whether v3's whole-roll event contradicts its slicing event.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v4",
+        "v2"
+      ],
+      "observable": "Does v4 show the whole roll sliced into multiple pieces after v4-b0001-e1, comparable to v2-b0003-e2?",
+      "purpose": "This would resolve whether v4 slices the completed roll into multiple pieces.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-456",
+    "task": "CC",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CC/CC-456/report.json",
+    "report_sha256": "12203e797e481b839f2093abab5df15908c29ba528fa91c7b2b3d90b0904fa42",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

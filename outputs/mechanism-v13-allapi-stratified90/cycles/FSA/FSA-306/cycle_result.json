@@ -1,0 +1,2281 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "The functional equivalent step in v2 is the spoon-based cooked-meat transfer onto the baguette, not the cooked-pork draining step. The best evidence-supported interval is the union of the observed meat-transfer spans, 322-332, with exact boundaries unresolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c001",
+          "v2.zoom.r2-r3-02.s01",
+          "v2.zoom.r2-r3-03.s01"
+        ],
+        "attempts": [
+          "The v2 spoon-based transfer of cooked meat from a bowl onto a baguette matches the reference transition of cooked meat being placed into bread."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.c015"
+        ],
+        "attempts": [
+          "The v2 cooked-pork draining/placing step places meat on paper towels rather than into bread, so it is not a functional equivalent of the reference transfer into bread."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r3-02.s01",
+          "v2.zoom.r2-r3-03.s01"
+        ],
+        "attempts": [
+          "The transfer is visually supported around 322-326 and again around 330-332, but exact start and end boundaries remain approximate."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          265.999,
+          272.005
+        ],
+        "description": "The chef uses tongs to transfer cooked meatballs from a baking sheet into a pita held in her left hand.",
+        "uncertainty": "Exact start and end times of the transfer are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Introductory montage displays finished banh mi sandwiches and the host presenting a large baguette.",
+        "uncertainty": "The specific cooking step being referenced is not yet shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          32.0
+        ],
+        "description": "The host explains the recipe and gestures toward a slab of raw pork belly resting on a cutting board.",
+        "uncertainty": "The actual slicing action has not yet commenced.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          36.0,
+          40.0
+        ],
+        "description": "The host holds up a piece of pork belly and then slices the meat into strips on a white cutting board.",
+        "uncertainty": "The exact start of the cutting action is between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          42.0,
+          52.0
+        ],
+        "description": "The host operates the oven controls and adjusts the stove dial to prepare for cooking.",
+        "uncertainty": "The specific temperature settings are not legible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          56.0,
+          58.0
+        ],
+        "description": "A close-up view shows the host continuing to slice the pork belly into strips with a large knife.",
+        "uncertainty": "The end of the slicing sequence is not captured in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          62.0,
+          68.0
+        ],
+        "description": "Raw sliced pork is displayed on a white plate, followed by a woman standing at a kitchen counter holding small ingredients.",
+        "uncertainty": "Exact ingredients being held are unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          72.0,
+          94.0
+        ],
+        "description": "The woman prepares ingredients at the counter, chopping a clove of garlic on a wooden cutting board with a knife.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          98.0,
+          106.0
+        ],
+        "description": "The woman chops green peppers and scallions, adding the minced garlic, peppers, and scallions into a glass bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          108.0,
+          116.0
+        ],
+        "description": "The cook adds ingredients to a glass bowl and pours a dark liquid, mixing a sauce containing chopped green onions and garlic.",
+        "uncertainty": "Specific ingredients are inferred from visual appearance.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          120.0,
+          142.0
+        ],
+        "description": "The cook slices a green cucumber on a wooden cutting board into rounds.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          144.0,
+          148.0
+        ],
+        "description": "A spider strainer is lifted from a pot of bubbling oil and placed on a paper towel.",
+        "uncertainty": "The transition between frames is abrupt.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          154.0,
+          162.0
+        ],
+        "description": "The cook transfers raw meat pieces from a plate into the red pot of hot oil using a spider strainer.",
+        "uncertainty": "The exact moment the first piece enters is between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          164.0,
+          168.0
+        ],
+        "description": "Woman holds a baguette on a baking sheet in the kitchen.",
+        "uncertainty": "Purpose of holding the bread is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          178.0,
+          184.0
+        ],
+        "description": "Woman stands by the counter with a red pot on the stove.",
+        "uncertainty": "Specific cooking action not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          184.0,
+          194.0
+        ],
+        "description": "Woman uses a strainer to remove cooked pork from the red pot and places it on paper towels.",
+        "uncertainty": "Type of meat is assumed to be pork.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          204.0,
+          212.0
+        ],
+        "description": "Woman holds a bowl of shredded carrots and gestures while speaking.",
+        "uncertainty": "Content of speech is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e5",
+        "video_id": "v2",
+        "time_span": [
+          226.0,
+          232.0
+        ],
+        "description": "Two small dogs run through a doorway into the house.",
+        "uncertainty": "Reason for dogs entering is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          234.0,
+          238.0
+        ],
+        "description": "Camera moves to show an oven where a baguette is baking on a tray.",
+        "uncertainty": "Exact start of baking not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          240.0,
+          256.0
+        ],
+        "description": "Woman uses chopsticks and a spider strainer to fry meat in a red pot.",
+        "uncertainty": "Continuous action between frames assumed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e3",
+        "video_id": "v2",
+        "time_span": [
+          262.0,
+          268.0
+        ],
+        "description": "Woman slices a baguette lengthwise on a wooden cutting board.",
+        "uncertainty": "Bread was likely removed from oven earlier.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e4",
+        "video_id": "v2",
+        "time_span": [
+          270.0,
+          282.0
+        ],
+        "description": "Fried meat pieces are transferred from the strainer to a paper towel plate.",
+        "uncertainty": "End of draining process not clearly defined.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e1",
+        "video_id": "v2",
+        "time_span": [
+          284.0,
+          286.0
+        ],
+        "description": "Woman holds glass bowl of cooked meat filling and stirs it with a spoon.",
+        "uncertainty": "Exact nature of filling is blurry.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e2",
+        "video_id": "v2",
+        "time_span": [
+          292.0,
+          302.0
+        ],
+        "description": "Woman squeezes white sauce from bottle onto the inside of a long baguette.",
+        "uncertainty": "Start of squeezing action is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e3",
+        "video_id": "v2",
+        "time_span": [
+          306.0,
+          310.0
+        ],
+        "description": "Woman reaches into bowl to grab meat filling with hands/utensil.",
+        "uncertainty": "Motion blur obscures specific hand action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e4",
+        "video_id": "v2",
+        "time_span": [
+          318.0,
+          320.0
+        ],
+        "description": "Woman places cucumber slices inside the baguette.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e5",
+        "video_id": "v2",
+        "time_span": [
+          322.0,
+          326.0
+        ],
+        "description": "Woman spoons meat filling onto the baguette over the cucumbers.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e6",
+        "video_id": "v2",
+        "time_span": [
+          330.0,
+          332.0
+        ],
+        "description": "Close-up of spoon adding last bits of filling; woman gestures at finished sandwich.",
+        "uncertainty": "Gesture implies completion but not explicitly stated.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e1",
+        "video_id": "v2",
+        "time_span": [
+          334.0,
+          346.0
+        ],
+        "description": "The cook adds pickled carrot and daikon shreds from a bowl onto the banh mi sandwich.",
+        "uncertainty": "Exact start and end of the action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e2",
+        "video_id": "v2",
+        "time_span": [
+          348.0,
+          358.0
+        ],
+        "description": "The cook adds fresh cilantro sprigs and lettuce leaves on top of the pickled vegetables.",
+        "uncertainty": "Whether other greens were added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e3",
+        "video_id": "v2",
+        "time_span": [
+          366.0,
+          376.0
+        ],
+        "description": "The cook squeezes sriracha sauce from a bottle onto the assembled sandwich.",
+        "uncertainty": "Exact duration of the squeezing action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e1",
+        "video_id": "v2",
+        "time_span": [
+          378.0,
+          380.0
+        ],
+        "description": "Woman holds up a long assembled sandwich, showing it to the camera.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e2",
+        "video_id": "v2",
+        "time_span": [
+          382.0,
+          388.0
+        ],
+        "description": "Close-up of hands using a knife to slice the sandwich on a cutting board.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e3",
+        "video_id": "v2",
+        "time_span": [
+          390.0,
+          390.0
+        ],
+        "description": "Cross-section of the cut sandwich is held up to show fillings.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e4",
+        "video_id": "v2",
+        "time_span": [
+          394.0,
+          398.0
+        ],
+        "description": "Woman takes a bite of the sandwich.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e5",
+        "video_id": "v2",
+        "time_span": [
+          406.0,
+          408.0
+        ],
+        "description": "Woman presents a plate with four cut sandwich portions.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e6",
+        "video_id": "v2",
+        "time_span": [
+          414.0,
+          418.0
+        ],
+        "description": "Woman waves goodbye as 'Thank You' text overlays appear.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0009-e1",
+        "video_id": "v2",
+        "time_span": [
+          424.0,
+          424.0
+        ],
+        "description": "A bare foot rests on a black textured mat, with the hindquarters of a small, fluffy dog visible at the top of the frame.",
+        "uncertainty": "No cooking action or utensils are visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          306.0,
+          307.0
+        ],
+        "description": "Woman's hands are positioned over the open baguette, appearing to place or adjust filling directly inside the bread.",
+        "uncertainty": "Transfer from bowl to bread not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          308.0,
+          310.0
+        ],
+        "description": "Woman gestures with hands near her chest and face while speaking, moving away from the food preparation area.",
+        "uncertainty": "No food transfer occurs.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          322.0,
+          323.0
+        ],
+        "description": "A person uses a spoon to transfer cooked meat filling from a glass bowl onto a baguette.",
+        "uncertainty": "Exact start and end of the continuous action are not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          324.0,
+          326.0
+        ],
+        "description": "Close-up shots of the baguette showing the meat filling and cucumber slices on top.",
+        "uncertainty": "Action of transfer is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          330.0,
+          331.0
+        ],
+        "description": "A spoon is actively used to transfer cooked meat from a glass bowl onto a baguette. The spoon is seen lifting filling in the first frame and depositing it in the second.",
+        "uncertainty": "The exact start of the transfer is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          331.0,
+          332.0
+        ],
+        "description": "The spoon has been removed, leaving the meat filling on the baguette. The camera zooms out to reveal a person presenting the completed sandwich.",
+        "uncertainty": "The exact moment the spoon is removed is not captured.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          318.0,
+          320.0
+        ],
+        "description": "A person places cucumber slices onto a baguette. The right hand is seen holding a slice and placing it, and the camera zooms in to show the arranged slices.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          322.0,
+          323.0
+        ],
+        "description": "A person uses a spoon to scoop meat from a glass bowl and place it onto a baguette that already has cucumber slices arranged on it.",
+        "uncertainty": "Exact start time of the spoon transfer is before 322s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          324.0,
+          326.0
+        ],
+        "description": "The baguette is shown with meat placed on top of the cucumber slices. The camera angle shifts to a close-up of the sandwich assembly.",
+        "uncertainty": "Spoon is no longer visible; transfer action has concluded.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          330.0,
+          331.0
+        ],
+        "description": "A spoon holding cooked meat is positioned over the baguette next to a glass bowl, indicating the active transfer of meat onto the sandwich.",
+        "uncertainty": "Exact start and end times of the spoon transfer are not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          332.0,
+          332.0
+        ],
+        "description": "The camera angle widens to show a person presenting the assembled baguette, which is now topped with meat and cucumbers.",
+        "uncertainty": "The specific action ending the spoon transfer is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          334.0,
+          338.0
+        ],
+        "description": "Person uses hands to take pickled carrot mixture from a glass bowl, with the baguette already containing meat and cucumber slices.",
+        "uncertainty": "Spoon transfer of meat not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e2",
+        "video_id": "v2",
+        "time_span": [
+          339.0,
+          346.0
+        ],
+        "description": "Close-up view of hands arranging the pickled carrot and daikon mixture onto the baguette sandwich.",
+        "uncertainty": "Meat addition already complete.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need confirm and bracket the continuous v2 cooked-meat-filling-onto-baguette transfer interval.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c024",
+          "v2.c026",
+          "v2.c027"
+        ],
+        "evidence_goal": "Do these v2 slots show a continuous transfer of cooked meat filling from the bowl onto the baguette, and where are the visible start and end of that transfer?",
+        "next_probe_goal": "If boundaries remain ambiguous, compare adjacent assembly slots to bracket the meat-filling transfer.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need bracket v2 meat-transfer start/end around 322-332",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v2.c025",
+          "v2.zoom.r1-U02-02.s01",
+          "v2.zoom.r1-U02-03.s01",
+          "v2.c028"
+        ],
+        "evidence_goal": "In v2, where does the spoon transfer of cooked meat from bowl onto baguette visibly start and end, and is it bounded by cucumber placement at 318-320 and pickled-carrot addition at 334-346?",
+        "next_probe_goal": "If visible boundaries remain unresolved, recover v2.u039 and v2.u040 to bracket 310-318 and 326-330.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The functional equivalent step in v2 is the spoon-based cooked-meat transfer onto the baguette, not the cooked-pork draining step. The best evidence-supported interval is the union of the observed meat-transfer spans, 322-332, with exact boundaries unresolved.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[322,332]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[322,332]",
+    "evidence_refs": [
+      "v1.c001",
+      "v2.zoom.r2-r3-02.s01",
+      "v2.zoom.r2-r3-03.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 7,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        265.999,
+        272.005
+      ],
+      "resolution": "coarse",
+      "content": "The chef uses tongs to transfer cooked meatballs from a baking sheet into a pita held in her left hand.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact start and end times of the transfer are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        266.0,
+        272.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        272.005,
+        273.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Introductory montage displays finished banh mi sandwiches and the host presenting a large baguette.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "The specific cooking step being referenced is not yet shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        8.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        8.0,
+        32.0
+      ],
+      "resolution": "coarse",
+      "content": "The host explains the recipe and gestures toward a slab of raw pork belly resting on a cutting board.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The actual slicing action has not yet commenced."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        20.0,
+        24.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        24.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        28.0,
+        32.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        32.0,
+        36.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        36.0,
+        40.0
+      ],
+      "resolution": "coarse",
+      "content": "The host holds up a piece of pork belly and then slices the meat into strips on a white cutting board.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The exact start of the cutting action is between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        42.0,
+        48.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        42.0,
+        52.0
+      ],
+      "resolution": "coarse",
+      "content": "The host operates the oven controls and adjusts the stove dial to prepare for cooking.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The specific temperature settings are not legible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        48.0,
+        52.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        52.0,
+        56.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        56.0,
+        58.0
+      ],
+      "resolution": "coarse",
+      "content": "A close-up view shows the host continuing to slice the pork belly into strips with a large knife.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "The end of the slicing sequence is not captured in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        58.0,
+        62.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        62.0,
+        68.0
+      ],
+      "resolution": "coarse",
+      "content": "Raw sliced pork is displayed on a white plate, followed by a woman standing at a kitchen counter holding small ingredients.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact ingredients being held are unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        68.0,
+        72.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        72.0,
+        80.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        72.0,
+        94.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman prepares ingredients at the counter, chopping a clove of garlic on a wooden cutting board with a knife.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        80.0,
+        86.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        94.0,
+        98.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        98.0,
+        106.0
+      ],
+      "resolution": "coarse",
+      "content": "The woman chops green peppers and scallions, adding the minced garlic, peppers, and scallions into a glass bowl.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        108.0,
+        112.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        108.0,
+        116.0
+      ],
+      "resolution": "coarse",
+      "content": "The cook adds ingredients to a glass bowl and pours a dark liquid, mixing a sauce containing chopped green onions and garlic.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific ingredients are inferred from visual appearance."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        116.0,
+        120.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        120.0,
+        142.0
+      ],
+      "resolution": "coarse",
+      "content": "The cook slices a green cucumber on a wooden cutting board into rounds.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        122.0,
+        126.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        128.0,
+        132.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        132.0,
+        138.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        138.0,
+        142.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        144.0,
+        148.0
+      ],
+      "resolution": "coarse",
+      "content": "A spider strainer is lifted from a pot of bubbling oil and placed on a paper towel.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "The transition between frames is abrupt."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        144.0,
+        148.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        148.0,
+        154.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        154.0,
+        160.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        154.0,
+        162.0
+      ],
+      "resolution": "coarse",
+      "content": "The cook transfers raw meat pieces from a plate into the red pot of hot oil using a spider strainer.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The exact moment the first piece enters is between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        164.0,
+        168.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds a baguette on a baking sheet in the kitchen.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Purpose of holding the bread is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        168.0,
+        178.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        178.0,
+        184.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman stands by the counter with a red pot on the stove.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Specific cooking action not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        184.0,
+        188.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        184.0,
+        194.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman uses a strainer to remove cooked pork from the red pot and places it on paper towels.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Type of meat is assumed to be pork."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        194.0,
+        204.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        204.0,
+        212.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds a bowl of shredded carrots and gestures while speaking.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [
+        "Content of speech is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        204.0,
+        212.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        212.0,
+        226.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        226.0,
+        232.0
+      ],
+      "resolution": "coarse",
+      "content": "Two small dogs run through a doorway into the house.",
+      "evidence": [
+        "v2-b0004-e5"
+      ],
+      "uncertainty": [
+        "Reason for dogs entering is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        228.0,
+        232.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        234.0,
+        238.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera moves to show an oven where a baguette is baking on a tray.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Exact start of baking not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        240.0,
+        248.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        240.0,
+        256.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman uses chopsticks and a spider strainer to fry meat in a red pot.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Continuous action between frames assumed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u031",
+      "video": "v2",
+      "time": [
+        250.0,
+        256.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u032",
+      "video": "v2",
+      "time": [
+        256.0,
+        262.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        262.0,
+        268.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman slices a baguette lengthwise on a wooden cutting board.",
+      "evidence": [
+        "v2-b0005-e3"
+      ],
+      "uncertainty": [
+        "Bread was likely removed from oven earlier."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c021",
+      "video": "v2",
+      "time": [
+        270.0,
+        282.0
+      ],
+      "resolution": "coarse",
+      "content": "Fried meat pieces are transferred from the strainer to a paper towel plate.",
+      "evidence": [
+        "v2-b0005-e4"
+      ],
+      "uncertainty": [
+        "End of draining process not clearly defined."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u033",
+      "video": "v2",
+      "time": [
+        272.0,
+        276.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u034",
+      "video": "v2",
+      "time": [
+        276.0,
+        280.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c022",
+      "video": "v2",
+      "time": [
+        284.0,
+        286.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds glass bowl of cooked meat filling and stirs it with a spoon.",
+      "evidence": [
+        "v2-b0006-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of filling is blurry."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u035",
+      "video": "v2",
+      "time": [
+        286.0,
+        292.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c023",
+      "video": "v2",
+      "time": [
+        292.0,
+        302.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman squeezes white sauce from bottle onto the inside of a long baguette.",
+      "evidence": [
+        "v2-b0006-e2"
+      ],
+      "uncertainty": [
+        "Start of squeezing action is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u036",
+      "video": "v2",
+      "time": [
+        294.0,
+        298.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u037",
+      "video": "v2",
+      "time": [
+        298.0,
+        302.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u038",
+      "video": "v2",
+      "time": [
+        302.0,
+        306.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        306.0,
+        310.0
+      ],
+      "resolution": "fine",
+      "content": "Woman's hands are positioned over the open baguette, appearing to place or adjust filling directly inside the bread. Woman gestures with hands near her chest and face while speaking, moving away from the food preparation area.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Transfer from bowl to bread not visible.",
+        "No food transfer occurs.",
+        "Unresolved: Visible start/end of transfer from bowl to baguette"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u039",
+      "video": "v2",
+      "time": [
+        310.0,
+        318.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-01.s01",
+      "video": "v2",
+      "time": [
+        318.0,
+        320.0
+      ],
+      "resolution": "fine",
+      "content": "A person places cucumber slices onto a baguette. The right hand is seen holding a slice and placing it, and the camera zooms in to show the arranged slices.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Unresolved: Spoon transfer of cooked meat not visible in this interval."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-02.s01",
+      "video": "v2",
+      "time": [
+        322.0,
+        326.0
+      ],
+      "resolution": "fine",
+      "content": "A person uses a spoon to scoop meat from a glass bowl and place it onto a baguette that already has cucumber slices arranged on it. The baguette is shown with meat placed on top of the cucumber slices. The camera angle shifts to a close-up of the sandwich assembly.",
+      "evidence": [
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2"
+      ],
+      "uncertainty": [
+        "Exact start time of the spoon transfer is before 322s.",
+        "Spoon is no longer visible; transfer action has concluded.",
+        "Unresolved: Exact start time of spoon transfer",
+        "Unresolved: Exact end time of spoon transfer",
+        "Unresolved: Presence of pickled carrots"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u040",
+      "video": "v2",
+      "time": [
+        326.0,
+        330.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-03.s01",
+      "video": "v2",
+      "time": [
+        330.0,
+        332.0
+      ],
+      "resolution": "fine",
+      "content": "A spoon holding cooked meat is positioned over the baguette next to a glass bowl, indicating the active transfer of meat onto the sandwich. The camera angle widens to show a person presenting the assembled baguette, which is now topped with meat and cucumbers.",
+      "evidence": [
+        "v2.focus.r2.l3.e1",
+        "v2.focus.r2.l3.e2"
+      ],
+      "uncertainty": [
+        "Exact start and end times of the spoon transfer are not visible.",
+        "The specific action ending the spoon transfer is not visible.",
+        "Unresolved: Exact boundaries of the spoon transfer action",
+        "Unresolved: Confirmation of the start time relative to 318-320s"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-04.s01",
+      "video": "v2",
+      "time": [
+        334.0,
+        346.0
+      ],
+      "resolution": "fine",
+      "content": "Person uses hands to take pickled carrot mixture from a glass bowl, with the baguette already containing meat and cucumber slices. Close-up view of hands arranging the pickled carrot and daikon mixture onto the baguette sandwich.",
+      "evidence": [
+        "v2.focus.r2.l4.e1",
+        "v2.focus.r2.l4.e2"
+      ],
+      "uncertainty": [
+        "Spoon transfer of meat not visible.",
+        "Meat addition already complete.",
+        "Unresolved: Visibility of spoon transferring meat"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u041",
+      "video": "v2",
+      "time": [
+        336.0,
+        340.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c029",
+      "video": "v2",
+      "time": [
+        348.0,
+        358.0
+      ],
+      "resolution": "coarse",
+      "content": "The cook adds fresh cilantro sprigs and lettuce leaves on top of the pickled vegetables.",
+      "evidence": [
+        "v2-b0007-e2"
+      ],
+      "uncertainty": [
+        "Whether other greens were added."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u042",
+      "video": "v2",
+      "time": [
+        350.0,
+        354.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u043",
+      "video": "v2",
+      "time": [
+        358.0,
+        366.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u044",
+      "video": "v2",
+      "time": [
+        366.0,
+        370.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c030",
+      "video": "v2",
+      "time": [
+        366.0,
+        376.0
+      ],
+      "resolution": "coarse",
+      "content": "The cook squeezes sriracha sauce from a bottle onto the assembled sandwich.",
+      "evidence": [
+        "v2-b0007-e3"
+      ],
+      "uncertainty": [
+        "Exact duration of the squeezing action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c031",
+      "video": "v2",
+      "time": [
+        378.0,
+        380.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds up a long assembled sandwich, showing it to the camera.",
+      "evidence": [
+        "v2-b0008-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c032",
+      "video": "v2",
+      "time": [
+        382.0,
+        388.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of hands using a knife to slice the sandwich on a cutting board.",
+      "evidence": [
+        "v2-b0008-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u045",
+      "video": "v2",
+      "time": [
+        384.0,
+        388.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c033",
+      "video": "v2",
+      "time": [
+        390.0,
+        390.0
+      ],
+      "resolution": "coarse",
+      "content": "Cross-section of the cut sandwich is held up to show fillings.",
+      "evidence": [
+        "v2-b0008-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u046",
+      "video": "v2",
+      "time": [
+        390.0,
+        394.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c034",
+      "video": "v2",
+      "time": [
+        394.0,
+        398.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman takes a bite of the sandwich.",
+      "evidence": [
+        "v2-b0008-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u047",
+      "video": "v2",
+      "time": [
+        394.0,
+        398.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u048",
+      "video": "v2",
+      "time": [
+        400.0,
+        406.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c035",
+      "video": "v2",
+      "time": [
+        406.0,
+        408.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman presents a plate with four cut sandwich portions.",
+      "evidence": [
+        "v2-b0008-e5"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u049",
+      "video": "v2",
+      "time": [
+        408.0,
+        412.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c036",
+      "video": "v2",
+      "time": [
+        414.0,
+        418.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman waves goodbye as 'Thank You' text overlays appear.",
+      "evidence": [
+        "v2-b0008-e6"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u050",
+      "video": "v2",
+      "time": [
+        418.0,
+        422.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c037",
+      "video": "v2",
+      "time": [
+        424.0,
+        424.0
+      ],
+      "resolution": "coarse",
+      "content": "A bare foot rests on a black textured mat, with the hindquarters of a small, fluffy dog visible at the top of the frame.",
+      "evidence": [
+        "v2-b0009-e1"
+      ],
+      "uncertainty": [
+        "No cooking action or utensils are visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u051",
+      "video": "v2",
+      "time": [
+        424.0,
+        425.96
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If boundaries remain ambiguous, compare adjacent assembly slots to bracket the meat-filling transfer.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 7,
+    "visual_calls_remaining": 1,
+    "maximum_visual_calls_for_current_stage": 1,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

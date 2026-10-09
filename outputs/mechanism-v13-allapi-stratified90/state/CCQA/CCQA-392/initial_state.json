@@ -1,0 +1,167 @@
+{
+  "question": "How do the chefs in video A and video B differ in the seasonings they add to the flour when coating the calamari?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Video A shows a white bowl containing two distinct piles of fine white flour-like powder."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "Video A shows seasonings being added to the flour as a brown powder, then a greyish powder, then black pepper from a mill."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "Video A shows the flour being mixed and a ring pressed into it, with small dark specks visible in the powder."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Video B shows a metal bowl containing flour next to raw calamari."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Video B shows dark specks, likely pepper or herbs, sprinkled onto the surface of the flour."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4"
+      ],
+      "statement": "Video B shows calamari pieces tossed in seasoned flour before frying."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show flour being seasoned before calamari is coated, but the supplied events show multiple visible seasoning additions in Video A and a single visible sprinkling of dark specks in Video B.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v1-b0002-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact identities of the brown powder and greyish powder in Video A and the dark specks in Video B remain unresolved.",
+      "reason": "Video A does not show labels for the powders, and Video B describes the dark specks only as likely pepper or herbs.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether Video B adds any seasonings to the flour besides the dark specks remains unresolved.",
+      "reason": "The supplied events show only one sprinkling onto the flour before the calamari is tossed.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the visible color, texture, and number of seasoning additions in Video A's flour bowl with the sprinkled dark specks in Video B's flour bowl.",
+      "purpose": "To determine whether the observable seasoning differences are limited to Video A's brown and greyish powders plus black pepper versus Video B's dark specks.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Observe whether any additional seasoning containers, powders, or sprinkling actions occur between the flour bowl and the calamari tossing in Video B.",
+      "purpose": "To determine whether Video B's flour receives more than the dark specks already observed.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-392",
+    "task": "CCQA",
+    "ground_truth": "In video A, the chef uses a mix of ground white pepper, cayenne pepper, and black pepper in the flour coating. In video B, the chef seasons the flour exclusively with black pepper and Sicilian sea salt, omitting white and cayenne peppers entirely. Video A focuses on layered heat from multiple peppers, while video B emphasizes salt-enhanced simplicity.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CCQA/CCQA-392/report.json",
+    "report_sha256": "6ab98dd684820bfaf0deaf3ace311125e9ce21699f4801ad0a696a4a5f63d84f",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

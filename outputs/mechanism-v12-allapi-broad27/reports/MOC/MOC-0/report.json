@@ -1,0 +1,338 @@
+{
+  "question": "How many red cars parked by the roadside does {A1} pass in total?",
+  "options": [
+    "A. 3",
+    "B. 4",
+    "C. 5",
+    "D. 6"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "How many red cars parked by the roadside does {A1} pass in total?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a vehicle passing a red car parked by the roadside",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "red cars lined up along the street curb",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "How many red cars parked by the roadside does {A1} pass in total?",
+      "3",
+      "4",
+      "5",
+      "6",
+      "Counting specific instances of red cars passed by the subject {A1} is not directly retrievable by CLIP; this requires temporal tracking and counting",
+      "The options (3, 4, 5, 6) are numerical answers and cannot be used as visual retrieval phrases",
+      "Verify if the moving object {A1} actually passes the stationary red cars rather than just being near them"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 15.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 8,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          14.0,
+          14.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            0.0,
+            4.0
+          ],
+          "description": "Subject A1 travels along a roadside lane, passing a row of parked cars. A red car is visible in the parking row in the initial frames.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Total count of red cars passed is incomplete."
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            14.0,
+            14.0
+          ],
+          "description": "Subject A1 is seen in a different location, traveling on a road adjacent to a park with no visible parked cars nearby.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Gap between 4s and 14s is unobserved."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=4/8 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [0.000-4.000s] Subject A1 travels along a roadside lane, passing a row of parked cars. A red car is visible in the parking row in the initial frames. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.900\n- v1-b0001-e2 [14.000-14.000s] Subject A1 is seen in a different location, traveling on a road adjacent to a park with no visible parked cars nearby. | evidence=S2-F01 | confidence=0.950\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [0.000-4.000s] Total count of red cars passed is incomplete.\n- v1-b0001-e2 [14.000-14.000s] Gap between 4s and 14s is unobserved.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b0001-e1,v1-b0001-e2 unresolved=The total number of red cars passed by A1. suggested_tools=temporal_expand,visual_count",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b0001-e1",
+            "v1-b0001-e2"
+          ],
+          "unresolved_needs": [
+            "The total number of red cars passed by A1."
+          ],
+          "suggested_tools": [
+            "temporal_expand",
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 15.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 8,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          14.0,
+          14.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            4.0
+          ],
+          "description": "Camera pans right along a roadside parking area. A red car (B5) is passed. A red car (B4) is partially visible on the right edge.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Whether the subject A1 is the camera or a vehicle is unclear."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            14.0,
+            14.0
+          ],
+          "description": "Scene cuts to a wide view of a road. A blue truck passes a bicycle. Red cars are visible in the distance, but no close passes occur.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "No red cars are passed in this specific frame."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=4/8 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-4.000s] Camera pans right along a roadside parking area. A red car (B5) is passed. A red car (B4) is partially visible on the right edge. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.900\n- v2-b0001-e2 [14.000-14.000s] Scene cuts to a wide view of a road. A blue truck passes a bicycle. Red cars are visible in the distance, but no close passes occur. | evidence=S2-F01 | confidence=1.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-4.000s] Whether the subject A1 is the camera or a vehicle is unclear.\n- v2-b0001-e2 [14.000-14.000s] No red cars are passed in this specific frame.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v2-b0001-e1 unresolved=Clarification of subject A1's identity; Tracking of A1's path relative to red cars suggested_tools=entity_track,visual_count",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v2-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "Clarification of subject A1's identity",
+            "Tracking of A1's path relative to red cars"
+          ],
+          "suggested_tools": [
+            "entity_track",
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "How many red cars parked by the roadside does {A1} pass in total?",
+            "a vehicle passing a red car parked by the roadside",
+            "red cars lined up along the street curb"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MOC-0",
+    "task": "MOC",
+    "ground_truth": "A",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-selection-broad27/MOC/MOC-0/result.json",
+    "selection_sha256": "f35db51c54bdd065b94800592371b9f5ebea07d9596a3e385a35ea0e11275198",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.",
+      "A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.",
+      "A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.",
+      "A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.",
+      "A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ]
+  }
+}

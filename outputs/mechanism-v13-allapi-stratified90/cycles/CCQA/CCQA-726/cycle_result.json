@@ -1,0 +1,980 @@
+{
+  "state": {
+    "question": "What ingredients do the chefs mix with the eggs before cooking in each video, and how does this differ between them?",
+    "round_id": 3,
+    "summary": "v1 supports pre-cook mixing of eggs with butter and milk; v2 supports eggs being whisked alone before pouring, with butter added to the pan and a shredded orange/white ingredient added during cooking. r1 remains open only for possible unobserved v1 additions.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is nonempty free text in the format requested by the question.",
+      "v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.",
+      "The final answer is free text, not an option label."
+    ],
+    "answer_contract": {
+      "kind": "free_text",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v1.c002",
+          "v1.c003"
+        ],
+        "attempts": [
+          "Visible v1 evidence shows eggs being cracked into a frothy butter-and-milk mixture and whisked before pouring into the heated pan, but unobserved intervals prevent a global claim that no other ingredient ever appears before cooking."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U02-01.s01",
+          "v2.zoom.r2-r1-01.s01",
+          "v2.zoom.r1-U02-02.s01",
+          "v2.c006"
+        ],
+        "attempts": [
+          "In v2, the bowl sequence shows eggs cracked and whisked without observed additions; butter is placed in the pan before the egg mixture is poured."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c008",
+          "v2.c009"
+        ],
+        "attempts": [
+          "The shredded orange/white ingredient is added on top of eggs already cooking in the pan, not mixed with them before cooking."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          20.0,
+          30.0
+        ],
+        "description": "A hand places a knob of butter into a clear glass bowl, then adds milk and whisks the mixture until frothy.",
+        "uncertainty": "Exact quantity of milk added is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          32.0,
+          36.0
+        ],
+        "description": "Raw eggs are cracked into the frothy milk and butter mixture, and the contents are whisked together.",
+        "uncertainty": "The specific number of eggs is not clearly countable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          38.0,
+          46.0
+        ],
+        "description": "The egg mixture is poured into a heated black pan with a blue spatula and cooked until scrambled.",
+        "uncertainty": "Heat source intensity is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          66.0,
+          70.0
+        ],
+        "description": "The video displays a static end card featuring the 'an allrecipes production' logo and a URL for more videos on an orange background.",
+        "uncertainty": "The actual cooking process and ingredients are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.002
+        ],
+        "description": "A close-up shot shows a fork stuck in a pile of cooked scrambled eggs, garnished with green herbs and black pepper.",
+        "uncertainty": "Ingredients mixed before cooking are not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.01,
+          18.018
+        ],
+        "description": "A woman introduces herself as Stephanie Gallagher, standing in a kitchen with wooden cabinets behind her.",
+        "uncertainty": "Her specific cooking actions are not yet shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          18.018,
+          24.024
+        ],
+        "description": "Ingredients are displayed sequentially: two large eggs in a white bowl, one tablespoon of butter in a wrapper, and half a cup of shredded cheese in a measuring cup.",
+        "uncertainty": "It is not yet clear which ingredients are mixed directly into the eggs.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          29.997,
+          36.003
+        ],
+        "description": "A person cracks two eggs into a metal mixing bowl and begins whisking them with a fork.",
+        "uncertainty": "No additional ingredients are visible being added to the bowl during the whisking.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          40.007,
+          42.009
+        ],
+        "description": "The whisking continues vigorously in the metal bowl, showing the eggs becoming a uniform yellow liquid.",
+        "uncertainty": "The frame is blurry due to motion; specific contents are hard to discern beyond the yellow mixture.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          42.009,
+          46.013
+        ],
+        "description": "A pat of butter is placed in a frying pan and melted with a spatula before the whisked egg mixture is poured in.",
+        "uncertainty": "The cheese shown earlier is not visible in this sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          48.015,
+          48.015
+        ],
+        "description": "The eggs are cooked in the pan, with a red spatula pushing the set egg curds.",
+        "uncertainty": "No cheese is visible in the pan at this stage.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          50.017,
+          66.033
+        ],
+        "description": "Liquid yellow egg mixture is stirred and folded in a pan with a red spatula, beginning to set.",
+        "uncertainty": "Ingredients mixed into the raw egg are not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          68.035,
+          70.037
+        ],
+        "description": "Shredded orange and white ingredients are added on top of the cooking eggs in the pan.",
+        "uncertainty": "Exact type of shredded ingredient is not explicitly identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          74.041,
+          74.041
+        ],
+        "description": "The eggs and shredded ingredients are fully mixed together into solid curds in the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          76.043,
+          80.047
+        ],
+        "description": "Finished scrambled eggs are plated on a white dish and topped with green herbs.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          82.015,
+          86.019
+        ],
+        "description": "A woman stands in a kitchen with a website URL displayed at the bottom of the frame.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          29.985,
+          32.987
+        ],
+        "description": "Hands crack two brown eggs into a stainless steel mixing bowl.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          33.987,
+          35.989
+        ],
+        "description": "A whisk is used to beat the eggs in the bowl.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          39.991,
+          39.991
+        ],
+        "description": "A hand is shown whisking yellow eggs in a metal bowl.",
+        "uncertainty": "Ingredient additions not visible in this single frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          40.992,
+          41.992
+        ],
+        "description": "A yellow pat of butter is placed into a large, empty grey pan on a stove.",
+        "uncertainty": "The transition between the bowl and pan is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          35.989,
+          39.991
+        ],
+        "description": "A hand uses a whisk to beat yellow eggs in a metal bowl. The mixture becomes smoother and more uniform throughout the clip.",
+        "uncertainty": "No ingredient addition is visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need verify whether v2 eggs received any ingredient before cooking.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c004",
+          "v2.c005"
+        ],
+        "evidence_goal": "During the v2 egg-whisking span before pouring, is any ingredient added to the eggs besides the eggs themselves?",
+        "next_probe_goal": "Identify whether the shredded ingredient added to the pan matches the displayed cheese.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local evidence for whether any ingredient is added to v2 eggs before cooking.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.u005"
+        ],
+        "evidence_goal": "In v2 between egg whisking and butter/pan transition, is any ingredient added to the eggs?",
+        "next_probe_goal": "If an additive appears, identify whether it is mixed into eggs before cooking.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "v1 supports pre-cook mixing of eggs with butter and milk; v2 supports eggs being whisked alone before pouring, with butter added to the pan and a shredded orange/white ingredient added during cooking. r1 remains open only for possible unobserved v1 additions.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "In Video A (v1), the visible pre-cook mixing is eggs cracked into a frothy butter-and-milk mixture and then whisked together before being poured into the heated pan. In Video B (v2), the eggs are cracked and whisked alone in a bowl before being poured into the pan; butter is added separately to the pan, and a shredded orange/white ingredient is added only after the eggs have begun cooking. Thus, v1 mixes butter and milk with the eggs before cooking, while v2 does not mix those additions with the eggs before cooking—butter is pan-added and the shredded ingredient is added during cooking.",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "In Video A (v1), the visible pre-cook mixing is eggs cracked into a frothy butter-and-milk mixture and then whisked together before being poured into the heated pan. In Video B (v2), the eggs are cracked and whisked alone in a bowl before being poured into the pan; butter is added separately to the pan, and a shredded orange/white ingredient is added only after the eggs have begun cooking. Thus, v1 mixes butter and milk with the eggs before cooking, while v2 does not mix those additions with the eggs before cooking—butter is pan-added and the shredded ingredient is added during cooking.",
+    "evidence_refs": [
+      "v1.c001",
+      "v1.c002",
+      "v1.c003",
+      "v2.zoom.r1-U02-01.s01",
+      "v2.c006",
+      "v2.c008",
+      "v2.c009"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        14.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        20.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand places a knob of butter into a clear glass bowl, then adds milk and whisks the mixture until frothy.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact quantity of milk added is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        20.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        32.0,
+        36.0
+      ],
+      "resolution": "coarse",
+      "content": "Raw eggs are cracked into the frothy milk and butter mixture, and the contents are whisked together.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific number of eggs is not clearly countable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        38.0,
+        44.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        38.0,
+        46.0
+      ],
+      "resolution": "coarse",
+      "content": "The egg mixture is poured into a heated black pan with a blue spatula and cooked until scrambled.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Heat source intensity is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        46.0,
+        50.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        52.0,
+        66.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        66.0,
+        70.0
+      ],
+      "resolution": "coarse",
+      "content": "The video displays a static end card featuring the 'an allrecipes production' logo and a URL for more videos on an orange background.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "The actual cooking process and ingredients are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        66.0,
+        70.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.002
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shot shows a fork stuck in a pile of cooked scrambled eggs, garnished with green herbs and black pepper.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Ingredients mixed before cooking are not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        2.0020000000000002,
+        10.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.01,
+        16.016000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.01,
+        18.018
+      ],
+      "resolution": "coarse",
+      "content": "A woman introduces herself as Stephanie Gallagher, standing in a kitchen with wooden cabinets behind her.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Her specific cooking actions are not yet shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        18.018,
+        22.022000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        18.018,
+        24.024
+      ],
+      "resolution": "coarse",
+      "content": "Ingredients are displayed sequentially: two large eggs in a white bowl, one tablespoon of butter in a wrapper, and half a cup of shredded cheese in a measuring cup.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "It is not yet clear which ingredients are mixed directly into the eggs."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        24.024,
+        29.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        29.997,
+        36.003
+      ],
+      "resolution": "fine",
+      "content": "Hands crack two brown eggs into a stainless steel mixing bowl. A whisk is used to beat the eggs in the bowl.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        36.003,
+        40.007
+      ],
+      "resolution": "fine",
+      "content": "A hand uses a whisk to beat yellow eggs in a metal bowl. The mixture becomes smoother and more uniform throughout the clip.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No ingredient addition is visible in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-02.s01",
+      "video": "v2",
+      "time": [
+        40.007,
+        42.009
+      ],
+      "resolution": "fine",
+      "content": "A hand is shown whisking yellow eggs in a metal bowl. A yellow pat of butter is placed into a large, empty grey pan on a stove.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "Ingredient additions not visible in this single frame.",
+        "The transition between the bowl and pan is not shown.",
+        "Unresolved: Observation of the egg-whisking span to confirm if other ingredients are added."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        42.009,
+        46.013
+      ],
+      "resolution": "coarse",
+      "content": "A pat of butter is placed in a frying pan and melted with a spatula before the whisked egg mixture is poured in.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "The cheese shown earlier is not visible in this sequence."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        48.015,
+        48.015
+      ],
+      "resolution": "coarse",
+      "content": "The eggs are cooked in the pan, with a red spatula pushing the set egg curds.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "No cheese is visible in the pan at this stage."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        50.017,
+        65.017
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        50.017,
+        66.033
+      ],
+      "resolution": "coarse",
+      "content": "Liquid yellow egg mixture is stirred and folded in a pan with a red spatula, beginning to set.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Ingredients mixed into the raw egg are not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        65.017,
+        66.033
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        68.035,
+        70.037
+      ],
+      "resolution": "coarse",
+      "content": "Shredded orange and white ingredients are added on top of the cooking eggs in the pan.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact type of shredded ingredient is not explicitly identified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        70.037,
+        74.041
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        74.041,
+        74.041
+      ],
+      "resolution": "coarse",
+      "content": "The eggs and shredded ingredients are fully mixed together into solid curds in the pan.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        76.043,
+        80.047
+      ],
+      "resolution": "coarse",
+      "content": "Finished scrambled eggs are plated on a white dish and topped with green herbs.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        76.043,
+        80.047
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        82.015,
+        86.019
+      ],
+      "resolution": "coarse",
+      "content": "A woman stands in a kitchen with a website URL displayed at the bottom of the frame.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        82.015,
+        86.019
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        86.019,
+        87.02
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Identify whether the shredded ingredient added to the pan matches the displayed cheese.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

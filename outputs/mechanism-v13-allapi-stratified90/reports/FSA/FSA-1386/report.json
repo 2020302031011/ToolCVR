@@ -1,0 +1,667 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "options": [],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds]",
+      "Identify the specific cooking action in Video 1",
+      "Find the functionally equivalent step in Video 2",
+      "Return only the interval [start_seconds, end_seconds] from Video 2"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 51.918533333333336,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 6,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          1.0010000000000001,
+          1.0010000000000001
+        ],
+        [
+          5.005,
+          7.007000000000001
+        ],
+        [
+          11.011000000000001,
+          11.011000000000001
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            1.001,
+            5.005
+          ],
+          "description": "White creamy substance (mayonnaise) is scraped from a white spatula into a dark bowl.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S2-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": ""
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            7.007,
+            7.007
+          ],
+          "description": "A spoon is shown with yellow liquid (honey) and a white substance, likely being added to the bowl.",
+          "evidence_frame_ids": [
+            "S2-F02"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Exact moment of addition vs preparation."
+        },
+        {
+          "event_id": "v1-b0001-e3",
+          "time_span": [
+            11.011,
+            11.011
+          ],
+          "description": "A hand uses a spoon to stir the mixture in the bowl, incorporating the yellow liquid into the white base.",
+          "evidence_frame_ids": [
+            "S3-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": ""
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=4/6 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [1.001-5.005s] White creamy substance (mayonnaise) is scraped from a white spatula into a dark bowl. | evidence=S1-F01,S2-F01 | confidence=0.950\n- v1-b0001-e2 [7.007-7.007s] A spoon is shown with yellow liquid (honey) and a white substance, likely being added to the bowl. | evidence=S2-F02 | confidence=0.900\n- v1-b0001-e3 [11.011-11.011s] A hand uses a spoon to stir the mixture in the bowl, incorporating the yellow liquid into the white base. | evidence=S3-F01 | confidence=0.950\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e2 [7.007-7.007s] Exact moment of addition vs preparation.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v1-b0001-e1,v1-b0001-e2,v1-b0001-e3 unresolved=Target video frames to identify equivalent mixing step. suggested_tools=semantic_seek",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v1-b0001-e1",
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "unresolved_needs": [
+            "Target video frames to identify equivalent mixing step."
+          ],
+          "suggested_tools": [
+            "semantic_seek"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 1.0010000000000001,
+          "actual_timestamp_seconds": 1.0010000000000001,
+          "requested_frame_index": 30,
+          "actual_frame_index": 30,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 5.005,
+          "actual_timestamp_seconds": 5.005,
+          "requested_frame_index": 150,
+          "actual_frame_index": 150,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 7.007000000000001,
+          "actual_timestamp_seconds": 7.007000000000001,
+          "requested_frame_index": 210,
+          "actual_frame_index": 210,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 11.011000000000001,
+          "actual_timestamp_seconds": 11.011000000000001,
+          "requested_frame_index": 330,
+          "actual_frame_index": 330,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 82.54913333333333,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 42,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          8.008000000000001,
+          10.01
+        ],
+        [
+          14.014000000000001,
+          16.016000000000002
+        ],
+        [
+          21.988633333333336,
+          21.988633333333336
+        ],
+        [
+          34.00063333333333,
+          34.00063333333333
+        ],
+        [
+          38.00463333333334,
+          53.98726666666667
+        ],
+        [
+          57.99126666666667,
+          68.00126666666667
+        ],
+        [
+          72.00526666666667,
+          74.00726666666667
+        ],
+        [
+          82.01526666666668,
+          82.01526666666668
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            0.001
+          ],
+          "description": "Finished chicken pasta salad plated on a bed of green leaves, showing pasta, chicken, red onion, and walnuts.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Reference cooking step not visible in this frame."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            8.008,
+            34.001
+          ],
+          "description": "Mayonnaise and other creamy ingredients are added to a glass bowl, followed by seasoning with pepper.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02",
+            "S3-F01",
+            "S3-F02",
+            "S4-F01",
+            "S5-F01"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Mixing action itself not clearly visible in these specific frames."
+        },
+        {
+          "event_id": "v2-b0001-e3",
+          "time_span": [
+            38.005,
+            40.007
+          ],
+          "description": "Cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+          "evidence_frame_ids": [
+            "S6-F01",
+            "S6-F02"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Exact start and end of the pouring action."
+        },
+        {
+          "event_id": "v2-b0001-e4",
+          "time_span": [
+            42.009,
+            53.987
+          ],
+          "description": "Chopping of walnuts, red onion, celery, and cooked chicken on a wooden cutting board.",
+          "evidence_frame_ids": [
+            "S6-F03",
+            "S6-F04",
+            "S6-F05",
+            "S6-F06",
+            "S6-F07",
+            "S6-F08",
+            "S6-F09"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Chopping of each ingredient is shown sequentially."
+        },
+        {
+          "event_id": "v2-b0002-e1",
+          "time_span": [
+            57.991,
+            63.997
+          ],
+          "description": "A person uses a knife to chop ingredients including red-skinned apple pieces, celery, red onion, and cooked chicken on a wooden cutting board.",
+          "evidence_frame_ids": [
+            "S7-F01",
+            "S7-F02",
+            "S7-F03",
+            "S7-F04"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Exact start and end of chopping sequence not fully observed."
+        },
+        {
+          "event_id": "v2-b0002-e2",
+          "time_span": [
+            65.999,
+            68.001
+          ],
+          "description": "The chopped ingredients are combined in a glass bowl with a creamy dressing and mixed using a utensil.",
+          "evidence_frame_ids": [
+            "S7-F05",
+            "S7-F06"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Transition from chopping to mixing occurs in the gap between 63.997s and 65.999s."
+        },
+        {
+          "event_id": "v2-b0002-e3",
+          "time_span": [
+            72.005,
+            82.015
+          ],
+          "description": "The finished salad is plated on a dish with green leaves and garnished with walnuts and onion rings.",
+          "evidence_frame_ids": [
+            "S8-F01",
+            "S8-F02",
+            "S9-F01"
+          ],
+          "confidence": 0.98,
+          "uncertainty": "Plating action itself is not visible, only the result."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 2,
+      "selected_frames": 25,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=25/42 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-0.001s] Finished chicken pasta salad plated on a bed of green leaves, showing pasta, chicken, red onion, and walnuts. | evidence=S1-F01 | confidence=0.950\n- v2-b0001-e2 [8.008-34.001s] Mayonnaise and other creamy ingredients are added to a glass bowl, followed by seasoning with pepper. | evidence=S2-F01,S2-F02,S3-F01,S3-F02,S4-F01,S5-F01 | confidence=0.900\n- v2-b0001-e3 [38.005-40.007s] Cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl. | evidence=S6-F01,S6-F02 | confidence=0.950\n- v2-b0001-e4 [42.009-53.987s] Chopping of walnuts, red onion, celery, and cooked chicken on a wooden cutting board. | evidence=S6-F03,S6-F04,S6-F05,S6-F06,S6-F07,S6-F08,S6-F09 | confidence=0.950\n- v2-b0002-e1 [57.991-63.997s] A person uses a knife to chop ingredients including red-skinned apple pieces, celery, red onion, and cooked chicken on a wooden cutting board. | evidence=S7-F01,S7-F02,S7-F03,S7-F04 | confidence=0.950\n- v2-b0002-e2 [65.999-68.001s] The chopped ingredients are combined in a glass bowl with a creamy dressing and mixed using a utensil. | evidence=S7-F05,S7-F06 | confidence=0.900\n- v2-b0002-e3 [72.005-82.015s] The finished salad is plated on a dish with green leaves and garnished with walnuts and onion rings. | evidence=S8-F01,S8-F02,S9-F01 | confidence=0.980\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-0.001s] Reference cooking step not visible in this frame.\n- v2-b0001-e2 [8.008-34.001s] Mixing action itself not clearly visible in these specific frames.\n- v2-b0001-e3 [38.005-40.007s] Exact start and end of the pouring action.\n- v2-b0001-e4 [42.009-53.987s] Chopping of each ingredient is shown sequentially.\n- v2-b0002-e1 [57.991-63.997s] Exact start and end of chopping sequence not fully observed.\n- v2-b0002-e2 [65.999-68.001s] Transition from chopping to mixing occurs in the gap between 63.997s and 65.999s.\n- v2-b0002-e3 [72.005-82.015s] Plating action itself is not visible, only the result.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v2-b0001-e1,v2-b0001-e2,v2-b0001-e3,v2-b0001-e4 unresolved=The specific cooking step from Video 1 is not identified. suggested_tools=semantic_seek\n- batch=2 relevance=direct evidence=v2-b0002-e1,v2-b0002-e2 unresolved=Definition of the specific reference cooking step from Video 1 to match against. suggested_tools=none",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v2-b0001-e1",
+            "v2-b0001-e2",
+            "v2-b0001-e3",
+            "v2-b0001-e4"
+          ],
+          "unresolved_needs": [
+            "The specific cooking step from Video 1 is not identified."
+          ],
+          "suggested_tools": [
+            "semantic_seek"
+          ]
+        },
+        {
+          "relevance": "direct",
+          "evidence_event_ids": [
+            "v2-b0002-e1",
+            "v2-b0002-e2"
+          ],
+          "unresolved_needs": [
+            "Definition of the specific reference cooking step from Video 1 to match against."
+          ],
+          "suggested_tools": []
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.008000000000001,
+          "actual_timestamp_seconds": 8.008000000000001,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.01,
+          "actual_timestamp_seconds": 10.01,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.014000000000001,
+          "actual_timestamp_seconds": 14.014000000000001,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F02",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.016000000000002,
+          "actual_timestamp_seconds": 16.016000000000002,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S4",
+          "frame_id": "S4-F01",
+          "timeline_index": 11,
+          "requested_timestamp_seconds": 21.988633333333336,
+          "actual_timestamp_seconds": 21.988633333333336,
+          "requested_frame_index": 659,
+          "actual_frame_index": 659,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F01",
+          "timeline_index": 17,
+          "requested_timestamp_seconds": 34.00063333333333,
+          "actual_timestamp_seconds": 34.00063333333333,
+          "requested_frame_index": 1019,
+          "actual_frame_index": 1019,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F01",
+          "timeline_index": 19,
+          "requested_timestamp_seconds": 38.00463333333334,
+          "actual_timestamp_seconds": 38.00463333333334,
+          "requested_frame_index": 1139,
+          "actual_frame_index": 1139,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F02",
+          "timeline_index": 20,
+          "requested_timestamp_seconds": 40.00663333333333,
+          "actual_timestamp_seconds": 40.00663333333333,
+          "requested_frame_index": 1199,
+          "actual_frame_index": 1199,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F03",
+          "timeline_index": 21,
+          "requested_timestamp_seconds": 42.008633333333336,
+          "actual_timestamp_seconds": 42.008633333333336,
+          "requested_frame_index": 1259,
+          "actual_frame_index": 1259,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F04",
+          "timeline_index": 22,
+          "requested_timestamp_seconds": 44.01063333333334,
+          "actual_timestamp_seconds": 44.01063333333334,
+          "requested_frame_index": 1319,
+          "actual_frame_index": 1319,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F05",
+          "timeline_index": 23,
+          "requested_timestamp_seconds": 46.01263333333333,
+          "actual_timestamp_seconds": 46.01263333333333,
+          "requested_frame_index": 1379,
+          "actual_frame_index": 1379,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F06",
+          "timeline_index": 24,
+          "requested_timestamp_seconds": 48.014633333333336,
+          "actual_timestamp_seconds": 48.014633333333336,
+          "requested_frame_index": 1439,
+          "actual_frame_index": 1439,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F07",
+          "timeline_index": 25,
+          "requested_timestamp_seconds": 50.01663333333334,
+          "actual_timestamp_seconds": 50.01663333333334,
+          "requested_frame_index": 1499,
+          "actual_frame_index": 1499,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F08",
+          "timeline_index": 26,
+          "requested_timestamp_seconds": 51.98526666666667,
+          "actual_timestamp_seconds": 51.98526666666667,
+          "requested_frame_index": 1558,
+          "actual_frame_index": 1558,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F09",
+          "timeline_index": 27,
+          "requested_timestamp_seconds": 53.98726666666667,
+          "actual_timestamp_seconds": 53.98726666666667,
+          "requested_frame_index": 1618,
+          "actual_frame_index": 1618,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F01",
+          "timeline_index": 29,
+          "requested_timestamp_seconds": 57.99126666666667,
+          "actual_timestamp_seconds": 57.99126666666667,
+          "requested_frame_index": 1738,
+          "actual_frame_index": 1738,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F02",
+          "timeline_index": 30,
+          "requested_timestamp_seconds": 59.99326666666667,
+          "actual_timestamp_seconds": 59.99326666666667,
+          "requested_frame_index": 1798,
+          "actual_frame_index": 1798,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F03",
+          "timeline_index": 31,
+          "requested_timestamp_seconds": 61.99526666666667,
+          "actual_timestamp_seconds": 61.99526666666667,
+          "requested_frame_index": 1858,
+          "actual_frame_index": 1858,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F04",
+          "timeline_index": 32,
+          "requested_timestamp_seconds": 63.99726666666667,
+          "actual_timestamp_seconds": 63.99726666666667,
+          "requested_frame_index": 1918,
+          "actual_frame_index": 1918,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F05",
+          "timeline_index": 33,
+          "requested_timestamp_seconds": 65.99926666666667,
+          "actual_timestamp_seconds": 65.99926666666667,
+          "requested_frame_index": 1978,
+          "actual_frame_index": 1978,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F06",
+          "timeline_index": 34,
+          "requested_timestamp_seconds": 68.00126666666667,
+          "actual_timestamp_seconds": 68.00126666666667,
+          "requested_frame_index": 2038,
+          "actual_frame_index": 2038,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S8",
+          "frame_id": "S8-F01",
+          "timeline_index": 36,
+          "requested_timestamp_seconds": 72.00526666666667,
+          "actual_timestamp_seconds": 72.00526666666667,
+          "requested_frame_index": 2158,
+          "actual_frame_index": 2158,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S8",
+          "frame_id": "S8-F02",
+          "timeline_index": 37,
+          "requested_timestamp_seconds": 74.00726666666667,
+          "actual_timestamp_seconds": 74.00726666666667,
+          "requested_frame_index": 2218,
+          "actual_frame_index": 2218,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S9",
+          "frame_id": "S9-F01",
+          "timeline_index": 41,
+          "requested_timestamp_seconds": 82.01526666666668,
+          "actual_timestamp_seconds": 82.01526666666668,
+          "requested_frame_index": 2458,
+          "actual_frame_index": 2458,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "FSA-1386",
+    "task": "FSA",
+    "ground_truth": [
+      8,
+      37
+    ],
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/FSA/FSA-1386/result.json",
+    "selection_sha256": "5b40b1bac72ee7a3c9ac97c7fcf6b01a7f38fb3a623508d13325ad729e6c5d13",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ]
+  }
+}

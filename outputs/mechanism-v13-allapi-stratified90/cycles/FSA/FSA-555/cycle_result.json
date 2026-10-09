@@ -1,0 +1,1239 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "Fresh answer-free state: v1 local seconds 133.966-150.0 show reddish-orange liquid poured into a simmering stew followed by wooden-spoon stirring; v2 local seconds around 132.0-142.0 show clear liquid poured into a simmering meat/tomato pot followed by wooden-spoon stirring. Open uncertainties are functional equivalence despite liquid/pot color differences, possible competing herb-addition interpretation, and exact v2 interval boundaries.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v2.zoom.r2-r1-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-02.s01",
+          "v2.c008"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.focus.r2.l3.e1",
+          "v2.focus.r2.l3.e2"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          133.966,
+          150.0
+        ],
+        "description": "A red liquid is poured into a simmering pot containing a chunky brown mixture, followed by vigorous stirring with a wooden spoon.",
+        "uncertainty": "Exact start and end times of pouring vs stirring are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Introductory sequence featuring the host holding a chainsaw, followed by title cards for 'Titli's Busy Kitchen' and 'Hungarian Goulash'.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          28.0
+        ],
+        "description": "The host stands in the kitchen talking to the camera, with occasional cuts to a tray of ingredients.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          36.0,
+          58.0
+        ],
+        "description": "The host's hand points to various ingredients on a tray (tomatoes, onions, meat, potatoes, peppers, spices) while text overlays identify them.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          60.0,
+          64.0
+        ],
+        "description": "Woman in kitchen introduces the cooking process, standing in front of wooden cabinets.",
+        "uncertainty": "Audio content of introduction not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          72.0,
+          82.0
+        ],
+        "description": "Ingredients (flour, egg) displayed; then oil and chopped onions added to a stainless steel pot.",
+        "uncertainty": "Exact timing of flour/egg usage not shown in this segment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          86.0,
+          98.0
+        ],
+        "description": "Onions sautéed in pot, followed by addition of raw meat chunks and continued cooking.",
+        "uncertainty": "Specific type of meat not explicitly labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          102.0,
+          110.0
+        ],
+        "description": "Spices and garlic are placed into a mortar and ground with a pestle.",
+        "uncertainty": "Specific spice names not fully legible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          114.0,
+          120.0
+        ],
+        "description": "Dried herbs are crushed in a mortar and pestle, then added to a pot containing browning meat and onions.",
+        "uncertainty": "Exact herb type and cooking method not specified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          132.0,
+          142.0
+        ],
+        "description": "Liquid is poured into the pot, stirred, and the pot is covered with a lid to simmer.",
+        "uncertainty": "Exact liquid volume and simmering temperature not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          144.0,
+          152.0
+        ],
+        "description": "An egg is cracked into a glass bowl, separated, and whisked with a fork.",
+        "uncertainty": "Purpose of the egg preparation is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          156.0,
+          176.0
+        ],
+        "description": "Flour is added to the beaten egg and mixed vigorously to form a thick paste.",
+        "uncertainty": "The mixture's intended use is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          178.0,
+          182.0
+        ],
+        "description": "A hand uses a black ladle to stir the brown broth in a pot. The hand then pours chopped raw potatoes from a clear glass bowl into the simmering liquid.",
+        "uncertainty": "Exact timing of potato addition completion.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          186.0,
+          192.0
+        ],
+        "description": "The hand stirs the pot with a wooden spoon. A lid is then placed on the pot, and text appears instructing to simmer until potatoes are tender.",
+        "uncertainty": "Duration of simmering period before next action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          194.0,
+          206.0
+        ],
+        "description": "The lid is removed, and the hand tests a potato piece with a fork. Dumplings are visible in the broth, and text instructs to simmer for 2-3 minutes.",
+        "uncertainty": "Exact moment dumplings were added to the pot.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          206.0,
+          224.0
+        ],
+        "description": "The finished stew is shown in a white bowl. The host appears on screen, speaks, and waves goodbye before the closing title card.",
+        "uncertainty": "Specific dialogue content during the closing segment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          226.0,
+          228.0
+        ],
+        "description": "A person is seated in a kitchen, wearing a white shirt in the first frame and a green patterned top in the second. Large title text overlays the scene.",
+        "uncertainty": "No cooking action is visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          132.0,
+          134.0
+        ],
+        "description": "A clear liquid is poured from a glass measuring jug into a pot containing brown chunks of meat and tomatoes.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          135.0,
+          138.0
+        ],
+        "description": "The pot contents are stirred with a wooden spoon, mixing the liquid with the brown chunks and tomatoes.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          139.0,
+          142.0
+        ],
+        "description": "A metal lid is placed on the pot to cover the simmering stew.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          133.95,
+          135.95
+        ],
+        "description": "A stream of reddish-orange liquid is poured into a pink pot containing a chunky, simmering stew.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          136.95,
+          139.95
+        ],
+        "description": "The pot contents continue to simmer without active pouring or stirring.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          140.95,
+          148.982
+        ],
+        "description": "A wooden spoon enters the frame and actively stirs the contents of the pot.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          148.982,
+          149.982
+        ],
+        "description": "A wooden spoon stirs a thick, reddish-brown stew containing meat chunks and onions inside a red enameled pot.",
+        "uncertainty": "Pour-to-stir transition boundaries not visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          132.0,
+          134.0
+        ],
+        "description": "Clear liquid is poured from a glass measuring cup into a stainless steel pot containing brown meat chunks and red tomato wedges.",
+        "uncertainty": "Pouring action ends between 134s and 135s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          135.0,
+          138.0
+        ],
+        "description": "A hand uses a wooden spoon to stir the brownish liquid mixture, submerging meat and tomato pieces.",
+        "uncertainty": "Stirring cessation time is approximate.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e3",
+        "video_id": "v2",
+        "time_span": [
+          139.0,
+          142.0
+        ],
+        "description": "The pot simmers with a frothy surface, and a hand places a glass lid with a black knob onto the pot.",
+        "uncertainty": "Exact moment lid is fully seated is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local v2 evidence to confirm whether the v2 pour-and-stir step matches the v1 reference functionally and to locate its boundaries.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c009"
+        ],
+        "evidence_goal": "In v2.c009, is the poured liquid red, is the pot contents chunky brown before pouring, and does the stirring right after pouring use a wooden spoon?",
+        "next_probe_goal": "Identify within v2.c009 the seconds where pouring stops, stirring begins, and the lid is placed.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need compare v1 reference transition with v2 candidate and resolve pour/stir boundaries.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c001",
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "What liquid color, pot contents, and pour-to-stir transition boundaries are visible in v1.c001 and v2.zoom.r1-U01-01.s01?",
+        "next_probe_goal": "Identify the v2.zoom seconds where pouring stops, stirring begins, and the lid is placed.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Fresh answer-free state: v1 local seconds 133.966-150.0 show reddish-orange liquid poured into a simmering stew followed by wooden-spoon stirring; v2 local seconds around 132.0-142.0 show clear liquid poured into a simmering meat/tomato pot followed by wooden-spoon stirring. Open uncertainties are functional equivalence despite liquid/pot color differences, possible competing herb-addition interpretation, and exact v2 interval boundaries.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations"
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        133.966,
+        148.966
+      ],
+      "resolution": "fine",
+      "content": "A stream of reddish-orange liquid is poured into a pink pot containing a chunky, simmering stew. The pot contents continue to simmer without active pouring or stirring. A wooden spoon enters the frame and actively stirs the contents of the pot.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2",
+        "v1.focus.r2.l1.e3"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        134.0,
+        149.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s02",
+      "video": "v1",
+      "time": [
+        148.966,
+        150.0
+      ],
+      "resolution": "fine",
+      "content": "A wooden spoon stirs a thick, reddish-brown stew containing meat chunks and onions inside a red enameled pot.",
+      "evidence": [
+        "v1.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "Pour-to-stir transition boundaries not visible in these frames.",
+        "Unresolved: pour-to-stir transition boundaries",
+        "Unresolved: liquid color prior to stirring"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        149.0,
+        149.99966666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Introductory sequence featuring the host holding a chainsaw, followed by title cards for 'Titli's Busy Kitchen' and 'Hungarian Goulash'.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.0,
+        24.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.0,
+        28.0
+      ],
+      "resolution": "coarse",
+      "content": "The host stands in the kitchen talking to the camera, with occasional cuts to a tray of ingredients.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        24.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        28.0,
+        36.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        36.0,
+        42.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        36.0,
+        58.0
+      ],
+      "resolution": "coarse",
+      "content": "The host's hand points to various ingredients on a tray (tomatoes, onions, meat, potatoes, peppers, spices) while text overlays identify them.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        48.0,
+        52.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        60.0,
+        64.0
+      ],
+      "resolution": "coarse",
+      "content": "Woman in kitchen introduces the cooking process, standing in front of wooden cabinets.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Audio content of introduction not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        60.0,
+        64.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        64.0,
+        72.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        72.0,
+        76.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        72.0,
+        82.0
+      ],
+      "resolution": "coarse",
+      "content": "Ingredients (flour, egg) displayed; then oil and chopped onions added to a stainless steel pot.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact timing of flour/egg usage not shown in this segment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        82.0,
+        86.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        86.0,
+        90.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        86.0,
+        98.0
+      ],
+      "resolution": "coarse",
+      "content": "Onions sautéed in pot, followed by addition of raw meat chunks and continued cooking.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Specific type of meat not explicitly labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        90.0,
+        94.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        94.0,
+        98.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        98.0,
+        102.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        102.0,
+        110.0
+      ],
+      "resolution": "coarse",
+      "content": "Spices and garlic are placed into a mortar and ground with a pestle.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Specific spice names not fully legible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        110.0,
+        114.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        114.0,
+        120.0
+      ],
+      "resolution": "coarse",
+      "content": "Dried herbs are crushed in a mortar and pestle, then added to a pot containing browning meat and onions.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact herb type and cooking method not specified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        120.0,
+        132.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        132.0,
+        136.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-02.s01",
+      "video": "v2",
+      "time": [
+        132.0,
+        142.0
+      ],
+      "resolution": "fine",
+      "content": "Clear liquid is poured from a glass measuring cup into a stainless steel pot containing brown meat chunks and red tomato wedges. A hand uses a wooden spoon to stir the brownish liquid mixture, submerging meat and tomato pieces. The pot simmers with a frothy surface, and a hand places a glass lid with a black knob onto the pot.",
+      "evidence": [
+        "v2.focus.r2.l3.e1",
+        "v2.focus.r2.l3.e2",
+        "v2.focus.r2.l3.e3"
+      ],
+      "uncertainty": [
+        "Pouring action ends between 134s and 135s.",
+        "Stirring cessation time is approximate.",
+        "Exact moment lid is fully seated is not visible.",
+        "Unresolved: Liquid color in v1.c001 (not provided in this batch)"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        136.0,
+        140.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        144.0,
+        152.0
+      ],
+      "resolution": "coarse",
+      "content": "An egg is cracked into a glass bowl, separated, and whisked with a fork.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Purpose of the egg preparation is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        152.0,
+        156.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        156.0,
+        171.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        156.0,
+        176.0
+      ],
+      "resolution": "coarse",
+      "content": "Flour is added to the beaten egg and mixed vigorously to form a thick paste.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The mixture's intended use is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        171.0,
+        172.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        172.0,
+        176.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        178.0,
+        182.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand uses a black ladle to stir the brown broth in a pot. The hand then pours chopped raw potatoes from a clear glass bowl into the simmering liquid.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Exact timing of potato addition completion."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        182.0,
+        186.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        186.0,
+        192.0
+      ],
+      "resolution": "coarse",
+      "content": "The hand stirs the pot with a wooden spoon. A lid is then placed on the pot, and text appears instructing to simmer until potatoes are tender.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Duration of simmering period before next action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        194.0,
+        200.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        194.0,
+        206.0
+      ],
+      "resolution": "coarse",
+      "content": "The lid is removed, and the hand tests a potato piece with a fork. Dumplings are visible in the broth, and text instructs to simmer for 2-3 minutes.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Exact moment dumplings were added to the pot."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        206.0,
+        210.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        206.0,
+        224.0
+      ],
+      "resolution": "coarse",
+      "content": "The finished stew is shown in a white bowl. The host appears on screen, speaks, and waves goodbye before the closing title card.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [
+        "Specific dialogue content during the closing segment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        210.0,
+        220.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        226.0,
+        228.0
+      ],
+      "resolution": "coarse",
+      "content": "A person is seated in a kitchen, wearing a white shirt in the first frame and a green patterned top in the second. Large title text overlays the scene.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "No cooking action is visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        228.0,
+        229.8
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Identify within v2.c009 the seconds where pouring stops, stirring begins, and the lid is placed.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

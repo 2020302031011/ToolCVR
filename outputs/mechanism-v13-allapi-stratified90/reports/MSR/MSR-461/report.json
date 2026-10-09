@@ -1,0 +1,440 @@
+{
+  "question": "When {B4} completely disappears in view B, where is {A4} located in relation to {A2} in view A?",
+  "options": [
+    "A. left",
+    "B. right",
+    "C. directly ahead",
+    "D. directly behind"
+  ],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "When {B4} completely disappears in view B, where is {A4} located in relation to {A2} in view A?",
+      "left",
+      "right",
+      "directly ahead",
+      "directly behind",
+      "The question asks for a spatial relationship (left, right, ahead, behind) between two specific objects ({A4} and {A2}) in view A",
+      "Spatial relationships like 'left', 'right', 'directly ahead', and 'directly behind' are abstract relative positions that CLIP cannot reliably detect from single-frame captions without explicit visual cues or bounding box context",
+      "The condition 'When {B4} completely disappears' involves temporal change and absence, which are not retrievable via static image captions",
+      "All options (A. left, B. right, C. directly ahead, D. directly behind) describe relative positions rather than visible actions or states of objects interacting with tools/materials",
+      "No concrete visible action, tool interaction, or material state is described in the question or options that can be grounded into a natural-image caption"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 16.333333333333332,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          8.0,
+          16.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            0.0,
+            8.0
+          ],
+          "description": "A dark van labeled A4 is tracked in the upper lane of view S1, moving from right to left before exiting the frame.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "A2 is not visible in these frames."
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            10.0,
+            16.0
+          ],
+          "description": "A white sedan labeled A1 is tracked in the lower right corner of view S2, remaining stationary near the curb.",
+          "evidence_frame_ids": [
+            "S2-F02",
+            "S2-F04",
+            "S2-F05"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "A4 is not visible in these frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 8,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=8/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [0.000-8.000s] A dark van labeled A4 is tracked in the upper lane of view S1, moving from right to left before exiting the frame. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.900\n- v1-b0001-e2 [10.000-16.000s] A white sedan labeled A1 is tracked in the lower right corner of view S2, remaining stationary near the curb. | evidence=S2-F02,S2-F04,S2-F05 | confidence=0.900\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [0.000-8.000s] A2 is not visible in these frames.\n- v1-b0001-e2 [10.000-16.000s] A4 is not visible in these frames.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v1-b0001-e1,v1-b0001-e2 unresolved=Identification of object A2; Simultaneous visibility of A4 and A2; Identification of object B4 suggested_tools=semantic_seek,entity_track",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v1-b0001-e1",
+            "v1-b0001-e2"
+          ],
+          "unresolved_needs": [
+            "Identification of object A2",
+            "Simultaneous visibility of A4 and A2",
+            "Identification of object B4"
+          ],
+          "suggested_tools": [
+            "semantic_seek",
+            "entity_track"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F04",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F05",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.0,
+          "actual_timestamp_seconds": 16.0,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 16.333333333333332,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          8.0,
+          16.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            2.0
+          ],
+          "description": "In view S1, the B4 car is visible in the left lane, positioned behind the A4 car.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "None."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            2.0,
+            4.0
+          ],
+          "description": "The B4 car moves forward in the left lane while the A4 car remains in the center lane.",
+          "evidence_frame_ids": [
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "None."
+        },
+        {
+          "event_id": "v2-b0001-e3",
+          "time_span": [
+            4.0,
+            8.0
+          ],
+          "description": "The B4 car is visible at the bottom edge of view S2 at 8.0s, indicating it has entered the frame.",
+          "evidence_frame_ids": [
+            "S1-F03",
+            "S2-F01"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "Movement between 4s and 8s is not shown."
+        },
+        {
+          "event_id": "v2-b0001-e4",
+          "time_span": [
+            8.0,
+            10.0
+          ],
+          "description": "The B4 car is visible at the bottom edge of view S2 at 8.0s but is absent from the frame at 10.0s.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "Exact moment of disappearance is unknown."
+        },
+        {
+          "event_id": "v2-b0001-e5",
+          "time_span": [
+            10.0,
+            16.0
+          ],
+          "description": "The B4 car remains completely absent from view S2.",
+          "evidence_frame_ids": [
+            "S2-F02",
+            "S2-F03",
+            "S2-F04",
+            "S2-F05"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "None."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 8,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=8/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-2.000s] In view S1, the B4 car is visible in the left lane, positioned behind the A4 car. | evidence=S1-F01,S1-F02 | confidence=1.000\n- v2-b0001-e2 [2.000-4.000s] The B4 car moves forward in the left lane while the A4 car remains in the center lane. | evidence=S1-F02,S1-F03 | confidence=1.000\n- v2-b0001-e3 [4.000-8.000s] The B4 car is visible at the bottom edge of view S2 at 8.0s, indicating it has entered the frame. | evidence=S1-F03,S2-F01 | confidence=1.000\n- v2-b0001-e4 [8.000-10.000s] The B4 car is visible at the bottom edge of view S2 at 8.0s but is absent from the frame at 10.0s. | evidence=S2-F01,S2-F02 | confidence=1.000\n- v2-b0001-e5 [10.000-16.000s] The B4 car remains completely absent from view S2. | evidence=S2-F02,S2-F03,S2-F04,S2-F05 | confidence=1.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-2.000s] None.\n- v2-b0001-e2 [2.000-4.000s] None.\n- v2-b0001-e3 [4.000-8.000s] Movement between 4s and 8s is not shown.\n- v2-b0001-e4 [8.000-10.000s] Exact moment of disappearance is unknown.\n- v2-b0001-e5 [10.000-16.000s] None.\nQUERY ASSESSMENT\n- batch=1 relevance=direct evidence=v2-b0001-e4,v2-b0001-e5 unresolved=The identity of A2 is not established in the provided frames. suggested_tools=entity_track",
+      "query_assessments": [
+        {
+          "relevance": "direct",
+          "evidence_event_ids": [
+            "v2-b0001-e4",
+            "v2-b0001-e5"
+          ],
+          "unresolved_needs": [
+            "The identity of A2 is not established in the provided frames."
+          ],
+          "suggested_tools": [
+            "entity_track"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F04",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F05",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.0,
+          "actual_timestamp_seconds": 16.0,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MSR-461",
+    "task": "MSR",
+    "ground_truth": "C",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MSR/MSR-461/result.json",
+    "selection_sha256": "e9d2a583704980f0f64b02b0d7a4f24c99191af904e3a681b69e52b7c3cc2c15",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-64: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=54; declared=car; A1_visible=286-315 (9.533-10.533s),386-489 (12.867-16.333s)/490_frames; B1_visible=310-489 (10.333-16.333s)/490_frames.",
+      "A2/B2 is source_track=59; declared=car; A2_visible=480-489 (16.000-16.333s)/490_frames; B2_visible=489-489 (16.300-16.333s)/490_frames.",
+      "A3/B3 is source_track=67; declared=person; A3_visible=470-489 (15.667-16.333s)/490_frames; B3_visible=460-489 (15.333-16.333s)/490_frames.",
+      "A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.",
+      "A5/B5 is source_track=19; declared=person; A5_visible=220-319 (7.333-10.667s)/490_frames; B5_visible=230-309 (7.667-10.333s)/490_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ]
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "state": {
+    "question": "After {A4} completely leaves view A, how many red cars in view B overtake {B5}?",
+    "round_id": 3,
+    "summary": "A4 completely leaves view A at or before 2.0s. B5 is visible in view B from 0.0s to 4.0s. There is no evidence of red cars overtaking B5 in view B after A4 leaves view A.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-28: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=43; declared=car; A1_visible=510-659 (17.000-22.000s)/700_frames; B1_visible=300-639 (10.000-21.333s)/700_frames.",
+      "A2/B2 is source_track=58; declared=car; A2_visible=490-699 (16.333-23.333s)/700_frames; B2_visible=0-699 (0.000-23.333s)/700_frames.",
+      "A3/B3 is source_track=67; declared=car; A3_visible=554-699 (18.467-23.333s)/700_frames; B3_visible=334-699 (11.133-23.333s)/700_frames.",
+      "A4/B4 is source_track=77; declared=car; A4_visible=0-76 (0.000-2.567s)/700_frames; B4_visible=0-265 (0.000-8.867s)/700_frames.",
+      "A5/B5 is source_track=21; declared=person; A5_visible=99-354 (3.300-11.833s)/700_frames; B5_visible=0-405 (0.000-13.533s)/700_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v1.zoom.r2-r1-02.s01"
+        ],
+        "attempts": [
+          "A4 is visible in view A until 2.0s, after which it is not visible in any frames. This suggests that A4 completely leaves view A at or before 2.0s."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v2.c001"
+        ],
+        "attempts": [
+          "There is no evidence of red cars overtaking B5 in view B after A4 leaves view A. The available evidence does not provide sufficient detail to determine this."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c001"
+        ],
+        "attempts": [
+          "B5 is visible in view B from 0.0s to 4.0s. There is no evidence of B5 leaving view B after this time."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A4 car is visible in view A, parked near sidewalk, partially obscured by trees.",
+        "uncertainty": "A4 car's complete exit from view A not confirmed in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          4.0
+        ],
+        "description": "A4 car is no longer visible in view A. A5 person appears in view B, walking on sidewalk.",
+        "uncertainty": "A4 car's complete exit from view A not confirmed in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "A5 person is visible in view B, walking on sidewalk. Red cars are visible in view B, moving in traffic lanes.",
+        "uncertainty": "Overtaking events not visible in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          20.0,
+          22.0
+        ],
+        "description": "A1 car and A2 car are visible in view B, moving in traffic lanes. A5 car is visible in view B, moving in traffic lane.",
+        "uncertainty": "Overtaking events not visible in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Person B5 is visible in view B, moving forward on road. Car B4 is parked on right side of road.",
+        "uncertainty": "No evidence of A4 in view A or its exit from view A in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A4 car remains visible in view A across all three frames, parked on left side of road.",
+        "uncertainty": "A4 car not visible in any frame after F03, so cannot confirm exact exit time.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "A4 car is visible in view A, parked on left side of road.",
+        "uncertainty": "A4 car's complete exit from view A not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A4 car remains visible in view A across all three frames. No frame shows it leaving view A.",
+        "uncertainty": "A4 car not visible in any frame after 2.0s; cannot confirm if it leaves view A after this point.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "A4 car is visible in view A, parked on left side of road.",
+        "uncertainty": "A4 car's exit from view A not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Confirm A4's exit time and count red cars overtaking B5 after that",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v1.c002"
+        ],
+        "evidence_goal": "Confirm the exact time when A4 completely leaves view A",
+        "next_probe_goal": "Observe and count the number of red cars in view B that overtake B5 after A4 completely leaves view A",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to determine the exact timestamp when A4 completely leaves view A and identify red cars in view B that overtake B5 after that time.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "Determine the exact timestamp when A4 completely leaves view A.",
+        "next_probe_goal": "Identify red cars in view B that overtake B5 after A4 completely leaves view A.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "A4 completely leaves view A at or before 2.0s. B5 is visible in view B from 0.0s to 4.0s. There is no evidence of red cars overtaking B5 in view B after A4 leaves view A.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "D",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "D",
+    "evidence_refs": [
+      "v1.zoom.r2-r1-01.s01",
+      "v1.zoom.r2-r1-02.s01",
+      "v2.c001"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car remains visible in view A across all three frames. No frame shows it leaving view A.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "A4 car not visible in any frame after 2.0s; cannot confirm if it leaves view A after this point.",
+        "Unresolved: exact timestamp when A4 completely leaves view A"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-02.s01",
+      "video": "v1",
+      "time": [
+        2.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car is visible in view A, parked on left side of road.",
+      "evidence": [
+        "v1.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "A4 car's exit from view A not visible in supplied frames.",
+        "Unresolved: exact timestamp when A4 completely leaves view A"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A5 person is visible in view B, walking on sidewalk. Red cars are visible in view B, moving in traffic lanes.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Overtaking events not visible in supplied frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        16.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        20.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "A1 car and A2 car are visible in view B, moving in traffic lanes. A5 car is visible in view B, moving in traffic lane.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Overtaking events not visible in supplied frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        22.0,
+        23.333333333333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Person B5 is visible in view B, moving forward on road. Car B4 is parked on right side of road.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "No evidence of A4 in view A or its exit from view A in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        16.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        22.0,
+        23.333333333333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Observe and count the number of red cars in view B that overtake B5 after A4 completely leaves view A",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

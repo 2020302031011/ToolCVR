@@ -1,0 +1,153 @@
+{
+  "question": "When {B3} completely leaves view B, where is {A5} located in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, B3 is reported visible through 6.0s and absent at 8.0s."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1, A5 is reported absent from 0.0-4.0s and visible in the bottom left from 6.0-8.0s while moving right."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "In v2, A5 is reported visible in the upper left quadrant at 8.0s."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "At synchronized 8.0s, v1 reports A5 bottom left while v2 reports A5 upper left.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The reported B3 absence at 8.0s in v2 occurs within v1's A5 bottom-left visibility span.",
+      "supporting_events": [
+        "v2-b0001-e2",
+        "v1-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The correspondence between v1/v2 and the question's view A/view B labels remains undetermined.",
+      "reason": "The reports use track aliases and video IDs but do not explicitly identify which video is view A or view B.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The frame position of A5 in the requested view A at the synchronized B3-departure timestamp remains undetermined.",
+      "reason": "v1 and v2 provide different A5 positions at 8.0s and the view correspondence is not established.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At the synchronized B3-departure timestamp, compare the A5 quadrant in the video identified as view A with top left, top right, bottom left, and absence.",
+      "purpose": "This would resolve the missing view-A position at the trigger timestamp.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare explicit view labels or distinctive synchronized scene landmarks across v1 and v2 to determine which video corresponds to view A and which to view B.",
+      "purpose": "This would resolve the view correspondence issue.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-527",
+    "task": "MSR",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-527/report.json",
+    "report_sha256": "72799e6020e1c3f0eafd7ae804afa81a45670977162fc566b3a2d539f790c519",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

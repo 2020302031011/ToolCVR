@@ -1,0 +1,220 @@
+{
+  "question": "How do the vegetable preparation methods differ between Video A and Video B when making tabbouleh?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Scallions are thinly sliced on a cutting board in v1."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Parsley is finely chopped with quick straight knife motions in v1."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4",
+        "v1-b0002-e3"
+      ],
+      "statement": "Rolled sliced parsley is added to a food processor with scallions in v1."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e5",
+        "v1-b0002-e1"
+      ],
+      "statement": "Chopped vegetables from the food processor are mixed with bulgur in v1."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "Chopped tomatoes, green onions, cucumbers, and parsley are shown already prepared in bowls or measuring cups in v2."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "statement": "Chopped green onions and parsley are added to a large bowl and manually mixed in v2."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The supplied v1 events show knife cutting and food-processor handling of vegetables, while the supplied v2 events show vegetables already chopped before being added and mixed.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show final mixing of chopped herbs or vegetables, but v1 mixes processed vegetables with bulgur while v2 mixes chopped ingredients in a large bowl.",
+      "supporting_events": [
+        "v1-b0001-e5",
+        "v1-b0002-e1",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The tool and cutting action used to prepare the chopped vegetables shown in v2 remain undetermined.",
+      "reason": "The v2 events show already chopped vegetables in bowls or cups and then added to a bowl, but they do not show the chopping technique or tools.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The exact role of the food processor in v1 remains undetermined.",
+      "reason": "The v1 events show knife-cut parsley and scallions entering a food processor and later chopped vegetables being mixed, but processor settings, duration, and whether the processor does the primary chopping are not visible.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v1-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The comparable vegetable sets prepared in each video remain undetermined.",
+      "reason": "The v1 events detail scallions and parsley, while the v2 events show tomatoes, green onions, cucumbers, chickpeas, and parsley, so the reports do not establish which vegetables are prepared in both videos.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare whether parsley or scallions are shown being cut with a knife or placed into a food processor before mixing in v1 and v2.",
+      "purpose": "Determine whether v2's vegetable preparation method is visible or only implied by already-chopped ingredients.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the state of parsley and scallions entering and leaving the food processor in v1.",
+      "purpose": "Determine whether the food processor performs primary chopping or further processes knife-cut vegetables.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the first visible preparation step for each vegetable category shown in v1 and v2.",
+      "purpose": "Establish which vegetables are comparable across the two videos for a method difference.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-806",
+    "task": "CCQA",
+    "ground_truth": "Video A uses a food processor to blend tomatoes with herbs and spices into a uniform mixture, while Video B manually dices tomatoes and cucumbers then mixes them whole with other ingredients. Video B also adds boiled chickpeas and leeks not present in Video A's recipe.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CCQA/CCQA-806/report.json",
+    "report_sha256": "c685da2d5fc578229186848f63c599d56f840497c2eb57507f45a6f901542001",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

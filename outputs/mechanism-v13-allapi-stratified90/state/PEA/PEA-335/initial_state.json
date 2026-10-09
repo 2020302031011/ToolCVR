@@ -1,0 +1,323 @@
+{
+  "question": "Which assembly error occurred due to an unnecessary action being performed?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e4"
+      ],
+      "statement": "The white container is detached from the truck assembly by 194 seconds and the truck is later placed on the table with the container attached."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2"
+      ],
+      "statement": "An orange rectangular piece described as likely a bumper is placed onto the front of the orange cabin."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "A white roof piece is handled over the orange cabin with its attachment status unclear."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "statement": "A light-colored cabin or transport piece is handled with a dark component and placed on the table."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "A rectangular block and base plate are rotated to inspect alignment features without a secure attachment being observed."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e4",
+        "v2-b0004-e1"
+      ],
+      "statement": "A wheel is attached to the truck chassis, and later the rear wheel assembly is detached while a tool is positioned near the axle."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2"
+      ],
+      "statement": "The orange cab is separated from the black chassis and wheels after the truck cab appears assembled."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e3"
+      ],
+      "statement": "An orange tray and a white component labeled MINE CART are picked up and held together."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "Small parts are manipulated near a black chassis component, appearing to attach wheels or axles."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 and v3 both show a container or cab being separated from a truck assembly, which is relevant to distinguishing detach actions from attach actions.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show wheel or axle work on a chassis, making the necessity of chassis-related actions a shared comparison point.",
+      "supporting_events": [
+        "v2-b0003-e4",
+        "v3-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 both show handling of container, cabin, or base-like pieces, relevant to comparing attach base/transport cabin with attach bumper/chassis.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "All three videos contain assembly manipulations whose necessity is uncertain, so visible resulting error states are needed to compare them.",
+      "supporting_events": [
+        "v1-b0002-e2",
+        "v2-b0003-e4",
+        "v3-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v3"
+      ],
+      "issue": "whether the observed separation of the orange cab from the black chassis and wheels is a detach cabin and interior action caused by an unnecessary action remains unresolved.",
+      "reason": "v3-b0001-e2 shows the separation but does not state the reason, and no event confirms an interior component was detached.",
+      "related_events": [
+        "v3-b0001-e2",
+        "v3-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3"
+      ],
+      "issue": "whether v3 contains an attach rear roof and transport cabin step remains unresolved.",
+      "reason": "v3-b0001-e3 names an orange tray and a white MINE CART component, but no supplied event identifies a rear roof or transport cabin.",
+      "related_events": [
+        "v3-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "whether v2 contains an attach bumper and chassis step that caused an assembly error remains unresolved.",
+      "reason": "v2-b0002-e1 describes a rectangular block and base plate, and v2-b0003-e4 describes wheel attachment, but neither event establishes a bumper, a chassis attachment error, or unnecessary action.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v2-b0003-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1"
+      ],
+      "issue": "whether v1 contains an attach base and transport cabin step caused by an unnecessary action remains unresolved.",
+      "reason": "v1-b0001-e1 and v1-b0001-e4 show a white container attached or detached, while v1-b0002-e2 shows a likely bumper placed on the cabin, but no event identifies a base and transport cabin attachment error.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e4",
+        "v1-b0002-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "the visible assembly error resulting from any observed unnecessary action remains unresolved.",
+      "reason": "The supplied events describe actions and uncertainties but do not state a resulting assembly error for any video.",
+      "related_events": [
+        "v1-b0002-e2",
+        "v2-b0003-e4",
+        "v3-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the orange cab and black chassis/wheels before and after v3-b0001-e2 to determine whether an interior component is detached.",
+      "purpose": "resolve U01",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the orange tray and white MINE CART component with any roof or transport cabin parts to determine whether a rear roof and transport cabin are attached.",
+      "purpose": "resolve U02",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the rectangular block, base plate, and chassis to determine whether a bumper is attached to the chassis.",
+      "purpose": "resolve U03",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the white container, orange cabin, and any base component to determine whether a base and transport cabin are attached.",
+      "purpose": "resolve U04",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the final visible assembly states after v1-b0002-e2, v2-b0003-e4, and v3-b0001-e2 to identify any visible error state.",
+      "purpose": "resolve U05",
+      "related_issue": "U05"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-335",
+    "task": "PEA",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PEA/PEA-335/report.json",
+    "report_sha256": "21c78e6e6faa72e3514cae608de4003f78af75228d1ba971fdf655533794b2e7",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

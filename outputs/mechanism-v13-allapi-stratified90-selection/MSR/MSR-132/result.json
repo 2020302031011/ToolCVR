@@ -1,0 +1,252 @@
+{
+  "question": "When {A1} appears in view A, where is {B3} in view B compared to {B1}?",
+  "options": [
+    "A. Directly behind {B1}",
+    "B. Behind and to the right of {B1}",
+    "C. Behind and to the left of {B1}",
+    "D. Not visible in view B"
+  ],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "When {A1} appears in view A, where is {B3} in view B compared to {B1}?",
+      "Directly behind {B1}",
+      "Behind and to the right of {B1}",
+      "Behind and to the left of {B1}",
+      "Not visible in view B",
+      "The question asks for a specific spatial relationship between objects {B3} and {B1} in view B, triggered by the appearance of {A1} in view A",
+      "Option A: {B3} is directly behind {B1}",
+      "Option B: {B3} is behind and to the right of {B1}",
+      "Option C: {B3} is behind and to the left of {B1}",
+      "Option D: {B3} is not visible in view B",
+      "CLIP cannot reliably determine relative spatial positions (behind/left/right) or object absence from single frames without explicit grounding",
+      "Temporal dependency ('When {A1} appears...') requires video-level reasoning, not static image retrieval"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 12.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 6,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          10.0,
+          10.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            0.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v1-b1-audit-b1-2",
+          "time_span": [
+            10.0,
+            10.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=2/6 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b1-audit-b1-1 [0.000-0.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01 | confidence=0.000\n- v1-b1-audit-b1-2 [10.000-10.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b1-audit-b1-1 [0.000-0.000s] Selection proposal only for segment S1.\n- v1-b1-audit-b1-2 [10.000-10.000s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b1-audit-b1-1,v1-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b1-audit-b1-1",
+            "v1-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 12.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 6,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          10.0,
+          10.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            0.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-2",
+          "time_span": [
+            10.0,
+            10.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=2/6 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b1-audit-b1-1 [0.000-0.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01 | confidence=0.000\n- v2-b1-audit-b1-2 [10.000-10.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b1-audit-b1-1 [0.000-0.000s] Selection proposal only for segment S1.\n- v2-b1-audit-b1-2 [10.000-10.000s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b1-audit-b1-1,v2-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b1-audit-b1-1",
+            "v2-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MSR-132",
+    "task": "MSR",
+    "ground_truth": "B",
+    "rewrite_model": "qwen3.8-flash",
+    "clip_model": "openai/clip-vit-large-patch14-336",
+    "selection_only": true,
+    "duration_stratified_audit": false,
+    "selection_profile": null,
+    "configured_retention_ratio": null,
+    "query_plan_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MSR/MSR-132/query_plan.json",
+    "adaptation_notes": [
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=84; declared=car; A1_visible=50-277 (1.667-9.267s)/360_frames; B1_visible=0-299 (0.000-10.000s)/360_frames.",
+      "A2/B2 is source_track=99; declared=bicycle; A2_visible=0-339 (0.000-11.333s)/360_frames; B2_visible=0-329 (0.000-11.000s)/360_frames.",
+      "A3/B3 is source_track=105; declared=car; A3_visible=170-359 (5.667-12.000s)/360_frames; B3_visible=0-359 (0.000-12.000s)/360_frames.",
+      "A4/B4 is source_track=29; declared=person; A4_visible=0-339 (0.000-11.333s)/360_frames; B4_visible=0-329 (0.000-11.000s)/360_frames.",
+      "A5/B5 is source_track=16; declared=person; A5_visible=0-289 (0.000-9.667s)/360_frames; B5_visible=0-319 (0.000-10.667s)/360_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "inputs": [
+      {
+        "video_id": "v1",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-31"
+      },
+      {
+        "video_id": "v2",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-31"
+      }
+    ]
+  }
+}

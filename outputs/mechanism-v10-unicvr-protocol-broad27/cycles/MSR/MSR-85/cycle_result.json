@@ -1,0 +1,452 @@
+{
+  "state": {
+    "question": "When the red bus is parallel to the black car for the first time in view B, where is {A2} located in view A?",
+    "round_id": 4,
+    "summary": "The red bus is stationary in view B, and the black car is not visible in any frame to verify parallel alignment. A2 is visible in view A during the time interval, but its exact location at the relevant timestamp is not determined.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-27: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=39; declared=car; A1_visible=30-296 (1.000-9.900s)/340_frames; B1_visible=110-331 (3.667-11.067s)/340_frames.",
+      "A2/B2 is source_track=44; declared=car; A2_visible=70-339 (2.333-11.333s)/340_frames; B2_visible=170-339 (5.667-11.333s)/340_frames.",
+      "A3/B3 is source_track=53; declared=car; A3_visible=140-339 (4.667-11.333s)/340_frames; B3_visible=290-339 (9.667-11.333s)/340_frames.",
+      "A4/B4 is source_track=67; declared=car; A4_visible=0-270 (0.000-9.033s)/340_frames; B4_visible=84-299 (2.800-10.000s)/340_frames.",
+      "A5/B5 is source_track=127; declared=car; A5_visible=120-149 (4.000-5.000s)/340_frames; B5_visible=none/340_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r2-req1-01.s01"
+        ],
+        "attempts": [
+          "The red bus is stationary in view B, and the black car is not visible in any frame to verify parallel alignment."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r3-req2-01.s01",
+          "v1.zoom.r3-req2-02.s01"
+        ],
+        "attempts": [
+          "A2 is visible in view A during the time interval, but its exact location at the relevant timestamp is not determined."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r3-req2-01.s01",
+          "v1.zoom.r3-req2-02.s01"
+        ],
+        "attempts": [
+          "A2 is visible in view A during the time interval, indicating it is in the frame."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "Red bus and black car are visible in view B. A2 car is visible in view A.",
+        "uncertainty": "A2 car's exact position relative to bus-car alignment not visible in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "uncertainty": "Red bus and black car not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "uncertainty": "Red bus and black car not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "uncertainty": "Red bus and black car not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          6.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "uncertainty": "Red bus and black car not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          10.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "uncertainty": "Red bus and black car not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "Red bus visible on left road, black car visible on right road, both moving forward.",
+        "uncertainty": "Parallel alignment not visible in any frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "Red bus remains stationary in bottom-right parking area across all frames.",
+        "uncertainty": "Black car not visible in any frame to verify parallel alignment.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "A2 car visible on right-side road, parked near green area, moving slightly forward over time.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          11.0
+        ],
+        "description": "A2 car visible on right-side road, parked near green area, marked with blue box.",
+        "uncertainty": "No motion or state change visible between frames.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine the exact position of A2 in view A when the red bus is parallel to the black car in view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "When is the red bus parallel to the black car in view B?",
+        "next_probe_goal": "Where is A2 located in view A at that moment?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to identify the timestamp when the red bus is parallel to the black car in view B and determine the location of A2 in view A at that timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req1",
+        "slot_ids": [
+          "v2.u001"
+        ],
+        "evidence_goal": "When is the red bus parallel to the black car in view B?",
+        "next_probe_goal": "Where is A2 located in view A at that moment?",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The first parallel alignment of the red bus and black car in view B is unresolved due to the black car's lack of visibility. The location of {A2} in view A at this timestamp is also unresolved due to insufficient evidence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req2",
+        "slot_ids": [
+          "v1.u001",
+          "v1.u002"
+        ],
+        "evidence_goal": "Determine the visibility and location of {A2} in view A at the identified timestamp.",
+        "next_probe_goal": "Where is A2 located in view A at that moment?",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The red bus is stationary in view B, and the black car is not visible in any frame to verify parallel alignment. A2 is visible in view A during the time interval, but its exact location at the relevant timestamp is not determined.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.zoom.r3-req2-01.s01",
+      "v1.zoom.r3-req2-02.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "Red bus visible on left road, black car visible on right road, both moving forward.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Parallel alignment not visible in any frame.",
+        "Unresolved: Red bus parallel to black car not visible in any frame"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-req2-01.s01",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A2 car visible on right-side road, parked near green area, moving slightly forward over time.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-req2-02.s01",
+      "video": "v1",
+      "time": [
+        10.0,
+        11.3
+      ],
+      "resolution": "fine",
+      "content": "A2 car visible on right-side road, parked near green area, marked with blue box.",
+      "evidence": [
+        "v1.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "No motion or state change visible between frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "Red bus and black car are not parallel in view B at this timestamp.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Red bus and black car not parallel in view B at this timestamp."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        2.0,
+        2.0
+      ],
+      "resolution": "coarse",
+      "content": "Red bus and black car are not parallel in view B at this timestamp.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Red bus and black car not parallel in view B at this timestamp."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        4.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Red bus and black car are not parallel in view B at this timestamp.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Red bus and black car not parallel in view B at this timestamp."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        6.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "Red bus and black car are not parallel in view B at this timestamp.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Red bus and black car not parallel in view B at this timestamp."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req1-01.s01",
+      "video": "v2",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "Red bus remains stationary in bottom-right parking area across all frames.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Black car not visible in any frame to verify parallel alignment.",
+        "Unresolved: Visibility of black car and its alignment with red bus not established in any frame."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        10.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "Red bus and black car are not parallel in view B at this timestamp.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "Red bus and black car not parallel in view B at this timestamp."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.0,
+        11.333333333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Where is A2 located in view A at that moment?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

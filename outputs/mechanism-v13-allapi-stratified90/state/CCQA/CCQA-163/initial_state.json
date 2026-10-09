@@ -1,0 +1,226 @@
+{
+  "question": "How do the chefs prepare the sauce differently before cooking the tofu in Video A versus Video B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Video A shows tofu cubes simmering in a brown sauce in a pan."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Video A shows the tofu and sauce simmering without active stirring."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Video A shows cooked tofu and sauce presented in a white bowl."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Video B shows a chef displaying separated ingredients in plastic cups, including liquids and dry spices."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Video B shows the chef handling individual cups of minced garlic and green onions."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "Video B shows tofu slices placed into a pan containing mushrooms and cooked with a wooden spoon."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video A shows tofu already cooking in a brown sauce, while Video B shows separated ingredients before tofu is placed in a pan with mushrooms.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video A presents a combined brown sauce in the pan, while Video B presents sauce-like components in separate cups without a visible combined sauce.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The preparation of the brown sauce before the tofu is added remains undetermined.",
+      "reason": "The supplied Video A events begin with tofu already simmering in brown sauce and do not show sauce ingredients being combined or heated beforehand.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the separated liquids, dry spices, garlic, and green onions are mixed into a sauce before the tofu is cooked remains undetermined.",
+      "reason": "Video B events show ingredient display and handling but do not show mixing of sauce components.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The timing and method of sauce addition to the pan relative to tofu placement remain undetermined.",
+      "reason": "Video B shows tofu placed into a pan with mushrooms but does not show sauce liquid addition.",
+      "related_events": [
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The comparative sequence of sauce preparation before tofu cooking cannot be established from the supplied events.",
+      "reason": "Video A lacks pre-tofu sauce preparation events, and Video B lacks visible mixing or sauce addition before tofu cooking.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "a shot showing sauce ingredients being mixed, heated, or combined before tofu enters the pan",
+      "purpose": "determine how the brown sauce in Video A was prepared before tofu cooking",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "a shot showing the separated ingredients being combined into a sauce before tofu is placed in the pan",
+      "purpose": "determine whether Video B mixes sauce components before tofu cooking",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "a shot showing sauce liquid being added to the pan before, during, or after tofu placement",
+      "purpose": "determine when Video B adds sauce relative to tofu cooking",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "the order of sauce preparation and tofu cooking in each video",
+      "purpose": "establish the comparative sequence needed to distinguish the two videos",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-163",
+    "task": "CCQA",
+    "ground_truth": "In Video B, the chef mixes soy sauce, spicy sauce, and sugar in a bowl before cooking, creating a pre-combined seasoning base. Video A skips this step entirely—the chef adds soy sauce directly to the pan during cooking and never uses sugar. While Video B's sauce is prepared upfront with multiple ingredients, Video A builds the sauce incrementally in the pan.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CCQA/CCQA-163/report.json",
+    "report_sha256": "a5e98f9cecf01a5331753dfe5ffeb8098e043ae0de0ff134897c04d5e3d7812b",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

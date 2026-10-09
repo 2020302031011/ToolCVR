@@ -1,0 +1,124 @@
+{
+  "question": "When {B4} completely disappears in view B, where is {A4} located in relation to {A2} in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4",
+        "v2-b0001-e5"
+      ],
+      "statement": "In v2, B4 is visible at the bottom edge at 8.0s, absent at 10.0s, and remains absent through 16.0s."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1, A4 is tracked from 0.0s to 8.0s moving right to left before exiting, and A2 is not visible during that span."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1, A4 is not visible from 10.0s to 16.0s while A1 is tracked near the curb."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Because v1 and v2 share the same source-frame clock, B4's disappearance window in v2 aligns with the late visible interval of A4 in v1, during which A2 is not observed.",
+      "supporting_events": [
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The spatial relation between A4 and A2 in view A at the synchronized timestamp when B4 completely disappears remains undetermined.",
+      "reason": "The v1 reports do not observe A2 during the interval when A4 is visible, so no direct A4-to-A2 spatial relation is available at the trigger time.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the positions of A4 and A2 in v1 at the synchronized timestamp when B4 is last visible or first absent in v2, and determine whether A4 is left of, right of, directly ahead of, or directly behind A2.",
+      "purpose": "Resolve the missing A4-to-A2 spatial relation at the trigger time.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Check whether A2 is visible in v1 anywhere before A4 exits and, if so, record its position relative to A4.",
+      "purpose": "Provide a nearby spatial cue if A2 is not visible exactly at the trigger time.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-461",
+    "task": "MSR",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-461/report.json",
+    "report_sha256": "11053b54ef8a0fe7a3412bea62bdc171044426b5956c96666bfb121386ca4f23",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

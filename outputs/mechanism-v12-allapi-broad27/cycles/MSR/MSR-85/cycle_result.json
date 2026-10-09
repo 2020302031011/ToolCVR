@@ -1,0 +1,311 @@
+{
+  "state": {
+    "question": "When the red bus is parallel to the black car for the first time in view B, where is {A2} located in view A?",
+    "round_id": 3,
+    "summary": "The trigger timestamp is unresolved because v2 evidence describes a black car in the bottom row early and a B1 black car on the top side later. No v1 observation fixes A2's position at the synchronized time, and the B2/A2 identity remains unconfirmed.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-27: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=39; declared=car; A1_visible=30-296 (1.000-9.900s)/340_frames; B1_visible=110-331 (3.667-11.067s)/340_frames.",
+      "A2/B2 is source_track=44; declared=car; A2_visible=70-339 (2.333-11.333s)/340_frames; B2_visible=170-339 (5.667-11.333s)/340_frames.",
+      "A3/B3 is source_track=53; declared=car; A3_visible=140-339 (4.667-11.333s)/340_frames; B3_visible=290-339 (9.667-11.333s)/340_frames.",
+      "A4/B4 is source_track=67; declared=car; A4_visible=0-270 (0.000-9.033s)/340_frames; B4_visible=84-299 (2.800-10.000s)/340_frames.",
+      "A5/B5 is source_track=127; declared=car; A5_visible=120-149 (4.000-5.000s)/340_frames; B5_visible=none/340_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-01.s01",
+          "v2.c003"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.u001"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.focus.r1.l1.e3"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "Aerial view of a four-lane road. A red bus is visible at the bottom left, moving right. A black car is parked on the top side.",
+        "uncertainty": "Object {A2} identity is not defined in the prompt.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "The red bus moves further right, approaching the intersection. The black car remains parked on the top side, now marked as 'B1 car' in later frames.",
+        "uncertainty": "The spatial relationship 'parallel' is ambiguous in 2D overhead view.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          10.0
+        ],
+        "description": "The red bus continues right along the bottom edge. The black car ('B1 car') is visible parked on the top side.",
+        "uncertainty": "Camera pan makes relative positions difficult to track precisely.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "Yellow overlay label 'B1 car' tracks a white vehicle parked in the top-left row throughout the sequence.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "Magenta overlay label 'B4 car' tracks a dark vehicle parked in the bottom row throughout the sequence.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          6.0
+        ],
+        "description": "Blue overlay label 'B2 car' appears tracking a dark vehicle parked on the far left of the top row.",
+        "uncertainty": "Label visibility in frames prior to 6.0s is not confirmed.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red bus travels rightward along the bottom road, passing a row of parked cars, including a black car, located in the bottom row.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v1-b0001-gap1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "reason": "VLM output remained invalid: VLM event report must be an object containing an events list",
+        "action": "SCAN",
+        "round": 0
+      }
+    ]
+  },
+  "turns": [
+    {
+      "summary": "Need B-view label evidence to map v2 to view B and v1 to view A.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "Does v2 display visible overlay labels such as B1 or B2 that identify it as view B?",
+        "next_probe_goal": "If v2 is confirmed as view B, determine the earliest red bus/black car parallel timestamp in v2.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need earliest v2 red-bus/black-car parallel time and black-car identity.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "In v2 0-2s, does the red bus first become parallel to the black car, and is that black car the top-side or bottom-row vehicle?",
+        "next_probe_goal": "If no parallel occurs in 0-2s, inspect v2 4-6s for B1/B4 identity and earliest alignment.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger timestamp is unresolved because v2 evidence describes a black car in the bottom row early and a B1 black car on the top side later. No v1 observation fixes A2's position at the synchronized time, and the B2/A2 identity remains unconfirmed.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['S v2.zoom.r2-r1-01.s01', 'S v2.zoom.r1-U01-01.s01', 'S v2.c003']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['S v2.zoom.r2-r1-01.s01', 'S v2.zoom.r1-U01-01.s01', 'S v2.c003']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        10.0,
+        11.333333333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A red bus travels rightward along the bottom road, passing a row of parked cars, including a black car, located in the bottom row.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "Yellow overlay label 'B1 car' tracks a white vehicle parked in the top-left row throughout the sequence. Magenta overlay label 'B4 car' tracks a dark vehicle parked in the bottom row throughout the sequence. Blue overlay label 'B2 car' appears tracking a dark vehicle parked on the far left of the top row.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "Label visibility in frames prior to 6.0s is not confirmed."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "The red bus continues right along the bottom edge. The black car ('B1 car') is visible parked on the top side.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Camera pan makes relative positions difficult to track precisely."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        10.0,
+        11.333333333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If v2 is confirmed as view B, determine the earliest red bus/black car parallel timestamp in v2.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "state": {
+    "question": "When the red truck driving to the right in view A is parallel to {A3}, how many blue cars are in the lane directly behind {B1}?",
+    "round_id": 3,
+    "summary": "Fresh state projects the trigger as a synchronized early v1/v2 relation involving A3 and a rightward red truck, but the exact parallel timestamp, the color/lane status of vehicles behind B1, and the identity of the trigger truck remain open. The v2 observation of no blue car behind B1 is local to its cited interval and does not settle the count.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-53: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-139 (0.000-4.667s)/500_frames; B1_visible=0-159 (0.000-5.333s)/500_frames.",
+      "A2/B2 is source_track=64; declared=car; A2_visible=234-499 (7.800-16.667s)/500_frames; B2_visible=175-499 (5.833-16.667s)/500_frames.",
+      "A3/B3 is source_track=78; declared=car; A3_visible=0-136 (0.000-4.567s)/500_frames; B3_visible=0-159 (0.000-5.333s)/500_frames.",
+      "A4/B4 is source_track=0; declared=car; A4_visible=0-6 (0.000-0.233s)/500_frames; B4_visible=0-19 (0.000-0.667s)/500_frames.",
+      "A5/B5 is source_track=74; declared=bicycle; A5_visible=499-499 (16.633-16.667s)/500_frames; B5_visible=449-499 (14.967-16.667s)/500_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.c002"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-R2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.c002"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          16.0
+        ],
+        "description": "A red truck with a yellow trailer drives continuously from left to right in the lower lanes, passing under the central median.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          16.0
+        ],
+        "description": "A white vehicle labeled 'A2 car' is tracked in the upper lanes of the lower roadway, moving from left to right.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          10.0
+        ],
+        "description": "A red truck with a red box trailer drives from right to left in the upper roadway.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "A white box truck drives from left to right in the upper roadway.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "Aerial view of a multi-lane highway with moderate traffic. A 'B2 car' (white sedan) is tracked in the lane adjacent to tram tracks. Red trucks are visible in the distance.",
+        "uncertainty": "Identity of 'A3' and 'B1' not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "The tracked 'B2 car' continues forward in its lane. The red trucks on the right side of the road are now closer and parallel to the tracked vehicle.",
+        "uncertainty": "Cannot confirm if this is the specific 'red truck driving to right' referenced.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          16.0
+        ],
+        "description": "The 'B2 car' maintains its lane position. The red trucks have moved slightly ahead. No blue cars are clearly visible in the lane directly behind the tracked vehicle.",
+        "uncertainty": "Ambiguous lane definitions make counting difficult.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A3 car travels left in the upper lanes, passing under the gantry. It is spatially parallel to a red truck moving right in the lower lanes.",
+        "uncertainty": "None; alignment is clearly visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          3.0
+        ],
+        "description": "A red truck moves right in the lower lanes, passing under the gantry, while A3 moves left in the upper lanes.",
+        "uncertainty": "None; motion is continuous.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "A red truck moves left in the upper lanes (far right of frame), while A3 moves left in the upper lanes (far left of frame).",
+        "uncertainty": "None; visible in frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "B1 car travels in the lane; a cyan truck is visible in the adjacent lane behind it, but no blue car is observed in the lane directly behind B1.",
+        "uncertainty": "Blue car behind B1 not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need synchronized trigger timestamp for right-moving red truck parallel to A3.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u001"
+        ],
+        "evidence_goal": "In v1 during 0-6s, is any red truck moving right spatially parallel to A3, and what equal source-frame timestamp marks that parallel alignment?",
+        "next_probe_goal": "Use the established trigger timestamp to locate B1 and count blue cars directly behind it in v2.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need v2 0-6s evidence to locate B1 and count blue cars behind it during the trigger interval.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v2.u001"
+        ],
+        "evidence_goal": "In v2 0-6s, how many blue cars are physically in the lane directly behind B1?",
+        "next_probe_goal": "If the count changes within 0-6s, refine v1 to determine the exact parallel timestamp.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Fresh state projects the trigger as a synchronized early v1/v2 relation involving A3 and a rightward red truck, but the exact parallel timestamp, the color/lane status of vehicles behind B1, and the identity of the trigger truck remain open. The v2 observation of no blue car behind B1 is local to its cited interval and does not settle the count.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['F']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['F']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "A3 car travels left in the upper lanes, passing under the gantry. It is spatially parallel to a red truck moving right in the lower lanes. A red truck moves right in the lower lanes, passing under the gantry, while A3 moves left in the upper lanes. A red truck moves left in the upper lanes (far right of frame), while A3 moves left in the upper lanes (far left of frame).",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "None; alignment is clearly visible.",
+        "None; motion is continuous.",
+        "None; visible in frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        6.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "A red truck with a red box trailer drives from right to left in the upper roadway.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        6.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A red truck with a yellow trailer drives continuously from left to right in the lower lanes, passing under the central median.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        8.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A white vehicle labeled 'A2 car' is tracked in the upper lanes of the lower roadway, moving from left to right.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A white box truck drives from left to right in the upper roadway.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-R2-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "B1 car travels in the lane; a cyan truck is visible in the adjacent lane behind it, but no blue car is observed in the lane directly behind B1.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Blue car behind B1 not visible in supplied frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        6.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Aerial view of a multi-lane highway with moderate traffic. A 'B2 car' (white sedan) is tracked in the lane adjacent to tram tracks. Red trucks are visible in the distance.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity of 'A3' and 'B1' not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "The tracked 'B2 car' continues forward in its lane. The red trucks on the right side of the road are now closer and parallel to the tracked vehicle.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Cannot confirm if this is the specific 'red truck driving to right' referenced."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        14.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "The 'B2 car' maintains its lane position. The red trucks have moved slightly ahead. No blue cars are clearly visible in the lane directly behind the tracked vehicle.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Ambiguous lane definitions make counting difficult."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Use the established trigger timestamp to locate B1 and count blue cars directly behind it in v2.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

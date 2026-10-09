@@ -1,0 +1,1416 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "Best-supported explanation is E: soldiers scouting a rural house become alarmed and move/flee, then the ending shows poultry being cooked and eaten, consistent with stealing a goose and escaping pursuit. Enemy ambush, abandoned supplies, wounded abort, negotiated trade, and rainfall lack comparable before/after evidence. Remaining uncertainty is that the exact pursuer (owner/dogs) is not directly visible.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v1.zoom.r2-r1-01.s01"
+        ],
+        "attempts": [
+          "The first clip shows alarm and rapid movement/falling near a rural building, but the visible cause is not confirmed; the pattern is most compatible with fleeing pursuit rather than enemy ambush or a wounded abort."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U05-02.s01",
+          "v2.zoom.r1-U05-03.s01"
+        ],
+        "attempts": [
+          "The second clip shows a poultry carcass, feathers, cooking, and eating, supporting that the missing interval resulted in obtaining poultry rather than abandoned supplies or only negotiation."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c001",
+          "v2.zoom.r1-U05-01.s01"
+        ],
+        "attempts": [
+          "The second clip shows men inside a building while military figures are outside, suggesting an owner/occupant context, but direct identity linkage to the first clip’s alarm is not visually confirmed."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Two soldiers approach a rural building. One soldier in camouflage raises a hand to signal the other to stop before reaching the wall.",
+        "uncertainty": "What motivated the stop or what they are looking for.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          18.0
+        ],
+        "description": "The soldier in camouflage leans close to the wooden structure, listening or peering inside, while the other soldier waits behind him.",
+        "uncertainty": "What the soldier detects or discovers at the wall.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          20.0,
+          24.0
+        ],
+        "description": "The scout turns away from the wall with an alarmed expression and gestures urgently to the other soldier, prompting movement.",
+        "uncertainty": "The specific threat or object that caused the alarm.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          26.0,
+          28.0
+        ],
+        "description": "The soldiers are suddenly thrown violently backward against the building wall, suggesting an explosion or heavy impact.",
+        "uncertainty": "The source of the force (explosion vs. gunfire).",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          99.0,
+          101.0
+        ],
+        "description": "Two figures traverse a wide, snow-covered field towards a distant structure.",
+        "uncertainty": "Destination and purpose of the two figures.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          101.0,
+          111.0
+        ],
+        "description": "Soldiers enter a dark interior room with shelves; a man points towards items on a shelf.",
+        "uncertainty": "What specific items the soldiers are targeting.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          111.0,
+          121.0
+        ],
+        "description": "A group of soldiers gathers around a small stove with a pot, holding metal bowls or plates.",
+        "uncertainty": "Contents of the pot and the source of the bowls.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          123.0,
+          123.0
+        ],
+        "description": "Close-up of hands using a tool to carve meat from a cooked bird carcass.",
+        "uncertainty": "Identity of the bird species.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          131.0,
+          135.0
+        ],
+        "description": "A hand touches scattered white feathers on the floor; a soldier holds a bowl of food.",
+        "uncertainty": "Connection between the feathers and the food.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          137.0,
+          139.0
+        ],
+        "description": "A soldier with a mustache and knit cap eats from a plate while a younger blond soldier looks on with a shocked expression.",
+        "uncertainty": "Cause of the blond soldier's shock.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          179.0,
+          187.0
+        ],
+        "description": "Soldiers are seated around a stove with a steaming pot. The blond soldier looks down at his hands, then grimaces in pain or distress.",
+        "uncertainty": "What the blond soldier is holding or reacting to.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          189.0,
+          197.0
+        ],
+        "description": "A soldier in a peaked cap gestures with a knife while eating. The mustached soldier smiles and talks. The scene ends with a blurry motion.",
+        "uncertainty": "Nature of the conversation and the blurry motion.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          203.0,
+          209.0
+        ],
+        "description": "A high-angle wide shot shows five soldiers sitting in a circle around a pot stove inside a wooden shack, eating together.",
+        "uncertainty": "Whether the food source is established in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          211.0,
+          211.0
+        ],
+        "description": "Five soldiers are seated in a dim interior, eating from bowls around a pot on a stove.",
+        "uncertainty": "Location interior vs camp unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          213.0,
+          219.0
+        ],
+        "description": "Static wide shot of a bare tree silhouetted against the sun above a snowy valley.",
+        "uncertainty": "No movement observed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          221.0,
+          225.0
+        ],
+        "description": "Low-angle shot looking up through pine trees with visible sun rays.",
+        "uncertainty": "No movement observed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          227.0,
+          227.0
+        ],
+        "description": "View through tall pine trunks on a mossy, rocky forest slope.",
+        "uncertainty": "Single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e5",
+        "video_id": "v2",
+        "time_span": [
+          229.0,
+          233.0
+        ],
+        "description": "Wide shot of a foggy camp courtyard with soldiers sitting at picnic tables.",
+        "uncertainty": "Minimal activity.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e6",
+        "video_id": "v2",
+        "time_span": [
+          235.0,
+          241.0
+        ],
+        "description": "Soldiers resting near a stove and potatoes; one holds a loaf of bread.",
+        "uncertainty": "Static scene.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e7",
+        "video_id": "v2",
+        "time_span": [
+          243.0,
+          243.0
+        ],
+        "description": "Close-up of a soldier smiling while holding bread near a steaming pot.",
+        "uncertainty": "Single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          245.0,
+          251.0
+        ],
+        "description": "Soldiers relax in a barn, peeling potatoes and chatting near a large cooking pot.",
+        "uncertainty": "The specific topic of their conversation is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          351.0,
+          355.0
+        ],
+        "description": "Wide shot of a field where a soldier stands alone, watching a distant group with a cow and cart.",
+        "uncertainty": "The relationship between the lone soldier and the distant group is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          357.0,
+          375.0
+        ],
+        "description": "Soldiers return to the barn area; one soldier appears distressed, wiping his face while another watches.",
+        "uncertainty": "The cause of the soldier's distress is not visually explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          379.0,
+          387.0
+        ],
+        "description": "A soldier in a dark sweater peels a potato while another soldier in a light jacket sits nearby, looking down at the ground.",
+        "uncertainty": "Context of their activity (routine vs. mission prep) is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          389.0,
+          393.0
+        ],
+        "description": "Close-up of a hand using a knife to slice a blue beetle on a wooden surface; the soldier in the light jacket reacts with disgust.",
+        "uncertainty": "Purpose of cutting the insect is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e3",
+        "video_id": "v2",
+        "time_span": [
+          395.0,
+          407.0
+        ],
+        "description": "Wide shot of soldiers working; close-up of a young soldier in a dark sweater looking up with a serious expression.",
+        "uncertainty": "The young soldier's expression change lacks a visible trigger.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          101.0,
+          105.0
+        ],
+        "description": "View from inside a dark wooden structure looking out through windows at men in military uniforms walking past a building.",
+        "uncertainty": "Interior details are obscured by darkness.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          106.0,
+          109.0
+        ],
+        "description": "Two men inside the structure are visible; one wears a vest and the other a striped cap, moving around a table with metal objects.",
+        "uncertainty": "Objects on the table are blurry and indistinct.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          110.0,
+          111.0
+        ],
+        "description": "A group of soldiers in green uniforms gathers around a table, examining and handling a large white object.",
+        "uncertainty": "The specific nature of the white object is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          119.0,
+          121.0
+        ],
+        "description": "Soldiers gather around a pot on a stove inside a storage shed lined with shelves holding rolled bedding and cans.",
+        "uncertainty": "Contents of the pot are not yet visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          122.0,
+          124.0
+        ],
+        "description": "A close-up shows a carved poultry carcass being lifted from a pot with a hook and placed onto a metal mess tin.",
+        "uncertainty": "Exact species of bird is not definitively confirmed.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          125.0,
+          127.0
+        ],
+        "description": "The camera pans across the shed, showing a soldier bending near scattered white feathers on the floor and shelves of supplies.",
+        "uncertainty": "The specific activity of the bending soldier is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          131.0,
+          132.0
+        ],
+        "description": "A hand reaches down towards scattered white feathers on a wooden floor near a metal bowl.",
+        "uncertainty": "The specific action performed on the feathers is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          133.0,
+          134.0
+        ],
+        "description": "A man in suspenders handles a large object, likely a plucked carcass, near a dark pot.",
+        "uncertainty": "The object is partially obscured, but shape suggests poultry.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e3",
+        "video_id": "v2",
+        "time_span": [
+          135.0,
+          135.0
+        ],
+        "description": "A second man holds a plate of cooked food while sitting in front of shelves stocked with jars and rolls.",
+        "uncertainty": "The specific contents of the plate are not clearly distinguishable.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          26.0,
+          27.0
+        ],
+        "description": "A soldier in a dark uniform is pressed against a rough wall. Another soldier with a backpack moves rapidly past him in the foreground.",
+        "uncertainty": "Cause of movement not visible",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          28.0,
+          28.0
+        ],
+        "description": "A soldier wearing a cap is seen lying on the ground near a wooden fence, appearing to be falling or already down.",
+        "uncertainty": "Impact source not visible in frame",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local v2 evidence to distinguish poultry/goose meal from military supplies or owner trade in the missing interval.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U05",
+        "slot_ids": [
+          "v2.c002",
+          "v2.c004",
+          "v2.c005"
+        ],
+        "evidence_goal": "Are the shelf items, carved carcass, and scattered white feathers visually consistent with a goose/poultry meal rather than abandoned military supplies?",
+        "next_probe_goal": "Can v1.c003/c004 reveal whether the alarm and backward impact involved pursuit by an owner/dog rather than enemy fire?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local visual evidence in v1 impact interval to distinguish owner/animal pursuit from enemy action.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c004"
+        ],
+        "evidence_goal": "In v1.c004, does the backward impact show a visible person, animal, or owner-related cause rather than an explosion or enemy-fire cause?",
+        "next_probe_goal": "If ambiguous, refine v1.c003 to see the direction and object of the soldiers' alarm.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Best-supported explanation is E: soldiers scouting a rural house become alarmed and move/flee, then the ending shows poultry being cooked and eaten, consistent with stealing a goose and escaping pursuit. Enemy ambush, abandoned supplies, wounded abort, negotiated trade, and rainfall lack comparable before/after evidence. Remaining uncertainty is that the exact pursuer (owner/dogs) is not directly visible.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "E",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "E",
+    "evidence_refs": [
+      "v1.c001",
+      "v1.c003",
+      "v1.zoom.r2-r1-01.s01",
+      "v2.zoom.r1-U05-01.s01",
+      "v2.zoom.r1-U05-02.s01",
+      "v2.zoom.r1-U05-03.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Two soldiers approach a rural building. One soldier in camouflage raises a hand to signal the other to stop before reaching the wall.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "What motivated the stop or what they are looking for."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        12.0,
+        18.0
+      ],
+      "resolution": "coarse",
+      "content": "The soldier in camouflage leans close to the wooden structure, listening or peering inside, while the other soldier waits behind him.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "What the soldier detects or discovers at the wall."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        20.0,
+        24.0
+      ],
+      "resolution": "coarse",
+      "content": "The scout turns away from the wall with an alarmed expression and gestures urgently to the other soldier, prompting movement.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The specific threat or object that caused the alarm."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        26.0,
+        28.0
+      ],
+      "resolution": "fine",
+      "content": "A soldier in a dark uniform is pressed against a rough wall. Another soldier with a backpack moves rapidly past him in the foreground. A soldier wearing a cap is seen lying on the ground near a wooden fence, appearing to be falling or already down.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Cause of movement not visible",
+        "Impact source not visible in frame",
+        "Unresolved: Visible cause of the backward impact or falling motion"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        99.0,
+        101.0
+      ],
+      "resolution": "coarse",
+      "content": "Two figures traverse a wide, snow-covered field towards a distant structure.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Destination and purpose of the two figures."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U05-01.s01",
+      "video": "v2",
+      "time": [
+        101.0,
+        111.0
+      ],
+      "resolution": "fine",
+      "content": "View from inside a dark wooden structure looking out through windows at men in military uniforms walking past a building. Two men inside the structure are visible; one wears a vest and the other a striped cap, moving around a table with metal objects. A group of soldiers in green uniforms gathers around a table, examining and handling a large white object.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "Interior details are obscured by darkness.",
+        "Objects on the table are blurry and indistinct.",
+        "The specific nature of the white object is unclear.",
+        "Unresolved: Visual confirmation of shelf items, carved carcass, and scattered white feathers."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        111.0,
+        121.0
+      ],
+      "resolution": "coarse",
+      "content": "A group of soldiers gathers around a small stove with a pot, holding metal bowls or plates.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Contents of the pot and the source of the bowls."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U05-02.s01",
+      "video": "v2",
+      "time": [
+        119.0,
+        127.0
+      ],
+      "resolution": "fine",
+      "content": "Soldiers gather around a pot on a stove inside a storage shed lined with shelves holding rolled bedding and cans. A close-up shows a carved poultry carcass being lifted from a pot with a hook and placed onto a metal mess tin. The camera pans across the shed, showing a soldier bending near scattered white feathers on the floor and shelves of supplies.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2",
+        "v2.focus.r1.l2.e3"
+      ],
+      "uncertainty": [
+        "Contents of the pot are not yet visible.",
+        "Exact species of bird is not definitively confirmed.",
+        "The specific activity of the bending soldier is unclear.",
+        "Unresolved: Confirmation that the carcass is a goose specifically, rather than chicken or duck."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        123.0,
+        131.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U05-03.s01",
+      "video": "v2",
+      "time": [
+        131.0,
+        135.0
+      ],
+      "resolution": "fine",
+      "content": "A hand reaches down towards scattered white feathers on a wooden floor near a metal bowl. A man in suspenders handles a large object, likely a plucked carcass, near a dark pot. A second man holds a plate of cooked food while sitting in front of shelves stocked with jars and rolls.",
+      "evidence": [
+        "v2.focus.r1.l3.e1",
+        "v2.focus.r1.l3.e2",
+        "v2.focus.r1.l3.e3"
+      ],
+      "uncertainty": [
+        "The specific action performed on the feathers is unclear.",
+        "The object is partially obscured, but shape suggests poultry.",
+        "The specific contents of the plate are not clearly distinguishable.",
+        "Unresolved: Definitive identification of the carcass species"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        137.0,
+        139.0
+      ],
+      "resolution": "coarse",
+      "content": "A soldier with a mustache and knit cap eats from a plate while a younger blond soldier looks on with a shocked expression.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Cause of the blond soldier's shock."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        139.0,
+        154.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        154.0,
+        169.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        169.0,
+        179.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        179.0,
+        187.0
+      ],
+      "resolution": "coarse",
+      "content": "Soldiers are seated around a stove with a steaming pot. The blond soldier looks down at his hands, then grimaces in pain or distress.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "What the blond soldier is holding or reacting to."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        187.0,
+        189.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        189.0,
+        197.0
+      ],
+      "resolution": "coarse",
+      "content": "A soldier in a peaked cap gestures with a knife while eating. The mustached soldier smiles and talks. The scene ends with a blurry motion.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Nature of the conversation and the blurry motion."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        197.0,
+        203.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        203.0,
+        209.0
+      ],
+      "resolution": "coarse",
+      "content": "A high-angle wide shot shows five soldiers sitting in a circle around a pot stove inside a wooden shack, eating together.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Whether the food source is established in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        211.0,
+        211.0
+      ],
+      "resolution": "coarse",
+      "content": "Five soldiers are seated in a dim interior, eating from bowls around a pot on a stove.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Location interior vs camp unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        213.0,
+        217.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        213.0,
+        219.0
+      ],
+      "resolution": "coarse",
+      "content": "Static wide shot of a bare tree silhouetted against the sun above a snowy valley.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "No movement observed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        221.0,
+        225.0
+      ],
+      "resolution": "coarse",
+      "content": "Low-angle shot looking up through pine trees with visible sun rays.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "No movement observed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        225.0,
+        227.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        227.0,
+        227.0
+      ],
+      "resolution": "coarse",
+      "content": "View through tall pine trunks on a mossy, rocky forest slope.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "Single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        229.0,
+        233.0
+      ],
+      "resolution": "coarse",
+      "content": "Wide shot of a foggy camp courtyard with soldiers sitting at picnic tables.",
+      "evidence": [
+        "v2-b0003-e5"
+      ],
+      "uncertainty": [
+        "Minimal activity."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        235.0,
+        241.0
+      ],
+      "resolution": "coarse",
+      "content": "Soldiers resting near a stove and potatoes; one holds a loaf of bread.",
+      "evidence": [
+        "v2-b0003-e6"
+      ],
+      "uncertainty": [
+        "Static scene."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        243.0,
+        243.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a soldier smiling while holding bread near a steaming pot.",
+      "evidence": [
+        "v2-b0003-e7"
+      ],
+      "uncertainty": [
+        "Single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        245.0,
+        251.0
+      ],
+      "resolution": "coarse",
+      "content": "Soldiers relax in a barn, peeling potatoes and chatting near a large cooking pot.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "The specific topic of their conversation is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        251.0,
+        266.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        266.0,
+        281.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        281.0,
+        296.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        296.0,
+        311.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        311.0,
+        326.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        326.0,
+        341.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        341.0,
+        351.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        351.0,
+        355.0
+      ],
+      "resolution": "coarse",
+      "content": "Wide shot of a field where a soldier stands alone, watching a distant group with a cow and cart.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "The relationship between the lone soldier and the distant group is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        357.0,
+        375.0
+      ],
+      "resolution": "coarse",
+      "content": "Soldiers return to the barn area; one soldier appears distressed, wiping his face while another watches.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "The cause of the soldier's distress is not visually explicit."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        359.0,
+        363.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        375.0,
+        379.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        379.0,
+        387.0
+      ],
+      "resolution": "coarse",
+      "content": "A soldier in a dark sweater peels a potato while another soldier in a light jacket sits nearby, looking down at the ground.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Context of their activity (routine vs. mission prep) is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        387.0,
+        389.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c021",
+      "video": "v2",
+      "time": [
+        389.0,
+        393.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a hand using a knife to slice a blue beetle on a wooden surface; the soldier in the light jacket reacts with disgust.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Purpose of cutting the insect is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c022",
+      "video": "v2",
+      "time": [
+        395.0,
+        407.0
+      ],
+      "resolution": "coarse",
+      "content": "Wide shot of soldiers working; close-up of a young soldier in a dark sweater looking up with a serious expression.",
+      "evidence": [
+        "v2-b0005-e3"
+      ],
+      "uncertainty": [
+        "The young soldier's expression change lacks a visible trigger."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        407.0,
+        422.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        422.0,
+        437.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        437.0,
+        449.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Can v1.c003/c004 reveal whether the alarm and backward impact involved pursuit by an owner/dog rather than enemy fire?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

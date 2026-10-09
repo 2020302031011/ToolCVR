@@ -1,0 +1,180 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v1-b0001-e6"
+      ],
+      "statement": "A wooden spoon rests in a bowl, chopped onions are added, brown sugar is placed and sprinkled, the mixture is stirred, and a dark liquid is poured into the bowl."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "A lettuce leaf is placed over cooked ribs, and then wrapped around a rib to form a wrap."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "Ribs are on a grill, and later lettuce leaves are placed over cooked ribs on a paper-lined surface."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v4-b0001-e4"
+      ],
+      "statement": "A dark marinade with chopped ingredients is in a bowl, raw meat slices are added, the meat is mixed with the marinade, and more meat is added and mixed before hand washing occurs."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "Both v1 and v4 describe the preparation of a dark mixture involving onions and sugar, but v4 includes raw meat and marinade while v1 does not.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "Both v2 and v3 involve lettuce leaves and cooked ribs, but v2 shows the wrapping process while v3 only shows the grilling and plating of ribs.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "Whether the dark liquid in v1 is the same as the marinade in v4",
+      "reason": "The descriptions of the dark liquid and marinade are similar but not explicitly confirmed to be the same substance.",
+      "related_events": [
+        "v1-b0001-e5",
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether the ribs in v2 are the same as the ribs in v3",
+      "reason": "Both videos involve ribs, but there is no explicit confirmation that they are the same ribs or part of the same cooking process.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Whether the dark liquid in v1 is the same as the marinade in v4",
+      "purpose": "To determine if the dark liquid and marinade are the same substance",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Whether the ribs in v2 are the same as the ribs in v3",
+      "purpose": "To determine if the ribs in v2 and v3 are part of the same cooking process",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 2,
+    "covered_pair_count": 2,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 2,
+    "required_pairs": [
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-386",
+    "task": "PSS",
+    "ground_truth": "1->4->3->2",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/PSS/PSS-386/report.json",
+    "report_sha256": "6062ce703a83aef1efa7c35c2b7974a5a1e5dab592493ae84474f5bfa76034c1",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

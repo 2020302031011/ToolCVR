@@ -1,0 +1,289 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 3,
+    "summary": "A2 is visible in view A at 4.0s, but their exact position relative to A5 is not fully resolved. A5 is visible in view A after 4.0s in the upper right lane of the main road. B5's exit from view B at 4.0s is not visible in the supplied frames.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.",
+      "A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.",
+      "A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.",
+      "A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.",
+      "A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "attempts": [
+          "A2 is visible in view A at 4.0s, but their exact position relative to A5 is not fully resolved."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-req3-01.s01"
+        ],
+        "attempts": [
+          "A5 is visible in view A after 4.0s in the upper right lane of the main road."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r2-req3-02.s01"
+        ],
+        "attempts": [
+          "B5's exit from view B at 4.0s is not visible in the supplied frames."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person walks on sidewalk right of road.",
+        "uncertainty": "No frame shows B5 leaving view B. Cannot confirm when or if this occurs.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "B5 car visible in view B from 0.0s to 4.0s, exiting view B by 4.0s.",
+        "uncertainty": "B5 car exits view B at 4.0s, but view A is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car moves forward on highway. A2 person remains stationary on sidewalk right.",
+        "uncertainty": "A2's exact position relative to A5 at 4.0s not fully resolved due to distance and angle.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car visible in upper road lane, moving rightward across frames.",
+        "uncertainty": "A2 not visible in any frame at 4.0s; cannot establish relative position.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A5 car visible in upper right lane of main road.",
+        "uncertainty": "No subsequent frame confirms A5's presence after 4.0s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          14.0
+        ],
+        "description": "A person labeled B2 is visible on sidewalk near parked cars, moving slightly rightward.",
+        "uncertainty": "B5's exit from view B at 4.0s not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine A2's location relative to A5 in view A at 4.0s when B5 leaves view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "A2's position relative to A5 in view A at 4.0s",
+        "next_probe_goal": "Confirm B5's exit from view B at 4.0s",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Confirm B5's exit from view B at 4.0s and A5's status in view A after 4.0s",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req3",
+        "slot_ids": [
+          "v1.u001",
+          "v2.u001"
+        ],
+        "evidence_goal": "Validate if A5 is still in view A after 4.0s and confirm B5's exit from view B at 4.0s",
+        "next_probe_goal": "Confirm A2's visibility in view B at 4.0s",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "A2 is visible in view A at 4.0s, but their exact position relative to A5 is not fully resolved. A5 is visible in view A after 4.0s in the upper right lane of the main road. B5's exit from view B at 4.0s is not visible in the supplied frames.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "A",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "A",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v1.zoom.r2-req3-01.s01",
+      "v2.zoom.r1-U01-02.s01",
+      "v2.zoom.r2-req3-02.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A5 car moves forward on highway. A2 person remains stationary on sidewalk right.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "A2's exact position relative to A5 at 4.0s not fully resolved due to distance and angle.",
+        "Unresolved: A2's position relative to A5 at 4.0s"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-req3-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A5 car visible in upper right lane of main road.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No subsequent frame confirms A5's presence after 4.0s.",
+        "Unresolved: Confirm A5's status after 4.0s; B5's exit at 4.0s not visible in any frame."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A5 car visible in upper road lane, moving rightward across frames.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "A2 not visible in any frame at 4.0s; cannot establish relative position.",
+        "Unresolved: A2's position relative to A5 at 4.0s cannot be established as A2 is not visible in any frame at 4.0s"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req3-02.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A person labeled B2 is visible on sidewalk near parked cars, moving slightly rightward.",
+      "evidence": [
+        "v2.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "B5's exit from view B at 4.0s not visible in supplied frames.",
+        "Unresolved: Confirm B5's exit from view B at 4.0s; A5's status after 4.0s not visible"
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Confirm B5's exit from view B at 4.0s",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

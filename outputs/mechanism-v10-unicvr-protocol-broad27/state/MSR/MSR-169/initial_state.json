@@ -1,0 +1,103 @@
+{
+  "question": "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A4 car and A3 person remain visible together in bottom-right corner across all frames."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B4 car and B2 person visible near crosswalk in frame S1-F01."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "A4 and B4 are the same car based on their declared type and alias suffix.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The location of B1 relative to B4 in view B when A4 completely disappears from view A.",
+      "reason": "The disappearance of A4 from view A and the relative positioning of B1 and B4 in view B are not directly observed in the provided events.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "The exact moment when A4 disappears from view A and the relative positions of B1 and B4 in view B at that moment.",
+      "purpose": "To determine the location of B1 relative to B4 in view B when A4 completely disappears from view A.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-169",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/MSR/MSR-169/report.json",
+    "report_sha256": "63fd6476d264e35030f51c092c707b775314df06a2286e1a79c8928f2deab57e",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,1818 @@
+{
+  "state": {
+    "question": "Which video uses pork slices as its primary protein, unlike the shrimp/chicken focus in others?",
+    "round_id": 3,
+    "summary": "The best-supported option is Video 4 because it is the only video with observed pale meat slices visually consistent with pork being added to the dish. v1 shows shrimp, v3 lacks visible protein in the cited span, and v2 lacks positive protein evidence. Definitive pork identification and primary-protein status in v4 remain unresolved, but D is the best-supported choice.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v4.focus.r2.l1.e1",
+          "v4.focus.r2.l1.e2",
+          "v4.focus.r2.l1.e3"
+        ],
+        "attempts": [
+          "v4 shows pale meat slices that are visually consistent with pork, but the meat type is not definitively proven."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v4.focus.r2.l1.e3",
+          "v4.focus.r1.l1.e1"
+        ],
+        "attempts": [
+          "v4 shows pale meat slices being added to the wok, but whether they are the primary protein rather than an incidental ingredient remains unresolved."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0002-e2",
+          "v3-b0001-e1"
+        ],
+        "attempts": [
+          "v1 locally shows shrimp being added to noodles, v3 shows noodles/sauce before protein visibility, and v2 has no positive protein evidence; none is supported as the pork-primary video."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          14.0,
+          22.0
+        ],
+        "description": "A woman in a kitchen gestures, then the camera shows a spread of ingredients including bowls of beaten egg, sauces, and plates of raw shrimp and julienned meat.",
+        "uncertainty": "Specific type of meat is not explicitly identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          36.0,
+          44.0
+        ],
+        "description": "Close-up shots display plates of sliced vegetables, raw shrimp, and julienned meat, alongside small bowls containing sesame seeds.",
+        "uncertainty": "The specific cut or type of meat remains ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          54.0,
+          62.0
+        ],
+        "description": "A chef in a white uniform is seen working at a stove, wiping a wok, while a bowl of beaten egg is shown in close-up.",
+        "uncertainty": "The chef's specific actions are partially obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          122.0,
+          122.0
+        ],
+        "description": "A person uses a ladle and a white bowl to add liquid ingredients into a large wok on a stove.",
+        "uncertainty": "The exact ingredient being added is not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          124.0,
+          148.0
+        ],
+        "description": "A wok is used to stir-fry shrimp and julienned ingredients, then the cooked shrimp mixture is transferred to a white plate.",
+        "uncertainty": "Pork slices are not visible in this sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          238.0,
+          242.0
+        ],
+        "description": "A plate containing the cooked shrimp mixture is moved over a wok of stir-fried noodles, and the shrimp are added to the noodles.",
+        "uncertainty": "Pork slices are not visible in this sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          244.0,
+          246.0
+        ],
+        "description": "A hand pours noodles and vegetables from a white bowl into a wok that already contains shrimp and other ingredients.",
+        "uncertainty": "Exact composition of all ingredients",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          250.0,
+          256.0
+        ],
+        "description": "A hand holds a white bowl containing green vegetables and tilts it to add the greens into the wok.",
+        "uncertainty": "Full sequence of ingredient addition",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          258.0,
+          258.0
+        ],
+        "description": "The wok contains a mixture of noodles, vegetables, shrimp, and other ingredients.",
+        "uncertainty": "Whether pork slices are present",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          14.0
+        ],
+        "description": "S1-F01 @ 6.000s to S1-F05 @ 14.000s: Display of raw ingredients including rice noodles, vegetables, and small bowls containing shrimp, chicken, and an egg.",
+        "uncertainty": "Pork slices not visible in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          46.0,
+          54.0
+        ],
+        "description": "S2-F01 @ 46.000s to S2-F05 @ 54.000s: Stir-frying process in a wok, initially with egg, then adding vegetables.",
+        "uncertainty": "Pork slices not visible in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          150.0,
+          158.0
+        ],
+        "description": "S3-F01 @ 150.000s to S3-F05 @ 158.000s: Plating sequence where lettuce is placed on a white plate.",
+        "uncertainty": "Pork slices not visible in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          162.0,
+          162.0
+        ],
+        "description": "S4-F01 @ 162.000s: Garnishing the lettuce with shredded carrots.",
+        "uncertainty": "Pork slices not visible in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          164.0,
+          168.0
+        ],
+        "description": "A white plate with a shredded carrot garnish sits on a counter. A wok containing brown stir-fried noodles enters the frame from the upper left and is positioned above the plate.",
+        "uncertainty": "Ingredients inside the wok are blurry.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          170.0,
+          170.0
+        ],
+        "description": "A ladle slides noodles and solid pieces from the wok onto the white plate, arranging the food next to the carrot garnish.",
+        "uncertainty": "Cannot definitively identify the protein in the noodles.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          104.0,
+          106.0
+        ],
+        "description": "A wooden spatula stirs a bubbling yellow sauce in a wok. White rice noodles are then added on top of the sauce.",
+        "uncertainty": "Protein ingredients not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          107.96,
+          111.96
+        ],
+        "description": "A hand uses the wooden spatula to toss and stir the white noodles, mixing them with the yellow sauce in the wok.",
+        "uncertainty": "No pork slices visible in this specific interval.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          36.0,
+          44.0
+        ],
+        "description": "A woman with long dark hair presents a red tray containing bean sprouts, mushrooms, green onions, red peppers, and pale meat slices.",
+        "uncertainty": "Meat type not explicitly identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          84.0,
+          92.0
+        ],
+        "description": "A woman adds pale meat slices from a red tray into a wok containing yellow food and red peppers.",
+        "uncertainty": "Meat type not explicitly identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4.focus.r1.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          36.0,
+          36.0
+        ],
+        "description": "A wok contains dark, bubbling liquid, likely a boiling broth or sauce.",
+        "uncertainty": "Contents of the wok are indistinct.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          37.0,
+          39.0
+        ],
+        "description": "A woman with dark hair is shown speaking.",
+        "uncertainty": "The content of her speech is unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l1.e3",
+        "video_id": "v4",
+        "time_span": [
+          40.0,
+          41.0
+        ],
+        "description": "A red tray is presented, holding various ingredients including pale meat slices, bean sprouts, and green onions.",
+        "uncertainty": "The specific type of pale meat cannot be definitively identified.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l1.e4",
+        "video_id": "v4",
+        "time_span": [
+          42.0,
+          44.0
+        ],
+        "description": "The woman is shown again, speaking and smiling.",
+        "uncertainty": "The content of her speech is unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          84.0,
+          86.0
+        ],
+        "description": "Close-up of a wok containing red peppers and pale meat slices, followed by a shot of a red plate with raw pale meat slices.",
+        "uncertainty": "Meat type is visually consistent with pork but not definitively proven.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v4.focus.r2.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          87.0,
+          88.0
+        ],
+        "description": "A woman wearing a grey top is shown, then uses her hand to transfer pale meat slices from a red plate into a black wok.",
+        "uncertainty": "Exact volume of meat added is hard to gauge.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v4.focus.r2.l1.e3",
+        "video_id": "v4",
+        "time_span": [
+          89.0,
+          91.0
+        ],
+        "description": "Close-up shots inside the wok show the pale meat slices being stirred and mixed with red peppers and other ingredients.",
+        "uncertainty": "Whether these are the only protein ingredients is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need identify v4 pale meat slices as pork.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v4.c001"
+        ],
+        "evidence_goal": "In the red tray interval, do the pale meat slices show pork-like color, texture, and shape distinct from chicken or shrimp?",
+        "next_probe_goal": "In the wok-addition interval, are these slices the dominant protein ingredient being added?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local evidence that v4 pale meat slices are pork and are the dominant protein being added.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v4.c002"
+        ],
+        "evidence_goal": "In the wok-addition interval, are the pale slices identifiable as pork and do they appear to be the dominant protein ingredient being added?",
+        "next_probe_goal": "If pork is confirmed, inspect nearby v4 intervals for whether pork remains the main protein throughout the dish.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The best-supported option is Video 4 because it is the only video with observed pale meat slices visually consistent with pork being added to the dish. v1 shows shrimp, v3 lacks visible protein in the cited span, and v2 lacks positive protein evidence. Definitive pork identification and primary-protein status in v4 remain unresolved, but D is the best-supported choice.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "D",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "D",
+    "evidence_refs": [
+      "v4.focus.r2.l1.e2",
+      "v4.focus.r2.l1.e3",
+      "v1-b0002-e2",
+      "v3-b0001-e1"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        14.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "A woman in a kitchen gestures, then the camera shows a spread of ingredients including bowls of beaten egg, sauces, and plates of raw shrimp and julienned meat.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific type of meat is not explicitly identified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        22.0,
+        36.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        36.0,
+        44.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up shots display plates of sliced vegetables, raw shrimp, and julienned meat, alongside small bowls containing sesame seeds.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific cut or type of meat remains ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        44.0,
+        54.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        54.0,
+        62.0
+      ],
+      "resolution": "coarse",
+      "content": "A chef in a white uniform is seen working at a stove, wiping a wok, while a bowl of beaten egg is shown in close-up.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The chef's specific actions are partially obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        62.0,
+        77.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        77.0,
+        92.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        92.0,
+        107.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        107.0,
+        122.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        122.0,
+        122.0
+      ],
+      "resolution": "coarse",
+      "content": "A person uses a ladle and a white bowl to add liquid ingredients into a large wok on a stove.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "The exact ingredient being added is not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        124.0,
+        148.0
+      ],
+      "resolution": "coarse",
+      "content": "A wok is used to stir-fry shrimp and julienned ingredients, then the cooked shrimp mixture is transferred to a white plate.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Pork slices are not visible in this sequence."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        134.0,
+        136.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        148.0,
+        163.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        163.0,
+        178.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u011",
+      "video": "v1",
+      "time": [
+        178.0,
+        193.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u012",
+      "video": "v1",
+      "time": [
+        193.0,
+        208.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u013",
+      "video": "v1",
+      "time": [
+        208.0,
+        223.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u014",
+      "video": "v1",
+      "time": [
+        223.0,
+        238.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        238.0,
+        242.0
+      ],
+      "resolution": "coarse",
+      "content": "A plate containing the cooked shrimp mixture is moved over a wok of stir-fried noodles, and the shrimp are added to the noodles.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Pork slices are not visible in this sequence."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        244.0,
+        246.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand pours noodles and vegetables from a white bowl into a wok that already contains shrimp and other ingredients.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact composition of all ingredients"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u015",
+      "video": "v1",
+      "time": [
+        246.0,
+        250.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        250.0,
+        256.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand holds a white bowl containing green vegetables and tilts it to add the greens into the wok.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "Full sequence of ingredient addition"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        258.0,
+        258.0
+      ],
+      "resolution": "coarse",
+      "content": "The wok contains a mixture of noodles, vegetables, shrimp, and other ingredients.",
+      "evidence": [
+        "v1-b0003-e3"
+      ],
+      "uncertainty": [
+        "Whether pork slices are present"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u016",
+      "video": "v1",
+      "time": [
+        258.0,
+        273.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u017",
+      "video": "v1",
+      "time": [
+        273.0,
+        288.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u018",
+      "video": "v1",
+      "time": [
+        288.0,
+        303.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u019",
+      "video": "v1",
+      "time": [
+        303.0,
+        318.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u020",
+      "video": "v1",
+      "time": [
+        318.0,
+        333.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u021",
+      "video": "v1",
+      "time": [
+        333.0,
+        348.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u022",
+      "video": "v1",
+      "time": [
+        348.0,
+        363.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u023",
+      "video": "v1",
+      "time": [
+        363.0,
+        378.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u024",
+      "video": "v1",
+      "time": [
+        378.0,
+        393.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u025",
+      "video": "v1",
+      "time": [
+        393.0,
+        395.5
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        6.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "S1-F01 @ 6.000s to S1-F05 @ 14.000s: Display of raw ingredients including rice noodles, vegetables, and small bowls containing shrimp, chicken, and an egg.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Pork slices not visible in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        14.0,
+        29.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        29.0,
+        44.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        44.0,
+        46.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        46.0,
+        54.0
+      ],
+      "resolution": "coarse",
+      "content": "S2-F01 @ 46.000s to S2-F05 @ 54.000s: Stir-frying process in a wok, initially with egg, then adding vegetables.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Pork slices not visible in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        54.0,
+        69.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        69.0,
+        84.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        84.0,
+        99.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        99.0,
+        114.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        114.0,
+        129.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        129.0,
+        144.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        144.0,
+        150.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        150.0,
+        158.0
+      ],
+      "resolution": "coarse",
+      "content": "S3-F01 @ 150.000s to S3-F05 @ 158.000s: Plating sequence where lettuce is placed on a white plate.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Pork slices not visible in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        158.0,
+        162.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        162.0,
+        162.0
+      ],
+      "resolution": "coarse",
+      "content": "S4-F01 @ 162.000s: Garnishing the lettuce with shredded carrots.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Pork slices not visible in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        164.0,
+        168.0
+      ],
+      "resolution": "coarse",
+      "content": "A white plate with a shredded carrot garnish sits on a counter. A wok containing brown stir-fried noodles enters the frame from the upper left and is positioned above the plate.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Ingredients inside the wok are blurry."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        170.0,
+        170.0
+      ],
+      "resolution": "coarse",
+      "content": "A ladle slides noodles and solid pieces from the wok onto the white plate, arranging the food next to the carrot garnish.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Cannot definitively identify the protein in the noodles."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        170.0,
+        185.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        185.0,
+        197.20833333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        30.0,
+        45.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        45.0,
+        60.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        60.0,
+        75.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        75.0,
+        90.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        90.0,
+        104.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        104.0,
+        106.0
+      ],
+      "resolution": "coarse",
+      "content": "A wooden spatula stirs a bubbling yellow sauce in a wok. White rice noodles are then added on top of the sauce.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Protein ingredients not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        107.96,
+        111.96
+      ],
+      "resolution": "coarse",
+      "content": "A hand uses the wooden spatula to toss and stir the white noodles, mixing them with the yellow sauce in the wok.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "No pork slices visible in this specific interval."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        111.96000000000001,
+        126.96000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        126.96000000000001,
+        141.96
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        141.96,
+        152.2
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        30.0,
+        36.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U01-01.s01",
+      "video": "v4",
+      "time": [
+        36.0,
+        44.0
+      ],
+      "resolution": "fine",
+      "content": "A wok contains dark, bubbling liquid, likely a boiling broth or sauce. A woman with dark hair is shown speaking. A red tray is presented, holding various ingredients including pale meat slices, bean sprouts, and green onions. The woman is shown again, speaking and smiling.",
+      "evidence": [
+        "v4.focus.r1.l1.e1",
+        "v4.focus.r1.l1.e2",
+        "v4.focus.r1.l1.e3",
+        "v4.focus.r1.l1.e4"
+      ],
+      "uncertainty": [
+        "Contents of the wok are indistinct.",
+        "The content of her speech is unknown.",
+        "The specific type of pale meat cannot be definitively identified.",
+        "Unresolved: Definitive identification of the meat type based on visual characteristics."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        44.0,
+        59.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        59.0,
+        74.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        74.0,
+        84.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-r1-01.s01",
+      "video": "v4",
+      "time": [
+        84.0,
+        92.0
+      ],
+      "resolution": "fine",
+      "content": "Close-up of a wok containing red peppers and pale meat slices, followed by a shot of a red plate with raw pale meat slices. A woman wearing a grey top is shown, then uses her hand to transfer pale meat slices from a red plate into a black wok. Close-up shots inside the wok show the pale meat slices being stirred and mixed with red peppers and other ingredients.",
+      "evidence": [
+        "v4.focus.r2.l1.e1",
+        "v4.focus.r2.l1.e2",
+        "v4.focus.r2.l1.e3"
+      ],
+      "uncertainty": [
+        "Meat type is visually consistent with pork but not definitively proven.",
+        "Exact volume of meat added is hard to gauge.",
+        "Whether these are the only protein ingredients is unclear.",
+        "Unresolved: Definitive confirmation that the pale slices are pork (vs chicken or another white meat)."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u007",
+      "video": "v4",
+      "time": [
+        92.0,
+        107.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u008",
+      "video": "v4",
+      "time": [
+        107.0,
+        122.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u009",
+      "video": "v4",
+      "time": [
+        122.0,
+        137.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u010",
+      "video": "v4",
+      "time": [
+        137.0,
+        152.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u011",
+      "video": "v4",
+      "time": [
+        152.0,
+        167.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u012",
+      "video": "v4",
+      "time": [
+        167.0,
+        182.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u013",
+      "video": "v4",
+      "time": [
+        182.0,
+        197.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u014",
+      "video": "v4",
+      "time": [
+        197.0,
+        212.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u015",
+      "video": "v4",
+      "time": [
+        212.0,
+        223.92
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "In the wok-addition interval, are these slices the dominant protein ingredient being added?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

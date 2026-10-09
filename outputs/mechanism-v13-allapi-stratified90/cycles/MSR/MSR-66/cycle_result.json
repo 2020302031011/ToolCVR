@@ -1,0 +1,266 @@
+{
+  "state": {
+    "question": "What is the final driving trajectory of {B1}?",
+    "round_id": 3,
+    "summary": "Evidence indicates B1 travels straight in the right lane from 2.0s to 8.0s in both views. B1 is visible until 8.2s (v2). The final 0.2s of visibility (8.0s-8.2s) is unobserved regarding specific motion, creating uncertainty about whether the straight trajectory persists or if a lane change occurs immediately before the track ends.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-26: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=19; declared=car; A1_visible=0-299 (0.000-10.000s)/300_frames; B1_visible=0-245 (0.000-8.200s)/300_frames.",
+      "A2/B2 is source_track=47; declared=car; A2_visible=20-196 (0.667-6.567s)/300_frames; B2_visible=109-168 (3.633-5.633s)/300_frames.",
+      "A3/B3 is source_track=155; declared=person; A3_visible=200-299 (6.667-10.000s)/300_frames; B3_visible=none/300_frames.",
+      "A4/B4 is source_track=24; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=0-83 (0.000-2.800s)/300_frames.",
+      "A5/B5 is source_track=8; declared=car; A5_visible=0-127 (0.000-4.267s)/300_frames; B5_visible=0-61 (0.000-2.067s)/300_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          8.0
+        ],
+        "description": "Vehicle B1 (labeled A1 car) travels straight in the right lane, crosses a pedestrian crosswalk, and continues forward without changing lanes.",
+        "uncertainty": "None observed; trajectory is consistently straight.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          8.0
+        ],
+        "description": "The vehicle labeled B1 car travels rightward along the main road. It maintains a consistent lane position relative to lane markings across all observed frames.",
+        "uncertainty": "Final trajectory post-clip is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "A red bus moves forward in the rightmost lane of the main road, maintaining its position without changing lanes.",
+        "uncertainty": "Target B1 is not explicitly identified in the visible frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "Car labeled B1 is visible in the right lane, positioned near the frame edge.",
+        "uncertainty": "Motion between 8.0s and 8.2s is unobserved.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to determine if B1 changes lanes or stops after 8.0s, as current evidence only covers up to 8.0s where it was going straight. B1 is visible in v1 until 10.0s and in v2 until 8.2s.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u002"
+        ],
+        "evidence_goal": "Observe B1's lateral position and speed in v1 from 8.0s to 10.0s to see if it changes lanes or stops.",
+        "next_probe_goal": "Check v2 from 8.0s to 8.2s for final state consistency.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need to determine if B1 is visible in v1 or v2 during 8.0-10.0s to confirm final trajectory.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.u002"
+        ],
+        "evidence_goal": "Is the car labeled B1 visible in v2 between 8.0s and 8.2s, and if so, does it continue straight in the right lane?",
+        "next_probe_goal": "If B1 is not visible or leaves the frame in v2, check v1 8.0-10.0s for a car matching B1's appearance and trajectory.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Evidence indicates B1 travels straight in the right lane from 2.0s to 8.0s in both views. B1 is visible until 8.2s (v2). The final 0.2s of visibility (8.0s-8.2s) is unobserved regarding specific motion, creating uncertainty about whether the straight trajectory persists or if a lane change occurs immediately before the track ends.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['.zoom.r2-r2-01.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['.zoom.r2-r2-01.s01']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        2.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Vehicle B1 (labeled A1 car) travels straight in the right lane, crosses a pedestrian crosswalk, and continues forward without changing lanes.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "None observed; trajectory is consistently straight."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        8.0,
+        9.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A red bus moves forward in the rightmost lane of the main road, maintaining its position without changing lanes.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Target B1 is not explicitly identified in the visible frames.",
+        "Unresolved: Identification of entity B1 to verify lateral position and speed."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        2.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "The vehicle labeled B1 car travels rightward along the main road. It maintains a consistent lane position relative to lane markings across all observed frames.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Final trajectory post-clip is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        8.0,
+        9.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "Car labeled B1 is visible in the right lane, positioned near the frame edge.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Motion between 8.0s and 8.2s is unobserved.",
+        "Unresolved: Visibility of car B1 between 8.0s and 8.2s",
+        "Unresolved: Confirmation of car B1's trajectory during 8.0-8.2s"
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Check v2 from 8.0s to 8.2s for final state consistency.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "statement": "The blue mouse runs through grass, finds a mushroom, and interacts with a red mouse."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0001-e6",
+        "v2-b0001-e7",
+        "v2-b0001-e8"
+      ],
+      "statement": "A damaged ceiling, a mouse on a stove, an elderly woman, and a rat swarm are observed."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The blue mouse in v1 and the mouse in v2 may be related through their interactions with other characters.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The connection between the blue mouse in v1 and the mouse in v2 remains unresolved.",
+      "reason": "There is no direct evidence linking the blue mouse in v1 to the mouse in v2.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The cause of the rat swarm in v2 remains unresolved.",
+      "reason": "No visible cause for the rat swarm is shown in the events of v2.",
+      "related_events": [
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Is there a visual link between the blue mouse in v1 and the mouse in v2?",
+      "purpose": "To resolve the connection between the blue mouse in v1 and the mouse in v2.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "What is the visible cause of the rat swarm in v2?",
+      "purpose": "To resolve the cause of the rat swarm in v2.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PI-35",
+    "task": "PI",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/PI/PI-35/report.json",
+    "report_sha256": "ccad84f94b669830f989879aa5ef70f85c154137238b5bd80ef5233c9fa26d82",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

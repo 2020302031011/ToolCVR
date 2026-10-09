@@ -1,0 +1,2428 @@
+{
+  "state": {
+    "question": "Which action was unnecessarily performed and later corrected in exactly one video?",
+    "round_id": 3,
+    "summary": "Evidence is insufficient to determine which action was unnecessarily performed and later corrected in exactly one video. v1 shows roof manipulation and cargo box attachment. v2 shows container/cabin detachment but lacks visible reattachment. v3 shows cabin detachment and roof panel attachment but lacks clear evidence of an unnecessary correction cycle.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c004"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U03-01.s01",
+          "v2.zoom.r1-U03-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v3.zoom.r1-U03-03.s01",
+          "v3.c006"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          264.0,
+          272.0
+        ],
+        "description": "The person holds an orange truck chassis and inserts a gray interior part into the cabin opening.",
+        "uncertainty": "Exact part names are inferred from assembly context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          274.0,
+          284.0
+        ],
+        "description": "The person manipulates a gray roof piece near the truck cabin, then attaches a white block to the rear.",
+        "uncertainty": "Whether the roof piece is attached or removed is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          288.0,
+          296.0
+        ],
+        "description": "The person uses a yellow screwdriver to fasten the white block to the assembled truck body.",
+        "uncertainty": "Screwdriver action is clear, but specific fastening target is inferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          352.0,
+          356.0
+        ],
+        "description": "Person holds a toy truck cab, removes an orange roof piece, and then appears to be re-attaching or adjusting the roof on the cab.",
+        "uncertainty": "Unclear if the roof was fully detached or just lifted.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          358.0,
+          362.0
+        ],
+        "description": "Person holds the truck chassis with a white cargo box attached and picks up loose screws from the table.",
+        "uncertainty": "The transition of the cargo box onto the chassis is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          364.0,
+          368.0
+        ],
+        "description": "Person holds the truck chassis and attaches a white cargo box to the back of the orange cab.",
+        "uncertainty": "It is unclear if the box was previously attached or is being attached for the first time.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e4",
+        "video_id": "v1",
+        "time_span": [
+          370.0,
+          376.0
+        ],
+        "description": "Person removes the white cargo box from the truck cab and then places an orange roof piece onto the cab.",
+        "uncertainty": "The reason for removing the box is not visually explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e5",
+        "video_id": "v1",
+        "time_span": [
+          378.0,
+          382.0
+        ],
+        "description": "Person holds the assembled truck cab and uses a yellow screwdriver to tighten screws on the front bumper area.",
+        "uncertainty": "The specific screws being tightened are small and hard to track.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          388.0,
+          394.0
+        ],
+        "description": "The person uses a yellow screwdriver to unscrew parts from the orange truck chassis while holding it in the air.",
+        "uncertainty": "Specific parts being detached are not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          396.0,
+          396.0
+        ],
+        "description": "The person places the screwdriver down on the table while continuing to hold the truck chassis.",
+        "uncertainty": "Action concludes; no further state change visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          428.0,
+          430.0
+        ],
+        "description": "The person uses the yellow screwdriver on the truck chassis again, focusing on the upper section.",
+        "uncertainty": "Target of screwing is partially obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e4",
+        "video_id": "v1",
+        "time_span": [
+          432.0,
+          432.0
+        ],
+        "description": "The person inspects the truck chassis with both hands; the screwdriver is resting on the table.",
+        "uncertainty": "Transition between tool use and inspection.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e5",
+        "video_id": "v1",
+        "time_span": [
+          434.0,
+          436.0
+        ],
+        "description": "The person holds the truck chassis in one hand and reaches for the loose wheels on the table with the other.",
+        "uncertainty": "Intent to attach wheels is implied but not completed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          251.0,
+          259.0
+        ],
+        "description": "Person holds and manipulates a black chassis assembly with wheels attached on a white table.",
+        "uncertainty": "Whether detachment occurs is not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          275.0,
+          283.0
+        ],
+        "description": "Person holds the black chassis; wheels are visible on the table surface nearby.",
+        "uncertainty": "Specific detachment action of cabin/bumper not confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          289.0,
+          297.0
+        ],
+        "description": "Person handles the black chassis, then picks up a white rectangular cabin part from the table.",
+        "uncertainty": "Whether this is a correction (re-attachment) or new step is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          335.0,
+          335.0
+        ],
+        "description": "Person holds the white cabin part near the black chassis on the table.",
+        "uncertainty": "Single frame; action continuity unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          337.0,
+          343.0
+        ],
+        "description": "The person manipulates a rectangular component with a grid pattern, separating it from the chassis while small wheels remain on the work surface.",
+        "uncertainty": "Specific part names and whether this detachment is unnecessary are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          375.0,
+          383.0
+        ],
+        "description": "The person holds and aligns the rectangular component and a base plate, with a screwdriver resting on the table nearby.",
+        "uncertainty": "Direction of assembly or disassembly is ambiguous in static frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          393.0,
+          401.0
+        ],
+        "description": "The person holds two separated rectangular sub-assemblies, one in each hand, with the wheels clustered on the table.",
+        "uncertainty": "It is unclear if these parts were just detached or are being repositioned.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          459.0,
+          461.0
+        ],
+        "description": "The person places or aligns the assembled rectangular component back onto the chassis near the wheel assembly.",
+        "uncertainty": "Whether this is a correction of a previous detachment is not explicitly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          463.0,
+          469.0
+        ],
+        "description": "Hands manipulate a grey truck chassis with a screwdriver. A separate box component and loose wheels are visible on the table surface.",
+        "uncertainty": "Specific assembly or disassembly action unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          531.0,
+          543.0
+        ],
+        "description": "Hands work on a dark truck base. Two loose wheels lie on the table. The person appears to be attaching or detaching components near the wheels.",
+        "uncertainty": "Whether wheels are being removed or installed is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          563.0,
+          571.0
+        ],
+        "description": "A complete truck assembly with a 'LARGE CONTAINER' box is held. The person attaches a wheel to the chassis, correcting a previous state.",
+        "uncertainty": "Exact moment of correction relative to earlier frames is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          573.0,
+          591.0
+        ],
+        "description": "The person uses a screwdriver to detach the wheels from the toy truck.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          593.0,
+          605.0
+        ],
+        "description": "The person uses a screwdriver to detach the cabin from the truck's chassis.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          607.0,
+          611.0
+        ],
+        "description": "The truck is disassembled, with the cabin separated from the chassis and the wheels removed.",
+        "uncertainty": "The specific action of removing the cabin is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          613.0,
+          619.0
+        ],
+        "description": "The cabin is re-attached to the chassis, while the wheels remain detached on the table.",
+        "uncertainty": "The specific action of re-attaching the cabin is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          621.0,
+          627.0
+        ],
+        "description": "A person holds a toy truck and uses a screwdriver-like tool to manipulate the front wheel/axle area.",
+        "uncertainty": "Exact tool function and part state unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          629.0,
+          635.0
+        ],
+        "description": "The person holds the truck and applies the tool to the front wheel hub, appearing to attach or tighten a component.",
+        "uncertainty": "Cannot confirm if this is a correction of a prior error.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          188.0,
+          192.0
+        ],
+        "description": "The person aligns the white transport cabin with the orange chassis and presses it into place.",
+        "uncertainty": "Whether this attachment is permanent or later removed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          194.0,
+          196.0
+        ],
+        "description": "The person detaches the assembled transport cabin and chassis unit from the main assembly.",
+        "uncertainty": "The reason for detaching the cabin after assembly.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          218.0,
+          226.0
+        ],
+        "description": "The person holds the detached cabin and uses a yellow tool to interact with its interior.",
+        "uncertainty": "The specific function of the yellow tool on the interior.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          242.0,
+          244.0
+        ],
+        "description": "The person uses the yellow tool to secure the white cabin back onto the orange chassis.",
+        "uncertainty": "The completion status of the re-attachment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e5",
+        "video_id": "v3",
+        "time_span": [
+          246.0,
+          252.0
+        ],
+        "description": "The person flips the unit over and places a small white sticker onto the bottom.",
+        "uncertainty": "The content or purpose of the sticker.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          256.0,
+          260.0
+        ],
+        "description": "Participant holds an orange rectangular panel, examining it before placing it onto the top of the truck cab.",
+        "uncertainty": "Exact attachment mechanism not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          262.0,
+          264.0
+        ],
+        "description": "Participant reaches toward the table with the left hand, possibly adjusting the cab or retrieving a part.",
+        "uncertainty": "Target of the hand movement is partially obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e3",
+        "video_id": "v3",
+        "time_span": [
+          266.0,
+          276.0
+        ],
+        "description": "Participant uses a yellow-handled screwdriver to fasten the orange panel onto the top of the cab.",
+        "uncertainty": "Screwing action is repetitive; exact screw count unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e4",
+        "video_id": "v3",
+        "time_span": [
+          298.0,
+          300.0
+        ],
+        "description": "Truck chassis and cab are assembled with a white container attached; participant reaches for a grey part.",
+        "uncertainty": "Transition from previous state to this assembly is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e5",
+        "video_id": "v3",
+        "time_span": [
+          302.0,
+          306.0
+        ],
+        "description": "Participant holds the truck vertically, using the screwdriver to attach a grey part to the cab side.",
+        "uncertainty": "Specific part name and its necessity are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e1",
+        "video_id": "v3",
+        "time_span": [
+          330.0,
+          338.0
+        ],
+        "description": "The person holds a yellow-handled screwdriver and positions it over a black wheel on the orange device.",
+        "uncertainty": "Specific detachment action not yet completed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e2",
+        "video_id": "v3",
+        "time_span": [
+          340.0,
+          344.0
+        ],
+        "description": "The person rotates the screwdriver on the black wheel and then moves the tool away from the device.",
+        "uncertainty": "Whether the wheel was detached or re-attached is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          593.0,
+          595.0
+        ],
+        "description": "The toy truck's container is held by a person. The container is marked 'LARGE CONTAINER'. A hand uses a tool on the rear wheels.",
+        "uncertainty": "Whether the container is being detached or reattached is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          595.0,
+          605.0
+        ],
+        "description": "The container is separated from the truck chassis. The person holds the detached container, showing its top side. Two small wheels lie on the surface.",
+        "uncertainty": "Reattachment is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          613.0,
+          619.0
+        ],
+        "description": "A person's hand manipulates a small wheel on a table surface. A detached truck cabin is present. The cabin remains stationary and unattached throughout the sequence.",
+        "uncertainty": "Reattachment of the cabin is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          194.0,
+          196.0
+        ],
+        "description": "A person wearing a headset holds a detached orange and white cabin component in their left hand. They use their right hand to manipulate small screws on the table.",
+        "uncertainty": "Reattachment is not visible; cabin remains detached throughout.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l4.e1",
+        "video_id": "v3",
+        "time_span": [
+          242.0,
+          243.0
+        ],
+        "description": "The person uses a yellow screwdriver to manipulate the orange cabin of the truck chassis, with the white cargo box already attached to the rear.",
+        "uncertainty": "Exact moment of detachment is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l4.e2",
+        "video_id": "v3",
+        "time_span": [
+          244.0,
+          244.0
+        ],
+        "description": "The person holds the assembled truck with the white cargo box attached to the orange cabin, while the screwdriver rests on the table.",
+        "uncertainty": "Whether the cabin was fully removed and reattached is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          370.0,
+          372.0
+        ],
+        "description": "The person holds the truck with a white cargo box and manipulates the top of the box with their right hand.",
+        "uncertainty": "Specific action on the box top is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          373.0,
+          373.0
+        ],
+        "description": "The person reaches down to the table with their right hand while holding the truck with the white cargo box.",
+        "uncertainty": "Object being grasped is not clearly visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          374.0,
+          376.0
+        ],
+        "description": "The person places an orange roof piece onto the white cargo box of the truck.",
+        "uncertainty": "Whether the box was removed prior to this step is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need refine v2/v3 cabin-chassis detach/reattach to test option C and exactly-one mapping.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v2.c013",
+          "v2.c015",
+          "v3.c002",
+          "v3.c004"
+        ],
+        "evidence_goal": "In each selected span, is the detached cabin visibly a transport cabin and is it reattached after detachment?",
+        "next_probe_goal": "If both or neither match, check v1 rear-roof/transport-cabin detach/correction for option D.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to confirm if v1 cargo box removal was a correction or a planned step for roof installation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.c007"
+        ],
+        "evidence_goal": "Does the person remove the cargo box to place the roof, or does the person later reattach the cargo box?",
+        "next_probe_goal": "Check v2/v3 for any reattachment of the cabin after detachment.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Evidence is insufficient to determine which action was unnecessarily performed and later corrected in exactly one video. v1 shows roof manipulation and cargo box attachment. v2 shows container/cabin detachment but lacks visible reattachment. v3 shows cabin detachment and roof panel attachment but lacks clear evidence of an unnecessary correction cycle.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations"
+  },
+  "visual_calls_used": 5,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        206.0,
+        221.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        221.0,
+        236.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        236.0,
+        251.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        251.0,
+        264.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        264.0,
+        272.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds an orange truck chassis and inserts a gray interior part into the cabin opening.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact part names are inferred from assembly context."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        272.0,
+        274.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        274.0,
+        284.0
+      ],
+      "resolution": "coarse",
+      "content": "The person manipulates a gray roof piece near the truck cabin, then attaches a white block to the rear.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether the roof piece is attached or removed is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        284.0,
+        288.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        288.0,
+        296.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses a yellow screwdriver to fasten the white block to the assembled truck body.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Screwdriver action is clear, but specific fastening target is inferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        296.0,
+        311.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        311.0,
+        326.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        326.0,
+        341.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        341.0,
+        352.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        352.0,
+        356.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a toy truck cab, removes an orange roof piece, and then appears to be re-attaching or adjusting the roof on the cab.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Unclear if the roof was fully detached or just lifted."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        358.0,
+        362.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the truck chassis with a white cargo box attached and picks up loose screws from the table.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "The transition of the cargo box onto the chassis is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u011",
+      "video": "v1",
+      "time": [
+        362.0,
+        364.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        364.0,
+        368.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the truck chassis and attaches a white cargo box to the back of the orange cab.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "It is unclear if the box was previously attached or is being attached for the first time."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r3-01.s01",
+      "video": "v1",
+      "time": [
+        370.0,
+        376.0
+      ],
+      "resolution": "fine",
+      "content": "The person holds the truck with a white cargo box and manipulates the top of the box with their right hand. The person reaches down to the table with their right hand while holding the truck with the white cargo box. The person places an orange roof piece onto the white cargo box of the truck.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2",
+        "v1.focus.r2.l1.e3"
+      ],
+      "uncertainty": [
+        "Specific action on the box top is unclear.",
+        "Object being grasped is not clearly visible.",
+        "Whether the box was removed prior to this step is not visible.",
+        "Unresolved: Visibility of cargo box removal or reattachment actions"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        378.0,
+        382.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the assembled truck cab and uses a yellow screwdriver to tighten screws on the front bumper area.",
+      "evidence": [
+        "v1-b0002-e5"
+      ],
+      "uncertainty": [
+        "The specific screws being tightened are small and hard to track."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u012",
+      "video": "v1",
+      "time": [
+        382.0,
+        388.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        388.0,
+        394.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses a yellow screwdriver to unscrew parts from the orange truck chassis while holding it in the air.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific parts being detached are not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c010",
+      "video": "v1",
+      "time": [
+        396.0,
+        396.0
+      ],
+      "resolution": "coarse",
+      "content": "The person places the screwdriver down on the table while continuing to hold the truck chassis.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "Action concludes; no further state change visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u013",
+      "video": "v1",
+      "time": [
+        396.0,
+        411.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u014",
+      "video": "v1",
+      "time": [
+        411.0,
+        426.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u015",
+      "video": "v1",
+      "time": [
+        426.0,
+        428.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c011",
+      "video": "v1",
+      "time": [
+        428.0,
+        430.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses the yellow screwdriver on the truck chassis again, focusing on the upper section.",
+      "evidence": [
+        "v1-b0003-e3"
+      ],
+      "uncertainty": [
+        "Target of screwing is partially obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c012",
+      "video": "v1",
+      "time": [
+        432.0,
+        432.0
+      ],
+      "resolution": "coarse",
+      "content": "The person inspects the truck chassis with both hands; the screwdriver is resting on the table.",
+      "evidence": [
+        "v1-b0003-e4"
+      ],
+      "uncertainty": [
+        "Transition between tool use and inspection."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c013",
+      "video": "v1",
+      "time": [
+        434.0,
+        436.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the truck chassis in one hand and reaches for the loose wheels on the table with the other.",
+      "evidence": [
+        "v1-b0003-e5"
+      ],
+      "uncertainty": [
+        "Intent to attach wheels is implied but not completed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u016",
+      "video": "v1",
+      "time": [
+        436.0,
+        451.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u017",
+      "video": "v1",
+      "time": [
+        451.0,
+        466.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u018",
+      "video": "v1",
+      "time": [
+        466.0,
+        481.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u019",
+      "video": "v1",
+      "time": [
+        481.0,
+        486.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        245.0,
+        251.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        251.0,
+        259.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds and manipulates a black chassis assembly with wheels attached on a white table.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Whether detachment occurs is not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        259.0,
+        274.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        274.0,
+        275.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        275.0,
+        283.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the black chassis; wheels are visible on the table surface nearby.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Specific detachment action of cabin/bumper not confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        283.0,
+        289.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        289.0,
+        297.0
+      ],
+      "resolution": "coarse",
+      "content": "Person handles the black chassis, then picks up a white rectangular cabin part from the table.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether this is a correction (re-attachment) or new step is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        297.0,
+        312.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        312.0,
+        327.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        327.0,
+        335.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        335.0,
+        335.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the white cabin part near the black chassis on the table.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Single frame; action continuity unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        337.0,
+        343.0
+      ],
+      "resolution": "coarse",
+      "content": "The person manipulates a rectangular component with a grid pattern, separating it from the chassis while small wheels remain on the work surface.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Specific part names and whether this detachment is unnecessary are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        343.0,
+        358.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        358.0,
+        373.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        373.0,
+        375.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        375.0,
+        383.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds and aligns the rectangular component and a base plate, with a screwdriver resting on the table nearby.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Direction of assembly or disassembly is ambiguous in static frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        383.0,
+        393.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        393.0,
+        401.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds two separated rectangular sub-assemblies, one in each hand, with the wheels clustered on the table.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "It is unclear if these parts were just detached or are being repositioned."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        401.0,
+        416.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        416.0,
+        431.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        431.0,
+        446.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        446.0,
+        459.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        459.0,
+        461.0
+      ],
+      "resolution": "coarse",
+      "content": "The person places or aligns the assembled rectangular component back onto the chassis near the wheel assembly.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Whether this is a correction of a previous detachment is not explicitly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        463.0,
+        469.0
+      ],
+      "resolution": "coarse",
+      "content": "Hands manipulate a grey truck chassis with a screwdriver. A separate box component and loose wheels are visible on the table surface.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific assembly or disassembly action unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        469.0,
+        484.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        484.0,
+        499.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        499.0,
+        514.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        514.0,
+        529.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        529.0,
+        531.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        531.0,
+        543.0
+      ],
+      "resolution": "coarse",
+      "content": "Hands work on a dark truck base. Two loose wheels lie on the table. The person appears to be attaching or detaching components near the wheels.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Whether wheels are being removed or installed is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        543.0,
+        558.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        558.0,
+        563.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        563.0,
+        571.0
+      ],
+      "resolution": "coarse",
+      "content": "A complete truck assembly with a 'LARGE CONTAINER' box is held. The person attaches a wheel to the chassis, correcting a previous state.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Exact moment of correction relative to earlier frames is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        573.0,
+        588.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        573.0,
+        591.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses a screwdriver to detach the wheels from the toy truck.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        588.0,
+        591.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-01.s01",
+      "video": "v2",
+      "time": [
+        593.0,
+        605.0
+      ],
+      "resolution": "fine",
+      "content": "The toy truck's container is held by a person. The container is marked 'LARGE CONTAINER'. A hand uses a tool on the rear wheels. The container is separated from the truck chassis. The person holds the detached container, showing its top side. Two small wheels lie on the surface.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Whether the container is being detached or reattached is unclear.",
+        "Reattachment is not visible in these frames.",
+        "Unresolved: Visibility of the cabin being reattached to the truck."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        607.0,
+        611.0
+      ],
+      "resolution": "coarse",
+      "content": "The truck is disassembled, with the cabin separated from the chassis and the wheels removed.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "The specific action of removing the cabin is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-02.s01",
+      "video": "v2",
+      "time": [
+        613.0,
+        619.0
+      ],
+      "resolution": "fine",
+      "content": "A person's hand manipulates a small wheel on a table surface. A detached truck cabin is present. The cabin remains stationary and unattached throughout the sequence.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Reattachment of the cabin is not visible in these frames.",
+        "Unresolved: Whether the detached cabin is reattached after the detachment observed in this span."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        621.0,
+        627.0
+      ],
+      "resolution": "coarse",
+      "content": "A person holds a toy truck and uses a screwdriver-like tool to manipulate the front wheel/axle area.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Exact tool function and part state unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        629.0,
+        635.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the truck and applies the tool to the front wheel hub, appearing to attach or tighten a component.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Cannot confirm if this is a correction of a prior error."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        635.0,
+        636.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        148.0,
+        163.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        163.0,
+        178.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        178.0,
+        188.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        188.0,
+        192.0
+      ],
+      "resolution": "coarse",
+      "content": "The person aligns the white transport cabin with the orange chassis and presses it into place.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Whether this attachment is permanent or later removed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U03-03.s01",
+      "video": "v3",
+      "time": [
+        194.0,
+        196.0
+      ],
+      "resolution": "fine",
+      "content": "A person wearing a headset holds a detached orange and white cabin component in their left hand. They use their right hand to manipulate small screws on the table.",
+      "evidence": [
+        "v3.focus.r1.l3.e1"
+      ],
+      "uncertainty": [
+        "Reattachment is not visible; cabin remains detached throughout.",
+        "Unresolved: Whether the cabin is a transport cabin is not explicitly labeled.",
+        "Unresolved: Reattachment event is not visible in this span."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        196.0,
+        211.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        211.0,
+        218.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        218.0,
+        226.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the detached cabin and uses a yellow tool to interact with its interior.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "The specific function of the yellow tool on the interior."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        226.0,
+        241.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        241.0,
+        242.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U03-04.s01",
+      "video": "v3",
+      "time": [
+        242.0,
+        244.0
+      ],
+      "resolution": "fine",
+      "content": "The person uses a yellow screwdriver to manipulate the orange cabin of the truck chassis, with the white cargo box already attached to the rear. The person holds the assembled truck with the white cargo box attached to the orange cabin, while the screwdriver rests on the table.",
+      "evidence": [
+        "v3.focus.r1.l4.e1",
+        "v3.focus.r1.l4.e2"
+      ],
+      "uncertainty": [
+        "Exact moment of detachment is not visible in these frames.",
+        "Whether the cabin was fully removed and reattached is not visible.",
+        "Unresolved: Visual confirmation of the cabin being detached from the chassis",
+        "Unresolved: Visual confirmation of the cabin being reattached after detachment"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        246.0,
+        252.0
+      ],
+      "resolution": "coarse",
+      "content": "The person flips the unit over and places a small white sticker onto the bottom.",
+      "evidence": [
+        "v3-b0001-e5"
+      ],
+      "uncertainty": [
+        "The content or purpose of the sticker."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        252.0,
+        256.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        256.0,
+        260.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds an orange rectangular panel, examining it before placing it onto the top of the truck cab.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact attachment mechanism not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c007",
+      "video": "v3",
+      "time": [
+        262.0,
+        264.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant reaches toward the table with the left hand, possibly adjusting the cab or retrieving a part.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "Target of the hand movement is partially obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        264.0,
+        266.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c008",
+      "video": "v3",
+      "time": [
+        266.0,
+        276.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses a yellow-handled screwdriver to fasten the orange panel onto the top of the cab.",
+      "evidence": [
+        "v3-b0002-e3"
+      ],
+      "uncertainty": [
+        "Screwing action is repetitive; exact screw count unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        276.0,
+        291.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        291.0,
+        298.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c009",
+      "video": "v3",
+      "time": [
+        298.0,
+        300.0
+      ],
+      "resolution": "coarse",
+      "content": "Truck chassis and cab are assembled with a white container attached; participant reaches for a grey part.",
+      "evidence": [
+        "v3-b0002-e4"
+      ],
+      "uncertainty": [
+        "Transition from previous state to this assembly is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c010",
+      "video": "v3",
+      "time": [
+        302.0,
+        306.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds the truck vertically, using the screwdriver to attach a grey part to the cab side.",
+      "evidence": [
+        "v3-b0002-e5"
+      ],
+      "uncertainty": [
+        "Specific part name and its necessity are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        306.0,
+        321.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u013",
+      "video": "v3",
+      "time": [
+        321.0,
+        330.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c011",
+      "video": "v3",
+      "time": [
+        330.0,
+        338.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds a yellow-handled screwdriver and positions it over a black wheel on the orange device.",
+      "evidence": [
+        "v3-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific detachment action not yet completed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u014",
+      "video": "v3",
+      "time": [
+        338.0,
+        340.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c012",
+      "video": "v3",
+      "time": [
+        340.0,
+        344.0
+      ],
+      "resolution": "coarse",
+      "content": "The person rotates the screwdriver on the black wheel and then moves the tool away from the device.",
+      "evidence": [
+        "v3-b0003-e2"
+      ],
+      "uncertainty": [
+        "Whether the wheel was detached or re-attached is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If both or neither match, check v1 rear-roof/transport-cabin detach/correction for option D.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 5,
+    "visual_calls_remaining": 3,
+    "maximum_visual_calls_for_current_stage": 3,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

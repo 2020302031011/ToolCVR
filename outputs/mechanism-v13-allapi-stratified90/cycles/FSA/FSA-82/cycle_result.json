@@ -1,0 +1,966 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "v1 is a coarse reference step of adding ingredients and mixing rice/chili components in a wok. The best v2 functional match is the fine stir-frying segment of rice and vegetables at 150.017-161.995; the earlier green-leafy-vegetable segment lacks confirmed rice/chili mixing, and seasoning/garlic additions are separate actions.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v2.focus.r2.l1.e1"
+        ],
+        "attempts": [
+          "The v2 segment at 85.986-95.996 shows stirring and adding green leafy vegetables, but the white pieces are not identified as rice and no chili-flake mixing is visible, so equivalence to the v1 rice-mixing step is not established."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v2.focus.r1.l2.e1",
+          "v2-b0004-e4"
+        ],
+        "attempts": [
+          "The v2 fine segment at 150.017-161.995 explicitly shows continuous stir-frying of rice and vegetables, matching the functional state transition in v1 where rice and components are mixed in the wok."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v2-b0004-e5"
+        ],
+        "attempts": [
+          "Liquid seasoning and fried-garlic additions appear as separate wok actions; their relationship to the reference mixing step remains unresolved but they are not needed for the selected equivalent mixing interval."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          191.992,
+          208.008
+        ],
+        "description": "The cooking process shows adding ingredients to a wok and mixing them. A red spatula is used to stir the rice, ensuring the chili flakes and other components are evenly distributed.",
+        "uncertainty": "Exact start of ingredient addition not visible",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          8.008
+        ],
+        "description": "A man wearing a straw hat speaks directly to the camera in front of a yellow sign with Thai text.",
+        "uncertainty": "Audio content of speech is not transcribed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.01,
+          12.012
+        ],
+        "description": "The camera pans to show a food preparation area with a person in a patterned shirt and a bowl of raw ingredients (onions, greens, meat).",
+        "uncertainty": "Specific ingredients in the bowl are not definitively identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          14.014,
+          19.987
+        ],
+        "description": "A cook uses a pink lighter to ignite the burner of a wok stove, establishing a flame.",
+        "uncertainty": "The specific fuel type (gas vs. other) is visually implied but not labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          25.993,
+          27.995
+        ],
+        "description": "The cook wipes the metal counter with a cloth and then places the wok onto the lit burner.",
+        "uncertainty": "The exact timing of when the wok was fully seated is between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          29.997,
+          38.005
+        ],
+        "description": "The camera focuses on a white bowl containing sliced red sausages, with a hand pointing at the contents.",
+        "uncertainty": "The purpose of the pointing gesture is unclear without audio.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          72.005,
+          78.011
+        ],
+        "description": "A person scoops seasoning from a metal container and sprinkles it into a bowl of raw vegetables.",
+        "uncertainty": "Specific type of seasoning is not identifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          80.013,
+          83.984
+        ],
+        "description": "The cook moves the seasoning container away and stands near the stove while ingredients are prepped.",
+        "uncertainty": "Exact transition of ingredients to wok is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          85.986,
+          95.996
+        ],
+        "description": "The cook stir-fries ingredients in a wok over a high flame, adding greens and then rice.",
+        "uncertainty": "The exact moment of adding rice is inferred from frame sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          102.002,
+          117.985
+        ],
+        "description": "The cook adds liquids from bottles and seasons the fried rice mixture in the wok.",
+        "uncertainty": "The specific bottles and their contents are not clearly labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          119.987,
+          125.993
+        ],
+        "description": "A cook adds liquid seasoning from a bottle with a green cap, then a bottle with a yellow cap, into a wok containing stir-fried rice and vegetables.",
+        "uncertainty": "Exact sequence of bottles is slightly blurred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          134.001,
+          136.003
+        ],
+        "description": "The cook actively stir-fries the rice mixture in the wok using a spatula and tossing motion.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          138.005,
+          140.007
+        ],
+        "description": "The camera pans away from the cooking station to show the dining area with customers and tables.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          142.009,
+          144.011
+        ],
+        "description": "The camera returns to the wok, where the cook is stirring the fried rice.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e5",
+        "video_id": "v2",
+        "time_span": [
+          146.013,
+          148.015
+        ],
+        "description": "The cook scoops fried garlic from a container with a spatula and adds it to the rice.",
+        "uncertainty": "The spatula is dirty, obscuring some details.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e6",
+        "video_id": "v2",
+        "time_span": [
+          150.017,
+          161.995
+        ],
+        "description": "The cook resumes stir-frying the rice in the wok, mixing the ingredients thoroughly.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          163.997,
+          184.017
+        ],
+        "description": "A cook stir-fries noodles in a wok on a gas burner, using a spatula to toss and mix the ingredients.",
+        "uncertainty": "The specific reference step from Video 1 is not provided for comparison.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          185.986,
+          189.99
+        ],
+        "description": "The camera view becomes unstable and pans away from the cooking station, showing the floor and a stool.",
+        "uncertainty": "The reason for the camera movement is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          85.985,
+          93.993
+        ],
+        "description": "A cook actively stir-fries ingredients in a wok over a high flame using a metal spatula, continuously tossing and mixing the contents.",
+        "uncertainty": "Cannot definitively identify the ingredients as 'rice' from these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          94.994,
+          95.995
+        ],
+        "description": "A person adds a bowl of green leafy vegetables into the wok, marking a transition from mixing to adding new ingredients.",
+        "uncertainty": "The specific type of green vegetable is not clearly visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          150.016,
+          161.027
+        ],
+        "description": "Continuous stir-frying of rice and vegetables in a wok over a gas flame, using a spatula and tossing motions.",
+        "uncertainty": "Start/end of specific ingredient addition not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          85.985,
+          93.993
+        ],
+        "description": "A cook stirs a mixture of translucent white pieces and brownish bits in a wok over a gas flame. Steam rises continuously.",
+        "uncertainty": "Exact ingredient identity unclear; no distinct rice grains visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          94.994,
+          95.995
+        ],
+        "description": "The cook adds a bowl of green leafy vegetables to the wok contents.",
+        "uncertainty": "Prior mixing phase was already underway.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v2-b0002-gap1",
+        "video_id": "v2",
+        "time_span": [
+          40.007,
+          70.003
+        ],
+        "reason": "VLM output remained invalid: event id and description must be nonempty",
+        "action": "SCAN",
+        "round": 0
+      }
+    ]
+  },
+  "turns": [
+    {
+      "summary": "Need v2 evidence to confirm whether c008 and c015 bound the rice-ingredient mixing step equivalent to v1.c001.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c008",
+          "v2.c015"
+        ],
+        "evidence_goal": "Do v2.c008 and v2.c015 show the start and end of one functional step of adding/mixing rice ingredients in a wok?",
+        "next_probe_goal": "If c008 and c015 are not continuous, check v2.c011 and v2.c013 for the intervening mixing boundary.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Resolve ingredient identity (rice vs vegetables) in v2 85.986-95.996 to determine if it matches v1 reference step.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req1",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Do the ingredients being mixed in the wok at 85.986-95.996 include distinct rice grains, or are they primarily green leafy vegetables?",
+        "next_probe_goal": "",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "v1 is a coarse reference step of adding ingredients and mixing rice/chili components in a wok. The best v2 functional match is the fine stir-frying segment of rice and vegetables at 150.017-161.995; the earlier green-leafy-vegetable segment lacks confirmed rice/chili mixing, and seasoning/garlic additions are separate actions.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[150.017,161.995]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[150.017,161.995]",
+    "evidence_refs": [
+      "v1-b0001-e1",
+      "v2.focus.r1.l2.e1",
+      "v2-b0004-e4"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        191.992,
+        208.008
+      ],
+      "resolution": "coarse",
+      "content": "The cooking process shows adding ingredients to a wok and mixing them. A red spatula is used to stir the rice, ensuring the chili flakes and other components are evenly distributed.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact start of ingredient addition not visible"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        192.0,
+        200.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        200.0,
+        208.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.008
+      ],
+      "resolution": "coarse",
+      "content": "A man wearing a straw hat speaks directly to the camera in front of a yellow sign with Thai text.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Audio content of speech is not transcribed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        2.0020000000000002,
+        8.008000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.01,
+        12.012
+      ],
+      "resolution": "coarse",
+      "content": "The camera pans to show a food preparation area with a person in a patterned shirt and a bowl of raw ingredients (onions, greens, meat).",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Specific ingredients in the bowl are not definitively identified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        14.014,
+        19.987
+      ],
+      "resolution": "coarse",
+      "content": "A cook uses a pink lighter to ignite the burner of a wok stove, establishing a flame.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The specific fuel type (gas vs. other) is visually implied but not labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        19.987000000000002,
+        25.993000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        25.993,
+        27.995
+      ],
+      "resolution": "coarse",
+      "content": "The cook wipes the metal counter with a cloth and then places the wok onto the lit burner.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The exact timing of when the wok was fully seated is between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        29.997,
+        38.005
+      ],
+      "resolution": "coarse",
+      "content": "The camera focuses on a white bowl containing sliced red sausages, with a hand pointing at the contents.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "The purpose of the pointing gesture is unclear without audio."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        72.005,
+        78.011
+      ],
+      "resolution": "coarse",
+      "content": "A person scoops seasoning from a metal container and sprinkles it into a bowl of raw vegetables.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific type of seasoning is not identifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        80.013,
+        83.984
+      ],
+      "resolution": "coarse",
+      "content": "The cook moves the seasoning container away and stands near the stove while ingredients are prepped.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Exact transition of ingredients to wok is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        85.986,
+        89.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req1-01.s01",
+      "video": "v2",
+      "time": [
+        85.986,
+        95.996
+      ],
+      "resolution": "fine",
+      "content": "A cook stirs a mixture of translucent white pieces and brownish bits in a wok over a gas flame. Steam rises continuously. The cook adds a bowl of green leafy vegetables to the wok contents.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact ingredient identity unclear; no distinct rice grains visible.",
+        "Prior mixing phase was already underway.",
+        "Unresolved: Definitive identification of the white pieces (e.g., onion vs. rice)."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        89.99,
+        93.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        95.996,
+        102.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        102.002,
+        117.985
+      ],
+      "resolution": "coarse",
+      "content": "The cook adds liquids from bottles and seasons the fried rice mixture in the wok.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The specific bottles and their contents are not clearly labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        104.004,
+        112.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        114.014,
+        117.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        119.987,
+        125.993
+      ],
+      "resolution": "coarse",
+      "content": "A cook adds liquid seasoning from a bottle with a green cap, then a bottle with a yellow cap, into a wok containing stir-fried rice and vegetables.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Exact sequence of bottles is slightly blurred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        125.99300000000001,
+        134.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        134.001,
+        136.003
+      ],
+      "resolution": "coarse",
+      "content": "The cook actively stir-fries the rice mixture in the wok using a spatula and tossing motion.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        138.005,
+        140.007
+      ],
+      "resolution": "coarse",
+      "content": "The camera pans away from the cooking station to show the dining area with customers and tables.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        142.009,
+        144.011
+      ],
+      "resolution": "coarse",
+      "content": "The camera returns to the wok, where the cook is stirring the fried rice.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        146.013,
+        148.015
+      ],
+      "resolution": "coarse",
+      "content": "The cook scoops fried garlic from a container with a spatula and adds it to the rice.",
+      "evidence": [
+        "v2-b0004-e5"
+      ],
+      "uncertainty": [
+        "The spatula is dirty, obscuring some details."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        150.017,
+        157.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        150.017,
+        161.995
+      ],
+      "resolution": "fine",
+      "content": "Continuous stir-frying of rice and vegetables in a wok over a gas flame, using a spatula and tossing motions.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Start/end of specific ingredient addition not visible.",
+        "Unresolved: Specific start/end timestamps for ingredient addition",
+        "Unresolved: Confirmation of c008 and c015 frame correspondence"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        163.997,
+        184.017
+      ],
+      "resolution": "coarse",
+      "content": "A cook stir-fries noodles in a wok on a gas burner, using a spatula to toss and mix the ingredients.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "The specific reference step from Video 1 is not provided for comparison."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        170.003,
+        174.007
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        178.011,
+        184.017
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        185.986,
+        189.99
+      ],
+      "resolution": "coarse",
+      "content": "The camera view becomes unstable and pans away from the cooking station, showing the floor and a stool.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "The reason for the camera movement is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        189.99,
+        191.657
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If c008 and c015 are not continuous, check v2.c011 and v2.c013 for the intervening mixing boundary.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

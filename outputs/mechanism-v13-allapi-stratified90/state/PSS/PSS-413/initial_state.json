@@ -1,0 +1,349 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "Red spice powder is added to white flour and mixed into the flour."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2"
+      ],
+      "statement": "A substance is poured into a bowl of white liquid, producing an orange-tinted liquid in which white fillets soak."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A fish piece is coated in flour and then dipped into a batter bowl."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Food bubbles in hot oil inside a deep fryer basket."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "Fried fish fillets are removed from a fryer basket and seasoned on a paper towel."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "statement": "Fried fish fillets are placed in a wire basket over french fries and garnished with a lemon wedge."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "Three white fillets are visible on a blue plate while a substance is poured into a bowl of white liquid."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Three fried fish fillets rest on a paper towel while the chef seasons them with salt."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 shows seasoned flour being mixed, while v1 shows fish being coated in flour.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v4",
+        "v1"
+      ],
+      "statement": "v4 shows batter liquid being prepared and fillets soaking, while v1 shows a fish piece dipped into a batter bowl after flour coating.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 shows food bubbling in a deep fryer basket, while v2 shows fried fish removed from a fryer basket.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "v3 shows dry flour being mixed, while v4 shows a liquid bowl being mixed and fillets soaking.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v4-b0001-e1",
+        "v4-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v4",
+        "v2"
+      ],
+      "statement": "v4 shows raw white fillets on a plate and in liquid, while v2 shows cooked fried fillets on a tray and in a serving basket.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "issue": "The link between v3's seasoned flour and v1's flour coating remains unresolved.",
+      "reason": "v1 does not show the flour's color or source, so it cannot be confirmed that the coating uses the flour mixed in v3.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v4",
+        "v1"
+      ],
+      "issue": "The relative order between v4's batter preparation and soaking and v1's flour coating and batter dipping remains unresolved.",
+      "reason": "v4 shows fillets already soaking in an orange-tinted liquid, while v1 shows a dip into a batter bowl without showing whether that bowl was newly prepared or already used.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The identity of the bubbling food in v1 relative to the fillets removed in v2 remains unresolved.",
+      "reason": "v1's close-up does not identify the food item, and v2's removal event does not show the frying transition.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "issue": "The relative order between v3's flour mixing and v4's liquid mixing and soaking remains unresolved.",
+      "reason": "The reports show separate bowl operations without a shared object or visible transition connecting them.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v4-b0001-e1",
+        "v4-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v4",
+        "v2"
+      ],
+      "issue": "The continuity between the raw fillets in v4 and the cooked fillets in v2 remains unresolved.",
+      "reason": "v4 shows uncooked fillets and v2 shows cooked fillets without a visible frying transition or matching count.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v3",
+        "v1"
+      ],
+      "observable": "Compare whether the flour used in v1's coating step has the red-spiced appearance of the flour mixed in v3.",
+      "purpose": "Resolve whether v3's seasoned flour is the flour used in v1.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v4",
+        "v1"
+      ],
+      "observable": "Compare the batter bowl's liquid color and the fish's surface state to determine whether v1's dip occurs before or after the soaking shown in v4.",
+      "purpose": "Resolve the order between v4's batter preparation and v1's dipping step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the food bubbling in v1's fryer with the fillets removed in v2 for matching shape, coating, and count.",
+      "purpose": "Resolve whether v1's frying event is the same batch shown being removed in v2.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3",
+        "v4"
+      ],
+      "observable": "Compare whether v4's liquid bowl contains any of the seasoned flour from v3 or whether the flour and liquid operations are separate.",
+      "purpose": "Resolve the relative order of v3's flour mixing and v4's liquid mixing.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v4",
+        "v2"
+      ],
+      "observable": "Compare the number and appearance of raw fillets in v4 with the fried fillets seasoned and plated in v2.",
+      "purpose": "Resolve continuity between v4's raw fillets and v2's cooked fillets.",
+      "related_issue": "U05"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 5,
+    "covered_pair_count": 5,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 5,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-413",
+    "task": "PSS",
+    "ground_truth": "4->3->1->2",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-413/report.json",
+    "report_sha256": "bc8077b938a64faa88bc758a634f22d499fe768e05107fe89a7d9249cc1d7ec4",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

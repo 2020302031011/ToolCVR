@@ -1,0 +1,124 @@
+{
+  "question": "When {B5} completely leaves view B, where is {A3} located in view A's frame?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1, A3 moves from the left side of the frame toward the right side over the 0.0-6.0 s span."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "The v1 report states that the exact exit time of B5 from view B is not visible."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 is sparse aerial footage and does not visually ground A3 or B5."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 share the uav-scene-42 clock, so the v1 A3 trajectory can be temporally aligned with the reference-sidecar B5 departure trigger.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "A3's frame location in view A at the synchronized B5-departure moment remains unresolved.",
+      "reason": "v1 gives only a coarse left-to-right movement over 0.0-6.0 s and does not state A3's position at the trigger, while v2 does not visually ground the aliases.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "At the synchronized frame corresponding to B5's complete departure from view B, record whether A3 is at the top, bottom, left, or right side of the frame.",
+      "purpose": "Resolve A3's missing position at the trigger time.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "At the synchronized B5-departure timestamp, check whether v2 provides a visually grounded A3 position that can corroborate the frame location.",
+      "purpose": "Determine whether v2 can supply the missing cross-view evidence.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "information I04 dropped: incomplete after validation",
+    "information I05 dropped: incomplete after validation"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-198",
+    "task": "MSR",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-198/report.json",
+    "report_sha256": "ab3e7864a705a000e8d83687ea393f0471cef9640e7fb2cf2b65c10e4c5b66c0",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

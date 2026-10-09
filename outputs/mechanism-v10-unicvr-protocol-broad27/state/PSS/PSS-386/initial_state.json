@@ -1,0 +1,307 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A wooden spoon rests in a clear bowl with measuring cups and a metal bowl in the background."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Chopped white onions are added to the bowl and gathered by hand."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "A block of brown sugar is placed on the chopped onions and then sprinkled over it."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "The brown sugar and onions are mixed with a wooden spoon, breaking up the sugar block."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e5"
+      ],
+      "statement": "A dark liquid is poured into the bowl with the sugar and onion mixture."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "A lettuce leaf is placed over cooked ribs on a white plate."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "A lettuce leaf is wrapped around a rib, forming a wrap."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "Ribs are on a grill, and later, hands place lettuce leaves over cooked ribs on a paper-lined surface."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "A glass bowl contains a dark marinade with visible chopped ingredients."
+    },
+    {
+      "id": "I10",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e2"
+      ],
+      "statement": "Raw meat slices are added to the marinade in the bowl."
+    },
+    {
+      "id": "I11",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e3"
+      ],
+      "statement": "Hands mix meat and marinade in the bowl, coating the meat thoroughly."
+    },
+    {
+      "id": "I12",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e4"
+      ],
+      "statement": "More meat is added and mixed into the marinade, followed by hand washing under running water."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "Both v1 and v4 involve mixing ingredients in a bowl, but v4 includes raw meat while v1 does not.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v4-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "Both v2 and v3 involve lettuce leaves and cooked ribs, but v3 shows ribs on a grill while v2 shows the wrapping process.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v4",
+        "v1"
+      ],
+      "statement": "v4 involves adding raw meat to a marinade, while v1 involves adding chopped onions and sugar to a bowl.",
+      "supporting_events": [
+        "v4-b0001-e2",
+        "v1-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The order of adding ingredients to the bowl is unclear.",
+      "reason": "Both v1 and v4 involve adding ingredients to a bowl, but the sequence is not fully established.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v4-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "The sequence of grilling ribs and wrapping them in lettuce is unclear.",
+      "reason": "v3 shows ribs on a grill, while v2 shows the wrapping process, but the exact order is not established.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "issue": "The overall chronological sequence of all events is unclear.",
+      "reason": "The events in each video are isolated and do not provide a clear timeline across all videos.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v2-b0001-e2",
+        "v3-b0001-e1",
+        "v4-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Which ingredient is added first to the bowl: chopped onions or raw meat?",
+      "purpose": "To determine the order of ingredient addition in the mixing process.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Are the ribs grilled before or after they are wrapped in lettuce?",
+      "purpose": "To determine the sequence of grilling and wrapping the ribs.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "observable": "What is the overall sequence of events from preparing ingredients to final presentation?",
+      "purpose": "To establish the complete chronological order of all events.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 6,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-386",
+    "task": "PSS",
+    "ground_truth": "1->4->3->2",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/PSS/PSS-386/report.json",
+    "report_sha256": "c554e43aba56183bf978ee53275a014f66356cd5a7eebb43a4ae3fffa894e5ba",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

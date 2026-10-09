@@ -1,0 +1,185 @@
+{
+  "question": "When {A1} completely passes {A4} in view A, how many cars are driving in the same direction as {B1} and behind it in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "At time 0.0 seconds, View A shows the white car labeled A1 driving on the road."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "During 6.0-8.0 seconds, View B shows the black car labeled A4 parked in a lot rather than driving."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "During 0.0-6.0 seconds, View B shows a red bus and a white car moving away from the camera in the left lane."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "During 6.0-10.0 seconds, View B shows traffic flowing away from the camera, including a white car and a dark car."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "The v2 events state that A1 and A4 are not visible in View A during their reported spans."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "At overlapping source timestamps, v1 reports A1 driving in View A while v2 reports A1 not visible in View A.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "View B reports in v1 and v2 describe A4 parked and traffic moving away, but neither report identifies B1 or the vehicles behind it.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The synchronized View A timestamp at which A1 completely passes A4 remains unresolved.",
+      "reason": "No supplied event reports A1 and A4 simultaneously visible in View A or a passing transition, and the v1 and v2 View A observations conflict over A1 visibility.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The count of cars driving in the same direction as B1 and behind B1 in View B at the trigger timestamp remains unresolved.",
+      "reason": "View B events report moving-away traffic but do not identify B1, its direction, or which vehicles are behind it at a synchronized time.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "View A frames between 1.000 and 4.000 seconds where A1 and A4 are both visible and A1 moves from behind to ahead of A4.",
+      "purpose": "Establish whether and when the synchronized trigger occurs.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "View B frames at the synchronized trigger timestamp showing B1, its direction, and all cars behind it in the same direction.",
+      "purpose": "Determine the count requested after the trigger is located.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "View B frames during 0.0-10.0 seconds identifying B1 and whether the red bus, white car, and dark car are behind B1 in the same direction.",
+      "purpose": "Check whether existing View B traffic can support the count once the trigger timestamp is known.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-502",
+    "task": "MOC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-502/report.json",
+    "report_sha256": "ec3f05cec92abec4246614414538b5a7ca556d648ee73fca19d8490c572902aa",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

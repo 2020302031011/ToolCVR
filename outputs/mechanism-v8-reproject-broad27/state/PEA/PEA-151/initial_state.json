@@ -1,0 +1,151 @@
+{
+  "question": "Which action is unnecessarily performed in exactly two videos?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0003-e1",
+        "v1-b0003-e2",
+        "v1-b0003-e3",
+        "v1-b0003-e4",
+        "v1-b0004-e1",
+        "v1-b0004-e2"
+      ],
+      "statement": "Multiple screwdriver-related actions are performed on various components in v1."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e4"
+      ],
+      "statement": "Screwdriver adjustments are performed on a black device in v2."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2",
+        "v3-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "statement": "Screwdriver-related actions are performed during assembly in v3."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "All videos involve screwdriver-related actions, but the specific components and contexts differ.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e4",
+        "v3-b0001-e2",
+        "v3-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "Which specific action is unnecessarily performed in exactly two videos?",
+      "reason": "The necessity of the actions is not clearly visible in the frames, and the comparison across videos is not fully established.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e4",
+        "v3-b0001-e2",
+        "v3-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Which specific screwdriver-related action is performed unnecessarily in exactly two videos?",
+      "purpose": "To identify the unnecessary action across the videos.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-151",
+    "task": "PEA",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/PEA/PEA-151/report.json",
+    "report_sha256": "e06bf52101e445a6c98b97020a86a2a5eb5104deddd6ba9be863db1eb226e6df",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

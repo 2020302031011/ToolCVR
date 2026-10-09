@@ -1,0 +1,300 @@
+{
+  "question": "Which action is incorrectly performed in exactly two videos?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A black chassis with wheels is held while an orange cabin part is reached for."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "An orange cabin is attached to a vehicle while a white tank module is brought toward the rear section."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "A person appears to attach or detach a cabin section on a vehicle body with wheels nearby."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "A wheel is attached to the underside of a toy vehicle chassis with a screwdriver."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e3"
+      ],
+      "statement": "White plastic pieces identified as base and tank are held and compared after an orange cabin is placed down."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e4"
+      ],
+      "statement": "An orange cabin is attached to a chassis that already has a white tank mounted."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0003-e2"
+      ],
+      "statement": "An orange cab is detached from a white tank chassis, with both components resting on the table."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0003-e3"
+      ],
+      "statement": "An orange cab is attached to a white tank chassis, forming a complete truck assembly."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 and v3 both report an orange cabin or cab in relation to a white tank or chassis, but the sequence and correctness of tank-base-cabin connections are not settled.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v3-b0002-e3",
+        "v3-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show handling or transition of a cabin or cab section, but whether the action is attachment, detachment, or an incorrect operation is not visible.",
+      "supporting_events": [
+        "v2-b0001-e3",
+        "v3-b0003-e2",
+        "v3-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "All three videos report chassis or screwdriver work near wheels or underside, which is potentially relevant to base-chassis attachment but does not identify a base component.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0002-e1",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "The reports mention cabin, chassis, tank, and base pieces across videos, but no event explicitly identifies a roof component or roof-to-cabin attachment.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v3-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "The occurrence and correctness of an attach-base-and-chassis action across v1, v2, and v3 remain unresolved.",
+      "reason": "Events show chassis, wheel, and underside screwdriver work, but they do not identify a base component being attached or verify the correctness of that attachment.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0002-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "The occurrence and correctness of a detach-cabin-and-interior action across v2 and v3 remain unresolved.",
+      "reason": "Events show cabin or cab handling and a cab detachment from a tank chassis, but no event confirms detachment of an interior piece or incorrect execution.",
+      "related_events": [
+        "v2-b0001-e3",
+        "v3-b0003-e2",
+        "v3-b0003-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "The occurrence and correctness of an attach-water-tank-and-base action across v1 and v3 remain unresolved.",
+      "reason": "Events show a tank module being approached, base and tank pieces being compared, and a tank already mounted, but the tank-base attachment step and its correctness are not observed.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v3-b0002-e3",
+        "v3-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "The occurrence and correctness of an attach-roof-and-cabin action across v1, v2, and v3 remain unresolved.",
+      "reason": "Events mention cabin, cab, chassis, tank, and base pieces, but no event identifies a roof component or a roof-to-cabin attachment.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v3-b0002-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare whether any video shows a base component attached to a chassis and whether that attachment conflicts with the surrounding assembly sequence.",
+      "purpose": "This would resolve U01.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare whether the cabin or cab transitions are detachments of cabin and interior pieces rather than attachments or inspections.",
+      "purpose": "This would resolve U02.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare whether the white tank and base pieces are attached together or to the chassis in a way that conflicts with the assembly sequence.",
+      "purpose": "This would resolve U03.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare whether a distinct roof component is present and attached to a cabin in any video.",
+      "purpose": "This would resolve U04.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-221",
+    "task": "PEA",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/PEA/PEA-221/report.json",
+    "report_sha256": "da93b5826af5359748f56fb452c9d645f48d07aee8c27d35592a7b3368964dbc",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

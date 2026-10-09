@@ -1,0 +1,107 @@
+{
+  "question": "How do the coating methods for the chicken differ between the two videos?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3",
+        "v2-b0002-e4",
+        "v2-b0003-e1",
+        "v2-b0003-e2"
+      ],
+      "statement": "In video v2, the chicken is coated in flour, then dipped in egg wash and breadcrumbs."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "In video v1, the chicken is coated in a flour mixture, then dipped in liquid, and then in quinoa."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The coating methods for the chicken differ between the two videos.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v2-b0002-e3",
+        "v2-b0002-e4",
+        "v2-b0003-e1",
+        "v2-b0003-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the quinoa used in v1 is a type of breadcrumb or a separate coating step.",
+      "reason": "The description in v1 does not clarify if quinoa is used as a coating or as an ingredient in the flour mixture.",
+      "related_events": [
+        "v1-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Clarify whether the quinoa is used as a coating or as part of the flour mixture.",
+      "purpose": "To resolve the ambiguity in the coating method for the chicken in v1.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-480",
+    "task": "CCQA",
+    "ground_truth": "Video A uses a quinoa mixture for the final coating after flour and egg, pressing firmly to adhere the grains. Video B uses seasoned bread crumbs instead, employing tongs to ensure even coverage without pressing. While both follow flour-egg-coating sequence, Video A's quinoa creates a textured crust while Video B achieves crispiness through traditional bread crumbs.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/CCQA/CCQA-480/report.json",
+    "report_sha256": "cf860b4a1d2092d834ed81d7b198423a9cb81d627fecfdce0824f59caa58a49e",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

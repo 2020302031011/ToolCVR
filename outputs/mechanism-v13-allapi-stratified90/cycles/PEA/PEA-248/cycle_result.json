@@ -1,0 +1,3447 @@
+{
+  "state": {
+    "question": "Which assembly error is directly caused by wrong action order?",
+    "round_id": 3,
+    "summary": "The strongest supported causal chain is in v1: the cabin is attached before the dump bed, and the later dump-bed-to-chassis positioning is obstructed by the already-mounted cabin. This best matches option B, Video 1: Attach dump bed and chassis. v2/v3 lack direct wrong-order error evidence, and the cabin-to-chassis step itself does not show the observed fit failure. Some uncertainty remains because the dump-bed seating error is partly occluded, but the required focus stages are complete and B is the best-supported choice.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U02-01.s02",
+          "v1.zoom.r2-r1-01.s02"
+        ],
+        "attempts": [
+          "v1 shows the blue cabin being secured to the black chassis while the white dump bed remains separate, then the dump bed is positioned over the blue chassis with cabin obstruction visible. This supports the wrong-order hypothesis that cabin-first attachment interferes with dump-bed-to-chassis seating, although the exact fit failure is partially obstructed."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r1-U02-01.s02",
+          "v1.zoom.r1-U02-01.s03"
+        ],
+        "attempts": [
+          "The cabin-to-chassis screwing sequence does not visibly show a fit error caused by the dump bed not being seated first; the dump bed is separate, but the cabin is being secured without an observed seating failure."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c004",
+          "v3.c003"
+        ],
+        "attempts": [
+          "v2 and v3 do not provide direct evidence of a wrong-order roof/cabin or dump-bed/base attachment error; their spans show assembly states but not the causal order failure needed for options A or D."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          350.0,
+          370.0
+        ],
+        "description": "Person uses a screwdriver to attach a black wheel to a black chassis held in the left hand. Loose screws and other parts remain on the table.",
+        "uncertainty": "Sequence relative to bed assembly is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          382.0,
+          402.0
+        ],
+        "description": "Person continues screwing wheels onto the black chassis. At 402s, the chassis with wheels is placed on the table.",
+        "uncertainty": "Missing footage between 370s and 382s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          550.0,
+          562.0
+        ],
+        "description": "Person handles a white dump bed and a blue base component. The black chassis with wheels sits on the table to the right.",
+        "uncertainty": "Action sequence regarding the blue base and chassis is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          566.0,
+          618.0
+        ],
+        "description": "Subject holds the white dump bed and screwdriver. The bed is positioned above the black chassis, attempting to attach it.",
+        "uncertainty": "Attachment is not confirmed as successful in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          622.0,
+          638.0
+        ],
+        "description": "The white dump bed is placed on the table. The subject picks up the blue cabin and attaches it to the black chassis.",
+        "uncertainty": "Status of the dump bed attachment to chassis is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          682.0,
+          714.0
+        ],
+        "description": "Subject uses the screwdriver to secure the blue cabin onto the chassis. The white dump bed remains separate on the table.",
+        "uncertainty": "The dump bed is clearly not attached to the main assembly.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          718.0,
+          730.0
+        ],
+        "description": "The subject uses a screwdriver on the cabin of the blue truck chassis.",
+        "uncertainty": "Screwdriver is set down by end of span.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          814.0,
+          838.0
+        ],
+        "description": "The subject holds and manipulates a blue rectangular panel, appearing to screw components into it.",
+        "uncertainty": "The panel's final attachment point is not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          842.0,
+          854.0
+        ],
+        "description": "The subject attaches the white dump bed to the blue panel assembly.",
+        "uncertainty": "The combined unit is placed on the truck bed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e4",
+        "video_id": "v1",
+        "time_span": [
+          858.0,
+          862.0
+        ],
+        "description": "The subject places the blue panel assembly onto the truck chassis, leaving the dump bed on the table.",
+        "uncertainty": "The dump bed remains detached from the truck.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0004-e1",
+        "video_id": "v1",
+        "time_span": [
+          866.0,
+          874.0
+        ],
+        "description": "Person handles a blue toy truck cab, removing a small blue part and then holding the separated blue base piece.",
+        "uncertainty": "Exact nature of the removed part unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0004-e2",
+        "video_id": "v1",
+        "time_span": [
+          878.0,
+          894.0
+        ],
+        "description": "Person holds the blue base piece, then places it onto the truck chassis and uses a yellow screwdriver.",
+        "uncertainty": "Whether the part fits correctly is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0004-e3",
+        "video_id": "v1",
+        "time_span": [
+          1170.0,
+          1186.0
+        ],
+        "description": "Person holds a white dump bed assembly with a blue frame, using the screwdriver to work on it.",
+        "uncertainty": "The target of the screwdriver action is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0004-e4",
+        "video_id": "v1",
+        "time_span": [
+          1214.0,
+          1222.0
+        ],
+        "description": "Person attaches the white dump bed onto the blue truck chassis, then picks up a small blue part.",
+        "uncertainty": "Fit quality of the dump bed is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0005-e1",
+        "video_id": "v1",
+        "time_span": [
+          1226.0,
+          1234.0
+        ],
+        "description": "The person attaches the white dump bed to the blue base, securing it with the yellow screwdriver.",
+        "uncertainty": "Whether this step precedes chassis attachment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0005-e2",
+        "video_id": "v1",
+        "time_span": [
+          1294.0,
+          1310.0
+        ],
+        "description": "The person holds the assembled dump bed/base unit and manipulates the black chassis, attaching wheels.",
+        "uncertainty": "Exact sequence of chassis component attachment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0005-e3",
+        "video_id": "v1",
+        "time_span": [
+          1394.0,
+          1414.0
+        ],
+        "description": "The person unscrews and separates the white dump bed from the blue base.",
+        "uncertainty": "Reason for disassembly not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0005-e4",
+        "video_id": "v1",
+        "time_span": [
+          1418.0,
+          1422.0
+        ],
+        "description": "The person attaches the blue base directly to the black chassis, bypassing the white dump bed.",
+        "uncertainty": "Whether dump bed was meant to be attached.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0006-e1",
+        "video_id": "v1",
+        "time_span": [
+          1450.0,
+          1478.0
+        ],
+        "description": "Person assembles toy truck chassis and dump bed. Person attaches wheels to blue chassis and places white dump bed onto the assembly.",
+        "uncertainty": "Whether cabin was attached before bed is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0006-e2",
+        "video_id": "v1",
+        "time_span": [
+          1778.0,
+          1794.0
+        ],
+        "description": "Person assembles cabin onto truck base. Person places blue cabin onto the truck base and uses a yellow screwdriver to secure it.",
+        "uncertainty": "The specific error caused by wrong order is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          411.0,
+          419.0
+        ],
+        "description": "The person holds a rectangular component, possibly a dump bed or cabin, and places it on the table.",
+        "uncertainty": "Exact component identity and final placement.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          489.0,
+          503.0
+        ],
+        "description": "The person attaches the rectangular component to a larger assembly, then holds the combined structure.",
+        "uncertainty": "Which specific parts are joined (bed/base vs bed/chassis).",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          509.0,
+          513.0
+        ],
+        "description": "The person holds the assembled structure, revealing the joined components and the table with remaining parts.",
+        "uncertainty": "Whether the assembly is complete or if an error is present.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          515.0,
+          517.0
+        ],
+        "description": "Person holds a toy truck chassis with an attached dump bed. The cabin is missing from the chassis.",
+        "uncertainty": "Assembly sequence context is missing.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          533.0,
+          547.0
+        ],
+        "description": "Person uses a screwdriver to attach wheels to the truck chassis while the dump bed is already mounted.",
+        "uncertainty": "Whether this sequence caused an error is not visually explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          593.0,
+          605.0
+        ],
+        "description": "Person is now attaching the cabin to the truck, which already has wheels and the dump bed attached.",
+        "uncertainty": "The specific error caused by this order is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          607.0,
+          607.0
+        ],
+        "description": "Hands manipulate a disassembled toy truck base, with a screwdriver being used on a component.",
+        "uncertainty": "Exact assembly step is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          609.0,
+          609.0
+        ],
+        "description": "Hands hold a truck cab and a dump bed separately, preparing for assembly.",
+        "uncertainty": "Exact assembly step is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          611.0,
+          615.0
+        ],
+        "description": "A screwdriver is used to fasten the assembled truck body onto the chassis.",
+        "uncertainty": "Exact assembly step is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          219.0,
+          227.0
+        ],
+        "description": "Participant uses a tool on a black chassis component, attaching wheels to the underside of the base.",
+        "uncertainty": "Specific step in the assembly sequence is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          233.0,
+          241.0
+        ],
+        "description": "Participant continues to secure the chassis base, ensuring wheels are firmly attached to the black component.",
+        "uncertainty": "Internal mechanics of the attachment are obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          357.0,
+          365.0
+        ],
+        "description": "Participant handles a blue cab and white dump bed assembly, placing it on the table and manipulating the bed.",
+        "uncertainty": "The connection to the chassis is not shown in this span.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          411.0,
+          411.0
+        ],
+        "description": "The final assembly is visible with the white dump bed attached to the blue cab, which sits on the black chassis.",
+        "uncertainty": "The order of assembly leading to this state is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          413.0,
+          417.0
+        ],
+        "description": "Participant holds a small orange component against the side of a blue toy truck that already has a white dump bed attached.",
+        "uncertainty": "Exact attachment status of the orange part is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          419.0,
+          421.0
+        ],
+        "description": "Participant places a gray rectangular part on the table; the orange part is also visible lying separately on the table.",
+        "uncertainty": "Origin of the gray part is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e3",
+        "video_id": "v3",
+        "time_span": [
+          431.0,
+          435.0
+        ],
+        "description": "Participant manipulates the truck, which now has a gray cabin attached to the chassis, while the orange part remains on the table.",
+        "uncertainty": "Whether the cabin was newly attached or previously present is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e4",
+        "video_id": "v3",
+        "time_span": [
+          437.0,
+          439.0
+        ],
+        "description": "Participant holds a small white component with both hands, while the truck with the gray cabin sits stationary on the table.",
+        "uncertainty": "Target location for the white component is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          682.0,
+          684.0
+        ],
+        "description": "Participant holds a screwdriver and reaches for a blue plastic part on the table while the truck sits assembled with the white bed separate.",
+        "uncertainty": "Purpose of the blue part is not visually confirmed.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          685.0,
+          690.0
+        ],
+        "description": "Participant places a hand on the blue cabin and brings the screwdriver to the cabin top, initiating a securing action.",
+        "uncertainty": "Whether a screw is fully seated is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          691.0,
+          697.0
+        ],
+        "description": "Participant continues holding the blue cabin down while working with the screwdriver on the cabin's top surface.",
+        "uncertainty": "Completion of the securing action is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          697.0,
+          710.0
+        ],
+        "description": "The person is actively using a screwdriver to secure the blue cabin onto the black chassis. The white dump bed is visible on the table, remaining separate from the assembly.",
+        "uncertainty": "No visible fit error is apparent during the screwing process.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          711.0,
+          712.0
+        ],
+        "description": "The person pauses the screwing action and repositions the screwdriver while holding the blue cabin.",
+        "uncertainty": "Reason for the pause is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          712.0,
+          714.0
+        ],
+        "description": "A person wearing a headset uses a yellow-handled screwdriver on the roof of a blue toy cabin mounted on a black chassis. A white dump bed sits separately on the table.",
+        "uncertainty": "Visibility of specific fit or assembly errors is limited.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          1465.0,
+          1467.0
+        ],
+        "description": "Participant holds white C106 dump bed and positions it over the blue chassis, attempting to seat it.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          1468.0,
+          1470.0
+        ],
+        "description": "White C106 dump bed rests on the table next to the chassis; participant adjusts the blue chassis.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e3",
+        "video_id": "v1",
+        "time_span": [
+          1471.0,
+          1478.0
+        ],
+        "description": "Participant picks up and manipulates a small black component, separate from the dump bed and chassis.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          1778.0,
+          1782.0
+        ],
+        "description": "The subject holds a gray rectangular component in their hands, positioned above the table. The blue truck with the dump bed attached is stationary on the right.",
+        "uncertainty": "The specific function of the held component is not visually defined.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l3.e2",
+        "video_id": "v1",
+        "time_span": [
+          1783.0,
+          1789.0
+        ],
+        "description": "The subject manipulates the blue truck, moving the gray component towards the truck's front section (cabin area) and rotating the vehicle.",
+        "uncertainty": "It is unclear if the component is being attached or just tested for fit.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l3.e3",
+        "video_id": "v1",
+        "time_span": [
+          1790.0,
+          1793.0
+        ],
+        "description": "The subject uses a yellow screwdriver to interact with the front section of the truck where the gray component was placed.",
+        "uncertainty": "The screwdriver's specific action (tightening vs prying) is ambiguous.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l4.e1",
+        "video_id": "v1",
+        "time_span": [
+          1793.0,
+          1794.0
+        ],
+        "description": "A person wearing a head-mounted rig uses a yellow-handled screwdriver to work on the front of a blue toy truck. A white block is mounted on the truck's rear bed.",
+        "uncertainty": "Specific assembly step (dump-bed-to-chassis) not explicitly visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v1.focus.r2.l1.g1",
+        "video_id": "v1",
+        "time_span": [
+          1450.0,
+          1465.0
+        ],
+        "reason": "VLM output remained invalid: event e2 spans [1460.000, 1465.000]s but its earliest cited frame FOCUS-0001450000-0001465000-F10 is at 1459.000s; an event span must contain every frame it cites",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ]
+  },
+  "turns": [
+    {
+      "summary": "Need local v1 evidence that cabin-on-chassis attachment while dump bed is separate causes a visible wrong-order assembly error.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v1.c006"
+        ],
+        "evidence_goal": "In v1 682-714, is the blue cabin being secured to the black chassis while the white dump bed remains separate, and does this create a visible fit or assembly error?",
+        "next_probe_goal": "If no error is visible, check whether the bed was set aside before cabin attachment in the adjacent v1 transition.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need Video1 order test: whether dump bed/chassis assembly is blocked by already-mounted cabin/base.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c019",
+          "v1.c020"
+        ],
+        "evidence_goal": "During the Video 1 dump-bed-to-chassis assembly, is the cabin already mounted on the chassis/base and physically blocking the dump bed from seating?",
+        "next_probe_goal": "If no blockage is visible, inspect whether the cabin/base assembly itself shows a fit error caused by the dump bed being placed aside first.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The strongest supported causal chain is in v1: the cabin is attached before the dump bed, and the later dump-bed-to-chassis positioning is obstructed by the already-mounted cabin. This best matches option B, Video 1: Attach dump bed and chassis. v2/v3 lack direct wrong-order error evidence, and the cabin-to-chassis step itself does not show the observed fit failure. Some uncertainty remains because the dump-bed seating error is partly occluded, but the required focus stages are complete and B is the best-supported choice.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r1-U02-01.s02",
+      "v1.zoom.r2-r1-01.s02"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 7,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        286.0,
+        301.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        301.0,
+        316.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        316.0,
+        331.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        331.0,
+        346.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        346.0,
+        350.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        350.0,
+        370.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses a screwdriver to attach a black wheel to a black chassis held in the left hand. Loose screws and other parts remain on the table.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Sequence relative to bed assembly is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        370.0,
+        382.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        382.0,
+        402.0
+      ],
+      "resolution": "coarse",
+      "content": "Person continues screwing wheels onto the black chassis. At 402s, the chassis with wheels is placed on the table.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Missing footage between 370s and 382s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        402.0,
+        417.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        417.0,
+        432.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        432.0,
+        447.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        447.0,
+        462.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u011",
+      "video": "v1",
+      "time": [
+        462.0,
+        477.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u012",
+      "video": "v1",
+      "time": [
+        477.0,
+        492.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u013",
+      "video": "v1",
+      "time": [
+        492.0,
+        507.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u014",
+      "video": "v1",
+      "time": [
+        507.0,
+        522.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u015",
+      "video": "v1",
+      "time": [
+        522.0,
+        537.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u016",
+      "video": "v1",
+      "time": [
+        537.0,
+        550.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        550.0,
+        562.0
+      ],
+      "resolution": "coarse",
+      "content": "Person handles a white dump bed and a blue base component. The black chassis with wheels sits on the table to the right.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action sequence regarding the blue base and chassis is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u017",
+      "video": "v1",
+      "time": [
+        566.0,
+        581.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        566.0,
+        618.0
+      ],
+      "resolution": "coarse",
+      "content": "Subject holds the white dump bed and screwdriver. The bed is positioned above the black chassis, attempting to attach it.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Attachment is not confirmed as successful in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u018",
+      "video": "v1",
+      "time": [
+        581.0,
+        596.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u019",
+      "video": "v1",
+      "time": [
+        596.0,
+        606.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        622.0,
+        638.0
+      ],
+      "resolution": "coarse",
+      "content": "The white dump bed is placed on the table. The subject picks up the blue cabin and attaches it to the black chassis.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Status of the dump bed attachment to chassis is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u020",
+      "video": "v1",
+      "time": [
+        638.0,
+        653.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u021",
+      "video": "v1",
+      "time": [
+        653.0,
+        668.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u022",
+      "video": "v1",
+      "time": [
+        668.0,
+        682.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U02-01.s01",
+      "video": "v1",
+      "time": [
+        682.0,
+        697.0
+      ],
+      "resolution": "fine",
+      "content": "Participant holds a screwdriver and reaches for a blue plastic part on the table while the truck sits assembled with the white bed separate. Participant places a hand on the blue cabin and brings the screwdriver to the cabin top, initiating a securing action. Participant continues holding the blue cabin down while working with the screwdriver on the cabin's top surface.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "Purpose of the blue part is not visually confirmed.",
+        "Whether a screw is fully seated is not visible.",
+        "Completion of the securing action is not shown.",
+        "Unresolved: Visibility of any specific fit or assembly error resulting from the action."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U02-01.s02",
+      "video": "v1",
+      "time": [
+        697.0,
+        712.0
+      ],
+      "resolution": "fine",
+      "content": "The person is actively using a screwdriver to secure the blue cabin onto the black chassis. The white dump bed is visible on the table, remaining separate from the assembly. The person pauses the screwing action and repositions the screwdriver while holding the blue cabin.",
+      "evidence": [
+        "v1.focus.r1.l2.e1",
+        "v1.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "No visible fit error is apparent during the screwing process.",
+        "Reason for the pause is not visible.",
+        "Unresolved: Whether a fit error occurs later or is subtle"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u023",
+      "video": "v1",
+      "time": [
+        698.0,
+        713.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U02-01.s03",
+      "video": "v1",
+      "time": [
+        712.0,
+        714.0
+      ],
+      "resolution": "fine",
+      "content": "A person wearing a headset uses a yellow-handled screwdriver on the roof of a blue toy cabin mounted on a black chassis. A white dump bed sits separately on the table.",
+      "evidence": [
+        "v1.focus.r1.l3.e1"
+      ],
+      "uncertainty": [
+        "Visibility of specific fit or assembly errors is limited.",
+        "Unresolved: Confirmation of whether the blue cabin is being secured (vs. just resting) and specific assembly errors."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u024",
+      "video": "v1",
+      "time": [
+        713.0,
+        714.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        718.0,
+        730.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject uses a screwdriver on the cabin of the blue truck chassis.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "Screwdriver is set down by end of span."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u025",
+      "video": "v1",
+      "time": [
+        730.0,
+        745.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u026",
+      "video": "v1",
+      "time": [
+        745.0,
+        760.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u027",
+      "video": "v1",
+      "time": [
+        760.0,
+        775.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u028",
+      "video": "v1",
+      "time": [
+        775.0,
+        790.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u029",
+      "video": "v1",
+      "time": [
+        790.0,
+        805.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u030",
+      "video": "v1",
+      "time": [
+        805.0,
+        814.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        814.0,
+        838.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject holds and manipulates a blue rectangular panel, appearing to screw components into it.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "The panel's final attachment point is not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        842.0,
+        854.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject attaches the white dump bed to the blue panel assembly.",
+      "evidence": [
+        "v1-b0003-e3"
+      ],
+      "uncertainty": [
+        "The combined unit is placed on the truck bed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u031",
+      "video": "v1",
+      "time": [
+        846.0,
+        854.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c010",
+      "video": "v1",
+      "time": [
+        858.0,
+        862.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject places the blue panel assembly onto the truck chassis, leaving the dump bed on the table.",
+      "evidence": [
+        "v1-b0003-e4"
+      ],
+      "uncertainty": [
+        "The dump bed remains detached from the truck."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c011",
+      "video": "v1",
+      "time": [
+        866.0,
+        874.0
+      ],
+      "resolution": "coarse",
+      "content": "Person handles a blue toy truck cab, removing a small blue part and then holding the separated blue base piece.",
+      "evidence": [
+        "v1-b0004-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the removed part unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u032",
+      "video": "v1",
+      "time": [
+        874.0,
+        878.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c012",
+      "video": "v1",
+      "time": [
+        878.0,
+        894.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds the blue base piece, then places it onto the truck chassis and uses a yellow screwdriver.",
+      "evidence": [
+        "v1-b0004-e2"
+      ],
+      "uncertainty": [
+        "Whether the part fits correctly is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u033",
+      "video": "v1",
+      "time": [
+        894.0,
+        909.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u034",
+      "video": "v1",
+      "time": [
+        909.0,
+        924.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u035",
+      "video": "v1",
+      "time": [
+        924.0,
+        939.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u036",
+      "video": "v1",
+      "time": [
+        939.0,
+        954.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u037",
+      "video": "v1",
+      "time": [
+        954.0,
+        969.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u038",
+      "video": "v1",
+      "time": [
+        969.0,
+        984.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u039",
+      "video": "v1",
+      "time": [
+        984.0,
+        999.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u040",
+      "video": "v1",
+      "time": [
+        999.0,
+        1014.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u041",
+      "video": "v1",
+      "time": [
+        1014.0,
+        1029.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u042",
+      "video": "v1",
+      "time": [
+        1029.0,
+        1044.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u043",
+      "video": "v1",
+      "time": [
+        1044.0,
+        1059.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u044",
+      "video": "v1",
+      "time": [
+        1059.0,
+        1074.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u045",
+      "video": "v1",
+      "time": [
+        1074.0,
+        1089.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u046",
+      "video": "v1",
+      "time": [
+        1089.0,
+        1104.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u047",
+      "video": "v1",
+      "time": [
+        1104.0,
+        1119.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u048",
+      "video": "v1",
+      "time": [
+        1119.0,
+        1134.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u049",
+      "video": "v1",
+      "time": [
+        1134.0,
+        1149.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u050",
+      "video": "v1",
+      "time": [
+        1149.0,
+        1164.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u051",
+      "video": "v1",
+      "time": [
+        1164.0,
+        1170.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c013",
+      "video": "v1",
+      "time": [
+        1170.0,
+        1186.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a white dump bed assembly with a blue frame, using the screwdriver to work on it.",
+      "evidence": [
+        "v1-b0004-e3"
+      ],
+      "uncertainty": [
+        "The target of the screwdriver action is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u052",
+      "video": "v1",
+      "time": [
+        1186.0,
+        1201.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u053",
+      "video": "v1",
+      "time": [
+        1201.0,
+        1214.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c014",
+      "video": "v1",
+      "time": [
+        1214.0,
+        1222.0
+      ],
+      "resolution": "coarse",
+      "content": "Person attaches the white dump bed onto the blue truck chassis, then picks up a small blue part.",
+      "evidence": [
+        "v1-b0004-e4"
+      ],
+      "uncertainty": [
+        "Fit quality of the dump bed is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c015",
+      "video": "v1",
+      "time": [
+        1226.0,
+        1234.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches the white dump bed to the blue base, securing it with the yellow screwdriver.",
+      "evidence": [
+        "v1-b0005-e1"
+      ],
+      "uncertainty": [
+        "Whether this step precedes chassis attachment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u054",
+      "video": "v1",
+      "time": [
+        1234.0,
+        1249.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u055",
+      "video": "v1",
+      "time": [
+        1249.0,
+        1264.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u056",
+      "video": "v1",
+      "time": [
+        1264.0,
+        1279.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u057",
+      "video": "v1",
+      "time": [
+        1279.0,
+        1294.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c016",
+      "video": "v1",
+      "time": [
+        1294.0,
+        1310.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the assembled dump bed/base unit and manipulates the black chassis, attaching wheels.",
+      "evidence": [
+        "v1-b0005-e2"
+      ],
+      "uncertainty": [
+        "Exact sequence of chassis component attachment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u058",
+      "video": "v1",
+      "time": [
+        1310.0,
+        1325.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u059",
+      "video": "v1",
+      "time": [
+        1325.0,
+        1340.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u060",
+      "video": "v1",
+      "time": [
+        1340.0,
+        1355.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u061",
+      "video": "v1",
+      "time": [
+        1355.0,
+        1370.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u062",
+      "video": "v1",
+      "time": [
+        1370.0,
+        1385.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u063",
+      "video": "v1",
+      "time": [
+        1385.0,
+        1394.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c017",
+      "video": "v1",
+      "time": [
+        1394.0,
+        1414.0
+      ],
+      "resolution": "coarse",
+      "content": "The person unscrews and separates the white dump bed from the blue base.",
+      "evidence": [
+        "v1-b0005-e3"
+      ],
+      "uncertainty": [
+        "Reason for disassembly not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c018",
+      "video": "v1",
+      "time": [
+        1418.0,
+        1422.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches the blue base directly to the black chassis, bypassing the white dump bed.",
+      "evidence": [
+        "v1-b0005-e4"
+      ],
+      "uncertainty": [
+        "Whether dump bed was meant to be attached."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u064",
+      "video": "v1",
+      "time": [
+        1422.0,
+        1437.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u065",
+      "video": "v1",
+      "time": [
+        1437.0,
+        1450.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        1450.0,
+        1465.0
+      ],
+      "resolution": "fine",
+      "content": "Observation gap: VLM output remained invalid: event e2 spans [1460.000, 1465.000]s but its earliest cited frame FOCUS-0001450000-0001465000-F10 is at 1459.000s; an event span must contain every frame it cites",
+      "evidence": [
+        "v1.focus.r2.l1.g1"
+      ],
+      "uncertainty": [
+        "Gap 1450.000-1465.000s: VLM output remained invalid: event e2 spans [1460.000, 1465.000]s but its earliest cited frame FOCUS-0001450000-0001465000-F10 is at 1459.000s; an event span must contain every frame it cites",
+        "Unresolved: This local frame batch has no validated visual description."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s02",
+      "video": "v1",
+      "time": [
+        1465.0,
+        1478.0
+      ],
+      "resolution": "fine",
+      "content": "Participant holds white C106 dump bed and positions it over the blue chassis, attempting to seat it. White C106 dump bed rests on the table next to the chassis; participant adjusts the blue chassis. Participant picks up and manipulates a small black component, separate from the dump bed and chassis.",
+      "evidence": [
+        "v1.focus.r2.l2.e1",
+        "v1.focus.r2.l2.e2",
+        "v1.focus.r2.l2.e3"
+      ],
+      "uncertainty": [
+        "Unresolved: Visibility of cabin component on chassis is obstructed by hands and angle"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u066",
+      "video": "v1",
+      "time": [
+        1478.0,
+        1493.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u067",
+      "video": "v1",
+      "time": [
+        1493.0,
+        1508.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u068",
+      "video": "v1",
+      "time": [
+        1508.0,
+        1523.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u069",
+      "video": "v1",
+      "time": [
+        1523.0,
+        1538.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u070",
+      "video": "v1",
+      "time": [
+        1538.0,
+        1553.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u071",
+      "video": "v1",
+      "time": [
+        1553.0,
+        1568.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u072",
+      "video": "v1",
+      "time": [
+        1568.0,
+        1583.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u073",
+      "video": "v1",
+      "time": [
+        1583.0,
+        1598.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u074",
+      "video": "v1",
+      "time": [
+        1598.0,
+        1613.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u075",
+      "video": "v1",
+      "time": [
+        1613.0,
+        1628.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u076",
+      "video": "v1",
+      "time": [
+        1628.0,
+        1643.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u077",
+      "video": "v1",
+      "time": [
+        1643.0,
+        1658.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u078",
+      "video": "v1",
+      "time": [
+        1658.0,
+        1673.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u079",
+      "video": "v1",
+      "time": [
+        1673.0,
+        1688.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u080",
+      "video": "v1",
+      "time": [
+        1688.0,
+        1703.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u081",
+      "video": "v1",
+      "time": [
+        1703.0,
+        1718.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u082",
+      "video": "v1",
+      "time": [
+        1718.0,
+        1733.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u083",
+      "video": "v1",
+      "time": [
+        1733.0,
+        1748.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u084",
+      "video": "v1",
+      "time": [
+        1748.0,
+        1763.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u085",
+      "video": "v1",
+      "time": [
+        1763.0,
+        1778.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-02.s01",
+      "video": "v1",
+      "time": [
+        1778.0,
+        1793.0
+      ],
+      "resolution": "fine",
+      "content": "The subject holds a gray rectangular component in their hands, positioned above the table. The blue truck with the dump bed attached is stationary on the right. The subject manipulates the blue truck, moving the gray component towards the truck's front section (cabin area) and rotating the vehicle. The subject uses a yellow screwdriver to interact with the front section of the truck where the gray component was placed.",
+      "evidence": [
+        "v1.focus.r2.l3.e1",
+        "v1.focus.r2.l3.e2",
+        "v1.focus.r2.l3.e3"
+      ],
+      "uncertainty": [
+        "The specific function of the held component is not visually defined.",
+        "It is unclear if the component is being attached or just tested for fit.",
+        "The screwdriver's specific action (tightening vs prying) is ambiguous.",
+        "Unresolved: Visual confirmation of whether the dump bed is physically blocked by the cabin assembly."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-02.s02",
+      "video": "v1",
+      "time": [
+        1793.0,
+        1794.0
+      ],
+      "resolution": "fine",
+      "content": "A person wearing a head-mounted rig uses a yellow-handled screwdriver to work on the front of a blue toy truck. A white block is mounted on the truck's rear bed.",
+      "evidence": [
+        "v1.focus.r2.l4.e1"
+      ],
+      "uncertainty": [
+        "Specific assembly step (dump-bed-to-chassis) not explicitly visible.",
+        "Unresolved: Visibility of cabin mounting status relative to dump bed seating"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u086",
+      "video": "v1",
+      "time": [
+        1794.0,
+        1806.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        325.0,
+        340.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        340.0,
+        355.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        355.0,
+        370.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        370.0,
+        385.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        385.0,
+        400.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        400.0,
+        411.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        411.0,
+        419.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds a rectangular component, possibly a dump bed or cabin, and places it on the table.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact component identity and final placement."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        419.0,
+        434.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        434.0,
+        449.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        449.0,
+        464.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        464.0,
+        479.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        479.0,
+        489.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        489.0,
+        503.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches the rectangular component to a larger assembly, then holds the combined structure.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Which specific parts are joined (bed/base vs bed/chassis)."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        503.0,
+        509.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        509.0,
+        513.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the assembled structure, revealing the joined components and the table with remaining parts.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether the assembly is complete or if an error is present."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        515.0,
+        517.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a toy truck chassis with an attached dump bed. The cabin is missing from the chassis.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Assembly sequence context is missing."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        517.0,
+        532.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        532.0,
+        533.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        533.0,
+        547.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses a screwdriver to attach wheels to the truck chassis while the dump bed is already mounted.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Whether this sequence caused an error is not visually explicit."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        547.0,
+        562.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        562.0,
+        577.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        577.0,
+        592.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        592.0,
+        593.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        593.0,
+        605.0
+      ],
+      "resolution": "coarse",
+      "content": "Person is now attaching the cabin to the truck, which already has wheels and the dump bed attached.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "The specific error caused by this order is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        601.0,
+        605.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        607.0,
+        607.0
+      ],
+      "resolution": "coarse",
+      "content": "Hands manipulate a disassembled toy truck base, with a screwdriver being used on a component.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact assembly step is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        609.0,
+        609.0
+      ],
+      "resolution": "coarse",
+      "content": "Hands hold a truck cab and a dump bed separately, preparing for assembly.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Exact assembly step is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        611.0,
+        615.0
+      ],
+      "resolution": "coarse",
+      "content": "A screwdriver is used to fasten the assembled truck body onto the chassis.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Exact assembly step is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        615.0,
+        630.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        630.0,
+        631.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        213.0,
+        219.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        219.0,
+        227.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses a tool on a black chassis component, attaching wheels to the underside of the base.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific step in the assembly sequence is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        227.0,
+        233.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        233.0,
+        241.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant continues to secure the chassis base, ensuring wheels are firmly attached to the black component.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Internal mechanics of the attachment are obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        241.0,
+        256.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        256.0,
+        271.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        271.0,
+        286.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        286.0,
+        301.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        301.0,
+        316.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        316.0,
+        331.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        331.0,
+        346.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        346.0,
+        357.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        357.0,
+        365.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant handles a blue cab and white dump bed assembly, placing it on the table and manipulating the bed.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "The connection to the chassis is not shown in this span."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        365.0,
+        380.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        380.0,
+        395.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u013",
+      "video": "v3",
+      "time": [
+        395.0,
+        410.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u014",
+      "video": "v3",
+      "time": [
+        410.0,
+        411.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        411.0,
+        411.0
+      ],
+      "resolution": "coarse",
+      "content": "The final assembly is visible with the white dump bed attached to the blue cab, which sits on the black chassis.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "The order of assembly leading to this state is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        413.0,
+        417.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds a small orange component against the side of a blue toy truck that already has a white dump bed attached.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact attachment status of the orange part is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        419.0,
+        421.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant places a gray rectangular part on the table; the orange part is also visible lying separately on the table.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "Origin of the gray part is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u015",
+      "video": "v3",
+      "time": [
+        421.0,
+        431.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c007",
+      "video": "v3",
+      "time": [
+        431.0,
+        435.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant manipulates the truck, which now has a gray cabin attached to the chassis, while the orange part remains on the table.",
+      "evidence": [
+        "v3-b0002-e3"
+      ],
+      "uncertainty": [
+        "Whether the cabin was newly attached or previously present is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c008",
+      "video": "v3",
+      "time": [
+        437.0,
+        439.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds a small white component with both hands, while the truck with the gray cabin sits stationary on the table.",
+      "evidence": [
+        "v3-b0002-e4"
+      ],
+      "uncertainty": [
+        "Target location for the white component is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If no error is visible, check whether the bed was set aside before cabin attachment in the adjacent v1 transition.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 7,
+    "visual_calls_remaining": 1,
+    "maximum_visual_calls_for_current_stage": 1,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

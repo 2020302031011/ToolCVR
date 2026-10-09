@@ -1,0 +1,385 @@
+{
+  "question": "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+  "options": [
+    "A. 1",
+    "B. 3",
+    "C. 5",
+    "D. 7"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a single car driving in a traffic lane",
+        "source": "option_A",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "three cars lined up in a road lane",
+        "source": "option_B",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "five vehicles traveling together in one lane",
+        "source": "option_C",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "seven cars moving in a single traffic row",
+        "source": "option_D",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+      "1",
+      "3",
+      "5",
+      "7",
+      "Counting specific numbers of objects (1, 3, 5, 7) is not directly retrievable by CLIP; use these phrases to find candidate frames and then verify counts manually",
+      "The question involves temporal reasoning ('leaves view B') and spatial reference ({A3}, {B1}) which cannot be captured in static image captions",
+      "Preserve all answer options A, B, C, D as candidates for verification"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 11.6,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 6,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          10.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            10.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03",
+            "S1-F04",
+            "S1-F05",
+            "S1-F06"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=6/6 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT all sparse candidates retained; moments between sampled frames remain unobserved\nEVENT INDEX\n- v1-b1-audit-b1-1 [0.000-10.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03,S1-F04,S1-F05,S1-F06 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b1-audit-b1-1 [0.000-10.000s] Selection proposal only for segment S1.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b1-audit-b1-1 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b1-audit-b1-1"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F06",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 11.6,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 6,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          10.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            10.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03",
+            "S1-F04",
+            "S1-F05",
+            "S1-F06"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=6/6 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT all sparse candidates retained; moments between sampled frames remain unobserved\nEVENT INDEX\n- v2-b1-audit-b1-1 [0.000-10.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03,S1-F04,S1-F05,S1-F06 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b1-audit-b1-1 [0.000-10.000s] Selection proposal only for segment S1.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b1-audit-b1-1 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b1-audit-b1-1"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F06",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": [
+            "When {B1} leaves view B, how many cars are there in the lane where {A3} is in view A?",
+            "seven cars moving in a single traffic row"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MOC-565",
+    "task": "MOC",
+    "ground_truth": "D",
+    "rewrite_model": "qwen3.8-flash",
+    "clip_model": "openai/clip-vit-large-patch14-336",
+    "selection_only": true,
+    "duration_stratified_audit": false,
+    "selection_profile": null,
+    "configured_retention_ratio": null,
+    "query_plan_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MOC/MOC-565/query_plan.json",
+    "adaptation_notes": [
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-347 (0.000-11.600s)/348_frames; B1_visible=0-244 (0.000-8.167s)/348_frames.",
+      "A2/B2 is source_track=33; declared=car; A2_visible=0-347 (0.000-11.600s)/348_frames; B2_visible=0-347 (0.000-11.600s)/348_frames.",
+      "A3/B3 is source_track=35; declared=car; A3_visible=0-347 (0.000-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.",
+      "A4/B4 is source_track=36; declared=car; A4_visible=0-347 (0.000-11.600s)/348_frames; B4_visible=0-347 (0.000-11.600s)/348_frames.",
+      "A5/B5 is source_track=69; declared=bicycle; A5_visible=0-347 (0.000-11.600s)/348_frames; B5_visible=0-347 (0.000-11.600s)/348_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "inputs": [
+      {
+        "video_id": "v1",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-78"
+      },
+      {
+        "video_id": "v2",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-78"
+      }
+    ]
+  }
+}

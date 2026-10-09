@@ -1,0 +1,130 @@
+{
+  "question": "When {A1} appears in view A, where is {B3} in view B compared to {B1}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A red bus moves rightward through an intersection while a white car in the foreground moves leftward."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "An aerial view of a city intersection shows traffic moving in multiple directions, including cars and a bus."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Videos v1 and v2 share the uav-scene-31 clock, so equal timestamps can be compared across these views.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The relative position of B3 to B1 in view B at the synchronized time when A1 appears in view A remains unresolved.",
+      "reason": "The supplied events do not identify the annotated tracks or their spatial positions, and the reference sidecar gives visibility ranges but not positions.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Which supplied video corresponds to view A and which corresponds to view B remains unresolved.",
+      "reason": "The reports identify v1 and v2 but do not map them to the question's view A and view B labels.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At the first synchronized timestamp in which A1 is visible in view A, compare the positions of the B3 and B1 annotated tracks in view B.",
+      "purpose": "Determine whether B3 is directly behind, behind and to the right, behind and to the left, or not visible relative to B1.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the traffic directions and annotated track presence in v1 and v2 to identify which video is view A and which is view B.",
+      "purpose": "Resolve the missing mapping between supplied video IDs and the question's view labels.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "information I03 dropped: incomplete after validation",
+    "information I04 dropped: incomplete after validation"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-132",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-132/report.json",
+    "report_sha256": "4a21f413d712e72eec1dd5967366f85dad177194828f3e323db8e9729e17b6ad",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

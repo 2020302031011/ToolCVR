@@ -1,0 +1,1741 @@
+{
+  "state": {
+    "question": "Which action is incorrectly performed in exactly two videos?",
+    "round_id": 3,
+    "summary": "Evidence indicates physical manipulations in all three videos involving assembly/disassembly of toy vehicle parts. v1 shows ambiguous detachment/attachment of blue/orange pieces near the chassis. v2 shows generic manipulation of a small assembly with unclear specific action type. v3 shows assembly of chassis/wheels and ambiguous adjustment of a blue piece on top (potentially roof/cabin). The correctness of these actions relative to the options (A-D) is not yet visually confirmed, and it is unclear which specific actions are 'incorrectly performed' or if they match the option descriptions.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req_action_correctness_v1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v1.c006"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req_action_correctness_v2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c007",
+          "v2.c009"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req_action_correctness_v3",
+        "status": "open",
+        "evidence_refs": [
+          "v3.c004",
+          "v3.zoom.r1-U04-01.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          94.0,
+          102.0
+        ],
+        "description": "S1: Person holding blue and orange pieces, manipulating them together. Table has black chassis, blue pieces, tan cabin.",
+        "uncertainty": "Specific action label unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          124.0,
+          132.0
+        ],
+        "description": "S2: Person holding black chassis and blue piece, then attaching orange piece to chassis. Blue piece on table.",
+        "uncertainty": "Action correctness not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          134.0,
+          142.0
+        ],
+        "description": "S3: Person holding chassis with orange piece, attaching blue and tan pieces. Tan cabin on table.",
+        "uncertainty": "Action correctness not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          150.0,
+          150.0
+        ],
+        "description": "S4: Person holding chassis with blue and orange pieces, attaching blue piece.",
+        "uncertainty": "Action correctness not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          152.0,
+          162.0
+        ],
+        "description": "The person manipulates a small toy assembly, separating a blue and orange component from a yellow and black chassis piece, then reassembles it.",
+        "uncertainty": "Exact nature of the toy parts is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          166.0,
+          174.0
+        ],
+        "description": "The person picks up a blue tool with an orange tip and uses it to interact with the held toy assembly, appearing to pry or adjust a component.",
+        "uncertainty": "Specific action performed by the tool is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          188.0,
+          196.0
+        ],
+        "description": "The person continues to hold and inspect the toy assembly, turning it over in their hands while the blue tool rests on the table.",
+        "uncertainty": "State of the toy components is not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          198.0,
+          198.0
+        ],
+        "description": "Person holds a blue tool and a small blue part, preparing to work on an assembly.",
+        "uncertainty": "The specific action being performed is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          224.0,
+          226.0
+        ],
+        "description": "Person uses a blue tool to manipulate a small part on a larger assembly.",
+        "uncertainty": "The exact nature of the manipulation is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          228.0,
+          228.0
+        ],
+        "description": "Person holds a small blue part, with the assembly and tool on the table.",
+        "uncertainty": "The relationship between the part and the assembly is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e4",
+        "video_id": "v1",
+        "time_span": [
+          230.0,
+          232.0
+        ],
+        "description": "Person uses a blue tool to manipulate a small part on a larger assembly.",
+        "uncertainty": "The exact nature of the manipulation is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          169.0,
+          173.0
+        ],
+        "description": "Person separates a small component from a larger assembly on the table.",
+        "uncertainty": "Specific part names not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          175.0,
+          183.0
+        ],
+        "description": "Person manipulates and aligns two small parts, appearing to attach them together.",
+        "uncertainty": "Exact attachment point unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          197.0,
+          205.0
+        ],
+        "description": "Person holds a larger assembly and attaches a small component to it.",
+        "uncertainty": "Component identity is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          223.0,
+          227.0
+        ],
+        "description": "Person handles two separate sub-assemblies and begins to connect them.",
+        "uncertainty": "Final connection state not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          229.0,
+          231.0
+        ],
+        "description": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+        "uncertainty": "Specific action type not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          259.0,
+          267.0
+        ],
+        "description": "Person manipulates loose parts on the table, including a wheel, then holds a small assembly.",
+        "uncertainty": "Target action not visible in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          273.0,
+          285.0
+        ],
+        "description": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+        "uncertainty": "Specific action type not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          291.0,
+          293.0
+        ],
+        "description": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+        "uncertainty": "Specific action type not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          295.0,
+          299.0
+        ],
+        "description": "The person manipulates a small object over the table, with pieces visible on the surface by the end.",
+        "uncertainty": "Exact action type is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          357.0,
+          365.0
+        ],
+        "description": "The person holds and adjusts a small object, likely a model car, over the table.",
+        "uncertainty": "Exact action type is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          130.0,
+          134.0
+        ],
+        "description": "The person picks up the black chassis and attaches the orange axle and blue connector to it.",
+        "uncertainty": "Correctness of assembly relative to instructions is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          164.0,
+          172.0
+        ],
+        "description": "The person inserts an orange axle and blue connector into the black chassis.",
+        "uncertainty": "Whether this action is incorrect is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          188.0,
+          196.0
+        ],
+        "description": "The person attaches the yellow cabin to the chassis and places it on the table.",
+        "uncertainty": "Correctness of cabin attachment is not confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          200.0,
+          204.0
+        ],
+        "description": "The person holds the assembled vehicle, then places it down and adjusts the cabin.",
+        "uncertainty": "Purpose of adjustment is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          206.0,
+          208.0
+        ],
+        "description": "The person holds a yellow vehicle body with red wheels over the table, with an orange and blue part already attached.",
+        "uncertainty": "The specific action being performed is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          238.0,
+          246.0
+        ],
+        "description": "The person assembles the vehicle chassis, attaching red wheels to the yellow body and then placing the assembled unit on the table.",
+        "uncertainty": "The correctness of the assembly order is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e3",
+        "video_id": "v3",
+        "time_span": [
+          254.0,
+          262.0
+        ],
+        "description": "The person holds and manipulates an orange part, attempting to attach it to a blue part.",
+        "uncertainty": "The intended final configuration is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e4",
+        "video_id": "v3",
+        "time_span": [
+          268.0,
+          274.0
+        ],
+        "description": "The person attaches a small yellow part to the orange and blue assembly.",
+        "uncertainty": "The correctness of this attachment is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e1",
+        "video_id": "v3",
+        "time_span": [
+          276.0,
+          276.0
+        ],
+        "description": "A person holds a small, partially assembled toy component with both hands, manipulating it slightly. A loose blue piece is visible on the table.",
+        "uncertainty": "Target action not visible in supplied frames",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e2",
+        "video_id": "v3",
+        "time_span": [
+          284.0,
+          288.0
+        ],
+        "description": "A person holds a toy chassis and attempts to attach a blue roof/cabin piece to the top of it.",
+        "uncertainty": "Success of attachment is ambiguous",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3.focus.r1.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          284.0,
+          288.0
+        ],
+        "description": "A person wearing a VR headset holds a small orange and blue toy vehicle in their left hand and manipulates a blue piece on top of it with their right hand.",
+        "uncertainty": "Exact nature of the blue piece and assembly target is ambiguous.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          152.0,
+          156.0
+        ],
+        "description": "The person holds a blue and orange toy assembly, manipulating it with both hands near the center of the workspace.",
+        "uncertainty": "Exact assembly state before manipulation is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          157.0,
+          158.0
+        ],
+        "description": "The person holds a chassis piece in the left hand while the blue/orange piece is moved towards the table surface.",
+        "uncertainty": "Whether this is a detachment or a swap is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          159.0,
+          162.0
+        ],
+        "description": "The person holds the blue/orange piece again, rotating it in their hands while other pieces remain on the table.",
+        "uncertainty": "The specific reassembly action is not fully resolved.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local part-identity clarification for v3 roof/cabin attachment to map option D.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U04",
+        "slot_ids": [
+          "v3.c010"
+        ],
+        "evidence_goal": "In v3.c010, is the blue piece a roof being attached to a cabin rather than a roof/cabin piece attached to a chassis?",
+        "next_probe_goal": "If it is roof-to-cabin, check whether the attachment transition is visibly incorrect.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need v1 part identity and transition correctness",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c005"
+        ],
+        "evidence_goal": "Does v1.c005 visibly show the blue/orange piece being detached/reassembled from the chassis as an arm connector, body, roof/cabin, or bumper, and is that transition incorrect?",
+        "next_probe_goal": "If v1 supports one action pair, check v2.c007 for the same pair and incorrectness.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Evidence indicates physical manipulations in all three videos involving assembly/disassembly of toy vehicle parts. v1 shows ambiguous detachment/attachment of blue/orange pieces near the chassis. v2 shows generic manipulation of a small assembly with unclear specific action type. v3 shows assembly of chassis/wheels and ambiguous adjustment of a blue piece on top (potentially roof/cabin). The correctness of these actions relative to the options (A-D) is not yet visually confirmed, and it is unclear which specific actions are 'incorrectly performed' or if they match the option descriptions.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['d2.c007', 'd2.c009']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['d2.c007', 'd2.c009']"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        72.0,
+        87.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        87.0,
+        94.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        94.0,
+        102.0
+      ],
+      "resolution": "coarse",
+      "content": "S1: Person holding blue and orange pieces, manipulating them together. Table has black chassis, blue pieces, tan cabin.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific action label unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        102.0,
+        117.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        117.0,
+        124.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        124.0,
+        132.0
+      ],
+      "resolution": "coarse",
+      "content": "S2: Person holding black chassis and blue piece, then attaching orange piece to chassis. Blue piece on table.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action correctness not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        132.0,
+        134.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        134.0,
+        142.0
+      ],
+      "resolution": "coarse",
+      "content": "S3: Person holding chassis with orange piece, attaching blue and tan pieces. Tan cabin on table.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action correctness not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        142.0,
+        150.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        150.0,
+        150.0
+      ],
+      "resolution": "coarse",
+      "content": "S4: Person holding chassis with blue and orange pieces, attaching blue piece.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Action correctness not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        152.0,
+        162.0
+      ],
+      "resolution": "fine",
+      "content": "The person holds a blue and orange toy assembly, manipulating it with both hands near the center of the workspace. The person holds a chassis piece in the left hand while the blue/orange piece is moved towards the table surface. The person holds the blue/orange piece again, rotating it in their hands while other pieces remain on the table.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2",
+        "v1.focus.r2.l1.e3"
+      ],
+      "uncertainty": [
+        "Exact assembly state before manipulation is unclear.",
+        "Whether this is a detachment or a swap is not visible.",
+        "The specific reassembly action is not fully resolved.",
+        "Unresolved: Confirmation of the piece's function (arm connector, body, etc.)"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        162.0,
+        166.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        166.0,
+        174.0
+      ],
+      "resolution": "coarse",
+      "content": "The person picks up a blue tool with an orange tip and uses it to interact with the held toy assembly, appearing to pry or adjust a component.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Specific action performed by the tool is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        174.0,
+        188.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        188.0,
+        196.0
+      ],
+      "resolution": "coarse",
+      "content": "The person continues to hold and inspect the toy assembly, turning it over in their hands while the blue tool rests on the table.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "State of the toy components is not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        198.0,
+        198.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a blue tool and a small blue part, preparing to work on an assembly.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "The specific action being performed is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        198.0,
+        213.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        213.0,
+        224.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        224.0,
+        226.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses a blue tool to manipulate a small part on a larger assembly.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "The exact nature of the manipulation is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c010",
+      "video": "v1",
+      "time": [
+        228.0,
+        228.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a small blue part, with the assembly and tool on the table.",
+      "evidence": [
+        "v1-b0003-e3"
+      ],
+      "uncertainty": [
+        "The relationship between the part and the assembly is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c011",
+      "video": "v1",
+      "time": [
+        230.0,
+        232.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses a blue tool to manipulate a small part on a larger assembly.",
+      "evidence": [
+        "v1-b0003-e4"
+      ],
+      "uncertainty": [
+        "The exact nature of the manipulation is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u011",
+      "video": "v1",
+      "time": [
+        232.0,
+        234.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        161.0,
+        169.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        169.0,
+        173.0
+      ],
+      "resolution": "coarse",
+      "content": "Person separates a small component from a larger assembly on the table.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific part names not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        175.0,
+        183.0
+      ],
+      "resolution": "coarse",
+      "content": "Person manipulates and aligns two small parts, appearing to attach them together.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact attachment point unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        183.0,
+        197.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        197.0,
+        205.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a larger assembly and attaches a small component to it.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Component identity is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        205.0,
+        220.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        220.0,
+        223.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        223.0,
+        227.0
+      ],
+      "resolution": "coarse",
+      "content": "Person handles two separate sub-assemblies and begins to connect them.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Final connection state not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        229.0,
+        231.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Specific action type not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        231.0,
+        246.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        246.0,
+        259.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        259.0,
+        267.0
+      ],
+      "resolution": "coarse",
+      "content": "Person manipulates loose parts on the table, including a wheel, then holds a small assembly.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Target action not visible in supplied frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        267.0,
+        273.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        273.0,
+        285.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Specific action type not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        285.0,
+        291.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        291.0,
+        293.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds a small assembly in the left hand and uses the right hand to manipulate a component.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Specific action type not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        295.0,
+        299.0
+      ],
+      "resolution": "coarse",
+      "content": "The person manipulates a small object over the table, with pieces visible on the surface by the end.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact action type is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        299.0,
+        314.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        314.0,
+        329.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        329.0,
+        344.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        344.0,
+        357.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        357.0,
+        365.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds and adjusts a small object, likely a model car, over the table.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Exact action type is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        365.0,
+        380.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        380.0,
+        395.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        395.0,
+        410.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        410.0,
+        425.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        425.0,
+        440.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        440.0,
+        455.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        455.0,
+        460.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        130.0,
+        134.0
+      ],
+      "resolution": "coarse",
+      "content": "The person picks up the black chassis and attaches the orange axle and blue connector to it.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Correctness of assembly relative to instructions is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        134.0,
+        149.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        149.0,
+        164.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        164.0,
+        172.0
+      ],
+      "resolution": "coarse",
+      "content": "The person inserts an orange axle and blue connector into the black chassis.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether this action is incorrect is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        172.0,
+        187.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        187.0,
+        188.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        188.0,
+        196.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches the yellow cabin to the chassis and places it on the table.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Correctness of cabin attachment is not confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        196.0,
+        200.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        200.0,
+        204.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the assembled vehicle, then places it down and adjusts the cabin.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "Purpose of adjustment is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        206.0,
+        208.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds a yellow vehicle body with red wheels over the table, with an orange and blue part already attached.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "The specific action being performed is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        208.0,
+        223.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        223.0,
+        238.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        238.0,
+        246.0
+      ],
+      "resolution": "coarse",
+      "content": "The person assembles the vehicle chassis, attaching red wheels to the yellow body and then placing the assembled unit on the table.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "The correctness of the assembly order is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        246.0,
+        254.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c007",
+      "video": "v3",
+      "time": [
+        254.0,
+        262.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds and manipulates an orange part, attempting to attach it to a blue part.",
+      "evidence": [
+        "v3-b0002-e3"
+      ],
+      "uncertainty": [
+        "The intended final configuration is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        262.0,
+        268.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c008",
+      "video": "v3",
+      "time": [
+        268.0,
+        274.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches a small yellow part to the orange and blue assembly.",
+      "evidence": [
+        "v3-b0002-e4"
+      ],
+      "uncertainty": [
+        "The correctness of this attachment is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c009",
+      "video": "v3",
+      "time": [
+        276.0,
+        276.0
+      ],
+      "resolution": "coarse",
+      "content": "A person holds a small, partially assembled toy component with both hands, manipulating it slightly. A loose blue piece is visible on the table.",
+      "evidence": [
+        "v3-b0003-e1"
+      ],
+      "uncertainty": [
+        "Target action not visible in supplied frames"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        276.0,
+        284.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U04-01.s01",
+      "video": "v3",
+      "time": [
+        284.0,
+        288.0
+      ],
+      "resolution": "fine",
+      "content": "A person wearing a VR headset holds a small orange and blue toy vehicle in their left hand and manipulates a blue piece on top of it with their right hand.",
+      "evidence": [
+        "v3.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the blue piece and assembly target is ambiguous.",
+        "Unresolved: Confirmation of whether the blue piece is a roof or a cabin component."
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If it is roof-to-cabin, check whether the attachment transition is visibly incorrect.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

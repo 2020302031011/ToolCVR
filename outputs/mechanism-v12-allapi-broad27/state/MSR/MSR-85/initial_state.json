@@ -1,0 +1,171 @@
+{
+  "question": "When the red bus is parallel to the black car for the first time in view B, where is {A2} located in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2, a red bus is visible at the bottom left moving right while a black car is parked on the top side."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, the red bus moves further right toward the intersection while the black car remains parked on the top side and is marked B1."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "The v2 report states that the parallel relationship between the red bus and black car is ambiguous in the 2D overhead view."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "In v2, the red bus continues right along the bottom edge while the black car remains visible on the top side."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 share a synchronized clock, so a timestamp determined in one view can be used to query the same physical moment in the other view.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The correspondence between view A/view B and video IDs v1/v2 remains unresolved.",
+      "reason": "The supplied events do not explicitly identify which video is view A or view B, and video IDs must not be inferred from alias labels.",
+      "related_events": [
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The first synchronized timestamp when the red bus is parallel to the black car in view B remains unresolved.",
+      "reason": "The available events describe the bus and car positions but do not specify a parallel moment, and the report states that parallelism is ambiguous in the overhead view.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The position of A2 in view A at the trigger timestamp remains unresolved.",
+      "reason": "No supplied event report gives A2's frame position in the view corresponding to view A, and the trigger timestamp is not yet determined.",
+      "related_events": [],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare v1 and v2 for visible view labels, A/B track annotations, or scene layout to determine which video corresponds to view A and which corresponds to view B.",
+      "purpose": "This would resolve the view-correspondence issue.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "In the video identified as view B, determine the earliest timestamp at which the red bus and black car are parallel, using their positions and orientations rather than camera-relative movement.",
+      "purpose": "This would resolve the trigger-timing issue.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At the synchronized trigger timestamp, locate annotated track A2 in the video identified as view A and classify it as top left, bottom left, top right, or not in the frame.",
+      "purpose": "This would resolve the A2-location issue.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "information I05 dropped: incomplete after validation"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-85",
+    "task": "MSR",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/MSR/MSR-85/report.json",
+    "report_sha256": "6c49c22e4e35a0f4ba96388a5992bcc0fbeaa71afc6206feeb21e78360f4dd8e",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "state": {
+    "question": "When {B2} leaves view B, where is {A2} located in view A?",
+    "round_id": 4,
+    "summary": "The synchronized trigger is fixed by the reference visible range for B2 at 4.067s. At that time, A2 is still visible in v1 and the fine observation places it in the upper-left quadrant, supporting option B.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-49: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=34; declared=car; A1_visible=423-499 (14.100-16.667s)/500_frames; B1_visible=333-499 (11.100-16.667s)/500_frames.",
+      "A2/B2 is source_track=51; declared=car; A2_visible=70-130 (2.333-4.367s)/500_frames; B2_visible=24-121 (0.800-4.067s)/500_frames.",
+      "A3/B3 is source_track=95; declared=car; A3_visible=260-274 (8.667-9.167s)/500_frames; B3_visible=0-139 (0.000-4.667s)/500_frames.",
+      "A4/B4 is source_track=37; declared=car; A4_visible=470-499 (15.667-16.667s)/500_frames; B4_visible=176-289 (5.867-9.667s),350-499 (11.667-16.667s)/500_frames.",
+      "A5/B5 is source_track=75; declared=car; A5_visible=385-453 (12.833-15.133s)/500_frames; B5_visible=355-451 (11.833-15.067s)/500_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c001"
+        ],
+        "attempts": [
+          "The context reference fixes B2_visible in v2 through frame 121 (4.067s), so B2 leaves view B at the shared-clock time near 4.067s; v2.c001 corroborates B2 presence at 4.0s."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r3-r2-01.s01"
+        ],
+        "attempts": [
+          "At the synchronized 4.067s time, which lies within the 0.0-8.0s fine observation, A2 is observed in the upper-left quadrant of v1."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c001",
+          "v1.zoom.r3-r2-01.s01"
+        ],
+        "attempts": [
+          "Using the shared clock, B2's departure from v2 aligns with the interval where A2 remains visible and upper-left in v1, resolving the competing location interpretations."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "Aerial view of a highway intersection with traffic flowing; a red vehicle is explicitly labeled as 'A2 car' in the upper left quadrant.",
+        "uncertainty": "No object labeled 'B2' is visible in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          12.0
+        ],
+        "description": "Camera pans right, following traffic flow; the previously labeled 'A2 car' is no longer in the frame.",
+        "uncertainty": "Target 'B2' remains unidentified in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          14.0,
+          16.0
+        ],
+        "description": "A dark SUV is labeled 'A5 car' and a bus is labeled 'A1 car' in the lower right view.",
+        "uncertainty": "Object 'B2' is not present or labeled in this view.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "Frame S1-F01 shows a single view of a road intersection with a car labeled B2.",
+        "uncertainty": "View A and object A2 are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          16.0
+        ],
+        "description": "Frames S1-F06 and S1-F07 show a single view with a bus labeled B1 and cars B4, B5.",
+        "uncertainty": "View A and object A2 are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "Vehicles including a white car and a truck move along the highway lanes. The scene is populated with moderate traffic flow.",
+        "uncertainty": "No specific 'A2' label present.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "A red car labeled 'A2 car' is stationary in the upper right section of the road, near the exit ramp.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          5.0,
+          8.0
+        ],
+        "description": "The camera pans to the right, showing an intersection with a car carrier truck and other vehicles moving through the junction.",
+        "uncertainty": "The specific 'A2' label is no longer visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          3.0
+        ],
+        "description": "Aerial view of a multi-lane highway with light traffic moving in both directions.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "Camera view shifts right, revealing an intersection area with a car carrier truck entering the frame.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "Car labeled 'A2 car' is visible in the upper-left quadrant of the frame.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need confirm A2 location in v1 at synchronized B2 departure timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "At the synchronized timestamp represented by v1.c001, where is A2 located in view A: center, upper left, upper right, or absent?",
+        "next_probe_goal": "If A2 is not clearly in one quadrant, determine its exact position or absence in v1 near the B2 departure timestamp.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local v1 evidence at synchronized B2 exit time to resolve A2 position/absence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "At the synchronized 4.067s moment within this v1 fine interval, is the A2/B2 track visible in view A, and if visible is it in upper right, center, or upper left?",
+        "next_probe_goal": "If A2 is absent or ambiguous at 4.067s, recover v1.u001 to observe A2 just before 4.0s.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Fresh state: B2/A2 share the same physical track, so B2 exit triggers evaluation in v1. Reference presence indicates A2 should still be visible in view A at that synchronized time. v2 evidence supports the B2 exit, but v1 evidence does not yet localize A2 as center, upper left, upper right, or absent at the trigger. Continue with a local refine probe of the fine v1 interval covering the trigger.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v1.zoom.r2-r2-01.s01"
+        ],
+        "evidence_goal": "Determine whether the car labeled A2 in v1 is in the center, upper left, upper right, or absent at the synchronized B2-exit time.",
+        "next_probe_goal": "If A2 is visible, record its quadrant or center position in view A; if not visible, establish absence only for the cited span.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized trigger is fixed by the reference visible range for B2 at 4.067s. At that time, A2 is still visible in v1 and the fine observation places it in the upper-left quadrant, supporting option B.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v2.c001",
+      "v1.zoom.r3-r2-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r2-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "Car labeled 'A2 car' is visible in the upper-left quadrant of the frame.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        6.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera pans right, following traffic flow; the previously labeled 'A2 car' is no longer in the frame.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Target 'B2' remains unidentified in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        14.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A dark SUV is labeled 'A5 car' and a bus is labeled 'A1 car' in the lower right view.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Object 'B2' is not present or labeled in this view."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        4.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Frame S1-F01 shows a single view of a road intersection with a car labeled B2.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "View A and object A2 are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        14.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "Frames S1-F06 and S1-F07 show a single view with a bus labeled B1 and cars B4, B5.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "View A and object A2 are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If A2 is not clearly in one quadrant, determine its exact position or absence in v1 near the B2 departure timestamp.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

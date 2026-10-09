@@ -1,0 +1,199 @@
+{
+  "question": "When {B4} completely disappears from view B, how many blue cars are traveling in the same direction as {A2} in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "During 0.0-8.0s, v1 reports A2 as a cyan car moving right-to-left."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "During 0.0-8.0s, v2 reports B4 visible in view B moving away from the camera."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "During 12.0-16.0s, v1 reports traffic moving right-to-left and left-to-right, with A2 visible moving right-to-left."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "During 12.0-16.0s, v2 reports view B without B4 and view A with traffic moving in both directions."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "The event reports bracket B4's disappearance with pre-8.0s presence and post-12.0s absence, while the reference metadata supplies an 8.333s final visible time."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 0.0-8.0s reports in v1 and v2 are synchronized pre-trigger observations that align A2's reported direction with B4's reported presence before disappearance.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 12.0-16.0s reports in v1 and v2 are both after the reference B4 disappearance and describe mixed traffic directions without providing the required blue-car count.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of blue cars in view A traveling in the same direction as A2 at the 8.333s trigger remains unresolved.",
+      "reason": "No supplied event covers view A at 8.333s or identifies blue cars in that view at the trigger.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether A2 is moving right-to-left at the 8.333s trigger remains unresolved.",
+      "reason": "Events report A2's right-to-left motion only during 0.0-8.0s and 12.0-16.0s, not at the trigger timestamp.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Which view A vehicles should be classified as blue remains unresolved.",
+      "reason": "The reports describe A2 as cyan and do not label other vehicles as blue.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At 8.333s, enumerate all view A cars that appear blue and are moving in the same direction as A2, so the resulting count can distinguish the supplied 1, 2, 3, and 4 alternatives.",
+      "purpose": "This would resolve the missing blue-car count at the trigger timestamp.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At 8.333s, determine whether A2 is visible in view A and record its direction of travel.",
+      "purpose": "This would resolve the missing direction of the reference car A2 at the trigger timestamp.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At 8.333s, compare the color appearance of view A vehicles with the cyan label used for A2 to decide which vehicles count as blue.",
+      "purpose": "This would resolve the missing color-classification evidence for the counted targets.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-439",
+    "task": "MOC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-439/report.json",
+    "report_sha256": "f8270c394c5f9aba7c6a539a3ed289edb121cf3f7edf3211ea2fe9bbe9d220aa",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

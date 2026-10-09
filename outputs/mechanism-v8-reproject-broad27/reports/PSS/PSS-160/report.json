@@ -1,0 +1,412 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "options": [],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->",
+      "Determine the chronological order of the shuffled clips based on the sequence of actions and events in the cooking process"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 4,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          10.01,
+          10.01
+        ],
+        [
+          16.016000000000002,
+          16.016000000000002
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            10.01,
+            16.016
+          ],
+          "description": "Chef shapes rice mound on wooden board. Salmon slice and wasabi are visible nearby.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "No action transition visible between frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=2/4 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [10.010-16.016s] Chef shapes rice mound on wooden board. Salmon slice and wasabi are visible nearby. | evidence=S1-F01,S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [10.010-16.016s] No action transition visible between frames.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v1-b0001-e1 unresolved=chronological order of shuffled clips not established by these frames alone suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v1-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "chronological order of shuffled clips not established by these frames alone"
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 10.01,
+          "actual_timestamp_seconds": 10.01,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 16.016000000000002,
+          "actual_timestamp_seconds": 16.016000000000002,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 7,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          24.991633333333336,
+          28.995633333333334
+        ],
+        [
+          32.999633333333335,
+          37.00363333333333
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            24.992,
+            26.994
+          ],
+          "description": "Chef forms sushi by pressing rice onto salmon slice with both hands.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Hand motion blur in S1-F02 suggests rapid action."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            28.996,
+            33.0
+          ],
+          "description": "Chef continues shaping sushi, adjusting rice and fish with hands.",
+          "evidence_frame_ids": [
+            "S1-F03",
+            "S2-F01"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "No visible change in sushi shape between S1-F03 and S2-F01."
+        },
+        {
+          "event_id": "v2-b0001-e3",
+          "time_span": [
+            33.0,
+            37.004
+          ],
+          "description": "Chef refines sushi shape, pressing and rotating salmon with fingers.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02",
+            "S2-F03"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "S2-F03 shows watch, but no action change from prior frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=6/7 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [24.992-26.994s] Chef forms sushi by pressing rice onto salmon slice with both hands. | evidence=S1-F01,S1-F02 | confidence=0.950\n- v2-b0001-e2 [28.996-33.000s] Chef continues shaping sushi, adjusting rice and fish with hands. | evidence=S1-F03,S2-F01 | confidence=0.950\n- v2-b0001-e3 [33.000-37.004s] Chef refines sushi shape, pressing and rotating salmon with fingers. | evidence=S2-F01,S2-F02,S2-F03 | confidence=0.950\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [24.992-26.994s] Hand motion blur in S1-F02 suggests rapid action.\n- v2-b0001-e2 [28.996-33.000s] No visible change in sushi shape between S1-F03 and S2-F01.\n- v2-b0001-e3 [33.000-37.004s] S2-F03 shows watch, but no action change from prior frames.\nQUERY ASSESSMENT\n- batch=1 relevance=direct evidence=v2-b0001-e1,v2-b0001-e2,v2-b0001-e3 unresolved=none suggested_tools=none",
+      "query_assessments": [
+        {
+          "relevance": "direct",
+          "evidence_event_ids": [
+            "v2-b0001-e1",
+            "v2-b0001-e2",
+            "v2-b0001-e3"
+          ],
+          "unresolved_needs": [],
+          "suggested_tools": []
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 24.991633333333336,
+          "actual_timestamp_seconds": 24.991633333333336,
+          "requested_frame_index": 749,
+          "actual_frame_index": 749,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 26.993633333333335,
+          "actual_timestamp_seconds": 26.993633333333335,
+          "requested_frame_index": 809,
+          "actual_frame_index": 809,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 28.995633333333334,
+          "actual_timestamp_seconds": 28.995633333333334,
+          "requested_frame_index": 869,
+          "actual_frame_index": 869,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 32.999633333333335,
+          "actual_timestamp_seconds": 32.999633333333335,
+          "requested_frame_index": 989,
+          "actual_frame_index": 989,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 35.00163333333334,
+          "actual_timestamp_seconds": 35.00163333333334,
+          "requested_frame_index": 1049,
+          "actual_frame_index": 1049,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 37.00363333333333,
+          "actual_timestamp_seconds": 37.00363333333333,
+          "requested_frame_index": 1109,
+          "actual_frame_index": 1109,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v3",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 2,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          18.985633333333332,
+          20.987633333333335
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v3-b0001-e1",
+          "time_span": [
+            18.986,
+            20.988
+          ],
+          "description": "Person places salmon slice on wooden board, then moves hand away. Rice and wasabi remain stationary.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "No other actions or objects visible in frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v3\nCOVERAGE selected=2/2 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT all sparse candidates retained; moments between sampled frames remain unobserved\nEVENT INDEX\n- v3-b0001-e1 [18.986-20.988s] Person places salmon slice on wooden board, then moves hand away. Rice and wasabi remain stationary. | evidence=S1-F01,S1-F02 | confidence=0.950\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v3-b0001-e1 [18.986-20.988s] No other actions or objects visible in frames.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v3-b0001-e1 unresolved=chronological order of shuffled clips not established by these frames alone suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v3-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "chronological order of shuffled clips not established by these frames alone"
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v3",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 18.985633333333332,
+          "actual_timestamp_seconds": 18.985633333333332,
+          "requested_frame_index": 569,
+          "actual_frame_index": 569,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v3",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 20.987633333333335,
+          "actual_timestamp_seconds": 20.987633333333335,
+          "requested_frame_index": 629,
+          "actual_frame_index": 629,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v4",
+      "duration_seconds": 54.054,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 4,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          43.00963333333333,
+          43.00963333333333
+        ],
+        [
+          49.015633333333334,
+          49.015633333333334
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v4-b0001-e1",
+          "time_span": [
+            43.01,
+            49.016
+          ],
+          "description": "Chef uses chopsticks to place topping on rice, then pauses and looks forward.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Action sequence not fully visible between frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 2,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v4\nCOVERAGE selected=2/4 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v4-b0001-e1 [43.010-49.016s] Chef uses chopsticks to place topping on rice, then pauses and looks forward. | evidence=S1-F01,S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v4-b0001-e1 [43.010-49.016s] Action sequence not fully visible between frames.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v4-b0001-e1 unresolved=chronological order of shuffled clips not fully established by visible actions suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v4-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "chronological order of shuffled clips not fully established by visible actions"
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v4",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 43.00963333333333,
+          "actual_timestamp_seconds": 43.00963333333333,
+          "requested_frame_index": 1289,
+          "actual_frame_index": 1289,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v4",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 49.015633333333334,
+          "actual_timestamp_seconds": 49.015633333333334,
+          "requested_frame_index": 1469,
+          "actual_frame_index": 1469,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "PSS-160",
+    "task": "PSS",
+    "ground_truth": "1->3->2->4",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-selection-broad27/PSS/PSS-160/result.json",
+    "selection_sha256": "3ec0696af8fa16bfb13bfc0053ecda11f3d8ae30e9ada09024cbb80030a1d5ae",
+    "reporter_identity": "local-qwen3vl-v6-frame-manifest:model=/media/data6/xuejj/Qwen-VL@36ed3aa315d8884d:adapter=none@none:tokens=2048:events=8:overlay=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false
+  }
+}

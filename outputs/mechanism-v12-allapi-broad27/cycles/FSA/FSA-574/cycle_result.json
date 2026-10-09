@@ -1,0 +1,889 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "v1 shows liquid poured into a chopped vegetable salad and then mixed. v2 140.007-146.013 shows yellow liquid poured into a salad with fork mixing beginning, and 146.013-151.985 shows continued mixing of the same salad before a static prepared-salad shot. The functionally equivalent v2 step therefore spans the pour and the continued mixing.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c001",
+          "v2.zoom.r1-U03-01.s01"
+        ],
+        "attempts": [
+          "v2 140.007-146.013 shows a yellow liquid being poured into a salad and a fork beginning to mix it, matching the functional transition in v1."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U03-01.s01",
+          "v2.zoom.r2-r3-01.s01",
+          "v2.c008"
+        ],
+        "attempts": [
+          "The equivalent step extends through 151.985 because fork mixing continues after the pour, and the next coarse interval begins with a static prepared-salad shot."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c004",
+          "v2.c006"
+        ],
+        "attempts": [
+          "v2 85.986-106.006 is liquid/dressing preparation and v2 119.987-136.003 is solid ingredient addition, so both are distinct from the liquid-pour-into-salad transition."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          155.03,
+          171.046
+        ],
+        "description": "A woman pours liquid from a small glass bowl into a large bowl containing a chopped vegetable salad, then mixes the ingredients thoroughly using a wooden spoon.",
+        "uncertainty": "The specific ingredients being mixed are not explicitly labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.004
+        ],
+        "description": "Title card 'Eat East Indian' transitions to a close-up of the finished Tabbouleh salad.",
+        "uncertainty": "Video 1 reference step not provided for comparison.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          12.012,
+          63.997
+        ],
+        "description": "Sequential display of raw ingredients: chickpeas, tomatoes, celery, cucumber, red pepper, parsley, salt, pepper, garlic, lemon juice, olive oil, and dry bulgur wheat.",
+        "uncertainty": "No active cooking action occurs during this ingredient prep phase.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          72.005,
+          83.984
+        ],
+        "description": "Bulgur wheat is added to a pot of boiling water on a stove to cook, as indicated by on-screen text instructions.",
+        "uncertainty": "Video 1 reference step not provided for comparison.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          85.986,
+          106.006
+        ],
+        "description": "A person adds minced garlic to a bowl of yellow liquid, whisks it with a fork, adds black pepper, and mixes again.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          112.012,
+          117.985
+        ],
+        "description": "Cooked grains are transferred from a pot to a large blue mixing bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          119.987,
+          136.003
+        ],
+        "description": "Chickpeas, diced cucumber, diced tomatoes, green onions, and parsley are added to the bowl and mixed.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          140.007,
+          146.013
+        ],
+        "description": "The yellow liquid mixture prepared earlier is poured over the salad and stirred in.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          151.985,
+          170.003
+        ],
+        "description": "A static shot shows a blue bowl filled with a prepared couscous salad containing green herbs, red peppers, and yellow fruit pieces.",
+        "uncertainty": "No mixing or serving action is visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          140.007,
+          143.01
+        ],
+        "description": "A yellow liquid is poured from a white bowl into a salad containing quinoa, chickpeas, and vegetables.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          145.012,
+          146.013
+        ],
+        "description": "A hand holding a fork stirs the salad, mixing the ingredients together.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          146.013,
+          151.018
+        ],
+        "description": "A hand holding a fork is visible continuously mixing and tossing a salad containing chickpeas and vegetables in a blue bowl.",
+        "uncertainty": "Liquid pour event is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need refine the v2 pour-and-stir transition to determine whether it covers the full mixing event.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v2.c007"
+        ],
+        "evidence_goal": "In v2.c007, does stirring continue from the yellow liquid pour through the interval end until the liquid is visibly incorporated into the salad?",
+        "next_probe_goal": "If incorporation is not visible by the interval end, determine whether a later v2 salad-state interval shows continued mixing.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need v2 post-pour mixing boundary after 146.013 to decide interval end.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v2.u023"
+        ],
+        "evidence_goal": "During v2 146.013-151.985, does a hand or fork continue stirring the salad after the liquid pour?",
+        "next_probe_goal": "If stirring continues, identify the last visible mixing motion before the bowl becomes static.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "v1 shows liquid poured into a chopped vegetable salad and then mixed. v2 140.007-146.013 shows yellow liquid poured into a salad with fork mixing beginning, and 146.013-151.985 shows continued mixing of the same salad before a static prepared-salad shot. The functionally equivalent v2 step therefore spans the pour and the continued mixing.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[140.007, 151.985]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[140.007, 151.985]",
+    "evidence_refs": [
+      "v1.c001",
+      "v2.zoom.r1-U03-01.s01",
+      "v2.zoom.r2-r3-01.s01",
+      "v2.c008"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        155.03,
+        171.046
+      ],
+      "resolution": "coarse",
+      "content": "A woman pours liquid from a small glass bowl into a large bowl containing a chopped vegetable salad, then mixes the ingredients thoroughly using a wooden spoon.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "The specific ingredients being mixed are not explicitly labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        157.032,
+        161.036
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        161.036,
+        171.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.004
+      ],
+      "resolution": "coarse",
+      "content": "Title card 'Eat East Indian' transitions to a close-up of the finished Tabbouleh salad.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Video 1 reference step not provided for comparison."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0040000000000004
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        4.0040000000000004,
+        12.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        12.012,
+        19.986633333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        12.012,
+        63.997
+      ],
+      "resolution": "coarse",
+      "content": "Sequential display of raw ingredients: chickpeas, tomatoes, celery, cucumber, red pepper, parsley, salt, pepper, garlic, lemon juice, olive oil, and dry bulgur wheat.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "No active cooking action occurs during this ingredient prep phase."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        19.986633333333334,
+        25.992633333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        27.994633333333336,
+        34.00063333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        34.00063333333333,
+        38.00463333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        38.00463333333334,
+        42.008633333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        42.008633333333336,
+        50.01663333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        53.98726666666667,
+        59.99326666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        59.99326666666667,
+        63.99726666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        63.99726666666667,
+        72.00526666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        72.005,
+        83.984
+      ],
+      "resolution": "coarse",
+      "content": "Bulgur wheat is added to a pot of boiling water on a stove to cook, as indicated by on-screen text instructions.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Video 1 reference step not provided for comparison."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        72.00526666666667,
+        83.9839
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        85.986,
+        106.006
+      ],
+      "resolution": "coarse",
+      "content": "A person adds minced garlic to a bowl of yellow liquid, whisks it with a fork, adds black pepper, and mixes again.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        87.98790000000001,
+        91.9919
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        91.9919,
+        95.9959
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        95.9959,
+        99.99990000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        102.0019,
+        106.00590000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        106.00590000000001,
+        112.01190000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        112.01190000000001,
+        117.98453333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        112.012,
+        117.985
+      ],
+      "resolution": "coarse",
+      "content": "Cooked grains are transferred from a pot to a large blue mixing bowl.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        119.987,
+        136.003
+      ],
+      "resolution": "coarse",
+      "content": "Chickpeas, diced cucumber, diced tomatoes, green onions, and parsley are added to the bowl and mixed.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        121.98853333333334,
+        127.99453333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        127.99453333333334,
+        134.00053333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        136.00253333333333,
+        140.00653333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        140.00653333333335,
+        146.01253333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-01.s01",
+      "video": "v2",
+      "time": [
+        140.007,
+        146.013
+      ],
+      "resolution": "fine",
+      "content": "A yellow liquid is poured from a white bowl into a salad containing quinoa, chickpeas, and vegetables. A hand holding a fork stirs the salad, mixing the ingredients together.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Unresolved: Whether the liquid is fully incorporated by the end of the interval"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-01.s01",
+      "video": "v2",
+      "time": [
+        146.01253333333335,
+        151.9851666666667
+      ],
+      "resolution": "fine",
+      "content": "A hand holding a fork is visible continuously mixing and tossing a salad containing chickpeas and vegetables in a blue bowl.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Liquid pour event is not visible in these frames.",
+        "Unresolved: Confirmation that the liquid pour occurred immediately prior to this interval."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        151.985,
+        170.003
+      ],
+      "resolution": "coarse",
+      "content": "A static shot shows a blue bowl filled with a prepared couscous salad containing green herbs, red peppers, and yellow fruit pieces.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "No mixing or serving action is visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        151.9851666666667,
+        166.9851666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        166.9851666666667,
+        168.00116666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        170.0031666666667,
+        171.2711
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If incorporation is not visible by the interval end, determine whether a later v2 salad-state interval shows continued mixing.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

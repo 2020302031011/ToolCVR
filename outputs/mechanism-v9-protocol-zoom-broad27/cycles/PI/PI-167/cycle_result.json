@@ -1,0 +1,501 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 1,
+    "summary": "The narrative progression from Video 1 to Video 2 is unclear, as the characters and settings differ significantly.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology."
+    ],
+    "requirements": [
+      {
+        "id": "U01",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e5",
+          "v2-b0001-e3"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": [
+      {
+        "id": "Q01",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "observable": "Are there any characters or objects visible in Video 1 that reappear in Video 2?",
+        "purpose": "To determine if there is a direct connection between the two videos.",
+        "related_requirement": "U01"
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          18.0,
+          18.0
+        ],
+        "description": "Dog presses button on door labeled 'STORAGE'.",
+        "uncertainty": "No other characters or actions visible in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          20.0,
+          22.0
+        ],
+        "description": "Three humans and a blue creature appear in a confined space. Creature is glowing and translucent.",
+        "uncertainty": "Creature's exact action or state change not visible between these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          24.0,
+          26.0
+        ],
+        "description": "Dog sits facing the blue creature, which stands upright in a hallway.",
+        "uncertainty": "No visible interaction or dialogue between dog and creature.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          28.0,
+          30.0
+        ],
+        "description": "Dog turns away from the creature and looks down the hallway.",
+        "uncertainty": "Creature is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          32.0,
+          34.0
+        ],
+        "description": "Three humans huddle together, looking scared. Blue creature is visible from behind.",
+        "uncertainty": "Creature's action or the humans' reaction is not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          364.0,
+          368.0
+        ],
+        "description": "Camera moves through dark, misty cavern with large, moss-covered structures and red particles floating.",
+        "uncertainty": "No visible characters or tools in this segment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          374.0,
+          390.0
+        ],
+        "description": "Camera descends into dark, organic structures, then emerges into a bright, colorful alien landscape with glowing creatures.",
+        "uncertainty": "No visible characters or tools in this segment.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          406.0,
+          412.0
+        ],
+        "description": "Three characters stand in a dark, barren landscape. One character smiles. A small light source is visible in the distance.",
+        "uncertainty": "No visible tools or actions to explain how they reached this location.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          414.0,
+          416.0
+        ],
+        "description": "A young girl with goggles looks up with a concerned expression while another character holds a green object.",
+        "uncertainty": "No visible action or state change between frames S3-F05 and S3-F06.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          428.0,
+          436.0
+        ],
+        "description": "A young character kneels on the ground while two adults stand nearby, one with a beard and another with a mustache.",
+        "uncertainty": "No visible action or state change between frames S4-F01 and S4-F05.",
+        "action": "SCAN",
+        "round": 0
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "The narrative progression from Video 1 to Video 2 is unclear, as the characters and settings differ significantly.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: PLAN consumes visual calls reserved for later mandatory exploration stages: estimated=7, current-stage cap=4",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: PLAN consumes visual calls reserved for later mandatory exploration stages: estimated=7, current-stage cap=4"
+  },
+  "visual_calls_used": 0,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        15.0,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        18.0,
+        18.0
+      ],
+      "resolution": "coarse",
+      "content": "Dog presses button on door labeled 'STORAGE'.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "No other characters or actions visible in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        20.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "Three humans and a blue creature appear in a confined space. Creature is glowing and translucent.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Creature's exact action or state change not visible between these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        24.0,
+        26.0
+      ],
+      "resolution": "coarse",
+      "content": "Dog sits facing the blue creature, which stands upright in a hallway.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible interaction or dialogue between dog and creature."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        28.0,
+        30.0
+      ],
+      "resolution": "coarse",
+      "content": "Dog turns away from the creature and looks down the hallway.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Creature is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        32.0,
+        34.0
+      ],
+      "resolution": "coarse",
+      "content": "Three humans huddle together, looking scared. Blue creature is visible from behind.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "Creature's action or the humans' reaction is not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        34.0,
+        35.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        364.0,
+        368.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera moves through dark, misty cavern with large, moss-covered structures and red particles floating.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "No visible characters or tools in this segment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        368.0,
+        374.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        374.0,
+        390.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera descends into dark, organic structures, then emerges into a bright, colorful alien landscape with glowing creatures.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "No visible characters or tools in this segment."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        390.0,
+        405.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        405.0,
+        406.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        406.0,
+        412.0
+      ],
+      "resolution": "coarse",
+      "content": "Three characters stand in a dark, barren landscape. One character smiles. A small light source is visible in the distance.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible tools or actions to explain how they reached this location."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        414.0,
+        416.0
+      ],
+      "resolution": "coarse",
+      "content": "A young girl with goggles looks up with a concerned expression while another character holds a green object.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "No visible action or state change between frames S3-F05 and S3-F06."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        416.0,
+        428.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        428.0,
+        436.0
+      ],
+      "resolution": "coarse",
+      "content": "A young character kneels on the ground while two adults stand nearby, one with a beard and another with a mustache.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "No visible action or state change between frames S4-F01 and S4-F05."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        436.0,
+        450.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 0,
+    "remaining_focus_stages": 2,
+    "phase": "mandatory_exploration",
+    "require_follow_up_reservation": true,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 0,
+    "visual_calls_remaining": 8,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

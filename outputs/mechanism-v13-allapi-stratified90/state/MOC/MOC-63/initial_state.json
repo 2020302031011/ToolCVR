@@ -1,0 +1,270 @@
+{
+  "question": "How many white cars on the same side as {B1} completely pass {B1}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "A red bus explicitly labeled B1 is stationary on the right side of the road with a white car directly behind it."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "The white car previously behind B1 is visible ahead of the red bus during the 4.0-8.0s segment."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A white sedan travels forward in the right lane and passes a red bus during the 0.0-4.0s segment."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A red bus and a white car are visible moving along the right side of the road during the 0.0-8.0s segment."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 white sedan passing a red bus and the v2 white car moving from behind to ahead of B1 describe a similar synchronized early-segment passing scene.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both views place the relevant white car on the right side of the road relative to the red bus or B1 during the early segment.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v2 explicit B1 label and the v1 unlabeled red bus are potentially the same synchronized physical track, but the event reports do not confirm that correspondence.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the red bus observed in v1 is the same annotated B1 track observed in v2 remains unresolved.",
+      "reason": "v2 labels B1 explicitly, while v1 does not label the red bus and its uncertainty states that B1 identity is not defined.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the white car directly behind B1 completes a pass through B1's position remains unresolved.",
+      "reason": "v2 events show before and after states but do not cover the exact 2.0-4.0s transition interval.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the white car in v1 and the white car in v2 are the same physical white car remains unresolved.",
+      "reason": "The reports provide no unique vehicle identifiers or cross-view matching, only similar synchronized positions.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of distinct white cars on B1's same side that completely pass B1, among possible counts one, two, three, or four, remains unresolved.",
+      "reason": "The reports mention only one white car in each view and do not enumerate all white cars or confirm whether any additional white cars pass B1.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the v2 report at 4.0-8.0s can be attributed to B1 remains unresolved because the reference sidecar lists B1 as visible only through 3.267s.",
+      "reason": "The protocol treats reference visible ranges as authoritative for alias presence, while v2-b0001-e2 names B1 after that interval.",
+      "related_events": [
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U06",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the object labeled B1 in v2 is a red bus or the reference car track remains unresolved.",
+      "reason": "v2-b0001-e1 describes a red bus labeled B1, while the reference sidecar declares source_track 17 as a car.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the v1 red bus and v2 B1 at synchronized 0.0-3.267s frames to determine whether they correspond to source_track 17.",
+      "purpose": "Resolve whether the v1 passing event involves B1.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v1"
+      ],
+      "observable": "Inspect the 2.0-3.267s interval in v2 and matching v1 frames to determine whether the white car crosses B1's position completely.",
+      "purpose": "Resolve whether the observed white car completes a pass.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Match vehicle appearance and trajectory of the v1 white sedan to the v2 white car during 0.0-4.0s to determine if they are one physical car.",
+      "purpose": "Resolve cross-view identity of the white car.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare all white vehicles on the same side as B1 across synchronized views and track which distinct vehicles complete passing B1.",
+      "purpose": "Resolve the count of distinct complete passes among possible counts one to four.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare v2 frames immediately before and after 3.267s to determine whether the B1 overlay remains visually present.",
+      "purpose": "Resolve attribution of the post-visibility B1 report.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q06",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the vehicle type under the B1 overlay in v2 with the vehicle type under the corresponding synchronized red bus in v1 to determine whether they mark the same physical track.",
+      "purpose": "Resolve whether the B1-labeled object is a red bus or a car track.",
+      "related_issue": "U06"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-63",
+    "task": "MOC",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-63/report.json",
+    "report_sha256": "61af161c314a630b092db854e1d949b2e4029fa140edbaf82cc07d961d83b09c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

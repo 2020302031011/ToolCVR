@@ -1,0 +1,269 @@
+{
+  "question": "Which video processes herbs through mechanical blending rather than hand-chopping?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0003-e4",
+        "v1-b0004-e1"
+      ],
+      "statement": "A woman in v1 places parsley on a cutting board and uses a knife to hand-chop green herbs."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "Herbs in v2 are actively hand-chopped with a knife on a cutting board."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e2",
+        "v3-b0003-e1"
+      ],
+      "statement": "Herbs in v3 are chopped with a knife and a pile of chopped herbs is shown next to a food processor."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0003-e2"
+      ],
+      "statement": "Chopped herbs in v3 are placed inside a food processor bowl and the machine is shown operating to blend the contents."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0002-e3",
+        "v4-b0003-e1"
+      ],
+      "statement": "A woman or chef in v4 continues to hand-chop green herbs with a knife or large cleaver."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "A blender containing green liquid is displayed in v4, but whether it is actively running is not visible."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "statement": "All four videos contain visible knife-based herb chopping events, while only v3 also contains an event showing a machine operating to blend chopped herbs.",
+      "supporting_events": [
+        "v1-b0004-e1",
+        "v2-b0001-e1",
+        "v3-b0002-e2",
+        "v3-b0003-e2",
+        "v4-b0003-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "v3 shows a food processor operating on chopped herbs, whereas v4 shows a blender with green liquid but no visible active blending of herbs.",
+      "supporting_events": [
+        "v3-b0003-e2",
+        "v4-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The supplied v1 and v2 events both show hand-chopped herbs and do not include an observed mechanical blending action.",
+      "supporting_events": [
+        "v1-b0004-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether any herb processing in v1 occurs through mechanical blending rather than the observed hand-chopping remains unresolved.",
+      "reason": "The supplied events show knife hand-chopping but no event shows herbs being placed into or processed by a blender or food processor.",
+      "related_events": [
+        "v1-b0003-e4",
+        "v1-b0004-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether any herb processing in v2 occurs through mechanical blending rather than the observed hand-chopping remains unresolved.",
+      "reason": "The supplied events show knife hand-chopping and note blending not visible, but they do not establish the absence of blending in unobserved portions.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v4"
+      ],
+      "issue": "Whether the blender containing green liquid in v4 is used to mechanically process herbs rather than the visible hand-chopping remains unresolved.",
+      "reason": "The event shows a blender but not whether it is running or whether herbs are inside it, while other events show hand-chopping.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0003-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether v3 contains herb processing by mechanical blending independently of hand-chopping remains unresolved because both methods are visible.",
+      "reason": "The events show knife chopping before blending, so it is not settled whether blending is the processing method for herbs or a step after hand-chopping.",
+      "related_events": [
+        "v3-b0002-e2",
+        "v3-b0003-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare whether any v1 herbs are placed into a blender or food processor and the machine runs versus whether all herb processing shown is knife chopping.",
+      "purpose": "To determine whether v1 contains mechanical herb blending despite observed hand-chopping.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare whether any v2 herbs are placed into a blender or food processor and the machine runs versus whether all herb processing shown is knife chopping.",
+      "purpose": "To determine whether v2 contains mechanical herb blending despite observed hand-chopping.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare whether the v3 food processor blends unchopped herbs versus blending only herbs that were previously hand-chopped.",
+      "purpose": "To determine whether v3 contains herb processing by mechanical blending independently of hand-chopping.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v4"
+      ],
+      "observable": "Compare whether the v4 blender with green liquid is actively running with herbs versus merely displayed while herbs are hand-chopped.",
+      "purpose": "To determine whether v4 uses mechanical blending for herbs rather than hand-chopping.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-196",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/CC/CC-196/report.json",
+    "report_sha256": "58e7345131a4800d4b53b20396d55468eabe04da5210cb68cfea8c7d6ef2eac8",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "question": "How many white cars on the same side as {B1} completely pass {B1}?",
+  "options": [
+    "A. 1",
+    "B. 2",
+    "C. 3",
+    "D. 4"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "How many white cars on the same side as {B1} completely pass {B1}?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a white car driving past a stationary vehicle on the same side",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "multiple white cars passing a reference object in traffic",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "How many white cars on the same side as {B1} completely pass {B1}?",
+      "1",
+      "2",
+      "3",
+      "4",
+      "Counting specific numbers (1, 2, 3, or 4) is not directly retrievable by CLIP; use temporal analysis to count distinct events",
+      "The identity of {B1} must be resolved from context before filtering for 'same side' spatial relations",
+      "Verify that the white cars are on the same side as {B1} and have completely passed it, not just approached or stopped",
+      "Preserve all answer options (A: 1, B: 2, C: 3, D: 4) as candidates for final counting logic"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 10.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 5,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          8.0,
+          8.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            4.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v1-b1-audit-b1-2",
+          "time_span": [
+            8.0,
+            8.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=4/5 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b1-audit-b1-1 [0.000-4.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.000\n- v1-b1-audit-b1-2 [8.000-8.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b1-audit-b1-1 [0.000-4.000s] Selection proposal only for segment S1.\n- v1-b1-audit-b1-2 [8.000-8.000s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b1-audit-b1-1,v1-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b1-audit-b1-1",
+            "v1-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 10.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 5,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          8.0,
+          8.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            4.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-2",
+          "time_span": [
+            8.0,
+            8.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=4/5 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b1-audit-b1-1 [0.000-4.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03 | confidence=0.000\n- v2-b1-audit-b1-2 [8.000-8.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b1-audit-b1-1 [0.000-4.000s] Selection proposal only for segment S1.\n- v2-b1-audit-b1-2 [8.000-8.000s] Selection proposal only for segment S2.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b1-audit-b1-1,v2-b1-audit-b1-2 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b1-audit-b1-1",
+            "v2-b1-audit-b1-2"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "How many white cars on the same side as {B1} completely pass {B1}?",
+            "multiple white cars passing a reference object in traffic"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MOC-63",
+    "task": "MOC",
+    "ground_truth": "B",
+    "rewrite_model": "qwen3.8-flash",
+    "clip_model": "openai/clip-vit-large-patch14-336",
+    "selection_only": true,
+    "duration_stratified_audit": false,
+    "selection_profile": null,
+    "configured_retention_ratio": null,
+    "query_plan_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MOC/MOC-63/query_plan.json",
+    "adaptation_notes": [
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.",
+      "A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.",
+      "A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.",
+      "A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.",
+      "A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "inputs": [
+      {
+        "video_id": "v1",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-26"
+      },
+      {
+        "video_id": "v2",
+        "source_time_spans": [],
+        "scan_stride_seconds": 2.0,
+        "synchronization_group": "uav-scene-26"
+      }
+    ]
+  }
+}

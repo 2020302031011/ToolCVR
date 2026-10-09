@@ -1,0 +1,1791 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "v1's reference step is cooked potatoes transitioning into a metal bowl. v2's matching functional step is the saucepan-to-metal-bowl transfer around 176-184, immediately before ricing starts at 184. The earlier drain/return sequence is not equivalent.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.c002",
+          "v2.c016",
+          "v2.zoom.r2-r3-01.s01"
+        ],
+        "attempts": [
+          "v2 176-184 shows cooked potatoes being moved from a saucepan into a metal bowl, matching v1's transition from a boiling vessel to a metal bowl."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c016",
+          "v2.zoom.r2-r3-01.s01",
+          "v2.c017"
+        ],
+        "attempts": [
+          "The transfer begins in the 176-180 interval and is completed before ricing begins at 184, so the equivalent step is bounded as 176-184."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c011",
+          "v2.c012",
+          "v2.c013"
+        ],
+        "attempts": [
+          "The earlier drain/return sequence moves potatoes between a colander and a pot, not into a metal bowl, so it is a separate preparation step rather than the equivalent transfer-to-bowl step."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          95.996,
+          95.996
+        ],
+        "description": "Potato chunks are boiling in water inside a pot on a stove burner.",
+        "uncertainty": "Video 1 interval boundaries are not established by this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          100.0,
+          100.0
+        ],
+        "description": "A hand holds a metal bowl containing boiled potato chunks.",
+        "uncertainty": "Video 2 interval boundaries are not established by this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "Introductory sequence with title 'Perfect Mash', followed by the chef standing in the kitchen and speaking.",
+        "uncertainty": "Exact start of the cooking action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          18.0
+        ],
+        "description": "The chef holds a bowl of unpeeled potatoes and presents them to the camera.",
+        "uncertainty": "Action between the frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          28.0,
+          40.0
+        ],
+        "description": "The chef washes and peels the potatoes under running water using a peeler.",
+        "uncertainty": "Completion of the peeling process.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          44.0,
+          52.0
+        ],
+        "description": "The chef cuts the peeled potatoes into chunks on a white cutting board.",
+        "uncertainty": "End of the cutting action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          56.0,
+          62.0
+        ],
+        "description": "Chef peels and cuts potatoes into chunks on a white cutting board.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          68.0,
+          76.0
+        ],
+        "description": "Chef places potato chunks into a stainless steel pot and fills it with water from the tap.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          82.0,
+          102.0
+        ],
+        "description": "Chef places the pot on the stove, covers it with a lid, and boils the potatoes.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          108.0,
+          112.0
+        ],
+        "description": "Chef stands at the counter with cooked potatoes in a pot and ingredients like butter, herbs, and cream nearby.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          116.0,
+          122.0
+        ],
+        "description": "Chef monitors and stirs a pot of boiling liquid on the stove.",
+        "uncertainty": "Exact ingredient being boiled is not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          128.0,
+          130.0
+        ],
+        "description": "Chef moves the pot to the sink area, preparing to drain it.",
+        "uncertainty": "Action during the transition is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          134.0,
+          138.0
+        ],
+        "description": "Chef drains the boiling liquid from the pot into the sink.",
+        "uncertainty": "Exact draining method is obscured by steam.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          140.0,
+          144.0
+        ],
+        "description": "Chef transfers the cooked potatoes from a colander into the pot.",
+        "uncertainty": "Whether the pot is returned to the stove immediately is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e5",
+        "video_id": "v2",
+        "time_span": [
+          146.0,
+          150.0
+        ],
+        "description": "Chef places the pot with potatoes back on the stove and covers it.",
+        "uncertainty": "Purpose of covering the pot is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e6",
+        "video_id": "v2",
+        "time_span": [
+          154.0,
+          156.0
+        ],
+        "description": "Chef holds a white ceramic jug, possibly containing an ingredient.",
+        "uncertainty": "Contents of the jug are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          160.0,
+          168.0
+        ],
+        "description": "Chef holds a white ceramic jug, gestures while explaining, then places it on the counter.",
+        "uncertainty": "Contents of the jug are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          176.0,
+          180.0
+        ],
+        "description": "Chef uses a spoon to transfer cooked potatoes from a saucepan into a metal bowl.",
+        "uncertainty": "Specific tool for transfer is partially obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          184.0,
+          188.0
+        ],
+        "description": "Chef presses a potato ricer or food mill against a bowl to process the cooked potatoes.",
+        "uncertainty": "Exact tool type is blurry in close-up.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          190.0,
+          202.0
+        ],
+        "description": "Riced potatoes are shown falling through the tool into a bowl, creating a fine, fluffy texture.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          204.0,
+          226.0
+        ],
+        "description": "A chef processes boiled potatoes through a metal ricer into a bowl, with intermittent shots of adding butter.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          228.0,
+          244.0
+        ],
+        "description": "The chef mixes the riced potatoes with butter using a wooden spoon, blending the ingredients together.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e1",
+        "video_id": "v2",
+        "time_span": [
+          248.0,
+          250.0
+        ],
+        "description": "Milk poured from white jug into mashed potatoes in metal bowl; wooden spoon held by hand.",
+        "uncertainty": "Mixing outcome not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e2",
+        "video_id": "v2",
+        "time_span": [
+          256.0,
+          258.0
+        ],
+        "description": "Chef vigorously mixes mashed potatoes with wooden spoon in metal bowl.",
+        "uncertainty": "Exact mixing duration unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e3",
+        "video_id": "v2",
+        "time_span": [
+          262.0,
+          262.0
+        ],
+        "description": "Chef stands at counter, holding bowl and spoon, mid-mixing action.",
+        "uncertainty": "Single frame limits motion inference.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e4",
+        "video_id": "v2",
+        "time_span": [
+          268.0,
+          272.0
+        ],
+        "description": "Chef seasons mashed potatoes with black pepper from grinder.",
+        "uncertainty": "Salt addition not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e5",
+        "video_id": "v2",
+        "time_span": [
+          276.0,
+          276.0
+        ],
+        "description": "Chef resumes mixing seasoned mashed potatoes with wooden spoon.",
+        "uncertainty": "Mixing intensity not quantifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e6",
+        "video_id": "v2",
+        "time_span": [
+          278.0,
+          284.0
+        ],
+        "description": "Chef transfers mashed potatoes from metal bowl to black serving dish.",
+        "uncertainty": "Transfer completeness not confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e7",
+        "video_id": "v2",
+        "time_span": [
+          288.0,
+          288.0
+        ],
+        "description": "Chef chops green herbs on cutting board beside filled potato dish.",
+        "uncertainty": "Herb type and use not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e1",
+        "video_id": "v2",
+        "time_span": [
+          290.0,
+          294.0
+        ],
+        "description": "Chives are being chopped on a white cutting board. The view then widens to show a chef standing at a kitchen counter with the chopped herbs and a bowl of mashed potatoes.",
+        "uncertainty": "The specific cooking action in Video 1 is not provided.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e2",
+        "video_id": "v2",
+        "time_span": [
+          296.0,
+          300.0
+        ],
+        "description": "Close-up shots show the chopped green chives sprinkled over the top of the mashed potatoes. The video ends with a QVFOODS logo overlay.",
+        "uncertainty": "The specific cooking action in Video 1 is not provided.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e3",
+        "video_id": "v2",
+        "time_span": [
+          304.0,
+          306.0
+        ],
+        "description": "The video concludes with the Hill Tribe Productions logo and copyright information displayed on a black background.",
+        "uncertainty": "The specific cooking action in Video 1 is not provided.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          95.996,
+          97.998
+        ],
+        "description": "Potato chunks are visible boiling in a pot of water on a stovetop.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          98.999,
+          100.0
+        ],
+        "description": "A hand is holding a metal bowl containing the boiled potato chunks.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          180.0,
+          181.0
+        ],
+        "description": "A blurred hand is positioned over the metal bowl, indicating the person is present and ready to perform an action.",
+        "uncertainty": "The specific action being prepared is not yet visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          182.0,
+          183.0
+        ],
+        "description": "A large chunk of cooked potato is transferred into the metal bowl, followed by the appearance of smaller pieces, confirming active food transfer.",
+        "uncertainty": "The exact tool used for transfer is blurred but implied.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local v1 evidence to determine whether reference step is boiling, bowl-holding, or transition between them.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u001"
+        ],
+        "evidence_goal": "In the continuous 96.0-100.0 second v1 footage, do potato chunks remain boiling in a pot, is the hand already holding a metal bowl of boiled chunks, or does the footage show the transition from boiling to holding the bowl?",
+        "next_probe_goal": "If v1 shows a boiling-to-bowl transition, compare v2 saucepan-to-bowl transfer evidence.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need v2 end boundary for potato-to-bowl transfer around 176-180.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v2.u024"
+        ],
+        "evidence_goal": "Does the spoon transfer of cooked potatoes into the metal bowl continue during 180-184, or is it complete before 184?",
+        "next_probe_goal": "If it continues, align end with the next non-transfer action; if not, keep end at 180.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "v1's reference step is cooked potatoes transitioning into a metal bowl. v2's matching functional step is the saucepan-to-metal-bowl transfer around 176-184, immediately before ricing starts at 184. The earlier drain/return sequence is not equivalent.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[176, 184]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[176, 184]",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v1.c002",
+      "v2.c016",
+      "v2.zoom.r2-r3-01.s01",
+      "v2.c017"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        95.996,
+        95.996
+      ],
+      "resolution": "coarse",
+      "content": "Potato chunks are boiling in water inside a pot on a stove burner.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Video 1 interval boundaries are not established by this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        96.0,
+        100.0
+      ],
+      "resolution": "fine",
+      "content": "Potato chunks are visible boiling in a pot of water on a stovetop. A hand is holding a metal bowl containing the boiled potato chunks.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Unresolved: The specific moment of transition from the pot to the bowl occurs in the gap between 97.998s and 98.999s."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        100.0,
+        100.0
+      ],
+      "resolution": "coarse",
+      "content": "A hand holds a metal bowl containing boiled potato chunks.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Video 2 interval boundaries are not established by this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "Introductory sequence with title 'Perfect Mash', followed by the chef standing in the kitchen and speaking.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact start of the cooking action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        14.0,
+        18.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef holds a bowl of unpeeled potatoes and presents them to the camera.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action between the frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        14.0,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        18.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        28.0,
+        40.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef washes and peels the potatoes under running water using a peeler.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Completion of the peeling process."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        30.0,
+        34.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        40.0,
+        44.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        44.0,
+        52.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef cuts the peeled potatoes into chunks on a white cutting board.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "End of the cutting action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        44.0,
+        52.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        52.0,
+        56.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        56.0,
+        60.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        56.0,
+        62.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef peels and cuts potatoes into chunks on a white cutting board.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        62.0,
+        68.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        68.0,
+        76.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef places potato chunks into a stainless steel pot and fills it with water from the tap.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        70.0,
+        76.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        76.0,
+        82.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        82.0,
+        86.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        82.0,
+        102.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef places the pot on the stove, covers it with a lid, and boils the potatoes.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        88.0,
+        94.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        94.0,
+        98.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        102.0,
+        108.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        108.0,
+        112.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands at the counter with cooked potatoes in a pot and ingredients like butter, herbs, and cream nearby.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        112.0,
+        116.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        116.0,
+        120.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        116.0,
+        122.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef monitors and stirs a pot of boiling liquid on the stove.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact ingredient being boiled is not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        122.0,
+        128.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        128.0,
+        130.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef moves the pot to the sink area, preparing to drain it.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Action during the transition is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        130.0,
+        134.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        134.0,
+        138.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef drains the boiling liquid from the pot into the sink.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Exact draining method is obscured by steam."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        140.0,
+        144.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef transfers the cooked potatoes from a colander into the pot.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "Whether the pot is returned to the stove immediately is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        146.0,
+        150.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef places the pot with potatoes back on the stove and covers it.",
+      "evidence": [
+        "v2-b0003-e5"
+      ],
+      "uncertainty": [
+        "Purpose of covering the pot is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        150.0,
+        154.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        154.0,
+        156.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds a white ceramic jug, possibly containing an ingredient.",
+      "evidence": [
+        "v2-b0003-e6"
+      ],
+      "uncertainty": [
+        "Contents of the jug are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        156.0,
+        160.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        160.0,
+        168.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds a white ceramic jug, gestures while explaining, then places it on the counter.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Contents of the jug are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        162.0,
+        166.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        168.0,
+        176.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        176.0,
+        180.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef uses a spoon to transfer cooked potatoes from a saucepan into a metal bowl.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Specific tool for transfer is partially obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-01.s01",
+      "video": "v2",
+      "time": [
+        180.0,
+        184.0
+      ],
+      "resolution": "fine",
+      "content": "A blurred hand is positioned over the metal bowl, indicating the person is present and ready to perform an action. A large chunk of cooked potato is transferred into the metal bowl, followed by the appearance of smaller pieces, confirming active food transfer.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The specific action being prepared is not yet visible.",
+        "The exact tool used for transfer is blurred but implied.",
+        "Unresolved: Whether the transfer continues past 184s is not visible in this batch."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        184.0,
+        188.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef presses a potato ricer or food mill against a bowl to process the cooked potatoes.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Exact tool type is blurry in close-up."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        190.0,
+        202.0
+      ],
+      "resolution": "coarse",
+      "content": "Riced potatoes are shown falling through the tool into a bowl, creating a fine, fluffy texture.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        196.0,
+        200.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        204.0,
+        226.0
+      ],
+      "resolution": "coarse",
+      "content": "A chef processes boiled potatoes through a metal ricer into a bowl, with intermittent shots of adding butter.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        206.0,
+        210.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        212.0,
+        216.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        216.0,
+        220.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        228.0,
+        244.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef mixes the riced potatoes with butter using a wooden spoon, blending the ingredients together.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        234.0,
+        238.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        238.0,
+        242.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u031",
+      "video": "v2",
+      "time": [
+        244.0,
+        248.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c021",
+      "video": "v2",
+      "time": [
+        248.0,
+        250.0
+      ],
+      "resolution": "coarse",
+      "content": "Milk poured from white jug into mashed potatoes in metal bowl; wooden spoon held by hand.",
+      "evidence": [
+        "v2-b0006-e1"
+      ],
+      "uncertainty": [
+        "Mixing outcome not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u032",
+      "video": "v2",
+      "time": [
+        252.0,
+        256.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c022",
+      "video": "v2",
+      "time": [
+        256.0,
+        258.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef vigorously mixes mashed potatoes with wooden spoon in metal bowl.",
+      "evidence": [
+        "v2-b0006-e2"
+      ],
+      "uncertainty": [
+        "Exact mixing duration unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u033",
+      "video": "v2",
+      "time": [
+        258.0,
+        262.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c023",
+      "video": "v2",
+      "time": [
+        262.0,
+        262.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands at counter, holding bowl and spoon, mid-mixing action.",
+      "evidence": [
+        "v2-b0006-e3"
+      ],
+      "uncertainty": [
+        "Single frame limits motion inference."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c024",
+      "video": "v2",
+      "time": [
+        268.0,
+        272.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef seasons mashed potatoes with black pepper from grinder.",
+      "evidence": [
+        "v2-b0006-e4"
+      ],
+      "uncertainty": [
+        "Salt addition not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u034",
+      "video": "v2",
+      "time": [
+        272.0,
+        276.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c025",
+      "video": "v2",
+      "time": [
+        276.0,
+        276.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef resumes mixing seasoned mashed potatoes with wooden spoon.",
+      "evidence": [
+        "v2-b0006-e5"
+      ],
+      "uncertainty": [
+        "Mixing intensity not quantifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u035",
+      "video": "v2",
+      "time": [
+        278.0,
+        282.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c026",
+      "video": "v2",
+      "time": [
+        278.0,
+        284.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef transfers mashed potatoes from metal bowl to black serving dish.",
+      "evidence": [
+        "v2-b0006-e6"
+      ],
+      "uncertainty": [
+        "Transfer completeness not confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u036",
+      "video": "v2",
+      "time": [
+        284.0,
+        288.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c027",
+      "video": "v2",
+      "time": [
+        288.0,
+        288.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef chops green herbs on cutting board beside filled potato dish.",
+      "evidence": [
+        "v2-b0006-e7"
+      ],
+      "uncertainty": [
+        "Herb type and use not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c028",
+      "video": "v2",
+      "time": [
+        290.0,
+        294.0
+      ],
+      "resolution": "coarse",
+      "content": "Chives are being chopped on a white cutting board. The view then widens to show a chef standing at a kitchen counter with the chopped herbs and a bowl of mashed potatoes.",
+      "evidence": [
+        "v2-b0007-e1"
+      ],
+      "uncertainty": [
+        "The specific cooking action in Video 1 is not provided."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c029",
+      "video": "v2",
+      "time": [
+        296.0,
+        300.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up shots show the chopped green chives sprinkled over the top of the mashed potatoes. The video ends with a QVFOODS logo overlay.",
+      "evidence": [
+        "v2-b0007-e2"
+      ],
+      "uncertainty": [
+        "The specific cooking action in Video 1 is not provided."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u037",
+      "video": "v2",
+      "time": [
+        296.0,
+        300.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u038",
+      "video": "v2",
+      "time": [
+        300.0,
+        304.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c030",
+      "video": "v2",
+      "time": [
+        304.0,
+        306.0
+      ],
+      "resolution": "coarse",
+      "content": "The video concludes with the Hill Tribe Productions logo and copyright information displayed on a black background.",
+      "evidence": [
+        "v2-b0007-e3"
+      ],
+      "uncertainty": [
+        "The specific cooking action in Video 1 is not provided."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u039",
+      "video": "v2",
+      "time": [
+        306.0,
+        307.52
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If v1 shows a boiling-to-bowl transition, compare v2 saucepan-to-bowl transfer evidence.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

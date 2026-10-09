@@ -1,0 +1,117 @@
+{
+  "state": {
+    "question": "How many red cars parked by the roadside does {A1} pass in total?",
+    "round_id": 1,
+    "summary": "Both videos describe A1 passing red cars, but with differing counts.",
+    "requirements": [
+      {
+        "id": "U01",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v2-b0001-e1"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": [
+      {
+        "id": "Q01",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "observable": "A clearer count of red cars passed by A1 in each video.",
+        "purpose": "To resolve the discrepancy in the total number of red cars passed.",
+        "related_requirement": "U01"
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 bicycle is visible moving along the road, passing parked cars including a red car.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 passes parked red cars on roadside. One red car visible at 0.0s, another at 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Both videos describe A1 passing red cars, but with differing counts.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: PLAN must reserve at least one coarse slot for the next mandatory stage",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: PLAN must reserve at least one coarse slot for the next mandatory stage"
+  },
+  "visual_calls_used": 0,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1-b0001-e1.slot",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A1 bicycle is visible moving along the road, passing parked cars including a red car.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2-b0001-e1.slot",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A1 passes parked red cars on roadside. One red car visible at 0.0s, another at 4.0s.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 0,
+    "remaining_focus_stages": 2,
+    "phase": "mandatory_exploration",
+    "require_follow_up_reservation": true,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 0,
+    "visual_calls_remaining": 8,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

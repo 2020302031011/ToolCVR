@@ -1,0 +1,332 @@
+{
+  "question": "Which assembly error is an example of an action that 'shouldn't have happened'?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "v1 shows a black chassis placed on a blue base and manipulated with a yellow screwdriver, while the fastening direction and intended assembly stage are unclear."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v1-b0002-e5"
+      ],
+      "statement": "v1 shows black wheels attached to blue chassis halves and screwdriver adjustment that may be standard assembly or correction."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0003-e1",
+        "v2-b0003-e2"
+      ],
+      "statement": "v2 shows ambiguous manipulation of chassis, interior/base, and cabin/light components without visually confirming attach versus detach direction."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e1",
+        "v2-b0004-e3",
+        "v2-b0004-e4"
+      ],
+      "statement": "v2 shows a black chassis and white base handled together and a small dark rectangular component likely cabin or interior piece attached to the main assembly."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3"
+      ],
+      "statement": "v3 explicitly shows attaching interior components to a chassis, detaching a base from a chassis, and attaching a transport cabin to a base."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e2",
+        "v3-b0002-e4",
+        "v3-b0003-e3",
+        "v3-b0003-e5"
+      ],
+      "statement": "v3 shows screwing into a cabin top and fastening a wheel with uncertainty about whether these actions are correct assembly steps or corrections."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1's black chassis and blue base manipulation resembles v3's explicit chassis/base actions, but v1 does not identify the action as attaching interior components or detaching a base.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e4",
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2's ambiguous interior/base and cabin/light manipulations involve component types similar to v3's explicit attach interior/chassis and attach transport cabin/base actions, without v2 confirming the direction.",
+      "supporting_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0004-e4",
+        "v3-b0001-e1",
+        "v3-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v3 explicitly detaches a base from a chassis, whereas v2 only shows possible attach or detach of an interior/base sub-part, leaving the v2 base/chassis action direction unresolved.",
+      "supporting_events": [
+        "v3-b0001-e2",
+        "v2-b0001-e2",
+        "v2-b0003-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "v1 and v3 contain actions described as possible corrections or uncertain assembly steps, while v2 contains actions whose error status is explicitly not visually verifiable.",
+      "supporting_events": [
+        "v1-b0002-e5",
+        "v3-b0002-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2's black rectangular chassis and white base handling parallels v3's base/chassis and transport cabin/base handling, but v2 does not label the small component as a transport cabin.",
+      "supporting_events": [
+        "v2-b0004-e1",
+        "v2-b0004-e4",
+        "v3-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether any v1 action is an example of an assembly error that shouldn't have happened remains unresolved.",
+      "reason": "v1 reports unclear fastening direction, intended stage, and possible correction versus standard assembly, but no incorrect step is identified.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0002-e5"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether v2 contains an erroneous detach base/chassis or attach transport cabin/base action remains unresolved.",
+      "reason": "v2 attach/detach direction, component identity, and error status are ambiguous in the cited events.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v2-b0003-e1",
+        "v2-b0004-e1",
+        "v2-b0004-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether v3's explicit attach or detach actions are errors rather than correct assembly steps remains unresolved.",
+      "reason": "The v3 reports state the component actions but do not state that they shouldn't have happened.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether the option labels' video attributions for base/chassis and transport cabin/base actions match the explicit v3 actions remains unresolved.",
+      "reason": "v3 names those actions explicitly, while v2 only describes ambiguous chassis, base, interior, and cabin-like components.",
+      "related_events": [
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0004-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether an attach light and cabin action is observed as an assembly error remains unresolved.",
+      "reason": "v2 mentions a cabin/light structure without confirming attachment, and v3 mentions cabin screwing without identifying a light component.",
+      "related_events": [
+        "v2-b0001-e3",
+        "v3-b0002-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare v1 chassis/base manipulation with v3 interior-to-chassis attachment to see whether v1 shows the same action and whether it is followed by corrective handling.",
+      "purpose": "This would determine whether option A describes an observed erroneous v1 action.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare v2 base/chassis handling with v3 detach base/chassis to see whether v2 shows the same detach action and whether it is followed by corrective handling.",
+      "purpose": "This would determine whether option B describes an observed erroneous v2 action.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare v2 cabin/light structure handling with v3 cabin screwing or attachment events to see whether a light-to-cabin attachment is visually confirmed and followed by correction.",
+      "purpose": "This would determine whether option C describes an observed erroneous action.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare v2 black chassis/white base and small dark rectangular component attachment with v3 transport-cabin-to-base attachment to see whether v2 shows that action and whether it is followed by correction.",
+      "purpose": "This would determine whether option D describes an observed erroneous v2 action.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare v3 explicit attach/detach actions with nearby v3 inspection or screwing events to see whether the explicit actions are followed by correction or mismatch.",
+      "purpose": "This would resolve whether explicit v3 actions are errors rather than correct steps.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-132",
+    "task": "PEA",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PEA/PEA-132/report.json",
+    "report_sha256": "3864160045c52ed79bed63336904f3941ce7a2e1d13bf602daea749d00ef7873",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

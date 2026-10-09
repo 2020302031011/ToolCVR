@@ -1,0 +1,1715 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 4,
+    "summary": "Current evidence supports v2 as raw meat dicing, v1 as frying/browning that meat, v5 as starting pasta cooking, v3 as egg/cheese sauce preparation, v4 as tossing cooked pasta with bacon in the pan, and v6 as plating/garnishing. The best-supported chronological workflow is v2 -> v1 -> v5 -> v3 -> v4 -> v6; residual uncertainty about the exact placement of v3 relative to v5 is not likely to be materially resolved by a local probe beyond this sequence.",
+    "review": {
+      "outcome": "resolved",
+      "reason": "The focus on v4 confirmed that yellow strands (pasta) are being mixed with reddish-brown chunks (bacon) in a pan. This identifies v4 as the 'combining' step. Since v6 shows the final plated dish with grated cheese, v4 must precede v6. The local goal of identifying v4's role was settled by observing the tossing action.",
+      "evidence_refs": [
+        "v4.zoom.r3-U03-01.s01"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 1
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5, v6. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5, v6 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ]
+    },
+    "findings": [
+      {
+        "id": "U02",
+        "statement": "Establish the sequence of cooking steps: combining ingredients vs. final plating/garnishing.",
+        "videos": [
+          "v4",
+          "v6"
+        ],
+        "evidence_refs": [
+          "v4.zoom.r3-U03-01.s01",
+          "v6.zoom.r2-U02-03.s01"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "Determine the chronological order of ingredient preparation (meat, cheese) relative to pasta cooking.",
+        "videos": [
+          "v1",
+          "v2",
+          "v3",
+          "v5"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r1-U01-02.s01",
+          "v2.zoom.r1-U01-01.s01"
+        ]
+      }
+    ],
+    "contrastive_frontier": [
+      {
+        "id": "P01",
+        "question_id": "U01",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "observable": "Compare the state of the meat in v1 (frying/browning) with the state in v2 (dicing on board). Determine if v2 shows raw lardon preparation preceding v1's frying, or cooked meat being handled.",
+        "purpose": "Resolve whether meat dicing (v2) occurs before or after bacon frying (v1), establishing the start of the protein workflow."
+      },
+      {
+        "id": "P02",
+        "question_id": "U01",
+        "videos": [
+          "v3",
+          "v5"
+        ],
+        "observable": "Observe the transition from dry spaghetti handling (v5) to cheese preparation (v3). Check if v3 contains any visual cues linking it temporally to the pasta boiling stage or the sauce mixing stage.",
+        "purpose": "Position the cheese prep (v3) relative to the pasta start (v5) and the mixing step (v4)."
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "Chef pours oil and adds raw, pale bacon lardons to a pan. The meat is uncooked and fatty at the start of the clip.",
+        "direct_observation": "Chef pours oil and adds raw, pale bacon lardons to a pan. The meat is uncooked and fatty at the start of the clip.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact moment of heat application not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          16.0,
+          16.0
+        ],
+        "description": "Bacon lardons are shown in the pan, appearing partially cooked with rendered fat.",
+        "direct_observation": "Bacon lardons are shown in the pan, appearing partially cooked with rendered fat.",
+        "inferred_interpretation": "",
+        "uncertainty": "Transition from raw to this state is in the gap.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          17.0,
+          19.0
+        ],
+        "description": "Bacon is now significantly reduced, browned, and crispy in the rendered fat.",
+        "direct_observation": "Bacon is now significantly reduced, browned, and crispy in the rendered fat.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact timing of browning process is estimated.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          27.0,
+          27.0
+        ],
+        "description": "Chef stands at the stove next to the pan containing the fully cooked, browned bacon.",
+        "direct_observation": "Chef stands at the stove next to the pan containing the fully cooked, browned bacon.",
+        "inferred_interpretation": "",
+        "uncertainty": "Chef's specific action with the bacon is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "Close-up of a hand reaching for a piece of meat on a wooden board next to a cleaver.",
+        "direct_observation": "Close-up of a hand reaching for a piece of meat on a wooden board next to a cleaver.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before this moment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "Wide shot of a chef holding a piece of meat, with a kitchen background.",
+        "direct_observation": "Wide shot of a chef holding a piece of meat, with a kitchen background.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before and after this moment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          16.0,
+          22.0
+        ],
+        "description": "The chef is actively cutting the meat on the wooden board with a cleaver.",
+        "direct_observation": "The chef is actively cutting the meat on the wooden board with a cleaver.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before and after this moment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          30.0,
+          32.0
+        ],
+        "description": "Close-up shot of the chef's hands continuing to slice the meat.",
+        "direct_observation": "Close-up shot of the chef's hands continuing to slice the meat.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before and after this moment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          46.0,
+          46.0
+        ],
+        "description": "The chef is shown cutting the meat, which is now diced into small cubes on the board.",
+        "direct_observation": "The chef is shown cutting the meat, which is now diced into small cubes on the board.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before and after this moment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.0,
+          20.0
+        ],
+        "description": "Chef cracks eggs into a blue bowl and whisks them until smooth and yellow.",
+        "direct_observation": "Chef cracks eggs into a blue bowl and whisks them until smooth and yellow.",
+        "inferred_interpretation": "",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          23.001,
+          23.001
+        ],
+        "description": "Chef holds a small white bowl containing grated cheese over the blue mixing bowl.",
+        "direct_observation": "Chef holds a small white bowl containing grated cheese over the blue mixing bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action after holding is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          27.001,
+          27.001
+        ],
+        "description": "Chef stands in the kitchen holding the small white bowl of cheese.",
+        "direct_observation": "Chef stands in the kitchen holding the small white bowl of cheese.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action before and after is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          35.001,
+          35.001
+        ],
+        "description": "Chef tilts the small white bowl to pour the grated cheese into the blue mixing bowl.",
+        "direct_observation": "Chef tilts the small white bowl to pour the grated cheese into the blue mixing bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "Completion of pouring is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e5",
+        "video_id": "v3",
+        "time_span": [
+          39.001,
+          41.001
+        ],
+        "description": "Chef holds the empty small bowl, then reaches for a utensil near the blue mixing bowl.",
+        "direct_observation": "Chef holds the empty small bowl, then reaches for a utensil near the blue mixing bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action after reaching is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          45.001,
+          45.001
+        ],
+        "description": "Close-up of a whisk mixing a yellow, speckled substance in a blue bowl.",
+        "direct_observation": "Close-up of a whisk mixing a yellow, speckled substance in a blue bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "The specific ingredients and the result of the mixing are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          49.001,
+          49.001
+        ],
+        "description": "Wide shot of a man in a blue shirt using a whisk in a blue bowl in a kitchen.",
+        "direct_observation": "Wide shot of a man in a blue shirt using a whisk in a blue bowl in a kitchen.",
+        "inferred_interpretation": "",
+        "uncertainty": "The contents of the bowl are not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0002-e1",
+        "video_id": "v4",
+        "time_span": [
+          50.001,
+          50.001
+        ],
+        "description": "Chef in blue shirt stirs pasta in a frying pan on the stovetop; large pot steams in background.",
+        "direct_observation": "Chef in blue shirt stirs pasta in a frying pan on the stovetop; large pot steams in background.",
+        "inferred_interpretation": "",
+        "uncertainty": "Start and end of this specific stirring action unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "Chef places lid on steamer pot; steam rises. S1 segment.",
+        "direct_observation": "Chef places lid on steamer pot; steam rises. S1 segment.",
+        "inferred_interpretation": "",
+        "uncertainty": "Action completion not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "Close-up of steamer basket; hand sprinkles salt into water. S2 segment.",
+        "direct_observation": "Close-up of steamer basket; hand sprinkles salt into water. S2 segment.",
+        "inferred_interpretation": "",
+        "uncertainty": "Salt source not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e3",
+        "video_id": "v5",
+        "time_span": [
+          12.0,
+          12.0
+        ],
+        "description": "Chef holds dry spaghetti bundle over bowl. S3 segment.",
+        "direct_observation": "Chef holds dry spaghetti bundle over bowl. S3 segment.",
+        "inferred_interpretation": "",
+        "uncertainty": "Pasta not yet in pot.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e4",
+        "video_id": "v5",
+        "time_span": [
+          20.0,
+          22.0
+        ],
+        "description": "Chef inserts spaghetti bundle into steamer pot. S4 segment.",
+        "direct_observation": "Chef inserts spaghetti bundle into steamer pot. S4 segment.",
+        "inferred_interpretation": "",
+        "uncertainty": "Pasta not yet softened.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v6-b0001-e1",
+        "video_id": "v6",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Spaghetti carbonara is poured from a black frying pan onto a white plate.",
+        "direct_observation": "Spaghetti carbonara is poured from a black frying pan onto a white plate.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v6-b0001-e2",
+        "video_id": "v6",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "Chef Gennaro Contaldo stands in a kitchen, holding and adjusting the plate of pasta.",
+        "direct_observation": "Chef Gennaro Contaldo stands in a kitchen, holding and adjusting the plate of pasta.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v6-b0001-e3",
+        "video_id": "v6",
+        "time_span": [
+          12.0,
+          14.0
+        ],
+        "description": "The chef grates cheese over the plated pasta using a handheld grater.",
+        "direct_observation": "The chef grates cheese over the plated pasta using a handheld grater.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v6-b0001-e4",
+        "video_id": "v6",
+        "time_span": [
+          18.0,
+          20.0
+        ],
+        "description": "A close-up static shot shows the finished pasta dish topped with grated cheese.",
+        "direct_observation": "A close-up static shot shows the finished pasta dish topped with grated cheese.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          41.96,
+          43.96
+        ],
+        "description": "A person's hands use a cleaver on a wooden board to cut pale fatty meat with red streaks into small cubes.",
+        "direct_observation": "A person's hands use a cleaver on a wooden board to cut pale fatty meat with red streaks into small cubes.",
+        "inferred_interpretation": "The meat is being diced, visually consistent with raw lardon.",
+        "uncertainty": "The exact cut of meat is not labeled.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          44.96,
+          45.96
+        ],
+        "description": "A wider view shows the diced pale meat and red-streaked pieces piled on the board, with the person continuing to cut.",
+        "direct_observation": "A wider view shows the diced pale meat and red-streaked pieces piled on the board, with the person continuing to cut.",
+        "inferred_interpretation": "The diced pieces represent the final state of the meat preparation in this interval.",
+        "uncertainty": "The pile's exact size relative to the initial block is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "The video shows a sequence of cooking steps: chopping ingredients, pouring oil into a pan, and frying diced bacon.",
+        "direct_observation": "The video shows a sequence of cooking steps: chopping ingredients, pouring oil into a pan, and frying diced bacon.",
+        "inferred_interpretation": "The sequence depicts the preparation and initial cooking of a bacon-based dish.",
+        "uncertainty": "The specific recipe or final dish is not identified.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v5.focus.r2.l1.e1",
+        "video_id": "v5",
+        "time_span": [
+          8.0,
+          11.0
+        ],
+        "description": "A man in a blue shirt stands at a kitchen counter, reaching down toward the surface near a steaming pot.",
+        "direct_observation": "A man in a blue shirt stands at a kitchen counter, reaching down toward the surface near a steaming pot.",
+        "inferred_interpretation": "Preparing to pick up ingredients.",
+        "uncertainty": "Object being grasped is not yet visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v5.focus.r2.l1.e2",
+        "video_id": "v5",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "The man holds a bundle of long, yellow, rigid strands with both hands, inspecting them closely.",
+        "direct_observation": "The man holds a bundle of long, yellow, rigid strands with both hands, inspecting them closely.",
+        "inferred_interpretation": "The strands are dry spaghetti.",
+        "uncertainty": "Exact pasta type cannot be verified without packaging.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          31.001,
+          34.001
+        ],
+        "description": "An elderly man holds a rectangular block of yellow cheese in his right hand and a small white bowl in his left, looking down at the items.",
+        "direct_observation": "An elderly man holds a rectangular block of yellow cheese in his right hand and a small white bowl in his left, looking down at the items.",
+        "inferred_interpretation": "Preparation phase for cheese ingredient",
+        "uncertainty": "Exact cheese type not specified",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e2",
+        "video_id": "v3",
+        "time_span": [
+          35.001,
+          39.001
+        ],
+        "description": "Close-up of a hand tilting a small white bowl containing grated white cheese over a blue mixing bowl.",
+        "direct_observation": "Close-up of a hand tilting a small white bowl containing grated white cheese over a blue mixing bowl.",
+        "inferred_interpretation": "Cheese mixing action",
+        "uncertainty": "Exact cheese type not specified",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v6.focus.r2.l3.e1",
+        "video_id": "v6",
+        "time_span": [
+          18.0,
+          20.0
+        ],
+        "description": "A white plate holds cooked spaghetti tossed with sauce, meat chunks, and grated cheese, with black pepper sprinkled on top. A metal whisk rests on the table in the background.",
+        "direct_observation": "A white plate holds cooked spaghetti tossed with sauce, meat chunks, and grated cheese, with black pepper sprinkled on top. A metal whisk rests on the table in the background.",
+        "inferred_interpretation": "Final plated dish state showing cheese already mixed and garnished.",
+        "uncertainty": "Preparation steps prior to plating not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v4.focus.r3.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          28.0,
+          30.0
+        ],
+        "description": "Yellow strands are mixed with small reddish-brown chunks in a black pan using silver tongs. Steam rises from the hot mixture as it is tossed.",
+        "direct_observation": "Yellow strands are mixed with small reddish-brown chunks in a black pan using silver tongs. Steam rises from the hot mixture as it is tossed.",
+        "inferred_interpretation": "The pasta is being combined with bacon and sauce.",
+        "uncertainty": "Specific ingredient identities are not textually labeled.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v4-b0001-gap1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          48.000999999999976
+        ],
+        "reason": "VLM output remained invalid: event e6 crosses discontinuous frame segments: ['S6', 'S7']",
+        "action": "SCAN",
+        "round": 0
+      }
+    ]
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration is still open. The strongest unresolved ordering issue is whether the diced meat produced in v2 is the same raw bacon lardons cooked in v1. Resolving this local continuity can materially affect the early sequence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.c005",
+          "v1.c001"
+        ],
+        "evidence_goal": "Compare the final diced-meat state in v2 with the initial raw-lardon state in v1 to determine whether they depict the same meat preparation and cooking continuity.",
+        "next_probe_goal": "If the meat matches, support v2 before v1; if it does not match, treat v1 and v2 as separate preparation tracks and prioritize another continuity question.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "One mandatory focus stage remains. U01 has partial support for v2 before v1 but is not decisive for the full sequence. U02 remains unresolved because the relative order of pasta cooking, cheese mixing, and final plating/grating needs a local state-transition comparison. The executable next probe is P02 using v5 dry spaghetti, v3 cheese mixing, and v6 finished plated pasta.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U02",
+        "slot_ids": [
+          "v5.c003",
+          "v3.c004",
+          "v6.c004"
+        ],
+        "evidence_goal": "Observe local pasta/cheese states in v5, v3, and v6 to determine whether dry spaghetti preparation precedes cheese mixing and whether final plated grating follows both, helping place v5, v3, and v6 in the overall cooking sequence.",
+        "next_probe_goal": "Compare the dry spaghetti state in v5 with the cheese-addition/mixing state in v3 and the finished plated-pasta state in v6 to discriminate the chronological order of pasta cooking, cheese preparation, and serving.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Current evidence supports raw bacon dicing in v2 preceding bacon frying in v1, and pasta preparation in v5 preceding the cheese/egg mixture in v3 and final plating in v6. The remaining unresolved placement is v4: its coarse end state shows pasta being stirred in a frying pan, but its role relative to v3 and v6 needs local confirmation. The executable v4 coverage probe is therefore the smallest useful next observation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U03",
+        "slot_ids": [
+          "v4.u005"
+        ],
+        "evidence_goal": "Observe the selected unobserved v4 interval to identify whether it shows cooked pasta being combined with bacon, egg/cheese sauce, or another step.",
+        "next_probe_goal": "Determine whether v4 is the combining step immediately before v6 or a different pasta-related stage that changes its chronological position.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Current evidence supports v2 as raw meat dicing, v1 as frying/browning that meat, v5 as starting pasta cooking, v3 as egg/cheese sauce preparation, v4 as tossing cooked pasta with bacon in the pan, and v6 as plating/garnishing. The best-supported chronological workflow is v2 -> v1 -> v5 -> v3 -> v4 -> v6; residual uncertainty about the exact placement of v3 relative to v5 is not likely to be materially resolved by a local probe beyond this sequence.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v2 -> v1 -> v5 -> v3 -> v4 -> v6",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 4,
+    "projected_revision": 4,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "53a69fe25a8356a7",
+      "requirement_id": "U01",
+      "evidence_goal": "Compare the final diced-meat state in v2 with the initial raw-lardon state in v1 to determine whether they depict the same meat preparation and cooking continuity.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            46.0,
+            46.0
+          ]
+        },
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            10.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v1.focus.r1.l2.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "d442970f0b392763",
+      "requirement_id": "U02",
+      "evidence_goal": "Observe local pasta/cheese states in v5, v3, and v6 to determine whether dry spaghetti preparation precedes cheese mixing and whether final plated grating follows both, helping place v5, v3, and v6 in the overall cooking sequence.",
+      "targets": [
+        {
+          "video_id": "v5",
+          "time_span": [
+            12.0,
+            12.0
+          ]
+        },
+        {
+          "video_id": "v3",
+          "time_span": [
+            35.001,
+            35.001
+          ]
+        },
+        {
+          "video_id": "v6",
+          "time_span": [
+            18.0,
+            20.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v5.focus.r2.l1.e1",
+        "v5.focus.r2.l1.e2",
+        "v3.focus.r2.l2.e1",
+        "v3.focus.r2.l2.e2",
+        "v6.focus.r2.l3.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 3,
+      "request_fingerprint": "0d9bfc312305e791",
+      "requirement_id": "U03",
+      "evidence_goal": "Observe the selected unobserved v4 interval to identify whether it shows cooked pasta being combined with bacon, egg/cheese sauce, or another step.",
+      "targets": [
+        {
+          "video_id": "v4",
+          "time_span": [
+            28.0,
+            30.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v4.focus.r3.l1.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v2 -> v1 -> v5 -> v3 -> v4 -> v6",
+    "evidence_refs": [
+      "v2.zoom.r1-U01-01.s01",
+      "v1.zoom.r1-U01-02.s01",
+      "v4.zoom.r3-U03-01.s01",
+      "v6.zoom.r2-U02-03.s01"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 6,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-02.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "The video shows a sequence of cooking steps: chopping ingredients, pouring oil into a pan, and frying diced bacon.",
+      "evidence": [
+        "v1.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "The specific recipe or final dish is not identified.",
+        "Inferred interpretation (not direct evidence): The sequence depicts the preparation and initial cooking of a bacon-based dish.",
+        "Unresolved: The final diced-meat state in v2 is not available for comparison with the initial raw-lardon state in v1."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        16.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "Bacon lardons are shown in the pan, appearing partially cooked with rendered fat.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Transition from raw to this state is in the gap."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.0,
+        17.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        17.0,
+        19.0
+      ],
+      "resolution": "coarse",
+      "content": "Bacon is now significantly reduced, browned, and crispy in the rendered fat.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact timing of browning process is estimated."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        19.001000000000005,
+        27.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        27.0,
+        27.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands at the stove next to the pan containing the fully cooked, browned bacon.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Chef's specific action with the bacon is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a hand reaching for a piece of meat on a wooden board next to a cleaver.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Action before this moment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        4.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Wide shot of a chef holding a piece of meat, with a kitchen background.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action before and after this moment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        4.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        16.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef is actively cutting the meat on the wooden board with a cleaver.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action before and after this moment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        22.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        30.0,
+        32.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up shot of the chef's hands continuing to slice the meat.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Action before and after this moment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        32.0,
+        46.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        41.96,
+        45.96
+      ],
+      "resolution": "fine",
+      "content": "A person's hands use a cleaver on a wooden board to cut pale fatty meat with red streaks into small cubes. A wider view shows the diced pale meat and red-streaked pieces piled on the board, with the person continuing to cut.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "The exact cut of meat is not labeled.",
+        "The pile's exact size relative to the initial block is not visible.",
+        "Inferred interpretation (not direct evidence): The meat is being diced, visually consistent with raw lardon.",
+        "Inferred interpretation (not direct evidence): The diced pieces represent the final state of the meat preparation in this interval.",
+        "Unresolved: Comparison of the visible diced-meat state with the initial raw-lardon state from v1."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.0,
+        20.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef cracks eggs into a blue bowl and whisks them until smooth and yellow.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        20.0,
+        23.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        23.001,
+        23.001
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds a small white bowl containing grated cheese over the blue mixing bowl.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action after holding is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        23.001000000000005,
+        27.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        27.001,
+        27.001
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands in the kitchen holding the small white bowl of cheese.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action before and after is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        27.001000000000005,
+        35.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-U02-02.s01",
+      "video": "v3",
+      "time": [
+        31.000999999999998,
+        39.001
+      ],
+      "resolution": "fine",
+      "content": "An elderly man holds a rectangular block of yellow cheese in his right hand and a small white bowl in his left, looking down at the items. Close-up of a hand tilting a small white bowl containing grated white cheese over a blue mixing bowl.",
+      "evidence": [
+        "v3.focus.r2.l2.e1",
+        "v3.focus.r2.l2.e2"
+      ],
+      "uncertainty": [
+        "Exact cheese type not specified",
+        "Inferred interpretation (not direct evidence): Preparation phase for cheese ingredient",
+        "Inferred interpretation (not direct evidence): Cheese mixing action",
+        "Unresolved: dry spaghetti preparation not visible in supplied frames",
+        "Unresolved: final plated grating not visible in supplied frames"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        35.001000000000005,
+        39.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        39.001,
+        41.001
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds the empty small bowl, then reaches for a utensil near the blue mixing bowl.",
+      "evidence": [
+        "v3-b0001-e5"
+      ],
+      "uncertainty": [
+        "Action after reaching is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        41.001000000000005,
+        45.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        45.001,
+        45.001
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a whisk mixing a yellow, speckled substance in a blue bowl.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "The specific ingredients and the result of the mixing are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        45.001000000000005,
+        49.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c007",
+      "video": "v3",
+      "time": [
+        49.001,
+        49.001
+      ],
+      "resolution": "coarse",
+      "content": "Wide shot of a man in a blue shirt using a whisk in a blue bowl in a kitchen.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "The contents of the bowl are not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        49.001000000000005,
+        50.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        18.0,
+        24.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        24.0,
+        28.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r3-U03-01.s01",
+      "video": "v4",
+      "time": [
+        28.0,
+        30.0
+      ],
+      "resolution": "fine",
+      "content": "Yellow strands are mixed with small reddish-brown chunks in a black pan using silver tongs. Steam rises from the hot mixture as it is tossed.",
+      "evidence": [
+        "v4.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "Specific ingredient identities are not textually labeled.",
+        "Inferred interpretation (not direct evidence): The pasta is being combined with bacon and sauce."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        32.000999999999976,
+        36.000999999999976
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u007",
+      "video": "v4",
+      "time": [
+        36.000999999999976,
+        40.000999999999976
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u008",
+      "video": "v4",
+      "time": [
+        42.000999999999976,
+        48.000999999999976
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u009",
+      "video": "v4",
+      "time": [
+        50.000999999999976,
+        51.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        50.001,
+        50.001
+      ],
+      "resolution": "coarse",
+      "content": "Chef in blue shirt stirs pasta in a frying pan on the stovetop; large pot steams in background.",
+      "evidence": [
+        "v4-b0002-e1"
+      ],
+      "uncertainty": [
+        "Start and end of this specific stirring action unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c001",
+      "video": "v5",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef places lid on steamer pot; steam rises. S1 segment.",
+      "evidence": [
+        "v5-b0001-e1"
+      ],
+      "uncertainty": [
+        "Action completion not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c002",
+      "video": "v5",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of steamer basket; hand sprinkles salt into water. S2 segment.",
+      "evidence": [
+        "v5-b0001-e2"
+      ],
+      "uncertainty": [
+        "Salt source not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u002",
+      "video": "v5",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r2-U02-01.s01",
+      "video": "v5",
+      "time": [
+        8.0,
+        16.0
+      ],
+      "resolution": "fine",
+      "content": "A man in a blue shirt stands at a kitchen counter, reaching down toward the surface near a steaming pot. The man holds a bundle of long, yellow, rigid strands with both hands, inspecting them closely.",
+      "evidence": [
+        "v5.focus.r2.l1.e1",
+        "v5.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Object being grasped is not yet visible.",
+        "Exact pasta type cannot be verified without packaging.",
+        "Inferred interpretation (not direct evidence): Preparing to pick up ingredients.",
+        "Inferred interpretation (not direct evidence): The strands are dry spaghetti.",
+        "Unresolved: Cheese mixing state",
+        "Unresolved: Final plated grating state"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u003",
+      "video": "v5",
+      "time": [
+        12.0,
+        20.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c004",
+      "video": "v5",
+      "time": [
+        20.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef inserts spaghetti bundle into steamer pot. S4 segment.",
+      "evidence": [
+        "v5-b0001-e4"
+      ],
+      "uncertainty": [
+        "Pasta not yet softened."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u004",
+      "video": "v5",
+      "time": [
+        22.0,
+        23.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.c001",
+      "video": "v6",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Spaghetti carbonara is poured from a black frying pan onto a white plate.",
+      "evidence": [
+        "v6-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.c002",
+      "video": "v6",
+      "time": [
+        6.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef Gennaro Contaldo stands in a kitchen, holding and adjusting the plate of pasta.",
+      "evidence": [
+        "v6-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.u001",
+      "video": "v6",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.c003",
+      "video": "v6",
+      "time": [
+        12.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "The chef grates cheese over the plated pasta using a handheld grater.",
+      "evidence": [
+        "v6-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.u002",
+      "video": "v6",
+      "time": [
+        14.0,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.zoom.r2-U02-03.s01",
+      "video": "v6",
+      "time": [
+        18.0,
+        20.0
+      ],
+      "resolution": "fine",
+      "content": "A white plate holds cooked spaghetti tossed with sauce, meat chunks, and grated cheese, with black pepper sprinkled on top. A metal whisk rests on the table in the background.",
+      "evidence": [
+        "v6.focus.r2.l3.e1"
+      ],
+      "uncertainty": [
+        "Preparation steps prior to plating not visible.",
+        "Inferred interpretation (not direct evidence): Final plated dish state showing cheese already mixed and garnished.",
+        "Unresolved: Visual confirmation of dry spaghetti preparation and cheese mixing steps"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v6.u003",
+      "video": "v6",
+      "time": [
+        20.0,
+        21.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 6,
+    "visual_calls_remaining": 2,
+    "maximum_visual_calls_for_current_stage": 2,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

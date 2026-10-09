@@ -1,0 +1,187 @@
+{
+  "question": "How many red cars parked by the roadside does {A1} pass in total?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "During 0.0-4.0s, v1 reports that A1 passes a line of parked cars on the right that includes one red car."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "At 14.0s, v1 reports no red cars visible in the specific frame of A1 passing parked cars."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "During 0.0-4.0s, v2 reports that A1 passes a row of parked cars on the far side without a visible red-car count."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "At 14.0s, v2 reports A1 traveling left along a different road segment with parked cars on the far side."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 0.0-4.0s events in v1 and v2 both show A1 passing parked cars at the same source-frame interval, but only v1 explicitly reports a red car.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 14.0s events in v1 and v2 both show A1 near parked cars at the same timestamp, but v1 reports no visible red car while v2 reports a different road segment.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of distinct red parked cars passed by A1 during 0.0-4.0s remains unresolved.",
+      "reason": "v1 reports one red car, v2 reports parked cars without a red-car count, and it is not determined whether the synchronized views show the same physical cars or different cars.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether A1 passes any red parked cars at or around 14.0s remains unresolved.",
+      "reason": "v1's single 14.0s frame reports no visible red car, while v2 reports parked cars on a different road segment without specifying red cars.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The total number of distinct red parked cars passed by A1 across the full annotated A1-visible interval remains unresolved.",
+      "reason": "The supplied events cover only 0.0-4.0s and 14.0s, leaving other portions of A1's path unexamined and the continuity between the reported intervals undetermined.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count red parked cars along A1's path during 0.0-4.0s and determine whether the red car reported in v1 is the same physical car visible in v2.",
+      "purpose": "This would resolve the distinct red-car count for the synchronized 0.0-4.0s interval.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count red parked cars along A1's path in frames at or immediately around 14.0s.",
+      "purpose": "This would resolve whether additional red cars are passed near 14.0s.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count distinct red parked cars passed by A1 across the full 0.0-15.0s synchronized A1-visible interval while deduplicating cars seen in both views and checking path continuity.",
+      "purpose": "This would determine whether the total is 3, 4, 5, or 6.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-0",
+    "task": "MOC",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-0/report.json",
+    "report_sha256": "8e53f608a23c03e6bb69ce58b2a59ac1bc3785173ee443f8aee73b89b20ca92b",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

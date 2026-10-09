@@ -1,0 +1,320 @@
+{
+  "question": "In which video is there an unnecessary action that should not have been performed during assembly?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Person uses an orange screwdriver to manipulate screws on the blue vehicle body held in hand."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "Person assembles a white interior component into the blue body placed on the table."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "Person uses an orange screwdriver to unscrew parts from a black chassis held in the left hand."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e2"
+      ],
+      "statement": "Person places the black chassis with blue wheels onto the table surface."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e3"
+      ],
+      "statement": "Person picks up the chassis and uses the screwdriver to attach or adjust a component."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e4"
+      ],
+      "statement": "Person holds the assembled blue and white toy truck, showing the front and top to the camera."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "Person separates the vehicle body shell from the chassis, holding them apart."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "Person reattaches the body shell to the chassis and presses down on the assembly."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "Person handles a black internal component and a blue car body, separating them and then using a screwdriver on the black part."
+    },
+    {
+      "id": "I10",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2"
+      ],
+      "statement": "Person uses a screwdriver on the black component held inside the blue car body, then inspects the assembly."
+    },
+    {
+      "id": "I11",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e3"
+      ],
+      "statement": "Person attaches wheels to the blue car body and secures them with a screwdriver."
+    },
+    {
+      "id": "I12",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e1"
+      ],
+      "statement": "A person wearing a head-mounted device holds a blue toy police car with both hands on a white table, with small wheels nearby."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "v1 shows body, chassis, and interior assembly, v2 shows body/chassis separation and reattachment, and v3 shows internal component separation and wheel attachment, so the candidate actions occur at different assembly stages.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show a body or internal component being separated and then further manipulated, making the necessity of the separation central to the question.",
+      "supporting_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 and v3 both involve screwdriver work on chassis or internal components and wheel-related states, so wheel or chassis attachment timing needs comparison.",
+      "supporting_events": [
+        "v1-b0002-e1",
+        "v1-b0002-e2",
+        "v1-b0002-e3",
+        "v3-b0001-e2",
+        "v3-b0001-e3"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The presence and necessity of an attach-roof-and-body action in v1 remains unresolved.",
+      "reason": "The supplied v1 events describe body, chassis, and interior manipulation without identifying a roof component or the purpose of any attachment.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e4",
+        "v1-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the detach-body-and-chassis action in v2 was unnecessary remains unresolved.",
+      "reason": "The reports show separation and reattachment but do not show whether separation was required for another assembly step.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the detach-interior-and-chassis action in v3 was unnecessary remains unresolved.",
+      "reason": "The reports show separation of a black internal component from the blue body but do not show the final assembly goal or necessity.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the attach-wheel-and-chassis action in v3 was unnecessary remains unresolved.",
+      "reason": "The reports show wheels being attached and secured but do not show whether that attachment occurred at a necessary assembly stage.",
+      "related_events": [
+        "v3-b0001-e3",
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "whether the grey plastic part or white interior component is a roof attached to the body and whether that attachment is required before the truck is shown assembled",
+      "purpose": "resolve whether an attach-roof-and-body action occurred and was unnecessary",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "whether separating the body shell from the chassis is required to install or access a component before the body shell is reattached",
+      "purpose": "resolve whether detach-body-and-chassis was unnecessary",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "whether separating the black internal component from the blue car body is required for the screwdriver action or final assembly",
+      "purpose": "resolve whether detach-interior-and-chassis was unnecessary",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "whether attaching wheels to the blue car body/chassis is required at that stage or could be delayed until after other necessary components are installed",
+      "purpose": "resolve whether attach-wheel-and-chassis was unnecessary",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-275",
+    "task": "PEA",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PEA/PEA-275/report.json",
+    "report_sha256": "867839e364282cf3646cd724bc6be0a02cf7a65cd9e9d4ad51b4464c47027e73",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

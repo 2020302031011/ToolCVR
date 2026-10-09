@@ -1,0 +1,317 @@
+{
+  "state": {
+    "question": "After {A4} completely leaves view A, how many red cars in view B overtake {B5}?",
+    "round_id": 3,
+    "summary": "The requirement to confirm when {A4} leaves view A is supported by the evidence. However, the evidence contradicts the requirements to identify and count red cars overtaking {B5} in view B, as no such events are visible.",
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "The evidence indicates that {A4} completely leaves view A at time [2.0, 4.0]."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.zoom.r2-r1-01.s01",
+          "v1.zoom.r2-r1-02.s01",
+          "v2.zoom.r2-r1-03.s01"
+        ],
+        "attempts": [
+          "No red cars overtaking {B5} are visible in view B across the available evidence."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.zoom.r2-r1-01.s01",
+          "v1.zoom.r2-r1-02.s01",
+          "v2.zoom.r2-r1-03.s01"
+        ],
+        "attempts": [
+          "The evidence indicates that no red cars overtake {B5} in view B."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A4 car is visible in view A, parked near sidewalk, partially obscured by trees.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          4.0
+        ],
+        "description": "A4 car is no longer visible in view A. A5 person appears in view B, walking on sidewalk.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "A5 person is visible in view B, walking on sidewalk. Red cars are visible in view B, moving in traffic lanes.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          20.0,
+          22.0
+        ],
+        "description": "A1 car and A2 car are visible in view B, moving in traffic lanes. A5 car is visible in view B, moving in traffic lane.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Person B5 is visible in view B, moving forward on road. Car B4 is parked on right side of road.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "A4 car, a dark-colored vehicle, is visible in view A, parked on the left side of the road.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          3.0
+        ],
+        "description": "A4 car is no longer visible in view A. A white car is now visible in the right lane.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "A5 person is visible in view B, walking on the sidewalk. A red car is visible in view B, behind the white car.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A4 car remains visible in view A across all frames. No red car overtakes B5 in view B.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "A white truck remains stationary in the middle lane, partially obstructing view B.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Person B5 is visible on the road, moving forward across frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Confirm A4 car's exit from view A and observe red cars overtaking B5 in view B",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1-b0001-e2.slot"
+        ],
+        "evidence_goal": "Confirm the exact timing of A4 car's complete exit from view A.",
+        "next_probe_goal": "Observe and count the number of red cars in view B that overtake B5."
+      }
+    },
+    {
+      "summary": "Identify when {A4} completely leaves view A and determine the timeline of {B5} movement in view B to count red cars in view B that overtake {B5} after {A4} leaves view A.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1-b0001-e1.slot",
+          "v1-b0001-e3.slot",
+          "v2-b0001-e1.slot"
+        ],
+        "evidence_goal": "When does {A4} completely leave view A?",
+        "next_probe_goal": "Observe and count the number of red cars in view B that overtake B5."
+      }
+    },
+    {
+      "summary": "The requirement to confirm when {A4} leaves view A is supported by the evidence. However, the evidence contradicts the requirements to identify and count red cars overtaking {B5} in view B, as no such events are visible.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "D",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "D",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v1.zoom.r2-r1-01.s01",
+      "v1.zoom.r2-r1-02.s01",
+      "v2.zoom.r2-r1-03.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car remains visible in view A across all frames. No red car overtakes B5 in view B.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        2.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A4 car, a dark-colored vehicle, is visible in view A, parked on the left side of the road. A4 car is no longer visible in view A. A white car is now visible in the right lane. A5 person is visible in view B, walking on the sidewalk. A red car is visible in view B, behind the white car.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-02.s01",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "fine",
+      "content": "A white truck remains stationary in the middle lane, partially obstructing view B.",
+      "evidence": [
+        "v1.focus.r2.l2.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v1-b0001-e4.slot",
+      "video": "v1",
+      "time": [
+        20.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "A1 car and A2 car are visible in view B, moving in traffic lanes. A5 car is visible in view B, moving in traffic lane.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-03.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "Person B5 is visible on the road, moving forward across frames.",
+      "evidence": [
+        "v2.focus.r2.l3.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Observe and count the number of red cars in view B that overtake B5.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

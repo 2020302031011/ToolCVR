@@ -1,0 +1,1613 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 4,
+    "summary": "No visual calls remain. The best functional equivalent to the reference white-liquid-into-red-sauce-and-mix step is the v2 white-bowl pour into the red sauce followed by whisking, represented by the two adjacent fine slots. The earlier meat/tomato-sauce candidates are excluded.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r3-r2-01.s01",
+          "v2.zoom.r3-r2-02.s01"
+        ],
+        "attempts": [
+          "The v2 fine observations show the white bowl being tilted to pour its contents into the red-sauce pan and then active whisking of that sauce, supporting actual addition and mixing rather than only holding the ingredient separately."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.c006",
+          "v2.c007"
+        ],
+        "attempts": [
+          "The coarse candidates describe ingredients added to sizzling meat and tomato sauce poured into the pan, not white liquid added to a reddish-brown sauce base."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r2-01.s01",
+          "v2.zoom.r3-r2-02.s01",
+          "v2.zoom.r1-U03-02.s03"
+        ],
+        "attempts": [
+          "The adjacent fine slots bound the observed white-ingredient pour and subsequent whisking, but exact sub-slot start/end and continuation beyond the whisking slot are not fully resolved; no visual calls remain."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          361.886,
+          363.888
+        ],
+        "description": "A woman in a patterned shirt pours a white liquid from a floral cup into a stainless steel pan containing a brown sauce.",
+        "uncertainty": "Identity of the liquid being poured is not explicitly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          365.889,
+          367.892
+        ],
+        "description": "The woman turns away from the stove, then returns to stir the contents of the pan with a wooden spoon.",
+        "uncertainty": "What occurred during the brief turn away is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          12.012
+        ],
+        "description": "Title cards for Ingram Law Office and Cookin' With Casey sponsored by Rulli Bros. Markets are displayed.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          17.985,
+          47.981
+        ],
+        "description": "The host introduces the recipe and displays a piece of pancetta to the camera.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          56.089,
+          72.072
+        ],
+        "description": "A recipe card for Penne Alla Vodka is shown, listing ingredients including butter, pancetta, and vodka.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          78.011,
+          102.002
+        ],
+        "description": "The host stands at the stove and adds ingredients to a pot of water.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          114.014,
+          136.003
+        ],
+        "description": "The host melts butter in a pan and adds chopped pancetta, stirring the mixture.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          138.005,
+          153.987
+        ],
+        "description": "The cook adds ingredients to a pan containing sizzling meat and uses a green spatula to stir the mixture.",
+        "uncertainty": "Specific ingredients added are not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          170.003,
+          204.004
+        ],
+        "description": "The cook pours tomato sauce from a can into the pan and stirs the mixture with the green spatula.",
+        "uncertainty": "Exact timing of sauce addition completion is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          207.974,
+          251.985
+        ],
+        "description": "The cook adds a white substance from a small bowl into the red sauce and whisks it vigorously.",
+        "uncertainty": "The specific ingredient being whisked in is not identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          261.962,
+          283.984
+        ],
+        "description": "Pasta is added to a pan with red sauce, mixed thoroughly with a green spatula, and then poured from the pan onto a floral serving plate.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          300.0,
+          316.016
+        ],
+        "description": "The plated pasta dish is shown, followed by a hand sprinkling white grated cheese over the top.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          321.988,
+          338.004
+        ],
+        "description": "The presenter stands in the kitchen holding a white plate containing a portion of the pasta dish.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          353.987,
+          365.999
+        ],
+        "description": "A close-up of a Chateau St Jean wine label is shown, followed by the presenter holding a glass of white wine.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          361.867,
+          363.87
+        ],
+        "description": "A person pours a white liquid from a floral mug into a pan containing a reddish-brown sauce, causing the white liquid to mix into the sauce base.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          207.974,
+          217.984
+        ],
+        "description": "The sauce base in the pan remains a uniform red color while the woman holds a small bowl of white substance near it, preparing to mix.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          218.985,
+          219.986
+        ],
+        "description": "The woman pours the white substance from the small bowl into the red sauce base in the pan.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          220.987,
+          222.989
+        ],
+        "description": "The sauce base visibly changes from red to a lighter orange-pink color as the white substance is mixed in.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          222.989,
+          228.962
+        ],
+        "description": "A woman stirs a red sauce base in a pan using a white whisk; the sauce is mixed continuously.",
+        "uncertainty": "Exact change in consistency is hard to verify.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          229.963,
+          237.971
+        ],
+        "description": "The woman pours a white liquid from a small glass bowl into the red sauce while stirring with the whisk.",
+        "uncertainty": "Final blended state of the sauce is not fully visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          237.971,
+          238.972
+        ],
+        "description": "A woman stirs a red sauce in a pan with a white-handled whisk. Her other hand rests near a small glass bowl on the counter.",
+        "uncertainty": "Content of the glass bowl is not clearly visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e2",
+        "video_id": "v2",
+        "time_span": [
+          239.973,
+          251.985
+        ],
+        "description": "The woman continues to whisk the red sauce, holding the pan handle with her left hand and stirring with her right.",
+        "uncertainty": "No visible change in the sauce's consistency or color.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          207.974,
+          214.981
+        ],
+        "description": "Woman holds a small bowl of white ingredient and a whisk over a pan of red sauce, talking and gesturing without pouring.",
+        "uncertainty": "Whisking state between frames is not fully continuous.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          215.982,
+          217.984
+        ],
+        "description": "Woman transitions to actively whisking the red sauce with one hand while holding the bowl of white ingredient in the other.",
+        "uncertainty": "Exact start of continuous stirring not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          218.985,
+          220.987
+        ],
+        "description": "Woman pours the white ingredient from the bowl into the red sauce while simultaneously whisking the pan contents.",
+        "uncertainty": "Whether stirring was continuous prior to the pour.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          221.988,
+          222.989
+        ],
+        "description": "Woman sets the empty bowl down on the counter and continues to stir the mixture in the pan.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          222.989,
+          228.962
+        ],
+        "description": "A woman is seen stirring a red sauce in a pot on a stove using a whisk.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          229.963,
+          237.971
+        ],
+        "description": "The woman holds a small glass bowl and pours its contents into the pot while stirring.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          207.974,
+          215.982
+        ],
+        "description": "The subject holds a small white bowl containing white ingredients in her left hand while whisking red sauce with her right hand. The bowl is kept steady and separate from the pan.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          216.983,
+          222.989
+        ],
+        "description": "The subject tilts the white bowl to pour its contents into the red sauce pan while continuing to whisk. The bowl is then lowered and moved away.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          222.989,
+          228.962
+        ],
+        "description": "The woman actively whisks the red sauce in a pot on the stove using a white whisk. She is not holding the small bowl during this interval.",
+        "uncertainty": "Bowl presence in unobserved gaps is unknown.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          229.963,
+          234.968
+        ],
+        "description": "The woman holds a small glass bowl containing white ingredients in her left hand while maintaining the whisk in her right hand, positioning the bowl near the pot.",
+        "uncertainty": "Exact moment of bowl acquisition is not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          235.969,
+          236.97
+        ],
+        "description": "The woman tilts the glass bowl over the pot, pouring the white ingredients into the red sauce while continuing to whisk.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need compare the white-item addition and sauce state transition in the v1 reference and v2 candidate before refining v2 boundaries.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c008"
+        ],
+        "evidence_goal": "In the selected v1 and v2 intervals, what visible changes occur to the sauce base as the white item is introduced and mixed?",
+        "next_probe_goal": "If the state transition matches, locate the precise v2 start and end of the white-substance addition and incorporation.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need distinguish whether v2's functionally equivalent step is the first white-substance pour into the red sauce base or the later white-liquid pour during stirring.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.zoom.r1-U03-02.s01",
+          "v2.zoom.r1-U03-02.s02"
+        ],
+        "evidence_goal": "Which v2 white addition matches the v1 transition: a pour into a red sauce base before stirring, or a pour into a continuously stirred red sauce?",
+        "next_probe_goal": "If the matching pour is identified, verify whether the interval should include the container approach and post-pour incorporation/stirring.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Reference v1 is a white-liquid pour into reddish-brown sauce with mixing into the base. v2 has a white-ingredient bowl followed by a pour into red sauce, while the tomato-can addition is a distinct sauce-base step. The remaining decision is whether the equivalent v2 interval should begin at the pour/stir slot or include the earlier holding/whisking slot, and whether the poured contents are confirmed white.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r2-r1-01.s01",
+          "v2.zoom.r2-r1-02.s01"
+        ],
+        "evidence_goal": "Determine whether the white-ingredient bowl is continuously associated with the pour into the red sauce and whether the earlier holding/whisking interval is separate setup or part of the same functional step.",
+        "next_probe_goal": "If the earlier interval is separate setup and the pour contents are white, select the pour/stir interval as the equivalent step; if the earlier interval is continuous preparation for the same addition, include it.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "No visual calls remain. The best functional equivalent to the reference white-liquid-into-red-sauce-and-mix step is the v2 white-bowl pour into the red sauce followed by whisking, represented by the two adjacent fine slots. The earlier meat/tomato-sauce candidates are excluded.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[207.974, 237.974]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[207.974, 237.974]",
+    "evidence_refs": [
+      "v1.zoom.r1-U03-01.s01",
+      "v2.zoom.r3-r2-01.s01",
+      "v2.zoom.r3-r2-02.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U03-01.s01",
+      "video": "v1",
+      "time": [
+        361.886,
+        363.888
+      ],
+      "resolution": "fine",
+      "content": "A person pours a white liquid from a floral mug into a pan containing a reddish-brown sauce, causing the white liquid to mix into the sauce base.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        365.889,
+        367.892
+      ],
+      "resolution": "coarse",
+      "content": "The woman turns away from the stove, then returns to stir the contents of the pan with a wooden spoon.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "What occurred during the brief turn away is unobserved."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        12.012
+      ],
+      "resolution": "coarse",
+      "content": "Title cards for Ingram Law Office and Cookin' With Casey sponsored by Rulli Bros. Markets are displayed.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        12.012,
+        17.984633333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        17.984633333333335,
+        32.984633333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        17.985,
+        47.981
+      ],
+      "resolution": "coarse",
+      "content": "The host introduces the recipe and displays a piece of pancetta to the camera.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        32.984633333333335,
+        33.96726666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        33.96726666666667,
+        43.97726666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        43.97726666666667,
+        47.98126666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        47.98126666666667,
+        56.08936666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        56.089,
+        72.072
+      ],
+      "resolution": "coarse",
+      "content": "A recipe card for Penne Alla Vodka is shown, listing ingredients including butter, pancetta, and vodka.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        56.08936666666667,
+        71.08936666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        71.08936666666668,
+        72.072
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        72.072,
+        78.01126666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        78.011,
+        102.002
+      ],
+      "resolution": "coarse",
+      "content": "The host stands at the stove and adds ingredients to a pot of water.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        78.01126666666667,
+        85.9859
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        85.9859,
+        100.9859
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        100.9859,
+        102.0019
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        102.0019,
+        114.0139
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        114.014,
+        136.003
+      ],
+      "resolution": "coarse",
+      "content": "The host melts butter in a pan and adds chopped pancetta, stirring the mixture.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        116.0159,
+        119.98653333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        119.98653333333334,
+        134.98653333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        134.98653333333334,
+        136.00253333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        138.00453333333334,
+        142.00853333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        138.005,
+        153.987
+      ],
+      "resolution": "coarse",
+      "content": "The cook adds ingredients to a pan containing sizzling meat and uses a green spatula to stir the mixture.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Specific ingredients added are not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        142.00853333333333,
+        146.01253333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        146.01253333333335,
+        151.95180000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        153.98716666666667,
+        168.98716666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        168.98716666666667,
+        170.0031666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        170.003,
+        204.004
+      ],
+      "resolution": "coarse",
+      "content": "The cook pours tomato sauce from a can into the pan and stirs the mixture with the green spatula.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact timing of sauce addition completion is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        170.0031666666667,
+        185.0031666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        185.0031666666667,
+        185.9858
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        185.9858,
+        200.9858
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        200.9858,
+        201.96843333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        204.0038,
+        207.97443333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-01.s01",
+      "video": "v2",
+      "time": [
+        207.974,
+        222.974
+      ],
+      "resolution": "fine",
+      "content": "The subject holds a small white bowl containing white ingredients in her left hand while whisking red sauce with her right hand. The bowl is kept steady and separate from the pan. The subject tilts the white bowl to pour its contents into the red sauce pan while continuing to whisk. The bowl is then lowered and moved away.",
+      "evidence": [
+        "v2.focus.r3.l1.e1",
+        "v2.focus.r3.l1.e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        207.97443333333334,
+        222.97443333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-02.s01",
+      "video": "v2",
+      "time": [
+        222.974,
+        237.974
+      ],
+      "resolution": "fine",
+      "content": "The woman actively whisks the red sauce in a pot on the stove using a white whisk. She is not holding the small bowl during this interval. The woman holds a small glass bowl containing white ingredients in her left hand while maintaining the whisk in her right hand, positioning the bowl near the pot. The woman tilts the glass bowl over the pot, pouring the white ingredients into the red sauce while continuing to whisk.",
+      "evidence": [
+        "v2.focus.r3.l2.e1",
+        "v2.focus.r3.l2.e2",
+        "v2.focus.r3.l2.e3"
+      ],
+      "uncertainty": [
+        "Bowl presence in unobserved gaps is unknown.",
+        "Exact moment of bowl acquisition is not visible."
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        222.97443333333334,
+        223.9570666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        223.9570666666667,
+        228.06116666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u031",
+      "video": "v2",
+      "time": [
+        230.0631666666667,
+        236.00243333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u032",
+      "video": "v2",
+      "time": [
+        236.00243333333336,
+        251.00243333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U03-02.s03",
+      "video": "v2",
+      "time": [
+        237.974,
+        251.985
+      ],
+      "resolution": "fine",
+      "content": "A woman stirs a red sauce in a pan with a white-handled whisk. Her other hand rests near a small glass bowl on the counter. The woman continues to whisk the red sauce, holding the pan handle with her left hand and stirring with her right.",
+      "evidence": [
+        "v2.focus.r1.l4.e1",
+        "v2.focus.r1.l4.e2"
+      ],
+      "uncertainty": [
+        "Content of the glass bowl is not clearly visible.",
+        "No visible change in the sauce's consistency or color.",
+        "Unresolved: No visible 'white item' is introduced into the sauce."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u033",
+      "video": "v2",
+      "time": [
+        251.00243333333336,
+        251.98506666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u034",
+      "video": "v2",
+      "time": [
+        253.9537,
+        261.9617
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u035",
+      "video": "v2",
+      "time": [
+        261.9617,
+        276.0090666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        261.962,
+        283.984
+      ],
+      "resolution": "coarse",
+      "content": "Pasta is added to a pan with red sauce, mixed thoroughly with a green spatula, and then poured from the pan onto a floral serving plate.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u036",
+      "video": "v2",
+      "time": [
+        276.0090666666667,
+        280.07980000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u037",
+      "video": "v2",
+      "time": [
+        280.07980000000003,
+        283.9837
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u038",
+      "video": "v2",
+      "time": [
+        283.9837,
+        298.9837
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u039",
+      "video": "v2",
+      "time": [
+        298.9837,
+        299.9997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u040",
+      "video": "v2",
+      "time": [
+        299.9997,
+        314.9997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        300.0,
+        316.016
+      ],
+      "resolution": "coarse",
+      "content": "The plated pasta dish is shown, followed by a hand sprinkling white grated cheese over the top.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u041",
+      "video": "v2",
+      "time": [
+        314.9997,
+        316.01570000000004
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u042",
+      "video": "v2",
+      "time": [
+        316.01570000000004,
+        321.98833333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        321.988,
+        338.004
+      ],
+      "resolution": "coarse",
+      "content": "The presenter stands in the kitchen holding a white plate containing a portion of the pasta dish.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u043",
+      "video": "v2",
+      "time": [
+        321.98833333333334,
+        336.98833333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u044",
+      "video": "v2",
+      "time": [
+        336.98833333333334,
+        338.00433333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u045",
+      "video": "v2",
+      "time": [
+        338.00433333333336,
+        353.00433333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u046",
+      "video": "v2",
+      "time": [
+        353.00433333333336,
+        353.98696666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u047",
+      "video": "v2",
+      "time": [
+        353.98696666666666,
+        357.9909666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        353.987,
+        365.999
+      ],
+      "resolution": "coarse",
+      "content": "A close-up of a Chateau St Jean wine label is shown, followed by the presenter holding a glass of white wine.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u048",
+      "video": "v2",
+      "time": [
+        359.9929666666667,
+        365.99896666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u049",
+      "video": "v2",
+      "time": [
+        365.99896666666666,
+        367.33363333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If the state transition matches, locate the precise v2 start and end of the white-substance addition and incorporation.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

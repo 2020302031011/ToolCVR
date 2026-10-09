@@ -1,0 +1,421 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e4"
+      ],
+      "statement": "v4 shows a chef cutting squid on a board with a bowl of squid nearby."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0001-e7",
+        "v2-b0001-e8"
+      ],
+      "statement": "v2 shows an initially empty metal bowl receiving an egg, then being whisked into batter with additional ingredients and liquid."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "v2 also shows a chef mixing yellow ingredients in a metal bowl by hand."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "v3 shows dry ingredients being added to batter in a metal bowl and a hand mixing that batter."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5"
+      ],
+      "statement": "v3 shows battered food frying, an empty fryer basket held near prepared food and lemon, and a basket of golden-brown fried food being lifted."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v1-b0001-e6",
+        "v1-b0001-e7"
+      ],
+      "statement": "v1 shows fried food being arranged, seasoned, transferred to a white plate with lemon, and presented as finished."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "statement": "v5 shows a chef mixing ingredients in a metal bowl with a spatula at a wooden counter."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "statement": "v4 presents raw squid preparation while v3 presents battered food frying and fried food in a basket.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e5"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 shows a basket of fried food being lifted, and v1 shows a basket containing fried food followed by arranging and plating that food.",
+      "supporting_events": [
+        "v3-b0001-e5",
+        "v1-b0001-e1",
+        "v1-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show batter in a metal bowl, with v2 emphasizing whisking and hand mixing and v3 emphasizing dry-ingredient addition and hand mixing.",
+      "supporting_events": [
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0002-e1",
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v2",
+        "v5"
+      ],
+      "statement": "v2 and v5 both show mixing in metal bowls, but v2 includes egg cracking and whisking while v5 shows spatula mixing at a wooden counter.",
+      "supporting_events": [
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v2",
+        "v3",
+        "v5"
+      ],
+      "statement": "v2, v3, and v5 occupy a mixing or batter phase, but their tools, ingredient states, and counter settings are not directly continuous.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R06",
+      "scope": [
+        "v4",
+        "v2",
+        "v5"
+      ],
+      "statement": "v4 shows raw squid preparation, while v2 and v5 show mixing in metal bowls, so these clips present different ingredient-state phases.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v2-b0001-e3",
+        "v5-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "the relative stage relationship between v2 and v3 remains unresolved.",
+      "reason": "the reports show whisking and hand mixing in v2 and dry-ingredient addition in v3 but provide no cross-clip transition or shared timestamp to determine which batter state precedes the other.",
+      "related_events": [
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0002-e1",
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v5"
+      ],
+      "issue": "the placement of v5 relative to v2 remains unresolved.",
+      "reason": "both clips show mixing in a metal bowl, but the events do not show a continuous change from the ingredients or tools in one clip to the other.",
+      "related_events": [
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3",
+        "v5"
+      ],
+      "issue": "the placement of v5 relative to v3 remains unresolved.",
+      "reason": "v5 shows ingredient mixing with a spatula while v3 shows batter mixing and frying, but no event connects the mixed ingredients to the batter or fried items.",
+      "related_events": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "issue": "whether the squid prepared in v4 is the same food battered and fried in v3 remains unresolved.",
+      "reason": "v4 shows raw squid cutting and v3 shows battered frying items, but no event directly shows squid being battered or placed into the fryer.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e5"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "issue": "the transition from lifting the fried basket in v3 to plating the fried food in v1 remains unresolved.",
+      "reason": "v3 shows a basket of fried food being lifted and v1 shows a basket containing fried food followed by plating, but the reports do not settle whether the same basket transfer is continuous.",
+      "related_events": [
+        "v3-b0001-e5",
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U06",
+      "scope": [
+        "v4",
+        "v2",
+        "v5"
+      ],
+      "issue": "the relative stage relationship between v4's squid preparation and v2 or v5's mixing remains unresolved.",
+      "reason": "no event shows squid or the squid bowl being used in the mixing bowls, and no shared transition links the raw preparation phase to the mixing phase.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e3",
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the hand-mixed yellow ingredients in v2 with the hand-mixed batter receiving dry ingredients in v3 to see whether the same mixing stage is shown before or after dry-ingredient addition.",
+      "purpose": "This would resolve whether v2's batter state precedes or follows v3's dry-ingredient addition.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v5"
+      ],
+      "observable": "Compare the mixing tool, bowl contents, and counter setting in v5 with those in v2's egg-cracking and whisking events.",
+      "purpose": "This would resolve whether v5 is an earlier mixing stage, a later mixing stage, or a separate mixing stage relative to v2.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3",
+        "v5"
+      ],
+      "observable": "Compare the ingredient state in v5's spatula mixing with the batter and frying states shown in v3.",
+      "purpose": "This would resolve whether v5 precedes, follows, or overlaps with v3's batter and frying stage.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Compare the appearance and quantity of squid in v4 with the shape and batter coating of the frying items in v3.",
+      "purpose": "This would resolve whether v4's raw squid preparation leads into v3's battered frying stage.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v3",
+        "v1"
+      ],
+      "observable": "Compare the fryer basket handling and contents in v3's lifting event with v1's basket-containing-fried-food and plating events.",
+      "purpose": "This would resolve whether v3's lifting of fried food immediately precedes v1's arranging and plating.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q06",
+      "target_videos": [
+        "v4",
+        "v2",
+        "v5"
+      ],
+      "observable": "Compare whether the squid bowl or cut squid from v4 appears near or is transferred into the mixing bowl in v2 or v5.",
+      "purpose": "This would resolve whether v4's squid preparation precedes, follows, or is separate from the mixing clips.",
+      "related_issue": "U06"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 7,
+    "covered_pair_count": 7,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 7,
+    "required_pairs": [
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v2",
+        "v5"
+      ],
+      [
+        "v3",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-544",
+    "task": "PSS",
+    "ground_truth": "2->4->5->3->1",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-544/report.json",
+    "report_sha256": "88147597b57e3147bb434bee968d079a41a4570a170a090d81d6a416dc6cc0e2",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

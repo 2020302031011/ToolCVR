@@ -1,0 +1,334 @@
+{
+  "state": {
+    "question": "How many cars in total overtake {A2}?",
+    "round_id": 3,
+    "summary": "The evidence indicates that no cars overtook A2 in v1 during 8.0-12.0s, and A2 was not visible in v2 during 0.0-4.0s or 4.0-8.0s, making it impossible to confirm overtaking events in those intervals. Therefore, the total number of cars that overtook A2 is likely zero.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-36: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=13; declared=car; A1_visible=122-262 (4.067-8.767s)/420_frames; B1_visible=0-302 (0.000-10.100s)/420_frames.",
+      "A2/B2 is source_track=45; declared=car; A2_visible=329-419 (10.967-14.000s)/420_frames; B2_visible=3-419 (0.100-14.000s)/420_frames.",
+      "A3/B3 is source_track=63; declared=car; A3_visible=327-419 (10.900-14.000s)/420_frames; B3_visible=223-419 (7.433-14.000s)/420_frames.",
+      "A4/B4 is source_track=30; declared=person; A4_visible=202-419 (6.733-14.000s)/420_frames; B4_visible=0-419 (0.000-14.000s)/420_frames.",
+      "A5/B5 is source_track=22; declared=person; A5_visible=0-244 (0.000-8.167s)/420_frames; B5_visible=0-272 (0.000-9.100s)/420_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "No cars overtook A2 in v1 during 8.0-12.0s as per the fine observation."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "attempts": [
+          "A2 is not visible in v2 during 0.0-4.0s, so no overtaking events can be confirmed."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r2-req3-01.s01"
+        ],
+        "attempts": [
+          "A2 is not visible in v2 during 4.0-8.0s, so no overtaking events can be confirmed."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A2 car appears at 8.0s and remains visible until 12.0s, moving rightward in traffic lane.",
+        "uncertainty": "No overtaking cars visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A black car labeled B1 is visible on the road at the bottom of the frame.",
+        "uncertainty": "No frame shows overtaking of {A2}.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A2 car visible in rightmost lane, moving rightward. No overtaking car visible in its lane during this period.",
+        "uncertainty": "No other car is visible in the same lane as A2 to overtake it.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A red truck with white roof moves rightward on lower road level.",
+        "uncertainty": "No car labeled A2 is visible in any frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "A2 car is not visible in any of the supplied frames.",
+        "uncertainty": "A2 car not visible in any frame; cannot confirm overtakes.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to observe if any cars overtake A2 during its visibility period (8.0s to 12.0s) in v1 and v2.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "Are there any cars visible in either video that overtake A2 during its visibility period?",
+        "next_probe_goal": "How many cars overtake A2 in total?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to identify cars that overtake A2 in v2 during 8.0-12.0s",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req3",
+        "slot_ids": [
+          "v2.u002"
+        ],
+        "evidence_goal": "How many cars overtake A2 in v2 during 8.0-12.0s?",
+        "next_probe_goal": "How many cars overtake A2 in total?",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "The evidence indicates that no cars overtook A2 in v1 during 8.0-12.0s, and A2 was not visible in v2 during 0.0-4.0s or 4.0-8.0s, making it impossible to confirm overtaking events in those intervals. Therefore, the total number of cars that overtook A2 is likely zero.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "A",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "A",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v2.zoom.r1-U01-02.s01",
+      "v2.zoom.r2-req3-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "fine",
+      "content": "A2 car visible in rightmost lane, moving rightward. No overtaking car visible in its lane during this period.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "No other car is visible in the same lane as A2 to overtake it."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        12.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A red truck with white roof moves rightward on lower road level.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No car labeled A2 is visible in any frame.",
+        "Unresolved: A2 vehicle not visible in any supplied frame to assess overtaking"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req3-01.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A2 car is not visible in any of the supplied frames.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "A2 car not visible in any frame; cannot confirm overtakes.",
+        "Unresolved: A2 car not visible in any supplied frame; cannot count overtakes in 8.0-12.0s."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        12.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "How many cars overtake A2 in total?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

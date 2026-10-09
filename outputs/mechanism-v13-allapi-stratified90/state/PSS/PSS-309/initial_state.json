@@ -1,0 +1,323 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "A blender containing chopped white ingredients is shown processing them into a coarse paste."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "statement": "A glass bowl containing white strips coated in red spice flakes is mixed and receives a large dollop of white paste."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4"
+      ],
+      "statement": "The bowl contents are vigorously mixed into a thick, uniform red paste."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "Bok choy is cut on a dark cutting board and a cut piece is held by hand."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e3",
+        "v3-b0001-e4"
+      ],
+      "statement": "A bowl is shown containing red paste and green vegetables."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A large glass bowl containing red spicy paste mixed with green vegetables is shown fully packed into a white rectangular storage container."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A close-up shows green leafy vegetables and red paste inside a translucent plastic container."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "A woman holds a plastic container with food, and the view then shows bok choy resting on paper towels."
+    },
+    {
+      "id": "I09",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "statement": "Bok choy is shown resting on paper towels in blurry close-up and in-focus wide shots."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 shows formation of a uniform red paste, while v3 shows red paste together with green vegetables.",
+      "supporting_events": [
+        "v2-b0001-e4",
+        "v3-b0001-e3",
+        "v3-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 and v1 both show a bowl containing red paste and green vegetables, with v1 also showing packing into a container.",
+      "supporting_events": [
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "v1 shows packed food in containers and v4 shows a woman holding a plastic container with food.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v4-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "statement": "v4 shows bok choy resting on paper towels, while v3 shows bok choy being cut and later appearing in a mixed bowl.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The identity of the container holding the packed food between v1 and v4 remains unresolved.",
+      "reason": "v1 reports a white rectangular storage container and a translucent plastic container, while v4 reports only a plastic container with food without shape, material, or contents details.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "issue": "The chronological relationship between bok choy resting on paper towels in v4 and bok choy being cut or mixed in v3 remains unresolved.",
+      "reason": "v4 shows resting bok choy without a transition to cutting or paste mixing, and v3 shows cutting and a mixed bowl without showing the paper-towel stage.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "The relationship between v2's paste-making stage and v3's bowl with red paste and green vegetables remains unresolved.",
+      "reason": "v2 shows strips, flakes, and paste formation without green vegetables, while v3 shows green vegetables with paste without showing the strips or the mixing of paste into vegetables.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v3-b0001-e3",
+        "v3-b0001-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "Whether the bowl state shown in v3 is the same pre-packing bowl state shown at the start of v1 remains unresolved.",
+      "reason": "v3 reports only the bowl with red paste and green vegetables, while v1 reports a similar bowl already being packed into a container without showing the transfer moment.",
+      "related_events": [
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Compare the container shape, material, and visible food contents in v1-b0001-e1 and v1-b0001-e2 with the container held in v4-b0001-e1.",
+      "purpose": "Resolve U01.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Compare whether the bok choy in v4-b0001-e1, v4-b0001-e2, and v4-b0001-e3 is whole, cut, wet, or already coated with paste relative to the bok choy in v3-b0001-e1 and v3-b0001-e2.",
+      "purpose": "Resolve U02.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the ingredient shape, color, paste texture, and vegetable presence between v2-b0001-e2, v2-b0001-e3, and v2-b0001-e4 and v3-b0001-e3 and v3-b0001-e4.",
+      "purpose": "Resolve U03.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare the bowl contents, container position, and visible transfer cues between v3-b0001-e3, v3-b0001-e4, and v1-b0001-e1.",
+      "purpose": "Resolve U04.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 4,
+    "required_pairs": [
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-309",
+    "task": "PSS",
+    "ground_truth": "4->2->3->1",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-309/report.json",
+    "report_sha256": "b923e8007d6064c703d55c0b2671bc36c3c6b8efd18c21c023aac88a8429030d",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

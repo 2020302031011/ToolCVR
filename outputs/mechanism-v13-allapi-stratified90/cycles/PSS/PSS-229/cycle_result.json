@@ -1,0 +1,1202 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 4,
+    "summary": "No visual calls remain, so I project the best evidence-supported chronology. v5 shows peanut grinding, which must precede v4's peanut addition and is placed as prep before cooking. v2 establishes an oil/tofu/aromatics base before noodles. v3 shows oil being added to noodles. v1 shows a later liquid addition to noodles already combined with ingredients and stirred. v4 shows the most complete pan state with noodles, bean sprouts, egg, and peanuts being added.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r3-r3-02.s01",
+          "v3.zoom.r3-r3-04.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-01.s01",
+          "v2.c004"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v5.u001"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.01,
+          2.012
+        ],
+        "description": "Cook adds 1 tablespoon cooking oil to the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          7.985,
+          11.989
+        ],
+        "description": "Cook adds tofu to the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          15.993,
+          15.993
+        ],
+        "description": "Cook stirs tofu with a spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          24.001,
+          24.001
+        ],
+        "description": "Cook stirs tofu with a spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          39.983,
+          39.983
+        ],
+        "description": "Cook stirs tofu with a spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          45.016,
+          46.985
+        ],
+        "description": "Cook adds chopped garlic and shallot to the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          56.995,
+          56.995
+        ],
+        "description": "Cook stirs tofu with a spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          73.011,
+          73.011
+        ],
+        "description": "Cook stirs tofu with a spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.025,
+          0.025
+        ],
+        "description": "A pan contains noodles, bean sprouts, and egg. A spatula rests on the right. Text overlay instructs to 'Add grounded peanut'.",
+        "uncertainty": "Action is static in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          3.996,
+          3.996
+        ],
+        "description": "The pan contents now have a sprinkling of crushed peanuts visible on top of the egg and noodles.",
+        "uncertainty": "Transition from empty to sprinkled is in unobserved gap.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "A spoon is visible above the pan, actively dispensing a pile of crushed peanuts onto the food.",
+        "uncertainty": "State change from sprinkled to adding more suggests sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          45.016,
+          46.016
+        ],
+        "description": "A person uses a spatula to stir cubed ingredients in a frying pan on a stove.",
+        "uncertainty": "Exact identity of cubed ingredients unclear",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l2.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "A frying pan contains a mixture of noodles, bean sprouts, and egg. A spatula rests in the pan.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l2.e2",
+        "video_id": "v4",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "Grounded peanuts are poured from a container onto the food mixture in the pan.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l2.e3",
+        "video_id": "v4",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "The food in the pan now includes a visible layer of grounded peanuts on top.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          45.016,
+          46.016
+        ],
+        "description": "A person uses a spatula and their hand to add chopped garlic and shallot into a frying pan containing cubed, pale-yellow ingredients.",
+        "uncertainty": "The exact identity of the cubed ingredients is not visually distinct.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          18.01,
+          22.01
+        ],
+        "description": "A hand holds a white measuring cup over a frying pan containing white noodles. The caption 'Add water to soften the noodles' is visible throughout the sequence.",
+        "uncertainty": "Actual pouring action is not clearly visible in these specific frames.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          22.014,
+          24.014
+        ],
+        "description": "A hand holds a white measuring cup over a pan containing rice noodles and pours a clear liquid ingredient into the pan.",
+        "uncertainty": "Specific identity of the liquid being poured.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          25.014,
+          36.014
+        ],
+        "description": "A black spatula is used to stir and toss the rice noodles and ingredients within the pan on the stove.",
+        "uncertainty": "Exact temperature or doneness of the food.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          31.987,
+          33.987
+        ],
+        "description": "A spatula rests in a frying pan containing cooked noodles. The subtitle 'Add bean sprouts' is visible, indicating the next cooking step.",
+        "uncertainty": "No bean sprouts visible in pan yet.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l3.e2",
+        "video_id": "v3",
+        "time_span": [
+          34.987,
+          35.987
+        ],
+        "description": "A hand holding bean sprouts enters the frame from the top right, positioning them above the pan to add them.",
+        "uncertainty": "Sprouts are not yet dropped into the pan.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l4.e1",
+        "video_id": "v3",
+        "time_span": [
+          42.019,
+          45.019
+        ],
+        "description": "Cooking oil is poured from a green bottle into a frying pan containing noodles, while a hand holds a spatula and cap.",
+        "uncertainty": "The exact amount of oil added is not visually quantifiable.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v5.focus.r3.l5.e1",
+        "video_id": "v5",
+        "time_span": [
+          6.014,
+          8.014
+        ],
+        "description": "A person's hands are shown using a pestle to grind ingredients inside a stone mortar.",
+        "uncertainty": "The specific ingredients being ground are not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v5.focus.r3.l5.e2",
+        "video_id": "v5",
+        "time_span": [
+          9.014,
+          11.014
+        ],
+        "description": "A person picks up a small glass bowl containing peanuts and holds it over the mortar.",
+        "uncertainty": "The moment the peanuts are added to the mortar is not shown.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v1-b0001-gap1",
+        "video_id": "v1",
+        "time_span": [
+          0.025066666666702986,
+          47.99696666666671
+        ],
+        "reason": "VLM output remained invalid: event e3 crosses discontinuous frame segments: ['S3', 'S4']",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-gap1",
+        "video_id": "v3",
+        "time_span": [
+          0.02196666666668534,
+          66.00986666666665
+        ],
+        "reason": "VLM output remained invalid: event e4 crosses discontinuous frame segments: ['S4', 'S5']",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-gap1",
+        "video_id": "v5",
+        "time_span": [
+          0.008266666666671085,
+          11.986900000000006
+        ],
+        "reason": "VLM output remained invalid: VLM event report must be an object containing an events list",
+        "action": "SCAN",
+        "round": 0
+      }
+    ]
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need to determine if v2 and v4 share ingredients to establish chronological order.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c006",
+          "v4.c001"
+        ],
+        "evidence_goal": "Does the pan in v2 at 45s contain noodles, bean sprouts, egg, or peanuts?",
+        "next_probe_goal": "Does the pan in v4 at 0s contain tofu, oil, garlic, or shallot?",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need to identify if v2's cubed ingredients are tofu or peanuts to determine if v2 precedes or follows v4.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Are the cubed ingredients in the pan tofu or peanuts?",
+        "next_probe_goal": "Does the pan in v4 at 0s contain tofu, oil, garlic, or shallot?",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "v2 shows oil, tofu, then garlic/shallot addition; v4 shows noodles/egg/bean sprouts receiving crushed peanuts. v1, v3, and v5 lack observed state markers, so full sequence cannot be anchored.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.u003",
+          "v1.u004",
+          "v3.u004",
+          "v3.u006",
+          "v5.u002"
+        ],
+        "evidence_goal": "Observe representative unwatched intervals in v1, v3, and v5 to identify ingredient state and cooking-stage markers relative to v2's stir/add sequence and v4's peanut-add sequence.",
+        "next_probe_goal": "Use the observed states to place v1, v3, and v5 before, between, or after v2 and v4, and determine whether any contain tofu, aromatics, noodles/egg/sprouts, or peanuts.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "No visual calls remain, so I project the best evidence-supported chronology. v5 shows peanut grinding, which must precede v4's peanut addition and is placed as prep before cooking. v2 establishes an oil/tofu/aromatics base before noodles. v3 shows oil being added to noodles. v1 shows a later liquid addition to noodles already combined with ingredients and stirred. v4 shows the most complete pan state with noodles, bean sprouts, egg, and peanuts being added.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v5 -> v2 -> v3 -> v1 -> v4",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v5 -> v2 -> v3 -> v1 -> v4",
+    "evidence_refs": [
+      "v5.zoom.r3-r3-05.s01",
+      "v2.c001",
+      "v2.c002",
+      "v2.zoom.r2-r1-01.s01",
+      "v3.zoom.r3-r3-04.s01",
+      "v1.zoom.r3-r3-02.s01",
+      "v4.zoom.r1-U01-02.s01",
+      "v4.c002"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.025066666666702986,
+        3.9956999999999994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        3.9956999999999994,
+        18.00970000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r3-01.s01",
+      "video": "v1",
+      "time": [
+        18.00970000000001,
+        22.01370000000003
+      ],
+      "resolution": "fine",
+      "content": "A hand holds a white measuring cup over a frying pan containing white noodles. The caption 'Add water to soften the noodles' is visible throughout the sequence.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "Actual pouring action is not clearly visible in these specific frames.",
+        "Unresolved: Ingredient state and cooking-stage markers in v3 and v5 are not visible in this batch."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r3-02.s01",
+      "video": "v1",
+      "time": [
+        22.01370000000003,
+        37.0
+      ],
+      "resolution": "fine",
+      "content": "A hand holds a white measuring cup over a pan containing rice noodles and pours a clear liquid ingredient into the pan. A black spatula is used to stir and toss the rice noodles and ingredients within the pan on the stove.",
+      "evidence": [
+        "v1.focus.r3.l2.e1",
+        "v1.focus.r3.l2.e2"
+      ],
+      "uncertainty": [
+        "Specific identity of the liquid being poured.",
+        "Exact temperature or doneness of the food.",
+        "Unresolved: Ingredient state and cooking-stage markers in v3 and v5"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        37.00733333333335,
+        40.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        40.022333333333336,
+        43.99296666666669
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        43.99296666666669,
+        47.99696666666671
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.01,
+        2.012
+      ],
+      "resolution": "coarse",
+      "content": "Cook adds 1 tablespoon cooking oil to the pan.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        2.0121666666666727,
+        7.984800000000007
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        7.985,
+        11.989
+      ],
+      "resolution": "coarse",
+      "content": "Cook adds tofu to the pan.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        11.988799999999998,
+        15.992800000000017
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        15.992800000000017,
+        24.000799999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        15.993,
+        15.993
+      ],
+      "resolution": "coarse",
+      "content": "Cook stirs tofu with a spatula.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        24.000799999999998,
+        39.0008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        24.001,
+        24.001
+      ],
+      "resolution": "coarse",
+      "content": "Cook stirs tofu with a spatula.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        39.0008,
+        39.98343333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        39.983,
+        39.983
+      ],
+      "resolution": "coarse",
+      "content": "Cook stirs tofu with a spatula.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        39.98343333333335,
+        45.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        45.016,
+        46.985
+      ],
+      "resolution": "fine",
+      "content": "A person uses a spatula and their hand to add chopped garlic and shallot into a frying pan containing cubed, pale-yellow ingredients.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "The exact identity of the cubed ingredients is not visually distinct.",
+        "Unresolved: Confirmation of whether the cubed ingredients are tofu or peanuts"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        46.98506666666668,
+        56.99506666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        56.995,
+        56.995
+      ],
+      "resolution": "coarse",
+      "content": "Cook stirs tofu with a spatula.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        56.99506666666667,
+        71.99506666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        71.99506666666667,
+        73.01106666666664
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        73.011,
+        73.011
+      ],
+      "resolution": "coarse",
+      "content": "Cook stirs tofu with a spatula.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        73.01106666666664,
+        74.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        1.990600000000029,
+        5.994599999999991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        5.994599999999991,
+        18.00659999999999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        18.00659999999999,
+        31.987233333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r3-03.s01",
+      "video": "v3",
+      "time": [
+        31.987233333333336,
+        35.991233333333355
+      ],
+      "resolution": "fine",
+      "content": "A spatula rests in a frying pan containing cooked noodles. The subtitle 'Add bean sprouts' is visible, indicating the next cooking step. A hand holding bean sprouts enters the frame from the top right, positioning them above the pan to add them.",
+      "evidence": [
+        "v3.focus.r3.l3.e1",
+        "v3.focus.r3.l3.e2"
+      ],
+      "uncertainty": [
+        "No bean sprouts visible in pan yet.",
+        "Sprouts are not yet dropped into the pan.",
+        "Unresolved: Completion of the bean sprout addition into the pan."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        35.991233333333355,
+        42.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r3-04.s01",
+      "video": "v3",
+      "time": [
+        42.01923333333332,
+        45.98986666666667
+      ],
+      "resolution": "fine",
+      "content": "Cooking oil is poured from a green bottle into a frying pan containing noodles, while a hand holds a spatula and cap.",
+      "evidence": [
+        "v3.focus.r3.l4.e1"
+      ],
+      "uncertainty": [
+        "The exact amount of oil added is not visually quantifiable.",
+        "Unresolved: Ingredient state in v1 and v5",
+        "Unresolved: Cooking-stage markers in v1 and v5"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        45.98986666666667,
+        55.99986666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        55.99986666666666,
+        60.00386666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        60.00386666666668,
+        66.00986666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        66.00986666666665,
+        67.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U01-02.s01",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.025
+      ],
+      "resolution": "fine",
+      "content": "A frying pan contains a mixture of noodles, bean sprouts, and egg. A spatula rests in the pan. Grounded peanuts are poured from a container onto the food mixture in the pan. The food in the pan now includes a visible layer of grounded peanuts on top.",
+      "evidence": [
+        "v4.focus.r1.l2.e1",
+        "v4.focus.r1.l2.e2",
+        "v4.focus.r1.l2.e3"
+      ],
+      "uncertainty": [
+        "Unresolved: The query asks about a pan in v2 at 45s, but these frames are from v4 at 0-4s."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.024866666666696347,
+        3.9955000000000496
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        3.9955000000000496,
+        7.999500000000012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        3.996,
+        3.996
+      ],
+      "resolution": "coarse",
+      "content": "The pan contents now have a sprinkling of crushed peanuts visible on top of the egg and noodles.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "Transition from empty to sprinkled is in unobserved gap."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        7.999500000000012,
+        9.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        8.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "A spoon is visible above the pan, actively dispensing a pile of crushed peanuts onto the food.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "State change from sprinkled to adding more suggests sequence."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        2.0102666666666664,
+        6.014266666666671
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r3-r3-05.s01",
+      "video": "v5",
+      "time": [
+        6.014266666666671,
+        11.966633333333334
+      ],
+      "resolution": "fine",
+      "content": "A person's hands are shown using a pestle to grind ingredients inside a stone mortar. A person picks up a small glass bowl containing peanuts and holds it over the mortar.",
+      "evidence": [
+        "v5.focus.r3.l5.e1",
+        "v5.focus.r3.l5.e2"
+      ],
+      "uncertainty": [
+        "The specific ingredients being ground are not visible.",
+        "The moment the peanuts are added to the mortar is not shown.",
+        "Unresolved: ingredient state and cooking-stage markers relative to v2's stir/add sequence and v4's peanut-add sequence"
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Does the pan in v4 at 0s contain tofu, oil, garlic, or shallot?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A chef in black uniform stands behind a counter with rice, wasabi, and salmon while the right hand touches a rice mound."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A close-up shows hands on a wooden board with the left hand near rice and the right hand near a salmon slice."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "A chef in black uniform shapes a piece of salmon nigiri sushi with both hands behind a wooden counter."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "A close-up shows hands pressing rice onto a slice of salmon on a wooden cutting board."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "A close-up shows hands holding a finished piece of salmon nigiri with the fish draped over the rice."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "A person shapes rice with one hand and moves a salmon slice from the cutting board to an off-screen location with the other hand."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "A chef holds chopsticks in the right hand and a white cloth in the left hand above the cutting board."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e2"
+      ],
+      "statement": "A chef places the white cloth down on the right side of the cutting board with the left hand."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v2 reports active nigiri shaping and a finished piece, while v1 reports hands near separate rice and salmon.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 reports a salmon slice near the right hand on the board, while v3 reports a salmon slice moving off-screen after rice shaping.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 reports rice being pressed onto salmon and a finished nigiri, while v3 reports only rice shaping and salmon handling.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "statement": "v4 reports cloth and chopstick handling above the cutting board, while v1, v2, and v3 report rice and salmon manipulation.",
+      "supporting_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v4",
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "The relation between v4's cloth and chopstick handling and the rice/salmon states in v1-v3 remains unresolved.",
+      "reason": "v4's events do not report whether ingredients or a formed nigiri are present during the cloth handling.",
+      "related_events": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "Whether the salmon slice moved off-screen in v3 is the same salmon slice positioned near the right hand in v1 remains unresolved.",
+      "reason": "v3 does not report the salmon's destination and v1 does not report a continuous transfer.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The transition from v1's separate rice and salmon positions to v2's pressing rice onto salmon remains unresolved.",
+      "reason": "No supplied event reports the salmon slice being placed under the rice between those states.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "Whether the rice piece shaped in v3 is the same piece pressed onto salmon in v2 remains unresolved.",
+      "reason": "The events do not report piece identity or count across the shaping and pressing actions.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v4",
+        "v1"
+      ],
+      "observable": "whether rice, wasabi, and salmon are arranged on the counter or board during v4's cloth handling as they are in v1.",
+      "purpose": "This would resolve U01 by connecting v4's cloth handling to the ingredient state shown in v1.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v4",
+        "v2"
+      ],
+      "observable": "whether a pressed or finished salmon nigiri is visible on the board during v4's cloth placement.",
+      "purpose": "This would resolve U01 by connecting v4's cloth handling to the assembly state shown in v2.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3",
+        "v1"
+      ],
+      "observable": "whether the salmon slice moved off-screen in v3 appears at the right-hand salmon location in v1.",
+      "purpose": "This would resolve U02 by establishing or rejecting continuity of the salmon slice between v3 and v1.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "whether v1's right-hand salmon slice becomes the salmon under rice in v2's pressing action.",
+      "purpose": "This would resolve U03 by supplying the missing transition between separate ingredients and pressing rice onto salmon.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "whether the rice piece shaped in v3 is the same rice piece pressed onto salmon in v2.",
+      "purpose": "This would resolve U04 by establishing or rejecting continuity of the rice piece across shaping and pressing.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 6,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-160",
+    "task": "PSS",
+    "ground_truth": "1->3->2->4",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-160/report.json",
+    "report_sha256": "2ea6922fed5a9b3cd7745a16941b165831d8b17dccca38b235cbb43088fec762",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

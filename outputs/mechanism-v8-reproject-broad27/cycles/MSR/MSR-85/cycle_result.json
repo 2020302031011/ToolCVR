@@ -1,0 +1,334 @@
+{
+  "state": {
+    "question": "When the red bus is parallel to the black car for the first time in view B, where is {A2} located in view A?",
+    "round_id": 3,
+    "summary": "The red bus is not parallel to the black car in view B, and the location of {A2} in view A cannot be determined due to lack of correlation between views.",
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-04.s01",
+          "v2.zoom.r2-r1-05.s01"
+        ],
+        "attempts": [
+          "No frame shows the red bus parallel to the black car in view B."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "The location of {A2} in view A is not determined yet."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r2-r1-04.s01"
+        ],
+        "attempts": [
+          "No correlation between view A and view B at the identified time is visible."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "Red bus and black car are visible in view B. A2 car is visible in view A.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          6.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          10.0
+        ],
+        "description": "Red bus and black car are not parallel in view B at this timestamp.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A red bus moves leftward on a multi-lane road, passing a black car in adjacent lanes.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Red bus moves from bottom to center, crossing intersection. Black car remains in upper right lane.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "Top-down view of multi-lane road with moving vehicles and parked cars along tree-lined sidewalks.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Top-down view of multi-lane road with moving vehicles, parked cars, and red buses. Crosswalks and directional arrows visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          2.0
+        ],
+        "description": "Red bus enters frame from bottom, positioned below black car in adjacent lane.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l5.e1",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          11.0
+        ],
+        "description": "Red bus visible in bottom right, moving rightward across frames. Black car visible in middle lanes, moving rightward.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Determine the exact moment when the red bus is parallel to the black car in view B and the position of A2 in view A at that moment.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1-b0001-e1.slot"
+        ],
+        "evidence_goal": "When the red bus and black car are parallel in view B.",
+        "next_probe_goal": "The exact position of A2 in view A relative to the alignment of the red bus and black car in view B."
+      }
+    },
+    {
+      "summary": "Identify the first timestamp in view B where the red bus is parallel to the black car and determine the location of {A2} in view A at that timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2-b0001-e1.slot",
+          "v2-b0001-e2.slot",
+          "v2-b0001-e3.slot",
+          "v2-b0001-e4.slot",
+          "v2-b0001-e5.slot"
+        ],
+        "evidence_goal": "When is the red bus parallel to the black car in view B?",
+        "next_probe_goal": "Where is {A2} located in view A at the corresponding timestamp?"
+      }
+    },
+    {
+      "summary": "The red bus is not parallel to the black car in view B, and the location of {A2} in view A cannot be determined due to lack of correlation between views.",
+      "action": "STOP",
+      "reason": "No further evidence can be collected to determine the location of {A2} in view A.",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "No further evidence can be collected to determine the location of {A2} in view A."
+  },
+  "visual_calls_used": 6,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "A red bus moves leftward on a multi-lane road, passing a black car in adjacent lanes.",
+      "evidence": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "Red bus moves from bottom to center, crossing intersection. Black car remains in upper right lane.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "Top-down view of multi-lane road with moving vehicles and parked cars along tree-lined sidewalks.",
+      "evidence": [
+        "v2.focus.r2.l2.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-03.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "Top-down view of multi-lane road with moving vehicles, parked cars, and red buses. Crosswalks and directional arrows visible.",
+      "evidence": [
+        "v2.focus.r2.l3.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-04.s01",
+      "video": "v2",
+      "time": [
+        2.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "Red bus enters frame from bottom, positioned below black car in adjacent lane.",
+      "evidence": [
+        "v2.focus.r2.l4.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-05.s01",
+      "video": "v2",
+      "time": [
+        6.0,
+        11.3
+      ],
+      "resolution": "fine",
+      "content": "Red bus visible in bottom right, moving rightward across frames. Black car visible in middle lanes, moving rightward.",
+      "evidence": [
+        "v2.focus.r2.l5.e1"
+      ],
+      "revision": 1,
+      "focusable": false
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "The exact position of A2 in view A relative to the alignment of the red bus and black car in view B.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 6,
+    "visual_calls_remaining": 2,
+    "maximum_visual_calls_for_current_stage": 2,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Oil is poured from a bottle into a grey non-stick pan on a hot plate next to a bowl of batter."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Scoops of batter are placed in the pan, cooked, spread with a spoon, and heat is adjusted."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e2"
+      ],
+      "statement": "Oil is squeezed onto a black cast-iron skillet and a portion of mixture is placed into the hot pan."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3"
+      ],
+      "statement": "The mixture cooks in the skillet and three distinct fritters become visible while the chef moves them with a spatula."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e4"
+      ],
+      "statement": "The chef flips the fritters, revealing golden-brown cooked surfaces, and prepares to transfer them."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e5"
+      ],
+      "statement": "The cooked fritters are plated and topped with a white cream or sauce."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3",
+        "v2-b0002-e4",
+        "v2-b0002-e5",
+        "v2-b0003-e1"
+      ],
+      "statement": "A pale batter-like mixture is prepared in a bowl before the skillet step."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show oil being applied to a pan followed by portions of a mixture being cooked in that pan.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0003-e2",
+        "v2-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show multiple portions cooking in the pan and being manipulated with a utensil.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v2 sequence includes flipping and preparing to transfer cooked portions, while the v1 reference step reports spreading and heat adjustment without an observed flip.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference step begins with batter already present next to the pan, whereas v2 shows the mixture being prepared before pan cooking.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e3",
+        "v2-b0002-e5",
+        "v2-b0003-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end boundaries of the v2 pan-cooking sequence remain undetermined.",
+      "reason": "The reports separate oiling, portion placement, cooking, flipping, and transfer preparation, but do not identify the precise transition points of the functional step.",
+      "related_events": [
+        "v2-b0003-e2",
+        "v2-b0003-e3",
+        "v2-b0003-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the v2 flipping and transfer preparation belongs to the functionally equivalent step remains undetermined.",
+      "reason": "The v1 reference step reports cooking, spreading, and heat adjustment but does not report a flip, so the comparable endpoint is not established.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the v2 oiling and first portion placement corresponds to the full v1 reference step or only part of it remains undetermined.",
+      "reason": "The v1 reports leave the exact pouring start and third scoop placement uncertain, and the v2 reports combine oiling and placement in one event span.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0003-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare v2-b0003-e2 and v2-b0003-e3 to determine whether oiling and portion placement immediately precede continuous cooking of multiple portions.",
+      "purpose": "This would resolve the boundary uncertainty around the start and middle of the v2 pan-cooking sequence.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the end state described in v1-b0001-e2 with the cooking, flipping, and transfer-preparation states in v2-b0003-e3 and v2-b0003-e4.",
+      "purpose": "This would resolve whether flipping and transfer preparation are inside the equivalent step or belong to a later step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare v1-b0001-e1 and v1-b0001-e2 with v2-b0003-e2 to determine whether the reference step includes oiling and first placement or begins after portions are already in the pan.",
+      "purpose": "This would resolve alignment of the reference step start with the v2 oiling and placement event.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-21",
+    "task": "FSA",
+    "ground_truth": [
+      77,
+      92
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/FSA/FSA-21/report.json",
+    "report_sha256": "6a62c78ae5a518ab801e98c1454257decc43a8c64636525f6409854709591506",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

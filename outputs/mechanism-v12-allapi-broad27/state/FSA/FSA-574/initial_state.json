@@ -1,0 +1,257 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A woman pours liquid from a small glass bowl into a large bowl containing a chopped vegetable salad and mixes the ingredients thoroughly with a wooden spoon."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "The specific ingredients in the v1 salad are not explicitly labeled."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e4"
+      ],
+      "statement": "A yellow liquid mixture is poured over a salad and stirred in."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "A yellow liquid mixture is prepared by adding minced garlic, whisking, adding black pepper, and mixing again."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e2"
+      ],
+      "statement": "Cooked grains are transferred from a pot to a large blue mixing bowl."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "Chickpeas, diced cucumber, diced tomatoes, green onions, and parsley are added to the bowl and mixed."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "The displayed raw ingredients include lemon juice and olive oil."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 action of pouring liquid into a salad and mixing it is functionally comparable to the v2 action of pouring a yellow liquid mixture over a salad and stirring it.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The liquid already present in v1's small glass bowl is compared with the separately prepared yellow liquid mixture that v2 pours into the salad.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e1",
+        "v2-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The large bowl of chopped vegetable salad in v1 is compared with the v2 blue bowl containing cooked grains plus added chopped vegetables before the liquid is poured.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3",
+        "v2-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the liquid poured in v1 is functionally equivalent to the yellow liquid mixture poured in v2 remains unresolved.",
+      "reason": "v1 does not label the liquid, and v2 describes only a yellow liquid mixture prepared with garlic and pepper.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0002-e1",
+        "v2-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the salad states before liquid addition are functionally comparable remains unresolved.",
+      "reason": "v1 describes a chopped vegetable salad without explicit grain content, while v2 shows cooked grains already in the bowl before chopped ingredients are added.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3",
+        "v2-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the v2 pouring and stirring event covers the full functional equivalent of v1's thorough mixing remains unresolved.",
+      "reason": "v2-b0002-e4 reports stirring but does not specify the mixing duration or final homogeneous state.",
+      "related_events": [
+        "v2-b0002-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether the v1 reference step includes only liquid addition and mixing or also liquid preparation remains unresolved.",
+      "reason": "v1-b0001-e1 begins with liquid already in a small glass bowl and does not show how it was made.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the visible liquid and pouring action in v1-b0001-e1 with the yellow liquid and pouring action in v2-b0002-e4 to determine whether both represent a dressing addition.",
+      "purpose": "This would resolve U01.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the bowl contents immediately before liquid addition in v1-b0001-e1 with the bowl contents immediately before liquid addition in v2-b0002-e4.",
+      "purpose": "This would resolve U02.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the salad state at the start and end of v2-b0002-e4 to determine whether stirring continues until the liquid is fully incorporated.",
+      "purpose": "This would resolve U03.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare the start and end of v1-b0001-e1 to determine whether liquid preparation is shown before the pouring action.",
+      "purpose": "This would resolve U04.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-574",
+    "task": "FSA",
+    "ground_truth": [
+      139,
+      146
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/FSA/FSA-574/report.json",
+    "report_sha256": "66e4f3775a2505e0d4c5890eccf2322f96a1add8b3c96d44ef6cb3cd6f514a22",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

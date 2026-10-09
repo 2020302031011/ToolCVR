@@ -1,0 +1,404 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5",
+    "v6"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5"
+      ],
+      "statement": "A chef reaches for, holds, cuts, and slices a piece of meat on a wooden board until it appears diced into small cubes."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "Raw pale bacon lardons are added to a pan with oil and are later shown partially cooked, browned, crispy, and reduced in rendered fat."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3",
+        "v5-b0001-e4"
+      ],
+      "statement": "A steamer pot is covered and salted, and a chef holds dry spaghetti before inserting it into the pot."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0002-e1"
+      ],
+      "statement": "Eggs are cracked and whisked in a blue bowl, grated cheese is poured into the bowl, and a yellow speckled mixture is whisked."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0002-e1"
+      ],
+      "statement": "A chef in a blue shirt stirs pasta in a frying pan while a large pot steams in the background."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v6"
+      ],
+      "event_refs": [
+        "v6-b0001-e1",
+        "v6-b0001-e2",
+        "v6-b0001-e3",
+        "v6-b0001-e4"
+      ],
+      "statement": "A cooked pasta dish is poured from a black frying pan onto a white plate, adjusted by the chef, topped with grated cheese, and shown finished."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v2",
+        "v1"
+      ],
+      "statement": "The final diced-meat state in v2 and the initial raw-lardon state in v1 are the closest visible meat-preparation and meat-cooking states across the clips.",
+      "supporting_events": [
+        "v2-b0001-e5",
+        "v1-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v5",
+        "v4"
+      ],
+      "statement": "The dry-spaghetti insertion in v5 and the pasta-in-frying-pan stirring in v4 describe possible before-transfer and after-transfer pasta states.",
+      "supporting_events": [
+        "v5-b0001-e4",
+        "v4-b0002-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v4",
+        "v6"
+      ],
+      "statement": "The browned bacon in v1, the pasta in a frying pan in v4, and the plated carbonara from a black frying pan in v6 describe adjacent possible stages of combining and plating.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v4-b0002-e1",
+        "v6-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v3",
+        "v4",
+        "v6"
+      ],
+      "statement": "The whisked egg and cheese mixture in v3 and the pasta dish in v4 and v6 are visible states involving possible egg-coating and cheese-topping stages.",
+      "supporting_events": [
+        "v3-b0001-e4",
+        "v4-b0002-e1",
+        "v6-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v5"
+      ],
+      "statement": "The meat cutting in v2, bacon cooking in v1, egg and cheese preparation in v3, and pasta insertion in v5 are separate preparation states without a shared visible transition.",
+      "supporting_events": [
+        "v2-b0001-e5",
+        "v1-b0001-e1",
+        "v3-b0001-e1",
+        "v5-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2",
+        "v1"
+      ],
+      "issue": "The identity and direct continuity between the diced meat in v2 and the raw lardons cooked in v1 remain unresolved.",
+      "reason": "v2 ends with meat on a board and v1 begins with lardons already in a pan, with no observed transfer.",
+      "related_events": [
+        "v2-b0001-e5",
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v5",
+        "v4"
+      ],
+      "issue": "The transfer of pasta from the steamer pot in v5 to the frying pan in v4 remains unresolved.",
+      "reason": "v5 ends before the pasta is softened and v4 begins with pasta already in the frying pan.",
+      "related_events": [
+        "v5-b0001-e4",
+        "v4-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The presence or timing of the cooked bacon from v1 in the frying pan stirred in v4 remains unresolved.",
+      "reason": "v4 shows pasta and a steaming pot but does not identify browned bacon pieces.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v4-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3",
+        "v4",
+        "v6"
+      ],
+      "issue": "The addition of the egg and cheese mixture from v3 to the pasta in v4 or v6 remains unresolved.",
+      "reason": "v3 ends with mixing in a blue bowl and neither v4 nor v6 shows a visible transfer from that bowl into the frying pan.",
+      "related_events": [
+        "v3-b0001-e5",
+        "v4-b0002-e1",
+        "v6-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v4",
+        "v6"
+      ],
+      "issue": "The continuity between the pasta stirred in v4 and the carbonara poured from the black frying pan in v6 remains unresolved.",
+      "reason": "v4 does not show the final coating or cheese addition, and v6 begins with plating.",
+      "related_events": [
+        "v4-b0002-e1",
+        "v6-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U06",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v5"
+      ],
+      "issue": "The relative order among the preparation clips v1, v2, v3, and v5 remains unresolved.",
+      "reason": "The supplied events show separate ingredient states and do not include shared visible transitions among them.",
+      "related_events": [
+        "v2-b0001-e5",
+        "v1-b0001-e1",
+        "v3-b0001-e1",
+        "v5-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2",
+        "v1"
+      ],
+      "observable": "Compare the cube size, color, and fat pattern of the diced meat at the end of v2 with the raw lardons at the start of v1.",
+      "purpose": "Determine whether the meat prepared in v2 is the same meat cooked in v1 and whether v2 precedes v1.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v5",
+        "v4"
+      ],
+      "observable": "Compare the steamer pot contents and steam in v5 with the frying pan and background pot in v4.",
+      "purpose": "Determine whether v4 follows v5 after pasta is transferred to the frying pan.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Look for browned bacon pieces in the frying pan in v4 and compare them with the pan contents at the end of v1.",
+      "purpose": "Determine whether cooked bacon from v1 is present in v4.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3",
+        "v4",
+        "v6"
+      ],
+      "observable": "Look for a blue bowl, egg mixture, or cheese being added during v4 and compare the coating in v6 with the mixture in v3.",
+      "purpose": "Determine whether the egg and cheese mixture from v3 is added before or during the pan stage shown in v4 or v6.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v4",
+        "v6"
+      ],
+      "observable": "Compare the pasta coating and pan contents in v4 with the dish poured from the black frying pan in v6.",
+      "purpose": "Determine whether v6 follows v4 as the plating step.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q06",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3",
+        "v5"
+      ],
+      "observable": "Look for already prepared ingredients from one clip appearing in the background or work surface of another preparation clip.",
+      "purpose": "Determine whether any visible ingredient state orders v1, v2, v3, and v5 relative to one another.",
+      "related_issue": "U06"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 12,
+    "covered_pair_count": 12,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 11,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v1",
+        "v5"
+      ],
+      [
+        "v1",
+        "v6"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v5"
+      ],
+      [
+        "v3",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v3",
+        "v6"
+      ],
+      [
+        "v4",
+        "v5"
+      ],
+      [
+        "v4",
+        "v6"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-89",
+    "task": "PSS",
+    "ground_truth": "5->2->1->3->4->6",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-89/report.json",
+    "report_sha256": "5c2cf006f098f373f01801ce08830e36e43b2d1a5cdb1d82bf5e9c23d132e741",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,442 @@
+{
+  "state": {
+    "question": "After {A2} completely leaves view A, how many cycles in view B pass by the lane near the residential building and exceed {B4}?",
+    "round_id": 3,
+    "summary": "A2's annotated visibility in view A ends at 2.967s, establishing the post-trigger counting window. B4 is visible in view B from 13.333s to 15.000s. The final fine-grained observation in view B (14.0-14.967s) reports two two-wheeled vehicles in the road segment associated with B4, and no further executable observation is likely to materially change the count given the completed focus stages. Residual uncertainty remains about exact lane/path semantics, but the best-supported count is 2.",
+    "review": {
+      "outcome": "partial",
+      "reason": "Evidence index 13/14 confirms the presence of two-wheeled vehicles in view B during the late segment (14.0-15.0s), which is after the known visibility end of A2 (2.967s). However, it does not explicitly confirm whether these specific vehicles 'exceed' B4's position or pass the 'residential-building lane' as defined, nor does it rule out earlier cycles between 3s and 14s due to unobserved intervals. The requirement R02 is marked supported based on the visual confirmation of cy",
+      "evidence_refs": [
+        "v2.zoom.r2-U01-01.s01",
+        "v2.focus.r2.l1.e1"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 1
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-42: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=3; declared=person; A1_visible=0-169 (0.000-5.667s)/450_frames; B1_visible=0-49 (0.000-1.667s)/450_frames.",
+      "A2/B2 is source_track=31; declared=car; A2_visible=7-88 (0.233-2.967s)/450_frames; B2_visible=26-67 (0.867-2.267s)/450_frames.",
+      "A3/B3 is source_track=53; declared=car; A3_visible=250-449 (8.333-15.000s)/450_frames; B3_visible=370-449 (12.333-15.000s)/450_frames.",
+      "A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.",
+      "A5/B5 is source_track=9; declared=person; A5_visible=0-449 (0.000-15.000s)/450_frames; B5_visible=22-389 (0.733-13.000s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "R02",
+        "statement": "Count physical cycles in view B that pass by the residential-building lane and exceed B4's position after the A2 exit trigger.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.zoom.r2-U01-01.s01",
+          "v2.focus.r2.l1.e1"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "R01",
+        "question": "Determine the synchronized timestamp when A2 completely leaves view A to establish the start of the counting window.",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": [
+          "v1.u001",
+          "v1.u002"
+        ]
+      }
+    ],
+    "contrastive_frontier": [
+      {
+        "id": "P01",
+        "question_id": "R01",
+        "videos": [
+          "v1"
+        ],
+        "observable": "The exact frame/timestamp where object A2 (car) fully exits the right or left boundary of view A.",
+        "purpose": "To define the precise start time for evaluating cycle counts in view B relative to the trigger event."
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "In view A, object A2 (car) enters the frame and moves leftward, remaining visible until the end of the segment. Objects A1 and A5 are stationary.",
+        "direct_observation": "In view A, object A2 (car) enters the frame and moves leftward, remaining visible until the end of the segment. Objects A1 and A5 are stationary.",
+        "inferred_interpretation": "",
+        "uncertainty": "A2 has not yet left the view.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          14.0
+        ],
+        "description": "In view B, object A3 is parked on the upper right. No moving cycles are visible passing by the lane near the residential building.",
+        "direct_observation": "In view B, object A3 is parked on the upper right. No moving cycles are visible passing by the lane near the residential building.",
+        "inferred_interpretation": "",
+        "uncertainty": "A2's exit time from view A is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "View S1 shows a roadway with a median strip and a parking lot. Tracked entities include a person (B1, B5) and a car (B2).",
+        "direct_observation": "View S1 shows a roadway with a median strip and a parking lot. Tracked entities include a person (B1, B5) and a car (B2).",
+        "inferred_interpretation": "",
+        "uncertainty": "Identity of 'view A' and entity 'A2' is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          14.0
+        ],
+        "description": "View S2 shows a different road layout with parked cars on the left and a building on the right. Tracked entities include a person (B5, B4) and a car (B3).",
+        "direct_observation": "View S2 shows a different road layout with parked cars on the left and a building on the right. Tracked entities include a person (B5, B4) and a car (B3).",
+        "inferred_interpretation": "",
+        "uncertainty": "Identity of 'view B' and entity 'B4' is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "Aerial view shows a road with parked cars on the left and a parking lot on the right. A person labeled 'B5 person' is visible on the sidewalk near the bottom center.",
+        "direct_observation": "Aerial view shows a road with parked cars on the left and a parking lot on the right. A person labeled 'B5 person' is visible on the sidewalk near the bottom center.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          13.0,
+          14.0
+        ],
+        "description": "A black car labeled 'B3 car' enters the frame from the top left on the road. A person labeled 'B4 person' appears on the sidewalk near the trees in the upper right area.",
+        "direct_observation": "A black car labeled 'B3 car' enters the frame from the top left on the road. A person labeled 'B4 person' appears on the sidewalk near the trees in the upper right area.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Aerial view of a road with B3 car and B4 person bounding boxes; two-wheeled vehicles visible in center lanes.",
+        "direct_observation": "Aerial view of a road with B3 car and B4 person bounding boxes; two-wheeled vehicles visible in center lanes.",
+        "inferred_interpretation": "B3 car and B4 person are tracked objects; the two-wheeled vehicles are moving along the road.",
+        "uncertainty": "Exact movement paths and speeds of the two-wheeled vehicles are not visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration remains. The trigger is fixed by reference aliases, so A2 exit timing does not need observation. The unresolved issue is whether the selected v2 segment corresponds to view B and whether any cycles in the residential-building lane exceed B4 in the portion of B4 visibility covered by this segment. A refined v2 observation can materially change the count; a later coverage recovery of the adjacent late segment will complete the B4 visibility window.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "Confirm that the selected v2 segment corresponds to view B, then count cycles passing by the residential-building lane and exceeding B4 in the post-trigger portion of this segment.",
+        "next_probe_goal": "Recover the adjacent unobserved v2 coverage segment to count cycles passing by the residential-building lane and exceeding B4 in the remaining B4 visibility window.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "The reference sidecar authoritatively establishes A2's complete exit from view A as the synchronized trigger, so the counting window begins after that event. View B is v2 under the A/B alias convention. Existing v2 observation covers the earlier post-trigger segment but leaves the final B4 visibility interval unobserved, so the cycle count near the residential-building lane cannot be completed without recovering that adjacent coverage slot.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.u002"
+        ],
+        "evidence_goal": "Recover the unobserved final B4 visibility segment in v2 to determine whether any two-wheeled vehicles pass by the residential-building lane and exceed B4 after the A2 exit trigger.",
+        "next_probe_goal": "Count physical cycles in that segment that pass the residential-building lane and move beyond B4's position; do not count riders or duplicate synchronized observations.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "A2's annotated visibility in view A ends at 2.967s, establishing the post-trigger counting window. B4 is visible in view B from 13.333s to 15.000s. The final fine-grained observation in view B (14.0-14.967s) reports two two-wheeled vehicles in the road segment associated with B4, and no further executable observation is likely to materially change the count given the completed focus stages. Residual uncertainty remains about exact lane/path semantics, but the best-supported count is 2.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "projected_revision": 3,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "e27d9d2a496a4d2d",
+      "requirement_id": "U01",
+      "evidence_goal": "Confirm that the selected v2 segment corresponds to view B, then count cycles passing by the residential-building lane and exceeding B4 in the post-trigger portion of this segment.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            10.0,
+            14.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "4799d0f55e08506e",
+      "requirement_id": "U01",
+      "evidence_goal": "Recover the unobserved final B4 visibility segment in v2 to determine whether any two-wheeled vehicles pass by the residential-building lane and exceed B4 after the A2 exit trigger.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            14.0,
+            15.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v2.zoom.r2-U01-01.s01",
+      "v2.focus.r2.l1.e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "In view A, object A2 (car) enters the frame and moves leftward, remaining visible until the end of the segment. Objects A1 and A5 are stationary.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "A2 has not yet left the view."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "In view B, object A3 is parked on the upper right. No moving cycles are visible passing by the lane near the residential building.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "A2's exit time from view A is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "View S1 shows a roadway with a median strip and a parking lot. Tracked entities include a person (B1, B5) and a car (B2).",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Identity of 'view A' and entity 'A2' is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "Aerial view shows a road with parked cars on the left and a parking lot on the right. A person labeled 'B5 person' is visible on the sidewalk near the bottom center. A black car labeled 'B3 car' enters the frame from the top left on the road. A person labeled 'B4 person' appears on the sidewalk near the trees in the upper right area.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Unresolved: Confirmation that this is 'view B'",
+        "Unresolved: Count of 'cycles' exceeding B4"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-U01-01.s01",
+      "video": "v2",
+      "time": [
+        14.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "Aerial view of a road with B3 car and B4 person bounding boxes; two-wheeled vehicles visible in center lanes.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Exact movement paths and speeds of the two-wheeled vehicles are not visible.",
+        "Inferred interpretation (not direct evidence): B3 car and B4 person are tracked objects; the two-wheeled vehicles are moving along the road.",
+        "Unresolved: Determine if two-wheeled vehicles pass by the residential-building lane and exceed B4 after the A2 exit trigger."
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

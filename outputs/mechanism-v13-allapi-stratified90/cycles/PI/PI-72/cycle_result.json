@@ -1,0 +1,1279 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "v1 contains a rooftop fall, shattered glass, a stretcher, a crouching man beside a body, a syringe drawing liquid from a vial, and a silicone mask on a tray. v2 shows a dark pavement close-up, police/courtroom references, delayed vindication for a detective, and a cemetery headstone. The best-supported missing-interval explanation is a staged death using medical props, though explicit application of the props to the fallen man is not visually confirmed.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U02-01.s01",
+          "v1.c004"
+        ],
+        "attempts": [
+          "Medical props are visible near a fallen body, but direct application to simulate death is not visually confirmed."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v2.zoom.r1-U02-02.s01"
+        ],
+        "attempts": [
+          "The fall/glass sequence and pavement close-up are chronologically compatible with a death transition, but identity continuity is not established."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v2.c007",
+          "v2.c009"
+        ],
+        "attempts": [
+          "v2 supports a death/cemetery aftermath involving police investigation and delayed vindication, but does not itself prove whether the death was staged or genuine."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "The camera moves through grass to reveal a headstone with the name 'SHERLOCK HOLMES' and flowers, indicating a grave.",
+        "uncertainty": "Context of the funeral is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          14.0
+        ],
+        "description": "A man stands on a rooftop in silhouette, then a black taxi drives through a street intersection.",
+        "uncertainty": "Identity of the man on the roof is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          48.0,
+          56.0
+        ],
+        "description": "A man on a rooftop makes a phone call while another man on the ground listens with a worried expression.",
+        "uncertainty": "Dialogue content is limited to subtitles.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          58.0,
+          62.0
+        ],
+        "description": "A man is carried on a stretcher in a dark room, followed by a close-up of his face on a medical tray.",
+        "uncertainty": "The state of the man (alive/dead) is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          64.0,
+          68.0
+        ],
+        "description": "A man in a beanie crouches over a prone figure, followed by close-ups of a medical case containing a silicone mask and a syringe.",
+        "uncertainty": "Purpose of the medical props and mask is not explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          104.0,
+          106.0
+        ],
+        "description": "A man in a black coat falls backward from a building ledge, while a woman watches from a window behind him.",
+        "uncertainty": "Whether the fall is staged or real is not visually confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          108.0,
+          112.0
+        ],
+        "description": "A white sheet or bag is thrown over the falling man, and he lands on the pavement surrounded by shattered glass.",
+        "uncertainty": "The specific contents of the white object are unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          182.0,
+          188.0
+        ],
+        "description": "Overhead and close-up shots show a crowd gathered around a body lying on the pavement, suggesting a public incident or aftermath of a fall.",
+        "uncertainty": "Identity of the body and cause of death not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          190.0,
+          196.0
+        ],
+        "description": "A silhouette of a person in a long coat walks away from the camera through a doorway into a bright exterior.",
+        "uncertainty": "Identity of the walking figure is obscured by backlight.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          206.0,
+          214.0
+        ],
+        "description": "Two men stand at a coffee cart discussing the death of 'Sherlock'. Subtitles indicate a debate over whether the body was actually Sherlock or someone else wearing a mask.",
+        "uncertainty": "Visual confirmation of the 'mask' or 'body' is not present, only discussed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          250.0,
+          254.0
+        ],
+        "description": "The grey-haired man walks away from the coffee cart while a news reporter speaks to a camera, referencing police investigations.",
+        "uncertainty": "Connection between the reporter's specific claims and the men's conversation is implied but not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          256.0,
+          258.0
+        ],
+        "description": "Subtitles report extensive police investigations confirming Richard Brook was a creation of James Moriarty.",
+        "uncertainty": "Visuals are heavily distorted during the report.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          260.0,
+          264.0
+        ],
+        "description": "Overlay of police officer and courtroom scenes; Sherlock Holmes is vindicated and cleared of all suspicion.",
+        "uncertainty": "Faces are obscured by glitch effects.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          266.0,
+          270.0
+        ],
+        "description": "Narrator notes the vindication is too late for the detective who had become a celebrity two years ago.",
+        "uncertainty": "Speaker identity is not visually confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          280.0,
+          288.0
+        ],
+        "description": "Two men stand outside drinking from cups, discussing Sherlock's death from Bart's Hospital and toasting absent friends.",
+        "uncertainty": "Exact location outside the hospital is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          308.0,
+          312.0
+        ],
+        "description": "A man with a mustache stands solemnly in a cemetery before a headstone engraved 'SHERLOCK HOLMES'.",
+        "uncertainty": "The man's identity is not explicitly named in subtitles.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          314.0,
+          326.0
+        ],
+        "description": "Two figures, one in a grey coat and one in a dark coat, stand at a gravestone inscribed 'SHERLOCK HOLMES' and hold hands.",
+        "uncertainty": "Identities of the visitors not confirmed visually.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          328.0,
+          334.0
+        ],
+        "description": "The camera view is obscured by grass, then cuts to a dark forest environment.",
+        "uncertainty": "Transition cause and specific location details unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          336.0,
+          344.0
+        ],
+        "description": "A thermal imaging view scans a forest area, showing heat signatures and a curved linear object.",
+        "uncertainty": "Source of thermal view (drone/camera) not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          348.0,
+          352.0
+        ],
+        "description": "Thermal imaging tracks a human figure, followed by a shot of a person walking away in a dark forest.",
+        "uncertainty": "Identity of the person walking not confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          362.0,
+          370.0
+        ],
+        "description": "Night-vision sequence showing a figure moving through a dark forest, followed by a thermal imaging view of a person walking.",
+        "uncertainty": "Identity of the person and purpose of the surveillance.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          396.0,
+          406.0
+        ],
+        "description": "Close-up of a soldier in a trench wearing a headset, followed by a dark, obscured view.",
+        "uncertainty": "Content of the audio transmission and the cause of the camera obscuration.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          64.0,
+          65.0
+        ],
+        "description": "A man wearing a beanie crouches beside a body lying on a dark floor, reaching toward a case.",
+        "uncertainty": "Specific actions performed by the crouching man are obscured.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          66.0,
+          68.0
+        ],
+        "description": "Close-up of a syringe drawing liquid from a vial, followed by a shot of a silicone mask head on a tray with a knife.",
+        "uncertainty": "The connection between the syringe and the mask is not explicitly shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          182.0,
+          182.0
+        ],
+        "description": "A close-up shows a person's hand and dark textured sleeve, likely belonging to the individual on the ground.",
+        "uncertainty": "No syringe or mask visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          183.0,
+          183.0
+        ],
+        "description": "The frame is dark and blurry, obscuring specific details of the scene.",
+        "uncertainty": "Target objects not visible due to darkness.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          184.0,
+          184.0
+        ],
+        "description": "A person in a suit is bent over on the pavement, surrounded by the legs of others.",
+        "uncertainty": "No syringe or mask visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e4",
+        "video_id": "v2",
+        "time_span": [
+          185.0,
+          186.0
+        ],
+        "description": "An overhead view shows a group attending to a body on a red stretcher on the pavement.",
+        "uncertainty": "Objects too small to identify.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e5",
+        "video_id": "v2",
+        "time_span": [
+          187.0,
+          187.0
+        ],
+        "description": "A close-up shows a man's injured face with blood around the mouth, attended by a hand.",
+        "uncertainty": "No syringe or mask visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e6",
+        "video_id": "v2",
+        "time_span": [
+          188.0,
+          188.0
+        ],
+        "description": "A man with short hair looks down intently, appearing to be part of the rescue group.",
+        "uncertainty": "No syringe or mask visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          108.0,
+          109.0
+        ],
+        "description": "A man in a dark coat is seen behind a glass pane that shatters into flying fragments.",
+        "uncertainty": "The cause of the shattering is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          110.0,
+          112.0
+        ],
+        "description": "A person's feet in dark shoes walk across a floor scattered with broken glass fragments.",
+        "uncertainty": "The identity of the person walking is unknown.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need visual link between v1 medical props and v2 body to test staged death.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v1.c005",
+          "v2.c001"
+        ],
+        "evidence_goal": "Do the silicone mask and syringe shown in v1.c005 appear applied to or visibly associated with the pavement body in v2.c001?",
+        "next_probe_goal": "If not, inspect v1.c007 for whether the white sheet is used to conceal the fallen figure.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local v1 evidence on whether the white sheet conceals the fallen figure, distinguishing staged death/fall from actual death/fall.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c007"
+        ],
+        "evidence_goal": "Does v1.c007 show the white sheet or bag being thrown over the fallen man to conceal him, rather than merely covering him after an actual fall?",
+        "next_probe_goal": "If not, inspect v1.c006 to see whether the fall itself is followed by immediate body concealment.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "v1 contains a rooftop fall, shattered glass, a stretcher, a crouching man beside a body, a syringe drawing liquid from a vial, and a silicone mask on a tray. v2 shows a dark pavement close-up, police/courtroom references, delayed vindication for a detective, and a cemetery headstone. The best-supported missing-interval explanation is a staged death using medical props, though explicit application of the props to the fallen man is not visually confirmed.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r1-U02-01.s01",
+      "v1.zoom.r2-r1-01.s01",
+      "v2.zoom.r1-U02-02.s01",
+      "v2.c007",
+      "v2.c009",
+      "v1.c004"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "The camera moves through grass to reveal a headstone with the name 'SHERLOCK HOLMES' and flowers, indicating a grave.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Context of the funeral is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "A man stands on a rooftop in silhouette, then a black taxi drives through a street intersection.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Identity of the man on the roof is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        14.0,
+        29.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        29.0,
+        44.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        44.0,
+        48.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        48.0,
+        56.0
+      ],
+      "resolution": "coarse",
+      "content": "A man on a rooftop makes a phone call while another man on the ground listens with a worried expression.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Dialogue content is limited to subtitles."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        58.0,
+        62.0
+      ],
+      "resolution": "coarse",
+      "content": "A man is carried on a stretcher in a dark room, followed by a close-up of his face on a medical tray.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "The state of the man (alive/dead) is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U02-01.s01",
+      "video": "v1",
+      "time": [
+        64.0,
+        68.0
+      ],
+      "resolution": "fine",
+      "content": "A man wearing a beanie crouches beside a body lying on a dark floor, reaching toward a case. Close-up of a syringe drawing liquid from a vial, followed by a shot of a silicone mask head on a tray with a knife.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Specific actions performed by the crouching man are obscured.",
+        "The connection between the syringe and the mask is not explicitly shown.",
+        "Unresolved: Visual confirmation of the mask and syringe being applied to the pavement body."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        68.0,
+        83.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        83.0,
+        98.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        98.0,
+        104.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        104.0,
+        106.0
+      ],
+      "resolution": "coarse",
+      "content": "A man in a black coat falls backward from a building ledge, while a woman watches from a window behind him.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Whether the fall is staged or real is not visually confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        108.0,
+        112.0
+      ],
+      "resolution": "fine",
+      "content": "A man in a dark coat is seen behind a glass pane that shatters into flying fragments. A person's feet in dark shoes walk across a floor scattered with broken glass fragments.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The cause of the shattering is not visible.",
+        "The identity of the person walking is unknown.",
+        "Unresolved: Visual confirmation of a white sheet or bag being thrown over a fallen man."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        112.0,
+        126.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        178.0,
+        182.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-02.s01",
+      "video": "v2",
+      "time": [
+        182.0,
+        188.0
+      ],
+      "resolution": "fine",
+      "content": "A close-up shows a person's hand and dark textured sleeve, likely belonging to the individual on the ground. The frame is dark and blurry, obscuring specific details of the scene. A person in a suit is bent over on the pavement, surrounded by the legs of others. An overhead view shows a group attending to a body on a red stretcher on the pavement. A close-up shows a man's injured face with blood around the mouth, attended by a hand. A man with short hair looks down intently, appearing to be part of the rescue group.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2",
+        "v2.focus.r1.l2.e3",
+        "v2.focus.r1.l2.e4",
+        "v2.focus.r1.l2.e5",
+        "v2.focus.r1.l2.e6"
+      ],
+      "uncertainty": [
+        "No syringe or mask visible.",
+        "Target objects not visible due to darkness.",
+        "Objects too small to identify.",
+        "Unresolved: Target syringe or mask not visible in frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        190.0,
+        196.0
+      ],
+      "resolution": "coarse",
+      "content": "A silhouette of a person in a long coat walks away from the camera through a doorway into a bright exterior.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Identity of the walking figure is obscured by backlight."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        196.0,
+        206.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        206.0,
+        214.0
+      ],
+      "resolution": "coarse",
+      "content": "Two men stand at a coffee cart discussing the death of 'Sherlock'. Subtitles indicate a debate over whether the body was actually Sherlock or someone else wearing a mask.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Visual confirmation of the 'mask' or 'body' is not present, only discussed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        214.0,
+        229.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        229.0,
+        244.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        244.0,
+        250.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        250.0,
+        254.0
+      ],
+      "resolution": "coarse",
+      "content": "The grey-haired man walks away from the coffee cart while a news reporter speaks to a camera, referencing police investigations.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Connection between the reporter's specific claims and the men's conversation is implied but not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        256.0,
+        258.0
+      ],
+      "resolution": "coarse",
+      "content": "Subtitles report extensive police investigations confirming Richard Brook was a creation of James Moriarty.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Visuals are heavily distorted during the report."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        260.0,
+        262.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        260.0,
+        264.0
+      ],
+      "resolution": "coarse",
+      "content": "Overlay of police officer and courtroom scenes; Sherlock Holmes is vindicated and cleared of all suspicion.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Faces are obscured by glitch effects."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        266.0,
+        270.0
+      ],
+      "resolution": "coarse",
+      "content": "Narrator notes the vindication is too late for the detective who had become a celebrity two years ago.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Speaker identity is not visually confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        270.0,
+        280.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        280.0,
+        288.0
+      ],
+      "resolution": "coarse",
+      "content": "Two men stand outside drinking from cups, discussing Sherlock's death from Bart's Hospital and toasting absent friends.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Exact location outside the hospital is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        288.0,
+        303.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        303.0,
+        308.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        308.0,
+        312.0
+      ],
+      "resolution": "coarse",
+      "content": "A man with a mustache stands solemnly in a cemetery before a headstone engraved 'SHERLOCK HOLMES'.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [
+        "The man's identity is not explicitly named in subtitles."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        314.0,
+        326.0
+      ],
+      "resolution": "coarse",
+      "content": "Two figures, one in a grey coat and one in a dark coat, stand at a gravestone inscribed 'SHERLOCK HOLMES' and hold hands.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Identities of the visitors not confirmed visually."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        318.0,
+        324.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        328.0,
+        334.0
+      ],
+      "resolution": "coarse",
+      "content": "The camera view is obscured by grass, then cuts to a dark forest environment.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Transition cause and specific location details unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        336.0,
+        344.0
+      ],
+      "resolution": "coarse",
+      "content": "A thermal imaging view scans a forest area, showing heat signatures and a curved linear object.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Source of thermal view (drone/camera) not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        338.0,
+        344.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        348.0,
+        352.0
+      ],
+      "resolution": "coarse",
+      "content": "Thermal imaging tracks a human figure, followed by a shot of a person walking away in a dark forest.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "Identity of the person walking not confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        352.0,
+        362.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        362.0,
+        370.0
+      ],
+      "resolution": "coarse",
+      "content": "Night-vision sequence showing a figure moving through a dark forest, followed by a thermal imaging view of a person walking.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Identity of the person and purpose of the surveillance."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        370.0,
+        385.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        385.0,
+        396.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        396.0,
+        406.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of a soldier in a trench wearing a headset, followed by a dark, obscured view.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Content of the audio transmission and the cause of the camera obscuration."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        406.0,
+        419.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If not, inspect v1.c007 for whether the white sheet is used to conceal the fallen figure.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,1983 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 7,
+    "summary": "No visual calls remain and the current evidence is aligned. The best-supported chronology is: v4 (cooking/straining quinoa) before v5 (transferring cooked quinoa); v3 (tomato addition) before v5; v1 (lemon-juice pour) before quinoa is visibly added in v5; v2 (final oil/spice seasoning) after the assembled salad.",
+    "review": {
+      "outcome": "partial",
+      "reason": "The last focus directly observed the lemon-juice pour and reported that cooked quinoa was not visible in the salad bowl before or during the pour, but the uncertainty about whether hidden quinoa could have been present means the local goal was narrowed rather than settled.",
+      "evidence_refs": [
+        "v1.zoom.r5-R3-01.s01"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "R1",
+        "objective": "Determine whether the steaming-pot straining step in v4 precedes the cooked-quinoa transfer step in v5.",
+        "videos": [
+          "v4",
+          "v5"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v4.c003",
+          "v5.zoom.r2-R3-03.s01"
+        ],
+        "attempts": [
+          "v4 shows a steaming pot being poured into a strainer, but the strained contents are not visibly identified as the cooked quinoa transferred in v5; v5 shows quinoa transfer into a bowl already containing greens and red tomatoes. Missing discriminating evidence: a visible link between the v4 strained grains and the v5 cooked-quinoa pot/transfer state."
+        ]
+      },
+      {
+        "id": "R2",
+        "objective": "Determine whether the tomato addition in v3 occurs before or after the quinoa addition in v5.",
+        "videos": [
+          "v3",
+          "v5"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v3.zoom.r3-R1-01.s01",
+          "v5.zoom.r2-R3-03.s01"
+        ],
+        "attempts": [
+          "v3 shows diced red tomatoes being slid into the salad bowl, while v5 shows the glass bowl already containing chopped greens and red tomatoes before cooked quinoa is transferred. This directly places the v3 tomato addition before the v5 quinoa addition; the ambiguity about white pieces in v3 does not affect the red-tomato state transition."
+        ]
+      },
+      {
+        "id": "R3",
+        "objective": "Determine whether the lemon-juice pour in v1 occurs before or after cooked quinoa is present in the salad bowl in v5.",
+        "videos": [
+          "v1",
+          "v5"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r5-R3-01.s01",
+          "v5.zoom.r2-R3-03.s01"
+        ],
+        "attempts": [
+          "v1 shows lemon juice being squeezed into a small glass cup and poured, with no cooked quinoa visible in the salad bowl before or during the pour, but hidden quinoa cannot be excluded and the pour target/contents are not fully identified. v5 shows cooked quinoa being transferred into the salad bowl. Missing discriminating evidence: an unobstructed view of the salad bowl during the v1 pour confirming quinoa absence or presence, or a visible transition linking the v1 pour to before/after quinoa addition."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.031,
+          6.003
+        ],
+        "description": "The woman holds a lemon, places it on a glass cutting board, and positions her hands to roll it.",
+        "uncertainty": "Cutting action is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          12.009,
+          12.009
+        ],
+        "description": "The woman holds a knife and a cut lemon half, with the other half resting on the cutting board.",
+        "uncertainty": "The moment of cutting is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          19.984,
+          19.984
+        ],
+        "description": "The woman squeezes a lemon half by hand into a small glass.",
+        "uncertainty": "The quantity of juice collected is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          23.988,
+          23.988
+        ],
+        "description": "The woman pours the juice from the small glass into a measuring spoon held over a salad bowl.",
+        "uncertainty": "The exact measurement is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          27.992,
+          27.992
+        ],
+        "description": "The woman pours a clear liquid from a small glass bowl into a measuring spoon over the salad.",
+        "uncertainty": "The identity of the liquid is not certain.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e6",
+        "video_id": "v1",
+        "time_span": [
+          29.996,
+          29.996
+        ],
+        "description": "The woman holds a spoon and a bottle of olive oil, presenting them to the camera.",
+        "uncertainty": "The oil is not yet being poured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.028,
+          0.028
+        ],
+        "description": "The woman holds a dark bottle and a spoon, looking at the camera.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          8.003,
+          8.003
+        ],
+        "description": "The woman pours liquid from the dark bottle into a measuring spoon.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          23.986,
+          23.986
+        ],
+        "description": "The woman holds the bottle and spoon, looking down.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          24.022,
+          24.022
+        ],
+        "description": "The woman holds a blue and white container, looking at it.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          29.995,
+          29.995
+        ],
+        "description": "A close-up shows a finished salad with quinoa, parsley, and tomatoes.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          33.999,
+          33.999
+        ],
+        "description": "The woman pours from the blue and white container into the bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          36.02,
+          37.988
+        ],
+        "description": "The woman pours from a clear container into the bowl, then places it down.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          43.994,
+          45.996
+        ],
+        "description": "The woman adds spice from a small jar, then gestures while talking.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          85.987,
+          85.987
+        ],
+        "description": "The woman holds a cutting board, sliding diced tomatoes into a bowl that already contains chopped herbs and onions.",
+        "uncertainty": "State of the bowl after tomatoes are added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          89.991,
+          89.991
+        ],
+        "description": "The woman stands at the counter with the cutting board placed down; the bowl now contains the tomatoes, herbs, and onions.",
+        "uncertainty": "Exact moment the tomatoes were deposited.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e3",
+        "video_id": "v3",
+        "time_span": [
+          93.995,
+          93.995
+        ],
+        "description": "The woman holds a whole lemon in her hand, while the bowl of mixed salad sits on the counter.",
+        "uncertainty": "Whether she will squeeze the lemon.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.023,
+          3.993
+        ],
+        "description": "Woman in pink sweater holds a glass measuring cup containing dry grains and talks to the camera.",
+        "uncertainty": "Audio narration content is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          6.003,
+          6.003
+        ],
+        "description": "Woman pours clear liquid from a measuring cup into a stainless steel saucepan.",
+        "uncertainty": "Destination of pouring is confirmed by frame context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          10.007,
+          12.009
+        ],
+        "description": "Woman turns on stove knob, then removes lid from steaming pot and pours contents into a strainer.",
+        "uncertainty": "Specific cooking time between knob turn and steaming is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          15.014,
+          17.016
+        ],
+        "description": "Woman pours strained grains into the pot using a spatula, then turns off the stove knob.",
+        "uncertainty": "Exact moment of pouring vs scraping is not clear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          0.013,
+          0.013
+        ],
+        "description": "Woman in pink sweater adds quinoa from a metal bowl into a glass bowl using a spoon.",
+        "uncertainty": "Exact moment of addition completion is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          13.994,
+          13.994
+        ],
+        "description": "Woman uses hands to toss salad ingredients (greens, tomatoes, quinoa) in a glass bowl.",
+        "uncertainty": "Transition from spoon to hands occurs in unobserved gap.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e3",
+        "video_id": "v5",
+        "time_span": [
+          17.998,
+          17.998
+        ],
+        "description": "Woman uses a spoon to mix the salad ingredients in the glass bowl.",
+        "uncertainty": "Continuity of mixing action from previous segment is not observed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e4",
+        "video_id": "v5",
+        "time_span": [
+          24.004,
+          24.004
+        ],
+        "description": "Woman holds the finished bowl of mixed salad, presenting it to the camera.",
+        "uncertainty": "Final mixing completion is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e5",
+        "video_id": "v5",
+        "time_span": [
+          30.01,
+          30.01
+        ],
+        "description": "Woman holds the bowl of salad and speaks to the camera.",
+        "uncertainty": "Content of speech is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3.focus.r1.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          81.987,
+          84.987
+        ],
+        "description": "A woman in a pink shirt uses a knife to chop red tomatoes on a clear cutting board. A glass bowl to the right contains chopped green herbs and white pieces.",
+        "uncertainty": "The specific identity of the white pieces in the bowl is not certain.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l1.e2",
+        "video_id": "v3",
+        "time_span": [
+          85.987,
+          88.987
+        ],
+        "description": "The woman lifts the cutting board and slides the chopped tomatoes into the glass bowl containing the green herbs and white pieces.",
+        "uncertainty": "The specific identity of the white pieces in the bowl is not certain.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l1.e3",
+        "video_id": "v3",
+        "time_span": [
+          89.987,
+          89.987
+        ],
+        "description": "The woman stands near the counter with the bowl now containing a mix of green herbs, white pieces, and red tomatoes.",
+        "uncertainty": "The specific identity of the white pieces in the bowl is not certain.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v5.focus.r1.l2.e1",
+        "video_id": "v5",
+        "time_span": [
+          9.994,
+          11.994
+        ],
+        "description": "The mixing bowl contains distinct layers of greens and quinoa, with no tomatoes visibly distributed within the mixture.",
+        "uncertainty": "No tomatoes are visible in the bowl during these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v5.focus.r1.l2.e2",
+        "video_id": "v5",
+        "time_span": [
+          12.994,
+          17.994
+        ],
+        "description": "Red tomato pieces become visible mixed among the quinoa and greens as the person stirs the bowl contents.",
+        "uncertainty": "The exact moment of tomato addition is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r2.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          33.032,
+          42.032
+        ],
+        "description": "A woman in a pink sweater is in a kitchen, holding a knife and an apple. She slices the apple on a glass cutting board. A bowl of greens and a plate with tomatoes and a lemon are visible nearby.",
+        "uncertainty": "No tomatoes are added to the bowl in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          43.008,
+          49.008
+        ],
+        "description": "A woman in a pink sweater slices a white vegetable on a glass cutting board. To her right, a clear bowl contains chopped green herbs, and a plate holds two tomatoes and a lemon.",
+        "uncertainty": "Contents of the bowl are limited to visible herbs.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v5.focus.r2.l3.e1",
+        "video_id": "v5",
+        "time_span": [
+          0.013,
+          1.013
+        ],
+        "description": "Woman holds a metal pot containing cooked quinoa and a spoon, with a glass bowl of chopped greens and red tomatoes nearby.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v5.focus.r2.l3.e2",
+        "video_id": "v5",
+        "time_span": [
+          2.013,
+          9.013
+        ],
+        "description": "Woman tilts the pot and uses a spoon to transfer the quinoa into the glass bowl with the salad mixture.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v5.focus.r2.l3.e3",
+        "video_id": "v5",
+        "time_span": [
+          9.013,
+          13.013
+        ],
+        "description": "Woman holds the empty pot and spoon, then sets them aside, leaving the bowl with quinoa added to the salad mixture.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r3.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          81.987,
+          84.987
+        ],
+        "description": "Person in pink shirt uses a knife to dice red tomatoes on a glass cutting board. A bowl containing green herbs and white chopped pieces sits nearby.",
+        "uncertainty": "Exact identity of white pieces is ambiguous.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e2",
+        "video_id": "v3",
+        "time_span": [
+          85.987,
+          88.987
+        ],
+        "description": "Person slides the diced tomatoes from the glass cutting board into the bowl containing the white chopped pieces and green herbs.",
+        "uncertainty": "Whether the white pieces are quinoa is not definitively visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e3",
+        "video_id": "v3",
+        "time_span": [
+          89.987,
+          89.987
+        ],
+        "description": "Person stands with hands near the cutting board after adding tomatoes to the bowl.",
+        "uncertainty": "Person's next action is not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r4.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          49.014,
+          54.014
+        ],
+        "description": "A woman in a pink sweater uses a knife to slice a white vegetable on a glass cutting board. The bowl to her right contains green leafy ingredients.",
+        "uncertainty": "The contents of the bowl are not clearly visible.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v1.focus.r5.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          19.988,
+          21.988
+        ],
+        "description": "A person squeezes a lemon half, dripping juice into a small clear glass cup held on the counter.",
+        "uncertainty": "The contents of the glass cup are not clearly identifiable as quinoa.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          22.988,
+          23.988
+        ],
+        "description": "The person holds the glass cup containing the squeezed lemon juice while facing the camera.",
+        "uncertainty": "The glass cup is too small to be the primary salad bowl.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          24.988,
+          27.988
+        ],
+        "description": "The person pours the contents of the glass cup into a large bowl containing a mixture of chopped red tomatoes and green herbs.",
+        "uncertainty": "Cooked quinoa is not visible in the salad bowl before or during the pour.",
+        "action": "FOCUS",
+        "round": 5
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v3-b0001-gap1",
+        "video_id": "v3",
+        "time_span": [
+          0.02400000000000091,
+          82.01700000000005
+        ],
+        "reason": "VLM output remained invalid: event e3 crosses discontinuous frame segments: ['S3', 'S4', 'S5']",
+        "action": "SCAN",
+        "round": 0
+      }
+    ]
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Mandatory exploration is still active and requirement U01 remains open: the order of v3 tomato addition relative to v5 salad mixing is unclear. The smallest sufficient probe is to refine the existing coarse observations at v3.c001 and v5.c002 so the bowl contents can be compared directly.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v3.c001",
+          "v5.c002"
+        ],
+        "evidence_goal": "Observe whether the v3 tomato-adding bowl already contains quinoa and greens, and whether the v5 mixing bowl shows tomatoes already distributed among quinoa and greens.",
+        "next_probe_goal": "Compare the visible ingredient composition in v3.c001 and v5.c002 to decide whether v3 precedes v5 or represents a different mixing stage.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Fresh projection: v5 supports tomatoes becoming mixed among quinoa and greens, while v3 remains ambiguous because the bowl's white pieces may or may not be quinoa and the v3-to-v5 continuity is unresolved. One mandatory exploration stage remains, so the next observation should acquire new local v3 coverage before the tomato-addition event and v5 coverage at the quinoa-adding/mixing start to compare physical bowl composition.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R3",
+        "slot_ids": [
+          "v3.u008",
+          "v3.u009",
+          "v5.u001"
+        ],
+        "evidence_goal": "Obtain local composition states from the selected pre-tomato-addition v3 intervals and the selected initial v5 interval, then compare whether v3's bowl lacks quinoa before tomatoes are added while v5 shows quinoa being added to the salad mixture.",
+        "next_probe_goal": "If the v3 intervals show a bowl without quinoa-like grains before tomato addition and v5 shows quinoa entering a greens/tomato mixture, infer that v3 precedes v5. If v3 already shows quinoa-like grains before tomato addition, infer that v3 represents a later or different mixing stage relative to v5.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Open requirements still block sequencing. v5 shows cooked quinoa being transferred into a bowl already containing greens and red tomatoes. v3 shows tomatoes being added to a bowl with green herbs and uncertain white pieces; if those pieces are quinoa, v3 would postdate v5, but if they are apple/onion or another prep ingredient, v3 would predate v5. v4 likely prepares quinoa by steaming and straining, but the strained grain identity is not fully confirmed. The final v1/v2/v5 presentation order remains unresolved. With three visual calls remaining and no required focus stages left, the next discriminating observation should resolve R1 by identifying the bowl contents during v3's tomato addition.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R1",
+        "slot_ids": [
+          "v3.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Determine whether the white pieces visible in the v3 bowl during tomato addition are quinoa or a non-quinoa ingredient, thereby resolving whether v3 precedes or follows v5.",
+        "next_probe_goal": "Refine the v3 tomato-chopping observation to identify the bowl's white pieces and confirm whether cooked quinoa is already present before tomatoes are added.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "The previous v3 focus did not identify the white pieces, so a different v3 region should be observed to test whether they are quinoa or a non-quinoa chopped ingredient. Requirement R1 remains decision-critical, and a single coverage recovery of memory_map slot 38 fits the visual budget.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R1",
+        "slot_ids": [
+          "v3.u010"
+        ],
+        "evidence_goal": "Observe the unobserved v3 interval after the white vegetable is sliced to determine whether the nearby bowl’s white pieces are cooked quinoa or a non-quinoa ingredient.",
+        "next_probe_goal": "If the interval shows the white pieces being added or handled as diced vegetable, treat them as non-quinoa and place v3 before quinoa addition in v5; if it shows cooked quinoa already in the bowl, treat v3 as after quinoa addition.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Three requirements remain open, and one visual call remains. The last v3 focus did not clarify the white pieces, so the next discriminating observation should test a different region: whether the bowl receiving lemon juice in v1 already contains cooked quinoa. This can determine whether v1 follows v5 or precedes it, which is the most decision-critical ordering uncertainty.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R3",
+        "slot_ids": [
+          "v1.c004"
+        ],
+        "evidence_goal": "Observe the bowl receiving the lemon juice in v1 to determine whether cooked quinoa is already present in the salad mixture.",
+        "next_probe_goal": "If quinoa is visible in the bowl, v5 likely precedes v1; if quinoa is absent, v1 likely precedes v5.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [
+        {
+          "requirement_id": "R1",
+          "status": "open",
+          "evidence_refs": [
+            "v4.c003",
+            "v5.zoom.r2-R3-03.s01"
+          ],
+          "summary": "v4 shows a steaming pot being poured into a strainer, but the strained contents are not visibly identified as the cooked quinoa transferred in v5; v5 shows quinoa transfer into a bowl already containing greens and red tomatoes. Missing discriminating evidence: a visible link between the v4 strained grains and the v5 cooked-quinoa pot/transfer state."
+        },
+        {
+          "requirement_id": "R2",
+          "status": "supported",
+          "evidence_refs": [
+            "v3.zoom.r3-R1-01.s01",
+            "v5.zoom.r2-R3-03.s01"
+          ],
+          "summary": "v3 shows diced red tomatoes being slid into the salad bowl, while v5 shows the glass bowl already containing chopped greens and red tomatoes before cooked quinoa is transferred. This directly places the v3 tomato addition before the v5 quinoa addition; the ambiguity about white pieces in v3 does not affect the red-tomato state transition."
+        },
+        {
+          "requirement_id": "R3",
+          "status": "open",
+          "evidence_refs": [
+            "v1.zoom.r5-R3-01.s01",
+            "v5.zoom.r2-R3-03.s01"
+          ],
+          "summary": "v1 shows lemon juice being squeezed into a small glass cup and poured, with no cooked quinoa visible in the salad bowl before or during the pour, but hidden quinoa cannot be excluded and the pour target/contents are not fully identified. v5 shows cooked quinoa being transferred into the salad bowl. Missing discriminating evidence: an unobstructed view of the salad bowl during the v1 pour confirming quinoa absence or presence, or a visible transition linking the v1 pour to before/after quinoa addition."
+        }
+      ],
+      "summary": "Evidence aligns v3 tomato addition as preceding v5 quinoa addition. The v4 straining step cannot yet be ordered relative to v5 without linking strained contents to the transferred quinoa, and the v1 lemon-juice pour remains ambiguous because quinoa absence in the salad bowl is not conclusively visible.",
+      "action": "ALIGN",
+      "reason": "Aligned the v3-before-v5 tomato/quinoa comparison from direct bowl-state evidence and audited v4-v5 and v1-v5 as unresolved.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "updates": [],
+      "summary": "No visual calls remain and the current evidence is aligned. The best-supported chronology is: v4 (cooking/straining quinoa) before v5 (transferring cooked quinoa); v3 (tomato addition) before v5; v1 (lemon-juice pour) before quinoa is visibly added in v5; v2 (final oil/spice seasoning) after the assembled salad.",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "v4->v3->v1->v5->v2",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R1",
+      "objective": "Determine whether the steaming-pot straining step in v4 precedes the cooked-quinoa transfer step in v5.",
+      "videos": [
+        "v4",
+        "v5"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v4.c003",
+        "v5.zoom.r2-R3-03.s01"
+      ],
+      "summary": "v4 shows a steaming pot being poured into a strainer, but the strained contents are not visibly identified as the cooked quinoa transferred in v5; v5 shows quinoa transfer into a bowl already containing greens and red tomatoes. Missing discriminating evidence: a visible link between the v4 strained grains and the v5 cooked-quinoa pot/transfer state."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R2",
+      "objective": "Determine whether the tomato addition in v3 occurs before or after the quinoa addition in v5.",
+      "videos": [
+        "v3",
+        "v5"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v3.zoom.r3-R1-01.s01",
+        "v5.zoom.r2-R3-03.s01"
+      ],
+      "summary": "v3 shows diced red tomatoes being slid into the salad bowl, while v5 shows the glass bowl already containing chopped greens and red tomatoes before cooked quinoa is transferred. This directly places the v3 tomato addition before the v5 quinoa addition; the ambiguity about white pieces in v3 does not affect the red-tomato state transition."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 6,
+      "requirement_id": "R3",
+      "objective": "Determine whether the lemon-juice pour in v1 occurs before or after cooked quinoa is present in the salad bowl in v5.",
+      "videos": [
+        "v1",
+        "v5"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r5-R3-01.s01",
+        "v5.zoom.r2-R3-03.s01"
+      ],
+      "summary": "v1 shows lemon juice being squeezed into a small glass cup and poured, with no cooked quinoa visible in the salad bowl before or during the pour, but hidden quinoa cannot be excluded and the pour target/contents are not fully identified. v5 shows cooked quinoa being transferred into the salad bowl. Missing discriminating evidence: an unobstructed view of the salad bowl during the v1 pour confirming quinoa absence or presence, or a visible transition linking the v1 pour to before/after quinoa addition."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 6,
+    "aligned_revision": 6,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v4->v3->v1->v5->v2",
+    "evidence_refs": [
+      "v1.zoom.r5-R3-01.s01",
+      "v1.c006",
+      "v3.zoom.r3-R1-01.s01",
+      "v4.c003",
+      "v5.zoom.r2-R3-03.s01"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.031,
+        6.003
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a lemon, places it on a glass cutting board, and positions her hands to roll it.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Cutting action is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        6.003000000000043,
+        12.009000000000015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        12.009,
+        12.009
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a knife and a cut lemon half, with the other half resting on the cutting board.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The moment of cutting is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        12.009000000000015,
+        19.984000000000037
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        19.984,
+        19.984
+      ],
+      "resolution": "coarse",
+      "content": "The woman squeezes a lemon half by hand into a small glass.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The quantity of juice collected is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        19.984000000000037,
+        23.988000000000056
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r5-R3-01.s01",
+      "video": "v1",
+      "time": [
+        19.988,
+        27.988
+      ],
+      "resolution": "fine",
+      "content": "A person squeezes a lemon half, dripping juice into a small clear glass cup held on the counter. The person holds the glass cup containing the squeezed lemon juice while facing the camera. The person pours the contents of the glass cup into a large bowl containing a mixture of chopped red tomatoes and green herbs.",
+      "evidence": [
+        "v1.focus.r5.l1.e1",
+        "v1.focus.r5.l1.e2",
+        "v1.focus.r5.l1.e3"
+      ],
+      "uncertainty": [
+        "The contents of the glass cup are not clearly identifiable as quinoa.",
+        "The glass cup is too small to be the primary salad bowl.",
+        "Cooked quinoa is not visible in the salad bowl before or during the pour.",
+        "Unresolved: Confirmation that quinoa is not present in the bowl before the pour."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        23.988000000000056,
+        27.991999999999962
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        27.992,
+        27.992
+      ],
+      "resolution": "coarse",
+      "content": "The woman pours a clear liquid from a small glass bowl into a measuring spoon over the salad.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "The identity of the liquid is not certain."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        28.001,
+        29.99599999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        29.996,
+        29.996
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a spoon and a bottle of olive oil, presenting them to the camera.",
+      "evidence": [
+        "v1-b0001-e6"
+      ],
+      "uncertainty": [
+        "The oil is not yet being poured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.028,
+        0.028
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a dark bottle and a spoon, looking at the camera.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.02800000000002001,
+        8.003000000000043
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        8.003,
+        8.003
+      ],
+      "resolution": "coarse",
+      "content": "The woman pours liquid from the dark bottle into a measuring spoon.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        8.003000000000043,
+        23.003000000000043
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        23.003000000000043,
+        23.98599999999999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        23.986,
+        23.986
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds the bottle and spoon, looking down.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        24.022,
+        24.022
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a blue and white container, looking at it.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        24.022000000000048,
+        29.995000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        29.995,
+        29.995
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shows a finished salad with quinoa, parsley, and tomatoes.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        29.995000000000005,
+        33.999000000000024
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        33.999,
+        33.999
+      ],
+      "resolution": "coarse",
+      "content": "The woman pours from the blue and white container into the bowl.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        33.999000000000024,
+        36.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        36.02,
+        37.988
+      ],
+      "resolution": "coarse",
+      "content": "The woman pours from a clear container into the bowl, then places it down.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        37.98799999999994,
+        43.99400000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        43.994,
+        45.996
+      ],
+      "resolution": "coarse",
+      "content": "The woman adds spice from a small jar, then gestures while talking.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        45.99599999999998,
+        50.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        50.0,
+        51.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        0.02400000000000091,
+        3.9950000000000045
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        5.997000000000071,
+        7.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        7.001,
+        9.005999999999972
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        9.005999999999972,
+        13.009999999999991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        13.009999999999991,
+        28.00999999999999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        28.00999999999999,
+        28.991999999999962
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        28.991999999999962,
+        32.99599999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-R3-01.s01",
+      "video": "v3",
+      "time": [
+        33.031999999999925,
+        43.007999999999925
+      ],
+      "resolution": "fine",
+      "content": "A woman in a pink sweater is in a kitchen, holding a knife and an apple. She slices the apple on a glass cutting board. A bowl of greens and a plate with tomatoes and a lemon are visible nearby.",
+      "evidence": [
+        "v3.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No tomatoes are added to the bowl in these frames.",
+        "Unresolved: The state of the bowl's contents relative to quinoa addition is not shown."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-R3-02.s01",
+      "video": "v3",
+      "time": [
+        43.007999999999925,
+        49.013999999999896
+      ],
+      "resolution": "fine",
+      "content": "A woman in a pink sweater slices a white vegetable on a glass cutting board. To her right, a clear bowl contains chopped green herbs, and a plate holds two tomatoes and a lemon.",
+      "evidence": [
+        "v3.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "Contents of the bowl are limited to visible herbs.",
+        "Unresolved: Comparison with v5 quinoa addition."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r4-R1-01.s01",
+      "video": "v3",
+      "time": [
+        49.013999999999896,
+        54.986999999999966
+      ],
+      "resolution": "fine",
+      "content": "A woman in a pink sweater uses a knife to slice a white vegetable on a glass cutting board. The bowl to her right contains green leafy ingredients.",
+      "evidence": [
+        "v3.focus.r4.l1.e1"
+      ],
+      "uncertainty": [
+        "The contents of the bowl are not clearly visible.",
+        "Unresolved: Identify the white pieces in the nearby bowl after the vegetable is sliced."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        60.99299999999994,
+        64.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        64.003,
+        76.01100000000008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u013",
+      "video": "v3",
+      "time": [
+        76.01100000000008,
+        82.01700000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-R1-01.s01",
+      "video": "v3",
+      "time": [
+        81.987,
+        89.987
+      ],
+      "resolution": "fine",
+      "content": "Person in pink shirt uses a knife to dice red tomatoes on a glass cutting board. A bowl containing green herbs and white chopped pieces sits nearby. Person slides the diced tomatoes from the glass cutting board into the bowl containing the white chopped pieces and green herbs. Person stands with hands near the cutting board after adding tomatoes to the bowl.",
+      "evidence": [
+        "v3.focus.r3.l1.e1",
+        "v3.focus.r3.l1.e2",
+        "v3.focus.r3.l1.e3"
+      ],
+      "uncertainty": [
+        "Exact identity of white pieces is ambiguous.",
+        "Whether the white pieces are quinoa is not definitively visible.",
+        "Person's next action is not visible.",
+        "Unresolved: Definitive identification of the white pieces as quinoa or a non-quinoa ingredient"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u014",
+      "video": "v3",
+      "time": [
+        82.01700000000005,
+        85.98700000000008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u015",
+      "video": "v3",
+      "time": [
+        85.98700000000008,
+        89.9910000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        89.991,
+        89.991
+      ],
+      "resolution": "coarse",
+      "content": "The woman stands at the counter with the cutting board placed down; the bowl now contains the tomatoes, herbs, and onions.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact moment the tomatoes were deposited."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u016",
+      "video": "v3",
+      "time": [
+        89.9910000000001,
+        93.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        93.995,
+        93.995
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds a whole lemon in her hand, while the bowl of mixed salad sits on the counter.",
+      "evidence": [
+        "v3-b0002-e3"
+      ],
+      "uncertainty": [
+        "Whether she will squeeze the lemon."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u017",
+      "video": "v3",
+      "time": [
+        93.995,
+        95.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        0.023,
+        3.993
+      ],
+      "resolution": "coarse",
+      "content": "Woman in pink sweater holds a glass measuring cup containing dry grains and talks to the camera.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "Audio narration content is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        4.001,
+        6.003000000000043
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        6.003,
+        6.003
+      ],
+      "resolution": "coarse",
+      "content": "Woman pours clear liquid from a measuring cup into a stainless steel saucepan.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "Destination of pouring is confirmed by frame context."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        6.003000000000043,
+        10.006999999999948
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        10.007,
+        12.009
+      ],
+      "resolution": "coarse",
+      "content": "Woman turns on stove knob, then removes lid from steaming pot and pours contents into a strainer.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "Specific cooking time between knob turn and steaming is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        12.009000000000015,
+        13.001000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        13.002,
+        15.013999999999896
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        15.014,
+        17.016
+      ],
+      "resolution": "coarse",
+      "content": "Woman pours strained grains into the pot using a spatula, then turns off the stove knob.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "Exact moment of pouring vs scraping is not clear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        17.015999999999963,
+        19.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c001",
+      "video": "v5",
+      "time": [
+        0.013,
+        0.013
+      ],
+      "resolution": "coarse",
+      "content": "Woman in pink sweater adds quinoa from a metal bowl into a glass bowl using a spoon.",
+      "evidence": [
+        "v5-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact moment of addition completion is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r2-R3-03.s01",
+      "video": "v5",
+      "time": [
+        0.013000000000033651,
+        13.993999999999915
+      ],
+      "resolution": "fine",
+      "content": "Woman holds a metal pot containing cooked quinoa and a spoon, with a glass bowl of chopped greens and red tomatoes nearby. Woman tilts the pot and uses a spoon to transfer the quinoa into the glass bowl with the salad mixture. Woman holds the empty pot and spoon, then sets them aside, leaving the bowl with quinoa added to the salad mixture.",
+      "evidence": [
+        "v5.focus.r2.l3.e1",
+        "v5.focus.r2.l3.e2",
+        "v5.focus.r2.l3.e3"
+      ],
+      "uncertainty": [
+        "None",
+        "Unresolved: Comparison with v3 intervals"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r1-U01-02.s01",
+      "video": "v5",
+      "time": [
+        9.994,
+        17.994
+      ],
+      "resolution": "fine",
+      "content": "The mixing bowl contains distinct layers of greens and quinoa, with no tomatoes visibly distributed within the mixture. Red tomato pieces become visible mixed among the quinoa and greens as the person stirs the bowl contents.",
+      "evidence": [
+        "v5.focus.r1.l2.e1",
+        "v5.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "No tomatoes are visible in the bowl during these frames.",
+        "The exact moment of tomato addition is not visible.",
+        "Unresolved: The specific action of adding tomatoes to the bowl is not visible in the provided frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u002",
+      "video": "v5",
+      "time": [
+        13.993999999999915,
+        17.998000000000047
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c003",
+      "video": "v5",
+      "time": [
+        17.998,
+        17.998
+      ],
+      "resolution": "coarse",
+      "content": "Woman uses a spoon to mix the salad ingredients in the glass bowl.",
+      "evidence": [
+        "v5-b0001-e3"
+      ],
+      "uncertainty": [
+        "Continuity of mixing action from previous segment is not observed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u003",
+      "video": "v5",
+      "time": [
+        17.998000000000047,
+        24.004000000000133
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c004",
+      "video": "v5",
+      "time": [
+        24.004,
+        24.004
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds the finished bowl of mixed salad, presenting it to the camera.",
+      "evidence": [
+        "v5-b0001-e4"
+      ],
+      "uncertainty": [
+        "Final mixing completion is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u004",
+      "video": "v5",
+      "time": [
+        24.004000000000133,
+        30.00999999999999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u005",
+      "video": "v5",
+      "time": [
+        30.00999999999999,
+        32.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c005",
+      "video": "v5",
+      "time": [
+        30.01,
+        30.01
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds the bowl of salad and speaks to the camera.",
+      "evidence": [
+        "v5-b0001-e5"
+      ],
+      "uncertainty": [
+        "Content of speech is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

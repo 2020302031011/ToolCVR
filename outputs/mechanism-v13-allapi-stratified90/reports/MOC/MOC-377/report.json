@@ -1,0 +1,495 @@
+{
+  "question": "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?",
+  "options": [
+    "A. 0",
+    "B. 3",
+    "C. 6",
+    "D. 9"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "cars driving in a lane behind another vehicle",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "empty road space where a car was previously located",
+        "source": "option_A",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "three cars following in a single traffic lane",
+        "source": "option_B",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "six cars lined up behind a leading vehicle",
+        "source": "option_C",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "nine cars crowded in a row on the road",
+        "source": "option_D",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?",
+      "0",
+      "3",
+      "6",
+      "9",
+      "The question asks for a specific count (0, 3, 6, or 9) which is not directly retrievable by CLIP; visual search should focus on the presence of cars in the relevant lane",
+      "Temporal condition 'when {A1} completely disappears' requires checking frames after the object vanishes",
+      "Spatial relation 'behind the lane where {B1} is' requires identifying the correct lane and counting vehicles within it"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 16.333333333333332,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          8.0
+        ],
+        [
+          12.0,
+          16.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            0.0,
+            2.0
+          ],
+          "description": "View A shows an intersection with labeled cars A1, A2, A4, A5. A1 is visible in the bottom right lane.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "A1 disappears after 2.0s."
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            4.0,
+            8.0
+          ],
+          "description": "View A shows the intersection with cars A4 and A5 visible, but A1 is no longer present in the frame.",
+          "evidence_frame_ids": [
+            "S1-F03",
+            "S1-F04",
+            "S1-F05"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "A1 has completely disappeared from view A."
+        },
+        {
+          "event_id": "v1-b0001-e3",
+          "time_span": [
+            12.0,
+            16.0
+          ],
+          "description": "View B shows a highway segment with cars in multiple lanes. Car B1 is not explicitly labeled but is in the top lane.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02",
+            "S2-F03"
+          ],
+          "confidence": 0.8,
+          "uncertainty": "B1 is not labeled, assuming top lane car."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 8,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=8/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [0.000-2.000s] View A shows an intersection with labeled cars A1, A2, A4, A5. A1 is visible in the bottom right lane. | evidence=S1-F01,S1-F02 | confidence=1.000\n- v1-b0001-e2 [4.000-8.000s] View A shows the intersection with cars A4 and A5 visible, but A1 is no longer present in the frame. | evidence=S1-F03,S1-F04,S1-F05 | confidence=1.000\n- v1-b0001-e3 [12.000-16.000s] View B shows a highway segment with cars in multiple lanes. Car B1 is not explicitly labeled but is in the top lane. | evidence=S2-F01,S2-F02,S2-F03 | confidence=0.800\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [0.000-2.000s] A1 disappears after 2.0s.\n- v1-b0001-e2 [4.000-8.000s] A1 has completely disappeared from view A.\n- v1-b0001-e3 [12.000-16.000s] B1 is not labeled, assuming top lane car.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v1-b0001-e2,v1-b0001-e3 unresolved=Confirming B1's lane and counting cars behind it in View B. suggested_tools=visual_count",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "unresolved_needs": [
+            "Confirming B1's lane and counting cars behind it in View B."
+          ],
+          "suggested_tools": [
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.0,
+          "actual_timestamp_seconds": 16.0,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 16.333333333333332,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          8.0
+        ],
+        [
+          12.0,
+          16.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            2.0
+          ],
+          "description": "View A captures B1, B2, B4, and B5 cars. B1 is visible in the lower-left lane.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "A1 not explicitly identified."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            4.0,
+            8.0
+          ],
+          "description": "View A shows the intersection with general traffic flow. B1 car is no longer visible.",
+          "evidence_frame_ids": [
+            "S1-F03",
+            "S1-F04",
+            "S1-F05"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "A1 disappearance time not established."
+        },
+        {
+          "event_id": "v2-b0001-e3",
+          "time_span": [
+            12.0,
+            16.0
+          ],
+          "description": "View B shows a straight road with a green B3 car label visible.",
+          "evidence_frame_ids": [
+            "S2-F01",
+            "S2-F02",
+            "S2-F03"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "B1 car location in View B is unknown."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 8,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=8/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-2.000s] View A captures B1, B2, B4, and B5 cars. B1 is visible in the lower-left lane. | evidence=S1-F01,S1-F02 | confidence=1.000\n- v2-b0001-e2 [4.000-8.000s] View A shows the intersection with general traffic flow. B1 car is no longer visible. | evidence=S1-F03,S1-F04,S1-F05 | confidence=1.000\n- v2-b0001-e3 [12.000-16.000s] View B shows a straight road with a green B3 car label visible. | evidence=S2-F01,S2-F02,S2-F03 | confidence=1.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-2.000s] A1 not explicitly identified.\n- v2-b0001-e2 [4.000-8.000s] A1 disappearance time not established.\n- v2-b0001-e3 [12.000-16.000s] B1 car location in View B is unknown.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v2-b0001-e1,v2-b0001-e2,v2-b0001-e3 unresolved=Identity and disappearance time of A1; Location of B1 in View B; Count of cars behind B1's lane suggested_tools=semantic_seek,entity_track,visual_count",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v2-b0001-e1",
+            "v2-b0001-e2",
+            "v2-b0001-e3"
+          ],
+          "unresolved_needs": [
+            "Identity and disappearance time of A1",
+            "Location of B1 in View B",
+            "Count of cars behind B1's lane"
+          ],
+          "suggested_tools": [
+            "semantic_seek",
+            "entity_track",
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "In view A, when {A1} completely disappears, how many cars are there behind the lane where {B1} is in view B?"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F02",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F03",
+          "timeline_index": 8,
+          "requested_timestamp_seconds": 16.0,
+          "actual_timestamp_seconds": 16.0,
+          "requested_frame_index": 480,
+          "actual_frame_index": 480,
+          "matched_queries": [
+            "three cars following in a single traffic lane"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MOC-377",
+    "task": "MOC",
+    "ground_truth": "C",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MOC/MOC-377/result.json",
+    "selection_sha256": "676cd56532613591dfebd9b65efeb378ed4860ae13afe08174f704681f3b1771",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-57: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=21; declared=car; A1_visible=0-19 (0.000-0.667s)/490_frames; B1_visible=0-29 (0.000-1.000s)/490_frames.",
+      "A2/B2 is source_track=23; declared=car; A2_visible=0-49 (0.000-1.667s)/490_frames; B2_visible=0-69 (0.000-2.333s)/490_frames.",
+      "A3/B3 is source_track=56; declared=car; A3_visible=469-489 (15.633-16.333s)/490_frames; B3_visible=379-489 (12.633-16.333s)/490_frames.",
+      "A4/B4 is source_track=15; declared=car; A4_visible=0-89 (0.000-3.000s)/490_frames; B4_visible=0-89 (0.000-3.000s)/490_frames.",
+      "A5/B5 is source_track=54; declared=car; A5_visible=0-189 (0.000-6.333s)/490_frames; B5_visible=0-149 (0.000-5.000s)/490_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "question": "When the red bus is parallel to the black car for the first time in view B, where is {A2} located in view A?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Red bus and black car are visible in view B, and A2 car is visible in view A."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The red bus and black car are not parallel in view B at multiple timestamps in v2, but their visibility and alignment in view B is mentioned in v1.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact moment when the red bus is parallel to the black car in view B is not determined.",
+      "reason": "No event in the reports explicitly states when the red bus and black car become parallel in view B.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The exact position of A2 in view A relative to the alignment of the red bus and black car in view B is not determined.",
+      "reason": "The visibility of A2 in view A is mentioned, but its exact position relative to the alignment of the red bus and black car in view B is not visible in the supplied frames.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "When the red bus and black car are parallel in view B.",
+      "purpose": "To determine the exact moment of alignment for reference in view A.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "The exact position of A2 in view A relative to the alignment of the red bus and black car in view B.",
+      "purpose": "To determine the location of A2 in view A at the moment of alignment in view B.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-85",
+    "task": "MSR",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/MSR/MSR-85/report.json",
+    "report_sha256": "344752e0e72a8cdf5b33f125100ba6364c99adcf13ccf41631f3d1604e71569c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "state": {
+    "question": "When {B4} completely disappears in view B, where is {A4} located in relation to {A2} in view A?",
+    "round_id": 3,
+    "summary": "The synchronized B4 disappearance timestamp is approximately 8.333s, with B4 absent afterward in v2. At that time A4 is visible and stationary in the upper part of v1, while A2 is not annotated visible until much later (~16.0s). No co-visible A2 position exists at the trigger time, so the exact spatial relation is unresolved. The best-supported option is C, treating A4's earlier/upper position as ahead of A2's later entry position, while retaining uncertainty.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-64: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=54; declared=car; A1_visible=286-315 (9.533-10.533s),386-489 (12.867-16.333s)/490_frames; B1_visible=310-489 (10.333-16.333s)/490_frames.",
+      "A2/B2 is source_track=59; declared=car; A2_visible=480-489 (16.000-16.333s)/490_frames; B2_visible=489-489 (16.300-16.333s)/490_frames.",
+      "A3/B3 is source_track=67; declared=person; A3_visible=470-489 (15.667-16.333s)/490_frames; B3_visible=460-489 (15.333-16.333s)/490_frames.",
+      "A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.",
+      "A5/B5 is source_track=19; declared=person; A5_visible=220-319 (7.333-10.667s)/490_frames; B5_visible=230-309 (7.667-10.333s)/490_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01",
+          "v2.c005",
+          "v2.c003"
+        ],
+        "attempts": [
+          "B4 is visible at the 8.0s boundary in v2, then is highlighted at the bottom left and no longer visible in the 8-10s fine interval; reference visibility ends at frame 249 (~8.333s), and later coarse v2 observations confirm absence."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r2-02.s01",
+          "v1.c002"
+        ],
+        "attempts": [
+          "A2 is not identified in v1 around the synchronized disappearance time, and reference visibility places A2 only near 16.0-16.333s. The requested A4-to-A2 relation at the B4-disappearance moment is therefore not directly established."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r2-02.s01",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": [
+          "A4 is observed stationary in the upper sidewalk area of v1 through the 8.0s fine interval, and reference visibility extends past the synchronized B4 disappearance time."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "A dark van labeled A4 is tracked in the upper lane of view S1, moving from right to left before exiting the frame.",
+        "uncertainty": "A2 is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "A white sedan labeled A1 is tracked in the lower right corner of view S2, remaining stationary near the curb.",
+        "uncertainty": "A4 is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "In view S1, the B4 car is visible in the left lane, positioned behind the A4 car.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          4.0
+        ],
+        "description": "The B4 car moves forward in the left lane while the A4 car remains in the center lane.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "The B4 car is visible at the bottom edge of view S2 at 8.0s, indicating it has entered the frame.",
+        "uncertainty": "Movement between 4s and 8s is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          10.0
+        ],
+        "description": "The B4 car is visible at the bottom edge of view S2 at 8.0s but is absent from the frame at 10.0s.",
+        "uncertainty": "Exact moment of disappearance is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          16.0
+        ],
+        "description": "The B4 car remains completely absent from view S2.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "B4 car is visible in the bottom-left corner of the frame, labeled with a purple bounding box.",
+        "uncertainty": "B4 not visible in later frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          9.0,
+          10.0
+        ],
+        "description": "B4 car is completely absent from the frame; B5 person remains visible on the left sidewalk.",
+        "uncertainty": "A4/A2 positions in v1 unknown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "A dark van, labeled A4, moves steadily from right to left in the upper lanes of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "A yellow bus and several cyan taxis are stationary in the lower right lanes, waiting at the intersection.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "A person labeled B5 is highlighted on the left sidewalk. A vehicle labeled B4 is highlighted at the bottom left.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          9.0,
+          10.0
+        ],
+        "description": "The person labeled B5 remains highlighted on the left sidewalk. The vehicle labeled B4 is no longer visible in the frame.",
+        "uncertainty": "Exact moment of B4 disappearance is between 8s and 9s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "The A4 car is consistently visible, stationary in a parking spot on the upper sidewalk area, throughout the entire sequence.",
+        "uncertainty": "A2 is not identified in the frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "At the end of the clip, an A5 person is briefly marked on the crosswalk to the right of the A4 car's location.",
+        "uncertainty": "A5 person's movement is not tracked.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need A4-A2 relation in v1 at B4 disappearance boundary.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c004",
+          "v1.c001"
+        ],
+        "evidence_goal": "At the synchronized moment B4 is last visible or first completely absent in v2, what is A4's position relative to A2 in v1?",
+        "next_probe_goal": "If A2 is absent at that boundary, check whether A2 appears in the nearest v1 interval containing A4.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need synchronized B4 disappearance boundary and A4/A2 positions in v1 at that time.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01",
+          "v1.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "In v2, find the earliest frame in 8-10s where B4 is completely absent; in v1, at the corresponding synchronized time or nearest covered end, locate A4 and determine whether A2 is visible and its relative side to A4.",
+        "next_probe_goal": "If A2 is not visible in the v1 slot at that boundary, recover the nearest v1 coverage interval containing A4 to test A2 visibility.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized B4 disappearance timestamp is approximately 8.333s, with B4 absent afterward in v2. At that time A4 is visible and stationary in the upper part of v1, while A2 is not annotated visible until much later (~16.0s). No co-visible A2 position exists at the trigger time, so the exact spatial relation is unresolved. The best-supported option is C, treating A4's earlier/upper position as ahead of A2's later entry position, while retaining uncertainty.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v2.zoom.r2-r2-01.s01",
+      "v2.c005",
+      "v1.zoom.r2-r2-02.s01",
+      "v1.c002"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r2-02.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "The A4 car is consistently visible, stationary in a parking spot on the upper sidewalk area, throughout the entire sequence. At the end of the clip, an A5 person is briefly marked on the crosswalk to the right of the A4 car's location.",
+      "evidence": [
+        "v1.focus.r2.l2.e1",
+        "v1.focus.r2.l2.e2"
+      ],
+      "uncertainty": [
+        "A2 is not identified in the frames.",
+        "A5 person's movement is not tracked.",
+        "Unresolved: A2 is not visible in the frames",
+        "Unresolved: A4 is present throughout the provided frames"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "A white sedan labeled A1 is tracked in the lower right corner of view S2, remaining stationary near the curb.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "A4 is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coarse",
+      "content": "In view S1, the B4 car is visible in the left lane, positioned behind the A4 car.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        2.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "The B4 car moves forward in the left lane while the A4 car remains in the center lane.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "The B4 car is visible at the bottom edge of view S2 at 8.0s, indicating it has entered the frame.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Movement between 4s and 8s is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A person labeled B5 is highlighted on the left sidewalk. A vehicle labeled B4 is highlighted at the bottom left. The person labeled B5 remains highlighted on the left sidewalk. The vehicle labeled B4 is no longer visible in the frame.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "None.",
+        "Exact moment of B4 disappearance is between 8s and 9s.",
+        "Unresolved: Visibility of A2 and A4 in the synchronized video v1"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "The B4 car remains completely absent from view S2.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If A2 is absent at that boundary, check whether A2 appears in the nearest v1 interval containing A4.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

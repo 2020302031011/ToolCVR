@@ -1,0 +1,317 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 3,
+    "summary": "The synchronized trigger is when B5/A5 (source_track=0) completely leaves view B, approximately 2.7s. View v2 coarse evidence confirms B5 exits the frame in that interval. View v1 fine evidence confirms that in view A, A5 travels forward in the left lane while A2 remains stationary on the right sidewalk throughout the relevant interval. This supports A2 being approximately behind and to the right of A5 at the trigger time.",
+    "review": {
+      "outcome": "resolved",
+      "reason": "The fine-grained observation of v1 (0-4s) confirms A5 travels forward in the left lane while A2 remains stationary on the right sidewalk throughout this interval, which includes the ~2.7s trigger time derived from v2 evidence. This establishes A2's position relative to A5 as behind and to the right.",
+      "evidence_refs": [
+        "v1.zoom.r2-U01-01.s01",
+        "v2.c001"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 0
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.",
+      "A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.",
+      "A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.",
+      "A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.",
+      "A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "U01",
+        "statement": "Determine the spatial relation of A2 to A5 in view A at the synchronized moment when B5 completely leaves view B (~2.7s).",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r2-U01-01.s01",
+          "v2.c001"
+        ]
+      },
+      {
+        "id": "U02",
+        "statement": "Confirm that A2 is visible in view A during the trigger interval.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r2-U01-01.s01"
+        ]
+      }
+    ],
+    "open_questions": [],
+    "contrastive_frontier": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view of a multi-lane road with a bus (A5) and a person (A2) moving along the right side.",
+        "direct_observation": "Aerial view of a multi-lane road with a bus (A5) and a person (A2) moving along the right side.",
+        "inferred_interpretation": "",
+        "uncertainty": "B5 is not visible in this view.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+        "direct_observation": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+        "inferred_interpretation": "",
+        "uncertainty": "View A is not present in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A teal car labeled A5 moves forward in a lane; a person labeled A2 is stationary on the sidewalk to the right of the car's path.",
+        "direct_observation": "A teal car labeled A5 moves forward in a lane; a person labeled A2 is stationary on the sidewalk to the right of the car's path.",
+        "inferred_interpretation": "The person labeled A2 is located to the right of the moving car labeled A5.",
+        "uncertainty": "The relative position is inferred from the visible layout.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 car travels forward in the left lane; A2 person remains stationary on the right sidewalk throughout the sequence.",
+        "direct_observation": "A5 car travels forward in the left lane; A2 person remains stationary on the right sidewalk throughout the sequence.",
+        "inferred_interpretation": "A5 is a moving vehicle and A2 is a static pedestrian.",
+        "uncertainty": "The specific synchronized moment of 2.7s is not directly captured.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "The B5 departure trigger is anchored by the shared clock and the annotated B5 visibility range, so the unresolved question is A2's approximate position relative to A5 in view A at that synchronized departure moment. The current view-A coarse interval covers the relevant time but is too coarse to determine the front/back/left/right relation, so a local refinement is needed.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "Determine where A2 is approximately located relative to A5 in view A at the synchronized moment when B5 has just completely left view B.",
+        "next_probe_goal": "If the refined view-A observation clearly identifies the A2-to-A5 relation, answer; otherwise verify the B5 exit timing in view B's initial interval before choosing a further discriminating probe.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "The trigger time is known from the reference track: B5 is visible in view B through frame 81 (0.000-2.733s), so the evaluation moment is approximately 2.7s in the synchronized clock. View A evidence at 0-4s indicates A2 is stationary on the sidewalk to the right of A5's path, but the last review says the exact relative geometry at the B5-exit boundary is not yet explicitly confirmed. With one mandatory Focus stage remaining, the next useful observation is a refined view-A check around the trigger time to distinguish behind-right, directly-front, and behind-left.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Confirm the spatial relation of A2 to A5 in view A at the synchronized moment when B5 has just completely left view B, approximately 2.7s.",
+        "next_probe_goal": "Inspect view A near the 2.7s trigger and classify whether A2 is behind and to the right of A5, directly in front of A5, or behind and to the left of A5.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "The synchronized trigger is when B5/A5 (source_track=0) completely leaves view B, approximately 2.7s. View v2 coarse evidence confirms B5 exits the frame in that interval. View v1 fine evidence confirms that in view A, A5 travels forward in the left lane while A2 remains stationary on the right sidewalk throughout the relevant interval. This supports A2 being approximately behind and to the right of A5 at the trigger time.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "projected_revision": 3,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "0f1f0be3d41cf061",
+      "requirement_id": "U01",
+      "evidence_goal": "Determine where A2 is approximately located relative to A5 in view A at the synchronized moment when B5 has just completely left view B.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "ed0b83589ee32481",
+      "requirement_id": "U01",
+      "evidence_goal": "Confirm the spatial relation of A2 to A5 in view A at the synchronized moment when B5 has just completely left view B, approximately 2.7s.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r2-U01-01.s01",
+      "v1.focus.r2.l1.e1",
+      "v2.c001",
+      "v2-b0001-e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A5 car travels forward in the left lane; A2 person remains stationary on the right sidewalk throughout the sequence.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "The specific synchronized moment of 2.7s is not directly captured.",
+        "Inferred interpretation (not direct evidence): A5 is a moving vehicle and A2 is a static pedestrian.",
+        "Unresolved: Exact spatial relation at 2.7s"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "View A is not present in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

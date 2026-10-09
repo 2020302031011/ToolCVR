@@ -1,0 +1,3094 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 9,
+    "summary": "Visual budget is exhausted and remaining focus stages are zero, so the best-supported choice must be made from the current aligned evidence. v1 shows a hostile stair-combat sequence in which a man uses a long-handled nozzle/vacuum-like tool against ghosts, with the ghosts recoiling or dissipating. This directly supports option E, while the other options lack comparable visible support.",
+    "review": {
+      "outcome": "initial",
+      "reason": "FOCUS committed for Determine whether the v1 stair-combat tool is a vacuum-like device and whether the hostile ghosts are captured or removed, versus showing carpet-portal destruction, lamp/candlestick magic, mirror flight, fruit-juice surrender, or continued hostility.; semantic synthesis is pending Reasoner ALIGN.",
+      "evidence_refs": [
+        "v1.focus.r7.l1.e1",
+        "v1.focus.r7.l1.e2",
+        "v1.focus.r7.l1.e3",
+        "v1.focus.r7.l2.e1",
+        "v1.focus.r7.l2.e2",
+        "v1.focus.r7.l2.e3",
+        "v1.focus.r7.l3.e1",
+        "v1.focus.r7.l3.e2",
+        "v1.focus.r7.l3.e3"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity. Compare timestamps only when another protocol rule explicitly declares a shared clock.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "statement": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then confronts a sword and three mocking ghosts near a glowing lamp.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.c001",
+          "v1.c002"
+        ]
+      },
+      {
+        "id": "F02",
+        "statement": "In v1, the man uses a plunger to defend himself and strikes a ghost in the face, causing recoil; the cited v1 material leaves the ghost conflict unresolved.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.c003",
+          "v1.c004",
+          "v1.c005"
+        ]
+      },
+      {
+        "id": "F03",
+        "statement": "In v2, a girl holds a white handheld vacuum-like device and points it at armor and a lamp.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.c003",
+          "v2.c004"
+        ]
+      },
+      {
+        "id": "F04",
+        "statement": "In v2, ghosts interact benignly with the girl, including bandaging her mouth, joking about coldness, and pouring orange juice in a friendly dining context.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.c007",
+          "v2.c008",
+          "v2.c011"
+        ]
+      },
+      {
+        "id": "F05",
+        "statement": "The visible story states change from hostile man-versus-ghost conflict in v1 to friendly girl-versus-ghost interaction in v2, but the causal transition is not established by the cited evidence.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "evidence_refs": [
+          "v1.c003",
+          "v1.c004",
+          "v2.c007",
+          "v2.c008"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "What unobserved event between the v1 stair/plunger conflict and the v2 friendly ghost-girl scenes transformed the ghosts' behavior?",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.c003",
+          "v1.c004",
+          "v1.c005",
+          "v2.c007",
+          "v2.c008"
+        ]
+      },
+      {
+        "id": "U02",
+        "question": "Whether the white vacuum-like device in v2 is connected to the earlier v1 ghost conflict or only to the later girl-ghost scenes remains undetermined.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.c005",
+          "v2.c003",
+          "v2.c004",
+          "v2.c007"
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.004
+        ],
+        "description": "A man enters a room with a red carpet, observing green smoke and a dripping stained-glass lamp.",
+        "uncertainty": "The source of the green smoke is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          33.992,
+          42.0
+        ],
+        "description": "A sword attacks the man; three ghosts appear, mocking him while hovering near a glowing red lamp.",
+        "uncertainty": "The sword's wielder is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          44.002,
+          52.01
+        ],
+        "description": "The man defends himself with a plunger against the ghosts, who continue to taunt him.",
+        "uncertainty": "The efficacy of the plunger is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          58.016,
+          62.02
+        ],
+        "description": "The man strikes a ghost in the face with the plunger, causing it to recoil.",
+        "uncertainty": "The long-term effect on the ghost is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          63.981,
+          65.983
+        ],
+        "description": "A close-up of a spinning wooden object with a ghostly figure behind it, followed by a view of a red wall with a spiral design and a subtitle.",
+        "uncertainty": "Connection between the spinning object and the wall is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          67.985,
+          67.985
+        ],
+        "description": "A man runs down a curved staircase, pursued by two white, cloud-like ghosts.",
+        "uncertainty": "The man's identity and the ghosts' origin are not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          175.008,
+          177.01
+        ],
+        "description": "A static establishing shot of a gothic castle on a coastal cliff during a vibrant sunset.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          179.012,
+          179.012
+        ],
+        "description": "A black screen frame.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          181.014,
+          185.018
+        ],
+        "description": "A girl holds a white, handheld vacuum-like device in a room with curved architectural features.",
+        "uncertainty": "The exact nature of the device is inferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          187.02,
+          194.986
+        ],
+        "description": "The girl moves through an interior space, pointing the device at a suit of armor and a glowing lamp.",
+        "uncertainty": "The device's effect on the objects is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          204.996,
+          206.998
+        ],
+        "description": "The girl approaches and passes through a dark, ornate doorway.",
+        "uncertainty": "What she saw before entering is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          209.0,
+          213.004
+        ],
+        "description": "The girl enters a dining room with a set table and looks around with a wary expression.",
+        "uncertainty": "Her reaction to the room's state is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          215.006,
+          223.014
+        ],
+        "description": "A ghost wraps a bandage around the girl's mouth while subtitles explain it is a friendly ghost trying to prevent her from screaming.",
+        "uncertainty": "The exact mechanism of the bandage appearing is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          230.981,
+          236.987
+        ],
+        "description": "The girl touches her face, remarks on the ghost's cold temperature, and the ghost floats away making a joke about heating bills.",
+        "uncertainty": "The specific location the ghost moves to is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          240.991,
+          251.001
+        ],
+        "description": "The girl walks into the dining room holding a white, rectangular device. The ghost follows her, stating it can see through her.",
+        "uncertainty": "The function of the white device is not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          257.007,
+          265.015
+        ],
+        "description": "A girl and a translucent ghost converse at a dining table; the ghost gestures and moves while subtitles discuss its composition.",
+        "uncertainty": "Exact nature of the ghost's substance is abstract.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          299.007,
+          307.015
+        ],
+        "description": "The ghost, wearing a chef's hat, is shown pouring orange juice from a blender into a glass.",
+        "uncertainty": "The girl's reaction to the pouring is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          318.985,
+          326.993
+        ],
+        "description": "The ghost floats the juice glass to the girl, who reaches out to take it while they continue their interaction.",
+        "uncertainty": "Whether the girl actually drinks the juice is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          330.997,
+          330.997
+        ],
+        "description": "The ghost and girl sit at the table, with the ghost looking down at the juice glass.",
+        "uncertainty": "The scene ends abruptly after this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          332.999,
+          353.019
+        ],
+        "description": "A girl interacts with a friendly ghost wearing a chef's hat. Subtitles indicate a dialogue about the ghost's inability to cause harm, followed by the girl's hand movements.",
+        "uncertainty": "Exact nature of the hand gesture (magic vs. normal movement)",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          406.99,
+          414.998
+        ],
+        "description": "The girl and a man are seated at a dining table. They suddenly react with fear and duck down, seemingly avoiding an unseen threat or projectile from above.",
+        "uncertainty": "What specifically caused them to duck (attack vs. falling object)",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          417.0,
+          419.002
+        ],
+        "description": "The camera focuses on a chandelier where wispy, spectral figures are visible, suggesting the presence of ghosts interacting with the light fixture.",
+        "uncertainty": "Whether the ghosts are attacking or just present",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          421.004,
+          437.02
+        ],
+        "description": "Three translucent ghosts perform animatedly around a dining table while a man and girl observe from behind; subtitles mention smelling meat.",
+        "uncertainty": "Exact causal link between ghosts' performance and human reaction.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          444.986,
+          452.994
+        ],
+        "description": "Ghosts scream with exaggerated expressions, then rapidly dissipate into a smoke cloud over the table while the girl comments on the world's wonder.",
+        "uncertainty": "Specific trigger causing the ghosts to dissipate.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e3",
+        "video_id": "v2",
+        "time_span": [
+          473.014,
+          477.018
+        ],
+        "description": "Ghosts reappear wearing sunglasses and holding cups, taunting the man as 'bonehead' in a new location.",
+        "uncertainty": "Mechanism of ghosts' reappearance and location change.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e1",
+        "video_id": "v2",
+        "time_span": [
+          479.02,
+          479.02
+        ],
+        "description": "A man wearing glasses and a cardigan stands next to a young girl in a green shirt. He is looking towards the camera and speaking, as indicated by the subtitle.",
+        "uncertainty": "No combat, ghosts, or specific plot devices visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          63.985,
+          65.985
+        ],
+        "description": "Close-up of a plunger attached to a stick, followed by a ghostly figure holding it, then a view of the spiral staircase wall.",
+        "uncertainty": "Function of the plunger-like object is not shown in use.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          66.985,
+          67.985
+        ],
+        "description": "A man runs down the spiral staircase while being pursued by two translucent ghosts.",
+        "uncertainty": "The man's hands are empty during the run.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          68.985,
+          71.985
+        ],
+        "description": "The man stops on the stairs and swings a long stick with a plunger head at the ghosts, who dodge and react.",
+        "uncertainty": "The stick is not a vacuum device; no neutralization occurs.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          67.985,
+          72.985
+        ],
+        "description": "A man on a staircase swings a plunger at a large, blue, translucent ghost figure.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          73.985,
+          76.985
+        ],
+        "description": "The man swings the plunger at a second, thinner ghost near the wall.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          77.985,
+          78.985
+        ],
+        "description": "A wide shot shows the man on the stairs, followed by a rapid, blurry camera movement.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e4",
+        "video_id": "v1",
+        "time_span": [
+          79.985,
+          82.985
+        ],
+        "description": "The man stands on the stairs, swinging the plunger at a ghost near a doorway.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r5.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          82.985,
+          86.985
+        ],
+        "description": "A man on a staircase swings a plunger-like tool at a translucent hostile figure while subtitles identify him as a doctor.",
+        "uncertainty": "Whether the tool captures or removes the figure is unresolved.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          87.985,
+          91.985
+        ],
+        "description": "A girl looks upward calling for her father, then a hallway shows a ghostly figure moving near armor and columns.",
+        "uncertainty": "The cause of the girl's fall is not shown.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          92.985,
+          97.985
+        ],
+        "description": "A ghostly figure passes a door, and a girl lies close to a pale face asking if they are okay.",
+        "uncertainty": "No vacuum device or portal destruction is visible.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          97.985,
+          105.985
+        ],
+        "description": "A woman enters a large room with a staircase, looking around and calling out.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          106.985,
+          112.985
+        ],
+        "description": "A man on the staircase uses a plunger to interact with a translucent ghost.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          112.985,
+          116.985
+        ],
+        "description": "A ghost lunges and exhales a large cloud of green smoke at a man standing on a staircase.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l3.e2",
+        "video_id": "v1",
+        "time_span": [
+          117.985,
+          120.985
+        ],
+        "description": "The man is positioned near a red vacuum-like machine with a hose, leaning over it.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r5.l3.e3",
+        "video_id": "v1",
+        "time_span": [
+          119.985,
+          119.985
+        ],
+        "description": "A young woman with a necklace is shown looking upwards.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v1.focus.r7.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          63.985,
+          64.985
+        ],
+        "description": "A ghost's face is shown in extreme close-up, with eyes rolling back, accompanied by the subtitle 'Ouch!'.",
+        "uncertainty": "The object causing the 'ouch' is not visible.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          65.985,
+          67.985
+        ],
+        "description": "A man runs down a spiral staircase, pursued by a ghost. The man is holding a long-handled tool with a nozzle.",
+        "uncertainty": "The tool's function is not yet demonstrated.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          68.985,
+          71.985
+        ],
+        "description": "The man stops on the stairs and points the tool at a ghost, which appears to be getting sucked into a wall sconce. Another ghost laughs nearby.",
+        "uncertainty": "The suction effect is implied by the ghost's deformation and motion.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          82.985,
+          86.985
+        ],
+        "description": "A man on a curved staircase swings a long-handled wooden plunger-like tool at a translucent ghost figure, which recoils and dissipates.",
+        "uncertainty": "Whether the tool is a vacuum or just a plunger is ambiguous.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          87.985,
+          93.985
+        ],
+        "description": "A girl looks up calling for her father, then a ghost figure appears in the hallway and moves towards her.",
+        "uncertainty": "The specific cause of the girl's distress is not fully visible.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l2.e3",
+        "video_id": "v1",
+        "time_span": [
+          94.985,
+          97.985
+        ],
+        "description": "The girl lies on the floor, resting her head on a ghostly figure's face, asking if it is okay.",
+        "uncertainty": "The nature of the relationship between the girl and the ghost is unclear.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          112.985,
+          113.985
+        ],
+        "description": "A ghost-like figure is visible near a character, followed by a green smoke effect, suggesting an interaction or capture attempt.",
+        "uncertainty": "Exact nature of the interaction is unclear.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l3.e2",
+        "video_id": "v1",
+        "time_span": [
+          114.985,
+          116.985
+        ],
+        "description": "The character is enveloped in green smoke, with no visible ghost, indicating a possible removal or capture of the entity.",
+        "uncertainty": "Whether the ghost is captured or removed is not explicitly shown.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v1.focus.r7.l3.e3",
+        "video_id": "v1",
+        "time_span": [
+          117.985,
+          120.985
+        ],
+        "description": "The scene shifts to a vacuum-like device with a hose, and a character is seen interacting with it, possibly indicating the tool's role in the event.",
+        "uncertainty": "The device's function in relation to the ghost is inferred.",
+        "action": "FOCUS",
+        "round": 7
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Current evidence links Video 1 to hostile ghost conflict ending in a staircase pursuit and Video 2 to a later scene where a girl carries a vacuum-like device before hostile ghosts dissipate. The missing interval is unresolved, and the most immediate discriminating observation is whether the staircase pursuit itself shows the man using a vacuum-like device against the ghosts, which would test option E. Mandatory exploration remains, so I will refine the stair-pursuit slot before probing the dining dissipation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.c006"
+        ],
+        "evidence_goal": "Determine whether the staircase pursuit shows the man using a vacuum-like device or otherwise neutralizing the pursuing ghosts.",
+        "next_probe_goal": "If vacuuming is observed, prioritize option E; if not, reserve the next Focus stage for the dining-room dissipation/device-use evidence to test other causal options.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1-b0001-e1"
+          ],
+          "statement": "In v1, a man enters a room with a red carpet while green smoke and a dripping stained-glass lamp are visible."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c002",
+            "v1-b0001-e2"
+          ],
+          "statement": "In v1, a sword attacks the man and three ghosts appear to mock him near a glowing red lamp."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4"
+          ],
+          "statement": "In the observed v1 ghost conflict, the man defends himself with a plunger and strikes a ghost, causing recoil."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c005",
+            "v1-b0002-e1"
+          ],
+          "statement": "In v1, a spinning wooden object with a ghostly figure behind it is shown near a red wall with a spiral design."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c001",
+            "v2-b0001-e1"
+          ],
+          "statement": "v2 begins with a gothic castle on a coastal cliff during a vibrant sunset."
+        },
+        {
+          "id": "F06",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c004",
+            "v2-b0001-e4"
+          ],
+          "statement": "In v2, a girl holds a white handheld vacuum-like device in a curved interior and points it at a suit of armor and a glowing lamp."
+        },
+        {
+          "id": "F07",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2"
+          ],
+          "statement": "In v2, a friendly ghost bandages the girl's mouth and later floats away after she remarks on its cold temperature."
+        },
+        {
+          "id": "F08",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c009",
+            "v2-b0002-e3"
+          ],
+          "statement": "In v2, the girl enters a dining room holding a white rectangular device whose function is not yet visible."
+        },
+        {
+          "id": "F09",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c011",
+            "v2-b0003-e2"
+          ],
+          "statement": "In v2, a ghost wearing a chef's hat pours orange juice from a blender into a glass."
+        },
+        {
+          "id": "F10",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e4",
+            "v1-b0002-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2-b0001-e4",
+            "v2.c009",
+            "v2-b0002-e3"
+          ],
+          "statement": "The observed v1 evidence ends before any vacuum use is shown, while the observed v2 vacuum-like device is held by a girl, leaving the missing interval's causal event unshown."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0002-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c009",
+            "v2-b0002-e3"
+          ],
+          "statement": "Whether the missing interval contains a staircase pursuit in which the man uses a vacuum-like device against hostile ghosts remains undetermined."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1-b0001-e1",
+            "v1.c005",
+            "v1-b0002-e1"
+          ],
+          "statement": "Whether the red carpet, spinning object, or spiral wall represents a portal whose destruction is relevant to the ghosts' later state remains undetermined."
+        },
+        {
+          "id": "U03",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1-b0001-e1",
+            "v1.c002",
+            "v1-b0001-e2"
+          ],
+          "statement": "Whether the stained-glass lamp or a candlestick-like object had a hidden magical effect that negotiated peace remains undetermined."
+        },
+        {
+          "id": "U04",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c001",
+            "v2-b0001-e1"
+          ],
+          "statement": "Whether sunset sunlight caused the ghosts to flee remains undetermined."
+        },
+        {
+          "id": "U05",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c011",
+            "v2-b0003-e2"
+          ],
+          "statement": "Whether orange juice or its smell caused hostile ghosts to surrender remains undetermined."
+        },
+        {
+          "id": "U06",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [],
+          "statement": "Whether a mirror reflection caused the ghosts to flee remains undetermined."
+        }
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution.",
+      "action": "ALIGN",
+      "reason": "A newer evidence revision requires a question-conditioned synthesis before the remaining mandatory focus stage, preserving the unresolved causal link and decision-critical unknowns.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "The aligned evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, while v2 shows a later friendly-ghost scene with a girl using a vacuum-like device. The missing causal interval remains unresolved, and one Focus stage is still required. The most decision-relevant open question is whether the later part of v1 contains a staircase pursuit in which the man uses a vacuum-like device against hostile ghosts, which would support option E. The next observation should recover the earliest relevant unobserved v1 coverage after the plunger conflict.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.u005"
+        ],
+        "evidence_goal": "Determine whether the unobserved v1 interval after the plunger conflict contains a staircase pursuit in which the man uses a vacuum-like device against hostile ghosts.",
+        "next_probe_goal": "Observe the earliest relevant unobserved v1 interval to test for stair combat and vacuum-like ghost removal.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1-b0001-e1",
+            "v1.c002",
+            "v1-b0001-e2"
+          ],
+          "statement": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then faces a sword and three mocking ghosts near a glowing lamp."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4"
+          ],
+          "statement": "In v1, the man defends himself with a plunger against the ghosts and strikes one ghost in the face, causing it to recoil."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c005",
+            "v1-b0002-e1"
+          ],
+          "statement": "The latest observed v1 material includes a spinning wooden object with a ghostly figure behind it and a red spiral wall, leaving the ghost conflict unresolved."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c001",
+            "v2-b0001-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c004",
+            "v2-b0001-e4"
+          ],
+          "statement": "In v2, after a castle-at-sunset establishing shot, a girl holds a white handheld vacuum-like device and points it at armor and a lamp rather than at ghosts."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2",
+            "v2.c011",
+            "v2-b0003-e2"
+          ],
+          "statement": "In v2, ghosts interact benignly with the girl: one bandages her mouth, remarks about cold, and another pours orange juice."
+        },
+        {
+          "id": "F06",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4",
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2"
+          ],
+          "statement": "The observed v1 ghosts are hostile, while the observed v2 ghosts are cooperative or friendly with the girl; no shown evidence bridges that state change."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4",
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2"
+          ],
+          "statement": "What unobserved event transformed the hostile ghosts seen in v1 into the friendly ghosts seen in v2?"
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e4",
+            "v1.c005",
+            "v1-b0002-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c004",
+            "v2-b0001-e4",
+            "v2.c009"
+          ],
+          "statement": "Whether the white vacuum-like device seen in v2 is connected to the v1 ghost conflict or to an unobserved stair-based ghost encounter remains undetermined."
+        }
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior.",
+      "action": "ALIGN",
+      "reason": "The synthesis was rebuilt to separate observed v1 conflict, observed v2 friendly-ghost state, and the unresolved causal transition without committing to an answer.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Evidence aligns v1 with a hostile ghost conflict involving a man, plunger, and staircase, while v2 shows a later friendly-ghost scene with a girl holding a vacuum-like device. The missing causal interval remains open, and visual budget is available, so I will recover the unobserved v1 tail to test whether a stair-combat vacuuming event occurred versus other option mechanisms.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U02",
+        "slot_ids": [
+          "v1.u006",
+          "v1.u007",
+          "v1.u008"
+        ],
+        "evidence_goal": "Determine whether the unobserved v1 tail after the staircase plunger conflict shows the man using a vacuum-like device to capture or remove hostile ghosts, or instead shows portal destruction, candlestick magic, mirror flight, or another mechanism.",
+        "next_probe_goal": "If vacuuming of ghosts is observed, connect the v2 vacuum-like device to the v1 stair conflict and support option E; if not, use the observed mechanism to favor the corresponding alternative and resolve the transformation question.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1-b0001-e1",
+            "v1.c002",
+            "v1-b0001-e2"
+          ],
+          "statement": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then faces a sword and three mocking ghosts near a glowing lamp."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4"
+          ],
+          "statement": "In v1, the man defends himself with a plunger against the ghosts and strikes one ghost in the face, causing it to recoil."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c005",
+            "v1-b0002-e1"
+          ],
+          "statement": "The latest cited v1 material includes a spinning wooden object with a ghostly figure behind it and a red spiral wall, leaving the ghost conflict unresolved."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c001",
+            "v2-b0001-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c004",
+            "v2-b0001-e4"
+          ],
+          "statement": "In v2, after a castle establishing shot, a girl holds a white handheld vacuum-like device and points it at armor and a lamp rather than at ghosts."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2",
+            "v2.c009",
+            "v2-b0002-e3",
+            "v2.c011",
+            "v2-b0003-e2"
+          ],
+          "statement": "In v2, ghosts interact benignly with the girl, including bandaging her mouth, making a cold remark, and pouring orange juice."
+        },
+        {
+          "id": "F06",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4",
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2"
+          ],
+          "statement": "The visible v1 conflict shows hostility and the visible v2 scenes show friendly ghost-girl interaction; the causal transition between these states is not established by the cited observations."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1-b0001-e3",
+            "v1.c004",
+            "v1-b0001-e4",
+            "v2.c007",
+            "v2-b0002-e1",
+            "v2.c008",
+            "v2-b0002-e2"
+          ],
+          "statement": "What unobserved event transformed the hostile ghosts seen in v1 into the friendly ghosts seen in v2?"
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e4",
+            "v1.c005",
+            "v1-b0002-e1",
+            "v2.c003",
+            "v2-b0001-e3",
+            "v2.c004",
+            "v2-b0001-e4",
+            "v2.c009"
+          ],
+          "statement": "Whether the white vacuum-like device in v2 is connected to the v1 ghost conflict or only to the later girl-ghost scenes remains undetermined."
+        }
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished.",
+      "action": "ALIGN",
+      "reason": "Rebuild a schema-valid synthesis after an unsupported open_question field and preserve the unresolved causal gap before answer commitment.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Evidence is currently aligned, but both open questions remain and visual budget is still available. The decisive gap is the unobserved v1 tail after the plunger/staircase conflict: it must be checked to see whether hostile ghosts were captured by a vacuum-like tool, destroyed a carpet portal, affected by lamp/candlestick magic, fled from a mirror, or remained hostile. This observation is needed before selecting an option.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.zoom.r5-U02-01.s01",
+          "v1.zoom.r5-U02-03.s01"
+        ],
+        "evidence_goal": "Determine whether the v1 stair-combat tool is a vacuum-like device and whether the hostile ghosts are captured or removed, versus showing carpet-portal destruction, lamp/candlestick magic, mirror flight, fruit-juice surrender, or continued hostility.",
+        "next_probe_goal": "If v1 tail shows ghost capture by a vacuum-like tool, support option E; if it shows portal/lamp destruction, mirror/sunlight/juice cues, or unresolved hostility, pivot to the corresponding competing option or inspect v2 device/juice transition.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c001",
+            "v1.c002"
+          ],
+          "statement": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then confronts a sword and three mocking ghosts near a glowing lamp."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1.c004",
+            "v1.c005"
+          ],
+          "statement": "In v1, the man uses a plunger to defend himself and strikes a ghost in the face, causing recoil; the cited v1 material leaves the ghost conflict unresolved."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c003",
+            "v2.c004"
+          ],
+          "statement": "In v2, a girl holds a white handheld vacuum-like device and points it at armor and a lamp."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c007",
+            "v2.c008",
+            "v2.c011"
+          ],
+          "statement": "In v2, ghosts interact benignly with the girl, including bandaging her mouth, joking about coldness, and pouring orange juice in a friendly dining context."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1.c004",
+            "v2.c007",
+            "v2.c008"
+          ],
+          "statement": "The visible story states change from hostile man-versus-ghost conflict in v1 to friendly girl-versus-ghost interaction in v2, but the causal transition is not established by the cited evidence."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c003",
+            "v1.c004",
+            "v1.c005",
+            "v2.c007",
+            "v2.c008"
+          ],
+          "statement": "What unobserved event between the v1 stair/plunger conflict and the v2 friendly ghost-girl scenes transformed the ghosts' behavior?"
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.c005",
+            "v2.c003",
+            "v2.c004",
+            "v2.c007"
+          ],
+          "statement": "Whether the white vacuum-like device in v2 is connected to the earlier v1 ghost conflict or only to the later girl-ghost scenes remains undetermined."
+        }
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence.",
+      "action": "ALIGN",
+      "reason": "Rebuilds the question-conditioned synthesis from current v1/v2 evidence and preserves the decision-critical gap in the missing transition before answer selection.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Visual budget is exhausted and remaining focus stages are zero, so the best-supported choice must be made from the current aligned evidence. v1 shows a hostile stair-combat sequence in which a man uses a long-handled nozzle/vacuum-like tool against ghosts, with the ghosts recoiling or dissipating. This directly supports option E, while the other options lack comparable visible support.",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "E",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F01",
+      "objective": "In v1, a man enters a room with a red carpet while green smoke and a dripping stained-glass lamp are visible.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c001",
+        "v1-b0001-e1"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F02",
+      "objective": "In v1, a sword attacks the man and three ghosts appear to mock him near a glowing red lamp.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c002",
+        "v1-b0001-e2"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F03",
+      "objective": "In the observed v1 ghost conflict, the man defends himself with a plunger and strikes a ghost, causing recoil.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F04",
+      "objective": "In v1, a spinning wooden object with a ghostly figure behind it is shown near a red wall with a spiral design.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c005",
+        "v1-b0002-e1"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F05",
+      "objective": "v2 begins with a gothic castle on a coastal cliff during a vibrant sunset.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c001",
+        "v2-b0001-e1"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F06",
+      "objective": "In v2, a girl holds a white handheld vacuum-like device in a curved interior and points it at a suit of armor and a glowing lamp.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c004",
+        "v2-b0001-e4"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F07",
+      "objective": "In v2, a friendly ghost bandages the girl's mouth and later floats away after she remarks on its cold temperature.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F08",
+      "objective": "In v2, the girl enters a dining room holding a white rectangular device whose function is not yet visible.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c009",
+        "v2-b0002-e3"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F09",
+      "objective": "In v2, a ghost wearing a chef's hat pours orange juice from a blender into a glass.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c011",
+        "v2-b0003-e2"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F10",
+      "objective": "The observed v1 evidence ends before any vacuum use is shown, while the observed v2 vacuum-like device is held by a girl, leaving the missing interval's causal event unshown.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e4",
+        "v1-b0002-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2.c009",
+        "v2-b0002-e3"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U01",
+      "objective": "Whether the missing interval contains a staircase pursuit in which the man uses a vacuum-like device against hostile ghosts remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0002-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c009",
+        "v2-b0002-e3"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U02",
+      "objective": "Whether the red carpet, spinning object, or spiral wall represents a portal whose destruction is relevant to the ghosts' later state remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c001",
+        "v1-b0001-e1",
+        "v1.c005",
+        "v1-b0002-e1"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U03",
+      "objective": "Whether the stained-glass lamp or a candlestick-like object had a hidden magical effect that negotiated peace remains undetermined.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c001",
+        "v1-b0001-e1",
+        "v1.c002",
+        "v1-b0001-e2"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U04",
+      "objective": "Whether sunset sunlight caused the ghosts to flee remains undetermined.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2.c001",
+        "v2-b0001-e1"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U05",
+      "objective": "Whether orange juice or its smell caused hostile ghosts to surrender remains undetermined.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2.c011",
+        "v2-b0003-e2"
+      ],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U06",
+      "objective": "Whether a mirror reflection caused the ghosts to flee remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [],
+      "summary": "v1 shows a hostile ghost conflict in which the man uses a plunger, with a red carpet, green smoke, lamp, sword, ghosts, plunger strikes, and a spinning object/spiral wall. v2 shows a later castle, a girl with a vacuum-like device, friendly ghost juice/bandage interactions, and dining-room device entry. The observed evidence does not show the missing event, does not show the man using a vacuum in stair combat, and does not establish sunlight, fruit juice, mirror, carpet portal, or candlestick magic as the cause of ghost resolution."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F01",
+      "objective": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then faces a sword and three mocking ghosts near a glowing lamp.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c001",
+        "v1-b0001-e1",
+        "v1.c002",
+        "v1-b0001-e2"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F02",
+      "objective": "In v1, the man defends himself with a plunger against the ghosts and strikes one ghost in the face, causing it to recoil.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F03",
+      "objective": "The latest observed v1 material includes a spinning wooden object with a ghostly figure behind it and a red spiral wall, leaving the ghost conflict unresolved.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c005",
+        "v1-b0002-e1"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F04",
+      "objective": "In v2, after a castle-at-sunset establishing shot, a girl holds a white handheld vacuum-like device and points it at armor and a lamp rather than at ghosts.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c001",
+        "v2-b0001-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c004",
+        "v2-b0001-e4"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F05",
+      "objective": "In v2, ghosts interact benignly with the girl: one bandages her mouth, remarks about cold, and another pours orange juice.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2",
+        "v2.c011",
+        "v2-b0003-e2"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F06",
+      "objective": "The observed v1 ghosts are hostile, while the observed v2 ghosts are cooperative or friendly with the girl; no shown evidence bridges that state change.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4",
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U01",
+      "objective": "What unobserved event transformed the hostile ghosts seen in v1 into the friendly ghosts seen in v2?",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4",
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U02",
+      "objective": "Whether the white vacuum-like device seen in v2 is connected to the v1 ghost conflict or to an unobserved stair-based ghost encounter remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0001-e4",
+        "v1.c005",
+        "v1-b0002-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c004",
+        "v2-b0001-e4",
+        "v2.c009"
+      ],
+      "summary": "Current evidence establishes v1 as a hostile ghost conflict involving a man and a plunger, ending before the causal resolution is shown, and v2 as a later scene where a girl holds a vacuum-like device while ghosts behave friendly. The decision-critical gap is the missing interval that explains the before/after change in ghost behavior."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F01",
+      "objective": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then faces a sword and three mocking ghosts near a glowing lamp.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c001",
+        "v1-b0001-e1",
+        "v1.c002",
+        "v1-b0001-e2"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F02",
+      "objective": "In v1, the man defends himself with a plunger against the ghosts and strikes one ghost in the face, causing it to recoil.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F03",
+      "objective": "The latest cited v1 material includes a spinning wooden object with a ghostly figure behind it and a red spiral wall, leaving the ghost conflict unresolved.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c005",
+        "v1-b0002-e1"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F04",
+      "objective": "In v2, after a castle establishing shot, a girl holds a white handheld vacuum-like device and points it at armor and a lamp rather than at ghosts.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c001",
+        "v2-b0001-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c004",
+        "v2-b0001-e4"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F05",
+      "objective": "In v2, ghosts interact benignly with the girl, including bandaging her mouth, making a cold remark, and pouring orange juice.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2",
+        "v2.c009",
+        "v2-b0002-e3",
+        "v2.c011",
+        "v2-b0003-e2"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "F06",
+      "objective": "The visible v1 conflict shows hostility and the visible v2 scenes show friendly ghost-girl interaction; the causal transition between these states is not established by the cited observations.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4",
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "U01",
+      "objective": "What unobserved event transformed the hostile ghosts seen in v1 into the friendly ghosts seen in v2?",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c003",
+        "v1-b0001-e3",
+        "v1.c004",
+        "v1-b0001-e4",
+        "v2.c007",
+        "v2-b0002-e1",
+        "v2.c008",
+        "v2-b0002-e2"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 6,
+      "evidence_revision": 4,
+      "requirement_id": "U02",
+      "objective": "Whether the white vacuum-like device in v2 is connected to the v1 ghost conflict or only to the later girl-ghost scenes remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0001-e4",
+        "v1.c005",
+        "v1-b0002-e1",
+        "v2.c003",
+        "v2-b0001-e3",
+        "v2.c004",
+        "v2-b0001-e4",
+        "v2.c009"
+      ],
+      "summary": "v1 shows a hostile plunger confrontation with ghosts that is not resolved in the cited observations; v2 shows a later girl-ghost sequence with a vacuum-like device and friendly interactions. The causal bridge from hostility to friendliness, and the role of the device in the missing interval, remain unestablished."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "F01",
+      "objective": "In v1, a man enters a red-carpeted room with green smoke and a stained-glass lamp, then confronts a sword and three mocking ghosts near a glowing lamp.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c001",
+        "v1.c002"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "F02",
+      "objective": "In v1, the man uses a plunger to defend himself and strikes a ghost in the face, causing recoil; the cited v1 material leaves the ghost conflict unresolved.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1.c004",
+        "v1.c005"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "F03",
+      "objective": "In v2, a girl holds a white handheld vacuum-like device and points it at armor and a lamp.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c003",
+        "v2.c004"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "F04",
+      "objective": "In v2, ghosts interact benignly with the girl, including bandaging her mouth, joking about coldness, and pouring orange juice in a friendly dining context.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c007",
+        "v2.c008",
+        "v2.c011"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "F05",
+      "objective": "The visible story states change from hostile man-versus-ghost conflict in v1 to friendly girl-versus-ghost interaction in v2, but the causal transition is not established by the cited evidence.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.c003",
+        "v1.c004",
+        "v2.c007",
+        "v2.c008"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "U01",
+      "objective": "What unobserved event between the v1 stair/plunger conflict and the v2 friendly ghost-girl scenes transformed the ghosts' behavior?",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c003",
+        "v1.c004",
+        "v1.c005",
+        "v2.c007",
+        "v2.c008"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    },
+    {
+      "round": 8,
+      "evidence_revision": 5,
+      "requirement_id": "U02",
+      "objective": "Whether the white vacuum-like device in v2 is connected to the earlier v1 ghost conflict or only to the later girl-ghost scenes remains undetermined.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.c005",
+        "v2.c003",
+        "v2.c004",
+        "v2.c007"
+      ],
+      "summary": "v1 shows an unresolved hostile plunger/staircase ghost conflict involving a man, while v2 shows a girl with a vacuum-like device and ghosts behaving friendly in later scenes. The missing interval's cause of the state change is unobserved, so the option explanation cannot be grounded beyond before/after evidence."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 5,
+    "aligned_revision": 5,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "E",
+    "evidence_refs": [
+      "v1.zoom.r7-U01-01.s01",
+      "v1.zoom.r7-U01-02.s01",
+      "v1.c003",
+      "v1.c004",
+      "v2.c003",
+      "v2.c004"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.004
+      ],
+      "resolution": "coarse",
+      "content": "A man enters a room with a red carpet, observing green smoke and a dripping stained-glass lamp.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "The source of the green smoke is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.004,
+        19.003999999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        19.003999999999998,
+        33.99229166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        33.992,
+        42.0
+      ],
+      "resolution": "coarse",
+      "content": "A sword attacks the man; three ghosts appear, mocking him while hovering near a glowing red lamp.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The sword's wielder is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        42.00029166666666,
+        44.002291666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        44.002,
+        52.01
+      ],
+      "resolution": "coarse",
+      "content": "The man defends himself with a plunger against the ghosts, who continue to taunt him.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The efficacy of the plunger is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        52.01029166666667,
+        58.01629166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        58.016,
+        62.02
+      ],
+      "resolution": "coarse",
+      "content": "The man strikes a ghost in the face with the plunger, causing it to recoil.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "The long-term effect on the ghost is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        63.981,
+        65.983
+      ],
+      "resolution": "coarse",
+      "content": "A close-up of a spinning wooden object with a ghostly figure behind it, followed by a view of a red wall with a spiral design and a subtitle.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Connection between the spinning object and the wall is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r7-U01-01.s01",
+      "video": "v1",
+      "time": [
+        63.985,
+        71.985
+      ],
+      "resolution": "fine",
+      "content": "A ghost's face is shown in extreme close-up, with eyes rolling back, accompanied by the subtitle 'Ouch!'. A man runs down a spiral staircase, pursued by a ghost. The man is holding a long-handled tool with a nozzle. The man stops on the stairs and points the tool at a ghost, which appears to be getting sucked into a wall sconce. Another ghost laughs nearby.",
+      "evidence": [
+        "v1.focus.r7.l1.e1",
+        "v1.focus.r7.l1.e2",
+        "v1.focus.r7.l1.e3"
+      ],
+      "uncertainty": [
+        "The object causing the 'ouch' is not visible.",
+        "The tool's function is not yet demonstrated.",
+        "The suction effect is implied by the ghost's deformation and motion."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-U01-01.s01",
+      "video": "v1",
+      "time": [
+        67.98458333333333,
+        82.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "A man on a staircase swings a plunger at a large, blue, translucent ghost figure. The man swings the plunger at a second, thinner ghost near the wall. A wide shot shows the man on the stairs, followed by a rapid, blurry camera movement. The man stands on the stairs, swinging the plunger at a ghost near a doorway.",
+      "evidence": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2",
+        "v1.focus.r3.l1.e3",
+        "v1.focus.r3.l1.e4"
+      ],
+      "uncertainty": [
+        "Unresolved: A vacuum-like device is not visible; the man uses a plunger throughout the clip."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r7-U01-02.s01",
+      "video": "v1",
+      "time": [
+        82.98458333333333,
+        97.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "A man on a curved staircase swings a long-handled wooden plunger-like tool at a translucent ghost figure, which recoils and dissipates. A girl looks up calling for her father, then a ghost figure appears in the hallway and moves towards her. The girl lies on the floor, resting her head on a ghostly figure's face, asking if it is okay.",
+      "evidence": [
+        "v1.focus.r7.l2.e1",
+        "v1.focus.r7.l2.e2",
+        "v1.focus.r7.l2.e3"
+      ],
+      "uncertainty": [
+        "Whether the tool is a vacuum or just a plunger is ambiguous.",
+        "The specific cause of the girl's distress is not fully visible.",
+        "The nature of the relationship between the girl and the ghost is unclear.",
+        "Unresolved: Confirm if the tool is a vacuum device and if ghosts are captured."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r5-U02-02.s01",
+      "video": "v1",
+      "time": [
+        97.98458333333333,
+        112.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "A woman enters a large room with a staircase, looking around and calling out. A man on the staircase uses a plunger to interact with a translucent ghost.",
+      "evidence": [
+        "v1.focus.r5.l2.e1",
+        "v1.focus.r5.l2.e2"
+      ],
+      "uncertainty": [
+        "Unresolved: What happens after the plunger conflict ends?"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r7-U01-03.s01",
+      "video": "v1",
+      "time": [
+        112.98458333333333,
+        121.0
+      ],
+      "resolution": "fine",
+      "content": "A ghost-like figure is visible near a character, followed by a green smoke effect, suggesting an interaction or capture attempt. The character is enveloped in green smoke, with no visible ghost, indicating a possible removal or capture of the entity. The scene shifts to a vacuum-like device with a hose, and a character is seen interacting with it, possibly indicating the tool's role in the event.",
+      "evidence": [
+        "v1.focus.r7.l3.e1",
+        "v1.focus.r7.l3.e2",
+        "v1.focus.r7.l3.e3"
+      ],
+      "uncertainty": [
+        "Exact nature of the interaction is unclear.",
+        "Whether the ghost is captured or removed is not explicitly shown.",
+        "The device's function in relation to the ghost is inferred.",
+        "Unresolved: Direct confirmation of ghost capture/removal by the vacuum-like device."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        175.008,
+        177.01
+      ],
+      "resolution": "coarse",
+      "content": "A static establishing shot of a gothic castle on a coastal cliff during a vibrant sunset.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        179.012,
+        179.012
+      ],
+      "resolution": "coarse",
+      "content": "A black screen frame.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        181.014,
+        185.018
+      ],
+      "resolution": "coarse",
+      "content": "A girl holds a white, handheld vacuum-like device in a room with curved architectural features.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The exact nature of the device is inferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        185.01816666666667,
+        187.02016666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        187.02,
+        194.986
+      ],
+      "resolution": "coarse",
+      "content": "The girl moves through an interior space, pointing the device at a suit of armor and a glowing lamp.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The device's effect on the objects is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        194.98645833333333,
+        204.99645833333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        204.996,
+        206.998
+      ],
+      "resolution": "coarse",
+      "content": "The girl approaches and passes through a dark, ornate doorway.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "What she saw before entering is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        209.0,
+        213.004
+      ],
+      "resolution": "coarse",
+      "content": "The girl enters a dining room with a set table and looks around with a wary expression.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "Her reaction to the room's state is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        213.00445833333333,
+        215.0064583333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        215.006,
+        223.014
+      ],
+      "resolution": "coarse",
+      "content": "A ghost wraps a bandage around the girl's mouth while subtitles explain it is a friendly ghost trying to prevent her from screaming.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "The exact mechanism of the bandage appearing is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        223.01445833333332,
+        230.98075
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        230.981,
+        236.987
+      ],
+      "resolution": "coarse",
+      "content": "The girl touches her face, remarks on the ghost's cold temperature, and the ghost floats away making a joke about heating bills.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "The specific location the ghost moves to is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        238.98874999999998,
+        240.99075
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        240.991,
+        251.001
+      ],
+      "resolution": "coarse",
+      "content": "The girl walks into the dining room holding a white, rectangular device. The ghost follows her, stating it can see through her.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "The function of the white device is not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        251.00074999999998,
+        257.00675
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        257.007,
+        265.015
+      ],
+      "resolution": "coarse",
+      "content": "A girl and a translucent ghost converse at a dining table; the ghost gestures and moves while subtitles discuss its composition.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the ghost's substance is abstract."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        265.01475,
+        280.01475
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        280.01475,
+        295.01475
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        295.01475,
+        299.0070416666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        299.007,
+        307.015
+      ],
+      "resolution": "coarse",
+      "content": "The ghost, wearing a chef's hat, is shown pouring orange juice from a blender into a glass.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "The girl's reaction to the pouring is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        307.01504166666666,
+        318.9853333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        318.985,
+        326.993
+      ],
+      "resolution": "coarse",
+      "content": "The ghost floats the juice glass to the girl, who reaches out to take it while they continue their interaction.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Whether the girl actually drinks the juice is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        326.99333333333334,
+        330.9973333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        330.997,
+        330.997
+      ],
+      "resolution": "coarse",
+      "content": "The ghost and girl sit at the table, with the ghost looking down at the juice glass.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The scene ends abruptly after this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        332.999,
+        353.019
+      ],
+      "resolution": "coarse",
+      "content": "A girl interacts with a friendly ghost wearing a chef's hat. Subtitles indicate a dialogue about the ghost's inability to cause harm, followed by the girl's hand movements.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the hand gesture (magic vs. normal movement)"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        339.00533333333334,
+        345.0113333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        353.01933333333335,
+        368.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        368.01933333333335,
+        383.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        383.01933333333335,
+        398.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        398.01933333333335,
+        406.98991666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        406.99,
+        414.998
+      ],
+      "resolution": "coarse",
+      "content": "The girl and a man are seated at a dining table. They suddenly react with fear and duck down, seemingly avoiding an unseen threat or projectile from above.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "What specifically caused them to duck (attack vs. falling object)"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        414.99791666666664,
+        416.99991666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        417.0,
+        419.002
+      ],
+      "resolution": "coarse",
+      "content": "The camera focuses on a chandelier where wispy, spectral figures are visible, suggesting the presence of ghosts interacting with the light fixture.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Whether the ghosts are attacking or just present"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        421.004,
+        437.02
+      ],
+      "resolution": "coarse",
+      "content": "Three translucent ghosts perform animatedly around a dining table while a man and girl observe from behind; subtitles mention smelling meat.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Exact causal link between ghosts' performance and human reaction."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        425.00791666666663,
+        429.01191666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        437.01991666666663,
+        444.9862083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        444.986,
+        452.994
+      ],
+      "resolution": "coarse",
+      "content": "Ghosts scream with exaggerated expressions, then rapidly dissipate into a smoke cloud over the table while the girl comments on the world's wonder.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Specific trigger causing the ghosts to dissipate."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        452.9942083333333,
+        467.9942083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        467.9942083333333,
+        473.01420833333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        473.014,
+        477.018
+      ],
+      "resolution": "coarse",
+      "content": "Ghosts reappear wearing sunglasses and holding cups, taunting the man as 'bonehead' in a new location.",
+      "evidence": [
+        "v2-b0005-e3"
+      ],
+      "uncertainty": [
+        "Mechanism of ghosts' reappearance and location change."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        479.02,
+        479.02
+      ],
+      "resolution": "coarse",
+      "content": "A man wearing glasses and a cardigan stands next to a young girl in a green shirt. He is looking towards the camera and speaking, as indicated by the subtitle.",
+      "evidence": [
+        "v2-b0006-e1"
+      ],
+      "uncertainty": [
+        "No combat, ghosts, or specific plot devices visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

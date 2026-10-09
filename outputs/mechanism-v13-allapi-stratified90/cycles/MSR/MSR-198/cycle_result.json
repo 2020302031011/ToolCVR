@@ -1,0 +1,356 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A3} located in view A's frame?",
+    "round_id": 4,
+    "summary": "The trigger event (B5 leaving view) occurs at t=1.0s. At this exact timestamp, view v1 shows A3 entering from the far left side. Although A3 is in the bottom half of the frame (lower lanes), its position is defined by the left edge boundary. Therefore, 'Left side of the frame' is the most accurate description of its location relative to the frame boundaries at the trigger moment.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-42: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=31; declared=car; A1_visible=7-88 (0.233-2.967s)/450_frames; B1_visible=26-67 (0.867-2.267s)/450_frames.",
+      "A2/B2 is source_track=36; declared=car; A2_visible=50-119 (1.667-4.000s)/450_frames; B2_visible=62-102 (2.067-3.433s)/450_frames.",
+      "A3/B3 is source_track=37; declared=car; A3_visible=23-239 (0.767-8.000s)/450_frames; B3_visible=71-179 (2.367-6.000s)/450_frames.",
+      "A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.",
+      "A5/B5 is source_track=0; declared=car; A5_visible=0-144 (0.000-4.833s)/450_frames; B5_visible=0-29 (0.000-1.000s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r3-r1-01.s01"
+        ],
+        "attempts": [
+          "B5 is visible at 0.0s and absent by 1.0s in v2. Given the 15fps sampling, the exit occurs between frame 0 and frame 15. The most precise synchronization point available is t=1.0s."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "At t=1.0s in v1, A3 enters the frame from the far left edge and begins moving into the lower traffic lanes."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "At the synchronized timestamp (t=1.0s), A3 is located at the far left edge of the frame. While it is in the lower lanes, its primary positional characteristic at the moment of entry is being on the left side."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A3 (white car) moves from the left side of the frame to the right side, traversing the middle lanes.",
+        "uncertainty": "Exact exit time of B5 from view B is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          14.0
+        ],
+        "description": "Sparse aerial footage of a street with a central median. Vehicles and pedestrians traverse the lanes. A bus is visible on the left at 0.0s.",
+        "uncertainty": "Object IDs {A3} and {B5} are not visually grounded.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "A3 (silver sedan) enters the frame from the far left edge at t=1.0s, following a trajectory from left to right.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          1.0,
+          6.0
+        ],
+        "description": "A3 moves continuously from the left side towards the right side of the frame, traversing the lower traffic lanes.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "At 0.0s, a bus labeled B5 is visible in the bottom left corner. By 1.0s, the bus is no longer visible in that location.",
+        "uncertainty": "Exact exit time between 0.0s and 1.0s is unknown.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "The B5 car is visible in the bottom left corner at 0.0s and is no longer visible in the frame at 1.0s.",
+        "uncertainty": "Exact exit frame within 0-1s gap",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need A3 position in v1 at synchronized B5 departure time",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "At the v1 frame synchronized with B5's complete departure from v2 (first frame after B5's visible range, about 1.0s), is A3 located at the top, bottom, left, or right side of the frame?",
+        "next_probe_goal": "If the departure boundary is ambiguous, inspect v2 near 1.0s for B5's last visible frame.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need visually fix B5's last visible frame in view B near 1.0s to set the synchronized timestamp.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "In view B, what is B5's last visible frame/time, and is it absent immediately after that frame?",
+        "next_probe_goal": "Use the fixed departure timestamp to inspect A3's position in view A near 1.0s.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized clock bounds B5's complete exit from view B between 0.0s and 1.0s. View A observes A3 entering the far left edge at 1.0s. The exact trigger time is unresolved, creating ambiguity in A3's location at that moment. Visual budget remains to refine the exit timestamp and correlate it with A3's position.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.zoom.r2-r1-01.s01"
+        ],
+        "evidence_goal": "Determine the exact source-frame or timestamp when B5 completely leaves view B within the 0.0s-1.0s window.",
+        "next_probe_goal": "Inspect v2 frames near 1.0s for B5's last visible frame to pinpoint the exit boundary.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger event (B5 leaving view) occurs at t=1.0s. At this exact timestamp, view v1 shows A3 entering from the far left side. Although A3 is in the bottom half of the frame (lower lanes), its position is defined by the left edge boundary. Therefore, 'Left side of the frame' is the most accurate description of its location relative to the frame boundaries at the trigger moment.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v2.zoom.r3-r1-01.s01",
+      "v1.zoom.r1-U01-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "fine",
+      "content": "A3 (silver sedan) enters the frame from the far left edge at t=1.0s, following a trajectory from left to right. A3 moves continuously from the left side towards the right side of the frame, traversing the lower traffic lanes.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        2.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        6.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r1-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "The B5 car is visible in the bottom left corner at 0.0s and is no longer visible in the frame at 1.0s.",
+      "evidence": [
+        "v2.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "Exact exit frame within 0-1s gap"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        2.0,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        6.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If the departure boundary is ambiguous, inspect v2 near 1.0s for B5's last visible frame.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

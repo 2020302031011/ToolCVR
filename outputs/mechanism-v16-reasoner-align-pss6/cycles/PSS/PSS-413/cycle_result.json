@@ -1,0 +1,1040 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 8,
+    "summary": "R1 and R2 support v3 before v1 before v2. With no visual calls remaining, the best-supported resolution is that v4's raw-fillet soak is a preliminary step before seasoned-flour preparation and coating, yielding v4->v3->v1->v2.",
+    "review": {
+      "outcome": "partial",
+      "reason": "The focus observed a white fillet dipped into milky/orange liquid, confirming a soak state, but it did not show an adjacent prepared seasoned-flour station; absence in the frame is not negative evidence, so the v4-versus-v3 ordering narrowed but did not settle.",
+      "evidence_refs": [
+        "v4.zoom.r6-R1-01.s01",
+        "v4.focus.r6.l1.e1"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "R1",
+        "objective": "Determine whether v3's seasoned-flour preparation precedes v1's coating/frying.",
+        "videos": [
+          "v3",
+          "v1"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v3.zoom.r2-U01-02.s01",
+          "v1.zoom.r3-U01-01.s01"
+        ],
+        "attempts": [
+          "v3 shows white flour speckled with red/yellow seasonings being prepared, and v1 shows fish coated in a similarly speckled flour mixture and placed into hot oil; this covers v3 and v1 and supports v3 flour preparation preceding v1 coating/frying."
+        ]
+      },
+      {
+        "id": "R2",
+        "objective": "Determine whether v1's frying precedes v2's post-fry plating.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r3-U01-01.s01",
+          "v2.c003"
+        ],
+        "attempts": [
+          "v1 shows coating and placing fish into the fryer, and v2 shows already fried fillets being placed into a basket and garnished; this covers v1 and v2 and settles that v1 frying precedes v2 post-fry plating."
+        ]
+      },
+      {
+        "id": "R3",
+        "objective": "Resolve whether v4's orange-liquid soak occurs before or after v3's flour preparation, and whether it is settled relative to v1.",
+        "videos": [
+          "v4",
+          "v3",
+          "v1"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v4.zoom.r6-R1-01.s01",
+          "v4.focus.r6.l1.e1",
+          "v3.zoom.r2-U01-02.s01",
+          "v1.zoom.r3-U01-01.s01"
+        ],
+        "attempts": [
+          "v4 shows white fillets being dipped into milky/orange liquid, while v3 shows seasoned-flour preparation and v1 shows coating/frying, but no observed transition or adjacent seasoned-flour station in v4 settles whether the soak precedes or follows v3, nor fully fixes its relation to v1; missing discriminating evidence is a visible link between the v4 soak and the v3 flour or v1 coating step."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          8.012
+        ],
+        "description": "A man in a blue shirt coats a piece of fish in flour, then dips it into a batter bowl.",
+        "uncertainty": "The exact cooking recipe or final dish.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          16.02,
+          16.02
+        ],
+        "description": "A close-up shot shows food bubbling in hot oil inside a deep fryer basket.",
+        "uncertainty": "What specific food item is being fried.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.038,
+          6.002
+        ],
+        "description": "Fried fish fillets are removed from the fryer basket using tongs and placed onto a paper-towel-lined tray.",
+        "uncertainty": "Exact number of fillets transferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          7.005,
+          11.009
+        ],
+        "description": "Three fish fillets rest on the paper towel; tongs are set down and the chef seasons the fish with salt.",
+        "uncertainty": "Whether additional fillets were transferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          15.013,
+          17.015
+        ],
+        "description": "The chef places fried fish fillets into a wire basket lined with paper, arranged on top of french fries.",
+        "uncertainty": "Exact count of fillets placed in the basket.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          18.018,
+          20.02
+        ],
+        "description": "The chef adds a lemon wedge to the basket of fish and chips for garnish.",
+        "uncertainty": "Final presentation of the dish.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.031,
+          1.992
+        ],
+        "description": "A man adds red spice powder from a small bowl into a large bowl containing white flour.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          7.998,
+          10.0
+        ],
+        "description": "The man vigorously mixes the ingredients in the bowl with a spoon, incorporating the red spice into the flour.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.009,
+          4.013
+        ],
+        "description": "A chef stands in a kitchen. He holds a small bowl and pours a substance into a larger glass bowl containing white liquid. A blue plate with three white fillets sits in the foreground.",
+        "uncertainty": "Exact contents of the small bowl are unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          7.017,
+          12.982
+        ],
+        "description": "The chef dips a white fillet into the glass bowl, which now contains a swirling orange-tinted liquid. He places the fillet into the liquid, joining other fillets already soaking.",
+        "uncertainty": "The transition of liquid color between segments is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          8.004
+        ],
+        "description": "A man dips fish into a pale cream batter, then coats it in a flour mixture that has a pinkish tint.",
+        "uncertainty": "V3's mixing bowl contents are not visible in this batch.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          0.031,
+          1.031
+        ],
+        "description": "A man in a blue shirt stands in a kitchen behind a wooden board holding a white bowl of flour and a clear bowl of liquid, gesturing with his hands.",
+        "uncertainty": "The specific type of flour is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          7.998,
+          9.998
+        ],
+        "description": "A man in a blue shirt stands at a counter with two glass bowls. He uses a spoon to stir the contents of the left bowl, which contains flour mixed with red and yellow seasonings.",
+        "uncertainty": "The identity of the yellow seasoning is not clear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          8.004
+        ],
+        "description": "A man coats fish fillets in a bowl of seasoned flour mixture, transferring them from a wet batter bowl to the flour and then to a fryer basket.",
+        "uncertainty": "No stirring action is visible in the provided frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          7.998,
+          9.998
+        ],
+        "description": "A man in a blue shirt stands at a kitchen counter, using a utensil to stir a mixture in a small glass bowl.",
+        "uncertainty": "The specific ingredients are not visible in the wide shot.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e2",
+        "video_id": "v3",
+        "time_span": [
+          8.998,
+          8.998
+        ],
+        "description": "A close-up view shows a glass bowl containing white flour speckled with red and yellow seasonings.",
+        "uncertainty": "The mixture is static in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.004,
+          8.004
+        ],
+        "description": "A man coats fish in a flour mixture containing red and yellow speckles, then places it into a fryer.",
+        "uncertainty": "Comparison to v3 mixture not possible in this frame batch.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v4.focus.r4.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.009,
+          1.009
+        ],
+        "description": "A man holds a small glass ramekin containing a reddish-orange substance over a larger glass bowl filled with white liquid.",
+        "uncertainty": "Substance identity unknown without external context.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r4.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          2.009,
+          3.009
+        ],
+        "description": "Close-up view: the man pours the reddish-orange substance from the small ramekin into the white liquid in the glass bowl.",
+        "uncertainty": "Texture is liquid/paste, not dry powder.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r4.l1.e3",
+        "video_id": "v4",
+        "time_span": [
+          4.009,
+          4.009
+        ],
+        "description": "The man stands behind the counter; the bowl now contains white liquid with the reddish substance mixed in.",
+        "uncertainty": "Final mixture consistency not fully visible.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v4.focus.r6.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          5.001,
+          6.001
+        ],
+        "description": "A man reaches towards a small bowl containing an orange substance, then picks up a white fillet from a blue plate.",
+        "uncertainty": "The exact moment the orange substance is added is not shown.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v4.focus.r6.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          7.001,
+          7.001
+        ],
+        "description": "A hand dips a white fillet into a large glass bowl containing a milky liquid. A small bowl with orange liquid sits nearby.",
+        "uncertainty": "The specific contents of the milky liquid are unknown.",
+        "action": "FOCUS",
+        "round": 6
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Initial coarse evidence suggests a plausible sequence v3 -> v4 -> v1 -> v2: v3 mixes seasoned flour, v4 handles raw fillets and a liquid/batter, v1 coats fish in flour and dips it before frying, and v2 removes fried fillets. However, requirement U01 remains open because it has not been visually verified that the flour used in v1's coating step is the red-spiced flour prepared in v3. Confirming this link is a low-cost discriminating observation that can establish v3 before v1.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v3.c001",
+          "v3.c002"
+        ],
+        "evidence_goal": "Compare the appearance and color of the flour in v3's mixing bowl with the flour used when the fish is coated in v1.",
+        "next_probe_goal": "If v1's coating flour shows the same red-spiced appearance as v3's mixed flour, support v3 before v1; if not, reject or revise the assumed flour-preparation link and reconsider the order.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "One mandatory focus stage remains; U01 and U02 are open, while U03 is supported. The decisive next observation is to compare the visual appearance of the coating flour in v1 with the seasoned flour mixture in v3, because matching red/yellow speckled flour would support v3 before v1, while a mismatch would require revising the flour-preparation link and shifting to the soaking/coating ordering.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v3.zoom.r1-U01-03.s01"
+        ],
+        "evidence_goal": "Determine whether the flour used to coat the fish in the coating clip has the same red/yellow speckled seasoned appearance as the flour mixture being stirred in the preparation clip.",
+        "next_probe_goal": "If the coating flour matches the seasoned mixture, support the preparation-before-coating relation; if it does not, reject the assumed flour link and prioritize reconciling the soaking/batter relation or the relative order of preparation and soaking.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Current evidence supports v1 preceding v2, but two ordering-critical requirements remain open. The strongest unresolved link is whether the red/yellow speckled flour prepared in v3 is the same seasoned flour used to coat the fish in v1. A focused observation of v1's coating flour bowl could directly test that link.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.zoom.r2-U01-01.s01"
+        ],
+        "evidence_goal": "Determine whether the flour bowl used to coat the fish in v1 visibly contains the same red/yellow speckles seen in the stirred flour mixture in v3.",
+        "next_probe_goal": "If the v1 flour matches v3's speckled seasoned flour, treat v3 as the flour-preparation step preceding v1's coating step; if it does not match, probe the v4 liquid-bowl and v1 wet-batter relationship instead.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Fresh projection: R1 and R3 are supported; R2 is open. The pour clip shows raw fillets and a white liquid bowl, but the small-bowl contents are unresolved. Identifying whether that substance is the red/yellow speckled seasoned flour from the flour-preparation clip is the smallest discriminating observation for placing the pour clip before or after the flour preparation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v4.c001"
+        ],
+        "evidence_goal": "Determine locally whether the poured substance in the raw-fillet liquid step is the speckled seasoned flour seen in the flour-preparation clip, a plain flour/ingredient, or something unrelated to the seasoned flour.",
+        "next_probe_goal": "If the poured substance is speckled seasoned flour, treat the raw-fillet liquid step as occurring after flour preparation; if it is not, treat it as a separate wet step that may precede flour preparation and require a follow-up transition check.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [
+        {
+          "requirement_id": "R1",
+          "status": "open",
+          "evidence_refs": [
+            "v4.zoom.r4-R2-01.s01",
+            "v4.c002",
+            "v1.zoom.r3-U01-01.s01",
+            "v3.zoom.r2-U01-02.s01"
+          ],
+          "summary": "v4 shows a reddish-orange liquid/paste added to white liquid and white fillets soaking, while v3 shows speckled flour preparation and v1 shows coating/frying; the evidence does not establish that v4 occurs before v3 flour preparation or v1 coating, leaving the identity of the v4 liquid and its relation to flour prep/coating unresolved."
+        },
+        {
+          "requirement_id": "R2",
+          "status": "open",
+          "evidence_refs": [
+            "v1.zoom.r3-U01-01.s01",
+            "v3.zoom.r2-U01-02.s01"
+          ],
+          "summary": "v1 shows fish coated in a white flour mixture with red/yellow speckles and v3 shows white flour speckled with red/yellow seasonings, but there is no observed shared bowl, ingredient transition, or other discriminating evidence proving the v3 mixture is the exact flour used in v1 coating."
+        },
+        {
+          "requirement_id": "R3",
+          "status": "supported",
+          "evidence_refs": [
+            "v1.zoom.r3-U01-01.s01",
+            "v2.c003"
+          ],
+          "summary": "v1 shows coating and placing fish into the fryer, and v2 shows already fried fillets being placed into a basket and garnished with lemon; this covers v1 and v2 and settles that v1 frying precedes v2 post-frying plating."
+        }
+      ],
+      "summary": "R3 is supported by the v1 frying-to-v2 plating transition. R1 and R2 remain open because v4's orange liquid soaking is not linked to the flour preparation/coating chronology, and the v3-to-v1 seasoned flour match is only visual similarity without a direct transition or identity link.",
+      "action": "ALIGN",
+      "reason": "Audited cross-evidence for v4/v3/v1 chronology and v3/v1 flour match, preserving unresolved links while confirming the v1-to-v2 frying/plating order.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "updates": [],
+      "summary": "R3 is supported: v1 coating/frying precedes v2 plating. R1 and R2 remain open. Current evidence is aligned, so a targeted PLAN is better than ALIGN. The decisive unresolved question is whether v4's orange-liquid soak is a pre-flour step or follows v3's seasoned flour preparation. Recover the unobserved v4 transition after adding the orange substance and before dipping fillets to look for positive state cues: dry uncoated fillets, mixing of the soak, or an already prepared speckled flour/coating station. This can distinguish v4-before-v3 versus v3-before-v4 and link v4 to the coating chronology.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R1",
+        "slot_ids": [
+          "v4.u002"
+        ],
+        "evidence_goal": "Observe the v4 interval after the orange substance is added and before/while fillets are dipped to determine whether the soak is occurring with dry uncoated fillets and whether a prepared seasoned-flour/coating station is already present, which would test v4's position relative to v3 flour preparation and v1 coating/frying.",
+        "next_probe_goal": "Look for positive visible state transitions in v4: the orange-tinted liquid being mixed, fillets that are dry/white before dipping, and any adjacent bowl containing speckled flour or coating activity; presence of prepared flour would support v3 before v4, while absence is not negative evidence.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [
+        {
+          "requirement_id": "R1",
+          "status": "supported",
+          "evidence_refs": [
+            "v3.zoom.r2-U01-02.s01",
+            "v1.zoom.r3-U01-01.s01"
+          ],
+          "summary": "v3 shows white flour speckled with red/yellow seasonings being prepared, and v1 shows fish coated in a similarly speckled flour mixture and placed into hot oil; this covers v3 and v1 and supports v3 flour preparation preceding v1 coating/frying."
+        },
+        {
+          "requirement_id": "R2",
+          "status": "supported",
+          "evidence_refs": [
+            "v1.zoom.r3-U01-01.s01",
+            "v2.c003"
+          ],
+          "summary": "v1 shows coating and placing fish into the fryer, and v2 shows already fried fillets being placed into a basket and garnished; this covers v1 and v2 and settles that v1 frying precedes v2 post-fry plating."
+        },
+        {
+          "requirement_id": "R3",
+          "status": "open",
+          "evidence_refs": [
+            "v4.zoom.r6-R1-01.s01",
+            "v4.focus.r6.l1.e1",
+            "v3.zoom.r2-U01-02.s01",
+            "v1.zoom.r3-U01-01.s01"
+          ],
+          "summary": "v4 shows white fillets being dipped into milky/orange liquid, while v3 shows seasoned-flour preparation and v1 shows coating/frying, but no observed transition or adjacent seasoned-flour station in v4 settles whether the soak precedes or follows v3, nor fully fixes its relation to v1; missing discriminating evidence is a visible link between the v4 soak and the v3 flour or v1 coating step."
+        }
+      ],
+      "summary": "Evidence aligns v3 -> v1 -> v2 through flour preparation, coating/frying, and fried-fillet plating, but v4's orange-liquid soak remains unresolved relative to v3 and the overall chronology.",
+      "action": "ALIGN",
+      "reason": "Audited and aligned the supported v3-to-v1 and v1-to-v2 transitions while preserving the unresolved v4 soak ordering.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "updates": [],
+      "summary": "R1 and R2 support v3 before v1 before v2. With no visual calls remaining, the best-supported resolution is that v4's raw-fillet soak is a preliminary step before seasoned-flour preparation and coating, yielding v4->v3->v1->v2.",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "v4->v3->v1->v2",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 5,
+      "evidence_revision": 5,
+      "requirement_id": "R1",
+      "objective": "Determine whether v4's orange-tinted liquid soaking of white fillets occurs before v3 flour preparation and v1 coating/frying.",
+      "videos": [
+        "v4",
+        "v3",
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v4.zoom.r4-R2-01.s01",
+        "v4.c002",
+        "v1.zoom.r3-U01-01.s01",
+        "v3.zoom.r2-U01-02.s01"
+      ],
+      "summary": "v4 shows a reddish-orange liquid/paste added to white liquid and white fillets soaking, while v3 shows speckled flour preparation and v1 shows coating/frying; the evidence does not establish that v4 occurs before v3 flour preparation or v1 coating, leaving the identity of the v4 liquid and its relation to flour prep/coating unresolved."
+    },
+    {
+      "round": 5,
+      "evidence_revision": 5,
+      "requirement_id": "R2",
+      "objective": "Confirm that v3's speckled seasoned flour preparation directly matches the flour mixture used in v1's coating/frying step.",
+      "videos": [
+        "v1",
+        "v3"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r3-U01-01.s01",
+        "v3.zoom.r2-U01-02.s01"
+      ],
+      "summary": "v1 shows fish coated in a white flour mixture with red/yellow speckles and v3 shows white flour speckled with red/yellow seasonings, but there is no observed shared bowl, ingredient transition, or other discriminating evidence proving the v3 mixture is the exact flour used in v1 coating."
+    },
+    {
+      "round": 5,
+      "evidence_revision": 5,
+      "requirement_id": "R3",
+      "objective": "Establish that v1's frying step precedes v2's post-frying plating and garnish.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r3-U01-01.s01",
+        "v2.c003"
+      ],
+      "summary": "v1 shows coating and placing fish into the fryer, and v2 shows already fried fillets being placed into a basket and garnished with lemon; this covers v1 and v2 and settles that v1 frying precedes v2 post-frying plating."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 6,
+      "requirement_id": "R1",
+      "objective": "Determine whether v3's seasoned-flour preparation precedes v1's coating/frying.",
+      "videos": [
+        "v3",
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v3.zoom.r2-U01-02.s01",
+        "v1.zoom.r3-U01-01.s01"
+      ],
+      "summary": "v3 shows white flour speckled with red/yellow seasonings being prepared, and v1 shows fish coated in a similarly speckled flour mixture and placed into hot oil; this covers v3 and v1 and supports v3 flour preparation preceding v1 coating/frying."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 6,
+      "requirement_id": "R2",
+      "objective": "Determine whether v1's frying precedes v2's post-fry plating.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r3-U01-01.s01",
+        "v2.c003"
+      ],
+      "summary": "v1 shows coating and placing fish into the fryer, and v2 shows already fried fillets being placed into a basket and garnished; this covers v1 and v2 and settles that v1 frying precedes v2 post-fry plating."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 6,
+      "requirement_id": "R3",
+      "objective": "Resolve whether v4's orange-liquid soak occurs before or after v3's flour preparation, and whether it is settled relative to v1.",
+      "videos": [
+        "v4",
+        "v3",
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v4.zoom.r6-R1-01.s01",
+        "v4.focus.r6.l1.e1",
+        "v3.zoom.r2-U01-02.s01",
+        "v1.zoom.r3-U01-01.s01"
+      ],
+      "summary": "v4 shows white fillets being dipped into milky/orange liquid, while v3 shows seasoned-flour preparation and v1 shows coating/frying, but no observed transition or adjacent seasoned-flour station in v4 settles whether the soak precedes or follows v3, nor fully fixes its relation to v1; missing discriminating evidence is a visible link between the v4 soak and the v3 flour or v1 coating step."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 6,
+    "aligned_revision": 6,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v4->v3->v1->v2",
+    "evidence_refs": [
+      "v4.zoom.r6-R1-01.s01",
+      "v4.focus.r6.l1.e1",
+      "v4.focus.r6.l1.e2",
+      "v3.zoom.r2-U01-02.s01",
+      "v3.focus.r2.l2.e1",
+      "v1.zoom.r3-U01-01.s01",
+      "v1.focus.r3.l1.e1",
+      "v2.c003"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r3-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.004,
+        8.012
+      ],
+      "resolution": "fine",
+      "content": "A man coats fish in a flour mixture containing red and yellow speckles, then places it into a fryer.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "Comparison to v3 mixture not possible in this frame batch.",
+        "Unresolved: Visual comparison of v1 flour mixture to v3 stirred mixture."
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        8.012,
+        16.019999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.019999999999996,
+        17.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        16.02,
+        16.02
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shot shows food bubbling in hot oil inside a deep fryer basket.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "What specific food item is being fried."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.038,
+        6.002
+      ],
+      "resolution": "coarse",
+      "content": "Fried fish fillets are removed from the fryer basket using tongs and placed onto a paper-towel-lined tray.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact number of fillets transferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        6.0020000000000095,
+        7.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        7.005,
+        11.009
+      ],
+      "resolution": "coarse",
+      "content": "Three fish fillets rest on the paper towel; tongs are set down and the chef seasons the fish with salt.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether additional fillets were transferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        11.009000000000015,
+        15.013000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        15.013,
+        17.015
+      ],
+      "resolution": "coarse",
+      "content": "The chef places fried fish fillets into a wire basket lined with paper, arranged on top of french fries.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact count of fillets placed in the basket."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        17.015000000000015,
+        18.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        18.018,
+        20.02
+      ],
+      "resolution": "coarse",
+      "content": "The chef adds a lemon wedge to the basket of fish and chips for garnish.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Final presentation of the dish."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        20.02000000000001,
+        21.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-02.s01",
+      "video": "v3",
+      "time": [
+        0.031,
+        1.992
+      ],
+      "resolution": "fine",
+      "content": "A man in a blue shirt stands in a kitchen behind a wooden board holding a white bowl of flour and a clear bowl of liquid, gesturing with his hands.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "The specific type of flour is not visible.",
+        "Unresolved: The appearance and color of the flour used when the fish is coated in v1."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        1.9920000000000044,
+        7.998000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-U01-02.s01",
+      "video": "v3",
+      "time": [
+        7.998,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A man in a blue shirt stands at a kitchen counter, using a utensil to stir a mixture in a small glass bowl. A close-up view shows a glass bowl containing white flour speckled with red and yellow seasonings.",
+      "evidence": [
+        "v3.focus.r2.l2.e1",
+        "v3.focus.r2.l2.e2"
+      ],
+      "uncertainty": [
+        "The specific ingredients are not visible in the wide shot.",
+        "The mixture is static in this frame.",
+        "Unresolved: Visual confirmation of the flour used to coat the fish in the coating clip"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r4-R2-01.s01",
+      "video": "v4",
+      "time": [
+        0.009,
+        4.013
+      ],
+      "resolution": "fine",
+      "content": "A man holds a small glass ramekin containing a reddish-orange substance over a larger glass bowl filled with white liquid. Close-up view: the man pours the reddish-orange substance from the small ramekin into the white liquid in the glass bowl. The man stands behind the counter; the bowl now contains white liquid with the reddish substance mixed in.",
+      "evidence": [
+        "v4.focus.r4.l1.e1",
+        "v4.focus.r4.l1.e2",
+        "v4.focus.r4.l1.e3"
+      ],
+      "uncertainty": [
+        "Substance identity unknown without external context.",
+        "Texture is liquid/paste, not dry powder.",
+        "Final mixture consistency not fully visible.",
+        "Unresolved: Comparison with speckled seasoned flour appearance"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        4.012999999999998,
+        5.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r6-R1-01.s01",
+      "video": "v4",
+      "time": [
+        5.001,
+        7.016999999999996
+      ],
+      "resolution": "fine",
+      "content": "A man reaches towards a small bowl containing an orange substance, then picks up a white fillet from a blue plate. A hand dips a white fillet into a large glass bowl containing a milky liquid. A small bowl with orange liquid sits nearby.",
+      "evidence": [
+        "v4.focus.r6.l1.e1",
+        "v4.focus.r6.l1.e2"
+      ],
+      "uncertainty": [
+        "The exact moment the orange substance is added is not shown.",
+        "The specific contents of the milky liquid are unknown.",
+        "Unresolved: Whether the fillets are dry before dipping (implied by visual but not explicitly shown as dry texture)",
+        "Unresolved: Presence of a seasoned-flour station (none visible in frame)"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        7.017,
+        12.982
+      ],
+      "resolution": "coarse",
+      "content": "The chef dips a white fillet into the glass bowl, which now contains a swirling orange-tinted liquid. He places the fillet into the liquid, joining other fillets already soaking.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "The transition of liquid color between segments is unobserved."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        12.982,
+        14.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

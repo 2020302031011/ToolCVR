@@ -1,0 +1,161 @@
+{
+  "question": "Which video processes herbs through mechanical blending rather than hand-chopping?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0004-e1"
+      ],
+      "statement": "A food processor is used to blend herbs in video v3."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0004-e1"
+      ],
+      "statement": "Herbs are hand-chopped in video v1."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "Herbs are hand-chopped in video v2."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0003-e1"
+      ],
+      "statement": "Herbs are hand-chopped in video v4."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "Video v3 uses mechanical blending for herbs, while video v1 uses hand-chopping.",
+      "supporting_events": [
+        "v3-b0004-e1",
+        "v1-b0004-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "statement": "Video v3 uses mechanical blending for herbs, while video v2 uses hand-chopping.",
+      "supporting_events": [
+        "v3-b0004-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "Video v3 uses mechanical blending for herbs, while video v4 uses hand-chopping.",
+      "supporting_events": [
+        "v3-b0004-e1",
+        "v4-b0003-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the mechanical blending in v3 is explicitly confirmed in the video.",
+      "reason": "The event description implies mechanical blending but does not visually confirm it.",
+      "related_events": [
+        "v3-b0004-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Is the mechanical blending of herbs visually confirmed in v3?",
+      "purpose": "To resolve whether the mechanical blending in v3 is confirmed.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-196",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v8-reproject-broad27/reports/CC/CC-196/report.json",
+    "report_sha256": "48ff5be3f756fc1ad48e65353c3cfd4674c011b8bb676413af9161274a7902e8",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,1378 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "v1 shows ingredient gathering, rooftop cooking, and a lightning interruption; v2 shows a TV chef, an elderly woman becoming agitated and swinging a cane/shotgun, kitchen panic, and rain-driven shelter construction. The best-supported missing interval is that cooking/TV-chef activity created a disturbance that alerted the woman (B). Alternatives lack direct visible causes, though the precise noise trigger remains partly unresolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c008",
+          "v2.zoom.r1-U02-01.s01",
+          "v2.zoom.r2-r1-01.s01"
+        ],
+        "attempts": [
+          "The woman's agitation follows TV-chef viewing and rat movement, but the exact noise trigger and its link to v1 rooftop cooking remain unresolved."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c009",
+          "v2.c010",
+          "v2.c012"
+        ],
+        "attempts": [
+          "Storm/lightning and later rain/shelter/bridge are visible, but no map or planned-route clue is shown in the cited spans; the missing interval could still contain one."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c005",
+          "v2.c008",
+          "v2.c009"
+        ],
+        "attempts": [
+          "Ingredient handling and kitchen alarm are visible; no trap or hallucinogenic-spice event appears in the cited spans, but absence there is not global."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.008
+        ],
+        "description": "A blue mouse moves through grass and discovers a large yellow mushroom, reacting with surprise.",
+        "uncertainty": "Initial context of the window scene is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          18.018
+        ],
+        "description": "The blue mouse carries the mushroom to a trash can and interacts with a red mouse named Emile.",
+        "uncertainty": "Exact dialogue intent beyond 'hiding food' is inferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          20.02,
+          20.02
+        ],
+        "description": "The two mice are seen walking together on a grassy path.",
+        "uncertainty": "Destination is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          37.996,
+          46.004
+        ],
+        "description": "The mice are near a stone wall and tractor; the blue mouse enters a paper bag held by the red mouse.",
+        "uncertainty": "Reason for entering the bag is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          48.006,
+          56.014
+        ],
+        "description": "The blue rat holds a piece of cheese and a mushroom, showing them to the brown rat while explaining the ingredients.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          58.016,
+          67.985
+        ],
+        "description": "The blue rat moves around the grass, finding rosemary and licorice, while the brown rat watches.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          81.999,
+          90.007
+        ],
+        "description": "The blue rat looks up at a house, and the scene cuts to both rats standing on a rooftop chimney.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          92.009,
+          104.021
+        ],
+        "description": "Two mice on a rooftop discuss cooking techniques and a storm, with one rotating food on a spit over a chimney.",
+        "uncertainty": "What happens between dialogue and lightning strike.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          105.981,
+          105.981
+        ],
+        "description": "A lightning bolt strikes the rooftop antenna, sending sparks flying.",
+        "uncertainty": "Immediate cause of the strike.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          107.983,
+          109.985
+        ],
+        "description": "The two mice are shown lying dazed on the ground, their fur standing on end from the electrical shock.",
+        "uncertainty": "How they got from the roof to the ground.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e4",
+        "video_id": "v1",
+        "time_span": [
+          134.009,
+          144.019
+        ],
+        "description": "Recovering from the shock, the mice sit up and decide to try the 'thunder-baked' cooking method again.",
+        "uncertainty": "What happened during the 24-second gap before they woke up.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          273.982,
+          281.99
+        ],
+        "description": "A blue mouse watches a TV chef, then a brown mouse holds a large food item on a stick while the old woman reacts with surprise.",
+        "uncertainty": "Exact cause of the woman's surprise is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          298.006,
+          306.014
+        ],
+        "description": "The old woman swings a cane, causing the brown mouse to flee across the ceiling beams while the blue mouse looks on.",
+        "uncertainty": "The specific trigger for the woman's swinging action is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          312.02,
+          321.988
+        ],
+        "description": "The brown mouse clings to a chandelier, the blue mouse shouts for help, and the woman looks down in shock at the mess.",
+        "uncertainty": "The contents of the box held at the end are not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          323.99,
+          334.0
+        ],
+        "description": "A small mouse hangs from a chandelier lampshade, swinging back and forth. An elderly woman with pink hair and glasses watches the mouse's movements with an expression of surprise or confusion.",
+        "uncertainty": "Exact intent of the mouse's swinging action",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          336.002,
+          350.016
+        ],
+        "description": "The elderly woman is now holding a large shotgun, looking alert and pointing it upwards. She appears to be aiming at a target, likely the mice causing the disturbance.",
+        "uncertainty": "Whether she fires the weapon in this specific interval",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          352.018,
+          355.981
+        ],
+        "description": "The camera focuses on the ceiling, revealing multiple bullet holes and cracks radiating from impact points. This indicates that shots have been fired and have hit the ceiling.",
+        "uncertainty": "Specific number of shots fired",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          357.983,
+          365.991
+        ],
+        "description": "A massive swarm of mice is shown falling from the ceiling and rushing across the room in a chaotic stampede. The woman watches them in shock as they flee the scene.",
+        "uncertainty": "Cause of the sudden swarm appearance (falling vs entering)",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          367.993,
+          373.999
+        ],
+        "description": "Mice are inside a kitchen. One mouse (Remy) spots a cookbook titled 'Anyone Can Cook' on a shelf. The group reacts with alarm.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          373.999,
+          386.011
+        ],
+        "description": "The mice flee out a door. Remy grabs the cookbook and carries it out the window, passing a human woman wearing a gas mask inside.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          388.013,
+          397.981
+        ],
+        "description": "The group runs through heavy rain and tall grass. They arrive at a makeshift shelter and begin constructing a bridge out of debris.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          399.983,
+          401.985
+        ],
+        "description": "Rats are seen moving rapidly through tall grass and reeds near a body of water, suggesting travel or fleeing.",
+        "uncertainty": "Destination and specific cause of movement unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          428.011,
+          434.017
+        ],
+        "description": "A group of rats is in a makeshift boat, actively rowing and reaching out with a spatula-like tool.",
+        "uncertainty": "Identity of the rat being rescued is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          436.019,
+          436.019
+        ],
+        "description": "A human figure wearing a hat and pink shirt observes the rats' boat entering a dark sewer tunnel.",
+        "uncertainty": "Reaction of the human is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          457.999,
+          466.007
+        ],
+        "description": "Inside the tunnel, a single rat rows a small raft towards a waterfall, appearing wet and determined.",
+        "uncertainty": "Purpose of approaching the waterfall is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e5",
+        "video_id": "v2",
+        "time_span": [
+          474.015,
+          478.019
+        ],
+        "description": "The rat continues navigating the dark tunnel water, moving past the waterfall area.",
+        "uncertainty": "Final destination within the tunnel is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          273.982,
+          275.984
+        ],
+        "description": "A blue rat watches a TV screen showing a tombstone for Auguste Gusteau and a chef character. Subtitle reads 'Gusteau is dead?'.",
+        "uncertainty": "Audio volume of TV is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          276.985,
+          278.987
+        ],
+        "description": "The blue rat approaches an old woman seated in a chair, then runs across the floor as she looks down.",
+        "uncertainty": "Exact trigger for the woman's attention shift is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          279.988,
+          280.989
+        ],
+        "description": "A brown rat holds a piece of food on a stick over a stove, then falls or drops the food.",
+        "uncertainty": "Noise level of the fall is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          281.99,
+          281.99
+        ],
+        "description": "The old woman reacts with a startled expression and swings her arm/cane.",
+        "uncertainty": "Target of the swing is not visible in this frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          298.006,
+          299.007
+        ],
+        "description": "The old woman is actively swinging a cane, striking a ceiling light fixture.",
+        "uncertainty": "What caused the woman to start swinging her cane is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          300.008,
+          300.008
+        ],
+        "description": "A rat is briefly visible near the damaged ceiling fixture.",
+        "uncertainty": "The rat's full action is obscured by blur.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          301.009,
+          303.011
+        ],
+        "description": "The old woman moves through the kitchen, now holding a rifle and looking around with a startled expression.",
+        "uncertainty": "The transition from cane to rifle is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e4",
+        "video_id": "v2",
+        "time_span": [
+          304.012,
+          306.014
+        ],
+        "description": "The camera shows the rifle aiming at the ceiling, then a close-up of a rat's face.",
+        "uncertainty": "The outcome of the aiming is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          281.99,
+          282.991
+        ],
+        "description": "Elderly woman in pink nightgown swings a wooden cane aggressively, motion blur indicates rapid movement.",
+        "uncertainty": "Audio cue preceding swing not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          283.992,
+          283.992
+        ],
+        "description": "A grey rat is seen running across a wooden table near a white mug and a bowl of fruit.",
+        "uncertainty": "Connection to preceding swing unclear.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          284.993,
+          287.996
+        ],
+        "description": "Woman uses a black umbrella to strike or block something, then holds a long dark object (possibly a cane or umbrella shaft) horizontally.",
+        "uncertainty": "Exact sequence of umbrella vs cane use is rapid.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          288.997,
+          290.999
+        ],
+        "description": "Impact on a wall creates a dust cloud and hole; a rat is blown backward by the force, with subtitles 'Run fast'.",
+        "uncertainty": "Cause of impact (umbrella/cane) not explicitly shown in frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e5",
+        "video_id": "v2",
+        "time_span": [
+          292.0,
+          294.002
+        ],
+        "description": "Rats scramble on a kitchen counter, knocking over white cups and a timer; one rat gestures with subtitle 'Don't run towards the old nest'.",
+        "uncertainty": "Specific disturbance source not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e6",
+        "video_id": "v2",
+        "time_span": [
+          295.003,
+          297.005
+        ],
+        "description": "Camera looks up at ceiling pipes; a rat scurries along a pipe and falls/jumps down through the air.",
+        "uncertainty": "Connection to kitchen counter event unclear.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local visual evidence for the trigger of the old woman's surprise and cane swing in v2.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c001",
+          "v2.c002"
+        ],
+        "evidence_goal": "Does v2.c001 show a visible TV-chef or cooking action that creates noise, mess, or a food-on-stick disturbance immediately before the old woman's surprise, and does v2.c002 show her cane swing as a direct response to that cooking disturbance?",
+        "next_probe_goal": "If no cooking disturbance is visible, inspect the unobserved interval between the TV-chef reaction and the cane swing for a missing trigger.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need visible trigger in v2 interval before cane swing to test cooking disturbance vs rat presence.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.u001"
+        ],
+        "evidence_goal": "Does the unobserved v2 interval show a cooking-related disturbance or noise cue immediately preceding the cane swing?",
+        "next_probe_goal": "If no trigger appears, inspect v2.u002 for a missing cue between TV reaction and cane swing.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "v1 shows ingredient gathering, rooftop cooking, and a lightning interruption; v2 shows a TV chef, an elderly woman becoming agitated and swinging a cane/shotgun, kitchen panic, and rain-driven shelter construction. The best-supported missing interval is that cooking/TV-chef activity created a disturbance that alerted the woman (B). Alternatives lack direct visible causes, though the precise noise trigger remains partly unresolved.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.c008",
+      "v2.zoom.r1-U02-01.s01",
+      "v2.zoom.r2-r1-01.s01",
+      "v2.c005",
+      "v2.c008",
+      "v2.c009"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.008
+      ],
+      "resolution": "coarse",
+      "content": "A blue mouse moves through grass and discovers a large yellow mushroom, reacting with surprise.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Initial context of the window scene is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.01,
+        18.018
+      ],
+      "resolution": "coarse",
+      "content": "The blue mouse carries the mushroom to a trash can and interacts with a red mouse named Emile.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact dialogue intent beyond 'hiding food' is inferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        20.02,
+        20.02
+      ],
+      "resolution": "coarse",
+      "content": "The two mice are seen walking together on a grassy path.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Destination is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        20.02,
+        35.019999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        35.019999999999996,
+        37.996291666666664
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        37.996,
+        46.004
+      ],
+      "resolution": "coarse",
+      "content": "The mice are near a stone wall and tractor; the blue mouse enters a paper bag held by the red mouse.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Reason for entering the bag is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        48.006,
+        56.014
+      ],
+      "resolution": "coarse",
+      "content": "The blue rat holds a piece of cheese and a mushroom, showing them to the brown rat while explaining the ingredients.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        56.014291666666665,
+        58.01629166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        58.016,
+        67.985
+      ],
+      "resolution": "coarse",
+      "content": "The blue rat moves around the grass, finding rosemary and licorice, while the brown rat watches.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        67.98458333333333,
+        81.99858333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        81.999,
+        90.007
+      ],
+      "resolution": "coarse",
+      "content": "The blue rat looks up at a house, and the scene cuts to both rats standing on a rooftop chimney.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        92.009,
+        104.021
+      ],
+      "resolution": "coarse",
+      "content": "Two mice on a rooftop discuss cooking techniques and a storm, with one rotating food on a spit over a chimney.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "What happens between dialogue and lightning strike."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        105.981,
+        105.981
+      ],
+      "resolution": "coarse",
+      "content": "A lightning bolt strikes the rooftop antenna, sending sparks flying.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "Immediate cause of the strike."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c010",
+      "video": "v1",
+      "time": [
+        107.983,
+        109.985
+      ],
+      "resolution": "coarse",
+      "content": "The two mice are shown lying dazed on the ground, their fur standing on end from the electrical shock.",
+      "evidence": [
+        "v1-b0003-e3"
+      ],
+      "uncertainty": [
+        "How they got from the roof to the ground."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        109.984875,
+        124.984875
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        124.984875,
+        134.008875
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c011",
+      "video": "v1",
+      "time": [
+        134.009,
+        144.019
+      ],
+      "resolution": "coarse",
+      "content": "Recovering from the shock, the mice sit up and decide to try the 'thunder-baked' cooking method again.",
+      "evidence": [
+        "v1-b0003-e4"
+      ],
+      "uncertainty": [
+        "What happened during the 24-second gap before they woke up."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        273.982,
+        281.99
+      ],
+      "resolution": "fine",
+      "content": "A blue rat watches a TV screen showing a tombstone for Auguste Gusteau and a chef character. Subtitle reads 'Gusteau is dead?'. The blue rat approaches an old woman seated in a chair, then runs across the floor as she looks down. A brown rat holds a piece of food on a stick over a stove, then falls or drops the food. The old woman reacts with a startled expression and swings her arm/cane.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3",
+        "v2.focus.r1.l1.e4"
+      ],
+      "uncertainty": [
+        "Audio volume of TV is not visible.",
+        "Exact trigger for the woman's attention shift is unclear.",
+        "Noise level of the fall is not visible.",
+        "Target of the swing is not visible in this frame.",
+        "Unresolved: Confirmation that the cane swing is specifically a response to the cooking disturbance rather than the rat's presence."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        281.9900416666667,
+        296.9900416666667
+      ],
+      "resolution": "fine",
+      "content": "Elderly woman in pink nightgown swings a wooden cane aggressively, motion blur indicates rapid movement. A grey rat is seen running across a wooden table near a white mug and a bowl of fruit. Woman uses a black umbrella to strike or block something, then holds a long dark object (possibly a cane or umbrella shaft) horizontally. Impact on a wall creates a dust cloud and hole; a rat is blown backward by the force, with subtitles 'Run fast'. Rats scramble on a kitchen counter, knocking over white cups and a timer; one rat gestures with subtitle 'Don't run towards the old nest'. Camera looks up at ceiling pipes; a rat scurries along a pipe and falls/jumps down through the air.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4",
+        "v2.focus.r2.l1.e5",
+        "v2.focus.r2.l1.e6"
+      ],
+      "uncertainty": [
+        "Audio cue preceding swing not visible.",
+        "Connection to preceding swing unclear.",
+        "Exact sequence of umbrella vs cane use is rapid.",
+        "Cause of impact (umbrella/cane) not explicitly shown in frame.",
+        "Specific disturbance source not visible.",
+        "Connection to kitchen counter event unclear.",
+        "Unresolved: Visual evidence of cooking disturbance immediately before 281.990s"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        296.9900416666667,
+        298.00604166666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-02.s01",
+      "video": "v2",
+      "time": [
+        298.006,
+        306.014
+      ],
+      "resolution": "fine",
+      "content": "The old woman is actively swinging a cane, striking a ceiling light fixture. A rat is briefly visible near the damaged ceiling fixture. The old woman moves through the kitchen, now holding a rifle and looking around with a startled expression. The camera shows the rifle aiming at the ceiling, then a close-up of a rat's face.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2",
+        "v2.focus.r1.l2.e3",
+        "v2.focus.r1.l2.e4"
+      ],
+      "uncertainty": [
+        "What caused the woman to start swinging her cane is not visible.",
+        "The rat's full action is obscured by blur.",
+        "The transition from cane to rifle is not shown.",
+        "The outcome of the aiming is not shown.",
+        "Unresolved: A visible TV-chef or cooking action causing a disturbance",
+        "Unresolved: The direct link between the cooking disturbance and the cane swing"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        306.0140416666666,
+        312.0200416666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        312.02,
+        321.988
+      ],
+      "resolution": "coarse",
+      "content": "The brown mouse clings to a chandelier, the blue mouse shouts for help, and the woman looks down in shock at the mess.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The contents of the box held at the end are not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        323.99,
+        334.0
+      ],
+      "resolution": "coarse",
+      "content": "A small mouse hangs from a chandelier lampshade, swinging back and forth. An elderly woman with pink hair and glasses watches the mouse's movements with an expression of surprise or confusion.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact intent of the mouse's swinging action"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        336.002,
+        350.016
+      ],
+      "resolution": "coarse",
+      "content": "The elderly woman is now holding a large shotgun, looking alert and pointing it upwards. She appears to be aiming at a target, likely the mice causing the disturbance.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Whether she fires the weapon in this specific interval"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        336.0023333333333,
+        350.0163333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        352.018,
+        355.981
+      ],
+      "resolution": "coarse",
+      "content": "The camera focuses on the ceiling, revealing multiple bullet holes and cracks radiating from impact points. This indicates that shots have been fired and have hit the ceiling.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Specific number of shots fired"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        357.983,
+        365.991
+      ],
+      "resolution": "coarse",
+      "content": "A massive swarm of mice is shown falling from the ceiling and rushing across the room in a chaotic stampede. The woman watches them in shock as they flee the scene.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Cause of the sudden swarm appearance (falling vs entering)"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        367.993,
+        373.999
+      ],
+      "resolution": "coarse",
+      "content": "Mice are inside a kitchen. One mouse (Remy) spots a cookbook titled 'Anyone Can Cook' on a shelf. The group reacts with alarm.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        373.999,
+        386.011
+      ],
+      "resolution": "coarse",
+      "content": "The mice flee out a door. Remy grabs the cookbook and carries it out the window, passing a human woman wearing a gas mask inside.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        388.013,
+        397.981
+      ],
+      "resolution": "coarse",
+      "content": "The group runs through heavy rain and tall grass. They arrive at a makeshift shelter and begin constructing a bridge out of debris.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        392.016625,
+        394.018625
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        399.983,
+        401.985
+      ],
+      "resolution": "coarse",
+      "content": "Rats are seen moving rapidly through tall grass and reeds near a body of water, suggesting travel or fleeing.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Destination and specific cause of movement unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        401.98491666666666,
+        416.98491666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        416.98491666666666,
+        428.0109166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        428.011,
+        434.017
+      ],
+      "resolution": "coarse",
+      "content": "A group of rats is in a makeshift boat, actively rowing and reaching out with a spatula-like tool.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Identity of the rat being rescued is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        436.01891666666666,
+        451.01891666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        436.019,
+        436.019
+      ],
+      "resolution": "coarse",
+      "content": "A human figure wearing a hat and pink shirt observes the rats' boat entering a dark sewer tunnel.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Reaction of the human is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        451.01891666666666,
+        457.9992083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        457.999,
+        466.007
+      ],
+      "resolution": "coarse",
+      "content": "Inside the tunnel, a single rat rows a small raft towards a waterfall, appearing wet and determined.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [
+        "Purpose of approaching the waterfall is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        466.0072083333333,
+        474.0152083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        474.015,
+        478.019
+      ],
+      "resolution": "coarse",
+      "content": "The rat continues navigating the dark tunnel water, moving past the waterfall area.",
+      "evidence": [
+        "v2-b0004-e5"
+      ],
+      "uncertainty": [
+        "Final destination within the tunnel is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        478.0192083333333,
+        479.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If no cooking disturbance is visible, inspect the unobserved interval between the TV-chef reaction and the cane swing for a missing trigger.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

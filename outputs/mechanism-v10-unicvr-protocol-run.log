@@ -1,0 +1,567 @@
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_observation_cycle.py --cuda-devices 0,3,4,5 --sample-ids PSS-62,PSS-160,PSS-386,CC-196,CC-335,CC-474,FSA-21,FSA-303,FSA-574,NC-6,NC-150,NC-657,PI-35,PI-63,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-151,PEA-221,PEA-350,CCQA-1,CCQA-128,CCQA-480 --selection-dir outputs/mechanism-v10-unicvr-protocol-selection-broad27 --output-root outputs/mechanism-v10-unicvr-protocol-broad27 --crossvid-root /media/data6/xuejj/CrossVid --vlm-model /media/data6/xuejj/Qwen-VL --llm-model /media/data6/xuejj/Qwen3-14B --port 8000 --max-vlm-tokens 2048 --maximum-events-per-batch 8 --decode-long-edge 1024 --skip-initial-focus
+[server] starting local LLM on physical GPU 5
+[server] loading /media/data6/xuejj/Qwen3-14B on cuda:0
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.25s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:07,  1.28s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:06,  1.35s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.35s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:04,  1.36s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.39s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.37s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.16s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.28s/it]
+[server] ready as 'Qwen3-14B', thinking=False
+[server] ready at http://127.0.0.1:8000/v1/models
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py --tasks PSS,CC,FSA,NC,PI,MSR,MOC,PEA,CCQA --sample-ids PSS-62,PSS-160,PSS-386,CC-196,CC-335,CC-474,FSA-21,FSA-303,FSA-574,NC-6,NC-150,NC-657,PI-35,PI-63,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-151,PEA-221,PEA-350,CCQA-1,CCQA-128,CCQA-480 --crossvid-root /media/data6/xuejj/CrossVid --output-dir outputs/mechanism-v10-unicvr-protocol-selection-broad27 --api-base-url http://127.0.0.1:8000/v1 --api-model Qwen3-14B --api-key-env LLM_API_KEY --clip-device cuda:0 --clip-batch-size 64 --resume
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[selection] profiles=config-default retention_ratio=None query_plan_dir=None
+[PSS] requested sample ids=62,160,386
+[PSS-62] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-62] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-62] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[server] 38 tokens in 2.5s
+[h264 @ 0x90bee80] mmco: unref short failure
+[h264 @ 0x90c1f40] mmco: unref short failure
+[h264 @ 0x90c1f40] mmco: unref short failure
+[PSS-62][config-default] selected=53/124 retention=42.7%
+[summary] samples=1 selected=53/124 retention=42.7%
+[PSS-62][decode-cache] selected_hits=1 selected_misses=52 timeline_hits=0 timeline_misses=124
+[PSS-160] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-160] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-160] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[server] 38 tokens in 1.7s
+[PSS-160][config-default] selected=12/17 retention=70.6%
+[summary] samples=2 selected=65/141 retention=46.1%
+[PSS-160][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=17
+[PSS-386] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-386] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-386] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[server] 38 tokens in 1.6s
+[PSS-386][config-default] selected=32/66 retention=48.5%
+[summary] samples=3 selected=97/207 retention=46.9%
+[PSS-386][decode-cache] selected_hits=0 selected_misses=32 timeline_hits=0 timeline_misses=66
+[CC] requested sample ids=196,335,474
+[server] 342 tokens in 13.8s
+[h264 @ 0x109aae80] mmco: unref short failure
+[h264 @ 0x109aae80] mmco: unref short failure
+[h264 @ 0x173e6580] mmco: unref short failure
+[h264 @ 0x173e6580] mmco: unref short failure
+[h264 @ 0x173e6580] mmco: unref short failure
+[h264 @ 0x10b06480] mmco: unref short failure
+[h264 @ 0x10b06480] mmco: unref short failure
+[h264 @ 0x10b06480] mmco: unref short failure
+[h264 @ 0x10b06480] mmco: unref short failure
+[h264 @ 0x10970800] mmco: unref short failure
+[h264 @ 0x10970800] mmco: unref short failure
+[h264 @ 0x171f4640] mmco: unref short failure
+[h264 @ 0xa928540] mmco: unref short failure
+[h264 @ 0xa928540] mmco: unref short failure
+[h264 @ 0xa928540] mmco: unref short failure
+[h264 @ 0xa928540] mmco: unref short failure
+[CC-196][config-default] selected=187/787 retention=23.8%
+[summary] samples=4 selected=284/994 retention=28.6%
+[CC-196][decode-cache] selected_hits=0 selected_misses=187 timeline_hits=0 timeline_misses=787
+[server] 497 tokens in 18.9s
+[h264 @ 0x20087480] mmco: unref short failure
+[h264 @ 0x20087480] mmco: unref short failure
+[h264 @ 0x20087480] mmco: unref short failure
+[h264 @ 0x20087480] mmco: unref short failure
+[CC-335][config-default] selected=136/444 retention=30.6%
+[summary] samples=5 selected=420/1438 retention=29.2%
+[CC-335][decode-cache] selected_hits=0 selected_misses=136 timeline_hits=0 timeline_misses=444
+[server] 255 tokens in 9.8s
+[CC-474][config-default] selected=63/216 retention=29.2%
+[summary] samples=6 selected=483/1654 retention=29.2%
+[CC-474][decode-cache] selected_hits=0 selected_misses=63 timeline_hits=0 timeline_misses=216
+[FSA] requested sample ids=21,303,574
+[FSA-21] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-21] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-21] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[server] 34 tokens in 1.5s
+[FSA-21][config-default] selected=63/98 retention=64.3%
+[summary] samples=7 selected=546/1752 retention=31.2%
+[FSA-21][decode-cache] selected_hits=0 selected_misses=63 timeline_hits=0 timeline_misses=98
+[FSA-303] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-303] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-303] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[server] 34 tokens in 1.4s
+[h264 @ 0x14a84c80] mmco: unref short failure
+[h264 @ 0x14a84c80] mmco: unref short failure
+[h264 @ 0xa92ea00] mmco: unref short failure
+[h264 @ 0xa92ea00] mmco: unref short failure
+[h264 @ 0x10957240] mmco: unref short failure
+[FSA-303][config-default] selected=146/233 retention=62.7%
+[summary] samples=8 selected=692/1985 retention=34.9%
+[FSA-303][decode-cache] selected_hits=0 selected_misses=146 timeline_hits=0 timeline_misses=233
+[FSA-574] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-574] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-574] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[server] 34 tokens in 1.4s
+[h264 @ 0xb007d80] mmco: unref short failure
+[FSA-574][config-default] selected=39/95 retention=41.1%
+[summary] samples=9 selected=731/2080 retention=35.1%
+[FSA-574][decode-cache] selected_hits=0 selected_misses=39 timeline_hits=0 timeline_misses=95
+[NC] requested sample ids=6,150,657
+[server] 441 tokens in 16.6s
+[NC-6][config-default] selected=331/904 retention=36.6%
+[summary] samples=10 selected=1062/2984 retention=35.6%
+[NC-6][decode-cache] selected_hits=0 selected_misses=331 timeline_hits=0 timeline_misses=904
+[server] 422 tokens in 15.7s
+[NC-150][config-default] selected=337/934 retention=36.1%
+[summary] samples=11 selected=1399/3918 retention=35.7%
+[NC-150][decode-cache] selected_hits=0 selected_misses=337 timeline_hits=0 timeline_misses=934
+[server] 447 tokens in 16.6s
+[NC-657][config-default] selected=319/917 retention=34.8%
+[summary] samples=12 selected=1718/4835 retention=35.5%
+[NC-657][decode-cache] selected_hits=0 selected_misses=319 timeline_hits=0 timeline_misses=917
+[PI] requested sample ids=35,63,167
+[PI-35] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[server] 484 tokens in 18.5s
+[PI-35][config-default] selected=93/176 retention=52.8%
+[summary] samples=13 selected=1811/5011 retention=36.1%
+[PI-35][decode-cache] selected_hits=0 selected_misses=93 timeline_hits=0 timeline_misses=176
+[PI-63] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[server] 621 tokens in 23.4s
+[PI-63][config-default] selected=94/173 retention=54.3%
+[summary] samples=14 selected=1905/5184 retention=36.7%
+[PI-63][decode-cache] selected_hits=0 selected_misses=94 timeline_hits=0 timeline_misses=173
+[PI-167] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[server] 385 tokens in 16.8s
+[PI-167][config-default] selected=32/62 retention=51.6%
+[summary] samples=15 selected=1937/5246 retention=36.9%
+[PI-167][decode-cache] selected_hits=0 selected_misses=32 timeline_hits=0 timeline_misses=62
+[MSR] requested sample ids=0,85,169
+[MSR-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-0] data repair: A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.
+[MSR-0] data repair: A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.
+[MSR-0] data repair: A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.
+[MSR-0] data repair: A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.
+[MSR-0] data repair: A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.
+[MSR-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 337 tokens in 12.8s
+[MSR-0][config-default] selected=6/16 retention=37.5%
+[summary] samples=16 selected=1943/5262 retention=36.9%
+[MSR-0][decode-cache] selected_hits=0 selected_misses=6 timeline_hits=0 timeline_misses=16
+[MSR-85] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-85] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-85] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-85] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-85] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-85] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-85] data repair: A1/B1 is source_track=39; declared=car; A1_visible=30-296 (1.000-9.900s)/340_frames; B1_visible=110-331 (3.667-11.067s)/340_frames.
+[MSR-85] data repair: A2/B2 is source_track=44; declared=car; A2_visible=70-339 (2.333-11.333s)/340_frames; B2_visible=170-339 (5.667-11.333s)/340_frames.
+[MSR-85] data repair: A3/B3 is source_track=53; declared=car; A3_visible=140-339 (4.667-11.333s)/340_frames; B3_visible=290-339 (9.667-11.333s)/340_frames.
+[MSR-85] data repair: A4/B4 is source_track=67; declared=car; A4_visible=0-270 (0.000-9.033s)/340_frames; B4_visible=84-299 (2.800-10.000s)/340_frames.
+[MSR-85] data repair: A5/B5 is source_track=127; declared=car; A5_visible=120-149 (4.000-5.000s)/340_frames; B5_visible=none/340_frames.
+[MSR-85] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 428 tokens in 16.3s
+[MSR-85][config-default] selected=10/12 retention=83.3%
+[summary] samples=17 selected=1953/5274 retention=37.0%
+[MSR-85][decode-cache] selected_hits=0 selected_misses=10 timeline_hits=0 timeline_misses=12
+[MSR-169] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-169] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-169] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-169] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-169] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-169] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-169] data repair: A1/B1 is source_track=11; declared=car; A1_visible=62-419 (2.067-14.000s)/420_frames; B1_visible=105-419 (3.500-14.000s)/420_frames.
+[MSR-169] data repair: A2/B2 is source_track=17; declared=person; A2_visible=0-419 (0.000-14.000s)/420_frames; B2_visible=0-419 (0.000-14.000s)/420_frames.
+[MSR-169] data repair: A3/B3 is source_track=21; declared=person; A3_visible=0-242 (0.000-8.100s)/420_frames; B3_visible=0-270 (0.000-9.033s)/420_frames.
+[MSR-169] data repair: A4/B4 is source_track=24; declared=car; A4_visible=0-255 (0.000-8.533s)/420_frames; B4_visible=0-278 (0.000-9.300s)/420_frames.
+[MSR-169] data repair: A5/B5 is source_track=42; declared=car; A5_visible=262-419 (8.733-14.000s)/420_frames; B5_visible=0-419 (0.000-14.000s)/420_frames.
+[MSR-169] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 320 tokens in 12.0s
+[MSR-169][config-default] selected=8/14 retention=57.1%
+[summary] samples=18 selected=1961/5288 retention=37.1%
+[MSR-169][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=14
+[MOC] requested sample ids=0,81,161
+[MOC-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-0] data repair: A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.
+[MOC-0] data repair: A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.
+[MOC-0] data repair: A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.
+[MOC-0] data repair: A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.
+[MOC-0] data repair: A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.
+[MOC-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 86 tokens in 3.3s
+[MOC-0][config-default] selected=8/16 retention=50.0%
+[summary] samples=19 selected=1969/5304 retention=37.1%
+[MOC-0][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=16
+[MOC-81] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-81] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-81] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-81] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-81] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-81] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-81] data repair: A1/B1 is source_track=43; declared=car; A1_visible=510-659 (17.000-22.000s)/700_frames; B1_visible=300-639 (10.000-21.333s)/700_frames.
+[MOC-81] data repair: A2/B2 is source_track=58; declared=car; A2_visible=490-699 (16.333-23.333s)/700_frames; B2_visible=0-699 (0.000-23.333s)/700_frames.
+[MOC-81] data repair: A3/B3 is source_track=67; declared=car; A3_visible=554-699 (18.467-23.333s)/700_frames; B3_visible=334-699 (11.133-23.333s)/700_frames.
+[MOC-81] data repair: A4/B4 is source_track=77; declared=car; A4_visible=0-76 (0.000-2.567s)/700_frames; B4_visible=0-265 (0.000-8.867s)/700_frames.
+[MOC-81] data repair: A5/B5 is source_track=21; declared=person; A5_visible=99-354 (3.300-11.833s)/700_frames; B5_visible=0-405 (0.000-13.533s)/700_frames.
+[MOC-81] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 518 tokens in 19.5s
+[MOC-81][config-default] selected=14/24 retention=58.3%
+[summary] samples=20 selected=1983/5328 retention=37.2%
+[MOC-81][decode-cache] selected_hits=0 selected_misses=14 timeline_hits=0 timeline_misses=24
+[MOC-161] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-161] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-161] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-161] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-161] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-161] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-161] data repair: A1/B1 is source_track=13; declared=car; A1_visible=122-262 (4.067-8.767s)/420_frames; B1_visible=0-302 (0.000-10.100s)/420_frames.
+[MOC-161] data repair: A2/B2 is source_track=45; declared=car; A2_visible=329-419 (10.967-14.000s)/420_frames; B2_visible=3-419 (0.100-14.000s)/420_frames.
+[MOC-161] data repair: A3/B3 is source_track=63; declared=car; A3_visible=327-419 (10.900-14.000s)/420_frames; B3_visible=223-419 (7.433-14.000s)/420_frames.
+[MOC-161] data repair: A4/B4 is source_track=30; declared=person; A4_visible=202-419 (6.733-14.000s)/420_frames; B4_visible=0-419 (0.000-14.000s)/420_frames.
+[MOC-161] data repair: A5/B5 is source_track=22; declared=person; A5_visible=0-244 (0.000-8.167s)/420_frames; B5_visible=0-272 (0.000-9.100s)/420_frames.
+[MOC-161] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[server] 474 tokens in 17.9s
+[MOC-161][config-default] selected=10/14 retention=71.4%
+[summary] samples=21 selected=1993/5342 retention=37.3%
+[MOC-161][decode-cache] selected_hits=0 selected_misses=10 timeline_hits=0 timeline_misses=14
+[PEA] requested sample ids=151,221,350
+[server] 264 tokens in 10.1s
+[PEA-151][config-default] selected=105/317 retention=33.1%
+[summary] samples=22 selected=2098/5659 retention=37.1%
+[PEA-151][decode-cache] selected_hits=0 selected_misses=105 timeline_hits=0 timeline_misses=317
+[server] 187 tokens in 7.2s
+[PEA-221][config-default] selected=101/306 retention=33.0%
+[summary] samples=23 selected=2199/5965 retention=36.9%
+[PEA-221][decode-cache] selected_hits=0 selected_misses=101 timeline_hits=0 timeline_misses=306
+[server] 283 tokens in 10.7s
+[PEA-350][config-default] selected=93/312 retention=29.8%
+[summary] samples=24 selected=2292/6277 retention=36.5%
+[PEA-350][decode-cache] selected_hits=0 selected_misses=93 timeline_hits=0 timeline_misses=312
+[CCQA] requested sample ids=1,128,480
+[CCQA-1] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-1] data repair: The final answer is free text, not an option label.
+[server] 39 tokens in 1.6s
+[h264 @ 0x1cda2040] mmco: unref short failure
+[h264 @ 0x1cda2040] mmco: unref short failure
+[h264 @ 0x1cda2040] mmco: unref short failure
+[h264 @ 0x1cda2040] mmco: unref short failure
+[h264 @ 0x173ab600] mmco: unref short failure
+[h264 @ 0x173ab600] mmco: unref short failure
+[CCQA-1][config-default] selected=119/280 retention=42.5%
+[summary] samples=25 selected=2411/6557 retention=36.8%
+[CCQA-1][decode-cache] selected_hits=0 selected_misses=119 timeline_hits=0 timeline_misses=280
+[CCQA-128] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-128] data repair: The final answer is free text, not an option label.
+[server] 33 tokens in 1.4s
+[h264 @ 0x109a78c0] mmco: unref short failure
+[h264 @ 0x109a78c0] mmco: unref short failure
+[h264 @ 0x171e0a80] mmco: unref short failure
+[h264 @ 0x171e0a80] mmco: unref short failure
+[h264 @ 0x1d2819c0] mmco: unref short failure
+[h264 @ 0xb8215c0] mmco: unref short failure
+[h264 @ 0xb8215c0] mmco: unref short failure
+[h264 @ 0x16b58f00] mmco: unref short failure
+[h264 @ 0xaf31740] mmco: unref short failure
+[h264 @ 0xaf31740] mmco: unref short failure
+[CCQA-128][config-default] selected=242/484 retention=50.0%
+[summary] samples=26 selected=2653/7041 retention=37.7%
+[CCQA-128][decode-cache] selected_hits=0 selected_misses=242 timeline_hits=0 timeline_misses=484
+[CCQA-480] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-480] data repair: The final answer is free text, not an option label.
+[server] 30 tokens in 1.3s
+[h264 @ 0x1bb14c80] mmco: unref short failure
+[h264 @ 0x1bb14c80] mmco: unref short failure
+[h264 @ 0xaf2f640] mmco: unref short failure
+[h264 @ 0xaf2f640] mmco: unref short failure
+[h264 @ 0xaf2f640] mmco: unref short failure
+[h264 @ 0xaf2f640] mmco: unref short failure
+[h264 @ 0x16d8a600] mmco: unref short failure
+[h264 @ 0x1d282e00] mmco: unref short failure
+[h264 @ 0x16d8b980] mmco: unref short failure
+[h264 @ 0x16d8b980] mmco: unref short failure
+[CCQA-480][config-default] selected=130/320 retention=40.6%
+[summary] samples=27 selected=2783/7361 retention=37.8%
+[CCQA-480][decode-cache] selected_hits=0 selected_misses=130 timeline_hits=0 timeline_misses=320
+[summary] samples=27 selected=2783/7361 retention=37.8%
+[done] /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-selection-broad27
+[server] stopping local LLM
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py reports --cuda-devices 0,3,4,5 --crossvid-root /media/data6/xuejj/CrossVid --vlm-model /media/data6/xuejj/Qwen-VL --max-vlm-tokens 2048 --maximum-events-per-batch 8 --decode-long-edge 1024 --sample-ids PSS-62,PSS-160,PSS-386,CC-196,CC-335,CC-474,FSA-21,FSA-303,FSA-574,NC-6,NC-150,NC-657,PI-35,PI-63,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-151,PEA-221,PEA-350,CCQA-1,CCQA-128,CCQA-480 --selection-dir outputs/mechanism-v10-unicvr-protocol-selection-broad27 --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports
+[schedule] reports: pending=27 completed=0 across 4 supplied GPU(s)
+[worker 0] GPU 0: PSS-62,CC-335,FSA-574,PI-35,MSR-85,MOC-161,CCQA-1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/reports-worker0-gpu0.log
+[worker 1] GPU 3: PSS-160,CC-474,NC-6,PI-63,MSR-169,PEA-151,CCQA-128 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/reports-worker1-gpu3.log
+[worker 2] GPU 4: PSS-386,FSA-21,NC-150,PI-167,MOC-0,PEA-221,CCQA-480 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/reports-worker2-gpu4.log
+[worker 3] GPU 5: CC-196,FSA-303,NC-657,MSR-0,MOC-81,PEA-350 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/reports-worker3-gpu5.log
+[done] reports: processed=27 skipped=0 across 4 GPU worker(s)
+[artifact] report.json: continuing with 22/27; missing=CC-474,CCQA-128,NC-6,PEA-151,PI-63
+[server] starting local LLM on physical GPU 5
+[server] loading /media/data6/xuejj/Qwen3-14B on cuda:0
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.23s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:07,  1.24s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:06,  1.27s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.32s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:03,  1.31s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:07<00:02,  1.33s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.32s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.69s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.45s/it]
+[server] ready as 'Qwen3-14B', thinking=False
+[server] ready at http://127.0.0.1:8000/v1/models
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/build_initial_state.py --reports-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state --sample-ids PSS-62,PSS-160,PSS-386,CC-196,CC-335,FSA-21,FSA-303,FSA-574,NC-150,NC-657,PI-35,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-221,PEA-350,CCQA-1,CCQA-480 --resume --api-base-url http://127.0.0.1:8000/v1 --api-model Qwen3-14B --api-key-env LLM_API_KEY
+[plan] 22 reports builder=openai-compatible-v3-anchored-local-summary:Qwen3-14B
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[server] 563 tokens in 24.7s
+[1/22][CC-196] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/CC/CC-196/initial_state.json
+    note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 530 tokens in 20.2s
+[2/22][CC-335] pairs=2/2 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/CC/CC-335/initial_state.json
+    note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 885 tokens in 33.8s
+[3/22][CCQA-1] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/CCQA/CCQA-1/initial_state.json
+[server] 437 tokens in 17.1s
+[4/22][CCQA-480] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/CCQA/CCQA-480/initial_state.json
+[server] 424 tokens in 16.2s
+[5/22][FSA-21] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/FSA/FSA-21/initial_state.json
+[server] 717 tokens in 27.7s
+[6/22][FSA-303] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/FSA/FSA-303/initial_state.json
+    note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 493 tokens in 19.0s
+[7/22][FSA-574] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/FSA/FSA-574/initial_state.json
+[server] 429 tokens in 16.5s
+[8/22][MOC-0] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MOC/MOC-0/initial_state.json
+[server] 408 tokens in 15.5s
+[9/22][MOC-161] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MOC/MOC-161/initial_state.json
+[server] 684 tokens in 26.0s
+[10/22][MOC-81] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MOC/MOC-81/initial_state.json
+    note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 343 tokens in 13.2s
+[11/22][MSR-0] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MSR/MSR-0/initial_state.json
+    note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 443 tokens in 16.9s
+[12/22][MSR-169] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MSR/MSR-169/initial_state.json
+[server] 442 tokens in 16.8s
+[13/22][MSR-85] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/MSR/MSR-85/initial_state.json
+[server] 2244 tokens in 88.1s
+[14/22][NC-150] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/NC/NC-150/initial_state.json
+[server] 1191 tokens in 46.6s
+[15/22][NC-657] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=3 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/NC/NC-657/initial_state.json
+    note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 396 tokens in 15.2s
+[16/22][PEA-221] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PEA/PEA-221/initial_state.json
+    note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 439 tokens in 16.7s
+[17/22][PEA-350] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PEA/PEA-350/initial_state.json
+[server] 441 tokens in 16.6s
+[18/22][PI-167] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PI/PI-167/initial_state.json
+[server] 729 tokens in 27.6s
+[19/22][PI-35] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PI/PI-35/initial_state.json
+[server] 776 tokens in 29.0s
+[20/22][PSS-160] pairs=5/5 module_filled=0 unresolved_pairs=2 relations=3 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PSS/PSS-160/initial_state.json
+    note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[server] 1374 tokens in 52.4s
+[21/22][PSS-386] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PSS/PSS-386/initial_state.json
+[server] 1400 tokens in 54.0s
+[22/22][PSS-62] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state/PSS/PSS-62/initial_state.json
+[done] completed=22/22 pairs=47 relations=32 issues=29 module_filled_pairs=0 unresolved_pairs=37
+[done] reports=/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports state=/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/state; initial focus intentionally deferred to ReasonerAgent
+[server] stopping local LLM
+[server] loading /media/data6/xuejj/Qwen3-14B on cuda:0
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.20s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:07,  1.21s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:06,  1.26s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.29s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:03,  1.30s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:07<00:02,  1.31s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.30s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:09<00:00,  1.11s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:09<00:00,  1.21s/it]
+[server] ready as 'Qwen3-14B', thinking=False
+[server] ready on GPU 0
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_reasoning_cycles.py --cuda-devices 3,4,5 --sample-ids PSS-62,PSS-160,PSS-386,CC-196,CC-335,CC-474,FSA-21,FSA-303,FSA-574,NC-6,NC-150,NC-657,PI-35,PI-63,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-151,PEA-221,PEA-350,CCQA-1,CCQA-128,CCQA-480 --reports-dir outputs/mechanism-v10-unicvr-protocol-broad27/reports --state-dir outputs/mechanism-v10-unicvr-protocol-broad27/state --evidence-dir outputs/mechanism-v10-unicvr-protocol-broad27/evidence --crossvid-root /media/data6/xuejj/CrossVid --api-base-url http://127.0.0.1:8000/v1 --api-model Qwen3-14B --visual-call-budget 8 --context-token-budget 8192 --minimum-focus-stages 2 --reasoner-max-tokens 2048 --vlm-model /media/data6/xuejj/Qwen-VL --max-vlm-tokens 2048 --maximum-events-per-batch 8 --decode-long-edge 1024 --output-root outputs/mechanism-v10-unicvr-protocol-broad27/cycles
+[worker 0] GPU 3: PSS-62 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/cycles/worker0-gpu3.log
+[worker 1] GPU 4: PSS-160 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/cycles/worker1-gpu4.log
+[worker 2] GPU 5: PSS-386 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/cycles/worker2-gpu5.log
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[server] 125 tokens in 7.0s
+[server] 102 tokens in 4.6s
+[server] 107 tokens in 5.4s
+[server] 296 tokens in 11.2s
+[server] 110 tokens in 4.6s
+[server] 357 tokens in 14.0s
+[server] 126 tokens in 5.4s
+[server] 285 tokens in 11.3s
+[server] 277 tokens in 11.3s
+[server] 419 tokens in 16.2s
+[done] GPU 4: PSS-160
+[worker 1] GPU 4: CC-335
+[server] 116 tokens in 5.3s
+[server] 330 tokens in 12.9s
+[server] 103 tokens in 4.8s
+[server] 403 tokens in 17.7s
+[done] GPU 5: PSS-386
+[worker 2] GPU 5: CC-474
+[failed] CC-474 (GPU 5, exit 1)
+[worker 2] GPU 5: FSA-574
+[server] 105 tokens in 4.8s
+[server] 239 tokens in 9.7s
+[server] 478 tokens in 18.9s
+[done] GPU 3: PSS-62
+[worker 0] GPU 3: CC-196
+[server] 250 tokens in 10.2s
+[server] 86 tokens in 6.3s
+[server] 454 tokens in 17.8s
+[server] 96 tokens in 4.7s
+[server] 137 tokens in 5.9s
+[server] 270 tokens in 11.7s
+[server] 87 tokens in 5.4s
+[server] 299 tokens in 12.2s
+[server] 432 tokens in 16.9s
+[server] 373 tokens in 15.2s
+[server] 246 tokens in 10.8s
+[server] 460 tokens in 18.1s
+[server] 373 tokens in 15.0s
+[done] GPU 4: CC-335
+[worker 1] GPU 4: FSA-303
+[server] 291 tokens in 13.5s
+[server] 129 tokens in 5.9s
+[server] 291 tokens in 13.5s
+[done] GPU 3: CC-196
+[worker 0] GPU 3: FSA-21
+[server] 446 tokens in 17.2s
+[server] 122 tokens in 5.3s
+[server] 466 tokens in 18.0s
+[server] 404 tokens in 15.9s
+[server] 175 tokens in 7.7s
+[server] 375 tokens in 15.0s
+[server] 425 tokens in 16.5s
+[server] 133 tokens in 6.0s
+[server] 308 tokens in 12.3s
+[server] 452 tokens in 17.8s
+[server] 468 tokens in 18.5s
+[done] GPU 4: FSA-303
+[worker 1] GPU 4: NC-150
+[server] 444 tokens in 17.5s
+[server] 95 tokens in 5.9s
+[server] 425 tokens in 17.0s
+[server] 415 tokens in 16.3s
+[done] GPU 3: FSA-21
+[worker 0] GPU 3: NC-6
+[failed] NC-6 (GPU 3, exit 1)
+[worker 0] GPU 3: PI-35
+[server] 452 tokens in 17.7s
+[server] 187 tokens in 7.7s
+[server] 325 tokens in 13.9s
+[server] 446 tokens in 17.7s
+[server] 116 tokens in 6.6s
+[server] 517 tokens in 20.6s
+[server] 281 tokens in 11.4s
+[server] 291 tokens in 13.0s
+[server] 201 tokens in 8.3s
+[server] 418 tokens in 16.7s
+[server] 331 tokens in 15.1s
+[server] 360 tokens in 14.8s
+[done] GPU 5: FSA-574
+[worker 2] GPU 5: NC-657
+[server] 331 tokens in 15.4s
+[done] GPU 4: NC-150
+[worker 1] GPU 4: PI-63
+[failed] PI-63 (GPU 4, exit 1)
+[worker 1] GPU 4: MSR-85
+[server] 129 tokens in 7.0s
+[server] 329 tokens in 13.6s
+[server] 102 tokens in 4.4s
+[server] 377 tokens in 15.0s
+[done] GPU 3: PI-35
+[worker 0] GPU 3: MSR-0
+[server] 115 tokens in 4.7s
+[server] 309 tokens in 12.0s
+[server] 106 tokens in 4.5s
+[server] 262 tokens in 10.2s
+[server] 389 tokens in 15.3s
+[server] 268 tokens in 11.6s
+[server] 262 tokens in 10.2s
+[server] 145 tokens in 7.9s
+[server] 286 tokens in 11.4s
+[server] 128 tokens in 5.2s
+[server] 369 tokens in 14.3s
+[done] GPU 4: MSR-85
+[worker 1] GPU 4: MOC-81
+[server] 303 tokens in 12.7s
+[server] 109 tokens in 4.8s
+[server] 314 tokens in 12.2s
+[server] 331 tokens in 14.9s
+[server] 412 tokens in 15.9s
+[done] GPU 3: MSR-0
+[worker 0] GPU 3: MOC-0
+[server] 331 tokens in 15.1s
+[done] GPU 5: NC-657
+[worker 2] GPU 5: PI-167
+[server] 270 tokens in 10.8s
+[server] 116 tokens in 4.7s
+[server] 132 tokens in 5.5s
+[server] 132 tokens in 5.6s
+[server] 270 tokens in 10.6s
+[server] 322 tokens in 12.6s
+[server] 397 tokens in 15.8s
+[done] GPU 4: MOC-81
+[worker 1] GPU 4: PEA-221
+[server] 144 tokens in 6.0s
+[server] 135 tokens in 6.0s
+[server] 297 tokens in 12.1s
+[server] 358 tokens in 14.2s
+[done] GPU 3: MOC-0
+[worker 0] GPU 3: PEA-151
+[failed] PEA-151 (GPU 3, exit 1)
+[worker 0] GPU 3: CCQA-1
+[server] 181 tokens in 8.0s
+[server] 275 tokens in 10.8s
+[server] 118 tokens in 5.1s
+[server] 333 tokens in 13.0s
+[server] 286 tokens in 11.8s
+[server] 387 tokens in 15.0s
+[server] 133 tokens in 5.8s
+[server] 409 tokens in 16.3s
+[server] 387 tokens in 15.2s
+[done] GPU 5: PI-167
+[worker 2] GPU 5: MSR-169
+[server] 131 tokens in 6.3s
+[server] 139 tokens in 5.7s
+[server] 320 tokens in 12.9s
+[server] 559 tokens in 21.9s
+[done] GPU 3: CCQA-1
+[server] 347 tokens in 13.5s
+[server] 288 tokens in 11.6s
+[server] 132 tokens in 5.3s
+[server] 348 tokens in 14.3s
+[done] GPU 4: PEA-221
+[worker 1] GPU 4: CCQA-128
+[failed] CCQA-128 (GPU 4, exit 1)
+[server] 295 tokens in 11.5s
+[server] 361 tokens in 13.8s
+[done] GPU 5: MSR-169
+[worker 2] GPU 5: MOC-161
+[server] 119 tokens in 4.8s
+[server] 288 tokens in 11.1s
+[server] 104 tokens in 4.3s
+[server] 326 tokens in 12.4s
+[server] 405 tokens in 15.5s
+[done] GPU 5: MOC-161
+[worker 2] GPU 5: PEA-350
+[server] 106 tokens in 4.8s
+[server] 367 tokens in 14.2s
+[server] 117 tokens in 5.1s
+[server] 510 tokens in 19.8s
+[server] 349 tokens in 14.0s
+[server] 349 tokens in 14.4s
+[done] GPU 5: PEA-350
+[worker 2] GPU 5: CCQA-480
+[server] 114 tokens in 5.7s
+[server] 356 tokens in 14.3s
+[server] 125 tokens in 6.0s
+[server] 324 tokens in 13.5s
+[server] 450 tokens in 18.5s
+[done] GPU 5: CCQA-480
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_parallel_reasoning_cycles.py", line 127, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_parallel_reasoning_cycles.py", line 121, in main
+    raise RuntimeError(f"reasoning cycle failures: {', '.join(failures)}")
+RuntimeError: reasoning cycle failures: CC-474 (GPU 5, exit 1), NC-6 (GPU 3, exit 1), PI-63 (GPU 4, exit 1), PEA-151 (GPU 3, exit 1), CCQA-128 (GPU 4, exit 1)
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_real_cycle.py", line 130, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_real_cycle.py", line 122, in main
+    _run(cycles, env)
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_real_cycle.py", line 49, in _run
+    subprocess.run(command, cwd=PROJECT_ROOT, env=environment, check=True)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/media/data2/xuejj/anaconda3/envs/qwen3/bin/python', '/media/data6/xuejj/ToolCVR/scripts/run_parallel_reasoning_cycles.py', '--cuda-devices', '3,4,5', '--sample-ids', 'PSS-62,PSS-160,PSS-386,CC-196,CC-335,CC-474,FSA-21,FSA-303,FSA-574,NC-6,NC-150,NC-657,PI-35,PI-63,PI-167,MSR-0,MSR-85,MSR-169,MOC-0,MOC-81,MOC-161,PEA-151,PEA-221,PEA-350,CCQA-1,CCQA-128,CCQA-480', '--reports-dir', 'outputs/mechanism-v10-unicvr-protocol-broad27/reports', '--state-dir', 'outputs/mechanism-v10-unicvr-protocol-broad27/state', '--evidence-dir', 'outputs/mechanism-v10-unicvr-protocol-broad27/evidence', '--crossvid-root', '/media/data6/xuejj/CrossVid', '--api-base-url', 'http://127.0.0.1:8000/v1', '--api-model', 'Qwen3-14B', '--visual-call-budget', '8', '--context-token-budget', '8192', '--minimum-focus-stages', '2', '--reasoner-max-tokens', '2048', '--vlm-model', '/media/data6/xuejj/Qwen-VL', '--max-vlm-tokens', '2048', '--maximum-events-per-batch', '8', '--decode-long-edge', '1024', '--output-root', 'outputs/mechanism-v10-unicvr-protocol-broad27/cycles']' returned non-zero exit status 1.

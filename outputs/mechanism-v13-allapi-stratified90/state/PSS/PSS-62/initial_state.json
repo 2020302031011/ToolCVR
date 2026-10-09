@@ -1,0 +1,206 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e4"
+      ],
+      "statement": "v4 shows the cooking process of dry grains, ending with strained cooked grains in a pot."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1"
+      ],
+      "statement": "v5 begins with adding quinoa from a metal bowl into a glass bowl."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e1",
+        "v3-b0002-e3"
+      ],
+      "statement": "v3 shows diced tomatoes being added to a bowl with herbs and onions, followed by the woman holding a whole lemon."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e4",
+        "v1-b0001-e6"
+      ],
+      "statement": "v1 shows cutting a lemon, squeezing juice into a measuring spoon over a salad, and presenting olive oil."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e8"
+      ],
+      "statement": "v2 shows pouring from a dark bottle, adding spices, and a close-up of a finished salad."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "v4 shows cooking grains while v5 shows adding quinoa to a bowl, suggesting v4 precedes v5.",
+      "supporting_events": [
+        "v4-b0001-e4",
+        "v5-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v1"
+      ],
+      "statement": "v3 ends with holding a lemon, and v1 starts with cutting a lemon, suggesting v3 precedes v1.",
+      "supporting_events": [
+        "v3-b0002-e3",
+        "v1-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 ends with presenting olive oil, and v2 starts with pouring from a dark bottle, suggesting v1 precedes v2.",
+      "supporting_events": [
+        "v1-b0001-e6",
+        "v2-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v5",
+        "v3"
+      ],
+      "issue": "The chronological relationship between the salad mixing in v5 and the tomato addition in v3 is unclear.",
+      "reason": "v5 shows mixing greens/tomatoes/quinoa while v3 shows adding tomatoes to a bowl; it is not clear if v5's mixing happens before or after v3's tomato addition.",
+      "related_events": [
+        "v5-b0001-e2",
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The timing of the finished salad close-up in v2 relative to the other steps is ambiguous.",
+      "reason": "v2 contains a close-up of a finished salad early in its timeline, which might be a preview or a later step, complicating the ordering relative to v5.",
+      "related_events": [
+        "v2-b0001-e5"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v3",
+        "v5"
+      ],
+      "observable": "Compare the state of the bowl contents (specifically the presence and distribution of tomatoes and quinoa) in v3 and v5.",
+      "purpose": "To determine if the mixing in v5 happens after the tomato addition in v3 or if v5 represents a different stage.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v5"
+      ],
+      "observable": "Check if the salad in v2's close-up matches the final mixed state in v5 or an earlier state.",
+      "purpose": "To clarify if v2's close-up is a preview or a final result, helping order v2 relative to v5.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-62",
+    "task": "PSS",
+    "ground_truth": "4->3->1->2->5",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-62/report.json",
+    "report_sha256": "79aca025479f78761e57c3310b2ed9e5414687485c963bfa5a887a34bced636c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

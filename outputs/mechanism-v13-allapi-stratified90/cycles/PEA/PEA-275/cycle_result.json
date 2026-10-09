@@ -1,0 +1,1133 @@
+{
+  "state": {
+    "question": "In which video is there an unnecessary action that should not have been performed during assembly?",
+    "round_id": 3,
+    "summary": "Requirements remain open. The strongest local candidate for an unnecessary assembly action is the v3 internal-component screwdriver adjustment, because its necessity is explicitly uncertain; v2 separation and v1 unscrewing do not better support their option labels.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U02-02.s01",
+          "v2.zoom.r2-req_v2_detach_necessity-01.s01"
+        ],
+        "attempts": [
+          "Local v2 evidence shows body/chassis separation and adjustment, but necessity for access or installation is not established."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v3.c001",
+          "v3.c002"
+        ],
+        "attempts": [
+          "Local v3 evidence shows handling and screwdriver adjustment of an internal black component inside the body, with explicit uncertainty about necessity for final assembly."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c005"
+        ],
+        "attempts": [
+          "Local v1 evidence shows unscrewing chassis parts, but whether this was unnecessary versus required attachment remains unclear."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          119.0,
+          127.0
+        ],
+        "description": "Person holds blue toy vehicle body, rotating it to inspect the interior chassis and battery compartment.",
+        "uncertainty": "Purpose of inspection unclear",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          133.0,
+          135.0
+        ],
+        "description": "Person reaches for and picks up a grey plastic part from the table, holding it against the blue body.",
+        "uncertainty": "Part function not visible",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          137.0,
+          143.0
+        ],
+        "description": "Person uses an orange screwdriver to manipulate screws on the blue vehicle body held in hand.",
+        "uncertainty": "Screwing direction ambiguous",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          151.0,
+          159.0
+        ],
+        "description": "Person assembles a white interior component into the blue body placed on the table, securing it with hands.",
+        "uncertainty": "Component identity uncertain",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          193.0,
+          199.0
+        ],
+        "description": "The person uses an orange screwdriver to unscrew parts from a black chassis held in the left hand.",
+        "uncertainty": "Whether the chassis was previously attached.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          201.0,
+          201.0
+        ],
+        "description": "The person places the black chassis with blue wheels onto the table surface.",
+        "uncertainty": "The precise moment of placement.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          209.0,
+          211.0
+        ],
+        "description": "The person picks up the chassis and uses the screwdriver to attach or adjust a component.",
+        "uncertainty": "Whether this is re-assembly or initial assembly.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e4",
+        "video_id": "v1",
+        "time_span": [
+          213.0,
+          217.0
+        ],
+        "description": "The person holds the assembled blue and white toy truck, showing the front and top to the camera.",
+        "uncertainty": "The specific action performed between 211s and 213s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          209.0,
+          213.0
+        ],
+        "description": "A person holds a vehicle body and chassis assembly, manipulating the body shell over the chassis on a workbench.",
+        "uncertainty": "Specific intent of the initial handling is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          215.0,
+          215.0
+        ],
+        "description": "The person separates the vehicle body shell from the chassis, holding them apart.",
+        "uncertainty": "Whether this was a necessary step or accidental is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          217.0,
+          219.0
+        ],
+        "description": "The person reattaches the body shell to the chassis and presses down on the assembly.",
+        "uncertainty": "The necessity of the prior separation is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          259.0,
+          261.0
+        ],
+        "description": "The person holds a small white rectangular part (possibly interior) near the vehicle assembly.",
+        "uncertainty": "The exact part identity is inferred from context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          263.0,
+          267.0
+        ],
+        "description": "The person manipulates the vehicle assembly, appearing to remove or adjust the interior component within the chassis.",
+        "uncertainty": "The precise action (detach vs install) is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          186.0,
+          198.0
+        ],
+        "description": "The person handles a black internal component and a blue car body, separating them and then using a screwdriver on the black part.",
+        "uncertainty": "Specific assembly goal is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          282.0,
+          290.0
+        ],
+        "description": "The person uses a screwdriver on the black component held inside the blue car body, then inspects the assembly.",
+        "uncertainty": "Whether this action is necessary for the final assembly is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          292.0,
+          298.0
+        ],
+        "description": "The person attaches wheels to the blue car body and secures them with a screwdriver.",
+        "uncertainty": "Whether this action is necessary for the final assembly is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          300.0,
+          300.0
+        ],
+        "description": "A person wearing a head-mounted device holds a blue toy police car with both hands on a white table, with small wheels nearby.",
+        "uncertainty": "Whether the person is attaching or detaching parts is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          209.0,
+          213.0
+        ],
+        "description": "A person holds a black RC car chassis, manipulating the body shell. The shell is separated, revealing the chassis underneath, and then reattached.",
+        "uncertainty": "Whether any internal components were accessed during the separation.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          211.0,
+          213.0
+        ],
+        "description": "Person holds the separated body shell and chassis of an RC car, with the two components clearly apart.",
+        "uncertainty": "Action preceding the separation is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          214.0,
+          216.0
+        ],
+        "description": "Person manipulates the body shell and chassis with a tool, suggesting an access or installation attempt.",
+        "uncertainty": "Specific component being accessed or installed is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          217.0,
+          219.0
+        ],
+        "description": "Person aligns and presses the body shell back onto the chassis, completing the reattachment.",
+        "uncertainty": "Final state of the assembly is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          217.0,
+          219.0
+        ],
+        "description": "Person holds a toy truck body shell, rotates it, and presses it onto a chassis. Loose wheels are visible on the table.",
+        "uncertainty": "Prior separation state is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          263.0,
+          267.0
+        ],
+        "description": "The person holds a small chassis with both hands, making adjustments. A screwdriver lies on the table nearby, but is not picked up.",
+        "uncertainty": "Cannot determine if component is inserted or removed.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local evidence in v2 about whether body/chassis separation is immediately reattached without component access.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c001",
+          "v2.c002",
+          "v2.c003"
+        ],
+        "evidence_goal": "In v2, does the person separate the body shell from the chassis and then reattach it without installing or accessing any component in between?",
+        "next_probe_goal": "If separation appears immediately reversed, check whether any component was manipulated during the separation interval.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need resolve whether v2 post-separation manipulation is installation/access or avoidable removal.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "req_v2_detach_necessity",
+        "slot_ids": [
+          "v2.c005"
+        ],
+        "evidence_goal": "In v2.c005, does the person insert/secure a component into the chassis or remove/adjust a component from it?",
+        "next_probe_goal": "If removal is shown, check whether that component is reinstalled in the following v2 interval.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Requirements remain open. The strongest local candidate for an unnecessary assembly action is the v3 internal-component screwdriver adjustment, because its necessity is explicitly uncertain; v2 separation and v1 unscrewing do not better support their option labels.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v3.c001",
+      "v3.c002"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        113.0,
+        119.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        119.0,
+        127.0
+      ],
+      "resolution": "coarse",
+      "content": "Person holds blue toy vehicle body, rotating it to inspect the interior chassis and battery compartment.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Purpose of inspection unclear"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        127.0,
+        133.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        133.0,
+        135.0
+      ],
+      "resolution": "coarse",
+      "content": "Person reaches for and picks up a grey plastic part from the table, holding it against the blue body.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Part function not visible"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        137.0,
+        143.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses an orange screwdriver to manipulate screws on the blue vehicle body held in hand.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Screwing direction ambiguous"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        143.0,
+        151.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        151.0,
+        159.0
+      ],
+      "resolution": "coarse",
+      "content": "Person assembles a white interior component into the blue body placed on the table, securing it with hands.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Component identity uncertain"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        159.0,
+        174.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        174.0,
+        189.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        189.0,
+        193.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        193.0,
+        199.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses an orange screwdriver to unscrew parts from a black chassis held in the left hand.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Whether the chassis was previously attached."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        201.0,
+        201.0
+      ],
+      "resolution": "coarse",
+      "content": "The person places the black chassis with blue wheels onto the table surface.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "The precise moment of placement."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        201.0,
+        209.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        209.0,
+        211.0
+      ],
+      "resolution": "coarse",
+      "content": "The person picks up the chassis and uses the screwdriver to attach or adjust a component.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "Whether this is re-assembly or initial assembly."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        213.0,
+        217.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds the assembled blue and white toy truck, showing the front and top to the camera.",
+      "evidence": [
+        "v1-b0002-e4"
+      ],
+      "uncertainty": [
+        "The specific action performed between 211s and 213s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        217.0,
+        219.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        193.0,
+        208.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        208.0,
+        209.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        209.0,
+        213.0
+      ],
+      "resolution": "fine",
+      "content": "A person holds a black RC car chassis, manipulating the body shell. The shell is separated, revealing the chassis underneath, and then reattached.",
+      "evidence": [
+        "v2.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Whether any internal components were accessed during the separation.",
+        "Unresolved: Confirmation that no components were installed or accessed while the shell was separated."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-02.s01",
+      "video": "v2",
+      "time": [
+        211.0,
+        219.0
+      ],
+      "resolution": "fine",
+      "content": "Person holds the separated body shell and chassis of an RC car, with the two components clearly apart. Person manipulates the body shell and chassis with a tool, suggesting an access or installation attempt. Person aligns and presses the body shell back onto the chassis, completing the reattachment.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2",
+        "v2.focus.r1.l2.e3"
+      ],
+      "uncertainty": [
+        "Action preceding the separation is not visible.",
+        "Specific component being accessed or installed is unclear.",
+        "Final state of the assembly is not shown.",
+        "Unresolved: Whether the tool use in e2 constitutes installing or accessing a component."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-03.s01",
+      "video": "v2",
+      "time": [
+        217.0,
+        219.0
+      ],
+      "resolution": "fine",
+      "content": "Person holds a toy truck body shell, rotates it, and presses it onto a chassis. Loose wheels are visible on the table.",
+      "evidence": [
+        "v2.focus.r1.l3.e1"
+      ],
+      "uncertainty": [
+        "Prior separation state is not visible.",
+        "Unresolved: Confirmation that the shell was separated from the chassis before this interval."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        219.0,
+        234.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        234.0,
+        249.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        249.0,
+        259.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        259.0,
+        261.0
+      ],
+      "resolution": "coarse",
+      "content": "The person holds a small white rectangular part (possibly interior) near the vehicle assembly.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The exact part identity is inferred from context."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-req_v2_detach_necessity-01.s01",
+      "video": "v2",
+      "time": [
+        263.0,
+        267.0
+      ],
+      "resolution": "fine",
+      "content": "The person holds a small chassis with both hands, making adjustments. A screwdriver lies on the table nearby, but is not picked up.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Cannot determine if component is inserted or removed.",
+        "Unresolved: Direction of component movement (in/out)"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        267.0,
+        282.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        282.0,
+        297.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        297.0,
+        303.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        182.0,
+        186.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        186.0,
+        198.0
+      ],
+      "resolution": "coarse",
+      "content": "The person handles a black internal component and a blue car body, separating them and then using a screwdriver on the black part.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific assembly goal is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        198.0,
+        213.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        213.0,
+        228.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        228.0,
+        243.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        243.0,
+        258.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        258.0,
+        273.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        273.0,
+        282.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        282.0,
+        290.0
+      ],
+      "resolution": "coarse",
+      "content": "The person uses a screwdriver on the black component held inside the blue car body, then inspects the assembly.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether this action is necessary for the final assembly is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        290.0,
+        292.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        292.0,
+        298.0
+      ],
+      "resolution": "coarse",
+      "content": "The person attaches wheels to the blue car body and secures them with a screwdriver.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether this action is necessary for the final assembly is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        300.0,
+        300.0
+      ],
+      "resolution": "coarse",
+      "content": "A person wearing a head-mounted device holds a blue toy police car with both hands on a white table, with small wheels nearby.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "Whether the person is attaching or detaching parts is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        300.0,
+        315.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        315.0,
+        327.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If separation appears immediately reversed, check whether any component was manipulated during the separation interval.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

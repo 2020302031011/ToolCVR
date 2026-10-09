@@ -1,0 +1,210 @@
+{
+  "question": "Which video processes herbs through mechanical blending rather than hand-chopping?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e3"
+      ],
+      "statement": "v1 shows parsley being placed on a cutting board and cut with a knife."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 shows green herbs being manually chopped with a large knife."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e1"
+      ],
+      "statement": "v3 shows parsley being manually chopped with a knife on a cutting board."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e2"
+      ],
+      "statement": "v3 shows mint leaves sliced with a knife and then gathered into a food processor bowl."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e3"
+      ],
+      "statement": "v3 shows a food processor activated to pulse and mechanically blend a mixture containing herbs."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0002-e1"
+      ],
+      "statement": "v4 shows green herbs being hand-chopped with a knife on a wooden board."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "statement": "The supplied herb-processing events show knife-based chopping in v1, v2, and v4, while v3 also shows herbs mechanically blended in a food processor.",
+      "supporting_events": [
+        "v1-b0002-e3",
+        "v2-b0001-e1",
+        "v3-b0002-e3",
+        "v4-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "v3 contains both knife-chopping and food-processor blending events for herbs, whereas the supplied v4 events show only knife-chopping.",
+      "supporting_events": [
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3",
+        "v4-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "issue": "Whether v1, v2, or v4 contains a mechanical herb-blending segment outside the supplied time spans remains undetermined.",
+      "reason": "The supplied events cover only selected moments and cannot establish absence across an entire video.",
+      "related_events": [],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the food processor blending in v3 is the herb-processing method rather than a secondary step after hand-chopping remains undetermined.",
+      "reason": "The supplied events show both knife chopping and later blending, but do not specify whether the machine blending is the method used to process the herbs.",
+      "related_events": [
+        "v3-b0002-e1",
+        "v3-b0002-e2",
+        "v3-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "observable": "whether any segment shows a blender or food processor being used to process herbs.",
+      "purpose": "determine whether these videos contain mechanical herb processing outside the supplied events.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "whether the herbs placed into the food processor are unchopped herbs or previously knife-chopped herbs, and whether the machine is used to blend them.",
+      "purpose": "clarify whether v3's mechanical blending is the herb-processing method or a secondary step.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-196",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CC/CC-196/report.json",
+    "report_sha256": "d00e0868d70bc0b97cdfdf15af1d47851a6dfe4150d536bd6cb8662936bcf095",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "question": "How many red cars parked by the roadside does {A1} pass in total?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1 from 0 to 4 seconds, A1 travels along a roadside lane passing a row of parked cars and at least one red car is visible in the initial frames."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1 at 14 seconds, A1 is on a road adjacent to a park with no visible parked cars nearby."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2 from 0 to 4 seconds, the camera pans along a roadside parking area where red car B5 is passed and red car B4 is partially visible on the right edge."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2 at 14 seconds, red cars are visible in the distance during a wide road scene but no close passes occur."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 0 to 4 second portions of v1 and v2 both describe roadside parking with red cars, but it remains unclear whether they represent the same physical pass sequence or separate observations.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The 14 second portions of v1 and v2 both describe later road scenes that do not report close roadside red-car passes by A1.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The total number of unique roadside red cars passed by A1 across the synchronized views remains unresolved.",
+      "reason": "The reports identify red cars in both early segments but do not state whether those cars are the same physical cars or separate passes, and they do not cover 4 to 14 seconds.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether additional roadside red cars are passed by A1 between 4 and 14 seconds in v1 remains unresolved.",
+      "reason": "The v1 report explicitly marks that interval as unobserved and provides no events covering it.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the red cars passed or seen in the v2 camera pan correspond to passes by A1 remains unresolved.",
+      "reason": "The v2 event uncertainty states it is unclear whether the subject A1 is the camera or a vehicle.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether red car B4 in v2 is actually passed by A1 rather than only partially visible remains unresolved.",
+      "reason": "The v2 report says B4 is partially visible but does not say it is passed.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Count the distinct roadside red cars that A1 passes during the 0 to 4 second segment in v1.",
+      "purpose": "This would resolve how many early red-car passes are attributable to A1 in v1 and distinguish candidate totals 3, 4, 5, and 6.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Inspect the 4 to 14 second interval in v1 for any roadside red cars passed by A1.",
+      "purpose": "This would resolve whether the unobserved middle segment adds additional passes and distinguish candidate totals 3, 4, 5, and 6.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Determine whether the v2 pan from 0 to 4 seconds is an A1 pass sequence and whether B4 and B5 are both passed by A1.",
+      "purpose": "This would resolve whether v2 red-car observations should be counted as A1 passes and distinguish candidate totals 3, 4, 5, and 6.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the red cars visible in v1 from 0 to 4 seconds with B4 and B5 in v2 from 0 to 4 seconds to identify whether they are the same physical cars.",
+      "purpose": "This would resolve duplicate counting across synchronized views and distinguish candidate totals 3, 4, 5, and 6.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Check the 14 second synchronized frames to determine whether any distant red cars are roadside parked cars passed by A1.",
+      "purpose": "This would resolve whether late-view red cars should be included in the total and distinguish candidate totals 3, 4, 5, and 6.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-0",
+    "task": "MOC",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/MOC/MOC-0/report.json",
+    "report_sha256": "37a12d1f3d647b2f5e56845a326070aa715fb3897c8d2531b55f8236afc24c14",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "All requirements are now supported based on the available evidence. The chronological order of the clips can be determined.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must obey the exact output format requested by the question and include every required input exactly once when an ordering is requested.",
+      "Videos v1, v2, v3, v4 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology."
+    ],
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v3.zoom.r2-r1-02.s01"
+        ],
+        "attempts": [
+          "Rice shaping in v1 occurs before salmon placement, and rice shaping in v3 occurs before salmon placement."
+        ]
+      },
+      {
+        "id": "req2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01",
+          "v2.c001"
+        ],
+        "attempts": [
+          "Rice shaping in v1 occurs before sushi shaping in v2."
+        ]
+      },
+      {
+        "id": "req3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c003",
+          "v4.c001"
+        ],
+        "attempts": [
+          "Final topping placement in v4 occurs after sushi shaping in v2."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          16.016
+        ],
+        "description": "Chef shapes rice mound on wooden board. Salmon slice and wasabi are visible nearby.",
+        "uncertainty": "No action transition visible between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          24.992,
+          26.994
+        ],
+        "description": "Chef forms sushi by pressing rice onto salmon slice with both hands.",
+        "uncertainty": "Hand motion blur in S1-F02 suggests rapid action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          28.996,
+          33.0
+        ],
+        "description": "Chef continues shaping sushi, adjusting rice and fish with hands.",
+        "uncertainty": "No visible change in sushi shape between S1-F03 and S2-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          33.0,
+          37.004
+        ],
+        "description": "Chef refines sushi shape, pressing and rotating salmon with fingers.",
+        "uncertainty": "S2-F03 shows watch, but no action change from prior frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "Person places salmon slice on wooden board, then moves hand away. Rice and wasabi remain stationary.",
+        "uncertainty": "No other actions or objects visible in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          43.01,
+          49.016
+        ],
+        "description": "Chef uses chopsticks to place topping on rice, then pauses and looks forward.",
+        "uncertainty": "Action sequence not fully visible between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          12.012
+        ],
+        "description": "Chef shapes rice mound with hands on wooden board. Salmon slice remains untouched nearby.",
+        "uncertainty": "Salmon placement not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          13.013,
+          16.016
+        ],
+        "description": "Chef holds formed rice ball. Salmon slice remains on board. No placement action observed.",
+        "uncertainty": "Salmon placement not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "Person holds rice ball in left hand, places salmon slice on board with right hand.",
+        "uncertainty": "Rice mound shaping not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          14.014
+        ],
+        "description": "Chef shapes rice into a ball with hands while looking down, then looks up at camera.",
+        "uncertainty": "Salmon placement not visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          15.015,
+          16.016
+        ],
+        "description": "Close-up shows chef's hands shaping rice ball. Salmon slice is visible on cutting board to the right.",
+        "uncertainty": "Salmon placement not shown as an action in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "Person holds rice ball in left hand, places salmon slice on board with right hand.",
+        "uncertainty": "Rice shaping action not visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Resolve the relative stage relationship between v1 and v3",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v3.c001"
+        ],
+        "evidence_goal": "Which video shows the earlier stage of the process: rice mound shaping or salmon placement?",
+        "next_probe_goal": "None",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to determine the order of rice shaping and salmon placement relative to sushi formation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v3.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "Is the rice shaping in v1.zoom.r1-U01-01.s01 before or after the salmon placement in v3.zoom.r1-U01-02.s01?",
+        "next_probe_goal": "Is there a visible transition between rice shaping and salmon placement in the videos?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "All requirements are now supported based on the available evidence. The chronological order of the clips can be determined.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v1->v3->v2->v4",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v1->v3->v2->v4",
+    "evidence_refs": [
+      "v1.zoom.r2-r1-01.s01",
+      "v3.zoom.r2-r1-02.s01",
+      "v2.c001",
+      "v2.c003",
+      "v4.c001"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        10.01,
+        16.016
+      ],
+      "resolution": "fine",
+      "content": "Chef shapes rice into a ball with hands while looking down, then looks up at camera. Close-up shows chef's hands shaping rice ball. Salmon slice is visible on cutting board to the right.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Salmon placement not visible in these frames.",
+        "Salmon placement not shown as an action in these frames.",
+        "Unresolved: Salmon placement action not visible in supplied frames to compare timing with rice shaping."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        10.01,
+        16.016000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.016000000000002,
+        17.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        24.992,
+        26.994
+      ],
+      "resolution": "coarse",
+      "content": "Chef forms sushi by pressing rice onto salmon slice with both hands.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Hand motion blur in S1-F02 suggests rapid action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        28.995633333333334,
+        32.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        28.996,
+        33.0
+      ],
+      "resolution": "coarse",
+      "content": "Chef continues shaping sushi, adjusting rice and fish with hands.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "No visible change in sushi shape between S1-F03 and S2-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        33.0,
+        37.004
+      ],
+      "resolution": "coarse",
+      "content": "Chef refines sushi shape, pressing and rotating salmon with fingers.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "S2-F03 shows watch, but no action change from prior frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        37.00363333333333,
+        38.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-r1-02.s01",
+      "video": "v3",
+      "time": [
+        18.986,
+        20.988
+      ],
+      "resolution": "fine",
+      "content": "Person holds rice ball in left hand, places salmon slice on board with right hand.",
+      "evidence": [
+        "v3.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "Rice shaping action not visible in these frames.",
+        "Unresolved: Visibility of rice shaping action in v1.zoom.r1-U01-01.s01 is required for direct comparison."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        20.987633333333335,
+        22.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        43.00963333333333,
+        49.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        43.01,
+        49.016
+      ],
+      "resolution": "coarse",
+      "content": "Chef uses chopsticks to place topping on rice, then pauses and looks forward.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "Action sequence not fully visible between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "None",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

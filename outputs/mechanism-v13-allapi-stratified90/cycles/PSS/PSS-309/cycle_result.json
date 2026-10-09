@@ -1,0 +1,950 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 4,
+    "summary": "Best-supported chronology is v4 fresh bok choy/prep, then v3 cutting and separating bok choy with initial red-paste coating, then v2 mixing the white strips/stems with red paste, then v1 packed coated greens. The unresolved container identity and paste-stage ambiguity do not outweigh the visible progression from raw/cut greens to mixed paste to packed greens.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v4.zoom.r1-U01-03.s01",
+          "v3.zoom.r3-r2-03.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r2-01.s01",
+          "v3.zoom.r3-r2-03.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-02.s01",
+          "v2.zoom.r3-r2-02.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.041,
+          2.001
+        ],
+        "description": "A large glass bowl contains a red spicy paste mixed with green vegetables, which is then shown fully packed into a white rectangular storage container.",
+        "uncertainty": "Exact moment of transfer into the container is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          8.007,
+          8.007
+        ],
+        "description": "A close-up view of the green leafy vegetables and red paste inside a translucent plastic container.",
+        "uncertainty": "The specific contents are hard to distinguish from a distance.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.021,
+          3.984
+        ],
+        "description": "A wall outlet is shown, followed by a blender containing chopped white ingredients, which are then processed into a coarse paste.",
+        "uncertainty": "Exact ingredients inside the blender are not clearly identifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          5.038,
+          6.998
+        ],
+        "description": "A hand touches a plastic container lid, followed by a view of a glass bowl containing white strips coated in red spice flakes.",
+        "uncertainty": "The contents of the plastic container are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          16.009,
+          18.011
+        ],
+        "description": "A spoon mixes the red-coated white strips in a bowl, followed by a large dollop of white paste being added to the mixture.",
+        "uncertainty": "The specific type of white paste being added is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          22.015,
+          24.017
+        ],
+        "description": "The ingredients are vigorously mixed into a thick, uniform red paste, with a spoon actively stirring the contents.",
+        "uncertainty": "The mixing process is blurry due to motion.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.017,
+          2.019
+        ],
+        "description": "Knife cuts bok choy on a dark cutting board.",
+        "uncertainty": "Cutting is in progress.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          5.981,
+          5.981
+        ],
+        "description": "Hand holds a piece of cut bok choy.",
+        "uncertainty": "Action is static.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          11.987,
+          11.987
+        ],
+        "description": "Bowl contains red paste and green vegetables.",
+        "uncertainty": "Action is static.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          19.995,
+          21.997
+        ],
+        "description": "Bowl contains red paste and green vegetables.",
+        "uncertainty": "Action is static.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.024,
+          1.984
+        ],
+        "description": "Woman holds plastic container with food, then view cuts to bok choy resting on paper towels.",
+        "uncertainty": "Transition between container and bok choy is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          11.994,
+          11.994
+        ],
+        "description": "Close-up of bok choy on paper towels, slightly blurry and zoomed in.",
+        "uncertainty": "Motion or camera adjustment is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          15.998,
+          15.998
+        ],
+        "description": "Bok choy on paper towels, in-focus wide shot similar to S1-F02.",
+        "uncertainty": "Action between blurry and sharp shots is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.041,
+          0.041
+        ],
+        "description": "Close-up of a glass bowl containing a red paste mixture with green leafy vegetables and onions.",
+        "uncertainty": "Container is glass, not plastic.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          1.041,
+          1.041
+        ],
+        "description": "A rectangular plastic container filled with green leafy vegetables coated in red paste, sitting on a counter.",
+        "uncertainty": "Packing action not visible in this frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.007,
+          8.007
+        ],
+        "description": "A translucent rectangular plastic container is filled with green leafy vegetables and red seasoning. The camera angle shifts slightly, revealing the container's depth and contents.",
+        "uncertainty": "Container in v4 is not visible in this segment.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l3.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.024,
+          0.024
+        ],
+        "description": "A person holds up a clear, square plastic container with a blue-rimmed lid. The container is filled with a mixed salad including orange and green chunks.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l3.e2",
+        "video_id": "v4",
+        "time_span": [
+          1.024,
+          1.024
+        ],
+        "description": "The scene cuts to a close-up of fresh bok choy lying on a white paper towel.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          5.038,
+          5.038
+        ],
+        "description": "A hand rests near the blue handle of a white plastic container lid.",
+        "uncertainty": "The interior contents of the container are not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          6.038,
+          6.038
+        ],
+        "description": "A glass bowl contains white vegetable strips mixed with red seasoning powder.",
+        "uncertainty": "The vegetable type is ambiguous due to coating.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          6.998,
+          7.998
+        ],
+        "description": "A glass bowl holds cut white vegetable strips mixed with coarse red flakes; a hand enters at the top to begin mixing.",
+        "uncertainty": "Bok choy identification is inferred from shape.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          8.998,
+          11.998
+        ],
+        "description": "A hand vigorously tosses the white strips with the red paste, progressively coating the pieces.",
+        "uncertainty": "The specific mixing tool is obscured by motion blur.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          18.011,
+          19.011
+        ],
+        "description": "A glass bowl contains white vegetable strips mixed with red flakes and a dollop of white creamy paste.",
+        "uncertainty": "Exact vegetable identity unconfirmed.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          20.011,
+          22.011
+        ],
+        "description": "A spoon mixes the ingredients, coating the white strips in red paste until uniformly red.",
+        "uncertainty": "Comparison to external videos not visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          5.981,
+          9.981
+        ],
+        "description": "A hand manipulates halved bok choy pieces on a black cutting mat, separating the leaves from the white stems.",
+        "uncertainty": "Exact cutting action is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l3.e2",
+        "video_id": "v3",
+        "time_span": [
+          10.981,
+          11.981
+        ],
+        "description": "The scene transitions to a glass bowl containing bok choy pieces coated in a thick red paste.",
+        "uncertainty": "The specific moment of adding the paste is not captured.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need local visual comparison of packed-food containers in v1 and v4 to resolve identity.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v1.c002",
+          "v4.c001"
+        ],
+        "evidence_goal": "Does the container in v4 match the packed container in v1 in shape, material, and visible food contents?",
+        "next_probe_goal": "If not, identify which v1 container is closest to v4's held container by rim, transparency, and food arrangement.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need identify whether v2 white strips are bok choy stems or a separate ingredient",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "In v2 5.038-6.998, are the white strips cut bok choy stems or a different vegetable?",
+        "next_probe_goal": "If they are bok choy stems, check whether later v2 mixing shows them becoming coated green/white bok choy",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Current evidence supports v4 as the opening hook followed by raw bok choy and v3 as cutting, but the position of v2 is unresolved: its white strips could be the cut bok choy stems seasoned before the v1 packed greens, or a separate paste-ingredient stage before v3. The unobserved v2 mixing intervals and the v3 interval between cut bok choy and the red-paste bowl are the smallest set that can distinguish these transitions.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.u002",
+          "v2.u004",
+          "v3.u002"
+        ],
+        "evidence_goal": "Determine whether v2's white strips are the same cut bok choy pieces later coated in red paste, and whether v2 occurs between v3 cutting and v1 packing rather than before v3.",
+        "next_probe_goal": "Observe the v2 transitions from seasoned strips to mixed paste and the v3 transition from cut bok choy to the red-paste bowl to identify the continuous ingredient state.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Best-supported chronology is v4 fresh bok choy/prep, then v3 cutting and separating bok choy with initial red-paste coating, then v2 mixing the white strips/stems with red paste, then v1 packed coated greens. The unresolved container identity and paste-stage ambiguity do not outweigh the visible progression from raw/cut greens to mixed paste to packed greens.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v4->v3->v2->v1",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v4->v3->v2->v1",
+    "evidence_refs": [
+      "v4.focus.r1.l3.e1",
+      "v3.focus.r3.l3.e1",
+      "v2.focus.r3.l1.e1",
+      "v2.focus.r3.l2.e1",
+      "v1.focus.r1.l2.e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 7,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.041,
+        2.001
+      ],
+      "resolution": "fine",
+      "content": "Close-up of a glass bowl containing a red paste mixture with green leafy vegetables and onions. A rectangular plastic container filled with green leafy vegetables coated in red paste, sitting on a counter.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Container is glass, not plastic.",
+        "Packing action not visible in this frame.",
+        "Unresolved: Container in v4 is not provided for comparison."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        2.001166666666677,
+        8.007166666666677
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-02.s01",
+      "video": "v1",
+      "time": [
+        4.007,
+        8.958291668096301
+      ],
+      "resolution": "fine",
+      "content": "A translucent rectangular plastic container is filled with green leafy vegetables and red seasoning. The camera angle shifts slightly, revealing the container's depth and contents.",
+      "evidence": [
+        "v1.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Container in v4 is not visible in this segment.",
+        "Unresolved: Visual evidence of the container in v4 to compare shape, material, and contents."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        8.007166666666677,
+        9.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.021,
+        3.984
+      ],
+      "resolution": "coarse",
+      "content": "A wall outlet is shown, followed by a blender containing chopped white ingredients, which are then processed into a coarse paste.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact ingredients inside the blender are not clearly identifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        3.983588888888889,
+        5.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        5.038,
+        6.998
+      ],
+      "resolution": "fine",
+      "content": "A hand rests near the blue handle of a white plastic container lid. A glass bowl contains white vegetable strips mixed with red seasoning powder.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The interior contents of the container are not visible.",
+        "The vegetable type is ambiguous due to coating.",
+        "Unresolved: The specific type of white vegetable strips is ambiguous due to heavy seasoning."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-01.s01",
+      "video": "v2",
+      "time": [
+        6.997877777777788,
+        12.001000000000001
+      ],
+      "resolution": "fine",
+      "content": "A glass bowl holds cut white vegetable strips mixed with coarse red flakes; a hand enters at the top to begin mixing. A hand vigorously tosses the white strips with the red paste, progressively coating the pieces.",
+      "evidence": [
+        "v2.focus.r3.l1.e1",
+        "v2.focus.r3.l1.e2"
+      ],
+      "uncertainty": [
+        "Bok choy identification is inferred from shape.",
+        "The specific mixing tool is obscured by motion blur.",
+        "Unresolved: Comparison with v3 cutting and v1 packing frames",
+        "Unresolved: Absolute temporal ordering relative to other videos"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        12.002,
+        16.008877777777798
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        16.009,
+        18.011
+      ],
+      "resolution": "coarse",
+      "content": "A spoon mixes the red-coated white strips in a bowl, followed by a large dollop of white paste being added to the mixture.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The specific type of white paste being added is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-02.s01",
+      "video": "v2",
+      "time": [
+        18.010877777777807,
+        22.014877777777798
+      ],
+      "resolution": "fine",
+      "content": "A glass bowl contains white vegetable strips mixed with red flakes and a dollop of white creamy paste. A spoon mixes the ingredients, coating the white strips in red paste until uniformly red.",
+      "evidence": [
+        "v2.focus.r3.l2.e1",
+        "v2.focus.r3.l2.e2"
+      ],
+      "uncertainty": [
+        "Exact vegetable identity unconfirmed.",
+        "Comparison to external videos not visible.",
+        "Unresolved: Comparison to external video v3 and v1"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        22.015,
+        24.017
+      ],
+      "resolution": "coarse",
+      "content": "The ingredients are vigorously mixed into a thick, uniform red paste, with a spoon actively stirring the contents.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The mixing process is blurry due to motion."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        24.016877777777808,
+        25.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.017,
+        2.019
+      ],
+      "resolution": "coarse",
+      "content": "Knife cuts bok choy on a dark cutting board.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Cutting is in progress."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        2.0188777777777887,
+        5.981166666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        5.981,
+        5.981
+      ],
+      "resolution": "coarse",
+      "content": "Hand holds a piece of cut bok choy.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Action is static."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r2-03.s01",
+      "video": "v3",
+      "time": [
+        5.981166666666667,
+        11.987166666666667
+      ],
+      "resolution": "fine",
+      "content": "A hand manipulates halved bok choy pieces on a black cutting mat, separating the leaves from the white stems. The scene transitions to a glass bowl containing bok choy pieces coated in a thick red paste.",
+      "evidence": [
+        "v3.focus.r3.l3.e1",
+        "v3.focus.r3.l3.e2"
+      ],
+      "uncertainty": [
+        "Exact cutting action is not visible in these frames.",
+        "The specific moment of adding the paste is not captured.",
+        "Unresolved: The video does not show 'v2' or 'v1' packing."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        11.987,
+        11.987
+      ],
+      "resolution": "coarse",
+      "content": "Bowl contains red paste and green vegetables.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action is static."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        11.987166666666667,
+        19.995166666666677
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        19.995,
+        21.997
+      ],
+      "resolution": "coarse",
+      "content": "Bowl contains red paste and green vegetables.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "Action is static."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        21.997166666666686,
+        23.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U01-03.s01",
+      "video": "v4",
+      "time": [
+        0.024,
+        1.984
+      ],
+      "resolution": "fine",
+      "content": "A person holds up a clear, square plastic container with a blue-rimmed lid. The container is filled with a mixed salad including orange and green chunks. The scene cuts to a close-up of fresh bok choy lying on a white paper towel.",
+      "evidence": [
+        "v4.focus.r1.l3.e1",
+        "v4.focus.r1.l3.e2"
+      ],
+      "uncertainty": [
+        "None.",
+        "Unresolved: The visual appearance of the 'packed container in v1' is required for comparison."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        1.9842888888888908,
+        11.994288888888889
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        11.994,
+        11.994
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of bok choy on paper towels, slightly blurry and zoomed in.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "Motion or camera adjustment is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        11.994288888888889,
+        15.998288888888894
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        15.998,
+        15.998
+      ],
+      "resolution": "coarse",
+      "content": "Bok choy on paper towels, in-focus wide shot similar to S1-F02.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "Action between blurry and sharp shots is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        15.998288888888894,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If not, identify which v1 container is closest to v4's held container by rim, transparency, and food arrangement.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 7,
+    "visual_calls_remaining": 1,
+    "maximum_visual_calls_for_current_stage": 1,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

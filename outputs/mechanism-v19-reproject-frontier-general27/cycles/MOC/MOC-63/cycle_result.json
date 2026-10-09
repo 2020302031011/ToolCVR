@@ -1,0 +1,543 @@
+{
+  "state": {
+    "question": "How many white cars on the same side as {B1} completely pass {B1}?",
+    "round_id": 3,
+    "summary": "Current evidence supports three distinct white-car passes of the B1/A1 physical track: v1 0-4s shows two white cars in the adjacent lane completing passes of the annotated red vehicle; v2 0-2s corroborates those synchronized passes but does not add a separate count; v2 4-8s shows one additional white car overtaking the same red annotated vehicle on the same side. Because the v2 4-8s interval is disjoint from the v1 0-4s passes and is treated as the same physical B1/A1 track under the synchronized source-frame clock, the best-supported count is 3. Residual uncertainty remains about exact identity/annotation continuity of the v2 4-8s red vehicle, but no further executable observation is required to choose the best-supported option.",
+    "review": {
+      "outcome": "partial",
+      "reason": "Evidence confirms two white cars passing in v1 (0-4s) and one white car passing in v2 (4-8s), but does not definitively resolve whether the v2 car is distinct from the v1 cars due to lack of cross-view identity confirmation.",
+      "evidence_refs": [
+        "v1.zoom.r2-R2-01.s01",
+        "v2.zoom.r2-R2-02.s01"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 2
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-26: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.",
+      "A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.",
+      "A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.",
+      "A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.",
+      "A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [],
+    "open_questions": [
+      {
+        "id": "R1",
+        "question": "Determine the exact count of distinct white cars on the same side as B1/A1 that completely pass the annotated red vehicle.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r2-R2-01.s01",
+          "v2.zoom.r2-R2-02.s01"
+        ]
+      },
+      {
+        "id": "R2",
+        "question": "Reconcile synchronized views to confirm if the white car passing in v2 (4.0-8.0s) is a distinct entity from those counted in v1 (0.0-4.0s).",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r2-R2-01.s01",
+          "v2.zoom.r2-R2-02.s01"
+        ]
+      }
+    ],
+    "contrastive_frontier": [
+      {
+        "id": "P1",
+        "question_id": "R1",
+        "videos": [
+          "v1"
+        ],
+        "observable": "The number of distinct white vehicles fully overtaking the red bus/A1 between 0.0s and 4.0s.",
+        "purpose": "To establish the baseline count of passing cars in the primary view."
+      },
+      {
+        "id": "P2",
+        "question_id": "R2",
+        "videos": [
+          "v2"
+        ],
+        "observable": "The identity and position of the white car overtaking the red truck/B1 between 4.0s and 8.0s relative to the cars seen in v1.",
+        "purpose": "To determine if this event represents an additional distinct pass or a duplicate observation of a previously counted car."
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+        "direct_observation": "Aerial view of a multi-lane road with traffic flowing in both directions. A red bus and a white car are visible moving along the right side of the road.",
+        "inferred_interpretation": "",
+        "uncertainty": "Identity of {B1} is not explicitly defined in the visual data.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+        "direct_observation": "A white sedan travels forward in the right lane, passing a red bus that appears to be stopped or moving slowly.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the red bus corresponds to {B1} is assumed for context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red bus labeled B1 is stationary on the right side of the road. A white car is positioned directly behind it.",
+        "direct_observation": "A red bus labeled B1 is stationary on the right side of the road. A white car is positioned directly behind it.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the white car passes B1 between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+        "direct_observation": "The red bus (B1) moves forward. The white car previously behind it is now visible ahead of the bus.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact moment of passing is in the gap between 2.0s and 4.0s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A red vehicle with a yellow 'B1 car' label is stationary in the bottom lane.",
+        "direct_observation": "A red vehicle with a yellow 'B1 car' label is stationary in the bottom lane.",
+        "inferred_interpretation": "The B1 annotation identifies this specific red vehicle.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "Multiple white cars are observed moving along the road, passing the stationary red vehicle.",
+        "direct_observation": "Multiple white cars are observed moving along the road, passing the stationary red vehicle.",
+        "inferred_interpretation": "These are the white cars to be counted in the synchronized v1 view.",
+        "uncertainty": "The exact count of white cars passing is not established in this view.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "A red bus labeled 'A1 car' is tracked on the right side of the road, moving forward through an intersection.",
+        "direct_observation": "A red bus labeled 'A1 car' is tracked on the right side of the road, moving forward through an intersection.",
+        "inferred_interpretation": "The tracked object carrying the A1 annotation is a red bus.",
+        "uncertainty": "The label 'car' is visually present but contradicts the object's bus appearance.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "White vehicles are visible on the road adjacent to the tracked red bus, moving in the same direction.",
+        "direct_observation": "White vehicles are visible on the road adjacent to the tracked red bus, moving in the same direction.",
+        "inferred_interpretation": "These are the white cars on the bus's side.",
+        "uncertainty": "Specific count of distinct cars passing is not explicitly verified.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A white car in the lane adjacent to the annotated red vehicle moves forward, passing the red vehicle.",
+        "direct_observation": "A white car in the lane adjacent to the annotated red vehicle moves forward, passing the red vehicle.",
+        "inferred_interpretation": "The white car is on the same side as the annotated red vehicle and completes a pass.",
+        "uncertainty": "The exact identity of the white car is not confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A second white car in the same lane passes the red vehicle after the first car.",
+        "direct_observation": "A second white car in the same lane passes the red vehicle after the first car.",
+        "inferred_interpretation": "The second white car is also on the same side as the red vehicle and completes a pass.",
+        "uncertainty": "The exact identity of the second white car is not confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "A red truck travels rightward in the middle lanes, while a white car in the adjacent lane moves right, overtaking the truck.",
+        "direct_observation": "A red truck travels rightward in the middle lanes, while a white car in the adjacent lane moves right, overtaking the truck.",
+        "inferred_interpretation": "The white car is identified as passing the red vehicle.",
+        "uncertainty": "The red vehicle is a truck, not a car.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Current evidence is preliminary and not aligned: v2 reports B1 as a red bus, while the reference sidecar declares B1 as a car track visible only in the early part of the clip. v1 reports a white sedan passing a red bus, but the correspondence to B1 is unresolved. Because two Focus stages remain, answer is forbidden. Plan a refined comparison of v2's B1 label and v1's synchronized coarse interval to establish the true B1 track and count distinct white cars on its side that completely pass it.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U04",
+        "slot_ids": [
+          "v2.c001",
+          "v1.c002"
+        ],
+        "evidence_goal": "Establish which physical object carries the B1 annotation and use the synchronized v1 view of the same track to count distinct white cars on its side that completely pass it.",
+        "next_probe_goal": "Inspect v2's early coarse interval for the B1 label, vehicle type, road side, and nearby white cars; inspect v1's coarse interval for the corresponding annotated track and for complete white-car passing events on that same side.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "B1/A1 has been identified as the same annotated red vehicle/bus track, with B1 appearing in the bottom/right-side lane in v2 and A1 in the corresponding right-side lane in v1. Current evidence indicates white vehicles are on the same side and some pass, but the exact number of distinct white cars that completely pass B1 is unresolved. The next mandatory focus should refine the coarse passing intervals: v1 0.0-4.0s for a white sedan passing the red bus/A1, and v2 4.0-8.0s for a white car that was behind B1 and is now ahead, while cross-checking synchronized views to avoid double-counting the same physical car.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "R2",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c002"
+        ],
+        "evidence_goal": "Count distinct white cars on the same side as B1/A1 that completely pass the annotated red vehicle, using v1 0.0-4.0s and v2 4.0-8.0s as complementary evidence while reconciling synchronized views.",
+        "next_probe_goal": "Inspect v1.c001 to determine whether one or more white cars fully overtake the red bus/A1 on its side between 0.0s and 4.0s; inspect v2.c002 to determine whether the white car previously behind B1 is a distinct complete pass or the same physical car already counted in v1.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Current evidence supports three distinct white-car passes of the B1/A1 physical track: v1 0-4s shows two white cars in the adjacent lane completing passes of the annotated red vehicle; v2 0-2s corroborates those synchronized passes but does not add a separate count; v2 4-8s shows one additional white car overtaking the same red annotated vehicle on the same side. Because the v2 4-8s interval is disjoint from the v1 0-4s passes and is treated as the same physical B1/A1 track under the synchronized source-frame clock, the best-supported count is 3. Residual uncertainty remains about exact identity/annotation continuity of the v2 4-8s red vehicle, but no further executable observation is required to choose the best-supported option.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "projected_revision": 3,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "2540de3f4c433624",
+      "requirement_id": "U04",
+      "evidence_goal": "Establish which physical object carries the B1 annotation and use the synchronized v1 view of the same track to count distinct white cars on its side that completely pass it.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            8.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v1.focus.r1.l2.e1",
+        "v1.focus.r1.l2.e2"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "16aade4cbbdcd1e0",
+      "requirement_id": "R2",
+      "evidence_goal": "Count distinct white cars on the same side as B1/A1 that completely pass the annotated red vehicle, using v1 0.0-4.0s and v2 4.0-8.0s as complementary evidence while reconciling synchronized views.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            4.0,
+            8.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2",
+        "v2.focus.r2.l2.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.zoom.r2-R2-01.s01",
+      "v1.focus.r2.l1.e1",
+      "v1.focus.r2.l1.e2",
+      "v2.zoom.r2-R2-02.s01",
+      "v2.focus.r2.l2.e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-R2-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A white car in the lane adjacent to the annotated red vehicle moves forward, passing the red vehicle. A second white car in the same lane passes the red vehicle after the first car.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The exact identity of the white car is not confirmed.",
+        "The exact identity of the second white car is not confirmed.",
+        "Inferred interpretation (not direct evidence): The white car is on the same side as the annotated red vehicle and completes a pass.",
+        "Inferred interpretation (not direct evidence): The second white car is also on the same side as the red vehicle and completes a pass.",
+        "Unresolved: Confirmation of the number of distinct white cars passing the red vehicle."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U04-02.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A red bus labeled 'A1 car' is tracked on the right side of the road, moving forward through an intersection. White vehicles are visible on the road adjacent to the tracked red bus, moving in the same direction.",
+      "evidence": [
+        "v1.focus.r1.l2.e1",
+        "v1.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "The label 'car' is visually present but contradicts the object's bus appearance.",
+        "Specific count of distinct cars passing is not explicitly verified.",
+        "Inferred interpretation (not direct evidence): The tracked object carrying the A1 annotation is a red bus.",
+        "Inferred interpretation (not direct evidence): These are the white cars on the bus's side.",
+        "Unresolved: Count of distinct white cars completely passing the bus"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U04-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "fine",
+      "content": "A red vehicle with a yellow 'B1 car' label is stationary in the bottom lane. Multiple white cars are observed moving along the road, passing the stationary red vehicle.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "None.",
+        "The exact count of white cars passing is not established in this view.",
+        "Inferred interpretation (not direct evidence): The B1 annotation identifies this specific red vehicle.",
+        "Inferred interpretation (not direct evidence): These are the white cars to be counted in the synchronized v1 view.",
+        "Unresolved: Count of distinct white cars on the side of the B1 car from the synchronized v1 view."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-R2-02.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "A red truck travels rightward in the middle lanes, while a white car in the adjacent lane moves right, overtaking the truck.",
+      "evidence": [
+        "v2.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "The red vehicle is a truck, not a car.",
+        "Inferred interpretation (not direct evidence): The white car is identified as passing the red vehicle.",
+        "Unresolved: The identity of the red vehicle (truck vs car).",
+        "Unresolved: Confirmation of the 'same side' constraint relative to B1/A1."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

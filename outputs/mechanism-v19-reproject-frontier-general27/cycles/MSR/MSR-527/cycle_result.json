@@ -1,0 +1,445 @@
+{
+  "state": {
+    "question": "When {B3} completely leaves view B, where is {A5} located in view A?",
+    "round_id": 3,
+    "summary": "B3 is last visible in view B around 7.333s and then completely leaves view B. At that synchronized time, the fine-grained view A evidence shows A5 visible in a stationary position at the bottom left of the frame.",
+    "review": {
+      "outcome": "resolved",
+      "reason": "The last focus successfully identified the departure interval for B3 in view v2, confirming that the label 'B3 car' becomes no longer visible within the fine-grained observation window. This settles the trigger condition requirement.",
+      "evidence_refs": [
+        "v2.zoom.r2-U01-01.s01",
+        "v2.focus.r2.l1.e1"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 1
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-71: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=27; declared=car; A1_visible=0-59 (0.000-2.000s)/250_frames; B1_visible=0-79 (0.000-2.667s)/251_frames.",
+      "A2/B2 is source_track=33; declared=car; A2_visible=158-249 (5.267-8.333s)/250_frames; B2_visible=0-249 (0.000-8.333s)/251_frames.",
+      "A3/B3 is source_track=61; declared=car; A3_visible=0-89 (0.000-3.000s)/250_frames; B3_visible=0-219 (0.000-7.333s)/251_frames.",
+      "A4/B4 is source_track=64; declared=person; A4_visible=0-69 (0.000-2.333s)/250_frames; B4_visible=0-139 (0.000-4.667s)/251_frames.",
+      "A5/B5 is source_track=46; declared=car; A5_visible=133-249 (4.433-8.333s)/250_frames; B5_visible=0-249 (0.000-8.333s)/251_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "R1",
+        "statement": "Determine the exact timestamp when B3 completely leaves view B.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.zoom.r2-U01-01.s01",
+          "v2.focus.r2.l1.e1"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "R2",
+        "question": "Determine the location of A5 in view A at the synchronized timestamp identified in R1.",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": []
+      }
+    ],
+    "contrastive_frontier": [
+      {
+        "id": "P1",
+        "question_id": "R2",
+        "videos": [
+          "v1"
+        ],
+        "observable": "The position of the car labeled A5 relative to the frame boundaries (top/bottom/left/right) or its absence from the frame.",
+        "purpose": "To resolve whether A5 is visible and where it is located at the specific moment B3 exits view B."
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A5 is not visible in the frame. A1 is visible in the lower central region.",
+        "direct_observation": "A5 is not visible in the frame. A1 is visible in the lower central region.",
+        "inferred_interpretation": "",
+        "uncertainty": "A5 visibility status is inferred from absence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "A5 is visible in the bottom left corner of the frame, moving right.",
+        "direct_observation": "A5 is visible in the bottom left corner of the frame, moving right.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          6.0
+        ],
+        "description": "B3 car is visible in the bottom right corner of the frame, located near the green awnings.",
+        "direct_observation": "B3 car is visible in the bottom right corner of the frame, located near the green awnings.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "B3 car is no longer visible in the frame; the bottom right area is occupied by the building.",
+        "direct_observation": "B3 car is no longer visible in the frame; the bottom right area is occupied by the building.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "A5 car is visible in the upper left quadrant of the frame, driving on the road.",
+        "direct_observation": "A5 car is visible in the upper left quadrant of the frame, driving on the road.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether A5 was present in earlier frames is unclear due to lack of label.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "The A5 car, identified by an orange label, is visible in a stationary parking position at the bottom left of the screen.",
+        "direct_observation": "The A5 car, identified by an orange label, is visible in a stationary parking position at the bottom left of the screen.",
+        "inferred_interpretation": "Candidate view A location of A5 during the synchronized window.",
+        "uncertainty": "None; object is clearly labeled and visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "The A2 car, identified by a blue label, travels from left to right across the lower roadway.",
+        "direct_observation": "The A2 car, identified by a blue label, travels from left to right across the lower roadway.",
+        "inferred_interpretation": "Candidate view B observation; motion consistent with departure.",
+        "uncertainty": "Object is labeled A2, not B3; mapping is inferred.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          8.0
+        ],
+        "description": "The green B3 car label is visible in frames F01, F02, F03, and F04. It is absent in frame F05.",
+        "direct_observation": "The green B3 car label is visible in frames F01, F02, F03, and F04. It is absent in frame F05.",
+        "inferred_interpretation": "The B3 car departs the visible area between 7.000s and 8.000s.",
+        "uncertainty": "The exact departure moment is between 7.000s and 8.000s.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          7.0
+        ],
+        "description": "The green text label 'B3 car' is visible in the lower-right quadrant of the frame.",
+        "direct_observation": "The green text label 'B3 car' is visible in the lower-right quadrant of the frame.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "The green text label 'B3 car' is no longer visible in the frame.",
+        "direct_observation": "The green text label 'B3 car' is no longer visible in the frame.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration is still active. Current coarse evidence brackets the B3 departure in the candidate view B and places A5 in the bottom-left region of the candidate view A during the same synchronized window, but the view correspondence and the A5 position at the exact departure time are not yet locally confirmed. A refine plan is needed before any answer.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U02",
+        "slot_ids": [
+          "v1.c002",
+          "v2.c002"
+        ],
+        "evidence_goal": "Refine the candidate view A location of A5 during the synchronized window associated with B3's departure, and refine the candidate view B observation that B3 is no longer visible.",
+        "next_probe_goal": "If the departure time remains only bracketed, reserve a complementary probe on the candidate view B departure interval to pin the synchronized target before confirming A5's final frame position.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "The remaining open question is the exact synchronized moment when B3 completely leaves view B. Current view B evidence brackets the departure but does not pin the first absent frame, while view A evidence indicates A5 is in the bottom-left region during the relevant window. Because mandatory exploration still has one stage remaining, the next action is to refine the view B departure interval to obtain the target timestamp needed for the final comparison.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.zoom.r1-U02-02.s01"
+        ],
+        "evidence_goal": "Observe the view B departure interval already bracketed by current evidence and identify the first frame in which the B3 label is completely absent.",
+        "next_probe_goal": "Use the pinned synchronized departure moment to evaluate the already observed view A position of A5 and select the best-supported option.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "B3 is last visible in view B around 7.333s and then completely leaves view B. At that synchronized time, the fine-grained view A evidence shows A5 visible in a stationary position at the bottom left of the frame.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "projected_revision": 3,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "d2d0bd3b0c61b0b7",
+      "requirement_id": "U02",
+      "evidence_goal": "Refine the candidate view A location of A5 during the synchronized window associated with B3's departure, and refine the candidate view B observation that B3 is no longer visible.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            6.0,
+            8.0
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            8.0,
+            8.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v2.focus.r1.l2.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "ac88968ea6550e5c",
+      "requirement_id": "U01",
+      "evidence_goal": "Observe the view B departure interval already bracketed by current evidence and identify the first frame in which the B3 label is completely absent.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            4.0,
+            8.333333333333334
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v1.zoom.r1-U02-01.s01",
+      "v1.focus.r1.l1.e1",
+      "v1.focus.r1.l1.e2",
+      "v2.zoom.r2-U01-01.s01",
+      "v2.focus.r2.l1.e1",
+      "v2.focus.r2.l1.e2"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A5 is not visible in the frame. A1 is visible in the lower central region.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "A5 visibility status is inferred from absence."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U02-01.s01",
+      "video": "v1",
+      "time": [
+        6.0,
+        8.0
+      ],
+      "resolution": "fine",
+      "content": "The A5 car, identified by an orange label, is visible in a stationary parking position at the bottom left of the screen. The A2 car, identified by a blue label, travels from left to right across the lower roadway.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "None; object is clearly labeled and visible.",
+        "Object is labeled A2, not B3; mapping is inferred.",
+        "Inferred interpretation (not direct evidence): Candidate view A location of A5 during the synchronized window.",
+        "Inferred interpretation (not direct evidence): Candidate view B observation; motion consistent with departure.",
+        "Unresolved: Confirmation that object A2 corresponds to B3."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "B3 car is visible in the bottom right corner of the frame, located near the green awnings.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-U01-01.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.333333333333334
+      ],
+      "resolution": "fine",
+      "content": "The green text label 'B3 car' is visible in the lower-right quadrant of the frame. The green text label 'B3 car' is no longer visible in the frame.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        8.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "A5 car is visible in the upper left quadrant of the frame, driving on the road.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether A5 was present in earlier frames is unclear due to lack of label."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

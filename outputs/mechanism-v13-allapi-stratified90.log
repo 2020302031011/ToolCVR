@@ -1,0 +1,1607 @@
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py --tasks PSS,CC,FSA,NC,PI,MSR,MOC,PEA,CCQA --sample-ids PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128 --crossvid-root /media/data6/xuejj/CrossVid --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection --api-env-file /media/data6/xuejj/UniCVR-Agent/.env.bak-qwen --api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --api-model qwen3.8-flash --api-key-env LLM_API_KEY --clip-model openai/clip-vit-large-patch14-336 --clip-device cuda:0 --clip-batch-size 64 --resume
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[selection] profiles=config-default retention_ratio=None query_plan_dir=None
+[PSS] requested sample ids=62,89,141,160,229,292,309,413,419,544
+[PSS-62] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-62] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-62] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/openai_compatible.py", line 249, in _post
+    with urllib.request.urlopen(
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py", line 617, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py", line 508, in main
+    plan = rewriter.rewrite(question, options)
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/query.py", line 140, in rewrite
+    content = transport.complete(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/openai_compatible.py", line 161, in complete
+    return self._post(
+  File "/media/data6/xuejj/ToolCVR/src/toolcvr/openai_compatible.py", line 259, in _post
+    raise RuntimeError(
+RuntimeError: API returned HTTP 400: {"error":{"message":"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment","type":"Arrearage","param":null,"code":"Arrearage"},"id":"chatcmpl-2c5dc2e5-1ab9-9900-840f-a778afb5601a","request_id":"2c5dc2e5-1ab9-9900-840f-a778afb5601a"}
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 248, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 157, in main
+    _run([
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 90, in _run
+    subprocess.run(command, cwd=PROJECT_ROOT, env=environment, check=True)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/media/data2/xuejj/anaconda3/envs/qwen3/bin/python', '/media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py', '--tasks', 'PSS,CC,FSA,NC,PI,MSR,MOC,PEA,CCQA', '--sample-ids', 'PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128', '--crossvid-root', '/media/data6/xuejj/CrossVid', '--output-dir', '/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection', '--api-env-file', '/media/data6/xuejj/UniCVR-Agent/.env.bak-qwen', '--api-base-url', 'https://dashscope.aliyuncs.com/compatible-mode/v1', '--api-model', 'qwen3.8-flash', '--api-key-env', 'LLM_API_KEY', '--clip-model', 'openai/clip-vit-large-patch14-336', '--clip-device', 'cuda:0', '--clip-batch-size', '64', '--resume']' returned non-zero exit status 1.
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py --tasks PSS,CC,FSA,NC,PI,MSR,MOC,PEA,CCQA --sample-ids PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128 --crossvid-root /media/data6/xuejj/CrossVid --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection --api-env-file /media/data6/xuejj/UniCVR-Agent/.env --api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --api-model qwen3.8-flash --api-key-env LLM_API_KEY --clip-model openai/clip-vit-large-patch14-336 --clip-device cuda:0 --clip-batch-size 64 --resume
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[selection] profiles=config-default retention_ratio=None query_plan_dir=None
+[PSS] requested sample ids=62,89,141,160,229,292,309,413,419,544
+[PSS-62] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-62] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-62] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[h264 @ 0x8f1ee40] mmco: unref short failure
+[h264 @ 0x844c6c0] mmco: unref short failure
+[h264 @ 0x844c6c0] mmco: unref short failure
+[PSS-62][config-default] selected=53/124 retention=42.7%
+[summary] samples=1 selected=53/124 retention=42.7%
+[PSS-62][decode-cache] selected_hits=1 selected_misses=52 timeline_hits=0 timeline_misses=124
+[PSS-89] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-89] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-89] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-89][config-default] selected=70/115 retention=60.9%
+[summary] samples=2 selected=123/239 retention=51.5%
+[PSS-89][decode-cache] selected_hits=0 selected_misses=70 timeline_hits=0 timeline_misses=230
+[PSS-141] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-141] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-141] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[h264 @ 0x15d05e00] mmco: unref short failure
+[h264 @ 0x15d05e00] mmco: unref short failure
+[PSS-141][config-default] selected=37/78 retention=47.4%
+[summary] samples=3 selected=160/317 retention=50.5%
+[PSS-141][decode-cache] selected_hits=0 selected_misses=37 timeline_hits=0 timeline_misses=156
+[PSS-160] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-160] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-160] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-160][config-default] selected=12/17 retention=70.6%
+[summary] samples=4 selected=172/334 retention=51.5%
+[PSS-160][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=17
+[PSS-229] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-229] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-229] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-229][config-default] selected=38/111 retention=34.2%
+[summary] samples=5 selected=210/445 retention=47.2%
+[PSS-229][decode-cache] selected_hits=0 selected_misses=38 timeline_hits=0 timeline_misses=222
+[PSS-292] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-292] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-292] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-292][config-default] selected=30/87 retention=34.5%
+[summary] samples=6 selected=240/532 retention=45.1%
+[PSS-292][decode-cache] selected_hits=0 selected_misses=30 timeline_hits=0 timeline_misses=174
+[PSS-309] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-309] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-309] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[h264 @ 0x33b51540] mmco: unref short failure
+[PSS-309][config-default] selected=22/41 retention=53.7%
+[summary] samples=7 selected=262/573 retention=45.7%
+[PSS-309][decode-cache] selected_hits=0 selected_misses=22 timeline_hits=0 timeline_misses=82
+[PSS-413] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-413] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-413] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[h264 @ 0x12a7f0c0] mmco: unref short failure
+[PSS-413][config-default] selected=28/36 retention=77.8%
+[summary] samples=8 selected=290/609 retention=47.6%
+[PSS-413][decode-cache] selected_hits=0 selected_misses=28 timeline_hits=0 timeline_misses=72
+[PSS-419] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-419] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-419] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-419][config-default] selected=41/83 retention=49.4%
+[summary] samples=9 selected=331/692 retention=47.8%
+[PSS-419][decode-cache] selected_hits=0 selected_misses=41 timeline_hits=0 timeline_misses=166
+[PSS-544] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-544] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-544] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[h264 @ 0x34d5cb80] mmco: unref short failure
+[h264 @ 0x34d5cb80] mmco: unref short failure
+[PSS-544][config-default] selected=42/95 retention=44.2%
+[summary] samples=10 selected=373/787 retention=47.4%
+[PSS-544][decode-cache] selected_hits=0 selected_misses=42 timeline_hits=0 timeline_misses=190
+[CC] requested sample ids=72,93,196,333,426,456,474,502,693,713
+[h264 @ 0x33564080] mmco: unref short failure
+[h264 @ 0x33564080] mmco: unref short failure
+[h264 @ 0x33564080] mmco: unref short failure
+[h264 @ 0x33564080] mmco: unref short failure
+[h264 @ 0x7f71080] mmco: unref short failure
+[CC-72][config-default] selected=226/583 retention=38.8%
+[summary] samples=11 selected=599/1370 retention=43.7%
+[CC-72][decode-cache] selected_hits=0 selected_misses=226 timeline_hits=0 timeline_misses=1166
+[h264 @ 0x34f55b40] mmco: unref short failure
+[h264 @ 0x34f55b40] mmco: unref short failure
+[h264 @ 0x34f55700] mmco: unref short failure
+[h264 @ 0x34f55700] mmco: unref short failure
+[h264 @ 0x34f55700] mmco: unref short failure
+[h264 @ 0x34f55700] mmco: unref short failure
+[h264 @ 0x28422840] mmco: unref short failure
+[CC-93][config-default] selected=152/685 retention=22.2%
+[summary] samples=12 selected=751/2055 retention=36.5%
+[CC-93][decode-cache] selected_hits=0 selected_misses=152 timeline_hits=0 timeline_misses=1370
+[h264 @ 0x26e9ba40] mmco: unref short failure
+[h264 @ 0x26e9ba40] mmco: unref short failure
+[h264 @ 0x11299bc0] mmco: unref short failure
+[h264 @ 0x11299bc0] mmco: unref short failure
+[h264 @ 0x28468c80] mmco: unref short failure
+[h264 @ 0x28468c80] mmco: unref short failure
+[h264 @ 0x28468c80] mmco: unref short failure
+[h264 @ 0x28468c80] mmco: unref short failure
+[CC-196][config-default] selected=108/787 retention=13.7%
+[summary] samples=13 selected=859/2842 retention=30.2%
+[CC-196][decode-cache] selected_hits=0 selected_misses=108 timeline_hits=0 timeline_misses=787
+[h264 @ 0x14406cc0] mmco: unref short failure
+[CC-333][config-default] selected=74/486 retention=15.2%
+[summary] samples=14 selected=933/3328 retention=28.0%
+[CC-333][decode-cache] selected_hits=0 selected_misses=74 timeline_hits=0 timeline_misses=972
+[h264 @ 0x9fc5b80] mmco: unref short failure
+[h264 @ 0x9fc5b80] mmco: unref short failure
+[h264 @ 0x2a4c4e40] mmco: unref short failure
+[CC-426][config-default] selected=109/806 retention=13.5%
+[summary] samples=15 selected=1042/4134 retention=25.2%
+[CC-426][decode-cache] selected_hits=0 selected_misses=109 timeline_hits=0 timeline_misses=1612
+[h264 @ 0x26eaaf00] mmco: unref short failure
+[CC-456][config-default] selected=170/733 retention=23.2%
+[summary] samples=16 selected=1212/4867 retention=24.9%
+[CC-456][decode-cache] selected_hits=0 selected_misses=170 timeline_hits=0 timeline_misses=1466
+[h264 @ 0x11299b00] mmco: unref short failure
+[h264 @ 0x11299b00] mmco: unref short failure
+[CC-474][config-default] selected=108/216 retention=50.0%
+[summary] samples=17 selected=1320/5083 retention=26.0%
+[CC-474][decode-cache] selected_hits=0 selected_misses=108 timeline_hits=0 timeline_misses=216
+[h264 @ 0x9fc6200] mmco: unref short failure
+[h264 @ 0x9fc6200] mmco: unref short failure
+[h264 @ 0x9fc6200] mmco: unref short failure
+[h264 @ 0x9fc6200] mmco: unref short failure
+[h264 @ 0xfe58a80] mmco: unref short failure
+[h264 @ 0xfe58a80] mmco: unref short failure
+[h264 @ 0xfe58a80] mmco: unref short failure
+[h264 @ 0xfe58a80] mmco: unref short failure
+[h264 @ 0x35074680] mmco: unref short failure
+[h264 @ 0x35074680] mmco: unref short failure
+[h264 @ 0x244ea300] mmco: unref short failure
+[CC-502][config-default] selected=181/424 retention=42.7%
+[summary] samples=18 selected=1501/5507 retention=27.3%
+[CC-502][decode-cache] selected_hits=0 selected_misses=181 timeline_hits=0 timeline_misses=848
+[h264 @ 0x2a51ca00] mmco: unref short failure
+[h264 @ 0x2a51ca00] mmco: unref short failure
+[CC-693][config-default] selected=93/639 retention=14.6%
+[summary] samples=19 selected=1594/6146 retention=25.9%
+[CC-693][decode-cache] selected_hits=0 selected_misses=93 timeline_hits=0 timeline_misses=1278
+[h264 @ 0x26d13d80] mmco: unref short failure
+[h264 @ 0x26d13d80] mmco: unref short failure
+[h264 @ 0x2a03bac0] mmco: unref short failure
+[h264 @ 0x2a03bac0] mmco: unref short failure
+[h264 @ 0x2a03bac0] mmco: unref short failure
+[h264 @ 0x2a03bac0] mmco: unref short failure
+[h264 @ 0x26e879c0] mmco: unref short failure
+[h264 @ 0x26e879c0] mmco: unref short failure
+[h264 @ 0x26e879c0] mmco: unref short failure
+[h264 @ 0x26e879c0] mmco: unref short failure
+[h264 @ 0x22b29c40] mmco: unref short failure
+[CC-713][config-default] selected=74/534 retention=13.9%
+[summary] samples=20 selected=1668/6680 retention=25.0%
+[CC-713][decode-cache] selected_hits=0 selected_misses=74 timeline_hits=0 timeline_misses=1068
+[FSA] requested sample ids=82,135,306,555,571,1386,1536,1562,1648,1981
+[FSA-82] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-82] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-82] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x26dc7c80] mmco: unref short failure
+[h264 @ 0x26dc7c80] mmco: unref short failure
+[FSA-82][config-default] selected=78/105 retention=74.3%
+[summary] samples=21 selected=1746/6785 retention=25.7%
+[FSA-82][decode-cache] selected_hits=0 selected_misses=78 timeline_hits=0 timeline_misses=210
+[FSA-135] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-135] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-135] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-135][config-default] selected=48/188 retention=25.5%
+[summary] samples=22 selected=1794/6973 retention=25.7%
+[FSA-135][decode-cache] selected_hits=0 selected_misses=48 timeline_hits=0 timeline_misses=376
+[FSA-306] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-306] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-306] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x2a0354c0] mmco: unref short failure
+[h264 @ 0x2a0354c0] mmco: unref short failure
+[h264 @ 0x28310400] mmco: unref short failure
+[h264 @ 0x28310400] mmco: unref short failure
+[h264 @ 0x22560480] mmco: unref short failure
+[FSA-306][config-default] selected=131/217 retention=60.4%
+[summary] samples=23 selected=1925/7190 retention=26.8%
+[FSA-306][decode-cache] selected_hits=0 selected_misses=131 timeline_hits=0 timeline_misses=221
+[FSA-555] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-555] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-555] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x1dfddb40] mmco: unref short failure
+[h264 @ 0x1dfddb40] mmco: unref short failure
+[h264 @ 0x28043d40] Missing reference picture, default is 65562
+[h264 @ 0x34eadcc0] mmco: unref short failure
+[h264 @ 0x34eadcc0] mmco: unref short failure
+[FSA-555][config-default] selected=68/124 retention=54.8%
+[summary] samples=24 selected=1993/7314 retention=27.2%
+[FSA-555][decode-cache] selected_hits=0 selected_misses=68 timeline_hits=0 timeline_misses=239
+[FSA-571] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-571] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-571] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x11c12700] mmco: unref short failure
+[h264 @ 0x11c12700] mmco: unref short failure
+[h264 @ 0x26e9abc0] mmco: unref short failure
+[h264 @ 0x26e9abc0] mmco: unref short failure
+[h264 @ 0xacc5740] mmco: unref short failure
+[h264 @ 0xacc4b80] mmco: unref short failure
+[h264 @ 0xacc4b80] mmco: unref short failure
+[FSA-571][config-default] selected=127/281 retention=45.2%
+[summary] samples=25 selected=2120/7595 retention=27.9%
+[FSA-571][decode-cache] selected_hits=0 selected_misses=127 timeline_hits=0 timeline_misses=281
+[FSA-1386] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1386] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1386] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1386][config-default] selected=29/48 retention=60.4%
+[summary] samples=26 selected=2149/7643 retention=28.1%
+[FSA-1386][decode-cache] selected_hits=0 selected_misses=29 timeline_hits=0 timeline_misses=48
+[FSA-1536] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1536] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1536] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1536][config-default] selected=30/90 retention=33.3%
+[summary] samples=27 selected=2179/7733 retention=28.2%
+[FSA-1536][decode-cache] selected_hits=0 selected_misses=30 timeline_hits=0 timeline_misses=180
+[FSA-1562] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1562] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1562] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x2a033400] mmco: unref short failure
+[h264 @ 0x2a033400] mmco: unref short failure
+[FSA-1562][config-default] selected=39/139 retention=28.1%
+[summary] samples=28 selected=2218/7872 retention=28.2%
+[FSA-1562][decode-cache] selected_hits=0 selected_misses=39 timeline_hits=0 timeline_misses=278
+[FSA-1648] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1648] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1648] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x9fb6c40] mmco: unref short failure
+[h264 @ 0x9fb6c40] mmco: unref short failure
+[h264 @ 0x9fb6c40] mmco: unref short failure
+[h264 @ 0x9fb6c40] mmco: unref short failure
+[h264 @ 0x1dfd7b80] mmco: unref short failure
+[h264 @ 0x1dfd7b80] mmco: unref short failure
+[h264 @ 0x34ee4280] mmco: unref short failure
+[h264 @ 0x34eae0c0] mmco: unref short failure
+[h264 @ 0x2a32b680] mmco: unref short failure
+[h264 @ 0x2a32b680] mmco: unref short failure
+[h264 @ 0x2a32b680] mmco: unref short failure
+[h264 @ 0x2a32b680] mmco: unref short failure
+[FSA-1648][config-default] selected=105/157 retention=66.9%
+[summary] samples=29 selected=2323/8029 retention=28.9%
+[FSA-1648][decode-cache] selected_hits=0 selected_misses=105 timeline_hits=0 timeline_misses=314
+[FSA-1981] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1981] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1981] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[h264 @ 0x114ad000] mmco: unref short failure
+[h264 @ 0x9fb6c40] mmco: unref short failure
+[FSA-1981][config-default] selected=60/239 retention=25.1%
+[summary] samples=30 selected=2383/8268 retention=28.8%
+[FSA-1981][decode-cache] selected_hits=0 selected_misses=60 timeline_hits=0 timeline_misses=478
+[NC] requested sample ids=202,325,578,641,754,787,790,884,1030,1035
+[NC-202][config-default] selected=693/931 retention=74.4%
+[summary] samples=31 selected=3076/9199 retention=33.4%
+[NC-202][decode-cache] selected_hits=0 selected_misses=693 timeline_hits=0 timeline_misses=1862
+[NC-325][config-default] selected=210/904 retention=23.2%
+[summary] samples=32 selected=3286/10103 retention=32.5%
+[NC-325][decode-cache] selected_hits=0 selected_misses=210 timeline_hits=0 timeline_misses=1356
+[NC-578][config-default] selected=685/918 retention=74.6%
+[summary] samples=33 selected=3971/11021 retention=36.0%
+[NC-578][decode-cache] selected_hits=0 selected_misses=685 timeline_hits=0 timeline_misses=1836
+[NC-641][config-default] selected=259/946 retention=27.4%
+[summary] samples=34 selected=4230/11967 retention=35.3%
+[NC-641][decode-cache] selected_hits=0 selected_misses=259 timeline_hits=0 timeline_misses=1892
+[NC-754][config-default] selected=139/843 retention=16.5%
+[summary] samples=35 selected=4369/12810 retention=34.1%
+[NC-754][decode-cache] selected_hits=0 selected_misses=139 timeline_hits=0 timeline_misses=843
+[NC-787][config-default] selected=161/857 retention=18.8%
+[summary] samples=36 selected=4530/13667 retention=33.1%
+[NC-787][decode-cache] selected_hits=0 selected_misses=161 timeline_hits=0 timeline_misses=1714
+[NC-790][config-default] selected=723/840 retention=86.1%
+[summary] samples=37 selected=5253/14507 retention=36.2%
+[NC-790][decode-cache] selected_hits=0 selected_misses=723 timeline_hits=0 timeline_misses=840
+[NC-884][config-default] selected=194/844 retention=23.0%
+[summary] samples=38 selected=5447/15351 retention=35.5%
+[NC-884][decode-cache] selected_hits=0 selected_misses=194 timeline_hits=0 timeline_misses=1688
+[NC-1030][config-default] selected=254/963 retention=26.4%
+[summary] samples=39 selected=5701/16314 retention=34.9%
+[NC-1030][decode-cache] selected_hits=0 selected_misses=254 timeline_hits=0 timeline_misses=1926
+[NC-1035][config-default] selected=200/900 retention=22.2%
+[summary] samples=40 selected=5901/17214 retention=34.3%
+[NC-1035][decode-cache] selected_hits=0 selected_misses=200 timeline_hits=0 timeline_misses=1800
+[PI] requested sample ids=72,86,100,106,107,124,175,204,219,225
+[PI-72] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-72][config-default] selected=83/185 retention=44.9%
+[summary] samples=41 selected=5984/17399 retention=34.4%
+[PI-72][decode-cache] selected_hits=0 selected_misses=83 timeline_hits=0 timeline_misses=185
+[PI-86] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-86][config-default] selected=100/214 retention=46.7%
+[summary] samples=42 selected=6084/17613 retention=34.5%
+[PI-86][decode-cache] selected_hits=0 selected_misses=100 timeline_hits=0 timeline_misses=428
+[PI-100] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-100][config-default] selected=71/166 retention=42.8%
+[summary] samples=43 selected=6155/17779 retention=34.6%
+[PI-100][decode-cache] selected_hits=0 selected_misses=71 timeline_hits=0 timeline_misses=332
+[PI-106] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-106][config-default] selected=82/201 retention=40.8%
+[summary] samples=44 selected=6237/17980 retention=34.7%
+[PI-106][decode-cache] selected_hits=0 selected_misses=82 timeline_hits=0 timeline_misses=402
+[PI-107] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-107][config-default] selected=85/173 retention=49.1%
+[summary] samples=45 selected=6322/18153 retention=34.8%
+[PI-107][decode-cache] selected_hits=0 selected_misses=85 timeline_hits=0 timeline_misses=346
+[PI-124] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-124][config-default] selected=91/191 retention=47.6%
+[summary] samples=46 selected=6413/18344 retention=35.0%
+[PI-124][decode-cache] selected_hits=0 selected_misses=91 timeline_hits=0 timeline_misses=382
+[PI-175] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-175][config-default] selected=104/184 retention=56.5%
+[summary] samples=47 selected=6517/18528 retention=35.2%
+[PI-175][decode-cache] selected_hits=0 selected_misses=104 timeline_hits=0 timeline_misses=368
+[PI-204] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-204][config-default] selected=89/178 retention=50.0%
+[summary] samples=48 selected=6606/18706 retention=35.3%
+[PI-204][decode-cache] selected_hits=0 selected_misses=89 timeline_hits=0 timeline_misses=356
+[PI-219] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-219][config-default] selected=59/119 retention=49.6%
+[summary] samples=49 selected=6665/18825 retention=35.4%
+[PI-219][decode-cache] selected_hits=0 selected_misses=59 timeline_hits=0 timeline_misses=238
+[PI-225] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-225][config-default] selected=58/111 retention=52.3%
+[summary] samples=50 selected=6723/18936 retention=35.5%
+[PI-225][decode-cache] selected_hits=0 selected_misses=58 timeline_hits=0 timeline_misses=111
+[MSR] requested sample ids=0,66,132,198,264,329,395,461,527,593
+[MSR-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-0] data repair: A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.
+[MSR-0] data repair: A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.
+[MSR-0] data repair: A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.
+[MSR-0] data repair: A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.
+[MSR-0] data repair: A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.
+[MSR-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-0][config-default] selected=6/16 retention=37.5%
+[summary] samples=51 selected=6729/18952 retention=35.5%
+[MSR-0][decode-cache] selected_hits=0 selected_misses=6 timeline_hits=0 timeline_misses=16
+[MSR-66] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-66] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-66] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-66] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-66] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-66] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-66] data repair: A1/B1 is source_track=19; declared=car; A1_visible=0-299 (0.000-10.000s)/300_frames; B1_visible=0-245 (0.000-8.200s)/300_frames.
+[MSR-66] data repair: A2/B2 is source_track=47; declared=car; A2_visible=20-196 (0.667-6.567s)/300_frames; B2_visible=109-168 (3.633-5.633s)/300_frames.
+[MSR-66] data repair: A3/B3 is source_track=155; declared=person; A3_visible=200-299 (6.667-10.000s)/300_frames; B3_visible=none/300_frames.
+[MSR-66] data repair: A4/B4 is source_track=24; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=0-83 (0.000-2.800s)/300_frames.
+[MSR-66] data repair: A5/B5 is source_track=8; declared=car; A5_visible=0-127 (0.000-4.267s)/300_frames; B5_visible=0-61 (0.000-2.067s)/300_frames.
+[MSR-66] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-66][config-default] selected=8/10 retention=80.0%
+[summary] samples=52 selected=6737/18962 retention=35.5%
+[MSR-66][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=20
+[MSR-132] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-132] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-132] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-132] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-132] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-132] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-132] data repair: A1/B1 is source_track=84; declared=car; A1_visible=50-277 (1.667-9.267s)/360_frames; B1_visible=0-299 (0.000-10.000s)/360_frames.
+[MSR-132] data repair: A2/B2 is source_track=99; declared=bicycle; A2_visible=0-339 (0.000-11.333s)/360_frames; B2_visible=0-329 (0.000-11.000s)/360_frames.
+[MSR-132] data repair: A3/B3 is source_track=105; declared=car; A3_visible=170-359 (5.667-12.000s)/360_frames; B3_visible=0-359 (0.000-12.000s)/360_frames.
+[MSR-132] data repair: A4/B4 is source_track=29; declared=person; A4_visible=0-339 (0.000-11.333s)/360_frames; B4_visible=0-329 (0.000-11.000s)/360_frames.
+[MSR-132] data repair: A5/B5 is source_track=16; declared=person; A5_visible=0-289 (0.000-9.667s)/360_frames; B5_visible=0-319 (0.000-10.667s)/360_frames.
+[MSR-132] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-132][config-default] selected=4/12 retention=33.3%
+[summary] samples=53 selected=6741/18974 retention=35.5%
+[MSR-132][decode-cache] selected_hits=0 selected_misses=4 timeline_hits=0 timeline_misses=24
+[MSR-198] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-198] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-198] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-198] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-198] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-198] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-198] data repair: A1/B1 is source_track=31; declared=car; A1_visible=7-88 (0.233-2.967s)/450_frames; B1_visible=26-67 (0.867-2.267s)/450_frames.
+[MSR-198] data repair: A2/B2 is source_track=36; declared=car; A2_visible=50-119 (1.667-4.000s)/450_frames; B2_visible=62-102 (2.067-3.433s)/450_frames.
+[MSR-198] data repair: A3/B3 is source_track=37; declared=car; A3_visible=23-239 (0.767-8.000s)/450_frames; B3_visible=71-179 (2.367-6.000s)/450_frames.
+[MSR-198] data repair: A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.
+[MSR-198] data repair: A5/B5 is source_track=0; declared=car; A5_visible=0-144 (0.000-4.833s)/450_frames; B5_visible=0-29 (0.000-1.000s)/450_frames.
+[MSR-198] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-198][config-default] selected=8/16 retention=50.0%
+[summary] samples=54 selected=6749/18990 retention=35.5%
+[MSR-198][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=32
+[MSR-264] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-264] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-264] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-264] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-264] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-264] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-264] data repair: A1/B1 is source_track=34; declared=car; A1_visible=423-499 (14.100-16.667s)/500_frames; B1_visible=333-499 (11.100-16.667s)/500_frames.
+[MSR-264] data repair: A2/B2 is source_track=51; declared=car; A2_visible=70-130 (2.333-4.367s)/500_frames; B2_visible=24-121 (0.800-4.067s)/500_frames.
+[MSR-264] data repair: A3/B3 is source_track=95; declared=car; A3_visible=260-274 (8.667-9.167s)/500_frames; B3_visible=0-139 (0.000-4.667s)/500_frames.
+[MSR-264] data repair: A4/B4 is source_track=37; declared=car; A4_visible=470-499 (15.667-16.667s)/500_frames; B4_visible=176-289 (5.867-9.667s),350-499 (11.667-16.667s)/500_frames.
+[MSR-264] data repair: A5/B5 is source_track=75; declared=car; A5_visible=385-453 (12.833-15.133s)/500_frames; B5_visible=355-451 (11.833-15.067s)/500_frames.
+[MSR-264] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-264][config-default] selected=14/18 retention=77.8%
+[summary] samples=55 selected=6763/19008 retention=35.6%
+[MSR-264][decode-cache] selected_hits=0 selected_misses=14 timeline_hits=0 timeline_misses=36
+[MSR-329] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-329] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-329] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-329] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-329] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-329] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-329] data repair: A1/B1 is source_track=35; declared=car; A1_visible=123-252 (4.100-8.433s)/500_frames; B1_visible=91-260 (3.033-8.700s)/500_frames.
+[MSR-329] data repair: A2/B2 is source_track=44; declared=car; A2_visible=264-363 (8.800-12.133s)/500_frames; B2_visible=225-384 (7.500-12.833s)/500_frames.
+[MSR-329] data repair: A3/B3 is source_track=49; declared=car; A3_visible=330-451 (11.000-15.067s)/500_frames; B3_visible=296-465 (9.867-15.533s)/500_frames.
+[MSR-329] data repair: A4/B4 is source_track=11; declared=car; A4_visible=0-79 (0.000-2.667s)/500_frames; B4_visible=0-99 (0.000-3.333s)/500_frames.
+[MSR-329] data repair: A5/B5 is source_track=9; declared=car; A5_visible=0-79 (0.000-2.667s)/500_frames; B5_visible=0-99 (0.000-3.333s)/500_frames.
+[MSR-329] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-329][config-default] selected=16/18 retention=88.9%
+[summary] samples=56 selected=6779/19026 retention=35.6%
+[MSR-329][decode-cache] selected_hits=0 selected_misses=16 timeline_hits=0 timeline_misses=36
+[MSR-395] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-395] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-395] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-395] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-395] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-395] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-395] data repair: A1/B1 is source_track=12; declared=car; A1_visible=0-389 (0.000-13.000s)/390_frames; B1_visible=0-389 (0.000-13.000s)/390_frames.
+[MSR-395] data repair: A2/B2 is source_track=13; declared=car; A2_visible=0-389 (0.000-13.000s)/390_frames; B2_visible=0-389 (0.000-13.000s)/390_frames.
+[MSR-395] data repair: A3/B3 is source_track=26; declared=car; A3_visible=373-389 (12.433-13.000s)/390_frames; B3_visible=259-389 (8.633-13.000s)/390_frames.
+[MSR-395] data repair: A4/B4 is source_track=24; declared=car; A4_visible=299-389 (9.967-13.000s)/390_frames; B4_visible=79-389 (2.633-13.000s)/390_frames.
+[MSR-395] data repair: A5/B5 is source_track=6; declared=car; A5_visible=0-169 (0.000-5.667s)/390_frames; B5_visible=0-169 (0.000-5.667s)/390_frames.
+[MSR-395] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-395][config-default] selected=12/14 retention=85.7%
+[summary] samples=57 selected=6791/19040 retention=35.7%
+[MSR-395][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=28
+[MSR-461] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-461] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-461] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-461] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-461] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-461] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-461] data repair: A1/B1 is source_track=54; declared=car; A1_visible=286-315 (9.533-10.533s),386-489 (12.867-16.333s)/490_frames; B1_visible=310-489 (10.333-16.333s)/490_frames.
+[MSR-461] data repair: A2/B2 is source_track=59; declared=car; A2_visible=480-489 (16.000-16.333s)/490_frames; B2_visible=489-489 (16.300-16.333s)/490_frames.
+[MSR-461] data repair: A3/B3 is source_track=67; declared=person; A3_visible=470-489 (15.667-16.333s)/490_frames; B3_visible=460-489 (15.333-16.333s)/490_frames.
+[MSR-461] data repair: A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.
+[MSR-461] data repair: A5/B5 is source_track=19; declared=person; A5_visible=220-319 (7.333-10.667s)/490_frames; B5_visible=230-309 (7.667-10.333s)/490_frames.
+[MSR-461] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-461][config-default] selected=16/18 retention=88.9%
+[summary] samples=58 selected=6807/19058 retention=35.7%
+[MSR-461][decode-cache] selected_hits=0 selected_misses=16 timeline_hits=0 timeline_misses=36
+[MSR-527] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-527] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-527] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-527] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-527] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-527] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-527] data repair: A1/B1 is source_track=27; declared=car; A1_visible=0-59 (0.000-2.000s)/250_frames; B1_visible=0-79 (0.000-2.667s)/251_frames.
+[MSR-527] data repair: A2/B2 is source_track=33; declared=car; A2_visible=158-249 (5.267-8.333s)/250_frames; B2_visible=0-249 (0.000-8.333s)/251_frames.
+[MSR-527] data repair: A3/B3 is source_track=61; declared=car; A3_visible=0-89 (0.000-3.000s)/250_frames; B3_visible=0-219 (0.000-7.333s)/251_frames.
+[MSR-527] data repair: A4/B4 is source_track=64; declared=person; A4_visible=0-69 (0.000-2.333s)/250_frames; B4_visible=0-139 (0.000-4.667s)/251_frames.
+[MSR-527] data repair: A5/B5 is source_track=46; declared=car; A5_visible=133-249 (4.433-8.333s)/250_frames; B5_visible=0-249 (0.000-8.333s)/251_frames.
+[MSR-527] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-527][config-default] selected=10/10 retention=100.0%
+[summary] samples=59 selected=6817/19068 retention=35.8%
+[MSR-527][decode-cache] selected_hits=0 selected_misses=10 timeline_hits=0 timeline_misses=20
+[MSR-593] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-593] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-593] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-593] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-593] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-593] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-593] data repair: A1/B1 is source_track=35; declared=car; A1_visible=0-347 (0.000-11.600s)/348_frames; B1_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: A2/B2 is source_track=38; declared=car; A2_visible=0-347 (0.000-11.600s)/348_frames; B2_visible=111-347 (3.700-11.600s)/348_frames.
+[MSR-593] data repair: A3/B3 is source_track=65; declared=bicycle; A3_visible=0-347 (0.000-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: A4/B4 is source_track=7; declared=car; A4_visible=0-129 (0.000-4.333s)/348_frames; B4_visible=0-255 (0.000-8.533s)/348_frames.
+[MSR-593] data repair: A5/B5 is source_track=71; declared=bicycle; A5_visible=0-347 (0.000-11.600s)/348_frames; B5_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-593][config-default] selected=12/12 retention=100.0%
+[summary] samples=60 selected=6829/19080 retention=35.8%
+[MSR-593][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=24
+[MOC] requested sample ids=0,63,126,188,251,314,377,439,502,565
+[MOC-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-0] data repair: A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.
+[MOC-0] data repair: A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.
+[MOC-0] data repair: A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.
+[MOC-0] data repair: A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.
+[MOC-0] data repair: A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.
+[MOC-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-0][config-default] selected=8/16 retention=50.0%
+[summary] samples=61 selected=6837/19096 retention=35.8%
+[MOC-0][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=16
+[MOC-63] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-63] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-63] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-63] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-63] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-63] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-63] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.
+[MOC-63] data repair: A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.
+[MOC-63] data repair: A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.
+[MOC-63] data repair: A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.
+[MOC-63] data repair: A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.
+[MOC-63] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-63][config-default] selected=8/10 retention=80.0%
+[summary] samples=62 selected=6845/19106 retention=35.8%
+[MOC-63][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=20
+[MOC-126] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-126] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-126] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-126] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-126] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-126] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-126] data repair: A1/B1 is source_track=49; declared=bicycle; A1_visible=0-359 (0.000-12.000s)/360_frames; B1_visible=0-359 (0.000-12.000s)/360_frames.
+[MOC-126] data repair: A2/B2 is source_track=69; declared=car; A2_visible=0-359 (0.000-12.000s)/360_frames; B2_visible=0-359 (0.000-12.000s)/360_frames.
+[MOC-126] data repair: A3/B3 is source_track=110; declared=car; A3_visible=180-329 (6.000-11.000s)/360_frames; B3_visible=70-339 (2.333-11.333s)/360_frames.
+[MOC-126] data repair: A4/B4 is source_track=130; declared=car; A4_visible=260-359 (8.667-12.000s)/360_frames; B4_visible=299-359 (9.967-12.000s)/360_frames.
+[MOC-126] data repair: A5/B5 is source_track=121; declared=car; A5_visible=309-359 (10.300-12.000s)/360_frames; B5_visible=314-359 (10.467-12.000s)/360_frames.
+[MOC-126] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-126][config-default] selected=6/12 retention=50.0%
+[summary] samples=63 selected=6851/19118 retention=35.8%
+[MOC-126][decode-cache] selected_hits=0 selected_misses=6 timeline_hits=0 timeline_misses=24
+[MOC-188] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-188] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-188] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-188] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-188] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-188] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-188] data repair: A1/B1 is source_track=3; declared=person; A1_visible=0-169 (0.000-5.667s)/450_frames; B1_visible=0-49 (0.000-1.667s)/450_frames.
+[MOC-188] data repair: A2/B2 is source_track=31; declared=car; A2_visible=7-88 (0.233-2.967s)/450_frames; B2_visible=26-67 (0.867-2.267s)/450_frames.
+[MOC-188] data repair: A3/B3 is source_track=53; declared=car; A3_visible=250-449 (8.333-15.000s)/450_frames; B3_visible=370-449 (12.333-15.000s)/450_frames.
+[MOC-188] data repair: A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.
+[MOC-188] data repair: A5/B5 is source_track=9; declared=person; A5_visible=0-449 (0.000-15.000s)/450_frames; B5_visible=22-389 (0.733-13.000s)/450_frames.
+[MOC-188] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-188][config-default] selected=12/16 retention=75.0%
+[summary] samples=64 selected=6863/19134 retention=35.9%
+[MOC-188][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=32
+[MOC-251] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-251] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-251] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-251] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-251] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-251] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-251] data repair: A1/B1 is source_track=65; declared=car; A1_visible=283-336 (9.433-11.233s)/500_frames; B1_visible=252-329 (8.400-11.000s)/500_frames.
+[MOC-251] data repair: A2/B2 is source_track=77; declared=car; A2_visible=411-483 (13.700-16.133s)/500_frames; B2_visible=376-481 (12.533-16.067s)/500_frames.
+[MOC-251] data repair: A3/B3 is source_track=80; declared=car; A3_visible=474-499 (15.800-16.667s)/500_frames; B3_visible=423-499 (14.100-16.667s)/500_frames.
+[MOC-251] data repair: A4/B4 is source_track=54; declared=car; A4_visible=118-182 (3.933-6.100s)/500_frames; B4_visible=80-178 (2.667-5.967s)/500_frames.
+[MOC-251] data repair: A5/B5 is source_track=47; declared=car; A5_visible=47-102 (1.567-3.433s)/500_frames; B5_visible=10-92 (0.333-3.100s)/500_frames.
+[MOC-251] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-251][config-default] selected=12/18 retention=66.7%
+[summary] samples=65 selected=6875/19152 retention=35.9%
+[MOC-251][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=36
+[MOC-314] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-314] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-314] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-314] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-314] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-314] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-314] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-139 (0.000-4.667s)/500_frames; B1_visible=0-159 (0.000-5.333s)/500_frames.
+[MOC-314] data repair: A2/B2 is source_track=64; declared=car; A2_visible=234-499 (7.800-16.667s)/500_frames; B2_visible=175-499 (5.833-16.667s)/500_frames.
+[MOC-314] data repair: A3/B3 is source_track=78; declared=car; A3_visible=0-136 (0.000-4.567s)/500_frames; B3_visible=0-159 (0.000-5.333s)/500_frames.
+[MOC-314] data repair: A4/B4 is source_track=0; declared=car; A4_visible=0-6 (0.000-0.233s)/500_frames; B4_visible=0-19 (0.000-0.667s)/500_frames.
+[MOC-314] data repair: A5/B5 is source_track=74; declared=bicycle; A5_visible=499-499 (16.633-16.667s)/500_frames; B5_visible=449-499 (14.967-16.667s)/500_frames.
+[MOC-314] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-314][config-default] selected=12/18 retention=66.7%
+[summary] samples=66 selected=6887/19170 retention=35.9%
+[MOC-314][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=36
+[MOC-377] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-377] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-377] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-377] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-377] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-377] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-377] data repair: A1/B1 is source_track=21; declared=car; A1_visible=0-19 (0.000-0.667s)/490_frames; B1_visible=0-29 (0.000-1.000s)/490_frames.
+[MOC-377] data repair: A2/B2 is source_track=23; declared=car; A2_visible=0-49 (0.000-1.667s)/490_frames; B2_visible=0-69 (0.000-2.333s)/490_frames.
+[MOC-377] data repair: A3/B3 is source_track=56; declared=car; A3_visible=469-489 (15.633-16.333s)/490_frames; B3_visible=379-489 (12.633-16.333s)/490_frames.
+[MOC-377] data repair: A4/B4 is source_track=15; declared=car; A4_visible=0-89 (0.000-3.000s)/490_frames; B4_visible=0-89 (0.000-3.000s)/490_frames.
+[MOC-377] data repair: A5/B5 is source_track=54; declared=car; A5_visible=0-189 (0.000-6.333s)/490_frames; B5_visible=0-149 (0.000-5.000s)/490_frames.
+[MOC-377] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-377][config-default] selected=16/18 retention=88.9%
+[summary] samples=67 selected=6903/19188 retention=36.0%
+[MOC-377][decode-cache] selected_hits=0 selected_misses=16 timeline_hits=0 timeline_misses=36
+[MOC-439] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-439] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-439] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-439] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-439] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-439] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-439] data repair: A1/B1 is source_track=5; declared=person; A1_visible=0-89 (0.000-3.000s)/490_frames; B1_visible=0-89 (0.000-3.000s)/490_frames.
+[MOC-439] data repair: A2/B2 is source_track=20; declared=car; A2_visible=240-329 (8.000-11.000s)/490_frames; B2_visible=240-319 (8.000-10.667s)/490_frames.
+[MOC-439] data repair: A3/B3 is source_track=21; declared=car; A3_visible=240-329 (8.000-11.000s)/490_frames; B3_visible=250-319 (8.333-10.667s)/490_frames.
+[MOC-439] data repair: A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.
+[MOC-439] data repair: A5/B5 is source_track=50; declared=person; A5_visible=180-428 (6.000-14.300s)/490_frames; B5_visible=210-419 (7.000-14.000s)/490_frames.
+[MOC-439] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-439][config-default] selected=16/18 retention=88.9%
+[summary] samples=68 selected=6919/19206 retention=36.0%
+[MOC-439][decode-cache] selected_hits=0 selected_misses=16 timeline_hits=0 timeline_misses=36
+[MOC-502] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-502] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-502] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-502] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-502] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-502] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-502] data repair: A1/B1 is source_track=5; declared=car; A1_visible=0-119 (0.000-4.000s)/348_frames; B1_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-502] data repair: A2/B2 is source_track=25; declared=car; A2_visible=0-172 (0.000-5.767s)/348_frames; B2_visible=0-205 (0.000-6.867s)/348_frames.
+[MOC-502] data repair: A3/B3 is source_track=65; declared=car; A3_visible=157-347 (5.233-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-502] data repair: A4/B4 is source_track=29; declared=car; A4_visible=30-285 (1.000-9.533s)/348_frames; B4_visible=0-316 (0.000-10.567s)/348_frames.
+[MOC-502] data repair: A5/B5 is source_track=58; declared=car; A5_visible=307-347 (10.233-11.600s)/348_frames; B5_visible=217-347 (7.233-11.600s)/348_frames.
+[MOC-502] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-502][config-default] selected=8/12 retention=66.7%
+[summary] samples=69 selected=6927/19218 retention=36.0%
+[MOC-502][decode-cache] selected_hits=0 selected_misses=8 timeline_hits=0 timeline_misses=24
+[MOC-565] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-565] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-565] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-565] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-565] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-565] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-565] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-347 (0.000-11.600s)/348_frames; B1_visible=0-244 (0.000-8.167s)/348_frames.
+[MOC-565] data repair: A2/B2 is source_track=33; declared=car; A2_visible=0-347 (0.000-11.600s)/348_frames; B2_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A3/B3 is source_track=35; declared=car; A3_visible=0-347 (0.000-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A4/B4 is source_track=36; declared=car; A4_visible=0-347 (0.000-11.600s)/348_frames; B4_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A5/B5 is source_track=69; declared=bicycle; A5_visible=0-347 (0.000-11.600s)/348_frames; B5_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-565][config-default] selected=12/12 retention=100.0%
+[summary] samples=70 selected=6939/19230 retention=36.1%
+[MOC-565][decode-cache] selected_hits=0 selected_misses=12 timeline_hits=0 timeline_misses=24
+[PEA] requested sample ids=74,132,248,275,314,335,438,490,821,922
+[PEA-74][config-default] selected=114/312 retention=36.5%
+[summary] samples=71 selected=7053/19542 retention=36.1%
+[PEA-74][decode-cache] selected_hits=0 selected_misses=114 timeline_hits=0 timeline_misses=624
+[PEA-132][config-default] selected=135/328 retention=41.2%
+[summary] samples=72 selected=7188/19870 retention=36.2%
+[PEA-132][decode-cache] selected_hits=0 selected_misses=135 timeline_hits=0 timeline_misses=656
+[PEA-248][config-default] selected=156/649 retention=24.0%
+[summary] samples=73 selected=7344/20519 retention=35.8%
+[PEA-248][decode-cache] selected_hits=0 selected_misses=156 timeline_hits=0 timeline_misses=649
+[PEA-275][config-default] selected=54/183 retention=29.5%
+[summary] samples=74 selected=7398/20702 retention=35.7%
+[PEA-275][decode-cache] selected_hits=0 selected_misses=54 timeline_hits=0 timeline_misses=366
+[PEA-314][config-default] selected=154/436 retention=35.3%
+[summary] samples=75 selected=7552/21138 retention=35.7%
+[PEA-314][decode-cache] selected_hits=0 selected_misses=154 timeline_hits=0 timeline_misses=872
+[PEA-335][config-default] selected=135/403 retention=33.5%
+[summary] samples=76 selected=7687/21541 retention=35.7%
+[PEA-335][decode-cache] selected_hits=0 selected_misses=135 timeline_hits=0 timeline_misses=511
+[PEA-438][config-default] selected=168/380 retention=44.2%
+[summary] samples=77 selected=7855/21921 retention=35.8%
+[PEA-438][decode-cache] selected_hits=0 selected_misses=168 timeline_hits=0 timeline_misses=760
+[PEA-490][config-default] selected=146/312 retention=46.8%
+[summary] samples=78 selected=8001/22233 retention=36.0%
+[PEA-490][decode-cache] selected_hits=0 selected_misses=146 timeline_hits=0 timeline_misses=624
+[PEA-821] data repair: v2: replaced interval-incompatible HMC asset (32.000s for [300.000,521.000]s) with the unique same-recording RGB asset (544.100s)
+[PEA-821][config-default] selected=121/301 retention=40.2%
+[summary] samples=79 selected=8122/22534 retention=36.0%
+[PEA-821][decode-cache] selected_hits=0 selected_misses=121 timeline_hits=0 timeline_misses=301
+[PEA-922][config-default] selected=148/491 retention=30.1%
+[summary] samples=80 selected=8270/23025 retention=35.9%
+[PEA-922][decode-cache] selected_hits=0 selected_misses=148 timeline_hits=0 timeline_misses=982
+[CCQA] requested sample ids=82,128,163,392,443,726,733,778,806,868
+[CCQA-82] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-82] data repair: The final answer is free text, not an option label.
+[h264 @ 0x2a4c1580] mmco: unref short failure
+[h264 @ 0x2a4c1580] mmco: unref short failure
+[h264 @ 0xacb3240] mmco: unref short failure
+[h264 @ 0xacb3240] mmco: unref short failure
+[h264 @ 0xacb3240] mmco: unref short failure
+[h264 @ 0x25d542c0] mmco: unref short failure
+[h264 @ 0x25d542c0] mmco: unref short failure
+[h264 @ 0xa597d80] mmco: unref short failure
+[h264 @ 0xa597d80] mmco: unref short failure
+[CCQA-82][config-default] selected=125/349 retention=35.8%
+[summary] samples=81 selected=8395/23374 retention=35.9%
+[CCQA-82][decode-cache] selected_hits=0 selected_misses=125 timeline_hits=0 timeline_misses=698
+[CCQA-128] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-128] data repair: The final answer is free text, not an option label.
+[h264 @ 0x1dfd88c0] mmco: unref short failure
+[h264 @ 0x1dfd88c0] mmco: unref short failure
+[CCQA-128][config-default] selected=40/484 retention=8.3%
+[summary] samples=82 selected=8435/23858 retention=35.4%
+[CCQA-128][decode-cache] selected_hits=0 selected_misses=40 timeline_hits=0 timeline_misses=484
+[CCQA-163] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-163] data repair: The final answer is free text, not an option label.
+[CCQA-163][config-default] selected=20/441 retention=4.5%
+[summary] samples=83 selected=8455/24299 retention=34.8%
+[CCQA-163][decode-cache] selected_hits=0 selected_misses=20 timeline_hits=0 timeline_misses=882
+[CCQA-392] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-392] data repair: The final answer is free text, not an option label.
+[CCQA-392][config-default] selected=40/224 retention=17.9%
+[summary] samples=84 selected=8495/24523 retention=34.6%
+[CCQA-392][decode-cache] selected_hits=0 selected_misses=40 timeline_hits=0 timeline_misses=448
+[CCQA-443] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-443] data repair: The final answer is free text, not an option label.
+[CCQA-443][config-default] selected=36/188 retention=19.1%
+[summary] samples=85 selected=8531/24711 retention=34.5%
+[CCQA-443][decode-cache] selected_hits=0 selected_misses=36 timeline_hits=0 timeline_misses=262
+[CCQA-726] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-726] data repair: The final answer is free text, not an option label.
+[CCQA-726][config-default] selected=43/80 retention=53.8%
+[summary] samples=86 selected=8574/24791 retention=34.6%
+[CCQA-726][decode-cache] selected_hits=0 selected_misses=43 timeline_hits=0 timeline_misses=80
+[CCQA-733] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-733] data repair: The final answer is free text, not an option label.
+[CCQA-733][config-default] selected=35/248 retention=14.1%
+[summary] samples=87 selected=8609/25039 retention=34.4%
+[CCQA-733][decode-cache] selected_hits=0 selected_misses=35 timeline_hits=0 timeline_misses=496
+[CCQA-778] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-778] data repair: The final answer is free text, not an option label.
+[h264 @ 0xab9da00] mmco: unref short failure
+[h264 @ 0xab9da00] mmco: unref short failure
+[h264 @ 0x28d02a80] mmco: unref short failure
+[h264 @ 0x28d02a80] mmco: unref short failure
+[h264 @ 0x25d4edc0] mmco: unref short failure
+[h264 @ 0x25d4edc0] mmco: unref short failure
+[h264 @ 0x25d49940] mmco: unref short failure
+[CCQA-778][config-default] selected=115/284 retention=40.5%
+[summary] samples=88 selected=8724/25323 retention=34.5%
+[CCQA-778][decode-cache] selected_hits=0 selected_misses=115 timeline_hits=0 timeline_misses=568
+[CCQA-806] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-806] data repair: The final answer is free text, not an option label.
+[h264 @ 0x25d542c0] mmco: unref short failure
+[CCQA-806][config-default] selected=40/316 retention=12.7%
+[summary] samples=89 selected=8764/25639 retention=34.2%
+[CCQA-806][decode-cache] selected_hits=0 selected_misses=40 timeline_hits=0 timeline_misses=316
+[CCQA-868] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-868] data repair: The final answer is free text, not an option label.
+[h264 @ 0x25d51900] mmco: unref short failure
+[h264 @ 0x25d51900] mmco: unref short failure
+[h264 @ 0x3f7af100] mmco: unref short failure
+[h264 @ 0x3f7af100] mmco: unref short failure
+[h264 @ 0x3f7af100] mmco: unref short failure
+[h264 @ 0x3f7af100] mmco: unref short failure
+[h264 @ 0x26dc6900] mmco: unref short failure
+[h264 @ 0x26dc6900] mmco: unref short failure
+[h264 @ 0x26dc6900] mmco: unref short failure
+[h264 @ 0x26dc6900] mmco: unref short failure
+[CCQA-868][config-default] selected=149/387 retention=38.5%
+[summary] samples=90 selected=8913/26026 retention=34.2%
+[CCQA-868][decode-cache] selected_hits=0 selected_misses=149 timeline_hits=0 timeline_misses=774
+[summary] samples=90 selected=8913/26026 retention=34.2%
+[done] /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py reports --worker-count 8 --sample-ids PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128 --crossvid-root /media/data6/xuejj/CrossVid --api-reporter --vlm-api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --vlm-api-model qwen3.8-flash --vlm-api-key-env LLM_API_KEY --vlm-api-timeout-seconds 600.0 --vlm-api-thinking --max-vlm-tokens 4096 --maximum-events-per-batch 8 --decode-long-edge 1024 --selection-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports
+[schedule] reports: pending=90 completed=0 with API batch concurrency=8
+[worker 0] API: PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/reports-worker0-api-pool8.log
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py", line 230, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py", line 221, in main
+    raise RuntimeError("parallel VLM worker failure(s): " + "; ".join(failures))
+RuntimeError: parallel VLM worker failure(s): worker api-pool8 (PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128): exit 1; missing committed artifact(s): PEA-248
+Traceback (most recent call last):
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 248, in <module>
+    raise SystemExit(main())
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 176, in main
+    _run([
+  File "/media/data6/xuejj/ToolCVR/scripts/run_full_api_cycle.py", line 90, in _run
+    subprocess.run(command, cwd=PROJECT_ROOT, env=environment, check=True)
+  File "/media/data2/xuejj/anaconda3/envs/qwen3/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/media/data2/xuejj/anaconda3/envs/qwen3/bin/python', '/media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py', 'reports', '--worker-count', '8', '--sample-ids', 'PSS-160,PSS-413,PSS-141,PSS-309,PSS-544,PSS-89,PSS-419,PSS-292,PSS-229,PSS-62,CC-474,CC-502,CC-333,CC-713,CC-72,CC-693,CC-93,CC-456,CC-426,CC-196,FSA-1386,FSA-1536,FSA-82,FSA-555,FSA-1981,FSA-1648,FSA-1562,FSA-306,FSA-135,FSA-571,NC-790,NC-884,NC-787,NC-1035,NC-325,NC-578,NC-202,NC-641,NC-1030,NC-754,PI-72,PI-204,PI-124,PI-219,PI-107,PI-175,PI-106,PI-100,PI-86,PI-225,MSR-0,MSR-66,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MOC-0,MOC-63,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,PEA-821,PEA-275,PEA-74,PEA-490,PEA-132,PEA-438,PEA-335,PEA-314,PEA-922,PEA-248,CCQA-726,CCQA-443,CCQA-392,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,CCQA-163,CCQA-128', '--crossvid-root', '/media/data6/xuejj/CrossVid', '--api-reporter', '--vlm-api-base-url', 'https://dashscope.aliyuncs.com/compatible-mode/v1', '--vlm-api-model', 'qwen3.8-flash', '--vlm-api-key-env', 'LLM_API_KEY', '--vlm-api-timeout-seconds', '600.0', '--vlm-api-thinking', '--max-vlm-tokens', '4096', '--maximum-events-per-batch', '8', '--decode-long-edge', '1024', '--selection-dir', '/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection', '--output-dir', '/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports']' returned non-zero exit status 1.
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/audit_crossvid_clip_filter.py --tasks CC,CCQA,FSA,MOC,MSR,NC,PEA,PI,PSS --sample-ids CC-196,CC-333,CC-426,CC-456,CC-474,CC-502,CC-693,CC-713,CC-72,CC-93,CCQA-128,CCQA-163,CCQA-392,CCQA-443,CCQA-726,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,FSA-135,FSA-1386,FSA-1536,FSA-1562,FSA-1648,FSA-1981,FSA-306,FSA-555,FSA-571,FSA-82,MOC-0,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,MOC-63,MSR-0,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MSR-66,NC-1030,NC-1035,NC-202,NC-325,NC-578,NC-641,NC-754,NC-787,NC-790,NC-884,PEA-132,PEA-248,PEA-275,PEA-314,PEA-335,PEA-438,PEA-490,PEA-74,PEA-821,PEA-922,PI-100,PI-106,PI-107,PI-124,PI-175,PI-204,PI-219,PI-225,PI-72,PI-86,PSS-141,PSS-160,PSS-229,PSS-292,PSS-309,PSS-413,PSS-419,PSS-544,PSS-62,PSS-89 --crossvid-root /media/data6/xuejj/CrossVid --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection --api-env-file /media/data6/xuejj/UniCVR-Agent/.env --api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --api-model qwen3.8-flash --api-key-env LLM_API_KEY --clip-model openai/clip-vit-large-patch14-336 --clip-device cuda:0 --clip-batch-size 64 --resume
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[selection] profiles=config-default retention_ratio=None query_plan_dir=None
+[CC] requested sample ids=72,93,196,333,426,456,474,502,693,713
+[CC-72] resume skip all profiles
+[CC-93] resume skip all profiles
+[CC-196] resume skip all profiles
+[CC-333] resume skip all profiles
+[CC-426] resume skip all profiles
+[CC-456] resume skip all profiles
+[CC-474] resume skip all profiles
+[CC-502] resume skip all profiles
+[CC-693] resume skip all profiles
+[CC-713] resume skip all profiles
+[CCQA] requested sample ids=82,128,163,392,443,726,733,778,806,868
+[CCQA-82] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-82] data repair: The final answer is free text, not an option label.
+[CCQA-82] resume skip all profiles
+[CCQA-128] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-128] data repair: The final answer is free text, not an option label.
+[CCQA-128] resume skip all profiles
+[CCQA-163] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-163] data repair: The final answer is free text, not an option label.
+[CCQA-163] resume skip all profiles
+[CCQA-392] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-392] data repair: The final answer is free text, not an option label.
+[CCQA-392] resume skip all profiles
+[CCQA-443] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-443] data repair: The final answer is free text, not an option label.
+[CCQA-443] resume skip all profiles
+[CCQA-726] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-726] data repair: The final answer is free text, not an option label.
+[CCQA-726] resume skip all profiles
+[CCQA-733] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-733] data repair: The final answer is free text, not an option label.
+[CCQA-733] resume skip all profiles
+[CCQA-778] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-778] data repair: The final answer is free text, not an option label.
+[CCQA-778] resume skip all profiles
+[CCQA-806] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-806] data repair: The final answer is free text, not an option label.
+[CCQA-806] resume skip all profiles
+[CCQA-868] data repair: v1 is Video A and v2 is Video B; preserve this attribution in the comparative answer.
+[CCQA-868] data repair: The final answer is free text, not an option label.
+[CCQA-868] resume skip all profiles
+[FSA] requested sample ids=82,135,306,555,571,1386,1536,1562,1648,1981
+[FSA-82] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-82] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-82] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-82] resume skip all profiles
+[FSA-135] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-135] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-135] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-135] resume skip all profiles
+[FSA-306] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-306] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-306] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-306] resume skip all profiles
+[FSA-555] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-555] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-555] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-555] resume skip all profiles
+[FSA-571] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-571] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-571] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-571] resume skip all profiles
+[FSA-1386] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1386] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1386] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1386] resume skip all profiles
+[FSA-1536] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1536] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1536] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1536] resume skip all profiles
+[FSA-1562] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1562] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1562] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1562] resume skip all profiles
+[FSA-1648] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1648] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1648] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1648] resume skip all profiles
+[FSA-1981] data repair: v1 is the fixed reference segment and v2 is the search video; their clocks are independent.
+[FSA-1981] data repair: Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.
+[FSA-1981] data repair: The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds.
+[FSA-1981] resume skip all profiles
+[MOC] requested sample ids=0,63,126,188,251,314,377,439,502,565
+[MOC-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-0] data repair: A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.
+[MOC-0] data repair: A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.
+[MOC-0] data repair: A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.
+[MOC-0] data repair: A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.
+[MOC-0] data repair: A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.
+[MOC-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-0] resume skip all profiles
+[MOC-63] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-63] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-63] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-63] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-63] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-63] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-63] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-189 (0.000-6.333s)/300_frames; B1_visible=0-97 (0.000-3.267s)/300_frames.
+[MOC-63] data repair: A2/B2 is source_track=56; declared=car; A2_visible=250-299 (8.333-10.000s)/300_frames; B2_visible=70-256 (2.333-8.567s)/300_frames.
+[MOC-63] data repair: A3/B3 is source_track=94; declared=car; A3_visible=10-299 (0.333-10.000s)/300_frames; B3_visible=270-299 (9.000-10.000s)/300_frames.
+[MOC-63] data repair: A4/B4 is source_track=168; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=none/300_frames.
+[MOC-63] data repair: A5/B5 is source_track=105; declared=person; A5_visible=0-299 (0.000-10.000s)/300_frames; B5_visible=none/300_frames.
+[MOC-63] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-63] resume skip all profiles
+[MOC-126] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-126] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-126] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-126] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-126] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-126] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-126] data repair: A1/B1 is source_track=49; declared=bicycle; A1_visible=0-359 (0.000-12.000s)/360_frames; B1_visible=0-359 (0.000-12.000s)/360_frames.
+[MOC-126] data repair: A2/B2 is source_track=69; declared=car; A2_visible=0-359 (0.000-12.000s)/360_frames; B2_visible=0-359 (0.000-12.000s)/360_frames.
+[MOC-126] data repair: A3/B3 is source_track=110; declared=car; A3_visible=180-329 (6.000-11.000s)/360_frames; B3_visible=70-339 (2.333-11.333s)/360_frames.
+[MOC-126] data repair: A4/B4 is source_track=130; declared=car; A4_visible=260-359 (8.667-12.000s)/360_frames; B4_visible=299-359 (9.967-12.000s)/360_frames.
+[MOC-126] data repair: A5/B5 is source_track=121; declared=car; A5_visible=309-359 (10.300-12.000s)/360_frames; B5_visible=314-359 (10.467-12.000s)/360_frames.
+[MOC-126] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-126] resume skip all profiles
+[MOC-188] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-188] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-188] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-188] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-188] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-188] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-188] data repair: A1/B1 is source_track=3; declared=person; A1_visible=0-169 (0.000-5.667s)/450_frames; B1_visible=0-49 (0.000-1.667s)/450_frames.
+[MOC-188] data repair: A2/B2 is source_track=31; declared=car; A2_visible=7-88 (0.233-2.967s)/450_frames; B2_visible=26-67 (0.867-2.267s)/450_frames.
+[MOC-188] data repair: A3/B3 is source_track=53; declared=car; A3_visible=250-449 (8.333-15.000s)/450_frames; B3_visible=370-449 (12.333-15.000s)/450_frames.
+[MOC-188] data repair: A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.
+[MOC-188] data repair: A5/B5 is source_track=9; declared=person; A5_visible=0-449 (0.000-15.000s)/450_frames; B5_visible=22-389 (0.733-13.000s)/450_frames.
+[MOC-188] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-188] resume skip all profiles
+[MOC-251] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-251] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-251] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-251] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-251] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-251] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-251] data repair: A1/B1 is source_track=65; declared=car; A1_visible=283-336 (9.433-11.233s)/500_frames; B1_visible=252-329 (8.400-11.000s)/500_frames.
+[MOC-251] data repair: A2/B2 is source_track=77; declared=car; A2_visible=411-483 (13.700-16.133s)/500_frames; B2_visible=376-481 (12.533-16.067s)/500_frames.
+[MOC-251] data repair: A3/B3 is source_track=80; declared=car; A3_visible=474-499 (15.800-16.667s)/500_frames; B3_visible=423-499 (14.100-16.667s)/500_frames.
+[MOC-251] data repair: A4/B4 is source_track=54; declared=car; A4_visible=118-182 (3.933-6.100s)/500_frames; B4_visible=80-178 (2.667-5.967s)/500_frames.
+[MOC-251] data repair: A5/B5 is source_track=47; declared=car; A5_visible=47-102 (1.567-3.433s)/500_frames; B5_visible=10-92 (0.333-3.100s)/500_frames.
+[MOC-251] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-251] resume skip all profiles
+[MOC-314] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-314] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-314] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-314] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-314] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-314] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-314] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-139 (0.000-4.667s)/500_frames; B1_visible=0-159 (0.000-5.333s)/500_frames.
+[MOC-314] data repair: A2/B2 is source_track=64; declared=car; A2_visible=234-499 (7.800-16.667s)/500_frames; B2_visible=175-499 (5.833-16.667s)/500_frames.
+[MOC-314] data repair: A3/B3 is source_track=78; declared=car; A3_visible=0-136 (0.000-4.567s)/500_frames; B3_visible=0-159 (0.000-5.333s)/500_frames.
+[MOC-314] data repair: A4/B4 is source_track=0; declared=car; A4_visible=0-6 (0.000-0.233s)/500_frames; B4_visible=0-19 (0.000-0.667s)/500_frames.
+[MOC-314] data repair: A5/B5 is source_track=74; declared=bicycle; A5_visible=499-499 (16.633-16.667s)/500_frames; B5_visible=449-499 (14.967-16.667s)/500_frames.
+[MOC-314] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-314] resume skip all profiles
+[MOC-377] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-377] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-377] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-377] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-377] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-377] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-377] data repair: A1/B1 is source_track=21; declared=car; A1_visible=0-19 (0.000-0.667s)/490_frames; B1_visible=0-29 (0.000-1.000s)/490_frames.
+[MOC-377] data repair: A2/B2 is source_track=23; declared=car; A2_visible=0-49 (0.000-1.667s)/490_frames; B2_visible=0-69 (0.000-2.333s)/490_frames.
+[MOC-377] data repair: A3/B3 is source_track=56; declared=car; A3_visible=469-489 (15.633-16.333s)/490_frames; B3_visible=379-489 (12.633-16.333s)/490_frames.
+[MOC-377] data repair: A4/B4 is source_track=15; declared=car; A4_visible=0-89 (0.000-3.000s)/490_frames; B4_visible=0-89 (0.000-3.000s)/490_frames.
+[MOC-377] data repair: A5/B5 is source_track=54; declared=car; A5_visible=0-189 (0.000-6.333s)/490_frames; B5_visible=0-149 (0.000-5.000s)/490_frames.
+[MOC-377] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-377] resume skip all profiles
+[MOC-439] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-439] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-439] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-439] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-439] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-439] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-439] data repair: A1/B1 is source_track=5; declared=person; A1_visible=0-89 (0.000-3.000s)/490_frames; B1_visible=0-89 (0.000-3.000s)/490_frames.
+[MOC-439] data repair: A2/B2 is source_track=20; declared=car; A2_visible=240-329 (8.000-11.000s)/490_frames; B2_visible=240-319 (8.000-10.667s)/490_frames.
+[MOC-439] data repair: A3/B3 is source_track=21; declared=car; A3_visible=240-329 (8.000-11.000s)/490_frames; B3_visible=250-319 (8.333-10.667s)/490_frames.
+[MOC-439] data repair: A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.
+[MOC-439] data repair: A5/B5 is source_track=50; declared=person; A5_visible=180-428 (6.000-14.300s)/490_frames; B5_visible=210-419 (7.000-14.000s)/490_frames.
+[MOC-439] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-439] resume skip all profiles
+[MOC-502] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-502] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-502] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-502] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-502] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-502] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-502] data repair: A1/B1 is source_track=5; declared=car; A1_visible=0-119 (0.000-4.000s)/348_frames; B1_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-502] data repair: A2/B2 is source_track=25; declared=car; A2_visible=0-172 (0.000-5.767s)/348_frames; B2_visible=0-205 (0.000-6.867s)/348_frames.
+[MOC-502] data repair: A3/B3 is source_track=65; declared=car; A3_visible=157-347 (5.233-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-502] data repair: A4/B4 is source_track=29; declared=car; A4_visible=30-285 (1.000-9.533s)/348_frames; B4_visible=0-316 (0.000-10.567s)/348_frames.
+[MOC-502] data repair: A5/B5 is source_track=58; declared=car; A5_visible=307-347 (10.233-11.600s)/348_frames; B5_visible=217-347 (7.233-11.600s)/348_frames.
+[MOC-502] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-502] resume skip all profiles
+[MOC-565] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MOC-565] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MOC-565] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MOC-565] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MOC-565] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MOC-565] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MOC-565] data repair: A1/B1 is source_track=17; declared=car; A1_visible=0-347 (0.000-11.600s)/348_frames; B1_visible=0-244 (0.000-8.167s)/348_frames.
+[MOC-565] data repair: A2/B2 is source_track=33; declared=car; A2_visible=0-347 (0.000-11.600s)/348_frames; B2_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A3/B3 is source_track=35; declared=car; A3_visible=0-347 (0.000-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A4/B4 is source_track=36; declared=car; A4_visible=0-347 (0.000-11.600s)/348_frames; B4_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: A5/B5 is source_track=69; declared=bicycle; A5_visible=0-347 (0.000-11.600s)/348_frames; B5_visible=0-347 (0.000-11.600s)/348_frames.
+[MOC-565] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MOC-565] resume skip all profiles
+[MSR] requested sample ids=0,66,132,198,264,329,395,461,527,593
+[MSR-0] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-0] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-0] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-0] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-0] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-0] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-0] data repair: A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.
+[MSR-0] data repair: A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.
+[MSR-0] data repair: A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.
+[MSR-0] data repair: A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.
+[MSR-0] data repair: A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.
+[MSR-0] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-0] resume skip all profiles
+[MSR-66] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-66] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-66] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-66] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-66] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-66] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-66] data repair: A1/B1 is source_track=19; declared=car; A1_visible=0-299 (0.000-10.000s)/300_frames; B1_visible=0-245 (0.000-8.200s)/300_frames.
+[MSR-66] data repair: A2/B2 is source_track=47; declared=car; A2_visible=20-196 (0.667-6.567s)/300_frames; B2_visible=109-168 (3.633-5.633s)/300_frames.
+[MSR-66] data repair: A3/B3 is source_track=155; declared=person; A3_visible=200-299 (6.667-10.000s)/300_frames; B3_visible=none/300_frames.
+[MSR-66] data repair: A4/B4 is source_track=24; declared=car; A4_visible=0-299 (0.000-10.000s)/300_frames; B4_visible=0-83 (0.000-2.800s)/300_frames.
+[MSR-66] data repair: A5/B5 is source_track=8; declared=car; A5_visible=0-127 (0.000-4.267s)/300_frames; B5_visible=0-61 (0.000-2.067s)/300_frames.
+[MSR-66] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-66] resume skip all profiles
+[MSR-132] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-132] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-132] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-132] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-132] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-132] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-132] data repair: A1/B1 is source_track=84; declared=car; A1_visible=50-277 (1.667-9.267s)/360_frames; B1_visible=0-299 (0.000-10.000s)/360_frames.
+[MSR-132] data repair: A2/B2 is source_track=99; declared=bicycle; A2_visible=0-339 (0.000-11.333s)/360_frames; B2_visible=0-329 (0.000-11.000s)/360_frames.
+[MSR-132] data repair: A3/B3 is source_track=105; declared=car; A3_visible=170-359 (5.667-12.000s)/360_frames; B3_visible=0-359 (0.000-12.000s)/360_frames.
+[MSR-132] data repair: A4/B4 is source_track=29; declared=person; A4_visible=0-339 (0.000-11.333s)/360_frames; B4_visible=0-329 (0.000-11.000s)/360_frames.
+[MSR-132] data repair: A5/B5 is source_track=16; declared=person; A5_visible=0-289 (0.000-9.667s)/360_frames; B5_visible=0-319 (0.000-10.667s)/360_frames.
+[MSR-132] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-132] resume skip all profiles
+[MSR-198] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-198] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-198] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-198] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-198] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-198] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-198] data repair: A1/B1 is source_track=31; declared=car; A1_visible=7-88 (0.233-2.967s)/450_frames; B1_visible=26-67 (0.867-2.267s)/450_frames.
+[MSR-198] data repair: A2/B2 is source_track=36; declared=car; A2_visible=50-119 (1.667-4.000s)/450_frames; B2_visible=62-102 (2.067-3.433s)/450_frames.
+[MSR-198] data repair: A3/B3 is source_track=37; declared=car; A3_visible=23-239 (0.767-8.000s)/450_frames; B3_visible=71-179 (2.367-6.000s)/450_frames.
+[MSR-198] data repair: A4/B4 is source_track=21; declared=person; A4_visible=370-449 (12.333-15.000s)/450_frames; B4_visible=400-449 (13.333-15.000s)/450_frames.
+[MSR-198] data repair: A5/B5 is source_track=0; declared=car; A5_visible=0-144 (0.000-4.833s)/450_frames; B5_visible=0-29 (0.000-1.000s)/450_frames.
+[MSR-198] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-198] resume skip all profiles
+[MSR-264] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-264] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-264] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-264] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-264] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-264] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-264] data repair: A1/B1 is source_track=34; declared=car; A1_visible=423-499 (14.100-16.667s)/500_frames; B1_visible=333-499 (11.100-16.667s)/500_frames.
+[MSR-264] data repair: A2/B2 is source_track=51; declared=car; A2_visible=70-130 (2.333-4.367s)/500_frames; B2_visible=24-121 (0.800-4.067s)/500_frames.
+[MSR-264] data repair: A3/B3 is source_track=95; declared=car; A3_visible=260-274 (8.667-9.167s)/500_frames; B3_visible=0-139 (0.000-4.667s)/500_frames.
+[MSR-264] data repair: A4/B4 is source_track=37; declared=car; A4_visible=470-499 (15.667-16.667s)/500_frames; B4_visible=176-289 (5.867-9.667s),350-499 (11.667-16.667s)/500_frames.
+[MSR-264] data repair: A5/B5 is source_track=75; declared=car; A5_visible=385-453 (12.833-15.133s)/500_frames; B5_visible=355-451 (11.833-15.067s)/500_frames.
+[MSR-264] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-264] resume skip all profiles
+[MSR-329] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-329] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-329] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-329] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-329] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-329] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-329] data repair: A1/B1 is source_track=35; declared=car; A1_visible=123-252 (4.100-8.433s)/500_frames; B1_visible=91-260 (3.033-8.700s)/500_frames.
+[MSR-329] data repair: A2/B2 is source_track=44; declared=car; A2_visible=264-363 (8.800-12.133s)/500_frames; B2_visible=225-384 (7.500-12.833s)/500_frames.
+[MSR-329] data repair: A3/B3 is source_track=49; declared=car; A3_visible=330-451 (11.000-15.067s)/500_frames; B3_visible=296-465 (9.867-15.533s)/500_frames.
+[MSR-329] data repair: A4/B4 is source_track=11; declared=car; A4_visible=0-79 (0.000-2.667s)/500_frames; B4_visible=0-99 (0.000-3.333s)/500_frames.
+[MSR-329] data repair: A5/B5 is source_track=9; declared=car; A5_visible=0-79 (0.000-2.667s)/500_frames; B5_visible=0-99 (0.000-3.333s)/500_frames.
+[MSR-329] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-329] resume skip all profiles
+[MSR-395] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-395] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-395] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-395] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-395] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-395] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-395] data repair: A1/B1 is source_track=12; declared=car; A1_visible=0-389 (0.000-13.000s)/390_frames; B1_visible=0-389 (0.000-13.000s)/390_frames.
+[MSR-395] data repair: A2/B2 is source_track=13; declared=car; A2_visible=0-389 (0.000-13.000s)/390_frames; B2_visible=0-389 (0.000-13.000s)/390_frames.
+[MSR-395] data repair: A3/B3 is source_track=26; declared=car; A3_visible=373-389 (12.433-13.000s)/390_frames; B3_visible=259-389 (8.633-13.000s)/390_frames.
+[MSR-395] data repair: A4/B4 is source_track=24; declared=car; A4_visible=299-389 (9.967-13.000s)/390_frames; B4_visible=79-389 (2.633-13.000s)/390_frames.
+[MSR-395] data repair: A5/B5 is source_track=6; declared=car; A5_visible=0-169 (0.000-5.667s)/390_frames; B5_visible=0-169 (0.000-5.667s)/390_frames.
+[MSR-395] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-395] resume skip all profiles
+[MSR-461] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-461] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-461] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-461] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-461] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-461] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-461] data repair: A1/B1 is source_track=54; declared=car; A1_visible=286-315 (9.533-10.533s),386-489 (12.867-16.333s)/490_frames; B1_visible=310-489 (10.333-16.333s)/490_frames.
+[MSR-461] data repair: A2/B2 is source_track=59; declared=car; A2_visible=480-489 (16.000-16.333s)/490_frames; B2_visible=489-489 (16.300-16.333s)/490_frames.
+[MSR-461] data repair: A3/B3 is source_track=67; declared=person; A3_visible=470-489 (15.667-16.333s)/490_frames; B3_visible=460-489 (15.333-16.333s)/490_frames.
+[MSR-461] data repair: A4/B4 is source_track=6; declared=car; A4_visible=0-289 (0.000-9.667s)/490_frames; B4_visible=20-249 (0.667-8.333s)/490_frames.
+[MSR-461] data repair: A5/B5 is source_track=19; declared=person; A5_visible=220-319 (7.333-10.667s)/490_frames; B5_visible=230-309 (7.667-10.333s)/490_frames.
+[MSR-461] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-461] resume skip all profiles
+[MSR-527] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-527] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-527] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-527] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-527] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-527] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-527] data repair: A1/B1 is source_track=27; declared=car; A1_visible=0-59 (0.000-2.000s)/250_frames; B1_visible=0-79 (0.000-2.667s)/251_frames.
+[MSR-527] data repair: A2/B2 is source_track=33; declared=car; A2_visible=158-249 (5.267-8.333s)/250_frames; B2_visible=0-249 (0.000-8.333s)/251_frames.
+[MSR-527] data repair: A3/B3 is source_track=61; declared=car; A3_visible=0-89 (0.000-3.000s)/250_frames; B3_visible=0-219 (0.000-7.333s)/251_frames.
+[MSR-527] data repair: A4/B4 is source_track=64; declared=person; A4_visible=0-69 (0.000-2.333s)/250_frames; B4_visible=0-139 (0.000-4.667s)/251_frames.
+[MSR-527] data repair: A5/B5 is source_track=46; declared=car; A5_visible=133-249 (4.433-8.333s)/250_frames; B5_visible=0-249 (0.000-8.333s)/251_frames.
+[MSR-527] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-527] resume skip all profiles
+[MSR-593] data repair: The synchronized UAV views use one source-frame clock; compare equal timestamps across views.
+[MSR-593] data repair: Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.
+[MSR-593] data repair: A transition seen in both synchronized views is one physical transition, not two countable events.
+[MSR-593] data repair: In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.
+[MSR-593] data repair: A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.
+[MSR-593] data repair: The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.
+[MSR-593] data repair: A1/B1 is source_track=35; declared=car; A1_visible=0-347 (0.000-11.600s)/348_frames; B1_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: A2/B2 is source_track=38; declared=car; A2_visible=0-347 (0.000-11.600s)/348_frames; B2_visible=111-347 (3.700-11.600s)/348_frames.
+[MSR-593] data repair: A3/B3 is source_track=65; declared=bicycle; A3_visible=0-347 (0.000-11.600s)/348_frames; B3_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: A4/B4 is source_track=7; declared=car; A4_visible=0-129 (0.000-4.333s)/348_frames; B4_visible=0-255 (0.000-8.533s)/348_frames.
+[MSR-593] data repair: A5/B5 is source_track=71; declared=bicycle; A5_visible=0-347 (0.000-11.600s)/348_frames; B5_visible=0-347 (0.000-11.600s)/348_frames.
+[MSR-593] data repair: Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts.
+[MSR-593] resume skip all profiles
+[NC] requested sample ids=202,325,578,641,754,787,790,884,1030,1035
+[NC-202] resume skip all profiles
+[NC-325] resume skip all profiles
+[NC-578] resume skip all profiles
+[NC-641] resume skip all profiles
+[NC-754] resume skip all profiles
+[NC-787] resume skip all profiles
+[NC-790] resume skip all profiles
+[NC-884] resume skip all profiles
+[NC-1030] resume skip all profiles
+[NC-1035] resume skip all profiles
+[PEA] requested sample ids=74,132,248,275,314,335,438,490,821,922
+[PEA-74] resume skip all profiles
+[PEA-132] resume skip all profiles
+[PEA-248] resume skip all profiles
+[PEA-275] resume skip all profiles
+[PEA-314] resume skip all profiles
+[PEA-335] resume skip all profiles
+[PEA-438] resume skip all profiles
+[PEA-490] resume skip all profiles
+[PEA-821] data repair: v2: replaced interval-incompatible HMC asset (32.000s for [300.000,521.000]s) with the unique same-recording RGB asset (544.100s)
+[PEA-821] resume skip all profiles
+[PEA-922] resume skip all profiles
+[PI] requested sample ids=72,86,100,106,107,124,175,204,219,225
+[PI-72] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-72] resume skip all profiles
+[PI-86] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-86] resume skip all profiles
+[PI-100] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-100] resume skip all profiles
+[PI-106] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-106] resume skip all profiles
+[PI-107] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-107] resume skip all profiles
+[PI-124] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-124] resume skip all profiles
+[PI-175] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-175] resume skip all profiles
+[PI-204] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-204] resume skip all profiles
+[PI-219] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-219] resume skip all profiles
+[PI-225] data repair: v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views.
+[PI-225] resume skip all profiles
+[PSS] requested sample ids=62,89,141,160,229,292,309,413,419,544
+[PSS-62] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-62] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-62] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-62] resume skip all profiles
+[PSS-89] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-89] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-89] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-89] resume skip all profiles
+[PSS-141] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-141] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-141] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-141] resume skip all profiles
+[PSS-160] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-160] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-160] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-160] resume skip all profiles
+[PSS-229] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-229] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-229] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-229] resume skip all profiles
+[PSS-292] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-292] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-292] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-292] resume skip all profiles
+[PSS-309] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-309] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-309] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-309] resume skip all profiles
+[PSS-413] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-413] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-413] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-413] resume skip all profiles
+[PSS-419] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-419] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-419] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-419] resume skip all profiles
+[PSS-544] data repair: The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.
+[PSS-544] data repair: Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.
+[PSS-544] data repair: The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items.
+[PSS-544] resume skip all profiles
+[summary] samples=90 selected=8913/26026 retention=34.2%
+[done] /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_vlm_stage.py reports --worker-count 8 --sample-ids CC-196,CC-333,CC-426,CC-456,CC-474,CC-502,CC-693,CC-713,CC-72,CC-93,CCQA-128,CCQA-163,CCQA-392,CCQA-443,CCQA-726,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,FSA-135,FSA-1386,FSA-1536,FSA-1562,FSA-1648,FSA-1981,FSA-306,FSA-555,FSA-571,FSA-82,MOC-0,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,MOC-63,MSR-0,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MSR-66,NC-1030,NC-1035,NC-202,NC-325,NC-578,NC-641,NC-754,NC-787,NC-790,NC-884,PEA-132,PEA-248,PEA-275,PEA-314,PEA-335,PEA-438,PEA-490,PEA-74,PEA-821,PEA-922,PI-100,PI-106,PI-107,PI-124,PI-175,PI-204,PI-219,PI-225,PI-72,PI-86,PSS-141,PSS-160,PSS-229,PSS-292,PSS-309,PSS-413,PSS-419,PSS-544,PSS-62,PSS-89 --crossvid-root /media/data6/xuejj/CrossVid --api-reporter --vlm-api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --vlm-api-model qwen3.8-flash --vlm-api-key-env LLM_API_KEY --vlm-api-timeout-seconds 600.0 --vlm-api-thinking --max-vlm-tokens 4096 --maximum-events-per-batch 8 --decode-long-edge 1024 --selection-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports
+[schedule] reports: pending=1 completed=89 with API batch concurrency=8
+[worker 0] API: PEA-248 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/reports-worker0-api-pool8.log
+[done] reports: processed=1 skipped=89 across 1 worker(s)
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/build_initial_state.py --reports-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports --output-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state --sample-ids CC-196,CC-333,CC-426,CC-456,CC-474,CC-502,CC-693,CC-713,CC-72,CC-93,CCQA-128,CCQA-163,CCQA-392,CCQA-443,CCQA-726,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,FSA-135,FSA-1386,FSA-1536,FSA-1562,FSA-1648,FSA-1981,FSA-306,FSA-555,FSA-571,FSA-82,MOC-0,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,MOC-63,MSR-0,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MSR-66,NC-1030,NC-1035,NC-202,NC-325,NC-578,NC-641,NC-754,NC-787,NC-790,NC-884,PEA-132,PEA-248,PEA-275,PEA-314,PEA-335,PEA-438,PEA-490,PEA-74,PEA-821,PEA-922,PI-100,PI-106,PI-107,PI-124,PI-175,PI-204,PI-219,PI-225,PI-72,PI-86,PSS-141,PSS-160,PSS-229,PSS-292,PSS-309,PSS-413,PSS-419,PSS-544,PSS-62,PSS-89 --api-env-file /media/data6/xuejj/UniCVR-Agent/.env --api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --api-model qwen3.8-flash --api-key-env LLM_API_KEY --api-timeout-seconds 600.0 --api-maximum-tokens 8192 --workers 8 --resume
+[plan] 90 reports builder=openai-compatible-v3-anchored-local-summary:qwen3.8-flash workers=8
+[1/90][CC-196] pairs=6/6 module_filled=0 unresolved_pairs=3 relations=2 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-196/initial_state.json
+    [CC-196] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-196] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[5/90][CC-474] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-474/initial_state.json
+    [CC-474] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-474] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[2/90][CC-333] pairs=6/6 module_filled=0 unresolved_pairs=0 relations=4 requests=8 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-333/initial_state.json
+    [CC-333] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-333] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[8/90][CC-713] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-713/initial_state.json
+[3/90][CC-426] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-426/initial_state.json
+    [CC-426] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-426] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[6/90][CC-502] pairs=4/4 module_filled=0 unresolved_pairs=0 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-502/initial_state.json
+    [CC-502] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-502] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[12/90][CCQA-163] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-163/initial_state.json
+[4/90][CC-456] pairs=4/4 module_filled=0 unresolved_pairs=0 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-456/initial_state.json
+    [CC-456] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-456] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[9/90][CC-72] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=5 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-72/initial_state.json
+    [CC-72] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-72] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[11/90][CCQA-128] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-128/initial_state.json
+[7/90][CC-693] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=2 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-693/initial_state.json
+    [CC-693] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-693] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[13/90][CCQA-392] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-392/initial_state.json
+[10/90][CC-93] pairs=6/6 module_filled=0 unresolved_pairs=0 relations=3 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CC/CC-93/initial_state.json
+    [CC-93] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CC-93] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[15/90][CCQA-726] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=2 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-726/initial_state.json
+    [CCQA-726] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [CCQA-726] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[14/90][CCQA-443] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-443/initial_state.json
+[16/90][CCQA-733] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-733/initial_state.json
+[21/90][FSA-135] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-135/initial_state.json
+[19/90][CCQA-82] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-82/initial_state.json
+[23/90][FSA-1536] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-1536/initial_state.json
+    [FSA-1536] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [FSA-1536] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[18/90][CCQA-806] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-806/initial_state.json
+[17/90][CCQA-778] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-778/initial_state.json
+[22/90][FSA-1386] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-1386/initial_state.json
+[20/90][CCQA-868] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=5 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/CCQA/CCQA-868/initial_state.json
+[26/90][FSA-1981] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-1981/initial_state.json
+[28/90][FSA-555] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-555/initial_state.json
+[25/90][FSA-1648] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-1648/initial_state.json
+[24/90][FSA-1562] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-1562/initial_state.json
+[29/90][FSA-571] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-571/initial_state.json
+[27/90][FSA-306] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-306/initial_state.json
+[31/90][MOC-0] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-0/initial_state.json
+[30/90][FSA-82] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/FSA/FSA-82/initial_state.json
+[32/90][MOC-126] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-126/initial_state.json
+[37/90][MOC-439] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-439/initial_state.json
+[34/90][MOC-251] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=2 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-251/initial_state.json
+    [MOC-251] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [MOC-251] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[36/90][MOC-377] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-377/initial_state.json
+[35/90][MOC-314] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-314/initial_state.json
+[38/90][MOC-502] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-502/initial_state.json
+[33/90][MOC-188] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-188/initial_state.json
+[39/90][MOC-565] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-565/initial_state.json
+[42/90][MSR-132] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-132/initial_state.json
+    [MSR-132] note: information I03 dropped: incomplete after validation
+    [MSR-132] note: information I04 dropped: incomplete after validation
+[40/90][MOC-63] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MOC/MOC-63/initial_state.json
+[46/90][MSR-395] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=2 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-395/initial_state.json
+    [MSR-395] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [MSR-395] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[44/90][MSR-264] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=1 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-264/initial_state.json
+    [MSR-264] note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [MSR-264] note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[43/90][MSR-198] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-198/initial_state.json
+    [MSR-198] note: information I04 dropped: incomplete after validation
+    [MSR-198] note: information I05 dropped: incomplete after validation
+[41/90][MSR-0] pairs=1/1 module_filled=0 unresolved_pairs=0 relations=2 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-0/initial_state.json
+    [MSR-0] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [MSR-0] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[47/90][MSR-461] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-461/initial_state.json
+[53/90][NC-202] pairs=6/6 module_filled=0 unresolved_pairs=4 relations=4 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-202/initial_state.json
+    [NC-202] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-202] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[50/90][MSR-66] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=1 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-66/initial_state.json
+[48/90][MSR-527] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=2 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-527/initial_state.json
+[52/90][NC-1035] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-1035/initial_state.json
+[49/90][MSR-593] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-593/initial_state.json
+[45/90][MSR-329] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=2 requests=1 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/MSR/MSR-329/initial_state.json
+[51/90][NC-1030] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=5 requests=8 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-1030/initial_state.json
+    [NC-1030] note: 5 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-1030] note: 5 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[54/90][NC-325] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=3 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-325/initial_state.json
+    [NC-325] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-325] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[57/90][NC-754] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-754/initial_state.json
+    [NC-754] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-754] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[55/90][NC-578] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-578/initial_state.json
+    [NC-578] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-578] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[60/90][NC-884] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-884/initial_state.json
+    [NC-884] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-884] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[58/90][NC-787] pairs=4/4 module_filled=0 unresolved_pairs=2 relations=4 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-787/initial_state.json
+    [NC-787] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-787] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[56/90][NC-641] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=5 requests=12 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-641/initial_state.json
+    [NC-641] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-641] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[63/90][PEA-275] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-275/initial_state.json
+    [PEA-275] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-275] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[62/90][PEA-248] pairs=3/3 module_filled=0 unresolved_pairs=0 relations=3 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-248/initial_state.json
+    [PEA-248] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-248] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[61/90][PEA-132] pairs=3/3 module_filled=0 unresolved_pairs=1 relations=5 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-132/initial_state.json
+    [PEA-132] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-132] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[59/90][NC-790] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=3 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/NC/NC-790/initial_state.json
+    [NC-790] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [NC-790] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[64/90][PEA-314] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-314/initial_state.json
+    [PEA-314] note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-314] note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[65/90][PEA-335] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=4 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-335/initial_state.json
+    [PEA-335] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-335] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[68/90][PEA-74] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=5 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-74/initial_state.json
+    [PEA-74] note: 5 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-74] note: 5 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[69/90][PEA-821] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=4 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-821/initial_state.json
+    [PEA-821] note: 4 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-821] note: 4 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[71/90][PI-100] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=4 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-100/initial_state.json
+[72/90][PI-106] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-106/initial_state.json
+[70/90][PEA-922] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=5 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-922/initial_state.json
+    [PEA-922] note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-922] note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[66/90][PEA-438] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=5 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-438/initial_state.json
+    [PEA-438] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-438] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[67/90][PEA-490] pairs=3/3 module_filled=0 unresolved_pairs=3 relations=5 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PEA/PEA-490/initial_state.json
+    [PEA-490] note: issue U03.related_events dropped outside scope ['v1-b0002-e1']
+    [PEA-490] note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PEA-490] note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[73/90][PI-107] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=5 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-107/initial_state.json
+[76/90][PI-204] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=4 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-204/initial_state.json
+[75/90][PI-175] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=4 requests=6 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-175/initial_state.json
+[77/90][PI-219] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=10 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-219/initial_state.json
+[74/90][PI-124] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-124/initial_state.json
+[81/90][PSS-141] pairs=6/6 module_filled=0 unresolved_pairs=6 relations=5 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-141/initial_state.json
+    [PSS-141] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PSS-141] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[79/90][PI-72] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=5 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-72/initial_state.json
+[80/90][PI-86] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=5 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-86/initial_state.json
+[78/90][PI-225] pairs=1/1 module_filled=0 unresolved_pairs=1 relations=3 requests=7 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PI/PI-225/initial_state.json
+[85/90][PSS-309] pairs=5/5 module_filled=0 unresolved_pairs=5 relations=5 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-309/initial_state.json
+[86/90][PSS-413] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=5 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-413/initial_state.json
+[82/90][PSS-160] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-160/initial_state.json
+[88/90][PSS-544] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-544/initial_state.json
+[89/90][PSS-62] pairs=5/5 module_filled=0 unresolved_pairs=3 relations=5 requests=3 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-62/initial_state.json
+    [PSS-62] note: information I05.event_refs dropped unknown reference 'v5-b0001-e4'
+    [PSS-62] note: information I05.event_refs dropped unknown reference 'v5-b0001-e5'
+    [PSS-62] note: relation R04.supporting_events dropped unknown reference 'v5-b0001-e4'
+    [PSS-62] note: relation R05.supporting_events dropped unknown reference 'v5-b0001-e4'
+    [PSS-62] note: issue U02.related_events dropped unknown reference 'v5-b0001-e4'
+    [PSS-62] note: 2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PSS-62] note: 2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[83/90][PSS-229] pairs=6/6 module_filled=0 unresolved_pairs=5 relations=4 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-229/initial_state.json
+    [PSS-229] note: 1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PSS-229] note: 1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[90/90][PSS-89] pairs=7/7 module_filled=0 unresolved_pairs=4 relations=6 requests=4 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-89/initial_state.json
+    [PSS-89] note: 3 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue
+    [PSS-89] note: 3 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered
+[87/90][PSS-419] pairs=4/4 module_filled=0 unresolved_pairs=4 relations=5 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-419/initial_state.json
+[84/90][PSS-292] pairs=5/5 module_filled=0 unresolved_pairs=5 relations=6 requests=5 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state/PSS/PSS-292/initial_state.json
+[done] completed=90/90 pairs=228 relations=291 issues=350 module_filled_pairs=0 unresolved_pairs=169
+[cmd] /media/data2/xuejj/anaconda3/envs/qwen3/bin/python /media/data6/xuejj/ToolCVR/scripts/run_parallel_reasoning_cycles.py --worker-count 8 --sample-ids CC-196,CC-333,CC-426,CC-456,CC-474,CC-502,CC-693,CC-713,CC-72,CC-93,CCQA-128,CCQA-163,CCQA-392,CCQA-443,CCQA-726,CCQA-733,CCQA-778,CCQA-806,CCQA-82,CCQA-868,FSA-135,FSA-1386,FSA-1536,FSA-1562,FSA-1648,FSA-1981,FSA-306,FSA-555,FSA-571,FSA-82,MOC-0,MOC-126,MOC-188,MOC-251,MOC-314,MOC-377,MOC-439,MOC-502,MOC-565,MOC-63,MSR-0,MSR-132,MSR-198,MSR-264,MSR-329,MSR-395,MSR-461,MSR-527,MSR-593,MSR-66,NC-1030,NC-1035,NC-202,NC-325,NC-578,NC-641,NC-754,NC-787,NC-790,NC-884,PEA-132,PEA-248,PEA-275,PEA-314,PEA-335,PEA-438,PEA-490,PEA-74,PEA-821,PEA-922,PI-100,PI-106,PI-107,PI-124,PI-175,PI-204,PI-219,PI-225,PI-72,PI-86,PSS-141,PSS-160,PSS-229,PSS-292,PSS-309,PSS-413,PSS-419,PSS-544,PSS-62,PSS-89 --reports-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports --state-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/state --evidence-dir /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/evidence --crossvid-root /media/data6/xuejj/CrossVid --api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --api-model qwen3.8-flash --api-key-env LLM_API_KEY --api-timeout-seconds 600.0 --visual-call-budget 8 --minimum-focus-stages 2 --context-token-budget 12000 --reasoner-max-tokens 4096 --api-reporter --vlm-api-base-url https://dashscope.aliyuncs.com/compatible-mode/v1 --vlm-api-model qwen3.8-flash --vlm-api-key-env LLM_API_KEY --vlm-api-timeout-seconds 600.0 --vlm-api-thinking --max-vlm-tokens 4096 --maximum-events-per-batch 8 --decode-long-edge 1024 --output-root /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles
+[worker 0] API: CC-196 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker0-api0.log
+[worker 1] API: CC-333 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker1-api1.log
+[worker 2] API: CC-426 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker2-api2.log
+[worker 3] API: CC-456 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker3-api3.log
+[worker 4] API: CC-474 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker4-api4.log
+[worker 5] API: CC-502 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker5-api5.log
+[worker 6] API: CC-693 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker6-api6.log
+[worker 7] API: CC-713 -> /media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles/worker7-api7.log
+[done] worker api2: CC-426
+[worker 2] api2: CCQA-128
+[done] worker api1: CC-333
+[worker 1] api1: CC-93
+[done] worker api6: CC-693
+[worker 6] api6: CCQA-726
+[done] worker api0: CC-196
+[worker 0] api0: CC-72
+[done] worker api3: CC-456
+[worker 3] api3: CCQA-163
+[done] worker api4: CC-474
+[worker 4] api4: CCQA-392
+[done] worker api1: CC-93
+[worker 1] api1: CCQA-806
+[done] worker api5: CC-502
+[worker 5] api5: CCQA-443
+[done] worker api6: CCQA-726
+[worker 6] api6: FSA-1536
+[done] worker api3: CCQA-163
+[worker 3] api3: CCQA-868
+[done] worker api4: CCQA-392
+[worker 4] api4: FSA-135
+[done] worker api2: CCQA-128
+[worker 2] api2: CCQA-82
+[done] worker api5: CCQA-443
+[worker 5] api5: FSA-1386
+[done] worker api1: CCQA-806
+[worker 1] api1: FSA-1981
+[done] worker api6: FSA-1536
+[worker 6] api6: MOC-0
+[done] worker api0: CC-72
+[worker 0] api0: CCQA-778
+[done] worker api7: CC-713
+[worker 7] api7: CCQA-733
+[done] worker api3: CCQA-868
+[worker 3] api3: FSA-555
+[done] worker api2: CCQA-82
+[worker 2] api2: FSA-306
+[done] worker api5: FSA-1386
+[worker 5] api5: FSA-82
+[done] worker api0: CCQA-778
+[worker 0] api0: FSA-1648
+[done] worker api3: FSA-555
+[worker 3] api3: MOC-377
+[done] worker api4: FSA-135
+[worker 4] api4: FSA-571
+[done] worker api1: FSA-1981
+[worker 1] api1: MOC-251
+[done] worker api7: CCQA-733
+[worker 7] api7: FSA-1562
+[done] worker api0: FSA-1648
+[worker 0] api0: MOC-188
+[done] worker api6: MOC-0
+[worker 6] api6: MOC-565
+[done] worker api5: FSA-82
+[worker 5] api5: MOC-502
+[done] worker api2: FSA-306
+[worker 2] api2: MOC-314
+[done] worker api1: MOC-251
+[worker 1] api1: MSR-132
+[done] worker api7: FSA-1562
+[worker 7] api7: MOC-126
+[done] worker api3: MOC-377
+[worker 3] api3: MSR-264
+[done] worker api4: FSA-571
+[worker 4] api4: MOC-439
+[done] worker api5: MOC-502
+[worker 5] api5: MSR-395
+[done] worker api0: MOC-188
+[worker 0] api0: MSR-0
+[done] worker api2: MOC-314
+[worker 2] api2: MSR-198
+[done] worker api1: MSR-132
+[worker 1] api1: MSR-66
+[done] worker api1: MSR-66
+[worker 1] api1: NC-787
+[done] worker api5: MSR-395
+[worker 5] api5: NC-325
+[done] worker api0: MSR-0
+[worker 0] api0: MSR-593
+[done] worker api3: MSR-264
+[worker 3] api3: NC-1035
+[done] worker api2: MSR-198
+[worker 2] api2: NC-1030
+[done] worker api6: MOC-565
+[worker 6] api6: MSR-461
+[done] worker api7: MOC-126
+[worker 7] api7: MOC-63
+[done] worker api3: NC-1035
+[worker 3] api3: NC-884
+[done] worker api0: MSR-593
+[worker 0] api0: NC-754
+[done] worker api1: NC-787
+[worker 1] api1: PEA-438
+[done] worker api2: NC-1030
+[worker 2] api2: NC-790
+[done] worker api3: NC-884
+[worker 3] api3: PEA-74
+[done] worker api0: NC-754
+[worker 0] api0: PEA-335
+[done] worker api5: NC-325
+[worker 5] api5: PEA-248
+[done] worker api6: MSR-461
+[worker 6] api6: NC-578
+[done] worker api2: NC-790
+[worker 2] api2: PEA-490
+[done] worker api3: PEA-74
+[worker 3] api3: PI-204
+[done] worker api4: MOC-439
+[worker 4] api4: MSR-329
+[done] worker api0: PEA-335
+[worker 0] api0: PI-107
+[done] worker api6: NC-578
+[worker 6] api6: PEA-275
+[done] worker api1: PEA-438
+[worker 1] api1: PI-124
+[done] worker api7: MOC-63
+[worker 7] api7: MSR-527
+[done] worker api3: PI-204
+[worker 3] api3: PSS-292
+[done] worker api5: PEA-248
+[worker 5] api5: PEA-922
+[done] worker api1: PI-124
+[worker 1] api1: PSS-160
+[done] worker api6: PEA-275
+[worker 6] api6: PI-100
+[done] worker api7: MSR-527
+[worker 7] api7: NC-641
+[done] worker api0: PI-107
+[worker 0] api0: PSS-141
+[done] worker api4: MSR-329
+[worker 4] api4: NC-202
+[done] worker api3: PSS-292
+[done] worker api2: PEA-490
+[worker 2] api2: PI-175
+[done] worker api1: PSS-160
+[worker 1] api1: PSS-89
+[done] worker api6: PI-100
+[worker 6] api6: PI-72
+[done] worker api5: PEA-922
+[worker 5] api5: PI-225
+[done] worker api0: PSS-141
+[worker 0] api0: PSS-62
+[done] worker api4: NC-202
+[worker 4] api4: PEA-132
+[done] worker api7: NC-641
+[worker 7] api7: PEA-314
+[done] worker api2: PI-175
+[worker 2] api2: PSS-229
+[done] worker api6: PI-72
+[worker 6] api6: PSS-419
+[done] worker api5: PI-225
+[worker 5] api5: PSS-413
+[done] worker api4: PEA-132
+[worker 4] api4: PEA-821
+[done] worker api7: PEA-314
+[worker 7] api7: PI-106
+[done] worker api6: PSS-419
+[done] worker api0: PSS-62
+[done] worker api1: PSS-89
+[done] worker api2: PSS-229
+[done] worker api7: PI-106
+[worker 7] api7: PI-86
+[done] worker api5: PSS-413
+[done] worker api4: PEA-821
+[worker 4] api4: PI-219
+[done] worker api7: PI-86
+[worker 7] api7: PSS-544
+[done] worker api4: PI-219
+[worker 4] api4: PSS-309
+[done] worker api7: PSS-544
+[done] worker api4: PSS-309
+[done] newly_completed=90 preserved=0 workers=8
+[done] all-API run complete selection=/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection artifacts=/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90 cycles=/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/cycles

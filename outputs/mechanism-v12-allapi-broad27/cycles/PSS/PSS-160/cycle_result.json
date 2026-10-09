@@ -1,0 +1,530 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 4,
+    "summary": "Chronology is resolved by declared source intervals and visible state transitions: v1 precedes v3, v3 precedes v2, and v2 precedes v4. The sequence is v1->v3->v2->v4.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v1.zoom.r3-r1-01.s01",
+          "v3.zoom.r1-U01-02.s01",
+          "v3.zoom.r3-r1-02.s01"
+        ],
+        "attempts": [
+          "v1's declared source interval and rice-ball shaping/presentation precede v3's interval where a formed rice ball is held and salmon is lifted before combination."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v3.zoom.r3-r1-02.s01",
+          "v2.c001",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": [
+          "v3 shows the rice ball and salmon as separate pre-combination states, while v2 shows pressing and rotating a formed rice base against salmon, so v2 follows the combination transition."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01",
+          "v4.c001"
+        ],
+        "attempts": [
+          "v4 shows wiping and resting hands after the nigiri-shaping state represented by v2, consistent with a terminal post-nigiri cleanup/resting state."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          16.016
+        ],
+        "description": "Chef in black uniform forms a rice ball on a wooden board. Ingredients are initially separate, then rice is shaped.",
+        "uncertainty": "Exact moment of assembly completion not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          24.992,
+          28.996
+        ],
+        "description": "A chef in a black uniform stands behind a counter, holding a piece of salmon nigiri and shaping the rice with his hands.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          33.0,
+          37.004
+        ],
+        "description": "A close-up view of hands pressing and shaping a piece of salmon nigiri on a wooden board, with a container of green wasabi visible.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "A hand holding a small rice ball moves upward and away from the center of the cutting board. Another hand exits the frame on the right side.",
+        "uncertainty": "Exact destination of the rice ball is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "A slice of salmon is visible on the right side of the board in both frames, remaining stationary in the second frame.",
+        "uncertainty": "Whether the salmon was moved between these timestamps is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          43.01,
+          49.016
+        ],
+        "description": "A sushi chef stands at a wooden counter. Initially holding chopsticks and wiping his hands, he then rests his clasped hands on the counter, looking forward.",
+        "uncertainty": "Exact sequence of hand movements between frames is unseen.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          10.01,
+          13.013
+        ],
+        "description": "Chef shapes a rice ball in his hand while a completed rice ball sits on the board.",
+        "uncertainty": "Whether the held rice ball matches the completed one in size, shape, and position.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          14.014,
+          16.016
+        ],
+        "description": "Chef holds the rice ball and presents it to the camera.",
+        "uncertainty": "Whether the held rice ball matches the completed one in size, shape, and position.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          18.986,
+          20.988
+        ],
+        "description": "A person holds a small rice ball in their left hand while manipulating a piece of salmon with their right hand. A larger mound of rice and a dab of wasabi remain stationary on the board.",
+        "uncertainty": "Comparison to v1.c001 is impossible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          33.0,
+          34.001
+        ],
+        "description": "Hands are shown pressing a formed rice base against a slice of salmon, shaping the nigiri.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          35.002,
+          37.004
+        ],
+        "description": "The formed nigiri is held and rotated, showing the salmon topping on the rice base.",
+        "uncertainty": "None",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          16.016,
+          16.016
+        ],
+        "description": "A single frame shows a wooden board with a mound of white rice, a small green paste, and a piece of salmon. Two hands are positioned above the board, with the left hand hovering near the rice.",
+        "uncertainty": "The hands are static in this single frame.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          20.988,
+          21.989
+        ],
+        "description": "A hand holds a formed rice ball. The other hand lifts a slice of salmon from the cutting board. The rice ball is not yet combined with the salmon.",
+        "uncertainty": "Transition to combined state not shown.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local state match between v1 rice formation and v3 rice relocation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v3.c001"
+        ],
+        "evidence_goal": "Does the rice ball held in v3.c001 match the size, shape, and board position of the completed rice ball in v1.c001?",
+        "next_probe_goal": "If matched, does v2.c002 show salmon being placed on or pressed into a relocated rice base?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local v2 nigiri rice-base state to anchor whether it follows rice-ball formation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.c002"
+        ],
+        "evidence_goal": "Does v2.c002 show salmon being placed on or pressed into an already formed rice base rather than rice still being formed from a loose mound?",
+        "next_probe_goal": "If formed base is visible, probe v3.u001 for transition from rice-ball handling to salmon placement.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Local states are established: v3 has a held small rice ball with separate salmon plus rice and wasabi on the board; v1 has rice-ball shaping/presentation with a completed ball nearby; v2 has rice-base pressing against salmon and formed nigiri; v4 has wiping/resting after holding chopsticks. Cross-segment chronology remains unresolved, especially the v1-v3 rice-ball order and the transitions to v2 and v4.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.u002",
+          "v3.u001"
+        ],
+        "evidence_goal": "Observe the immediate post-span states in v1 and v3 to see whether v1's presented/completed rice ball transitions into v3's held-ball-and-salmon state, or whether v3's held rice ball transitions into v1's shaping/presentation state.",
+        "next_probe_goal": "If the post-span states show a clear handoff between the rice ball and salmon handling, update r1 and then probe v2/v4 transitions; if they remain ambiguous, recover v2.u002 and v4.u001 to connect formed nigiri to the wiping/resting state.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Chronology is resolved by declared source intervals and visible state transitions: v1 precedes v3, v3 precedes v2, and v2 precedes v4. The sequence is v1->v3->v2->v4.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v1->v3->v2->v4",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v1->v3->v2->v4",
+    "evidence_refs": [
+      "v1.zoom.r1-U01-01.s01",
+      "v1.zoom.r3-r1-01.s01",
+      "v3.zoom.r1-U01-02.s01",
+      "v3.zoom.r3-r1-02.s01",
+      "v2.c001",
+      "v2.zoom.r2-r2-01.s01",
+      "v4.c001"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 5,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        10.01,
+        16.016
+      ],
+      "resolution": "fine",
+      "content": "Chef shapes a rice ball in his hand while a completed rice ball sits on the board. Chef holds the rice ball and presents it to the camera.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Whether the held rice ball matches the completed one in size, shape, and position.",
+        "Unresolved: Whether the held rice ball matches the completed one in size, shape, and position."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        10.01,
+        16.016000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r1-01.s01",
+      "video": "v1",
+      "time": [
+        16.016000000000002,
+        17.0
+      ],
+      "resolution": "fine",
+      "content": "A single frame shows a wooden board with a mound of white rice, a small green paste, and a piece of salmon. Two hands are positioned above the board, with the left hand hovering near the rice.",
+      "evidence": [
+        "v1.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "The hands are static in this single frame.",
+        "Unresolved: Whether the rice ball is presented or completed",
+        "Unresolved: The state of the rice ball in v3"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        24.992,
+        28.996
+      ],
+      "resolution": "coarse",
+      "content": "A chef in a black uniform stands behind a counter, holding a piece of salmon nigiri and shaping the rice with his hands.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        28.995633333333334,
+        32.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        33.0,
+        37.004
+      ],
+      "resolution": "fine",
+      "content": "Hands are shown pressing a formed rice base against a slice of salmon, shaping the nigiri. The formed nigiri is held and rotated, showing the salmon topping on the rice base.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        37.00363333333333,
+        38.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        18.986,
+        20.988
+      ],
+      "resolution": "coarse",
+      "content": "A slice of salmon is visible on the right side of the board in both frames, remaining stationary in the second frame.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether the salmon was moved between these timestamps is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-02.s01",
+      "video": "v3",
+      "time": [
+        18.986,
+        20.988
+      ],
+      "resolution": "fine",
+      "content": "A person holds a small rice ball in their left hand while manipulating a piece of salmon with their right hand. A larger mound of rice and a dab of wasabi remain stationary on the board.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "Comparison to v1.c001 is impossible.",
+        "Unresolved: Size, shape, and board position of the completed rice ball in v1.c001"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r1-02.s01",
+      "video": "v3",
+      "time": [
+        20.987633333333335,
+        22.0
+      ],
+      "resolution": "fine",
+      "content": "A hand holds a formed rice ball. The other hand lifts a slice of salmon from the cutting board. The rice ball is not yet combined with the salmon.",
+      "evidence": [
+        "v3.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "Transition to combined state not shown.",
+        "Unresolved: The moment the rice ball is placed onto the salmon."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        43.00963333333333,
+        49.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        43.01,
+        49.016
+      ],
+      "resolution": "coarse",
+      "content": "A sushi chef stands at a wooden counter. Initially holding chopsticks and wiping his hands, he then rests his clasped hands on the counter, looking forward.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact sequence of hand movements between frames is unseen."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If matched, does v2.c002 show salmon being placed on or pressed into a relocated rice base?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 5,
+    "visual_calls_remaining": 3,
+    "maximum_visual_calls_for_current_stage": 3,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,1713 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "options": [],
+  "query_plan": {
+    "phrases": [],
+    "report_hints": [
+      "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds]",
+      "Identify the specific cooking action in Video 1",
+      "Find the functionally equivalent step in Video 2",
+      "Return only the interval [start_seconds, end_seconds] from Video 2"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 100.366,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 8,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          15.0,
+          17.0
+        ],
+        [
+          23.0,
+          23.0
+        ],
+        [
+          29.0,
+          29.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b1-audit-b1-1",
+          "time_span": [
+            15.0,
+            17.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v1-b1-audit-b1-2",
+          "time_span": [
+            23.0,
+            23.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        },
+        {
+          "event_id": "v1-b1-audit-b1-3",
+          "time_span": [
+            29.0,
+            29.0
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S3-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S3."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=4/8 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b1-audit-b1-1 [15.000-17.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02 | confidence=0.000\n- v1-b1-audit-b1-2 [23.000-23.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\n- v1-b1-audit-b1-3 [29.000-29.000s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S3-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b1-audit-b1-1 [15.000-17.000s] Selection proposal only for segment S1.\n- v1-b1-audit-b1-2 [23.000-23.000s] Selection proposal only for segment S2.\n- v1-b1-audit-b1-3 [29.000-29.000s] Selection proposal only for segment S3.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b1-audit-b1-1,v1-b1-audit-b1-2,v1-b1-audit-b1-3 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b1-audit-b1-1",
+            "v1-b1-audit-b1-2",
+            "v1-b1-audit-b1-3"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 15.0,
+          "actual_timestamp_seconds": 15.0,
+          "requested_frame_index": 450,
+          "actual_frame_index": 450,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 17.0,
+          "actual_timestamp_seconds": 17.0,
+          "requested_frame_index": 510,
+          "actual_frame_index": 510,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 23.0,
+          "actual_timestamp_seconds": 23.0,
+          "requested_frame_index": 690,
+          "actual_frame_index": 690,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 29.0,
+          "actual_timestamp_seconds": 29.0,
+          "requested_frame_index": 870,
+          "actual_frame_index": 870,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 460.39326666666665,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 231,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          0.0,
+          10.01
+        ],
+        [
+          19.986633333333334,
+          19.986633333333334
+        ],
+        [
+          36.002633333333335,
+          38.00463333333334
+        ],
+        [
+          42.008633333333336,
+          42.008633333333336
+        ],
+        [
+          48.014633333333336,
+          50.01663333333334
+        ],
+        [
+          65.99926666666667,
+          65.99926666666667
+        ],
+        [
+          80.01326666666667,
+          80.01326666666667
+        ],
+        [
+          93.99390000000001,
+          93.99390000000001
+        ],
+        [
+          97.99789999999999,
+          97.99789999999999
+        ],
+        [
+          114.0139,
+          114.0139
+        ],
+        [
+          129.99653333333333,
+          129.99653333333333
+        ],
+        [
+          146.01253333333335,
+          146.01253333333335
+        ],
+        [
+          161.99516666666668,
+          161.99516666666668
+        ],
+        [
+          178.01116666666667,
+          178.01116666666667
+        ],
+        [
+          193.99380000000002,
+          193.99380000000002
+        ],
+        [
+          210.0098,
+          210.0098
+        ],
+        [
+          225.99243333333334,
+          225.99243333333334
+        ],
+        [
+          240.00643333333335,
+          240.00643333333335
+        ],
+        [
+          253.9870666666667,
+          253.9870666666667
+        ],
+        [
+          270.00306666666665,
+          270.00306666666665
+        ],
+        [
+          274.0070666666667,
+          274.0070666666667
+        ],
+        [
+          280.0130666666667,
+          280.0130666666667
+        ],
+        [
+          283.9837,
+          283.9837
+        ],
+        [
+          287.9877,
+          287.9877
+        ],
+        [
+          291.99170000000004,
+          291.99170000000004
+        ],
+        [
+          295.9957,
+          297.9977
+        ],
+        [
+          302.0017,
+          302.0017
+        ],
+        [
+          317.9843333333333,
+          317.9843333333333
+        ],
+        [
+          327.9943333333334,
+          327.9943333333334
+        ],
+        [
+          342.0083333333333,
+          344.01033333333334
+        ],
+        [
+          348.01433333333335,
+          348.01433333333335
+        ],
+        [
+          351.9849666666667,
+          351.9849666666667
+        ],
+        [
+          361.9949666666667,
+          361.9949666666667
+        ],
+        [
+          368.00096666666667,
+          368.00096666666667
+        ],
+        [
+          372.0049666666667,
+          378.01096666666666
+        ],
+        [
+          387.98760000000004,
+          387.98760000000004
+        ],
+        [
+          391.99159999999995,
+          391.99159999999995
+        ],
+        [
+          402.0016,
+          402.0016
+        ],
+        [
+          417.98423333333335,
+          417.98423333333335
+        ],
+        [
+          429.99623333333335,
+          429.99623333333335
+        ],
+        [
+          446.01223333333337,
+          446.01223333333337
+        ],
+        [
+          453.9868666666667,
+          455.9888666666667
+        ],
+        [
+          459.9928666666667,
+          459.9928666666667
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b1-audit-b1-1",
+          "time_span": [
+            0.0,
+            10.01
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03",
+            "S1-F04",
+            "S1-F05",
+            "S1-F06"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S1."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-2",
+          "time_span": [
+            19.986633333333334,
+            19.986633333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S2-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S2."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-3",
+          "time_span": [
+            36.002633333333335,
+            38.00463333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S3-F01",
+            "S3-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S3."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-4",
+          "time_span": [
+            42.008633333333336,
+            42.008633333333336
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S4-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S4."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-5",
+          "time_span": [
+            48.014633333333336,
+            50.01663333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S5-F01",
+            "S5-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S5."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-6",
+          "time_span": [
+            65.99926666666667,
+            65.99926666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S6-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S6."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-7",
+          "time_span": [
+            80.01326666666667,
+            80.01326666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S7-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S7."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-8",
+          "time_span": [
+            93.99390000000001,
+            93.99390000000001
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S8-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S8."
+        },
+        {
+          "event_id": "v2-b1-audit-b1-9",
+          "time_span": [
+            97.99789999999999,
+            97.99789999999999
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S9-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S9."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-1",
+          "time_span": [
+            114.0139,
+            114.0139
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S10-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S10."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-2",
+          "time_span": [
+            129.99653333333333,
+            129.99653333333333
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S11-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S11."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-3",
+          "time_span": [
+            146.01253333333335,
+            146.01253333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S12-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S12."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-4",
+          "time_span": [
+            161.99516666666668,
+            161.99516666666668
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S13-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S13."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-5",
+          "time_span": [
+            178.01116666666667,
+            178.01116666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S14-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S14."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-6",
+          "time_span": [
+            193.99380000000002,
+            193.99380000000002
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S15-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S15."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-7",
+          "time_span": [
+            210.0098,
+            210.0098
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S16-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S16."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-8",
+          "time_span": [
+            225.99243333333334,
+            225.99243333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S17-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S17."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-9",
+          "time_span": [
+            240.00643333333335,
+            240.00643333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S18-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S18."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-10",
+          "time_span": [
+            253.9870666666667,
+            253.9870666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S19-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S19."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-11",
+          "time_span": [
+            270.00306666666665,
+            270.00306666666665
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S20-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S20."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-12",
+          "time_span": [
+            274.0070666666667,
+            274.0070666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S21-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S21."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-13",
+          "time_span": [
+            280.0130666666667,
+            280.0130666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S22-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S22."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-14",
+          "time_span": [
+            283.9837,
+            283.9837
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S23-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S23."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-15",
+          "time_span": [
+            287.9877,
+            287.9877
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S24-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S24."
+        },
+        {
+          "event_id": "v2-b2-audit-b2-16",
+          "time_span": [
+            291.99170000000004,
+            291.99170000000004
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S25-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S25."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-1",
+          "time_span": [
+            295.9957,
+            297.9977
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S26-F01",
+            "S26-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S26."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-2",
+          "time_span": [
+            302.0017,
+            302.0017
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S27-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S27."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-3",
+          "time_span": [
+            317.9843333333333,
+            317.9843333333333
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S28-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S28."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-4",
+          "time_span": [
+            327.9943333333334,
+            327.9943333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S29-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S29."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-5",
+          "time_span": [
+            342.0083333333333,
+            344.01033333333334
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S30-F01",
+            "S30-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S30."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-6",
+          "time_span": [
+            348.01433333333335,
+            348.01433333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S31-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S31."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-7",
+          "time_span": [
+            351.9849666666667,
+            351.9849666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S32-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S32."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-8",
+          "time_span": [
+            361.9949666666667,
+            361.9949666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S33-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S33."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-9",
+          "time_span": [
+            368.00096666666667,
+            368.00096666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S34-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S34."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-10",
+          "time_span": [
+            372.0049666666667,
+            378.01096666666666
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S35-F01",
+            "S35-F02",
+            "S35-F03",
+            "S35-F04"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S35."
+        },
+        {
+          "event_id": "v2-b3-audit-b3-11",
+          "time_span": [
+            387.98760000000004,
+            387.98760000000004
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S36-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S36."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-1",
+          "time_span": [
+            391.99159999999995,
+            391.99159999999995
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S37-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S37."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-2",
+          "time_span": [
+            402.0016,
+            402.0016
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S38-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S38."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-3",
+          "time_span": [
+            417.98423333333335,
+            417.98423333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S39-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S39."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-4",
+          "time_span": [
+            429.99623333333335,
+            429.99623333333335
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S40-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S40."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-5",
+          "time_span": [
+            446.01223333333337,
+            446.01223333333337
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S41-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S41."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-6",
+          "time_span": [
+            453.9868666666667,
+            455.9888666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S42-F01",
+            "S42-F02"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S42."
+        },
+        {
+          "event_id": "v2-b4-audit-b4-7",
+          "time_span": [
+            459.9928666666667,
+            459.9928666666667
+          ],
+          "description": "CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed.",
+          "evidence_frame_ids": [
+            "S43-F01"
+          ],
+          "confidence": 0.0,
+          "uncertainty": "Selection proposal only for segment S43."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 4,
+      "selected_frames": 56,
+      "selection_mode": "semantic_novelty_fallback",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=56/231 sparse_stride=2.000s mode=semantic_novelty_fallback\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b1-audit-b1-1 [0.000-10.010s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S1-F01,S1-F02,S1-F03,S1-F04,S1-F05,S1-F06 | confidence=0.000\n- v2-b1-audit-b1-2 [19.987-19.987s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S2-F01 | confidence=0.000\n- v2-b1-audit-b1-3 [36.003-38.005s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S3-F01,S3-F02 | confidence=0.000\n- v2-b1-audit-b1-4 [42.009-42.009s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S4-F01 | confidence=0.000\n- v2-b1-audit-b1-5 [48.015-50.017s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S5-F01,S5-F02 | confidence=0.000\n- v2-b1-audit-b1-6 [65.999-65.999s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S6-F01 | confidence=0.000\n- v2-b1-audit-b1-7 [80.013-80.013s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S7-F01 | confidence=0.000\n- v2-b1-audit-b1-8 [93.994-93.994s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S8-F01 | confidence=0.000\n- v2-b1-audit-b1-9 [97.998-97.998s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S9-F01 | confidence=0.000\n- v2-b2-audit-b2-1 [114.014-114.014s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S10-F01 | confidence=0.000\n- v2-b2-audit-b2-2 [129.997-129.997s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S11-F01 | confidence=0.000\n- v2-b2-audit-b2-3 [146.013-146.013s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S12-F01 | confidence=0.000\n- v2-b2-audit-b2-4 [161.995-161.995s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S13-F01 | confidence=0.000\n- v2-b2-audit-b2-5 [178.011-178.011s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S14-F01 | confidence=0.000\n- v2-b2-audit-b2-6 [193.994-193.994s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S15-F01 | confidence=0.000\n- v2-b2-audit-b2-7 [210.010-210.010s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S16-F01 | confidence=0.000\n- v2-b2-audit-b2-8 [225.992-225.992s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S17-F01 | confidence=0.000\n- v2-b2-audit-b2-9 [240.006-240.006s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S18-F01 | confidence=0.000\n- v2-b2-audit-b2-10 [253.987-253.987s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S19-F01 | confidence=0.000\n- v2-b2-audit-b2-11 [270.003-270.003s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S20-F01 | confidence=0.000\n- v2-b2-audit-b2-12 [274.007-274.007s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S21-F01 | confidence=0.000\n- v2-b2-audit-b2-13 [280.013-280.013s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S22-F01 | confidence=0.000\n- v2-b2-audit-b2-14 [283.984-283.984s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S23-F01 | confidence=0.000\n- v2-b2-audit-b2-15 [287.988-287.988s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S24-F01 | confidence=0.000\n- v2-b2-audit-b2-16 [291.992-291.992s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S25-F01 | confidence=0.000\n- v2-b3-audit-b3-1 [295.996-297.998s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S26-F01,S26-F02 | confidence=0.000\n- v2-b3-audit-b3-2 [302.002-302.002s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S27-F01 | confidence=0.000\n- v2-b3-audit-b3-3 [317.984-317.984s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S28-F01 | confidence=0.000\n- v2-b3-audit-b3-4 [327.994-327.994s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S29-F01 | confidence=0.000\n- v2-b3-audit-b3-5 [342.008-344.010s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S30-F01,S30-F02 | confidence=0.000\n- v2-b3-audit-b3-6 [348.014-348.014s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S31-F01 | confidence=0.000\n- v2-b3-audit-b3-7 [351.985-351.985s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S32-F01 | confidence=0.000\n- v2-b3-audit-b3-8 [361.995-361.995s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S33-F01 | confidence=0.000\n- v2-b3-audit-b3-9 [368.001-368.001s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S34-F01 | confidence=0.000\n- v2-b3-audit-b3-10 [372.005-378.011s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S35-F01,S35-F02,S35-F03,S35-F04 | confidence=0.000\n- v2-b3-audit-b3-11 [387.988-387.988s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S36-F01 | confidence=0.000\n- v2-b4-audit-b4-1 [391.992-391.992s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S37-F01 | confidence=0.000\n- v2-b4-audit-b4-2 [402.002-402.002s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S38-F01 | confidence=0.000\n- v2-b4-audit-b4-3 [417.984-417.984s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S39-F01 | confidence=0.000\n- v2-b4-audit-b4-4 [429.996-429.996s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S40-F01 | confidence=0.000\n- v2-b4-audit-b4-5 [446.012-446.012s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S41-F01 | confidence=0.000\n- v2-b4-audit-b4-6 [453.987-455.989s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S42-F01,S42-F02 | confidence=0.000\n- v2-b4-audit-b4-7 [459.993-459.993s] CLIP-selected candidate frames exported for visual audit; no VLM interpretation was performed. | evidence=S43-F01 | confidence=0.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b1-audit-b1-1 [0.000-10.010s] Selection proposal only for segment S1.\n- v2-b1-audit-b1-2 [19.987-19.987s] Selection proposal only for segment S2.\n- v2-b1-audit-b1-3 [36.003-38.005s] Selection proposal only for segment S3.\n- v2-b1-audit-b1-4 [42.009-42.009s] Selection proposal only for segment S4.\n- v2-b1-audit-b1-5 [48.015-50.017s] Selection proposal only for segment S5.\n- v2-b1-audit-b1-6 [65.999-65.999s] Selection proposal only for segment S6.\n- v2-b1-audit-b1-7 [80.013-80.013s] Selection proposal only for segment S7.\n- v2-b1-audit-b1-8 [93.994-93.994s] Selection proposal only for segment S8.\n- v2-b1-audit-b1-9 [97.998-97.998s] Selection proposal only for segment S9.\n- v2-b2-audit-b2-1 [114.014-114.014s] Selection proposal only for segment S10.\n- v2-b2-audit-b2-2 [129.997-129.997s] Selection proposal only for segment S11.\n- v2-b2-audit-b2-3 [146.013-146.013s] Selection proposal only for segment S12.\n- v2-b2-audit-b2-4 [161.995-161.995s] Selection proposal only for segment S13.\n- v2-b2-audit-b2-5 [178.011-178.011s] Selection proposal only for segment S14.\n- v2-b2-audit-b2-6 [193.994-193.994s] Selection proposal only for segment S15.\n- v2-b2-audit-b2-7 [210.010-210.010s] Selection proposal only for segment S16.\n- v2-b2-audit-b2-8 [225.992-225.992s] Selection proposal only for segment S17.\n- v2-b2-audit-b2-9 [240.006-240.006s] Selection proposal only for segment S18.\n- v2-b2-audit-b2-10 [253.987-253.987s] Selection proposal only for segment S19.\n- v2-b2-audit-b2-11 [270.003-270.003s] Selection proposal only for segment S20.\n- v2-b2-audit-b2-12 [274.007-274.007s] Selection proposal only for segment S21.\n- v2-b2-audit-b2-13 [280.013-280.013s] Selection proposal only for segment S22.\n- v2-b2-audit-b2-14 [283.984-283.984s] Selection proposal only for segment S23.\n- v2-b2-audit-b2-15 [287.988-287.988s] Selection proposal only for segment S24.\n- v2-b2-audit-b2-16 [291.992-291.992s] Selection proposal only for segment S25.\n- v2-b3-audit-b3-1 [295.996-297.998s] Selection proposal only for segment S26.\n- v2-b3-audit-b3-2 [302.002-302.002s] Selection proposal only for segment S27.\n- v2-b3-audit-b3-3 [317.984-317.984s] Selection proposal only for segment S28.\n- v2-b3-audit-b3-4 [327.994-327.994s] Selection proposal only for segment S29.\n- v2-b3-audit-b3-5 [342.008-344.010s] Selection proposal only for segment S30.\n- v2-b3-audit-b3-6 [348.014-348.014s] Selection proposal only for segment S31.\n- v2-b3-audit-b3-7 [351.985-351.985s] Selection proposal only for segment S32.\n- v2-b3-audit-b3-8 [361.995-361.995s] Selection proposal only for segment S33.\n- v2-b3-audit-b3-9 [368.001-368.001s] Selection proposal only for segment S34.\n- v2-b3-audit-b3-10 [372.005-378.011s] Selection proposal only for segment S35.\n- v2-b3-audit-b3-11 [387.988-387.988s] Selection proposal only for segment S36.\n- v2-b4-audit-b4-1 [391.992-391.992s] Selection proposal only for segment S37.\n- v2-b4-audit-b4-2 [402.002-402.002s] Selection proposal only for segment S38.\n- v2-b4-audit-b4-3 [417.984-417.984s] Selection proposal only for segment S39.\n- v2-b4-audit-b4-4 [429.996-429.996s] Selection proposal only for segment S40.\n- v2-b4-audit-b4-5 [446.012-446.012s] Selection proposal only for segment S41.\n- v2-b4-audit-b4-6 [453.987-455.989s] Selection proposal only for segment S42.\n- v2-b4-audit-b4-7 [459.993-459.993s] Selection proposal only for segment S43.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b1-audit-b1-1,v2-b1-audit-b1-2,v2-b1-audit-b1-3,v2-b1-audit-b1-4,v2-b1-audit-b1-5,v2-b1-audit-b1-6,v2-b1-audit-b1-7,v2-b1-audit-b1-8,v2-b1-audit-b1-9 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus\n- batch=2 relevance=insufficient evidence=v2-b2-audit-b2-1,v2-b2-audit-b2-2,v2-b2-audit-b2-3,v2-b2-audit-b2-4,v2-b2-audit-b2-5,v2-b2-audit-b2-6,v2-b2-audit-b2-7,v2-b2-audit-b2-8,v2-b2-audit-b2-9,v2-b2-audit-b2-10,v2-b2-audit-b2-11,v2-b2-audit-b2-12,v2-b2-audit-b2-13,v2-b2-audit-b2-14,v2-b2-audit-b2-15,v2-b2-audit-b2-16 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus\n- batch=3 relevance=insufficient evidence=v2-b3-audit-b3-1,v2-b3-audit-b3-2,v2-b3-audit-b3-3,v2-b3-audit-b3-4,v2-b3-audit-b3-5,v2-b3-audit-b3-6,v2-b3-audit-b3-7,v2-b3-audit-b3-8,v2-b3-audit-b3-9,v2-b3-audit-b3-10,v2-b3-audit-b3-11 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus\n- batch=4 relevance=insufficient evidence=v2-b4-audit-b4-1,v2-b4-audit-b4-2,v2-b4-audit-b4-3,v2-b4-audit-b4-4,v2-b4-audit-b4-5,v2-b4-audit-b4-6,v2-b4-audit-b4-7 unresolved=Selection audit performs no visual interpretation. suggested_tools=dense_focus",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b1-audit-b1-1",
+            "v2-b1-audit-b1-2",
+            "v2-b1-audit-b1-3",
+            "v2-b1-audit-b1-4",
+            "v2-b1-audit-b1-5",
+            "v2-b1-audit-b1-6",
+            "v2-b1-audit-b1-7",
+            "v2-b1-audit-b1-8",
+            "v2-b1-audit-b1-9"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        },
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b2-audit-b2-1",
+            "v2-b2-audit-b2-2",
+            "v2-b2-audit-b2-3",
+            "v2-b2-audit-b2-4",
+            "v2-b2-audit-b2-5",
+            "v2-b2-audit-b2-6",
+            "v2-b2-audit-b2-7",
+            "v2-b2-audit-b2-8",
+            "v2-b2-audit-b2-9",
+            "v2-b2-audit-b2-10",
+            "v2-b2-audit-b2-11",
+            "v2-b2-audit-b2-12",
+            "v2-b2-audit-b2-13",
+            "v2-b2-audit-b2-14",
+            "v2-b2-audit-b2-15",
+            "v2-b2-audit-b2-16"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        },
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b3-audit-b3-1",
+            "v2-b3-audit-b3-2",
+            "v2-b3-audit-b3-3",
+            "v2-b3-audit-b3-4",
+            "v2-b3-audit-b3-5",
+            "v2-b3-audit-b3-6",
+            "v2-b3-audit-b3-7",
+            "v2-b3-audit-b3-8",
+            "v2-b3-audit-b3-9",
+            "v2-b3-audit-b3-10",
+            "v2-b3-audit-b3-11"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        },
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b4-audit-b4-1",
+            "v2-b4-audit-b4-2",
+            "v2-b4-audit-b4-3",
+            "v2-b4-audit-b4-4",
+            "v2-b4-audit-b4-5",
+            "v2-b4-audit-b4-6",
+            "v2-b4-audit-b4-7"
+          ],
+          "unresolved_needs": [
+            "Selection audit performs no visual interpretation."
+          ],
+          "suggested_tools": [
+            "dense_focus"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0020000000000002,
+          "actual_timestamp_seconds": 2.0020000000000002,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0040000000000004,
+          "actual_timestamp_seconds": 4.0040000000000004,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.006,
+          "actual_timestamp_seconds": 6.006,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.008000000000001,
+          "actual_timestamp_seconds": 8.008000000000001,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F06",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.01,
+          "actual_timestamp_seconds": 10.01,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S2",
+          "frame_id": "S2-F01",
+          "timeline_index": 10,
+          "requested_timestamp_seconds": 19.986633333333334,
+          "actual_timestamp_seconds": 19.986633333333334,
+          "requested_frame_index": 599,
+          "actual_frame_index": 599,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F01",
+          "timeline_index": 18,
+          "requested_timestamp_seconds": 36.002633333333335,
+          "actual_timestamp_seconds": 36.002633333333335,
+          "requested_frame_index": 1079,
+          "actual_frame_index": 1079,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S3",
+          "frame_id": "S3-F02",
+          "timeline_index": 19,
+          "requested_timestamp_seconds": 38.00463333333334,
+          "actual_timestamp_seconds": 38.00463333333334,
+          "requested_frame_index": 1139,
+          "actual_frame_index": 1139,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S4",
+          "frame_id": "S4-F01",
+          "timeline_index": 21,
+          "requested_timestamp_seconds": 42.008633333333336,
+          "actual_timestamp_seconds": 42.008633333333336,
+          "requested_frame_index": 1259,
+          "actual_frame_index": 1259,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F01",
+          "timeline_index": 24,
+          "requested_timestamp_seconds": 48.014633333333336,
+          "actual_timestamp_seconds": 48.014633333333336,
+          "requested_frame_index": 1439,
+          "actual_frame_index": 1439,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S5",
+          "frame_id": "S5-F02",
+          "timeline_index": 25,
+          "requested_timestamp_seconds": 50.01663333333334,
+          "actual_timestamp_seconds": 50.01663333333334,
+          "requested_frame_index": 1499,
+          "actual_frame_index": 1499,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S6",
+          "frame_id": "S6-F01",
+          "timeline_index": 33,
+          "requested_timestamp_seconds": 65.99926666666667,
+          "actual_timestamp_seconds": 65.99926666666667,
+          "requested_frame_index": 1978,
+          "actual_frame_index": 1978,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S7",
+          "frame_id": "S7-F01",
+          "timeline_index": 40,
+          "requested_timestamp_seconds": 80.01326666666667,
+          "actual_timestamp_seconds": 80.01326666666667,
+          "requested_frame_index": 2398,
+          "actual_frame_index": 2398,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S8",
+          "frame_id": "S8-F01",
+          "timeline_index": 47,
+          "requested_timestamp_seconds": 93.99390000000001,
+          "actual_timestamp_seconds": 93.99390000000001,
+          "requested_frame_index": 2817,
+          "actual_frame_index": 2817,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S9",
+          "frame_id": "S9-F01",
+          "timeline_index": 49,
+          "requested_timestamp_seconds": 97.99789999999999,
+          "actual_timestamp_seconds": 97.99789999999999,
+          "requested_frame_index": 2937,
+          "actual_frame_index": 2937,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S10",
+          "frame_id": "S10-F01",
+          "timeline_index": 57,
+          "requested_timestamp_seconds": 114.0139,
+          "actual_timestamp_seconds": 114.0139,
+          "requested_frame_index": 3417,
+          "actual_frame_index": 3417,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S11",
+          "frame_id": "S11-F01",
+          "timeline_index": 65,
+          "requested_timestamp_seconds": 129.99653333333333,
+          "actual_timestamp_seconds": 129.99653333333333,
+          "requested_frame_index": 3896,
+          "actual_frame_index": 3896,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S12",
+          "frame_id": "S12-F01",
+          "timeline_index": 73,
+          "requested_timestamp_seconds": 146.01253333333335,
+          "actual_timestamp_seconds": 146.01253333333335,
+          "requested_frame_index": 4376,
+          "actual_frame_index": 4376,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S13",
+          "frame_id": "S13-F01",
+          "timeline_index": 81,
+          "requested_timestamp_seconds": 161.99516666666668,
+          "actual_timestamp_seconds": 161.99516666666668,
+          "requested_frame_index": 4855,
+          "actual_frame_index": 4855,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S14",
+          "frame_id": "S14-F01",
+          "timeline_index": 89,
+          "requested_timestamp_seconds": 178.01116666666667,
+          "actual_timestamp_seconds": 178.01116666666667,
+          "requested_frame_index": 5335,
+          "actual_frame_index": 5335,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S15",
+          "frame_id": "S15-F01",
+          "timeline_index": 97,
+          "requested_timestamp_seconds": 193.99380000000002,
+          "actual_timestamp_seconds": 193.99380000000002,
+          "requested_frame_index": 5814,
+          "actual_frame_index": 5814,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S16",
+          "frame_id": "S16-F01",
+          "timeline_index": 105,
+          "requested_timestamp_seconds": 210.0098,
+          "actual_timestamp_seconds": 210.0098,
+          "requested_frame_index": 6294,
+          "actual_frame_index": 6294,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S17",
+          "frame_id": "S17-F01",
+          "timeline_index": 113,
+          "requested_timestamp_seconds": 225.99243333333334,
+          "actual_timestamp_seconds": 225.99243333333334,
+          "requested_frame_index": 6773,
+          "actual_frame_index": 6773,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S18",
+          "frame_id": "S18-F01",
+          "timeline_index": 120,
+          "requested_timestamp_seconds": 240.00643333333335,
+          "actual_timestamp_seconds": 240.00643333333335,
+          "requested_frame_index": 7193,
+          "actual_frame_index": 7193,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S19",
+          "frame_id": "S19-F01",
+          "timeline_index": 127,
+          "requested_timestamp_seconds": 253.9870666666667,
+          "actual_timestamp_seconds": 253.9870666666667,
+          "requested_frame_index": 7612,
+          "actual_frame_index": 7612,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S20",
+          "frame_id": "S20-F01",
+          "timeline_index": 135,
+          "requested_timestamp_seconds": 270.00306666666665,
+          "actual_timestamp_seconds": 270.00306666666665,
+          "requested_frame_index": 8092,
+          "actual_frame_index": 8092,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S21",
+          "frame_id": "S21-F01",
+          "timeline_index": 137,
+          "requested_timestamp_seconds": 274.0070666666667,
+          "actual_timestamp_seconds": 274.0070666666667,
+          "requested_frame_index": 8212,
+          "actual_frame_index": 8212,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S22",
+          "frame_id": "S22-F01",
+          "timeline_index": 140,
+          "requested_timestamp_seconds": 280.0130666666667,
+          "actual_timestamp_seconds": 280.0130666666667,
+          "requested_frame_index": 8392,
+          "actual_frame_index": 8392,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S23",
+          "frame_id": "S23-F01",
+          "timeline_index": 142,
+          "requested_timestamp_seconds": 283.9837,
+          "actual_timestamp_seconds": 283.9837,
+          "requested_frame_index": 8511,
+          "actual_frame_index": 8511,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S24",
+          "frame_id": "S24-F01",
+          "timeline_index": 144,
+          "requested_timestamp_seconds": 287.9877,
+          "actual_timestamp_seconds": 287.9877,
+          "requested_frame_index": 8631,
+          "actual_frame_index": 8631,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 2,
+          "video_id": "v2",
+          "segment_id": "S25",
+          "frame_id": "S25-F01",
+          "timeline_index": 146,
+          "requested_timestamp_seconds": 291.99170000000004,
+          "actual_timestamp_seconds": 291.99170000000004,
+          "requested_frame_index": 8751,
+          "actual_frame_index": 8751,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S26",
+          "frame_id": "S26-F01",
+          "timeline_index": 148,
+          "requested_timestamp_seconds": 295.9957,
+          "actual_timestamp_seconds": 295.9957,
+          "requested_frame_index": 8871,
+          "actual_frame_index": 8871,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S26",
+          "frame_id": "S26-F02",
+          "timeline_index": 149,
+          "requested_timestamp_seconds": 297.9977,
+          "actual_timestamp_seconds": 297.9977,
+          "requested_frame_index": 8931,
+          "actual_frame_index": 8931,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S27",
+          "frame_id": "S27-F01",
+          "timeline_index": 151,
+          "requested_timestamp_seconds": 302.0017,
+          "actual_timestamp_seconds": 302.0017,
+          "requested_frame_index": 9051,
+          "actual_frame_index": 9051,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S28",
+          "frame_id": "S28-F01",
+          "timeline_index": 159,
+          "requested_timestamp_seconds": 317.9843333333333,
+          "actual_timestamp_seconds": 317.9843333333333,
+          "requested_frame_index": 9530,
+          "actual_frame_index": 9530,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S29",
+          "frame_id": "S29-F01",
+          "timeline_index": 164,
+          "requested_timestamp_seconds": 327.9943333333334,
+          "actual_timestamp_seconds": 327.9943333333334,
+          "requested_frame_index": 9830,
+          "actual_frame_index": 9830,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S30",
+          "frame_id": "S30-F01",
+          "timeline_index": 171,
+          "requested_timestamp_seconds": 342.0083333333333,
+          "actual_timestamp_seconds": 342.0083333333333,
+          "requested_frame_index": 10250,
+          "actual_frame_index": 10250,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S30",
+          "frame_id": "S30-F02",
+          "timeline_index": 172,
+          "requested_timestamp_seconds": 344.01033333333334,
+          "actual_timestamp_seconds": 344.01033333333334,
+          "requested_frame_index": 10310,
+          "actual_frame_index": 10310,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S31",
+          "frame_id": "S31-F01",
+          "timeline_index": 174,
+          "requested_timestamp_seconds": 348.01433333333335,
+          "actual_timestamp_seconds": 348.01433333333335,
+          "requested_frame_index": 10430,
+          "actual_frame_index": 10430,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S32",
+          "frame_id": "S32-F01",
+          "timeline_index": 176,
+          "requested_timestamp_seconds": 351.9849666666667,
+          "actual_timestamp_seconds": 351.9849666666667,
+          "requested_frame_index": 10549,
+          "actual_frame_index": 10549,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S33",
+          "frame_id": "S33-F01",
+          "timeline_index": 181,
+          "requested_timestamp_seconds": 361.9949666666667,
+          "actual_timestamp_seconds": 361.9949666666667,
+          "requested_frame_index": 10849,
+          "actual_frame_index": 10849,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S34",
+          "frame_id": "S34-F01",
+          "timeline_index": 184,
+          "requested_timestamp_seconds": 368.00096666666667,
+          "actual_timestamp_seconds": 368.00096666666667,
+          "requested_frame_index": 11029,
+          "actual_frame_index": 11029,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S35",
+          "frame_id": "S35-F01",
+          "timeline_index": 186,
+          "requested_timestamp_seconds": 372.0049666666667,
+          "actual_timestamp_seconds": 372.0049666666667,
+          "requested_frame_index": 11149,
+          "actual_frame_index": 11149,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S35",
+          "frame_id": "S35-F02",
+          "timeline_index": 187,
+          "requested_timestamp_seconds": 374.0069666666667,
+          "actual_timestamp_seconds": 374.0069666666667,
+          "requested_frame_index": 11209,
+          "actual_frame_index": 11209,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S35",
+          "frame_id": "S35-F03",
+          "timeline_index": 188,
+          "requested_timestamp_seconds": 376.0089666666667,
+          "actual_timestamp_seconds": 376.0089666666667,
+          "requested_frame_index": 11269,
+          "actual_frame_index": 11269,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S35",
+          "frame_id": "S35-F04",
+          "timeline_index": 189,
+          "requested_timestamp_seconds": 378.01096666666666,
+          "actual_timestamp_seconds": 378.01096666666666,
+          "requested_frame_index": 11329,
+          "actual_frame_index": 11329,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 3,
+          "video_id": "v2",
+          "segment_id": "S36",
+          "frame_id": "S36-F01",
+          "timeline_index": 194,
+          "requested_timestamp_seconds": 387.98760000000004,
+          "actual_timestamp_seconds": 387.98760000000004,
+          "requested_frame_index": 11628,
+          "actual_frame_index": 11628,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S37",
+          "frame_id": "S37-F01",
+          "timeline_index": 196,
+          "requested_timestamp_seconds": 391.99159999999995,
+          "actual_timestamp_seconds": 391.99159999999995,
+          "requested_frame_index": 11748,
+          "actual_frame_index": 11748,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S38",
+          "frame_id": "S38-F01",
+          "timeline_index": 201,
+          "requested_timestamp_seconds": 402.0016,
+          "actual_timestamp_seconds": 402.0016,
+          "requested_frame_index": 12048,
+          "actual_frame_index": 12048,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S39",
+          "frame_id": "S39-F01",
+          "timeline_index": 209,
+          "requested_timestamp_seconds": 417.98423333333335,
+          "actual_timestamp_seconds": 417.98423333333335,
+          "requested_frame_index": 12527,
+          "actual_frame_index": 12527,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S40",
+          "frame_id": "S40-F01",
+          "timeline_index": 215,
+          "requested_timestamp_seconds": 429.99623333333335,
+          "actual_timestamp_seconds": 429.99623333333335,
+          "requested_frame_index": 12887,
+          "actual_frame_index": 12887,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S41",
+          "frame_id": "S41-F01",
+          "timeline_index": 223,
+          "requested_timestamp_seconds": 446.01223333333337,
+          "actual_timestamp_seconds": 446.01223333333337,
+          "requested_frame_index": 13367,
+          "actual_frame_index": 13367,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S42",
+          "frame_id": "S42-F01",
+          "timeline_index": 227,
+          "requested_timestamp_seconds": 453.9868666666667,
+          "actual_timestamp_seconds": 453.9868666666667,
+          "requested_frame_index": 13606,
+          "actual_frame_index": 13606,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S42",
+          "frame_id": "S42-F02",
+          "timeline_index": 228,
+          "requested_timestamp_seconds": 455.9888666666667,
+          "actual_timestamp_seconds": 455.9888666666667,
+          "requested_frame_index": 13666,
+          "actual_frame_index": 13666,
+          "matched_queries": []
+        },
+        {
+          "batch_index": 4,
+          "video_id": "v2",
+          "segment_id": "S43",
+          "frame_id": "S43-F01",
+          "timeline_index": 230,
+          "requested_timestamp_seconds": 459.9928666666667,
+          "actual_timestamp_seconds": 459.9928666666667,
+          "requested_frame_index": 13786,
+          "actual_frame_index": 13786,
+          "matched_queries": []
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "FSA-1981",
+    "task": "FSA",
+    "ground_truth": [
+      341,
+      366
+    ],
+    "rewrite_model": "qwen3.8-flash",
+    "clip_model": "openai/clip-vit-large-patch14-336",
+    "selection_only": true,
+    "duration_stratified_audit": false,
+    "selection_profile": null,
+    "configured_retention_ratio": null,
+    "query_plan_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/FSA/FSA-1981/query_plan.json",
+    "adaptation_notes": [
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "inputs": [
+      {
+        "video_id": "v1",
+        "source_time_spans": [
+          [
+            15.0,
+            30.0
+          ]
+        ],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      },
+      {
+        "video_id": "v2",
+        "source_time_spans": [],
+        "scan_stride_seconds": null,
+        "synchronization_group": null
+      }
+    ]
+  }
+}

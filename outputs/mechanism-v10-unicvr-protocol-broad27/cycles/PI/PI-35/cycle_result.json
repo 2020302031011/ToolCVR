@@ -1,0 +1,1668 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "The blue mouse in v1 declares they must cook, but the cause of this declaration is unresolved. In v2, there is visible ceiling damage and a rat in distress, but no visible cause for these events. The connection between the blue mouse in v1 and the rat in v2 is also unresolved.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-03.s01",
+          "v2.zoom.r2-r1-04.s01"
+        ],
+        "attempts": [
+          "The evidence shows a rat in distress on a stove and ceiling damage, but no visible cause for the damage or the rat swarm."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r2-r1-03.s01"
+        ],
+        "attempts": [
+          "The evidence shows a blue mouse in v1 and a rat in v2, but no visible connection between them."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c006"
+        ],
+        "attempts": [
+          "The blue mouse declares they must cook, which is visible in the evidence."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.004
+        ],
+        "description": "A blue mouse runs through grass, then disappears behind foliage. A human figure is visible in a window.",
+        "uncertainty": "The mouse's destination and the human's role are not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          8.008,
+          20.02
+        ],
+        "description": "The blue mouse finds a mushroom, approaches a red mouse in a trash can, and offers it. The red mouse emerges and takes the mushroom.",
+        "uncertainty": "The red mouse's reaction to the mushroom is not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          37.996,
+          48.006
+        ],
+        "description": "The blue mouse and red mouse walk together. The red mouse warns about their father. The blue mouse shows the red mouse a piece of cheese.",
+        "uncertainty": "The red mouse's facial expression during the warning is not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          50.008,
+          58.016
+        ],
+        "description": "Blue mouse excitedly presents cheese to brown mouse. Brown mouse watches with neutral expression.",
+        "uncertainty": "Brown mouse's reaction is not fully visible in S4-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          60.018,
+          65.983
+        ],
+        "description": "Blue mouse excitedly shows herbs and sweet grass juice to brown mouse, who turns away.",
+        "uncertainty": "Brown mouse's full reaction to the ingredients is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          81.999,
+          86.003
+        ],
+        "description": "Blue mouse declares they must cook. Camera pans up to show stormy sky.",
+        "uncertainty": "No visible action occurs between S5-F02 and S5-F03.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e4",
+        "video_id": "v1",
+        "time_span": [
+          90.007,
+          100.017
+        ],
+        "description": "Blue mouse roasts cheese on a rooftop device. Brown mouse watches, then expresses concern about wind.",
+        "uncertainty": "No visible action occurs between S5-F08 and S5-F09.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e1",
+        "video_id": "v1",
+        "time_span": [
+          102.019,
+          104.021
+        ],
+        "description": "Two mice stand on a rooftop, one blue, one brown, discussing proximity.",
+        "uncertainty": "Dialogue content not visible in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e2",
+        "video_id": "v1",
+        "time_span": [
+          105.981,
+          107.983
+        ],
+        "description": "A rooftop antenna explodes, sending sparks into the sky.",
+        "uncertainty": "No visible cause for explosion.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e3",
+        "video_id": "v1",
+        "time_span": [
+          107.983,
+          109.985
+        ],
+        "description": "Two mice lie on the ground, one holding a stick with a roasted item.",
+        "uncertainty": "Exact cause of fall not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e4",
+        "video_id": "v1",
+        "time_span": [
+          134.009,
+          138.013
+        ],
+        "description": "Mice sit up, one holding a roasted item, discussing flavor.",
+        "uncertainty": "Dialogue content not visible in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0003-e5",
+        "video_id": "v1",
+        "time_span": [
+          138.013,
+          144.019
+        ],
+        "description": "Mice stand near a house, planning to return to the roof.",
+        "uncertainty": "Dialogue content not visible in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          313.98,
+          315.982
+        ],
+        "description": "View from below shows a damaged ceiling with holes and a chandelier above.",
+        "uncertainty": "No visible action or state change in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          315.982,
+          317.984
+        ],
+        "description": "A small mouse is on a stove, surrounded by broken glass. A human hand is visible.",
+        "uncertainty": "Dialogue suggests a rescue attempt, but no action is visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          317.984,
+          319.986
+        ],
+        "description": "Close-up of an elderly woman with glasses, showing a fearful expression.",
+        "uncertainty": "No visible action or state change in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          319.986,
+          321.988
+        ],
+        "description": "A black mouse is on a table, reaching out. The woman is blurred in the background.",
+        "uncertainty": "Dialogue suggests a rescue, but no action is visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          321.988,
+          323.99
+        ],
+        "description": "A hand opens a small cardboard box on a wooden surface.",
+        "uncertainty": "No visible action or state change in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          323.99,
+          325.992
+        ],
+        "description": "The elderly woman looks upward with a startled expression.",
+        "uncertainty": "No visible action or state change in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          325.992,
+          327.994
+        ],
+        "description": "A small mouse is on a wooden surface, looking toward the viewer.",
+        "uncertainty": "No visible action or state change in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          327.994,
+          346.012
+        ],
+        "description": "A pink mouse climbs a lamp, then a black mouse is seen on a chandelier. The woman holds a shotgun and aims at the mice.",
+        "uncertainty": "The ceiling is damaged in the final frames, but the cause is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          348.014,
+          350.016
+        ],
+        "description": "Woman in pink pajamas aims shotgun at camera, eyes wide with intent.",
+        "uncertainty": "No visible trigger or action beyond aiming.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          352.018,
+          354.02
+        ],
+        "description": "Camera tilts up to show ceiling with multiple holes and cracks.",
+        "uncertainty": "No visible cause for ceiling damage shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          355.981,
+          357.983
+        ],
+        "description": "Massive rat swarm bursts through ceiling, filling room with dust and chaos.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          357.983,
+          361.987
+        ],
+        "description": "Rats swarm through room, climbing furniture and furniture, moving toward exit.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          361.987,
+          365.991
+        ],
+        "description": "Rats flood out of room, moving in large group toward exterior.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e6",
+        "video_id": "v2",
+        "time_span": [
+          365.991,
+          369.995
+        ],
+        "description": "Rats run across floor, some falling, others scrambling toward exit.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e7",
+        "video_id": "v2",
+        "time_span": [
+          369.995,
+          373.999
+        ],
+        "description": "Rats rush past kitchen counter, knocking over items, including a cookbook.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e8",
+        "video_id": "v2",
+        "time_span": [
+          373.999,
+          378.003
+        ],
+        "description": "Rats exit house through door, scattering into yard.",
+        "uncertainty": "No visible cause for rat swarm shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          380.005,
+          382.007
+        ],
+        "description": "A mouse looks at a book with a picture of bread and five stars.",
+        "uncertainty": "No visible action connects this to the later tunnel scene.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          384.009,
+          386.011
+        ],
+        "description": "A figure in a gas mask appears in a kitchen, surrounded by green smoke.",
+        "uncertainty": "No visible connection to the mouse's escape or the tunnel.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          386.011,
+          390.015
+        ],
+        "description": "The mouse runs outside into a rainy, dark landscape, shouting '快～，快～，快～'.",
+        "uncertainty": "No visible transition to the tunnel or boat.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          449.991,
+          466.007
+        ],
+        "description": "The mouse paddles a boat in a dark tunnel, shouting to 'Remy' and then 'Wait, wait'.",
+        "uncertainty": "No visible link to the earlier kitchen or outdoor escape.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e5",
+        "video_id": "v2",
+        "time_span": [
+          474.015,
+          474.015
+        ],
+        "description": "The mouse continues paddling in the tunnel, facing a waterfall ahead.",
+        "uncertainty": "No visible connection to the beginning of the story.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          476.017,
+          478.019
+        ],
+        "description": "A small mouse sits on a flat object in a dark, tunnel-like environment. The mouse turns its head slightly between frames.",
+        "uncertainty": "No other objects or actions are visible to infer narrative context.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A blue mouse is visible in motion blur near a house window.",
+        "uncertainty": "Mouse's identity and continuity not confirmed beyond initial frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          1.0,
+          2.0
+        ],
+        "description": "The blue mouse is seen moving through tall grass, partially obscured by blades.",
+        "uncertainty": "Mouse's identity and continuity not confirmed beyond initial frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          3.0
+        ],
+        "description": "The blue mouse stands upright in tall grass, looking upward with wide eyes.",
+        "uncertainty": "Mouse's identity and continuity not confirmed beyond initial frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e4",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          4.0
+        ],
+        "description": "The frame shows only tall grass blades, with no visible mouse.",
+        "uncertainty": "Mouse's identity and continuity not confirmed beyond initial frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          107.983,
+          109.985
+        ],
+        "description": "A blue mouse lies on its back holding a stick with a pinecone. A brown mouse lies nearby, also on its back.",
+        "uncertainty": "No visual link to another mouse in v2 is visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          134.009,
+          136.011
+        ],
+        "description": "Blue mouse holds stick with object, interacts with brown mouse. Both remain in frame.",
+        "uncertainty": "No visual link to v2 mouse established in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l3.e2",
+        "video_id": "v1",
+        "time_span": [
+          137.012,
+          138.013
+        ],
+        "description": "Blue mouse moves forward, partially obscuring view. Brown mouse remains seated.",
+        "uncertainty": "No visual link to v2 mouse established in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l4.e1",
+        "video_id": "v1",
+        "time_span": [
+          138.013,
+          144.019
+        ],
+        "description": "A blue mouse holds a stick with a roasted food item, interacting with a brown mouse.",
+        "uncertainty": "No other mouse is visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          355.981,
+          357.983
+        ],
+        "description": "Ceiling collapse and rat swarm fill the room. Dust and debris are visible. Rats are clustered on furniture and structures.",
+        "uncertainty": "No visible cause for ceiling damage or rat swarm initiation in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          357.983,
+          358.984
+        ],
+        "description": "An elderly woman in pink clothing stands facing a large group of rats.",
+        "uncertainty": "No ceiling damage visible in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          358.984,
+          359.985
+        ],
+        "description": "The woman leans forward, surrounded by rats. The camera angle shifts downward.",
+        "uncertainty": "No ceiling damage visible in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          359.985,
+          360.986
+        ],
+        "description": "Rats swarm chaotically, filling the frame. A rat is visible with its mouth open.",
+        "uncertainty": "No ceiling damage visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e4",
+        "video_id": "v2",
+        "time_span": [
+          360.986,
+          361.987
+        ],
+        "description": "Rats scatter across the floor near a golden cage. Subtitles show a rat shouting.",
+        "uncertainty": "No ceiling damage visible in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          313.98,
+          313.98
+        ],
+        "description": "Ceiling has holes, chandelier hangs above. A rat is visible in foreground.",
+        "uncertainty": "No visible cause for ceiling damage in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          314.981,
+          315.982
+        ],
+        "description": "Rat is inside a teapot on a stove. Subtitles show rat calling for help.",
+        "uncertainty": "No visible rat swarm or cause of ceiling damage in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          315.982,
+          317.984
+        ],
+        "description": "A blue rat is on a stove, screaming for help while holding a broken white ceramic object.",
+        "uncertainty": "No ceiling damage or rat swarm visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need to identify the connection between the blue mouse in v1 and the mouse in v2, and determine the cause of the ceiling damage and rat swarm in v2.",
+      "action": "PLAN",
+      "reason": "plan_compiler: reduced slots 11->4 to fit visual-call cap 4",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v1.c010",
+          "v1.c011",
+          "v1.c012"
+        ],
+        "evidence_goal": "Is there a visual link between the blue mouse in v1 and the mouse in v2?",
+        "next_probe_goal": "What event caused the ceiling damage and the rat swarm in v2?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Identify the cause of the rat swarm in v2 based on visible before/after state changes",
+      "action": "PLAN",
+      "reason": "plan_compiler: normalized mode recover->refine; reduced slots 16->4 to fit visual-call cap 4",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.c011",
+          "v2.c012",
+          "v2.c001",
+          "v2.c002"
+        ],
+        "evidence_goal": "What event caused the ceiling damage and the rat swarm in v2?",
+        "next_probe_goal": "What event caused the ceiling damage and the rat swarm in v2?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The blue mouse in v1 declares they must cook, but the cause of this declaration is unresolved. In v2, there is visible ceiling damage and a rat in distress, but no visible cause for these events. The connection between the blue mouse in v1 and the rat in v2 is also unresolved.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "F",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "F",
+    "evidence_refs": [
+      "v1.c006",
+      "v2.zoom.r2-r1-03.s01",
+      "v2.zoom.r2-r1-04.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.004
+      ],
+      "resolution": "fine",
+      "content": "A blue mouse is visible in motion blur near a house window. The blue mouse is seen moving through tall grass, partially obscured by blades. The blue mouse stands upright in tall grass, looking upward with wide eyes. The frame shows only tall grass blades, with no visible mouse.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3",
+        "v1.focus.r1.l1.e4"
+      ],
+      "uncertainty": [
+        "Mouse's identity and continuity not confirmed beyond initial frame.",
+        "Unresolved: Visual link between blue mouse and mouse in v2 cannot be established from these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.004,
+        8.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        8.008,
+        20.02
+      ],
+      "resolution": "coarse",
+      "content": "The blue mouse finds a mushroom, approaches a red mouse in a trash can, and offers it. The red mouse emerges and takes the mushroom.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The red mouse's reaction to the mushroom is not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        20.02,
+        35.019999999999996
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        35.019999999999996,
+        37.996291666666664
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        37.996,
+        48.006
+      ],
+      "resolution": "coarse",
+      "content": "The blue mouse and red mouse walk together. The red mouse warns about their father. The blue mouse shows the red mouse a piece of cheese.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The red mouse's facial expression during the warning is not fully visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        50.008,
+        58.016
+      ],
+      "resolution": "coarse",
+      "content": "Blue mouse excitedly presents cheese to brown mouse. Brown mouse watches with neutral expression.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Brown mouse's reaction is not fully visible in S4-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        50.008291666666665,
+        58.01629166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        60.018,
+        65.983
+      ],
+      "resolution": "coarse",
+      "content": "Blue mouse excitedly shows herbs and sweet grass juice to brown mouse, who turns away.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Brown mouse's full reaction to the ingredients is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        65.98258333333334,
+        80.98258333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        80.98258333333334,
+        81.99858333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        81.999,
+        86.003
+      ],
+      "resolution": "coarse",
+      "content": "Blue mouse declares they must cook. Camera pans up to show stormy sky.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "No visible action occurs between S5-F02 and S5-F03."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        90.007,
+        100.017
+      ],
+      "resolution": "coarse",
+      "content": "Blue mouse roasts cheese on a rooftop device. Brown mouse watches, then expresses concern about wind.",
+      "evidence": [
+        "v1-b0002-e4"
+      ],
+      "uncertainty": [
+        "No visible action occurs between S5-F08 and S5-F09."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c008",
+      "video": "v1",
+      "time": [
+        102.019,
+        104.021
+      ],
+      "resolution": "coarse",
+      "content": "Two mice stand on a rooftop, one blue, one brown, discussing proximity.",
+      "evidence": [
+        "v1-b0003-e1"
+      ],
+      "uncertainty": [
+        "Dialogue content not visible in frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c009",
+      "video": "v1",
+      "time": [
+        105.981,
+        107.983
+      ],
+      "resolution": "coarse",
+      "content": "A rooftop antenna explodes, sending sparks into the sky.",
+      "evidence": [
+        "v1-b0003-e2"
+      ],
+      "uncertainty": [
+        "No visible cause for explosion."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-02.s01",
+      "video": "v1",
+      "time": [
+        107.983,
+        109.985
+      ],
+      "resolution": "fine",
+      "content": "A blue mouse lies on its back holding a stick with a pinecone. A brown mouse lies nearby, also on its back.",
+      "evidence": [
+        "v1.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No visual link to another mouse in v2 is visible in these frames.",
+        "Unresolved: Visual link between blue mouse in v1 and mouse in v2 not established in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        109.984875,
+        124.984875
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        124.984875,
+        134.008875
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-03.s01",
+      "video": "v1",
+      "time": [
+        134.009,
+        138.013
+      ],
+      "resolution": "fine",
+      "content": "Blue mouse holds stick with object, interacts with brown mouse. Both remain in frame. Blue mouse moves forward, partially obscuring view. Brown mouse remains seated.",
+      "evidence": [
+        "v1.focus.r1.l3.e1",
+        "v1.focus.r1.l3.e2"
+      ],
+      "uncertainty": [
+        "No visual link to v2 mouse established in these frames.",
+        "Unresolved: Visual link between blue mouse in v1 and mouse in v2 not established in supplied frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-04.s01",
+      "video": "v1",
+      "time": [
+        138.013,
+        144.019
+      ],
+      "resolution": "fine",
+      "content": "A blue mouse holds a stick with a roasted food item, interacting with a brown mouse.",
+      "evidence": [
+        "v1.focus.r1.l4.e1"
+      ],
+      "uncertainty": [
+        "No other mouse is visible in these frames.",
+        "Unresolved: The mouse in v2 is not visible in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        274.0,
+        289.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        289.0,
+        304.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        304.0,
+        313.9803333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-03.s01",
+      "video": "v2",
+      "time": [
+        313.98,
+        315.982
+      ],
+      "resolution": "fine",
+      "content": "Ceiling has holes, chandelier hangs above. A rat is visible in foreground. Rat is inside a teapot on a stove. Subtitles show rat calling for help.",
+      "evidence": [
+        "v2.focus.r2.l3.e1",
+        "v2.focus.r2.l3.e2"
+      ],
+      "uncertainty": [
+        "No visible cause for ceiling damage in this frame.",
+        "No visible rat swarm or cause of ceiling damage in these frames.",
+        "Unresolved: Visible cause of ceiling damage and rat swarm not established in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-04.s01",
+      "video": "v2",
+      "time": [
+        315.982,
+        317.984
+      ],
+      "resolution": "fine",
+      "content": "A blue rat is on a stove, screaming for help while holding a broken white ceramic object.",
+      "evidence": [
+        "v2.focus.r2.l4.e1"
+      ],
+      "uncertainty": [
+        "No ceiling damage or rat swarm visible in these frames.",
+        "Unresolved: ceiling damage and rat swarm not visible in supplied frames"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        317.984,
+        319.986
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of an elderly woman with glasses, showing a fearful expression.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible action or state change in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        319.986,
+        321.988
+      ],
+      "resolution": "coarse",
+      "content": "A black mouse is on a table, reaching out. The woman is blurred in the background.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Dialogue suggests a rescue, but no action is visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        321.988,
+        323.99
+      ],
+      "resolution": "coarse",
+      "content": "A hand opens a small cardboard box on a wooden surface.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "No visible action or state change in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        323.99,
+        325.992
+      ],
+      "resolution": "coarse",
+      "content": "The elderly woman looks upward with a startled expression.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "No visible action or state change in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        325.992,
+        327.994
+      ],
+      "resolution": "coarse",
+      "content": "A small mouse is on a wooden surface, looking toward the viewer.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "No visible action or state change in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        325.9923333333333,
+        327.9943333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        327.994,
+        346.012
+      ],
+      "resolution": "coarse",
+      "content": "A pink mouse climbs a lamp, then a black mouse is seen on a chandelier. The woman holds a shotgun and aims at the mice.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [
+        "The ceiling is damaged in the final frames, but the cause is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        340.0063333333333,
+        344.01033333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        348.014,
+        350.016
+      ],
+      "resolution": "coarse",
+      "content": "Woman in pink pajamas aims shotgun at camera, eyes wide with intent.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "No visible trigger or action beyond aiming."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        352.018,
+        354.02
+      ],
+      "resolution": "coarse",
+      "content": "Camera tilts up to show ceiling with multiple holes and cracks.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "No visible cause for ceiling damage shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        355.981,
+        357.983
+      ],
+      "resolution": "fine",
+      "content": "Ceiling collapse and rat swarm fill the room. Dust and debris are visible. Rats are clustered on furniture and structures.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No visible cause for ceiling damage or rat swarm initiation in these frames.",
+        "Unresolved: Visible cause of ceiling damage and rat swarm initiation not established in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-02.s01",
+      "video": "v2",
+      "time": [
+        357.983,
+        361.987
+      ],
+      "resolution": "fine",
+      "content": "An elderly woman in pink clothing stands facing a large group of rats. The woman leans forward, surrounded by rats. The camera angle shifts downward. Rats swarm chaotically, filling the frame. A rat is visible with its mouth open. Rats scatter across the floor near a golden cage. Subtitles show a rat shouting.",
+      "evidence": [
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3",
+        "v2.focus.r2.l2.e4"
+      ],
+      "uncertainty": [
+        "No ceiling damage visible in this frame.",
+        "No ceiling damage visible in these frames.",
+        "Unresolved: Ceiling damage not visible in any frame. Cause of rat swarm not shown."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        361.987,
+        365.991
+      ],
+      "resolution": "coarse",
+      "content": "Rats flood out of room, moving in large group toward exterior.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [
+        "No visible cause for rat swarm shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        365.991,
+        369.995
+      ],
+      "resolution": "coarse",
+      "content": "Rats run across floor, some falling, others scrambling toward exit.",
+      "evidence": [
+        "v2-b0002-e6"
+      ],
+      "uncertainty": [
+        "No visible cause for rat swarm shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        369.995,
+        373.999
+      ],
+      "resolution": "coarse",
+      "content": "Rats rush past kitchen counter, knocking over items, including a cookbook.",
+      "evidence": [
+        "v2-b0002-e7"
+      ],
+      "uncertainty": [
+        "No visible cause for rat swarm shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        373.999,
+        378.003
+      ],
+      "resolution": "coarse",
+      "content": "Rats exit house through door, scattering into yard.",
+      "evidence": [
+        "v2-b0002-e8"
+      ],
+      "uncertainty": [
+        "No visible cause for rat swarm shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        380.005,
+        382.007
+      ],
+      "resolution": "coarse",
+      "content": "A mouse looks at a book with a picture of bread and five stars.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "No visible action connects this to the later tunnel scene."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        384.009,
+        386.011
+      ],
+      "resolution": "coarse",
+      "content": "A figure in a gas mask appears in a kitchen, surrounded by green smoke.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "No visible connection to the mouse's escape or the tunnel."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        386.011,
+        390.015
+      ],
+      "resolution": "coarse",
+      "content": "The mouse runs outside into a rainy, dark landscape, shouting '快～，快～，快～'.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "No visible transition to the tunnel or boat."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        390.01462499999997,
+        405.01462499999997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        405.01462499999997,
+        420.01462499999997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        420.01462499999997,
+        435.01462499999997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        435.01462499999997,
+        449.9912083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        449.991,
+        466.007
+      ],
+      "resolution": "coarse",
+      "content": "The mouse paddles a boat in a dark tunnel, shouting to 'Remy' and then 'Wait, wait'.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "No visible link to the earlier kitchen or outdoor escape."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        466.0072083333333,
+        474.0152083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c021",
+      "video": "v2",
+      "time": [
+        474.015,
+        474.015
+      ],
+      "resolution": "coarse",
+      "content": "The mouse continues paddling in the tunnel, facing a waterfall ahead.",
+      "evidence": [
+        "v2-b0003-e5"
+      ],
+      "uncertainty": [
+        "No visible connection to the beginning of the story."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c022",
+      "video": "v2",
+      "time": [
+        476.017,
+        478.019
+      ],
+      "resolution": "coarse",
+      "content": "A small mouse sits on a flat object in a dark, tunnel-like environment. The mouse turns its head slightly between frames.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "No other objects or actions are visible to infer narrative context."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        478.0192083333333,
+        479.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "What event caused the ceiling damage and the rat swarm in v2?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

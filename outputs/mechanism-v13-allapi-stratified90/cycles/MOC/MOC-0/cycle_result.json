@@ -1,0 +1,483 @@
+{
+  "state": {
+    "question": "How many red cars parked by the roadside does {A1} pass in total?",
+    "round_id": 3,
+    "summary": "A1/B1 is a bicycle and red parked roadside cars are physical countable vehicles. Current evidence supports multiple red-car observations but preserves competing interpretations: early synchronized views may show the same physical cars or distinct cars, the 4-14s interval has at least one red car but does not reconcile repeated red observations, and late distant red cars in v1 are not confirmed as passed by A1/B1. No total count is fixed from this state.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.",
+      "A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.",
+      "A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.",
+      "A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.",
+      "A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r3-01.s01",
+          "v2.zoom.r2-r3-03.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-r3-02.s01",
+          "v2.zoom.r2-r3-04.s01"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view of a cyclist (A1) moving along a road, passing a line of parked cars on the right which includes a yellow car followed by a red car.",
+        "uncertainty": "Only one red car is visible in the sequence.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Aerial view of a cyclist (A1) moving along a road past a line of parked cars; no red cars are visible in this specific frame.",
+        "uncertainty": "Red cars might be present but not visible in this specific frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Moving subject {A1} travels right along a median-divided road, passing a row of parked cars on the far side.",
+        "uncertainty": "Red car count passed is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Subject {A1} travels left along a different road segment with parked cars on the far side.",
+        "uncertainty": "Continuity of {A1}'s path is broken.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          1.0
+        ],
+        "description": "A1 moves past a red parked car on the right side of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          1.0,
+          2.0
+        ],
+        "description": "A1 moves past a yellow parked car on the right side of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          2.0,
+          3.0
+        ],
+        "description": "A1 moves past a red parked car on the right side of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e4",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          4.0
+        ],
+        "description": "A1 moves past a white parked car on the right side of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 (B1 bicycle) moves left, passing a red parked car around 3.0s.",
+        "uncertainty": "A1's exact identity is not explicitly stated.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "A1 bicycle travels along the right lane, passing a row of parked cars on its right. A red car (A2) is visible parked in this row.",
+        "uncertainty": "Exact count of distinct red cars passed is hard to verify.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          7.0,
+          12.0
+        ],
+        "description": "A1 continues forward. The view shifts, showing the bicycle passing more parked cars on the right, including a red one visible in the distance.",
+        "uncertainty": "Distinguishing additional red cars from other vehicles is difficult.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e3",
+        "video_id": "v1",
+        "time_span": [
+          13.0,
+          14.0
+        ],
+        "description": "A1 bicycle is seen near a pedestrian crossing, with the road stretching ahead.",
+        "uncertainty": "No further red parked cars are clearly visible being passed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Aerial view of a street with a cyclist and parked vehicles. Two red cars are visible parked in the distance on the left side of the road.",
+        "uncertainty": "Movement of the cyclist relative to parked cars is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          4.0,
+          7.0
+        ],
+        "description": "A red car is visible parked on the street side, passed by the moving camera perspective.",
+        "uncertainty": "Total distinct count of red cars passed is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          11.0
+        ],
+        "description": "A red car is visible parked on the street side, passed by the moving camera perspective.",
+        "uncertainty": "Total distinct count of red cars passed is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Aerial view shows a blue truck and dark sedan on the road, with a yellow 'B1 bicycle' label pointing to a cyclist on the sidewalk.",
+        "uncertainty": "A1 status and red parked cars not visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need precise red-car count in synchronized 0-4s before scanning later intervals.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001",
+          "v2.c001"
+        ],
+        "evidence_goal": "Count red parked cars passed by A1 in the 0.0-4.0s interval in each selected view.",
+        "next_probe_goal": "Recover unobserved 4-14s intervals for additional red parked cars.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need recover all unobserved 4-15s coverage in v1/v2 to determine whether additional red parked cars are passed by A1/B1.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.u001",
+          "v1.u002",
+          "v2.u001",
+          "v2.u002"
+        ],
+        "evidence_goal": "How many distinct additional red parked cars does A1/B1 pass during the selected unobserved 4-15s intervals?",
+        "next_probe_goal": "After recovery, refine the 0-4s views to deduplicate the known red-pass mentions across synchronized timestamps.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "A1/B1 is a bicycle and red parked roadside cars are physical countable vehicles. Current evidence supports multiple red-car observations but preserves competing interpretations: early synchronized views may show the same physical cars or distinct cars, the 4-14s interval has at least one red car but does not reconcile repeated red observations, and late distant red cars in v1 are not confirmed as passed by A1/B1. No total count is fixed from this state.",
+      "action": "STOP",
+      "reason": "unparseable Reasoner action: Reasoner emitted an invalid action after one structural repair; initial=reasoner updates[0].evidence_refs must contain only nonempty strings; repaired=reasoner updates[0].evidence_refs must contain only nonempty strings; raw='{\\n  \"updates\": [\\n    {\\n      \"requirement_id\": \"r1\",\\n      \"status\": \"open\",\\n      \"evidence_refs\": [\\n       [\"v1.zoom.r1-U01-01.s01\", \"v2.zoom.r1-U01-02.s01\"]\\n      ],\\n      \"summary\": \"Early v1 shows two red parked cars passed, while early v2 shows one; cross-view identity is unresolved.\"\\n    },\\n    {\\n      \"requirement_id\": \"r2\",",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unparseable Reasoner action: Reasoner emitted an invalid action after one structural repair; initial=reasoner updates[0].evidence_refs must contain only nonempty strings; repaired=reasoner updates[0].evidence_refs must contain only nonempty strings; raw='{\\n  \"updates\": [\\n    {\\n      \"requirement_id\": \"r1\",\\n      \"status\": \"open\",\\n      \"evidence_refs\": [\\n       [\"v1.zoom.r1-U01-01.s01\", \"v2.zoom.r1-U01-02.s01\"]\\n      ],\\n      \"summary\": \"Early v1 shows two red parked cars passed, while early v2 shows one; cross-view identity is unresolved.\"\\n    },\\n    {\\n      \"requirement_id\": \"r2\","
+  },
+  "visual_calls_used": 6,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A1 moves past a red parked car on the right side of the road. A1 moves past a yellow parked car on the right side of the road. A1 moves past a red parked car on the right side of the road. A1 moves past a white parked car on the right side of the road.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l1.e3",
+        "v1.focus.r1.l1.e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r3-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A1 bicycle travels along the right lane, passing a row of parked cars on its right. A red car (A2) is visible parked in this row. A1 continues forward. The view shifts, showing the bicycle passing more parked cars on the right, including a red one visible in the distance. A1 bicycle is seen near a pedestrian crossing, with the road stretching ahead.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2",
+        "v1.focus.r2.l1.e3"
+      ],
+      "uncertainty": [
+        "Exact count of distinct red cars passed is hard to verify.",
+        "Distinguishing additional red cars from other vehicles is difficult.",
+        "No further red parked cars are clearly visible being passed.",
+        "Unresolved: Precise count of distinct red parked cars passed by A1."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        14.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "Aerial view of a cyclist (A1) moving along a road past a line of parked cars; no red cars are visible in this specific frame.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Red cars might be present but not visible in this specific frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r3-02.s01",
+      "video": "v1",
+      "time": [
+        14.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "Aerial view of a street with a cyclist and parked vehicles. Two red cars are visible parked in the distance on the left side of the road.",
+      "evidence": [
+        "v1.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "Movement of the cyclist relative to parked cars is not visible.",
+        "Unresolved: Visual confirmation of the cyclist passing additional red parked cars during the 4-15s interval."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A1 (B1 bicycle) moves left, passing a red parked car around 3.0s.",
+      "evidence": [
+        "v2.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "A1's exact identity is not explicitly stated."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-03.s01",
+      "video": "v2",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A red car is visible parked on the street side, passed by the moving camera perspective. A red car is visible parked on the street side, passed by the moving camera perspective.",
+      "evidence": [
+        "v2.focus.r2.l3.e1",
+        "v2.focus.r2.l3.e2"
+      ],
+      "uncertainty": [
+        "Total distinct count of red cars passed is unclear.",
+        "Unresolved: Total distinct count of red cars passed"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        14.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "Subject {A1} travels left along a different road segment with parked cars on the far side.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Continuity of {A1}'s path is broken."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r3-04.s01",
+      "video": "v2",
+      "time": [
+        14.0,
+        14.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "Aerial view shows a blue truck and dark sedan on the road, with a yellow 'B1 bicycle' label pointing to a cyclist on the sidewalk.",
+      "evidence": [
+        "v2.focus.r2.l4.e1"
+      ],
+      "uncertainty": [
+        "A1 status and red parked cars not visible.",
+        "Unresolved: A1/B1 trajectory during 4-15s",
+        "Unresolved: red parked cars passed"
+      ],
+      "revision": 1,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Recover unobserved 4-14s intervals for additional red parked cars.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 6,
+    "visual_calls_remaining": 2,
+    "maximum_visual_calls_for_current_stage": 2,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

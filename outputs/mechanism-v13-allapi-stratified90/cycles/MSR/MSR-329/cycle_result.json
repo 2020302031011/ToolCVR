@@ -1,0 +1,508 @@
+{
+  "state": {
+    "question": "When {A1} completely leaves view A, where is {B2} located in view B?",
+    "round_id": 4,
+    "summary": "The synchronized complete-exit time of A1 is not fixed, and B2's view-B position at that time remains unresolved; overlapping evidence shows B2 during the candidate interval but does not distinguish its exact location.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-53: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=35; declared=car; A1_visible=123-252 (4.100-8.433s)/500_frames; B1_visible=91-260 (3.033-8.700s)/500_frames.",
+      "A2/B2 is source_track=44; declared=car; A2_visible=264-363 (8.800-12.133s)/500_frames; B2_visible=225-384 (7.500-12.833s)/500_frames.",
+      "A3/B3 is source_track=49; declared=car; A3_visible=330-451 (11.000-15.067s)/500_frames; B3_visible=296-465 (9.867-15.533s)/500_frames.",
+      "A4/B4 is source_track=11; declared=car; A4_visible=0-79 (0.000-2.667s)/500_frames; B4_visible=0-99 (0.000-3.333s)/500_frames.",
+      "A5/B5 is source_track=9; declared=car; A5_visible=0-79 (0.000-2.667s)/500_frames; B5_visible=0-99 (0.000-3.333s)/500_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r2-01.s01",
+          "v2.c003"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "In view A, tracked vehicles A4 and A5 move left. In view B, a yellow flatbed truck moves right and a white bus moves left.",
+        "uncertainty": "B2 identity is not visually labeled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "In view A, a teal car labeled A1 enters the top center lane. Tracked A4 and A5 have exited the view.",
+        "uncertainty": "A1's full exit is not yet observed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "In view A, tracked vehicle A1 is visible on the far left edge, partially exiting the frame.",
+        "uncertainty": "A1 has not completely left the view yet.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          16.0
+        ],
+        "description": "In view B, tracked vehicles A2 and A3 are visible. A yellow flatbed truck moves right, while other traffic flows.",
+        "uncertainty": "B2 is not explicitly identified in view B.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "View A shows traffic passing under a Huida banner. B4 car and B5 car are visible near the gantry.",
+        "uncertainty": "A1 and B2 not visible in View A.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "View A shows B1 car driving away from the camera on the left side.",
+        "uncertainty": "A1 not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          12.0,
+          14.0
+        ],
+        "description": "View B shows traffic from a different angle. B2 car is in the center lane, and B3 car is in the left lane.",
+        "uncertainty": "A1 not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          16.0,
+          16.0
+        ],
+        "description": "View B shows the road with B2 and B3 cars having exited the frame.",
+        "uncertainty": "A1 not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          9.0
+        ],
+        "description": "A1 car is tracked in the top lane at 8.0s and is no longer visible in the subsequent frame at 9.0s.",
+        "uncertainty": "B2 position is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          11.0,
+          12.0
+        ],
+        "description": "A3 car appears and is tracked in the top lane.",
+        "uncertainty": "B2 position is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "B2 car is tracked in view B, moving from the lower-left area to the center.",
+        "uncertainty": "A1 is not visible in the provided frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "Aerial view of a multi-lane highway with traffic moving in both directions. B1 car is tracked in the lower-left lane at 8.0s, while B2 and B3 cars appear in the upper lanes from 9.0s to 12.0s.",
+        "uncertainty": "Position of B2 at 8.433s is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "The cyan vehicle labeled B2 car is observed traveling in the leftmost lane of the road.",
+        "uncertainty": "A1 exit moment is not defined in the provided frames.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need synchronized A1 exit time and B2 position in view B at that time",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.u001",
+          "v2.u001"
+        ],
+        "evidence_goal": "At the synchronized 8.0-12.0s interval, identify when A1 completely leaves view A and observe B2's position in view B at that timestamp",
+        "next_probe_goal": "If B2 is visible at the exit timestamp, classify it as center, top left, bottom right, or not shown",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need B2 position at A1 exit timestamp 8.433s to distinguish center from other options.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "At 8.433s in view B, is B2 in the center, top left, bottom right, or not shown?",
+        "next_probe_goal": "If B2 is not centered, identify its quadrant at the nearest visible frame to 8.433s.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "A1's exit in view A is constrained to its visible endpoint followed by absence in the next observed frame, leaving the exact synchronized trigger ambiguous. B2 is present in view B during that interval, but its region among center, top left, bottom right, or not shown is unresolved. A local refinement in view B is needed to classify B2 at the trigger and immediately following frame.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "evidence_goal": "Classify B2's spatial region in view B at the synchronized A1 exit moment and the immediately following frame.",
+        "next_probe_goal": "Determine whether B2 is in the center, top left, bottom right, or not shown in view B at those moments.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The synchronized complete-exit time of A1 is not fixed, and B2's view-B position at that time remains unresolved; overlapping evidence shows B2 during the candidate interval but does not distinguish its exact location.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: requirement update must have nonempty summary and ledger citations"
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coarse",
+      "content": "In view A, tracked vehicles A4 and A5 move left. In view B, a yellow flatbed truck moves right and a white bus moves left.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "B2 identity is not visually labeled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        4.0,
+        6.0
+      ],
+      "resolution": "coarse",
+      "content": "In view A, a teal car labeled A1 enters the top center lane. Tracked A4 and A5 have exited the view.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "A1's full exit is not yet observed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        8.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "In view A, tracked vehicle A1 is visible on the far left edge, partially exiting the frame.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "A1 has not completely left the view yet."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "fine",
+      "content": "A1 car is tracked in the top lane at 8.0s and is no longer visible in the subsequent frame at 9.0s. A3 car appears and is tracked in the top lane.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "B2 position is not visible in these frames.",
+        "Unresolved: B2's position in view B at the timestamp when A1 leaves view A"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "In view B, tracked vehicles A2 and A3 are visible. A yellow flatbed truck moves right, while other traffic flows.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "B2 is not explicitly identified in view B."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "View A shows traffic passing under a Huida banner. B4 car and B5 car are visible near the gantry.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "A1 and B2 not visible in View A."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        6.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "View A shows B1 car driving away from the camera on the left side.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "A1 not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r2-01.s01",
+      "video": "v2",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "fine",
+      "content": "The cyan vehicle labeled B2 car is observed traveling in the leftmost lane of the road.",
+      "evidence": [
+        "v2.focus.r3.l1.e1"
+      ],
+      "uncertainty": [
+        "A1 exit moment is not defined in the provided frames.",
+        "Unresolved: A1 exit moment"
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        12.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows traffic from a different angle. B2 car is in the center lane, and B3 car is in the left lane.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "A1 not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        16.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows the road with B2 and B3 cars having exited the frame.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "A1 not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        16.0,
+        16.666666666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If B2 is visible at the exit timestamp, classify it as center, top left, bottom right, or not shown",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "question": "Which action is incorrectly performed in exactly two videos?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2",
+        "v1-b0001-e4",
+        "v1-b0003-e2",
+        "v1-b0003-e5"
+      ],
+      "statement": "v1 shows a yellow arm connector being attached to a chassis and interior-like black or gray components being attached to chassis parts, with visible uncertainty about correctness."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e4",
+        "v1-b0003-e4"
+      ],
+      "statement": "v1 includes an unclear attach/detach action on a gray arm connector and handling of a small black component possibly a nut or screw."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3",
+        "v2-b0002-e1",
+        "v2-b0002-e4"
+      ],
+      "statement": "v2 shows a white plastic component being attached to a dark assembly and screwdriver work on chassis underside or wheel-axle areas without explicit correctness."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e1"
+      ],
+      "statement": "v2 ends with a manipulation where it cannot be determined whether the action is correct."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e2",
+        "v3-b0002-e3",
+        "v3-b0003-e3"
+      ],
+      "statement": "v3 shows gray connector or arm-connector pieces being attached to a yellow chassis, with correctness ambiguous."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2",
+        "v3-b0003-e5",
+        "v3-b0004-e2",
+        "v3-b0004-e3"
+      ],
+      "statement": "v3 includes separating a yellow part, tool work on a rear axle that may attach or detach a nut or connector, and attaching a small black component whose success is unconfirmed."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 and v3 both show arm-connector or connector-piece attachment steps whose correctness is not visually settled.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0003-e2",
+        "v3-b0002-e2",
+        "v3-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 both show interior-like or cabin-like components being placed onto chassis assemblies with unclear correctness.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v1-b0003-e5",
+        "v2-b0001-e3",
+        "v2-b0002-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "v2 and v3 both show tool use near axles, fasteners, or nut-like components where attach versus detach direction is ambiguous.",
+      "supporting_events": [
+        "v2-b0002-e2",
+        "v2-b0002-e4",
+        "v3-b0003-e5"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 and v3 both include handling of nut-like or connector-like parts adjacent to arm-connector assemblies with uncertain identity and outcome.",
+      "supporting_events": [
+        "v1-b0003-e4",
+        "v1-b0002-e4",
+        "v3-b0003-e5",
+        "v3-b0004-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "statement": "All three videos contain at least one assembly manipulation whose correctness cannot be determined from the supplied event reports.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v2-b0004-e1",
+        "v3-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "The correctness of the arm-connector attachment steps in v1 and v3 remains unresolved.",
+      "reason": "The reports mention alignment, tightening, and inspection but do not state whether the attachment orientation or procedure is incorrect.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0003-e2",
+        "v3-b0002-e2",
+        "v3-b0003-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The correctness of the interior or cabin attachment steps in v1 and v2 remains unresolved.",
+      "reason": "The events describe attaching components but leave misalignment, seating, or procedural correctness ambiguous.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v1-b0003-e5",
+        "v2-b0001-e3",
+        "v2-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "It remains unresolved whether any video performs the combined action of attaching an arm connector and an interior component.",
+      "reason": "The reports describe arm-connector and interior-like attachments as separate events rather than as one option-labeled action.",
+      "related_events": [
+        "v1-b0003-e2",
+        "v1-b0003-e5",
+        "v2-b0001-e3",
+        "v3-b0002-e2",
+        "v3-b0004-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "It remains unresolved whether any video incorrectly performs a detach arm and nut action.",
+      "reason": "The events describe attach/detach ambiguity, tool direction uncertainty, and unclear fastener identity.",
+      "related_events": [
+        "v1-b0002-e4",
+        "v1-b0003-e4",
+        "v2-b0002-e2",
+        "v3-b0001-e2",
+        "v3-b0003-e5"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "It remains unresolved whether any video incorrectly performs an attach nut and arm connector action.",
+      "reason": "The reports do not confirm which components are nuts, arm connectors, or connectors, nor whether their attachment is incorrect.",
+      "related_events": [
+        "v1-b0003-e4",
+        "v1-b0003-e2",
+        "v3-b0003-e5",
+        "v3-b0004-e2",
+        "v3-b0004-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U06",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "The count of videos in which each candidate action is incorrectly performed remains unresolved.",
+      "reason": "The supplied events do not establish a correctness verdict for the candidate actions, so no exactly-two tally can be formed from current evidence.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v2-b0004-e1",
+        "v3-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare the final orientation and seating of the arm connector on the chassis in v1-b0003-e2/e3 and v3-b0002-e2/e3 to see whether either attachment is visibly incorrect.",
+      "purpose": "This would resolve whether the arm-connector attachment steps are incorrect.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the placement and fastening of the interior or cabin component onto the chassis in v1-b0001-e4/e5 and v2-b0001-e3/v2-b0002-e1 to identify visible misalignment or incorrect seating.",
+      "purpose": "This would resolve whether the interior attachment steps are incorrect.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare whether the arm connector and interior component are attached together as one combined action in each video.",
+      "purpose": "This would resolve whether the combined arm-connector and interior action occurs.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare visible hand or tool rotation direction at arm, nut, or axle fasteners to distinguish detaching from attaching.",
+      "purpose": "This would resolve whether a detach arm and nut action occurs and is incorrect.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the identity and connected state of nut-like or connector-like parts adjacent to arm connectors in v1-b0003-e4, v2-b0002-e3/e4, and v3-b0003-e5/v3-b0004-e2.",
+      "purpose": "This would resolve whether an attach nut and arm connector action occurs and is incorrect.",
+      "related_issue": "U05"
+    },
+    {
+      "id": "Q06",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare visible incorrectness markers such as struggle, misalignment, wrong orientation, or failed seating across the candidate actions to count videos per action.",
+      "purpose": "This would resolve the exactly-two incorrect-action count.",
+      "related_issue": "U06"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PEA-922",
+    "task": "PEA",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PEA/PEA-922/report.json",
+    "report_sha256": "07239c26efacdd7ea10ac6584aa16ea8e2a3dda2d82d2564ef465a337aeb0b82",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

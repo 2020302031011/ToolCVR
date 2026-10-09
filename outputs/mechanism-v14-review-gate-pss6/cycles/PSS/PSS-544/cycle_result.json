@@ -1,0 +1,1641 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 8,
+    "summary": "Visual budget is exhausted (0 remaining). Evidence establishes v4 (squid cutting) as the raw ingredient preparation stage. v2 shows batter whisking/preparation. v5 shows squid being coated in wet batter (and potentially dry powder, though the order is ambiguous, the presence of wet batter suggests it follows or overlaps with batter prep). v3 shows dry dredging (powder) and frying. v1 shows the final plated fried food with seasoning. The logical cooking sequence for fried squid is: Prep (v4) -> Make Batter (v2) -> Coat (v5/v3 interaction) -> Fry (v3) -> Serve (v1). Specifically, v5 shows wet batter coating, v3 shows dry powder dredging and frying. Usually, squid is dredged in flour, dipped in batter, or battered then fried. Given v3 explicitly shows frying and v1 shows the result, v3 precedes v1. v4 (cutting) is first. v2 (making batter) precedes v5 (using batter). The relationship between v5 (wet) and v3 (dry/fry) is the main ambiguity. However, standard procedure often involves coating before frying. v3 shows items going into fryer. v5 shows handling squid in bowls. If v5 is 'wet batter' and v3 is 'dry powder + fry', it's possible the order is v4 -> v2 -> v5 (wet) -> v3 (dry coat/fry) or v4 -> v2 -> v3 (dry coat) -> v5 (wet dip) -> v3 (fry). But v3 is a single clip. Let's look at v3: 'dips items into metal bowl containing loose, dry, pale powder... view shifts to deep fryer'. This suggests v3 covers the dredging and frying. v5 covers 'alternating between metal bowl with white powder and stainless steel bowl containing wet batter'. This suggests v5 is the coating process. I",
+    "review": {
+      "outcome": "resolved",
+      "reason": "The v5 0-4s focus directly answered its stated goal by showing squid alternating between white powder and a smooth wet batter bowl, although it did not settle cross-segment chronology.",
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "R1",
+        "objective": "Confirm v5 local coating state: squid pieces contact both dry powder and wet batter, and a smooth wet batter bowl is present.",
+        "videos": [
+          "v5"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v5.zoom.r7-R2-01.s01",
+          "v5.focus.r7.l1.e1"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "R2",
+        "objective": "Determine chronological relation among v4 squid preparation, v2 smooth batter preparation, v5 wet/dry coating, and v3 dry dredging/frying.",
+        "videos": [
+          "v4",
+          "v2",
+          "v5",
+          "v3"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v4.c002",
+          "v3.zoom.r4-R2-01.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "R3",
+        "objective": "Confirm v1 contains a local plated fried-food state with lemon wedge and seasoning sprinkling.",
+        "videos": [
+          "v1"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c004",
+          "v1.c005"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.005,
+          0.005
+        ],
+        "description": "Chef stands at counter with fryer basket containing fried food, holding basket handle.",
+        "uncertainty": "Whether basket is being lifted or lowered.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          12.017,
+          12.017
+        ],
+        "description": "Chef stands behind cutting board with fried food on paper towel plate in foreground.",
+        "uncertainty": "Whether chef just placed the plate.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          17.982,
+          21.986
+        ],
+        "description": "Close-up of hands arranging fried calamari on blue paper towel on plate.",
+        "uncertainty": "Whether all pieces are placed by 21.986s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          23.99,
+          23.99
+        ],
+        "description": "Chef sprinkles seasoning over plated fried food.",
+        "uncertainty": "What seasoning is being added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          24.011,
+          26.013
+        ],
+        "description": "Close-up of hands transferring fried food to white plate with lemon wedge.",
+        "uncertainty": "Whether transfer is complete by 26.013s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e6",
+        "video_id": "v1",
+        "time_span": [
+          32.019,
+          34.021
+        ],
+        "description": "Final plated fried food shown; chef adjusts plate on counter.",
+        "uncertainty": "Whether plating is fully finished.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e7",
+        "video_id": "v1",
+        "time_span": [
+          37.983,
+          37.983
+        ],
+        "description": "Static close-up of finished plated fried food with lemon garnish.",
+        "uncertainty": "Whether this is the final presentation shot.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.006,
+          0.006
+        ],
+        "description": "Chef stands behind a counter with a large empty metal bowl, a lemon, and a measuring cup of liquid.",
+        "uncertainty": "Chef's specific action is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          4.01,
+          4.01
+        ],
+        "description": "Close-up of the empty metal bowl and ingredients on the counter.",
+        "uncertainty": "Chef's specific action is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          8.014,
+          8.014
+        ],
+        "description": "Chef cracks an egg into the metal bowl.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          12.018,
+          21.987
+        ],
+        "description": "Chef whisks the contents of the bowl and adds ingredients from a smaller bowl.",
+        "uncertainty": "Exact ingredients being added are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          36.003,
+          36.003
+        ],
+        "description": "Close-up of the batter being whisked in the bowl.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          42.012,
+          46.016
+        ],
+        "description": "Chef talks and gestures while holding the whisk in the bowl.",
+        "uncertainty": "Chef's speech content is not transcribed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          53.982,
+          53.982
+        ],
+        "description": "Chef continues to whisk the batter in the bowl.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          55.045,
+          57.005
+        ],
+        "description": "Chef pours a clear liquid from a measuring cup into the bowl.",
+        "uncertainty": "Identity of the liquid is not specified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          61.009,
+          61.009
+        ],
+        "description": "A chef in a white uniform is actively mixing yellow ingredients in a metal bowl with their hand.",
+        "uncertainty": "The specific dish being prepared is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.014,
+          0.014
+        ],
+        "description": "A hand sprinkles dry ingredients into a metal bowl containing batter, with a deep fryer visible in the background.",
+        "uncertainty": "Exact ingredient identity is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          4.018,
+          4.018
+        ],
+        "description": "A hand is submerged in the metal bowl, actively mixing the batter with a black spoon resting inside.",
+        "uncertainty": "Duration of mixing action is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          7.98,
+          7.98
+        ],
+        "description": "Close-up of battered food items bubbling and frying in oil inside the fryer basket.",
+        "uncertainty": "Doneness of food is not yet established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          11.984,
+          11.984
+        ],
+        "description": "A chef stands at a counter holding an empty fryer basket, with prepared food and lemon on the board.",
+        "uncertainty": "Whether the basket was just emptied or is about to be filled.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e5",
+        "video_id": "v3",
+        "time_span": [
+          28.0,
+          30.002
+        ],
+        "description": "The chef holds the fryer basket, which now contains fried golden-brown food items, lifting it from the unit.",
+        "uncertainty": "Exact moment food entered basket is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.011,
+          0.011
+        ],
+        "description": "Chef standing in kitchen with cutting board, knife, and bowl of squid.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          6.017,
+          6.017
+        ],
+        "description": "Chef cutting squid on board.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          9.979,
+          9.979
+        ],
+        "description": "Chef holding squid.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          11.981,
+          11.981
+        ],
+        "description": "Chef cutting squid.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e5",
+        "video_id": "v4",
+        "time_span": [
+          23.993,
+          23.993
+        ],
+        "description": "Chef holding squid.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          0.037,
+          0.037
+        ],
+        "description": "Chef in white uniform mixes ingredients in a metal bowl using a spatula, standing at a wooden counter.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          16.011,
+          16.011
+        ],
+        "description": "Chef continues mixing ingredients in the metal bowl at the wooden counter.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          57.009,
+          61.009
+        ],
+        "description": "A hand holds a whisk and mixes a smooth yellow batter in a metal bowl. The batter remains consistent in texture and color throughout the sequence.",
+        "uncertainty": "No dry powder addition visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A hand repeatedly reaches into a stainless steel bowl containing dry yellow powder and a black spoon, performing a mixing or ingredient retrieval action near a deep fryer.",
+        "uncertainty": "The specific mixing intent and ingredient state transition are not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r2.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          0.018,
+          6.018
+        ],
+        "description": "A hand repeatedly dips an item into a bowl containing a dry, pale yellow powder.",
+        "uncertainty": "Whether the powder is fully incorporated into a wet batter.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l1.e2",
+        "video_id": "v3",
+        "time_span": [
+          7.018,
+          8.018
+        ],
+        "description": "The view shifts to a deep fryer basket where items are frying in bubbling oil.",
+        "uncertainty": "What action occurred between 6.018s and 7.018s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v5.focus.r3.l1.e1",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "The chef repeatedly dips and coats white pieces of food in a stainless steel bowl, transferring them between the bowl and a wooden cutting board.",
+        "uncertainty": "The exact nature of the bowl's contents is not clearly visible.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r4.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          0.018,
+          6.018
+        ],
+        "description": "A hand repeatedly dips items into a metal bowl containing loose, dry, pale powder. The items are coated and then removed from the bowl.",
+        "uncertainty": "Identity of dipped items not visible.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v3.focus.r4.l1.e2",
+        "video_id": "v3",
+        "time_span": [
+          7.018,
+          8.018
+        ],
+        "description": "The view shifts to a deep fryer basket submerged in hot oil, where multiple battered items are actively frying.",
+        "uncertainty": "Identity of frying items not visible.",
+        "action": "FOCUS",
+        "round": 4
+      },
+      {
+        "id": "v5.focus.r5.l1.e1",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Chef handles white pieces near a stainless bowl and a pile of pale dry powder on the board. At 4s, he lifts a piece showing a thin wet coating.",
+        "uncertainty": "Exact bowl contents and coating texture not clearly visible.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v5.focus.r6.l1.e1",
+        "video_id": "v5",
+        "time_span": [
+          15.037,
+          15.037
+        ],
+        "description": "Chef's hand is submerged in a stainless steel bowl, actively mixing white pieces. The pieces appear coated and wet, consistent with batter rather than dry powder.",
+        "uncertainty": "Single frame limits confirmation of texture.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v5.focus.r7.l1.e1",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Chef handles squid pieces, alternating between a metal bowl with white powder and a stainless steel bowl containing wet batter.",
+        "uncertainty": "Order of coating steps is not fully visible.",
+        "action": "FOCUS",
+        "round": 7
+      },
+      {
+        "id": "v5.focus.r7.l1.e2",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A stainless steel bowl containing smooth, wet batter is visible on the wooden cutting board.",
+        "uncertainty": "Batter composition is not visible.",
+        "action": "FOCUS",
+        "round": 7
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need local batter-state markers to place v2 and v3 mixing stages",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c009",
+          "v3.c001"
+        ],
+        "evidence_goal": "In v2.c009 and v3.c001, what visible ingredient-state markers are present in each bowl, such as dry powder just added, dry powder already mixed, smooth yellow batter, or hand-mixed batter, to test whether v2's hand-mixing precedes or follows v3's dry-ingredient addition?",
+        "next_probe_goal": "If v3.c002 is available next, check whether the hand-mixed batter there shows the dry ingredients fully incorporated compared with the bowl states in v2.c009 and v3.c001.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need local v3.c002 batter-state evidence to resolve v2/v3 order.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v3.c002"
+        ],
+        "evidence_goal": "Does v3.c002 show dry yellow powder fully incorporated into a wet batter or still loose dry powder?",
+        "next_probe_goal": "If not, check v2.c008 for addition of clear liquid to the bowl.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need distinguish v5 mixing state (dry vs wet/battered) to order v5 vs v2 batter work",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v5.c001"
+        ],
+        "evidence_goal": "In v5.c001, is the bowl content dry loose powder, smooth wet yellow batter, or squid being coated?",
+        "next_probe_goal": "If v5 shows dry powder, compare with v2 liquid-addition/whisking state; if wet batter, compare texture to v2.zoom smooth batter.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need local v3 coating-bowl state to distinguish dry powder from wet batter for ordering v2/v3/v5.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v3.zoom.r2-R2-01.s01"
+        ],
+        "evidence_goal": "In the v3 dipping sequence, is the bowl contents loose dry pale powder or smooth wet yellow batter, and are the dipped items raw squid pieces?",
+        "next_probe_goal": "If v3 shows dry powder coating, compare with v5 bowl texture to decide whether v5 is wet-batter dipping or dry coating.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need local v5 coating-bowl texture to classify wet batter vs dry powder.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R3",
+        "slot_ids": [
+          "v5.zoom.r3-R2-01.s01"
+        ],
+        "evidence_goal": "In v5, do the dipped white pieces contact dry pale powder or wet yellow batter, and what texture appears on them after coating?",
+        "next_probe_goal": "If v5 is dry powder, compare item shape with v4 squid pieces.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need v5 interval evidence to settle whether coating is dry powder or wet batter.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v5.u002"
+        ],
+        "evidence_goal": "In the selected v5 interval, do the white pieces and bowl show wet batter mixing or dry powder coating?",
+        "next_probe_goal": "If wet batter, compare piece texture to v4 squid; if dry powder, compare to v3 dipping.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Need local v5 coating-state evidence to order batter steps.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R2",
+        "slot_ids": [
+          "v5.zoom.r5-R3-01.s01"
+        ],
+        "evidence_goal": "In v5 0-4s, are squid pieces contacting dry powder only, wet batter only, or both, and is there a smooth wet batter bowl?",
+        "next_probe_goal": "If v5 shows dry dredging, compare with v3 dry mixing; if wet batter, compare with v2 whisked batter.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "Visual budget is exhausted (0 remaining). Evidence establishes v4 (squid cutting) as the raw ingredient preparation stage. v2 shows batter whisking/preparation. v5 shows squid being coated in wet batter (and potentially dry powder, though the order is ambiguous, the presence of wet batter suggests it follows or overlaps with batter prep). v3 shows dry dredging (powder) and frying. v1 shows the final plated fried food with seasoning. The logical cooking sequence for fried squid is: Prep (v4) -> Make Batter (v2) -> Coat (v5/v3 interaction) -> Fry (v3) -> Serve (v1). Specifically, v5 shows wet batter coating, v3 shows dry powder dredging and frying. Usually, squid is dredged in flour, dipped in batter, or battered then fried. Given v3 explicitly shows frying and v1 shows the result, v3 precedes v1. v4 (cutting) is first. v2 (making batter) precedes v5 (using batter). The relationship between v5 (wet) and v3 (dry/fry) is the main ambiguity. However, standard procedure often involves coating before frying. v3 shows items going into fryer. v5 shows handling squid in bowls. If v5 is 'wet batter' and v3 is 'dry powder + fry', it's possible the order is v4 -> v2 -> v5 (wet) -> v3 (dry coat/fry) or v4 -> v2 -> v3 (dry coat) -> v5 (wet dip) -> v3 (fry). But v3 is a single clip. Let's look at v3: 'dips items into metal bowl containing loose, dry, pale powder... view shifts to deep fryer'. This suggests v3 covers the dredging and frying. v5 covers 'alternating between metal bowl with white powder and stainless steel bowl containing wet batter'. This suggests v5 is the coating process. If v5 is the coating process and v3 is the frying process (with some dredging shown), then v5 likely precedes the frying part of v3. Or v5 is a separate coating step. Given v1 is definitely last (plated), and v4 is definitely first (raw cutting). v2 is batter making. So v2 is before v5 (using batter). v3 is frying. So v3 is after coating. The sequence v4 -> v2 -> v5 -> v3 -> v1 fits the logical flow: Cut -> Make Batter -> Coat (Wet/Dry) -> Fry -> Serve.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v4 -> v2 -> v5 -> v3 -> v1",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v4 -> v2 -> v5 -> v3 -> v1",
+    "evidence_refs": [
+      "v4.c002",
+      "v2.c004",
+      "v5.zoom.r7-R2-01.s01",
+      "v3.zoom.r4-R2-01.s01",
+      "v1.c007"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.005,
+        0.005
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands at counter with fryer basket containing fried food, holding basket handle.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Whether basket is being lifted or lowered."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.005455555555556657,
+        12.017455555555557
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        12.017,
+        12.017
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands behind cutting board with fried food on paper towel plate in foreground.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether chef just placed the plate."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        12.017455555555557,
+        17.981755555555566
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        17.982,
+        21.986
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of hands arranging fried calamari on blue paper towel on plate.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether all pieces are placed by 21.986s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        22.001,
+        23.989755555555575
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        23.99,
+        23.99
+      ],
+      "resolution": "coarse",
+      "content": "Chef sprinkles seasoning over plated fried food.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "What seasoning is being added."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        24.011,
+        26.013
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of hands transferring fried food to white plate with lemon wedge.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "Whether transfer is complete by 26.013s."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        26.0127555555556,
+        32.01875555555557
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        32.019,
+        34.021
+      ],
+      "resolution": "coarse",
+      "content": "Final plated fried food shown; chef adjusts plate on counter.",
+      "evidence": [
+        "v1-b0001-e6"
+      ],
+      "uncertainty": [
+        "Whether plating is fully finished."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        34.02075555555558,
+        37.98304444444449
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c007",
+      "video": "v1",
+      "time": [
+        37.983,
+        37.983
+      ],
+      "resolution": "coarse",
+      "content": "Static close-up of finished plated fried food with lemon garnish.",
+      "evidence": [
+        "v1-b0001-e7"
+      ],
+      "uncertainty": [
+        "Whether this is the final presentation shot."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        37.98304444444449,
+        39.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.006,
+        0.006
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands behind a counter with a large empty metal bowl, a lemon, and a measuring cup of liquid.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Chef's specific action is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0062888888888892325,
+        4.010288888888894
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        4.01,
+        4.01
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of the empty metal bowl and ingredients on the counter.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Chef's specific action is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        4.010288888888894,
+        8.014288888888892
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        8.014,
+        8.014
+      ],
+      "resolution": "coarse",
+      "content": "Chef cracks an egg into the metal bowl.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        8.014288888888892,
+        12.01828888888889
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        12.018,
+        21.987
+      ],
+      "resolution": "coarse",
+      "content": "Chef whisks the contents of the bowl and adds ingredients from a smaller bowl.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Exact ingredients being added are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        22.001,
+        36.002588888888894
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        36.002588888888894,
+        42.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        36.003,
+        36.003
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of the batter being whisked in the bowl.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        42.012,
+        46.016
+      ],
+      "resolution": "coarse",
+      "content": "Chef talks and gestures while holding the whisk in the bowl.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "Chef's speech content is not transcribed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        46.015588888888885,
+        53.98187777777778
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        53.98187777777778,
+        55.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        53.982,
+        53.982
+      ],
+      "resolution": "coarse",
+      "content": "Chef continues to whisk the batter in the bowl.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        55.045,
+        57.005
+      ],
+      "resolution": "coarse",
+      "content": "Chef pours a clear liquid from a measuring cup into the bowl.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [
+        "Identity of the liquid is not specified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        57.00487777777778,
+        61.0088777777778
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        57.009,
+        61.96129166666667
+      ],
+      "resolution": "fine",
+      "content": "A hand holds a whisk and mixes a smooth yellow batter in a metal bowl. The batter remains consistent in texture and color throughout the sequence.",
+      "evidence": [
+        "v2.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "No dry powder addition visible in these frames.",
+        "Unresolved: v3.c001 dry-ingredient addition timing",
+        "Unresolved: v2.c009 hand-mixing sequence relative to v3"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        61.0088777777778,
+        62.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-02.s01",
+      "video": "v3",
+      "time": [
+        0.0,
+        4.014
+      ],
+      "resolution": "fine",
+      "content": "A hand repeatedly reaches into a stainless steel bowl containing dry yellow powder and a black spoon, performing a mixing or ingredient retrieval action near a deep fryer.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "The specific mixing intent and ingredient state transition are not visible.",
+        "Unresolved: The specific video segment label (v2.c009 or v3.c001) corresponding to this visual content.",
+        "Unresolved: The precise ingredient state markers (dry powder just added vs. mixed) in the bowl."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        0.014166666666682204,
+        4.018166666666673
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r4-R2-01.s01",
+      "video": "v3",
+      "time": [
+        0.017999999999999794,
+        8.018
+      ],
+      "resolution": "fine",
+      "content": "A hand repeatedly dips items into a metal bowl containing loose, dry, pale powder. The items are coated and then removed from the bowl. The view shifts to a deep fryer basket submerged in hot oil, where multiple battered items are actively frying.",
+      "evidence": [
+        "v3.focus.r4.l1.e1",
+        "v3.focus.r4.l1.e2"
+      ],
+      "uncertainty": [
+        "Identity of dipped items not visible.",
+        "Identity of frying items not visible.",
+        "Unresolved: Confirmation that dipped items are raw squid pieces"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        4.018166666666673,
+        7.980455555555551
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        7.98,
+        7.98
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of battered food items bubbling and frying in oil inside the fryer basket.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Doneness of food is not yet established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        7.980455555555551,
+        11.98445555555557
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        11.984,
+        11.984
+      ],
+      "resolution": "coarse",
+      "content": "A chef stands at a counter holding an empty fryer basket, with prepared food and lemon on the board.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "Whether the basket was just emptied or is about to be filled."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        11.98445555555557,
+        26.98445555555557
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        26.98445555555557,
+        28.00045555555556
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        28.0,
+        30.002
+      ],
+      "resolution": "coarse",
+      "content": "The chef holds the fryer basket, which now contains fried golden-brown food items, lifting it from the unit.",
+      "evidence": [
+        "v3-b0001-e5"
+      ],
+      "uncertainty": [
+        "Exact moment food entered basket is unobserved."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        30.0024555555556,
+        31.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.010877777777778874,
+        6.016877777777779
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        0.011,
+        0.011
+      ],
+      "resolution": "coarse",
+      "content": "Chef standing in kitchen with cutting board, knife, and bowl of squid.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        6.016877777777779,
+        9.979166666666686
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        6.017,
+        6.017
+      ],
+      "resolution": "coarse",
+      "content": "Chef cutting squid on board.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        9.979,
+        9.979
+      ],
+      "resolution": "coarse",
+      "content": "Chef holding squid.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        11.981,
+        11.981
+      ],
+      "resolution": "coarse",
+      "content": "Chef cutting squid.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        11.981166666666667,
+        23.993166666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c005",
+      "video": "v4",
+      "time": [
+        23.993,
+        23.993
+      ],
+      "resolution": "coarse",
+      "content": "Chef holding squid.",
+      "evidence": [
+        "v4-b0001-e5"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r7-R2-01.s01",
+      "video": "v5",
+      "time": [
+        0.0,
+        4.037
+      ],
+      "resolution": "fine",
+      "content": "Chef handles squid pieces, alternating between a metal bowl with white powder and a stainless steel bowl containing wet batter. A stainless steel bowl containing smooth, wet batter is visible on the wooden cutting board.",
+      "evidence": [
+        "v5.focus.r7.l1.e1",
+        "v5.focus.r7.l1.e2"
+      ],
+      "uncertainty": [
+        "Order of coating steps is not fully visible.",
+        "Batter composition is not visible."
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        0.03687777777778933,
+        15.03687777777779
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.zoom.r6-R2-01.s01",
+      "video": "v5",
+      "time": [
+        15.03687777777779,
+        16.011166666666668
+      ],
+      "resolution": "fine",
+      "content": "Chef's hand is submerged in a stainless steel bowl, actively mixing white pieces. The pieces appear coated and wet, consistent with batter rather than dry powder.",
+      "evidence": [
+        "v5.focus.r6.l1.e1"
+      ],
+      "uncertainty": [
+        "Single frame limits confirmation of texture."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c002",
+      "video": "v5",
+      "time": [
+        16.011,
+        16.011
+      ],
+      "resolution": "coarse",
+      "content": "Chef continues mixing ingredients in the metal bowl at the wooden counter.",
+      "evidence": [
+        "v5-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u003",
+      "video": "v5",
+      "time": [
+        16.011166666666668,
+        18.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

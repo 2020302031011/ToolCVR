@@ -1,0 +1,278 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1, a chef in a black uniform forms a rice ball on a wooden board from initially separate ingredients."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2, a chef holds a piece of salmon nigiri and shapes the rice with his hands."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "In v2, hands press and shape a salmon nigiri on a wooden board while a container of green wasabi is visible."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "In v3, a hand holds a small rice ball and moves it upward and away from the center of the cutting board."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e2"
+      ],
+      "statement": "In v3, a slice of salmon is visible on the right side of the board and remains stationary in the second frame."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "In v4, a sushi chef stands at a wooden counter, wipes his hands while holding chopsticks, then rests clasped hands on the counter."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "v1 reports rice being shaped into a ball on the board, while v3 reports a small rice ball being moved away from the board, connecting a rice-formation state to a rice-relocation state.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "statement": "v3 reports a separate salmon slice on the board, while v2 reports salmon placed on rice being pressed and shaped, connecting a separate topping state to a nigiri-shaping state.",
+      "supporting_events": [
+        "v3-b0001-e2",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "statement": "v2 reports active hand shaping of a salmon nigiri, while v4 reports wiping hands and resting clasped hands at the counter, connecting an assembly state to a cleanup or idle state.",
+      "supporting_events": [
+        "v2-b0001-e2",
+        "v4-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 reports formation of a plain rice ball, while v2 reports shaping of a salmon nigiri, connecting the rice-base state to the topping-assembly state.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "issue": "The continuity between the rice ball formed in v1 and the rice ball moved in v3 remains unresolved.",
+      "reason": "The reports show formation and relocation but no continuous transition or unique marker linking the same rice ball.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "issue": "Whether the salmon slice visible in v3 is the salmon used in the nigiri shaping in v2 remains unresolved.",
+      "reason": "v3 shows a separate stationary salmon slice, while v2 shows salmon on rice being shaped, but no direct transition is reported.",
+      "related_events": [
+        "v3-b0001-e2",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "issue": "The relative stage order among plain rice formation, rice relocation, and salmon nigiri shaping remains unresolved.",
+      "reason": "The events show distinct states but do not report a continuous transition from the rice ball to the salmon nigiri or identify the same piece across clips.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v3-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "issue": "Whether v4 occurs after v2's nigiri shaping or during a break between assembly steps remains unresolved.",
+      "reason": "v4 reports wiping and resting hands but does not show the salmon nigiri, wasabi, or rice handling that would link it directly to v2.",
+      "related_events": [
+        "v2-b0001-e2",
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare the size, shape, and board location of the visible final rice state in v1 with the rice ball held in v3.",
+      "purpose": "Resolve whether the two clips show the same rice ball state.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3",
+        "v2"
+      ],
+      "observable": "Compare whether the salmon slice on the board in v3 is absent, moved, or present on the rice in v2.",
+      "purpose": "Resolve whether the separate salmon slice and the salmon nigiri are the same topping transition.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare whether v2 begins with the rice ball relocated in v3 or with a newly formed rice ball from v1.",
+      "purpose": "Resolve the stage order among rice formation, relocation, and nigiri shaping.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2",
+        "v4"
+      ],
+      "observable": "Compare whether v4 shows residue, tools, or hand-cleaning actions that directly follow the salmon nigiri shaping in v2.",
+      "purpose": "Resolve whether the wiping and resting state follows the active shaping state.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 4,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "1 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "1 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-160",
+    "task": "PSS",
+    "ground_truth": "1->3->2->4",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/PSS/PSS-160/report.json",
+    "report_sha256": "5fc41520e70fe3982046229c474d002e4bf46c4a15b55594271b39ee642812dc",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

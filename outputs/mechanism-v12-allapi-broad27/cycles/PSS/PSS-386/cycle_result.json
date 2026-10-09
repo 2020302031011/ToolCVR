@@ -1,0 +1,933 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "The visible state transitions support a single cooking sequence: v1 prepares the mashed sugar/onion marinade base, v4 uses that dark marinade to coat raw meat, v3 cooks and plates the resulting ribs, and v2 assembles cooked ribs into lettuce wraps.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c004",
+          "v1.c005",
+          "v4.zoom.r2-r1-01.s01"
+        ],
+        "attempts": [
+          "v1 shows sugar and onions being mashed and then dark liquid being added/stirred, producing a dark particulate mixture; v4 shows raw meat being coated in a dark marinade with suspended solids, consistent with v1 being the antecedent marinade preparation."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v4.c002",
+          "v3.c001"
+        ],
+        "attempts": [
+          "v4 shows raw meat being massaged from pink to dark brown in marinade, while v3 shows already glazed/charred ribs cooking on a grill, supporting v4 preceding v3."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v3.c002",
+          "v2.c001",
+          "v2.c003"
+        ],
+        "attempts": [
+          "v3 shows cooked ribs being placed onto a white plate, and v2 shows a lettuce leaf held over a plate of cooked ribs and then filled with rib pieces to form a wrap, supporting v3 preceding v2."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          17.985,
+          19.987
+        ],
+        "description": "Empty glass bowl; minced garlic added.",
+        "uncertainty": "Clip S1 is the first step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          23.991,
+          31.999
+        ],
+        "description": "Chopped white onion gathered and placed into bowl.",
+        "uncertainty": "Clip S2 is the second step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          38.005,
+          42.009
+        ],
+        "description": "Packed brown sugar mound added on top of onions.",
+        "uncertainty": "Clip S4 is the third step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          50.017,
+          59.993
+        ],
+        "description": "Wooden spoon mashes and mixes sugar with onions.",
+        "uncertainty": "Clip S5 is the fourth step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e5",
+        "video_id": "v1",
+        "time_span": [
+          65.999,
+          78.011
+        ],
+        "description": "Dark liquid poured into mixture; stirred.",
+        "uncertainty": "Clip S7 is the fifth step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          82.015,
+          82.015
+        ],
+        "description": "A wooden spoon stirs a mixture of brown liquid and chopped solid ingredients inside a clear glass bowl.",
+        "uncertainty": "Exact ingredients and recipe stage are unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          148.015,
+          148.015
+        ],
+        "description": "A hand holds an open lettuce leaf over a plate of cooked ribs, preparing to assemble a wrap.",
+        "uncertainty": "The specific filling action is just beginning.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          155.989,
+          155.989
+        ],
+        "description": "The hand places a rib piece into the lettuce leaf, which is being folded to enclose the meat.",
+        "uncertainty": "The folding process is incomplete.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          161.995,
+          161.995
+        ],
+        "description": "The lettuce wrap is fully formed and held closed by both hands, completing the assembly.",
+        "uncertainty": "The final presentation or eating action is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          129.997,
+          129.997
+        ],
+        "description": "Close-up of ribs cooking on a metal grill grate, showing a glazed surface and char marks.",
+        "uncertainty": "Exact cooking stage (start vs end) unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          146.013,
+          146.013
+        ],
+        "description": "Hands placing cooked ribs onto a white plate, overlaid with a semi-transparent view of the grill.",
+        "uncertainty": "Plating sequence details obscured by overlay.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          83.984,
+          85.986
+        ],
+        "description": "A whisk stirs a dark marinade with minced garlic in a glass bowl; raw meat strips are then added to the mixture.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          89.99,
+          112.012
+        ],
+        "description": "Hands continuously toss and massage the meat strips in the marinade, gradually coating them from pink to dark brown.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          114.014,
+          114.014
+        ],
+        "description": "A hand is placed under running water at a kitchen sink, presumably washing off the marinade.",
+        "uncertainty": "Exact transition from bowl to sink not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4.focus.r1.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          83.984,
+          85.986
+        ],
+        "description": "A clear glass bowl contains a dark liquid marinade with visible solid ingredients, including minced garlic or ginger and dark particulates.",
+        "uncertainty": "Exact identity of solid ingredients is not confirmed.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l1.e2",
+        "video_id": "v4",
+        "time_span": [
+          84.985,
+          85.986
+        ],
+        "description": "A hand places strips of raw, marbled meat into the glass bowl, submerging them into the dark marinade.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          83.984,
+          85.986
+        ],
+        "description": "The glass bowl contains a dark marinade with visible suspended solid particles. Raw meat strips are placed into the bowl and coated with the mixture.",
+        "uncertainty": "Exact composition of solids is unclear",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need v4 start bowl state to test continuity with v1 mixture.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v4.c001"
+        ],
+        "evidence_goal": "What bowl, liquid color, and solid ingredients are visible in the dark marinade at v4.c001?",
+        "next_probe_goal": "If bowl contents match, inspect v4 meat strips against v3 grill ribs.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need local evidence on v4 marinade solids to test v1 prep-to-marination link",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v4.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Does the v4 marinade bowl contain visible mashed sugar/onion solids rather than only dark liquid?",
+        "next_probe_goal": "If solids are visible, inspect v3 grill ribs for matching strip shape and glaze state.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The visible state transitions support a single cooking sequence: v1 prepares the mashed sugar/onion marinade base, v4 uses that dark marinade to coat raw meat, v3 cooks and plates the resulting ribs, and v2 assembles cooked ribs into lettuce wraps.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v1->v4->v3->v2",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v1->v4->v3->v2",
+    "evidence_refs": [
+      "v1.c004",
+      "v1.c005",
+      "v4.zoom.r2-r1-01.s01",
+      "v4.c002",
+      "v3.c001",
+      "v3.c002",
+      "v2.c001",
+      "v2.c003"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        17.985,
+        19.987
+      ],
+      "resolution": "coarse",
+      "content": "Empty glass bowl; minced garlic added.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Clip S1 is the first step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        19.986633333333334,
+        23.990633333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        23.990633333333335,
+        27.994633333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        23.991,
+        31.999
+      ],
+      "resolution": "coarse",
+      "content": "Chopped white onion gathered and placed into bowl.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Clip S2 is the second step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        31.998633333333334,
+        38.00463333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        38.005,
+        42.009
+      ],
+      "resolution": "coarse",
+      "content": "Packed brown sugar mound added on top of onions.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Clip S4 is the third step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        42.008633333333336,
+        50.01663333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        50.017,
+        59.993
+      ],
+      "resolution": "coarse",
+      "content": "Wooden spoon mashes and mixes sugar with onions.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "Clip S5 is the fourth step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        51.98526666666667,
+        57.99126666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        59.99326666666667,
+        63.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        64.0,
+        65.99926666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        65.999,
+        78.011
+      ],
+      "resolution": "coarse",
+      "content": "Dark liquid poured into mixture; stirred.",
+      "evidence": [
+        "v1-b0001-e5"
+      ],
+      "uncertainty": [
+        "Clip S7 is the fifth step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        65.99926666666667,
+        72.00526666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        72.00526666666667,
+        78.01126666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        78.01126666666667,
+        82.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        82.015,
+        82.015
+      ],
+      "resolution": "coarse",
+      "content": "A wooden spoon stirs a mixture of brown liquid and chopped solid ingredients inside a clear glass bowl.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact ingredients and recipe stage are unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        148.01453333333333,
+        155.98916666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        148.015,
+        148.015
+      ],
+      "resolution": "coarse",
+      "content": "A hand holds an open lettuce leaf over a plate of cooked ribs, preparing to assemble a wrap.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "The specific filling action is just beginning."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        155.989,
+        155.989
+      ],
+      "resolution": "coarse",
+      "content": "The hand places a rib piece into the lettuce leaf, which is being folded to enclose the meat.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The folding process is incomplete."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        155.98916666666668,
+        161.99516666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        161.995,
+        161.995
+      ],
+      "resolution": "coarse",
+      "content": "The lettuce wrap is fully formed and held closed by both hands, completing the assembly.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The final presentation or eating action is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        129.997,
+        129.997
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of ribs cooking on a metal grill grate, showing a glazed surface and char marks.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact cooking stage (start vs end) unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        130.0,
+        145.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        145.0,
+        146.01253333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        146.01253333333335,
+        147.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        146.013,
+        146.013
+      ],
+      "resolution": "coarse",
+      "content": "Hands placing cooked ribs onto a white plate, overlaid with a semi-transparent view of the grill.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Plating sequence details obscured by overlay."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-r1-01.s01",
+      "video": "v4",
+      "time": [
+        83.984,
+        85.986
+      ],
+      "resolution": "fine",
+      "content": "The glass bowl contains a dark marinade with visible suspended solid particles. Raw meat strips are placed into the bowl and coated with the mixture.",
+      "evidence": [
+        "v4.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Exact composition of solids is unclear",
+        "Unresolved: Chemical verification of solids as sugar/onion"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        85.9859,
+        89.9899
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        89.9899,
+        95.9959
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        89.99,
+        112.012
+      ],
+      "resolution": "coarse",
+      "content": "Hands continuously toss and massage the meat strips in the marinade, gradually coating them from pink to dark brown.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        95.9959,
+        99.99990000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        102.0019,
+        106.00590000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        106.00590000000001,
+        110.0099
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        114.0139,
+        115.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        114.014,
+        114.014
+      ],
+      "resolution": "coarse",
+      "content": "A hand is placed under running water at a kitchen sink, presumably washing off the marinade.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact transition from bowl to sink not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If bowl contents match, inspect v4 meat strips against v3 grill ribs.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

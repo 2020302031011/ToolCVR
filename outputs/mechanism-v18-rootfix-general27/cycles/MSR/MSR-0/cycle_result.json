@@ -1,0 +1,470 @@
+{
+  "state": {
+    "question": "When {B5} completely leaves view B, where is {A2} approximately located relative to {A5} in view A?",
+    "round_id": 4,
+    "summary": "The B5 exit trigger maps to the early v1 interval already observed. In that interval, A2 is visible as a person fixed at the right roadside green area, while A5 is a car moving upward along the left roadway lane. This places A2 approximately behind and to the right of A5. Residual uncertainty remains in the direct frame-level confirmation of the behind relation, but no other option is better supported.",
+    "review": {
+      "outcome": "initial",
+      "reason": "FOCUS committed for Directly observe in v1 at the synchronized B5-exit moment whether A2 is absent, directly in front of A5, behind and to the right of A5, or behind and to the left of A5.; semantic synthesis is pending Reasoner ALIGN.",
+      "evidence_refs": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 1
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=16; declared=car; A1_visible=276-449 (9.200-15.000s)/450_frames; B1_visible=278-384 (9.267-12.833s)/450_frames.",
+      "A2/B2 is source_track=24; declared=person; A2_visible=0-435 (0.000-14.533s)/450_frames; B2_visible=3-449 (0.100-15.000s)/450_frames.",
+      "A3/B3 is source_track=127; declared=bicycle; A3_visible=166-277 (5.533-9.267s)/450_frames; B3_visible=102-302 (3.400-10.100s)/450_frames.",
+      "A4/B4 is source_track=64; declared=car; A4_visible=0-42 (0.000-1.433s)/450_frames; B4_visible=0-107 (0.000-3.600s)/450_frames.",
+      "A5/B5 is source_track=0; declared=car; A5_visible=0-197 (0.000-6.600s)/450_frames; B5_visible=0-81 (0.000-2.733s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "statement": "In v1's fine 0.0-4.0s slot, A2 is observed as a person label fixed at the right roadside green area while A5 is observed as a car label moving upward along the left roadway lane.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r2-U01-01.s01",
+          "v1.focus.r2.l1.e1"
+        ]
+      },
+      {
+        "id": "F02",
+        "statement": "In v2's 0.0-4.0s slot, B5 is observed as a cyan sedan traveling rightward across the road and exiting the frame.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.c001",
+          "v2-b0001-e1"
+        ]
+      },
+      {
+        "id": "F03",
+        "statement": "The v1 and v2 views share the source-frame clock, so the v2 B5-exit interval is temporally comparable to the early v1 interval containing A2 and A5.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "evidence_refs": [
+          "v1.zoom.r2-U01-01.s01",
+          "v1.focus.r2.l1.e1",
+          "v2.c001",
+          "v2-b0001-e1"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "At the synchronized moment when B5 completely leaves view B, the exact front/behind and left/right relation of A2 to A5 in view A is not directly confirmed.",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r2-U01-01.s01",
+          "v1.focus.r2.l1.e1",
+          "v2.c001",
+          "v2-b0001-e1"
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view of a multi-lane road with a bus (A5) and a person (A2) moving along the right side.",
+        "direct_observation": "Aerial view of a multi-lane road with a bus (A5) and a person (A2) moving along the right side.",
+        "inferred_interpretation": "",
+        "uncertainty": "B5 is not visible in this view.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+        "direct_observation": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+        "inferred_interpretation": "",
+        "uncertainty": "View A is not present in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "The teal A5 car travels forward in the left lane, while the A2 person label stays fixed near the right grass edge.",
+        "direct_observation": "The teal A5 car travels forward in the left lane, while the A2 person label stays fixed near the right grass edge.",
+        "inferred_interpretation": "A2 is behind and to the right of A5 throughout the visible sequence.",
+        "uncertainty": "B5 is not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A2 person label is fixed at the right roadside green area, while A5 car label moves upward along the left roadway lane.",
+        "direct_observation": "A2 person label is fixed at the right roadside green area, while A5 car label moves upward along the left roadway lane.",
+        "inferred_interpretation": "A2 is spatially separated from A5's travel lane, positioned to the right and behind A5's path.",
+        "uncertainty": "B5-exit moment timing is not explicitly defined in visible frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Initial coarse evidence shows B5 exits in v2 during the observed early interval, while A5 and A2 are both visible in v1 during the corresponding early interval. The shared clock and authoritative alias-visible ranges identify the trigger as synchronizable, but the relative position of A2 to A5 at that trigger remains unresolved. Mandatory exploration is still open, so refine the v1 early interval to observe the requested relation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "Resolve whether A2 is not visible, directly in front, behind and to the right, or behind and to the left of A5 in view A at the synchronized moment when B5 completely leaves view B.",
+        "next_probe_goal": "Refine the selected v1 slot around the synchronized B5-exit moment and report A2's approximate spatial relation to A5 using the option labels.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Initial evidence establishes a shared clock and that B5/A5 are the same annotated track, with B5 exiting v2 early and A2/A5 visible in v1 early. The v1 fine slot suggests A2 remains near the right edge while A5 travels in the left lane, but the requested relation at the synchronized B5-exit moment is not yet directly confirmed. One mandatory Focus stage remains, so refine the v1 early interval around the synchronized B5-exit moment to observe A2's position relative to A5.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Directly observe in v1 at the synchronized B5-exit moment whether A2 is absent, directly in front of A5, behind and to the right of A5, or behind and to the left of A5.",
+        "next_probe_goal": "Report the best-supported option label for A2 relative to A5 in view A at the moment B5 completely leaves view B.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r2-U01-01.s01",
+            "v1.focus.r2.l1.e1"
+          ],
+          "statement": "In v1's fine 0.0-4.0s slot, A2 is observed as a person label fixed at the right roadside green area while A5 is observed as a car label moving upward along the left roadway lane."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.c001",
+            "v2-b0001-e1"
+          ],
+          "statement": "In v2's 0.0-4.0s slot, B5 is observed as a cyan sedan traveling rightward across the road and exiting the frame."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r2-U01-01.s01",
+            "v1.focus.r2.l1.e1",
+            "v2.c001",
+            "v2-b0001-e1"
+          ],
+          "statement": "The v1 and v2 views share the source-frame clock, so the v2 B5-exit interval is temporally comparable to the early v1 interval containing A2 and A5."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1.zoom.r2-U01-01.s01",
+            "v1.focus.r2.l1.e1",
+            "v2.c001",
+            "v2-b0001-e1"
+          ],
+          "statement": "At the synchronized moment when B5 completely leaves view B, the exact front/behind and left/right relation of A2 to A5 in view A is not directly confirmed."
+        }
+      ],
+      "summary": "Early v1 shows A2 fixed at the right roadside and A5 moving along the left lane; early v2 shows B5 exiting rightward. Shared clock lets the B5-exit interval be mapped to early v1, but the precise relative position of A2 to A5 at that synchronized moment remains unresolved.",
+      "action": "ALIGN",
+      "reason": "Mandatory focus stages are complete and the evidence revision is newer than the last aligned synthesis, so a question-conditioned evidence synthesis is needed before answer selection.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "The B5 exit trigger maps to the early v1 interval already observed. In that interval, A2 is visible as a person fixed at the right roadside green area, while A5 is a car moving upward along the left roadway lane. This places A2 approximately behind and to the right of A5. Residual uncertainty remains in the direct frame-level confirmation of the behind relation, but no other option is better supported.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "B",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F01",
+      "objective": "In v1's fine 0.0-4.0s slot, A2 is observed as a person label fixed at the right roadside green area while A5 is observed as a car label moving upward along the left roadway lane.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r2-U01-01.s01",
+        "v1.focus.r2.l1.e1"
+      ],
+      "summary": "Early v1 shows A2 fixed at the right roadside and A5 moving along the left lane; early v2 shows B5 exiting rightward. Shared clock lets the B5-exit interval be mapped to early v1, but the precise relative position of A2 to A5 at that synchronized moment remains unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F02",
+      "objective": "In v2's 0.0-4.0s slot, B5 is observed as a cyan sedan traveling rightward across the road and exiting the frame.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.c001",
+        "v2-b0001-e1"
+      ],
+      "summary": "Early v1 shows A2 fixed at the right roadside and A5 moving along the left lane; early v2 shows B5 exiting rightward. Shared clock lets the B5-exit interval be mapped to early v1, but the precise relative position of A2 to A5 at that synchronized moment remains unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F03",
+      "objective": "The v1 and v2 views share the source-frame clock, so the v2 B5-exit interval is temporally comparable to the early v1 interval containing A2 and A5.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1.zoom.r2-U01-01.s01",
+        "v1.focus.r2.l1.e1",
+        "v2.c001",
+        "v2-b0001-e1"
+      ],
+      "summary": "Early v1 shows A2 fixed at the right roadside and A5 moving along the left lane; early v2 shows B5 exiting rightward. Shared clock lets the B5-exit interval be mapped to early v1, but the precise relative position of A2 to A5 at that synchronized moment remains unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "U01",
+      "objective": "At the synchronized moment when B5 completely leaves view B, the exact front/behind and left/right relation of A2 to A5 in view A is not directly confirmed.",
+      "videos": [
+        "v1"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r2-U01-01.s01",
+        "v1.focus.r2.l1.e1",
+        "v2.c001",
+        "v2-b0001-e1"
+      ],
+      "summary": "Early v1 shows A2 fixed at the right roadside and A5 moving along the left lane; early v2 shows B5 exiting rightward. Shared clock lets the B5-exit interval be mapped to early v1, but the precise relative position of A2 to A5 at that synchronized moment remains unresolved."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "aligned_revision": 3,
+    "current_evidence_is_aligned": true
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "217f19cf31986f6b",
+      "requirement_id": "U01",
+      "evidence_goal": "Resolve whether A2 is not visible, directly in front, behind and to the right, or behind and to the left of A5 in view A at the synchronized moment when B5 completely leaves view B.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r1.l1.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "13007822cb61a9da",
+      "requirement_id": "U01",
+      "evidence_goal": "Directly observe in v1 at the synchronized B5-exit moment whether A2 is absent, directly in front of A5, behind and to the right of A5, or behind and to the left of A5.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            0.0,
+            4.0
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "B",
+    "evidence_refs": [
+      "v1.zoom.r2-U01-01.s01",
+      "v1.focus.r2.l1.e1",
+      "v2.c001",
+      "v2-b0001-e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-U01-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A2 person label is fixed at the right roadside green area, while A5 car label moves upward along the left roadway lane.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "B5-exit moment timing is not explicitly defined in visible frames.",
+        "Inferred interpretation (not direct evidence): A2 is spatially separated from A5's travel lane, positioned to the right and behind A5's path.",
+        "Unresolved: Synchronization of the B5-exit moment with these frame timestamps"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "The cyan sedan (B5) travels rightward across the road and exits the frame. The white truck maintains a steady rightward course throughout.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "View A is not present in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

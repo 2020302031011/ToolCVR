@@ -1,0 +1,252 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v1-b0002-e1"
+      ],
+      "statement": "A clear glass bowl is filled with minced garlic, chopped white onion, packed brown sugar, and dark liquid, then stirred into a brown liquid mixture containing chopped solids."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "statement": "A whisk stirs a dark marinade with minced garlic in a glass bowl, raw meat strips are added and massaged until coated dark brown, and a hand appears under running water."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "statement": "Ribs with a glazed surface and char marks are shown cooking on a metal grill grate, then hands place cooked ribs onto a white plate."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "statement": "A hand holds an open lettuce leaf over a plate of cooked ribs, places a rib piece into the leaf, and closes a fully formed lettuce wrap."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "The clear glass bowl containing a stirred dark brown mixture in v1 and the glass bowl containing dark marinade with minced garlic in v4 share visible bowl, dark liquid, and garlic attributes.",
+      "supporting_events": [
+        "v1-b0002-e1",
+        "v4-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "statement": "The dark-coated meat strips in v4 and the glazed ribs on the grill in v3 share a dark meat-coating attribute.",
+      "supporting_events": [
+        "v4-b0001-e2",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "statement": "The cooked ribs placed on a white plate in v3 and the cooked ribs on a plate used for lettuce wrapping in v2 share cooked ribs and a plate context.",
+      "supporting_events": [
+        "v3-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The physical continuity between v1's stirred bowl mixture and v4's dark marinade bowl remains unresolved.",
+      "reason": "No supplied event directly shows the same bowl contents moving from the v1 mixing state into the v4 marinating state.",
+      "related_events": [
+        "v1-b0002-e1",
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v4",
+        "v3"
+      ],
+      "issue": "The transition from v4's marinated raw meat strips to v3's ribs cooking on the grill remains unresolved.",
+      "reason": "The reports do not show the meat being moved from the bowl to the grill, and the sink action in v4 is only described as presumably washing off marinade.",
+      "related_events": [
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3",
+        "v2"
+      ],
+      "issue": "The identity of the plate of cooked ribs in v2 relative to the plating event in v3 remains unresolved.",
+      "reason": "The v3 plating event is obscured by a semi-transparent grill overlay, and v2 does not show the plate being filled from v3.",
+      "related_events": [
+        "v3-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3"
+      ],
+      "issue": "The exact cooking stage of the ribs shown in v3 remains unresolved.",
+      "reason": "The event uncertainty states that the start versus end of cooking is unclear, so the relationship between the grill close-up and the plating event is not fully settled.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Compare the bowl contents, liquid color, solid ingredients, and utensil between v1-b0002-e1 and v4-b0001-e1 to determine whether they depict the same bowl mixture.",
+      "purpose": "This would resolve U01 by checking whether the bowl states are the same physical bowl and mixture.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Compare the meat pieces in v4-b0001-e2 with the ribs on the grill in v3-b0001-e1 for matching size, shape, bone structure, and coating color.",
+      "purpose": "This would resolve U02 by checking whether the meat pieces are the same before and after grilling.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v4",
+        "v3"
+      ],
+      "observable": "Inspect frames around v4-b0001-e3 and v3-b0001-e1 for visible continuity between the sink or bowl state and the grill state.",
+      "purpose": "This would resolve U02 by checking for a visible transition between sink or bowl and grill.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3",
+        "v2"
+      ],
+      "observable": "Compare the white plate, rib arrangement, and background in v3-b0001-e2 with the plate of cooked ribs in v2-b0001-e1.",
+      "purpose": "This would resolve U03 by checking whether the plates and rib arrangements match.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "Compare the rib appearance in v3-b0001-e1 with the ribs being placed onto the plate in v3-b0001-e2 to determine whether they show the same rib state or different cooking stages.",
+      "purpose": "This would resolve U04 by checking whether the grill close-up and plating event show the same rib state.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-386",
+    "task": "PSS",
+    "ground_truth": "1->4->3->2",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/PSS/PSS-386/report.json",
+    "report_sha256": "2cc767e9c28053f773d21f1374bcf76248332fd777f08643c80ea57f79080cec",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

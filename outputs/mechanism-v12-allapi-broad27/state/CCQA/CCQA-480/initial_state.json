@@ -1,0 +1,175 @@
+{
+  "question": "How do the coating methods for the chicken differ between the two videos?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0002-e1"
+      ],
+      "statement": "In v1, the chicken is already breaded when first shown, and the method used to create that breading layer is not visible."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2",
+        "v1-b0002-e1"
+      ],
+      "statement": "In v1, red sauce is spooned onto breaded chicken and shredded cheese is sprinkled from a bag onto the sauced chicken."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3",
+        "v2-b0003-e4",
+        "v2-b0004-e2"
+      ],
+      "statement": "In v2, raw chicken is pressed into flour, dipped in yellow egg wash, and transferred into dry breadcrumbs to be coated."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e2"
+      ],
+      "statement": "In v2, raw chicken cutlets are seasoned with salt and pepper before the visible coating steps."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0005-e1",
+        "v2-b0005-e2",
+        "v2-b0006-e3"
+      ],
+      "statement": "In v2, breaded chicken receives spooned red sauce, sprinkled shredded cheese, and a finer granular white topping."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 reports only already-breaded chicken and visible toppings, while v2 reports a visible flour-egg wash-breadcrumbs coating sequence before the toppings.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0002-e1",
+        "v2-b0003-e3",
+        "v2-b0003-e4",
+        "v2-b0004-e2",
+        "v2-b0005-e1",
+        "v2-b0005-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show breaded chicken receiving red sauce and cheese, but only v2 shows the chicken being coated before those toppings.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v2-b0003-e3",
+        "v2-b0003-e4",
+        "v2-b0004-e2",
+        "v2-b0005-e1",
+        "v2-b0005-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The initial coating or breading method used for the chicken in v1 remains undetermined.",
+      "reason": "The supplied v1 events show already-breaded chicken and later toppings but do not show raw chicken being coated.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0002-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the presence and sequence of raw-to-breaded coating actions in v1 with the flour-egg wash-breadcrumbs actions in v2.",
+      "purpose": "This would determine whether v1 contains missing evidence of its initial coating method.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the tools and ingredients used for the visible coating step in v2 with any tools or ingredients visible during chicken preparation in v1.",
+      "purpose": "This would resolve whether v1's coating method is comparable to v2's visible coating sequence.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-480",
+    "task": "CCQA",
+    "ground_truth": "Video A uses a quinoa mixture for the final coating after flour and egg, pressing firmly to adhere the grains. Video B uses seasoned bread crumbs instead, employing tongs to ensure even coverage without pressing. While both follow flour-egg-coating sequence, Video A's quinoa creates a textured crust while Video B achieves crispiness through traditional bread crumbs.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/CCQA/CCQA-480/report.json",
+    "report_sha256": "08fc4bc52146cacab7abf3a5b705925663bcbc84ab13a174c0948e220138f212",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

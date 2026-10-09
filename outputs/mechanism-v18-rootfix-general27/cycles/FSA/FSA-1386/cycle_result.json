@@ -1,0 +1,1368 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 4,
+    "summary": "Current evidence is aligned and mandatory focus stages are complete. The best-supported functional match to v1's dressing-preparation step is the contiguous v2 creamy addition and seasoning interval from 8.008 to 34.001. The later v2 mixing interval appears to correspond to salad assembly rather than the same dressing-preparation transition, and extending the interval to include it would cross unrelated pasta and chopping steps. Residual uncertainty about an unobserved stirring transition does not materially change the best contiguous equivalent interval.",
+    "review": {
+      "outcome": "initial",
+      "reason": "FOCUS committed for Determine whether the v2 creamy addition interval or the v2 final mixing interval contains the functional transition of adding creamy or sweet ingredients followed by stirring or mixing, and identify candidate boundaries for the equivalent step.; semantic synthesis is pending Reasoner ALIGN.",
+      "evidence_refs": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4",
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3",
+        "v2.focus.r2.l3.e1"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 2
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "statement": "In v1, a white creamy substance identified as mayonnaise is scraped from a white spatula into a dark bowl.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1-b0001-e1"
+        ]
+      },
+      {
+        "id": "F02",
+        "statement": "In v1, a spoon with yellow liquid identified as honey and a white substance is shown near the bowl, with the exact addition moment uncertain.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1-b0001-e2"
+        ]
+      },
+      {
+        "id": "F03",
+        "statement": "In v1, a hand uses a spoon to stir the mixture, incorporating the yellow liquid into the white base.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1-b0001-e3"
+        ]
+      },
+      {
+        "id": "F04",
+        "statement": "In v2, a white creamy substance is deposited into a clear glass bowl, with a mayonnaise bottle displayed and a second creamy substance added on top.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.focus.r2.l1.e1",
+          "v2.focus.r2.l1.e2",
+          "v2.focus.r2.l1.e3",
+          "v2.focus.r2.l1.e4"
+        ]
+      },
+      {
+        "id": "F05",
+        "statement": "In v2, a white creamy substance is shown on a plate, a white powder is poured onto it, and dark granules are pinched from a small striped bowl.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.focus.r2.l2.e1",
+          "v2.focus.r2.l2.e2",
+          "v2.focus.r2.l2.e3"
+        ]
+      },
+      {
+        "id": "F06",
+        "statement": "In v2, cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2-b0001-e3"
+        ]
+      },
+      {
+        "id": "F07",
+        "statement": "In v2, ingredients including walnuts, red onion, celery, apple pieces, and cooked chicken are chopped on a wooden cutting board.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2-b0001-e4",
+          "v2-b0002-e1"
+        ]
+      },
+      {
+        "id": "F08",
+        "statement": "In v2, a hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2.focus.r2.l3.e1"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "It remains unresolved whether the v2 creamy addition and seasoning evidence or the later v2 mixing evidence is functionally equivalent to v1's combined addition-and-stirring step.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1-b0001-e3",
+          "v2.focus.r2.l1.e1",
+          "v2.focus.r2.l2.e1",
+          "v2.focus.r2.l3.e1"
+        ]
+      },
+      {
+        "id": "U02",
+        "question": "The exact v2 interval boundaries for the functionally equivalent step remain unresolved.",
+        "videos": [
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v2.focus.r2.l1.e1",
+          "v2.focus.r2.l2.e1",
+          "v2.focus.r2.l3.e1"
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          1.001,
+          5.005
+        ],
+        "description": "White creamy substance (mayonnaise) is scraped from a white spatula into a dark bowl.",
+        "direct_observation": "White creamy substance (mayonnaise) is scraped from a white spatula into a dark bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          7.007,
+          7.007
+        ],
+        "description": "A spoon is shown with yellow liquid (honey) and a white substance, likely being added to the bowl.",
+        "direct_observation": "A spoon is shown with yellow liquid (honey) and a white substance, likely being added to the bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact moment of addition vs preparation.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          11.011,
+          11.011
+        ],
+        "description": "A hand uses a spoon to stir the mixture in the bowl, incorporating the yellow liquid into the white base.",
+        "direct_observation": "A hand uses a spoon to stir the mixture in the bowl, incorporating the yellow liquid into the white base.",
+        "inferred_interpretation": "",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.001
+        ],
+        "description": "Finished chicken pasta salad plated on a bed of green leaves, showing pasta, chicken, red onion, and walnuts.",
+        "direct_observation": "Finished chicken pasta salad plated on a bed of green leaves, showing pasta, chicken, red onion, and walnuts.",
+        "inferred_interpretation": "",
+        "uncertainty": "Reference cooking step not visible in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          8.008,
+          34.001
+        ],
+        "description": "Mayonnaise and other creamy ingredients are added to a glass bowl, followed by seasoning with pepper.",
+        "direct_observation": "Mayonnaise and other creamy ingredients are added to a glass bowl, followed by seasoning with pepper.",
+        "inferred_interpretation": "",
+        "uncertainty": "Mixing action itself not clearly visible in these specific frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          38.005,
+          40.007
+        ],
+        "description": "Cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+        "direct_observation": "Cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact start and end of the pouring action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          42.009,
+          53.987
+        ],
+        "description": "Chopping of walnuts, red onion, celery, and cooked chicken on a wooden cutting board.",
+        "direct_observation": "Chopping of walnuts, red onion, celery, and cooked chicken on a wooden cutting board.",
+        "inferred_interpretation": "",
+        "uncertainty": "Chopping of each ingredient is shown sequentially.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          57.991,
+          63.997
+        ],
+        "description": "A person uses a knife to chop ingredients including red-skinned apple pieces, celery, red onion, and cooked chicken on a wooden cutting board.",
+        "direct_observation": "A person uses a knife to chop ingredients including red-skinned apple pieces, celery, red onion, and cooked chicken on a wooden cutting board.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact start and end of chopping sequence not fully observed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          65.999,
+          68.001
+        ],
+        "description": "The chopped ingredients are combined in a glass bowl with a creamy dressing and mixed using a utensil.",
+        "direct_observation": "The chopped ingredients are combined in a glass bowl with a creamy dressing and mixed using a utensil.",
+        "inferred_interpretation": "",
+        "uncertainty": "Transition from chopping to mixing occurs in the gap between 63.997s and 65.999s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          72.005,
+          82.015
+        ],
+        "description": "The finished salad is plated on a dish with green leaves and garnished with walnuts and onion rings.",
+        "direct_observation": "The finished salad is plated on a dish with green leaves and garnished with walnuts and onion rings.",
+        "inferred_interpretation": "",
+        "uncertainty": "Plating action itself is not visible, only the result.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.008,
+          13.008
+        ],
+        "description": "A white creamy substance is deposited into a clear glass bowl, with a small stream visible at 9.008s and a mound forming through 13.008s.",
+        "direct_observation": "A white creamy substance is deposited into a clear glass bowl, with a small stream visible at 9.008s and a mound forming through 13.008s.",
+        "inferred_interpretation": "This appears to be an addition of a creamy ingredient, possibly yogurt or a similar base.",
+        "uncertainty": "The exact identity of the creamy substance is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          14.008,
+          15.008
+        ],
+        "description": "A bottle with a blue and yellow label reading \"HELLMANN'S\" and \"'BRING OUT THE BEST'\" is held in frame next to a green artichoke.",
+        "direct_observation": "A bottle with a blue and yellow label reading \"HELLMANN'S\" and \"'BRING OUT THE BEST'\" is held in frame next to a green artichoke.",
+        "inferred_interpretation": "The visible label suggests mayonnaise is being introduced as an ingredient.",
+        "uncertainty": "The act of adding the mayonnaise is not shown in this specific interval.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          16.008,
+          23.008
+        ],
+        "description": "A second, thicker creamy substance is added to the bowl, followed by a thin liquid stream at 21.008s, pooling over the existing mound.",
+        "direct_observation": "A second, thicker creamy substance is added to the bowl, followed by a thin liquid stream at 21.008s, pooling over the existing mound.",
+        "inferred_interpretation": "This represents the combination of multiple ingredients, likely for a dressing or sauce.",
+        "uncertainty": "The identity of the second creamy substance and the thin liquid are not visually confirmed.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          23.008,
+          26.008
+        ],
+        "description": "Static close-up of a plate with white creamy mounds. Background shows a glass bowl and red onion.",
+        "direct_observation": "Static close-up of a plate with white creamy mounds. Background shows a glass bowl and red onion.",
+        "inferred_interpretation": "Initial state of creamy addition interval.",
+        "uncertainty": "No active addition or stirring visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          27.008,
+          27.008
+        ],
+        "description": "A stream of white substance falls onto the creamy mounds on the plate.",
+        "direct_observation": "A stream of white substance falls onto the creamy mounds on the plate.",
+        "inferred_interpretation": "Active addition of creamy ingredient.",
+        "uncertainty": "Source of stream is off-screen.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          28.008,
+          28.008
+        ],
+        "description": "Plate with creamy mounds returns to static state after addition.",
+        "direct_observation": "Plate with creamy mounds returns to static state after addition.",
+        "inferred_interpretation": "Post-addition state.",
+        "uncertainty": "No mixing transition visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e4",
+        "video_id": "v2",
+        "time_span": [
+          29.008,
+          29.008
+        ],
+        "description": "Fingers pinch dark granular substance from a small striped bowl.",
+        "direct_observation": "Fingers pinch dark granular substance from a small striped bowl.",
+        "inferred_interpretation": "Preparation of seasoning for final mixing.",
+        "uncertainty": "Ingredient identity is inferred visually.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e5",
+        "video_id": "v2",
+        "time_span": [
+          30.008,
+          33.008
+        ],
+        "description": "Dark granules are sprinkled onto the white creamy mounds on the plate.",
+        "direct_observation": "Dark granules are sprinkled onto the white creamy mounds on the plate.",
+        "inferred_interpretation": "Final mixing interval via seasoning addition.",
+        "uncertainty": "Stirring or blending not visible in frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          65.999,
+          67.999
+        ],
+        "description": "Hands actively mix a chunky salad with a creamy dressing in a glass bowl using a utensil.",
+        "direct_observation": "Hands actively mix a chunky salad with a creamy dressing in a glass bowl using a utensil.",
+        "inferred_interpretation": "This is a final mixing interval where ingredients and dressing are combined.",
+        "uncertainty": "The specific start of the mixing action is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          8.008,
+          13.008
+        ],
+        "description": "A white creamy substance is deposited into a clear glass bowl, accumulating on the bottom surface.",
+        "direct_observation": "A white creamy substance is deposited into a clear glass bowl, accumulating on the bottom surface.",
+        "inferred_interpretation": "Functional transition of adding creamy ingredients.",
+        "uncertainty": "Exact ingredient identity not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          14.008,
+          15.008
+        ],
+        "description": "A Hellmann's mayonnaise bottle is displayed on a wooden surface next to a green vegetable.",
+        "direct_observation": "A Hellmann's mayonnaise bottle is displayed on a wooden surface next to a green vegetable.",
+        "inferred_interpretation": "Identification of ingredient source.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          16.008,
+          20.008
+        ],
+        "description": "A second, thicker creamy substance is added on top of the initial white layer in the bowl.",
+        "direct_observation": "A second, thicker creamy substance is added on top of the initial white layer in the bowl.",
+        "inferred_interpretation": "Continuation of adding creamy ingredients.",
+        "uncertainty": "Specific identity of second substance unknown.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e4",
+        "video_id": "v2",
+        "time_span": [
+          21.008,
+          23.008
+        ],
+        "description": "A thin liquid is poured over the solid creamy mixture in the bowl.",
+        "direct_observation": "A thin liquid is poured over the solid creamy mixture in the bowl.",
+        "inferred_interpretation": "Final addition step before potential mixing.",
+        "uncertainty": "Identity of liquid and subsequent action unknown.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          23.008,
+          28.008
+        ],
+        "description": "A close-up shows a white creamy substance on a plate. A hand briefly enters the frame from the left at 24.008s. A white stream of powder is poured onto the cream at 27.008s.",
+        "direct_observation": "A close-up shows a white creamy substance on a plate. A hand briefly enters the frame from the left at 24.008s. A white stream of powder is poured onto the cream at 27.008s.",
+        "inferred_interpretation": "This represents the addition of ingredients to a creamy base.",
+        "uncertainty": "The exact identity of the poured powder is not visually confirmed.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          29.008,
+          29.008
+        ],
+        "description": "A hand pinches dark granules from a small, striped bowl.",
+        "direct_observation": "A hand pinches dark granules from a small, striped bowl.",
+        "inferred_interpretation": "This action shows the preparation of a seasoning or ingredient for addition.",
+        "uncertainty": "The connection between this bowl and the previous plate is not shown in this single frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          30.008,
+          33.008
+        ],
+        "description": "The view returns to the white cream. Dark granules are sprinkled onto the surface from above, accumulating over time.",
+        "direct_observation": "The view returns to the white cream. Dark granules are sprinkled onto the surface from above, accumulating over time.",
+        "inferred_interpretation": "This represents the addition of a secondary ingredient, likely seasoning.",
+        "uncertainty": "It is not visible if the granules came from the bowl shown at 29.008s.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          65.999,
+          67.999
+        ],
+        "description": "A hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl.",
+        "direct_observation": "A hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl.",
+        "inferred_interpretation": "The stirring action suggests a mixing phase, though the addition of creamy ingredients is not visible in these frames.",
+        "uncertainty": "The specific ingredients and the start of the mixing process are not visible.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration is still active. The v1 reference step combines addition of creamy and sweet ingredients followed by stirring. In v2, the creamy addition interval and final mixing interval are both coarse and may be functionally relevant, but the exact equivalent state transition and boundaries are unresolved. Plan to refine these two v2 intervals to determine which one contains the functional addition-plus-mixing transition.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.c002",
+          "v2.c006"
+        ],
+        "evidence_goal": "Determine whether the v2 creamy addition interval or the v2 final mixing interval is functionally equivalent to the v1 dressing preparation step by observing addition, stirring, or mixing transitions.",
+        "next_probe_goal": "Observe whether mixing or stirring occurs during the v2 creamy addition interval and compare that local state transition with the v2 final mixing interval.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration still requires one Focus stage. The v1 reference step combines creamy and sweet addition followed by stirring. In v2, a creamy addition interval and a final mixing interval are both possible, but the functional addition-plus-mixing transition and exact equivalent boundaries are unresolved. Plan to refine the v2 candidate intervals to compare their local state transitions.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-01.s02",
+          "v2.zoom.r1-U01-02.s01"
+        ],
+        "evidence_goal": "Determine whether the v2 creamy addition interval or the v2 final mixing interval contains the functional transition of adding creamy or sweet ingredients followed by stirring or mixing, and identify candidate boundaries for the equivalent step.",
+        "next_probe_goal": "Refine the v2 creamy addition and final mixing intervals to observe addition, stirring, or mixing transitions and compare which interval matches the v1 reference.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e1"
+          ],
+          "statement": "In v1, a white creamy substance identified as mayonnaise is scraped from a white spatula into a dark bowl."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e2"
+          ],
+          "statement": "In v1, a spoon with yellow liquid identified as honey and a white substance is shown near the bowl, with the exact addition moment uncertain."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e3"
+          ],
+          "statement": "In v1, a hand uses a spoon to stir the mixture, incorporating the yellow liquid into the white base."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.focus.r2.l1.e1",
+            "v2.focus.r2.l1.e2",
+            "v2.focus.r2.l1.e3",
+            "v2.focus.r2.l1.e4"
+          ],
+          "statement": "In v2, a white creamy substance is deposited into a clear glass bowl, with a mayonnaise bottle displayed and a second creamy substance added on top."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.focus.r2.l2.e1",
+            "v2.focus.r2.l2.e2",
+            "v2.focus.r2.l2.e3"
+          ],
+          "statement": "In v2, a white creamy substance is shown on a plate, a white powder is poured onto it, and dark granules are pinched from a small striped bowl."
+        },
+        {
+          "id": "F06",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e3"
+          ],
+          "statement": "In v2, cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl."
+        },
+        {
+          "id": "F07",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4",
+            "v2-b0002-e1"
+          ],
+          "statement": "In v2, ingredients including walnuts, red onion, celery, apple pieces, and cooked chicken are chopped on a wooden cutting board."
+        },
+        {
+          "id": "F08",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.focus.r2.l3.e1"
+          ],
+          "statement": "In v2, a hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e3",
+            "v2.focus.r2.l1.e1",
+            "v2.focus.r2.l2.e1",
+            "v2.focus.r2.l3.e1"
+          ],
+          "statement": "It remains unresolved whether the v2 creamy addition and seasoning evidence or the later v2 mixing evidence is functionally equivalent to v1's combined addition-and-stirring step."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2.focus.r2.l1.e1",
+            "v2.focus.r2.l2.e1",
+            "v2.focus.r2.l3.e1"
+          ],
+          "statement": "The exact v2 interval boundaries for the functionally equivalent step remain unresolved."
+        }
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved.",
+      "action": "ALIGN",
+      "reason": "Current evidence is newer than the last aligned synthesis, and the functional equivalence plus interval boundaries are decision-critical unknowns.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Current evidence is aligned and mandatory focus stages are complete. The best-supported functional match to v1's dressing-preparation step is the contiguous v2 creamy addition and seasoning interval from 8.008 to 34.001. The later v2 mixing interval appears to correspond to salad assembly rather than the same dressing-preparation transition, and extending the interval to include it would cross unrelated pasta and chopping steps. Residual uncertainty about an unobserved stirring transition does not materially change the best contiguous equivalent interval.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[8.008,34.001]",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F01",
+      "objective": "In v1, a white creamy substance identified as mayonnaise is scraped from a white spatula into a dark bowl.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e1"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F02",
+      "objective": "In v1, a spoon with yellow liquid identified as honey and a white substance is shown near the bowl, with the exact addition moment uncertain.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e2"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F03",
+      "objective": "In v1, a hand uses a spoon to stir the mixture, incorporating the yellow liquid into the white base.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e3"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F04",
+      "objective": "In v2, a white creamy substance is deposited into a clear glass bowl, with a mayonnaise bottle displayed and a second creamy substance added on top.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F05",
+      "objective": "In v2, a white creamy substance is shown on a plate, a white powder is poured onto it, and dark granules are pinched from a small striped bowl.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F06",
+      "objective": "In v2, cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0001-e3"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F07",
+      "objective": "In v2, ingredients including walnuts, red onion, celery, apple pieces, and cooked chicken are chopped on a wooden cutting board.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "F08",
+      "objective": "In v2, a hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.focus.r2.l3.e1"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "U01",
+      "objective": "It remains unresolved whether the v2 creamy addition and seasoning evidence or the later v2 mixing evidence is functionally equivalent to v1's combined addition-and-stirring step.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0001-e3",
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l3.e1"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "U02",
+      "objective": "The exact v2 interval boundaries for the functionally equivalent step remain unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l3.e1"
+      ],
+      "summary": "v1 shows creamy addition, honey addition with uncertain moment, and stirring. v2 shows separate creamy addition/seasoning and later mixing evidence, but the direct addition-to-mixing transition and exact equivalent interval boundaries are unresolved."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "aligned_revision": 3,
+    "current_evidence_is_aligned": true
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "7b1049719d690876",
+      "requirement_id": "U01",
+      "evidence_goal": "Determine whether the v2 creamy addition interval or the v2 final mixing interval is functionally equivalent to the v1 dressing preparation step by observing addition, stirring, or mixing transitions.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            8.008,
+            34.001
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            65.999,
+            68.001
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3",
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2",
+        "v2.focus.r1.l2.e3",
+        "v2.focus.r1.l2.e4",
+        "v2.focus.r1.l2.e5",
+        "v2.focus.r1.l3.e1"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "c709499221eda455",
+      "requirement_id": "U01",
+      "evidence_goal": "Determine whether the v2 creamy addition interval or the v2 final mixing interval contains the functional transition of adding creamy or sweet ingredients followed by stirring or mixing, and identify candidate boundaries for the equivalent step.",
+      "targets": [
+        {
+          "video_id": "v2",
+          "time_span": [
+            8.008,
+            23.008
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            23.008,
+            34.001
+          ]
+        },
+        {
+          "video_id": "v2",
+          "time_span": [
+            65.999,
+            68.001
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4",
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3",
+        "v2.focus.r2.l3.e1"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[8.008,34.001]",
+    "evidence_refs": [
+      "v1.c001",
+      "v1.c002",
+      "v1.c003",
+      "v2.zoom.r2-U01-01.s01",
+      "v2.zoom.r2-U01-02.s01"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 6,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        1.001,
+        5.005
+      ],
+      "resolution": "coarse",
+      "content": "White creamy substance (mayonnaise) is scraped from a white spatula into a dark bowl.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        1.0010000000000001,
+        5.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        7.007,
+        7.007
+      ],
+      "resolution": "coarse",
+      "content": "A spoon is shown with yellow liquid (honey) and a white substance, likely being added to the bowl.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact moment of addition vs preparation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        7.007000000000001,
+        11.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        11.011,
+        11.011
+      ],
+      "resolution": "coarse",
+      "content": "A hand uses a spoon to stir the mixture in the bowl, incorporating the yellow liquid into the white base.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        0.001
+      ],
+      "resolution": "coarse",
+      "content": "Finished chicken pasta salad plated on a bed of green leaves, showing pasta, chicken, red onion, and walnuts.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Reference cooking step not visible in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.008000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-U01-01.s01",
+      "video": "v2",
+      "time": [
+        8.008,
+        23.008
+      ],
+      "resolution": "fine",
+      "content": "A white creamy substance is deposited into a clear glass bowl, accumulating on the bottom surface. A Hellmann's mayonnaise bottle is displayed on a wooden surface next to a green vegetable. A second, thicker creamy substance is added on top of the initial white layer in the bowl. A thin liquid is poured over the solid creamy mixture in the bowl.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3",
+        "v2.focus.r2.l1.e4"
+      ],
+      "uncertainty": [
+        "Exact ingredient identity not visible.",
+        "None.",
+        "Specific identity of second substance unknown.",
+        "Identity of liquid and subsequent action unknown.",
+        "Inferred interpretation (not direct evidence): Functional transition of adding creamy ingredients.",
+        "Inferred interpretation (not direct evidence): Identification of ingredient source.",
+        "Inferred interpretation (not direct evidence): Continuation of adding creamy ingredients.",
+        "Inferred interpretation (not direct evidence): Final addition step before potential mixing.",
+        "Unresolved: Observation of stirring or mixing action"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.01,
+        14.014000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        16.016000000000002,
+        21.988633333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        21.988633333333336,
+        34.00063333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-U01-02.s01",
+      "video": "v2",
+      "time": [
+        23.008,
+        34.001
+      ],
+      "resolution": "fine",
+      "content": "A close-up shows a white creamy substance on a plate. A hand briefly enters the frame from the left at 24.008s. A white stream of powder is poured onto the cream at 27.008s. A hand pinches dark granules from a small, striped bowl. The view returns to the white cream. Dark granules are sprinkled onto the surface from above, accumulating over time.",
+      "evidence": [
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3"
+      ],
+      "uncertainty": [
+        "The exact identity of the poured powder is not visually confirmed.",
+        "The connection between this bowl and the previous plate is not shown in this single frame.",
+        "It is not visible if the granules came from the bowl shown at 29.008s.",
+        "Inferred interpretation (not direct evidence): This represents the addition of ingredients to a creamy base.",
+        "Inferred interpretation (not direct evidence): This action shows the preparation of a seasoning or ingredient for addition.",
+        "Inferred interpretation (not direct evidence): This represents the addition of a secondary ingredient, likely seasoning.",
+        "Unresolved: A stirring or mixing action following the ingredient additions is not visible in the supplied frames."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        34.00063333333333,
+        38.00463333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        38.005,
+        40.007
+      ],
+      "resolution": "coarse",
+      "content": "Cooked shell pasta is poured from a smaller bowl into a larger glass mixing bowl.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact start and end of the pouring action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        42.009,
+        53.987
+      ],
+      "resolution": "coarse",
+      "content": "Chopping of walnuts, red onion, celery, and cooked chicken on a wooden cutting board.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Chopping of each ingredient is shown sequentially."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        53.98726666666667,
+        57.99126666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        57.991,
+        63.997
+      ],
+      "resolution": "coarse",
+      "content": "A person uses a knife to chop ingredients including red-skinned apple pieces, celery, red onion, and cooked chicken on a wooden cutting board.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact start and end of chopping sequence not fully observed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-U01-03.s01",
+      "video": "v2",
+      "time": [
+        65.999,
+        68.001
+      ],
+      "resolution": "fine",
+      "content": "A hand holding a utensil stirs a mixture of chopped green and purple vegetables and white chunks in a glass bowl.",
+      "evidence": [
+        "v2.focus.r2.l3.e1"
+      ],
+      "uncertainty": [
+        "The specific ingredients and the start of the mixing process are not visible.",
+        "Inferred interpretation (not direct evidence): The stirring action suggests a mixing phase, though the addition of creamy ingredients is not visible in these frames.",
+        "Unresolved: The transition from adding creamy ingredients to the start of stirring is not visible."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        68.00126666666667,
+        72.00526666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        72.005,
+        82.015
+      ],
+      "resolution": "coarse",
+      "content": "The finished salad is plated on a dish with green leaves and garnished with walnuts and onion rings.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Plating action itself is not visible, only the result."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        74.00726666666667,
+        82.01526666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        82.01526666666668,
+        82.54913333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 6,
+    "visual_calls_remaining": 2,
+    "maximum_visual_calls_for_current_stage": 2,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

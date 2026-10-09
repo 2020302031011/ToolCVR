@@ -1,0 +1,433 @@
+{
+  "question": "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+  "options": [
+    "A. 0",
+    "B. 1",
+    "C. 2",
+    "D. 3"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a yellow car driving on a road",
+        "source": "question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "multiple yellow cars visible in traffic",
+        "source": "option_C",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "three yellow cars lined up on street",
+        "source": "option_D",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "one single yellow car parked nearby",
+        "source": "option_B",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+      "0",
+      "1",
+      "2",
+      "3",
+      "Count the number of yellow cars in view B",
+      "Verify that {A1} is completely absent from view A before counting",
+      "Option A (0) implies no yellow cars are present; verify absence visually",
+      "Do not use CLIP to count exact numbers directly; rely on visual presence/absence cues for 0, 1, 2, 3"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 16.666666666666668,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          4.0,
+          14.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            4.0,
+            6.0
+          ],
+          "description": "A4 car (red) is visible in the upper right area of the highway scene, moving right.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "A4 car disappears after 6s."
+        },
+        {
+          "event_id": "v1-b0001-e2",
+          "time_span": [
+            10.0,
+            12.0
+          ],
+          "description": "A1 car (white) is visible in the center lane, moving right, then exits the frame.",
+          "evidence_frame_ids": [
+            "S1-F04",
+            "S1-F05"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "A1 car disappears after 12s."
+        },
+        {
+          "event_id": "v1-b0001-e3",
+          "time_span": [
+            10.0,
+            14.0
+          ],
+          "description": "A yellow bus is visible in the upper right lane, moving left.",
+          "evidence_frame_ids": [
+            "S1-F04",
+            "S1-F05",
+            "S1-F06"
+          ],
+          "confidence": 0.8,
+          "uncertainty": "Bus is not a car."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=6/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [4.000-6.000s] A4 car (red) is visible in the upper right area of the highway scene, moving right. | evidence=S1-F01,S1-F02 | confidence=0.900\n- v1-b0001-e2 [10.000-12.000s] A1 car (white) is visible in the center lane, moving right, then exits the frame. | evidence=S1-F04,S1-F05 | confidence=0.900\n- v1-b0001-e3 [10.000-14.000s] A yellow bus is visible in the upper right lane, moving left. | evidence=S1-F04,S1-F05,S1-F06 | confidence=0.800\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [4.000-6.000s] A4 car disappears after 6s.\n- v1-b0001-e2 [10.000-12.000s] A1 car disappears after 12s.\n- v1-b0001-e3 [10.000-14.000s] Bus is not a car.\nQUERY ASSESSMENT\n- batch=1 relevance=indirect evidence=v1-b0001-e2,v1-b0001-e3 unresolved=Definition of 'view B' and whether it corresponds to the current camera angle.; Confirmation of whether the yellow bus is counted as a 'yellow car'. suggested_tools=visual_count",
+      "query_assessments": [
+        {
+          "relevance": "indirect",
+          "evidence_event_ids": [
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "unresolved_needs": [
+            "Definition of 'view B' and whether it corresponds to the current camera angle.",
+            "Confirmation of whether the yellow bus is counted as a 'yellow car'."
+          ],
+          "suggested_tools": [
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F06",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 16.666666666666668,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 9,
+      "cache_hit": false,
+      "observed_spans": [
+        [
+          4.0,
+          14.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            4.0,
+            6.0
+          ],
+          "description": "A red car with a magenta bounding box labeled 'D4 car' is visible in view A. A yellow truck is visible in view B.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02"
+          ],
+          "confidence": 0.95,
+          "uncertainty": "Target vehicle A1 identity is not explicitly labeled."
+        },
+        {
+          "event_id": "v2-b0001-e2",
+          "time_span": [
+            8.0,
+            14.0
+          ],
+          "description": "A red car with a yellow bounding box labeled 'B1 car' is visible in view A. A yellow bus is visible in view B.",
+          "evidence_frame_ids": [
+            "S1-F03",
+            "S1-F04",
+            "S1-F05",
+            "S1-F06"
+          ],
+          "confidence": 0.9,
+          "uncertainty": "Target vehicle A1 identity is not explicitly labeled."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 6,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=6/9 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [4.000-6.000s] A red car with a magenta bounding box labeled 'D4 car' is visible in view A. A yellow truck is visible in view B. | evidence=S1-F01,S1-F02 | confidence=0.950\n- v2-b0001-e2 [8.000-14.000s] A red car with a yellow bounding box labeled 'B1 car' is visible in view A. A yellow bus is visible in view B. | evidence=S1-F03,S1-F04,S1-F05,S1-F06 | confidence=0.900\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [4.000-6.000s] Target vehicle A1 identity is not explicitly labeled.\n- v2-b0001-e2 [8.000-14.000s] Target vehicle A1 identity is not explicitly labeled.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b0001-e1,v2-b0001-e2 unresolved=Identify which vehicle corresponds to {A1}.; Determine the moment {A1} disappears from view A. suggested_tools=entity_track,visual_count",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b0001-e1",
+            "v2-b0001-e2"
+          ],
+          "unresolved_needs": [
+            "Identify which vehicle corresponds to {A1}.",
+            "Determine the moment {A1} disappears from view A."
+          ],
+          "suggested_tools": [
+            "entity_track",
+            "visual_count"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 4,
+          "requested_timestamp_seconds": 8.0,
+          "actual_timestamp_seconds": 8.0,
+          "requested_frame_index": 240,
+          "actual_frame_index": 240,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 5,
+          "requested_timestamp_seconds": 10.0,
+          "actual_timestamp_seconds": 10.0,
+          "requested_frame_index": 300,
+          "actual_frame_index": 300,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F05",
+          "timeline_index": 6,
+          "requested_timestamp_seconds": 12.0,
+          "actual_timestamp_seconds": 12.0,
+          "requested_frame_index": 360,
+          "actual_frame_index": 360,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F06",
+          "timeline_index": 7,
+          "requested_timestamp_seconds": 14.0,
+          "actual_timestamp_seconds": 14.0,
+          "requested_frame_index": 420,
+          "actual_frame_index": 420,
+          "matched_queries": [
+            "When {A1} completely disappears in view A, how many yellow cars are there in view B?",
+            "multiple yellow cars visible in traffic",
+            "three yellow cars lined up on street"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MOC-251",
+    "task": "MOC",
+    "ground_truth": "B",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90-selection/MOC/MOC-251/result.json",
+    "selection_sha256": "f5f709f9726755dc5162bfbde7df95e7b747cdc735168c15762e69e801d84df7",
+    "reporter_identity": "openai-compatible-multimodal-v1:endpoint=https://dashscope.aliyuncs.com/compatible-mode/v1:model=qwen3.8-flash:tokens=4096:events=8:overlay=True:thinking=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-49: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=65; declared=car; A1_visible=283-336 (9.433-11.233s)/500_frames; B1_visible=252-329 (8.400-11.000s)/500_frames.",
+      "A2/B2 is source_track=77; declared=car; A2_visible=411-483 (13.700-16.133s)/500_frames; B2_visible=376-481 (12.533-16.067s)/500_frames.",
+      "A3/B3 is source_track=80; declared=car; A3_visible=474-499 (15.800-16.667s)/500_frames; B3_visible=423-499 (14.100-16.667s)/500_frames.",
+      "A4/B4 is source_track=54; declared=car; A4_visible=118-182 (3.933-6.100s)/500_frames; B4_visible=80-178 (2.667-5.967s)/500_frames.",
+      "A5/B5 is source_track=47; declared=car; A5_visible=47-102 (1.567-3.433s)/500_frames; B5_visible=10-92 (0.333-3.100s)/500_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ]
+  }
+}

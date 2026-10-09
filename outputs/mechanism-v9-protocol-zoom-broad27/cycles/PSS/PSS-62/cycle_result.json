@@ -1,0 +1,1714 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "The chronological order of the cooking video segments is now resolved based on the observed actions involving lemon juice squeezing, parsley scraping, onion preparation, and quinoa seasoning.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must obey the exact output format requested by the question and include every required input exactly once when an ordering is requested.",
+      "Videos v1, v2, v3, v4, v5 are normalized inputs from one source asset; retain each input identity and its declared source interval when reasoning about chronology."
+    ],
+    "requirements": [
+      {
+        "id": "r001",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r001-01.s01",
+          "v3.zoom.r2-r001-02.s01"
+        ],
+        "attempts": [
+          "Lemon juice squeezing and parsley scraping are both observed in their respective videos."
+        ]
+      },
+      {
+        "id": "r002",
+        "status": "supported",
+        "evidence_refs": [
+          "v3.c005"
+        ],
+        "attempts": [
+          "Onion slicing and dicing followed by adding to the bowl is observed in video v3."
+        ]
+      },
+      {
+        "id": "r003",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.c004",
+          "v2.c005"
+        ],
+        "attempts": [
+          "Quinoa salad preparation and seasoning addition are observed in video v2."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          864.997,
+          866.999
+        ],
+        "description": "Woman holds yellow apple, gestures while speaking to camera in kitchen.",
+        "uncertainty": "No other actions or objects are visible in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          866.999,
+          871.003
+        ],
+        "description": "Woman places apple on cutting board, turns to prepare it.",
+        "uncertainty": "No visible action between S1-F03 and S1-F04.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          877.009,
+          884.984
+        ],
+        "description": "Woman cuts apple, then squeezes juice into glass.",
+        "uncertainty": "No visible action between S2-F01 and S3-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          884.984,
+          895.995
+        ],
+        "description": "Woman pours liquid into bowl, holds bottle and spoon, smiles at camera.",
+        "uncertainty": "No visible action between S5-F01 and S6-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          895.995,
+          904.003
+        ],
+        "description": "Woman holds oil bottle and spoon, facing camera, preparing to add dressing.",
+        "uncertainty": "No prior action shown to establish sequence start.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          904.003,
+          919.986
+        ],
+        "description": "Woman pours oil from bottle into spoon, then into salad bowl.",
+        "uncertainty": "No visual confirmation of oil being fully added to bowl.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          919.986,
+          921.988
+        ],
+        "description": "Woman picks up a white and blue container, likely salt or seasoning.",
+        "uncertainty": "No visible label to confirm seasoning type.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          927.994,
+          927.994
+        ],
+        "description": "Close-up of finished quinoa salad in a white bowl.",
+        "uncertainty": "No visible transition to this frame from prior actions.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          931.998,
+          951.984
+        ],
+        "description": "Woman adds seasoning from white container into salad bowl.",
+        "uncertainty": "No visible confirmation of seasoning fully added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          951.984,
+          953.986
+        ],
+        "description": "Woman uses pepper grinder to add pepper to salad bowl.",
+        "uncertainty": "No visible confirmation of pepper fully added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          959.992,
+          961.994
+        ],
+        "description": "Woman adds spice from small jar into salad bowl.",
+        "uncertainty": "No visible confirmation of spice fully added.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          961.994,
+          965.998
+        ],
+        "description": "Woman gestures with hands while speaking, standing beside salad bowl.",
+        "uncertainty": "No visible confirmation of final mixing or serving.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          757.991,
+          761.995
+        ],
+        "description": "Woman begins preparing parsley on cutting board. Parsley is whole, unchopped.",
+        "uncertainty": "Initial parsley handling not fully visible in S1-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          761.995,
+          772.005
+        ],
+        "description": "Woman holds parsley, then begins chopping it on cutting board.",
+        "uncertainty": "Chopping motion starts at S2-F02.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          772.005,
+          795.995
+        ],
+        "description": "Woman continues chopping parsley. Chopped parsley accumulates on board.",
+        "uncertainty": "Chopping ends before S6-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          795.995,
+          796.996
+        ],
+        "description": "Woman scrapes chopped parsley from cutting board into glass bowl.",
+        "uncertainty": "Scraping action is visible in S6-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e5",
+        "video_id": "v3",
+        "time_span": [
+          807.006,
+          824.991
+        ],
+        "description": "Woman slices onion into rings, then dices it, adding to bowl.",
+        "uncertainty": "Dicing and adding to bowl occur between S9-F02 and S9-F04.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e6",
+        "video_id": "v3",
+        "time_span": [
+          842.008,
+          848.014
+        ],
+        "description": "Woman slices tomatoes on cutting board, preparing to add to bowl.",
+        "uncertainty": "Tomato slicing is visible in S10-F01 and S11-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          851.984,
+          855.988
+        ],
+        "description": "Person transfers chopped tomatoes from cutting board into a glass bowl with other ingredients.",
+        "uncertainty": "Action transition between frames not fully visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          855.988,
+          859.992
+        ],
+        "description": "Person picks up a lemon, preparing to use it next in the recipe.",
+        "uncertainty": "No further action visible after picking up the lemon.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          689.989,
+          693.993
+        ],
+        "description": "Woman holds measuring cup with grains, gesturing while speaking to camera.",
+        "uncertainty": "No visible action between S1-F01 and S1-F03 beyond holding and gesturing.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          691.991,
+          693.993
+        ],
+        "description": "Grains rinsed under running water in a strainer in kitchen sink.",
+        "uncertainty": "No other frames show this action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          703.002,
+          707.006
+        ],
+        "description": "Water poured from measuring cup into a pot on the stove.",
+        "uncertainty": "No other frames show this action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          707.006,
+          709.008
+        ],
+        "description": "Stove burner turned on; pot begins to steam.",
+        "uncertainty": "Steam visible in S3-F02 confirms heating started after S3-F01.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e5",
+        "video_id": "v4",
+        "time_span": [
+          713.012,
+          715.014
+        ],
+        "description": "Grains poured from strainer into steaming pot.",
+        "uncertainty": "Stove knob turned down in S4-F02 after pouring.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e6",
+        "video_id": "v4",
+        "time_span": [
+          717.016,
+          717.016
+        ],
+        "description": "Woman holds empty measuring cup, speaking to camera.",
+        "uncertainty": "No other frames show this action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          1014.013,
+          1027.994
+        ],
+        "description": "Woman scoops cooked grain from metal bowl into a glass bowl with chopped vegetables.",
+        "uncertainty": "Exact timing of transfer not visible in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          1027.994,
+          1031.998
+        ],
+        "description": "Woman adds ingredients to glass bowl and begins mixing with a spoon.",
+        "uncertainty": "Mixing motion is partially obscured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e3",
+        "video_id": "v5",
+        "time_span": [
+          1031.998,
+          1038.004
+        ],
+        "description": "Woman holds up the mixed salad bowl, facing the camera with a spoon inside.",
+        "uncertainty": "No visible change in bowl contents between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e4",
+        "video_id": "v5",
+        "time_span": [
+          1038.004,
+          1046.012
+        ],
+        "description": "Woman holds the salad bowl, smiles, and gestures with her thumb while speaking.",
+        "uncertainty": "No visible change in bowl contents between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          884.984,
+          886.986
+        ],
+        "description": "Person squeezes lemon into a glass. Lemon juice drips into the glass.",
+        "uncertainty": "No parsley scraping into a glass bowl is visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v3.focus.r1.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          851.984,
+          854.987
+        ],
+        "description": "Person scrapes chopped tomatoes from cutting board into glass bowl with herbs and onions.",
+        "uncertainty": "No apple juice pouring visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          884.984,
+          886.986
+        ],
+        "description": "Person squeezes lemon half into a glass on countertop.",
+        "uncertainty": "No parsley scraping visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          887.987,
+          895.995
+        ],
+        "description": "Person pours liquid from glass into a bowl with chopped vegetables.",
+        "uncertainty": "No parsley scraping visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          795.995,
+          795.995
+        ],
+        "description": "Person scrapes chopped parsley from cutting board into glass bowl.",
+        "uncertainty": "Lemon juice squeezing not visible in this frame.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Resolve relative stage relationships between apple preparation and parsley, salad dressing and vegetable prep, grain steaming and vegetable prep",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c004",
+          "v3.c007"
+        ],
+        "evidence_goal": "Which event occurs first: the apple juice being poured into a bowl or the parsley being scraped into a glass bowl?",
+        "next_probe_goal": "Which event occurs first: the oil being poured into the salad bowl or the parsley being scraped into a glass bowl?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Unobserved intervals and unresolved requirements involving parsley scraping, lemon juice squeezing, stove burner activation, and onion preparation.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r001",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01",
+          "v3.c004"
+        ],
+        "evidence_goal": "Is parsley being scraped into a glass bowl visible in the same video as lemon juice being squeezed into a glass?",
+        "next_probe_goal": "Which event occurs first: the oil being poured into the salad bowl or the parsley being scraped into a glass bowl?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The chronological order of the cooking video segments is now resolved based on the observed actions involving lemon juice squeezing, parsley scraping, onion preparation, and quinoa seasoning.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v3->v1->v2->v4->v5",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v3->v1->v2->v4->v5",
+    "evidence_refs": [
+      "v3.c005",
+      "v1.zoom.r2-r001-01.s01",
+      "v3.zoom.r2-r001-02.s01",
+      "v2.c004",
+      "v2.c005"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        864.997,
+        866.999
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds yellow apple, gestures while speaking to camera in kitchen.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "No other actions or objects are visible in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        866.999,
+        871.003
+      ],
+      "resolution": "coarse",
+      "content": "Woman places apple on cutting board, turns to prepare it.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "No visible action between S1-F03 and S1-F04."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        871.003,
+        877.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        877.009,
+        884.984
+      ],
+      "resolution": "coarse",
+      "content": "Woman cuts apple, then squeezes juice into glass.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible action between S2-F01 and S3-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        877.009,
+        884.984
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        884.984,
+        888.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r001-01.s01",
+      "video": "v1",
+      "time": [
+        884.984,
+        895.995
+      ],
+      "resolution": "fine",
+      "content": "Person squeezes lemon half into a glass on countertop. Person pours liquid from glass into a bowl with chopped vegetables.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "No parsley scraping visible in these frames.",
+        "Unresolved: Parsley scraping not visible in any supplied frame"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        888.988,
+        892.992
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        894.0,
+        895.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        895.995,
+        904.003
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds oil bottle and spoon, facing camera, preparing to add dressing.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "No prior action shown to establish sequence start."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        896.0,
+        904.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        904.003,
+        919.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        904.003,
+        919.986
+      ],
+      "resolution": "coarse",
+      "content": "Woman pours oil from bottle into spoon, then into salad bowl.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "No visual confirmation of oil being fully added to bowl."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        919.003,
+        919.986
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        919.986,
+        921.988
+      ],
+      "resolution": "coarse",
+      "content": "Woman picks up a white and blue container, likely salt or seasoning.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible label to confirm seasoning type."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        922.0,
+        927.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        927.994,
+        927.994
+      ],
+      "resolution": "coarse",
+      "content": "Close-up of finished quinoa salad in a white bowl.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "No visible transition to this frame from prior actions."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        927.994,
+        931.998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        931.998,
+        934.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        931.998,
+        951.984
+      ],
+      "resolution": "coarse",
+      "content": "Woman adds seasoning from white container into salad bowl.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "No visible confirmation of seasoning fully added."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        951.984,
+        953.986
+      ],
+      "resolution": "coarse",
+      "content": "Woman uses pepper grinder to add pepper to salad bowl.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "No visible confirmation of pepper fully added."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        953.986,
+        959.9920000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        959.992,
+        961.994
+      ],
+      "resolution": "coarse",
+      "content": "Woman adds spice from small jar into salad bowl.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "No visible confirmation of spice fully added."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        961.994,
+        965.998
+      ],
+      "resolution": "coarse",
+      "content": "Woman gestures with hands while speaking, standing beside salad bowl.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [
+        "No visible confirmation of final mixing or serving."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        961.994,
+        965.998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        965.998,
+        967.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        757.991,
+        761.995
+      ],
+      "resolution": "coarse",
+      "content": "Woman begins preparing parsley on cutting board. Parsley is whole, unchopped.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Initial parsley handling not fully visible in S1-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        758.0,
+        761.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        761.995,
+        772.005
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds parsley, then begins chopping it on cutting board.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Chopping motion starts at S2-F02."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        763.9970000000001,
+        765.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        770.0,
+        772.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        772.005,
+        776.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        772.005,
+        795.995
+      ],
+      "resolution": "coarse",
+      "content": "Woman continues chopping parsley. Chopped parsley accumulates on board.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Chopping ends before S6-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        776.009,
+        791.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        791.009,
+        791.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        791.991,
+        795.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-r001-02.s01",
+      "video": "v3",
+      "time": [
+        795.995,
+        796.996
+      ],
+      "resolution": "fine",
+      "content": "Person scrapes chopped parsley from cutting board into glass bowl.",
+      "evidence": [
+        "v3.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "Lemon juice squeezing not visible in this frame.",
+        "Unresolved: lemon juice being squeezed into a glass not visible in supplied frames"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        797.0,
+        807.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        807.006,
+        813.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        807.006,
+        824.991
+      ],
+      "resolution": "coarse",
+      "content": "Woman slices onion into rings, then dices it, adding to bowl.",
+      "evidence": [
+        "v3-b0001-e5"
+      ],
+      "uncertainty": [
+        "Dicing and adding to bowl occur between S9-F02 and S9-F04."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        813.012,
+        818.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        824.991,
+        828.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        830.0,
+        842.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        842.008,
+        848.014
+      ],
+      "resolution": "coarse",
+      "content": "Woman slices tomatoes on cutting board, preparing to add to bowl.",
+      "evidence": [
+        "v3-b0001-e6"
+      ],
+      "uncertainty": [
+        "Tomato slicing is visible in S10-F01 and S11-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u013",
+      "video": "v3",
+      "time": [
+        842.008,
+        848.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u014",
+      "video": "v3",
+      "time": [
+        848.014,
+        851.984
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u015",
+      "video": "v3",
+      "time": [
+        851.984,
+        855.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r1-U01-02.s01",
+      "video": "v3",
+      "time": [
+        851.984,
+        855.988
+      ],
+      "resolution": "fine",
+      "content": "Person scrapes chopped tomatoes from cutting board into glass bowl with herbs and onions.",
+      "evidence": [
+        "v3.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No apple juice pouring visible in these frames.",
+        "Unresolved: apple juice pouring event not visible in supplied frames"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c008",
+      "video": "v3",
+      "time": [
+        855.988,
+        859.992
+      ],
+      "resolution": "coarse",
+      "content": "Person picks up a lemon, preparing to use it next in the recipe.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "No further action visible after picking up the lemon."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u016",
+      "video": "v3",
+      "time": [
+        855.988,
+        859.992
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u017",
+      "video": "v3",
+      "time": [
+        859.992,
+        861.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        689.989,
+        693.993
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds measuring cup with grains, gesturing while speaking to camera.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "No visible action between S1-F01 and S1-F03 beyond holding and gesturing."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        691.991,
+        693.993
+      ],
+      "resolution": "coarse",
+      "content": "Grains rinsed under running water in a strainer in kitchen sink.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "No other frames show this action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        701.0,
+        703.0020000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        703.002,
+        707.006
+      ],
+      "resolution": "coarse",
+      "content": "Water poured from measuring cup into a pot on the stove.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "No other frames show this action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        703.0020000000001,
+        707.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        707.006,
+        709.008
+      ],
+      "resolution": "coarse",
+      "content": "Stove burner turned on; pot begins to steam.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "Steam visible in S3-F02 confirms heating started after S3-F01."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        709.008,
+        710.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        711.0,
+        713.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c005",
+      "video": "v4",
+      "time": [
+        713.012,
+        715.014
+      ],
+      "resolution": "coarse",
+      "content": "Grains poured from strainer into steaming pot.",
+      "evidence": [
+        "v4-b0001-e5"
+      ],
+      "uncertainty": [
+        "Stove knob turned down in S4-F02 after pouring."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c006",
+      "video": "v4",
+      "time": [
+        717.016,
+        717.016
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds empty measuring cup, speaking to camera.",
+      "evidence": [
+        "v4-b0001-e6"
+      ],
+      "uncertainty": [
+        "No other frames show this action."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c001",
+      "video": "v5",
+      "time": [
+        1014.013,
+        1027.994
+      ],
+      "resolution": "coarse",
+      "content": "Woman scoops cooked grain from metal bowl into a glass bowl with chopped vegetables.",
+      "evidence": [
+        "v5-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact timing of transfer not visible in frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        1014.013,
+        1027.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c002",
+      "video": "v5",
+      "time": [
+        1027.994,
+        1031.998
+      ],
+      "resolution": "coarse",
+      "content": "Woman adds ingredients to glass bowl and begins mixing with a spoon.",
+      "evidence": [
+        "v5-b0001-e2"
+      ],
+      "uncertainty": [
+        "Mixing motion is partially obscured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u002",
+      "video": "v5",
+      "time": [
+        1027.994,
+        1031.998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c003",
+      "video": "v5",
+      "time": [
+        1031.998,
+        1038.004
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds up the mixed salad bowl, facing the camera with a spoon inside.",
+      "evidence": [
+        "v5-b0001-e3"
+      ],
+      "uncertainty": [
+        "No visible change in bowl contents between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u003",
+      "video": "v5",
+      "time": [
+        1031.998,
+        1038.0040000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c004",
+      "video": "v5",
+      "time": [
+        1038.004,
+        1046.012
+      ],
+      "resolution": "coarse",
+      "content": "Woman holds the salad bowl, smiles, and gestures with her thumb while speaking.",
+      "evidence": [
+        "v5-b0001-e4"
+      ],
+      "uncertainty": [
+        "No visible change in bowl contents between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u004",
+      "video": "v5",
+      "time": [
+        1038.0040000000001,
+        1046.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Which event occurs first: the oil being poured into the salad bowl or the parsley being scraped into a glass bowl?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

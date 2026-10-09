@@ -1,0 +1,276 @@
+{
+  "question": "Which videos prepare the batter without using eggs?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "statement": "In v1, the reported batter preparation shows dry ingredients, a white liquid poured into them, and a thick lumpy batter."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2, the reported batter preparation shows a pale yellow batter being mixed by hand and then whisked."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1"
+      ],
+      "statement": "In v3, the reported batter preparation shows beer poured into flour and whisked into a batter."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0002-e1",
+        "v4-b0002-e2",
+        "v4-b0002-e3",
+        "v4-b0003-e1"
+      ],
+      "statement": "In v4, the reported batter preparation shows a white liquid mixture with orange swirls, a separate dry mixture, and a visible wet batter used before frying."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both v1 and v2 show batter being formed, but v1 shows a white liquid added to dry ingredients while v2 shows a pale yellow batter being mixed.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "statement": "Both v2 and v3 show batter preparation, but v3 explicitly shows beer added to flour while v2 does not show the added ingredients.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "Both v3 and v4 prepare batter before coating fish, but v3 uses beer and flour while v4 uses a white liquid mixture with orange swirls and a separate dry mixture.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e3",
+        "v4-b0002-e1",
+        "v4-b0002-e2",
+        "v4-b0002-e3",
+        "v4-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "Both v1 and v4 show batter preparation involving wet and dry components, but v1 reports a thick lumpy batter while v4 reports a liquid batter with orange swirls and a separate dry coating.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v4-b0002-e1",
+        "v4-b0002-e2",
+        "v4-b0002-e3",
+        "v4-b0002-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The egg-free status of the batter preparation in v1 and v2 remains unresolved.",
+      "reason": "The reports show batter formation but do not show whether eggs are among the ingredients or added during the preparation.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2",
+        "v3"
+      ],
+      "issue": "The egg-free status of the batter preparation in v2 and v3 remains unresolved.",
+      "reason": "The reports show pale yellow batter in v2 and beer-and-flour batter in v3, but neither report confirms the absence or presence of eggs.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v3-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "issue": "The egg-free status of the batter preparation in v3 and v4 remains unresolved.",
+      "reason": "The reports show batter ingredients or mixtures in v3 and v4 but do not show whether eggs are included or excluded.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v4-b0002-e1",
+        "v4-b0002-e2",
+        "v4-b0002-e3",
+        "v4-b0003-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The egg-free status of the batter preparation in v1 and v4 remains unresolved.",
+      "reason": "The reports show wet and dry batter components in v1 and v4 but do not identify whether eggs are used.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v4-b0002-e1",
+        "v4-b0002-e2",
+        "v4-b0002-e3",
+        "v4-b0003-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the batter-preparation spans in v1 and v2 for visible egg cracking, egg shells, or a distinct whisked egg mixture.",
+      "purpose": "This would determine whether both videos in the v1-v2 pair prepare batter without eggs.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2",
+        "v3"
+      ],
+      "observable": "Compare the batter-preparation spans in v2 and v3 for visible egg cracking, egg shells, or a distinct whisked egg mixture.",
+      "purpose": "This would determine whether both videos in the v2-v3 pair prepare batter without eggs.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3",
+        "v4"
+      ],
+      "observable": "Compare the batter-preparation spans in v3 and v4 for visible egg cracking, egg shells, or a distinct whisked egg mixture.",
+      "purpose": "This would determine whether both videos in the v3-v4 pair prepare batter without eggs.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Compare the batter-preparation spans in v1 and v4 for visible egg cracking, egg shells, or a distinct whisked egg mixture.",
+      "purpose": "This would determine whether both videos in the v1-v4 pair prepare batter without eggs.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 4,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-713",
+    "task": "CC",
+    "ground_truth": "C",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CC/CC-713/report.json",
+    "report_sha256": "1498e047415e2ce49692c534a537db3d7d55f5e4724df73e4585199dc2a09a24",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

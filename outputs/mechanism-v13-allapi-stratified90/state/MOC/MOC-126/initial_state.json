@@ -1,0 +1,184 @@
+{
+  "question": "When {A3} is parallel to {A2} in view A, how many cars are parked between {B2} and {B4} in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "v1 reports A3 moving into alignment parallel to A2 in view A during the 0.0-6.0 second span."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "v1 states that view B is not visible during the frames covering the A3-A2 alignment span."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "At 10.0 seconds, v1 reports view B shows A3 on the right and a row of parked cars on the left without explicit B2 or B4 labels."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "v2 reports a static aerial view with cars parked in a lot on the right side adjacent to a plaza, while A2, A3, B2, and B4 identities are unlabeled."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The synchronized v1 and v2 reports both show parked cars within the shared clock window, but v1 describes them on the left of view B and v2 describes them in a right-side lot.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 report provides an A3-to-A2 alignment cue in view A, whereas the v2 report does not label A2 or A3, so the trigger cannot be independently located in v2.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact synchronized timestamp for the A3-parallel-to-A2 trigger is not determined.",
+      "reason": "v1 reports the alignment over a span and v2 does not label the tracks needed to confirm it.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The labeled boundaries of B2 and B4 in view B are not established.",
+      "reason": "v1 states B2 and B4 are not explicitly labeled, and v2 states their identities are not labeled.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of parked cars between B2 and B4 at the trigger timestamp is not observed.",
+      "reason": "The reports mention parked cars but do not count any subset bounded by B2 and B4.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Identify the exact frame in view A where A3 is parallel to A2.",
+      "purpose": "Resolves the trigger-timestamp issue.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Locate the B2 and B4 labels in view B at the identified trigger timestamp.",
+      "purpose": "Resolves the interval-boundary issue.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Count parked cars strictly between B2 and B4 in view B at the identified trigger timestamp, distinguishing counts 4, 8, 12, and 16.",
+      "purpose": "Resolves the missing count issue.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-126",
+    "task": "MOC",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MOC/MOC-126/report.json",
+    "report_sha256": "213a7c2414377941a10fac4f50f001b257b0029f9c0f2812b4aa6248723e8cca",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

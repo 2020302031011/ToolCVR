@@ -1,0 +1,810 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 4,
+    "summary": "Visual budget and Focus stages are exhausted; R01/R02 remain unresolved but the best evidence-supported chronology is v4 (cloth/tool handling with separate ingredients before assembly), v1 (picking and shaping rice), v3 (shaping rice while moving salmon toward assembly), v2 (pressing rice onto salmon and finished nigiri).",
+    "review": {
+      "outcome": "partial",
+      "reason": "The focus validated separate-ingredient, rice-holding, and pressing/finished details, narrowing stage alignment, but did not recover the missing continuity windows needed to connect v1/v3 to v2 or resolve v4's position.",
+      "evidence_refs": [
+        "v1.zoom.r2-R03-01.s01",
+        "v3.zoom.r2-R03-03.s01"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "R01",
+        "objective": "Link the separate-ingredient and rice-holding states in v1/v3 to the salmon-pressing state in v2 through an observed continuity transition.",
+        "videos": [
+          "v1",
+          "v3",
+          "v2"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-R03-01.s01",
+          "v3.c001",
+          "v3.zoom.r2-R03-03.s01",
+          "v2.zoom.r1-U01-04.s01",
+          "v2.c003"
+        ],
+        "attempts": [
+          "v1 and v3 show separate ingredients and rice-holding states, while v2 shows salmon-pressing and finished nigiri; however, no observed continuity transition links rice shaping or salmon movement to the pressing stage, so cross-video chronology remains unresolved."
+        ]
+      },
+      {
+        "id": "R02",
+        "objective": "Determine whether v4's separate-ingredient and cloth-handling state is pre-assembly context or an ambiguous later state relative to v1/v3/v2.",
+        "videos": [
+          "v4",
+          "v1",
+          "v3"
+        ],
+        "status": "open",
+        "evidence_refs": [
+          "v1.zoom.r2-R03-01.s01",
+          "v3.zoom.r2-R03-03.s01",
+          "v4.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "v4 shows cloth and chopstick handling over separate rice and salmon without assembly, and v1/v3 show separate-ingredient or rice-holding contexts; no direct transition or shared continuity evidence determines whether v4 precedes assembly or is an ambiguous later state."
+        ]
+      },
+      {
+        "id": "R03",
+        "objective": "Confirm that v2 contains the local pressing-to-finished nigiri assembly stage.",
+        "videos": [
+          "v2"
+        ],
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-04.s01",
+          "v2.c003"
+        ],
+        "attempts": [
+          "v2 evidence directly shows hands pressing rice onto salmon and a close-up of finished salmon nigiri, confirming the local pressing-to-finished assembly stage."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.01,
+          0.01
+        ],
+        "description": "Chef in black uniform stands behind counter with rice, wasabi, and salmon. Right hand touches rice mound.",
+        "uncertainty": "Segment S1 start.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          6.016,
+          6.016
+        ],
+        "description": "Close-up of hands on wooden board. Left hand near rice, right hand near salmon slice.",
+        "uncertainty": "Segment S2 start.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.025,
+          3.996
+        ],
+        "description": "A chef in a black uniform stands behind a wooden counter, shaping a piece of salmon nigiri sushi with both hands.",
+        "uncertainty": "Segment S1 content only.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          7.034,
+          7.034
+        ],
+        "description": "A close-up view of hands pressing rice onto a slice of salmon on a wooden cutting board.",
+        "uncertainty": "Segment S2 content only.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          11.005,
+          11.005
+        ],
+        "description": "A close-up of hands holding a finished piece of salmon nigiri, with the fish draped over the rice.",
+        "uncertainty": "Segment S3 content only.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.019,
+          1.988
+        ],
+        "description": "A person shapes rice with one hand and handles salmon with the other. The right hand moves the salmon slice from the cutting board to an off-screen location.",
+        "uncertainty": "Exact destination of the salmon slice.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.01,
+          0.01
+        ],
+        "description": "Chef holding chopsticks in right hand and a white cloth in left hand, positioned above the cutting board.",
+        "uncertainty": "subsequent movement of cloth",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          4.014,
+          4.014
+        ],
+        "description": "Chef placing the white cloth down on the right side of the cutting board with left hand.",
+        "uncertainty": "exact moment cloth was placed",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4.focus.r1.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Chef holds chopsticks and cloth over a counter with separate piles of rice and salmon; he wipes the board and handles tools but does not press the rice onto the fish.",
+        "uncertainty": "Assembly action not visible in supplied frames",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r1.l2.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.014,
+          5.014
+        ],
+        "description": "The chef holds a white cloth and black chopsticks, performing wiping motions on the wooden counter surface near separate piles of rice and salmon.",
+        "uncertainty": "No assembly of rice onto salmon occurs in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l3.e1",
+        "video_id": "v1",
+        "time_span": [
+          2.016,
+          4.016
+        ],
+        "description": "Chef holds rice in hand above board. Separate pile of rice and piece of salmon visible on the surface.",
+        "uncertainty": "Target cloth handling not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l3.e2",
+        "video_id": "v1",
+        "time_span": [
+          5.016,
+          6.016
+        ],
+        "description": "Close-up of chef's hand holding rice above the board. Separate pile of rice and piece of salmon remain on surface.",
+        "uncertainty": "Target cloth handling not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          3.034,
+          6.034
+        ],
+        "description": "A chef in a black uniform stands behind a wooden counter, holding a piece of salmon nigiri with both hands.",
+        "uncertainty": "Specific hand movements are subtle.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e2",
+        "video_id": "v2",
+        "time_span": [
+          7.034,
+          11.034
+        ],
+        "description": "Close-up of hands pressing rice onto a slice of salmon to form nigiri, with a container of wasabi visible in the background.",
+        "uncertainty": "Target cloth/chopstick handling not visible in supplied frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.01,
+          4.01
+        ],
+        "description": "Chef stands at a counter with separate ingredients (rice mound, wasabi, salmon) laid out. He picks up a portion of rice and holds it in his hand.",
+        "uncertainty": "Exact moment of rice separation from the main pile is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          5.01,
+          6.01
+        ],
+        "description": "View shifts to a close-up of the chef's hands shaping the rice ball over the wooden counter.",
+        "uncertainty": "Transition between the wide shot and close-up is unobserved.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          6.016,
+          6.016
+        ],
+        "description": "Separate ingredients on a wooden board: a mound of rice, a small green paste, and a piece of salmon. A person's hands are positioned above the board.",
+        "uncertainty": "No action is visible in this single frame.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r2.l3.e1",
+        "video_id": "v3",
+        "time_span": [
+          1.988,
+          1.988
+        ],
+        "description": "A hand holds a portion of white rice above a wooden board. Separate piles of rice, wasabi, and a slice of salmon are visible on the surface.",
+        "uncertainty": "Subsequent shaping or assembly actions are not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          3.996,
+          5.996
+        ],
+        "description": "A chef in a black uniform is shown from the waist up, holding and shaping a piece of salmon nigiri sushi with both hands over a wooden counter.",
+        "uncertainty": "The exact moment the rice was placed on the fish is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l4.e2",
+        "video_id": "v2",
+        "time_span": [
+          6.996,
+          6.996
+        ],
+        "description": "A close-up shot focuses on the chef's hands as they press and shape the rice and salmon nigiri.",
+        "uncertainty": "The transition from the wide shot to this close-up is not captured.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Initial evidence leaves v4's cloth/chopstick handling unplaced relative to the assembly clips: v1 shows separate rice and salmon, v3 shows rice shaping and salmon movement, and v2 shows pressing rice onto salmon and a finished nigiri. U01 is the highest-leverage open requirement because v4's local board state is too coarse to determine whether it occurs before ingredient layout, during assembly, or after completion. I will refine v4.c001 and v4.c002 and compare them with v1.c002 and v2.c002 within the current 4-call stage budget.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v4.c001",
+          "v4.c002",
+          "v1.c002",
+          "v2.c002"
+        ],
+        "evidence_goal": "Determine whether v4's cloth/chopstick handling and cloth placement occur with separate rice and salmon (as in v1), with rice being pressed onto salmon (as in v2), or with neither, thereby placing v4 relative to the assembly sequence and clarifying its relation to v3.",
+        "next_probe_goal": "If v4 aligns with separate ingredients, reserve the next stage for v1-v3-v2 assembly continuity; if v4 aligns with pressing/finished nigiri, reserve the next stage for assembly order preceding v4; if v4 aligns with rice-shaping/salmon-movement or remains ambiguous, target v3/v4 or v4.u002 continuity next.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "R01 and R02 are supported: v4 shows wiping/chopstick handling with separate rice and salmon and no observed pressing, while v2 shows pressing rice onto salmon and a finished nigiri state. R03 remains open because the continuity among v1's rice-holding state, v3's rice-shaping/salmon-movement state, and v2's assembly/finished state has not yet been observed. The next focus should recover missing coverage windows in v1, v3, and v2 to connect the assembly transitions and resolve the cross-segment chronology.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "R03",
+        "slot_ids": [
+          "v1.u001",
+          "v1.u002",
+          "v3.u001",
+          "v2.u001"
+        ],
+        "evidence_goal": "Recover the missing continuity windows in v1, v3, and v2 to determine how the separate-ingredient state, rice holding, rice shaping/salmon movement, and pressing-to-finished assembly connect chronologically.",
+        "next_probe_goal": "Observe the selected coverage intervals to identify state transitions that link v1 to v3 and v3 to v2, while using v4 as the separate-ingredient pre-assembly context.",
+        "mode": "recover"
+      }
+    },
+    {
+      "updates": [
+        {
+          "requirement_id": "R01",
+          "status": "open",
+          "evidence_refs": [
+            "v1.zoom.r2-R03-01.s01",
+            "v3.c001",
+            "v3.zoom.r2-R03-03.s01",
+            "v2.zoom.r1-U01-04.s01",
+            "v2.c003"
+          ],
+          "summary": "v1 and v3 show separate ingredients and rice-holding states, while v2 shows salmon-pressing and finished nigiri; however, no observed continuity transition links rice shaping or salmon movement to the pressing stage, so cross-video chronology remains unresolved."
+        },
+        {
+          "requirement_id": "R02",
+          "status": "open",
+          "evidence_refs": [
+            "v1.zoom.r2-R03-01.s01",
+            "v3.zoom.r2-R03-03.s01",
+            "v4.zoom.r1-U01-01.s01"
+          ],
+          "summary": "v4 shows cloth and chopstick handling over separate rice and salmon without assembly, and v1/v3 show separate-ingredient or rice-holding contexts; no direct transition or shared continuity evidence determines whether v4 precedes assembly or is an ambiguous later state."
+        },
+        {
+          "requirement_id": "R03",
+          "status": "supported",
+          "evidence_refs": [
+            "v2.zoom.r1-U01-04.s01",
+            "v2.c003"
+          ],
+          "summary": "v2 evidence directly shows hands pressing rice onto salmon and a close-up of finished salmon nigiri, confirming the local pressing-to-finished assembly stage."
+        }
+      ],
+      "summary": "Local evidence supports v2 as a pressing-to-finished assembly clip and places v1/v3/v4 in separate-ingredient or handling contexts, but missing continuity transitions prevent settling the full chronological sequence.",
+      "action": "ALIGN",
+      "reason": "Audited current evidence against each requirement, confirmed only v2's local assembly status, and retained open cross-video continuity gaps without requesting frames.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "updates": [],
+      "summary": "Visual budget and Focus stages are exhausted; R01/R02 remain unresolved but the best evidence-supported chronology is v4 (cloth/tool handling with separate ingredients before assembly), v1 (picking and shaping rice), v3 (shaping rice while moving salmon toward assembly), v2 (pressing rice onto salmon and finished nigiri).",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "v4 -> v1 -> v3 -> v2",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "R01",
+      "objective": "Link the separate-ingredient and rice-holding states in v1/v3 to the salmon-pressing state in v2 through an observed continuity transition.",
+      "videos": [
+        "v1",
+        "v3",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r2-R03-01.s01",
+        "v3.c001",
+        "v3.zoom.r2-R03-03.s01",
+        "v2.zoom.r1-U01-04.s01",
+        "v2.c003"
+      ],
+      "summary": "v1 and v3 show separate ingredients and rice-holding states, while v2 shows salmon-pressing and finished nigiri; however, no observed continuity transition links rice shaping or salmon movement to the pressing stage, so cross-video chronology remains unresolved."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "R02",
+      "objective": "Determine whether v4's separate-ingredient and cloth-handling state is pre-assembly context or an ambiguous later state relative to v1/v3/v2.",
+      "videos": [
+        "v4",
+        "v1",
+        "v3"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1.zoom.r2-R03-01.s01",
+        "v3.zoom.r2-R03-03.s01",
+        "v4.zoom.r1-U01-01.s01"
+      ],
+      "summary": "v4 shows cloth and chopstick handling over separate rice and salmon without assembly, and v1/v3 show separate-ingredient or rice-holding contexts; no direct transition or shared continuity evidence determines whether v4 precedes assembly or is an ambiguous later state."
+    },
+    {
+      "round": 3,
+      "evidence_revision": 3,
+      "requirement_id": "R03",
+      "objective": "Confirm that v2 contains the local pressing-to-finished nigiri assembly stage.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2.zoom.r1-U01-04.s01",
+        "v2.c003"
+      ],
+      "summary": "v2 evidence directly shows hands pressing rice onto salmon and a close-up of finished salmon nigiri, confirming the local pressing-to-finished assembly stage."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "aligned_revision": 3,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v4 -> v1 -> v3 -> v2",
+    "evidence_refs": [
+      "v4.zoom.r1-U01-01.s01",
+      "v1.zoom.r2-R03-01.s01",
+      "v3.c001",
+      "v3.zoom.r2-R03-03.s01",
+      "v2.zoom.r1-U01-04.s01",
+      "v2.c003"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-R03-01.s01",
+      "video": "v1",
+      "time": [
+        0.009999999999999787,
+        6.016000000000002
+      ],
+      "resolution": "fine",
+      "content": "Chef stands at a counter with separate ingredients (rice mound, wasabi, salmon) laid out. He picks up a portion of rice and holds it in his hand. View shifts to a close-up of the chef's hands shaping the rice ball over the wooden counter.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "Exact moment of rice separation from the main pile is not visible.",
+        "Transition between the wide shot and close-up is unobserved.",
+        "Unresolved: Missing continuity window showing the start of the rice shaping process."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.01,
+        0.01
+      ],
+      "resolution": "coarse",
+      "content": "Chef in black uniform stands behind counter with rice, wasabi, and salmon. Right hand touches rice mound.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Segment S1 start."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-03.s01",
+      "video": "v1",
+      "time": [
+        2.016,
+        6.966633333333333
+      ],
+      "resolution": "fine",
+      "content": "Chef holds rice in hand above board. Separate pile of rice and piece of salmon visible on the surface. Close-up of chef's hand holding rice above the board. Separate pile of rice and piece of salmon remain on surface.",
+      "evidence": [
+        "v1.focus.r1.l3.e1",
+        "v1.focus.r1.l3.e2"
+      ],
+      "uncertainty": [
+        "Target cloth handling not visible in these frames.",
+        "Unresolved: cloth handling or placement event"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-R03-02.s01",
+      "video": "v1",
+      "time": [
+        6.016000000000002,
+        6.966633333333333
+      ],
+      "resolution": "fine",
+      "content": "Separate ingredients on a wooden board: a mound of rice, a small green paste, and a piece of salmon. A person's hands are positioned above the board.",
+      "evidence": [
+        "v1.focus.r2.l2.e1"
+      ],
+      "uncertainty": [
+        "No action is visible in this single frame.",
+        "Unresolved: The chronological sequence of actions connecting the separate-ingredient state to the finished assembly."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.025,
+        3.996
+      ],
+      "resolution": "coarse",
+      "content": "A chef in a black uniform stands behind a wooden counter, shaping a piece of salmon nigiri sushi with both hands.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Segment S1 content only."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-04.s01",
+      "video": "v2",
+      "time": [
+        3.034,
+        11.033999999999999
+      ],
+      "resolution": "fine",
+      "content": "A chef in a black uniform stands behind a wooden counter, holding a piece of salmon nigiri with both hands. Close-up of hands pressing rice onto a slice of salmon to form nigiri, with a container of wasabi visible in the background.",
+      "evidence": [
+        "v2.focus.r1.l4.e1",
+        "v2.focus.r1.l4.e2"
+      ],
+      "uncertainty": [
+        "Specific hand movements are subtle.",
+        "Target cloth/chopstick handling not visible in supplied frames.",
+        "Unresolved: cloth/chopstick handling and placement events"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-R03-04.s01",
+      "video": "v2",
+      "time": [
+        3.995633333333334,
+        7.0
+      ],
+      "resolution": "fine",
+      "content": "A chef in a black uniform is shown from the waist up, holding and shaping a piece of salmon nigiri sushi with both hands over a wooden counter. A close-up shot focuses on the chef's hands as they press and shape the rice and salmon nigiri.",
+      "evidence": [
+        "v2.focus.r2.l4.e1",
+        "v2.focus.r2.l4.e2"
+      ],
+      "uncertainty": [
+        "The exact moment the rice was placed on the fish is not visible.",
+        "The transition from the wide shot to this close-up is not captured.",
+        "Unresolved: The initial placement of rice onto the salmon slice.",
+        "Unresolved: The final release of the finished piece."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        7.033999999999999,
+        11.00463333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        11.00463333333333,
+        12.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        11.005,
+        11.005
+      ],
+      "resolution": "coarse",
+      "content": "A close-up of hands holding a finished piece of salmon nigiri, with the fish draped over the rice.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Segment S3 content only."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.019,
+        1.988
+      ],
+      "resolution": "coarse",
+      "content": "A person shapes rice with one hand and handles salmon with the other. The right hand moves the salmon slice from the cutting board to an off-screen location.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact destination of the salmon slice."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r2-R03-03.s01",
+      "video": "v3",
+      "time": [
+        1.987633333333335,
+        2.9666333333333332
+      ],
+      "resolution": "fine",
+      "content": "A hand holds a portion of white rice above a wooden board. Separate piles of rice, wasabi, and a slice of salmon are visible on the surface.",
+      "evidence": [
+        "v3.focus.r2.l3.e1"
+      ],
+      "uncertainty": [
+        "Subsequent shaping or assembly actions are not visible.",
+        "Unresolved: Continuity of the rice holding action",
+        "Unresolved: Transition to the shaping or assembly phase"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U01-01.s01",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.01
+      ],
+      "resolution": "fine",
+      "content": "Chef holds chopsticks and cloth over a counter with separate piles of rice and salmon; he wipes the board and handles tools but does not press the rice onto the fish.",
+      "evidence": [
+        "v4.focus.r1.l1.e1"
+      ],
+      "uncertainty": [
+        "Assembly action not visible in supplied frames",
+        "Unresolved: Whether the chef presses rice onto salmon in this sequence"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.009633333333333383,
+        4.013633333333338
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r1-U01-02.s01",
+      "video": "v4",
+      "time": [
+        0.014000000000000234,
+        5.966633333333333
+      ],
+      "resolution": "fine",
+      "content": "The chef holds a white cloth and black chopsticks, performing wiping motions on the wooden counter surface near separate piles of rice and salmon.",
+      "evidence": [
+        "v4.focus.r1.l2.e1"
+      ],
+      "uncertainty": [
+        "No assembly of rice onto salmon occurs in these frames."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        4.013633333333338,
+        6.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

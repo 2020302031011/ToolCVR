@@ -1,0 +1,251 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "The woman holds a yellow apple, places it on a cutting board, cuts it, and squeezes juice into a glass."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0001-e6",
+        "v2-b0001-e7",
+        "v2-b0001-e8"
+      ],
+      "statement": "The woman prepares a salad by adding oil, seasoning, and pepper, and finishes with a gesture."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6",
+        "v3-b0002-e1",
+        "v3-b0002-e2"
+      ],
+      "statement": "The woman prepares parsley, onion, and tomatoes, and picks up a lemon for the recipe."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v4-b0001-e6"
+      ],
+      "statement": "The woman rinses grains, steams them in a pot, and holds an empty measuring cup."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2",
+        "v5-b0001-e3",
+        "v5-b0001-e4"
+      ],
+      "statement": "The woman transfers cooked grain into a bowl with vegetables, mixes it, and gestures."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The apple juice from v1 may be the dressing added to the salad in v2.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v3",
+        "v5"
+      ],
+      "statement": "The chopped parsley, onion, and tomatoes from v3 may be the vegetables in the mixed salad in v5.",
+      "supporting_events": [
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6",
+        "v5-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "The cooked grain from v4 may be the grain transferred into the salad bowl in v5.",
+      "supporting_events": [
+        "v4-b0001-e5",
+        "v5-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the apple juice from v1 is the dressing in v2.",
+      "reason": "The connection between the juice and the dressing is not explicitly confirmed.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3",
+        "v5"
+      ],
+      "issue": "Whether the chopped vegetables in v3 are the same as those in v5.",
+      "reason": "The specific vegetables in v5 are not explicitly identified.",
+      "related_events": [
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6",
+        "v5-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "issue": "Whether the cooked grain in v4 is the same as the grain in v5.",
+      "reason": "The grain in v5 is not explicitly identified as the same as in v4.",
+      "related_events": [
+        "v4-b0001-e5",
+        "v5-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Whether the apple juice from v1 is the dressing in v2.",
+      "purpose": "To resolve U01.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3",
+        "v5"
+      ],
+      "observable": "Whether the chopped vegetables in v3 are the same as those in v5.",
+      "purpose": "To resolve U02.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v4",
+        "v5"
+      ],
+      "observable": "Whether the cooked grain in v4 is the same as the grain in v5.",
+      "purpose": "To resolve U03.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 3,
+    "covered_pair_count": 3,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 3,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-62",
+    "task": "PSS",
+    "ground_truth": "4->3->1->2->5",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/PSS/PSS-62/report.json",
+    "report_sha256": "0b4fe03127a35bc4204b82e7f1e6e2642b88c748ae82e6de18a32cf80c35d9ff",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

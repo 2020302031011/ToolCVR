@@ -1,0 +1,109 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "Oil poured into pan. Two dollops of batter added to hot oil."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e2",
+        "v2-b0003-e3"
+      ],
+      "statement": "Chef pours oil into a hot skillet and scoops batter into the hot skillet."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show oil being poured into a pan and batter being added to the hot oil.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e2",
+        "v2-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact timing and visual details of the batter addition and cooking process differ between the videos.",
+      "reason": "The events in v1 describe adding two dollops of batter, while v2 shows multiple portions being added, and the cooking process is not fully visible in both.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e3",
+        "v2-b0003-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the exact timing and visual details of the batter addition and cooking process.",
+      "purpose": "To determine the functionally equivalent step in Video 2 corresponding to the cooking step in Video 1.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-21",
+    "task": "FSA",
+    "ground_truth": [
+      77,
+      92
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v9-protocol-zoom-broad27/reports/FSA/FSA-21/report.json",
+    "report_sha256": "a0cdf68fcafe5ad6f327dcaafe71237ae8c08d64dc3a77ad8d2636cda71d9ba4",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

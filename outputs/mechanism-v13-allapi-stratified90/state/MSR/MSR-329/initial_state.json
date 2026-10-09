@@ -1,0 +1,127 @@
+{
+  "question": "When {A1} completely leaves view A, where is {B2} located in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "At 8.0s, A1 is visible on the far left edge of view A and has not completely left the frame."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "During 12.0-14.0s, B2 is observed in the center lane of view B."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e4"
+      ],
+      "statement": "During 12.0-16.0s, v1 reports A2 and A3 visible in view B but does not explicitly identify B2."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The shared-clock reference ranges align A1's exit from view A with B2's visibility window in view B, so the requested relation must be evaluated at the synchronized exit timestamp.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 observation of A1 partially exiting view A at 8.0s occurs earlier than the v2 observation of B2 in the center lane during 12.0-14.0s, so the later observation does not locate B2 at the exit time.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The location of B2 in view B at the synchronized time when A1 completely leaves view A remains unresolved.",
+      "reason": "The reference ranges establish the trigger time and B2 visibility, but the event reports only show A1 partially exiting at 8.0s and B2 in the center lane later at 12.0-14.0s, without recording B2's position at the trigger.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "At the synchronized timestamp when A1 completely leaves view A, observe B2 in view B and determine whether it is in the center, top left, bottom right, or not shown.",
+      "purpose": "Resolve the missing B2 location at the trigger time.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-329",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/MSR/MSR-329/report.json",
+    "report_sha256": "ee6cddfef54040a6c0cc53c344efc4f5fdab5d331441987ef5133fe506f5ef79",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

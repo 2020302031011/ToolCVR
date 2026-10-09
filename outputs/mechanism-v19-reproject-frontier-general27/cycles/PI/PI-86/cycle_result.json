@@ -1,0 +1,1633 @@
+{
+  "state": {
+    "question": "Video 1 shows the beginning and Video 2 shows the ending of one story. Which option best explains what happened in the missing interval?",
+    "round_id": 3,
+    "summary": "Current evidence shows v1 beginning with hostile ghosts and a staircase fight where the man uses a long stick-like object, while v2 ending shows a vacuum-like device and later friendly ghosts serving fruit juice. The missing interval is best explained by the man vacuuming the hostile ghosts during the stair combat, though the stick-like object is not explicitly identified as a vacuum and fruit juice remains a secondary clue.",
+    "review": {
+      "outcome": "partial",
+      "reason": "Evidence confirms the man is fighting ghosts on stairs with a stick-like object, but does not definitively identify it as a vacuum or show carpet destruction.",
+      "evidence_refs": [
+        "v1.zoom.r2-U01-01.s01"
+      ],
+      "decision_eligible": true,
+      "residual_open_question_count": 2
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If residual uncertainty remains when answering, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 are normalized inputs from one source asset; retain each input identity. Compare timestamps only when another protocol rule explicitly declares a shared clock.",
+      "v1 is the beginning and v2 is the ending of one story; infer the missing event from visible before/after state changes rather than treating them as synchronized views."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "findings": [],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "Determine the mechanism of ghost defeat in the missing interval (vacuum vs. carpet destruction).",
+        "videos": [
+          "v1"
+        ],
+        "related_evidence_refs": [
+          "v1.zoom.r2-U01-01.s01"
+        ]
+      },
+      {
+        "id": "U02",
+        "question": "Identify the cause of the transition from hostile ghosts to a friendly chef ghost.",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v1.c002",
+          "v2.c011"
+        ]
+      }
+    ],
+    "contrastive_frontier": [
+      {
+        "id": "P01",
+        "question_id": "U01",
+        "videos": [
+          "v1"
+        ],
+        "observable": "The specific tool held by the man during the staircase fight and its interaction with the ghosts.",
+        "purpose": "To distinguish between vacuuming (Option E) and destroying a portal/carpet (Option D)."
+      },
+      {
+        "id": "P02",
+        "question_id": "U02",
+        "videos": [
+          "v1",
+          "v2"
+        ],
+        "observable": "Any event or object that causes the ghosts to change behavior from attacking to serving/cooking.",
+        "purpose": "To determine if sunlight, negotiation, or another factor caused the shift."
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.004
+        ],
+        "description": "A man enters a room with a red carpet, observing green smoke and a dripping stained-glass lamp.",
+        "direct_observation": "A man enters a room with a red carpet, observing green smoke and a dripping stained-glass lamp.",
+        "inferred_interpretation": "",
+        "uncertainty": "The source of the green smoke is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          33.992,
+          42.0
+        ],
+        "description": "A sword attacks the man; three ghosts appear, mocking him while hovering near a glowing red lamp.",
+        "direct_observation": "A sword attacks the man; three ghosts appear, mocking him while hovering near a glowing red lamp.",
+        "inferred_interpretation": "",
+        "uncertainty": "The sword's wielder is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          44.002,
+          52.01
+        ],
+        "description": "The man defends himself with a plunger against the ghosts, who continue to taunt him.",
+        "direct_observation": "The man defends himself with a plunger against the ghosts, who continue to taunt him.",
+        "inferred_interpretation": "",
+        "uncertainty": "The efficacy of the plunger is not established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e4",
+        "video_id": "v1",
+        "time_span": [
+          58.016,
+          62.02
+        ],
+        "description": "The man strikes a ghost in the face with the plunger, causing it to recoil.",
+        "direct_observation": "The man strikes a ghost in the face with the plunger, causing it to recoil.",
+        "inferred_interpretation": "",
+        "uncertainty": "The long-term effect on the ghost is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          63.981,
+          65.983
+        ],
+        "description": "A close-up of a spinning wooden object with a ghostly figure behind it, followed by a view of a red wall with a spiral design and a subtitle.",
+        "direct_observation": "A close-up of a spinning wooden object with a ghostly figure behind it, followed by a view of a red wall with a spiral design and a subtitle.",
+        "inferred_interpretation": "",
+        "uncertainty": "Connection between the spinning object and the wall is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          67.985,
+          67.985
+        ],
+        "description": "A man runs down a curved staircase, pursued by two white, cloud-like ghosts.",
+        "direct_observation": "A man runs down a curved staircase, pursued by two white, cloud-like ghosts.",
+        "inferred_interpretation": "",
+        "uncertainty": "The man's identity and the ghosts' origin are not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          175.008,
+          177.01
+        ],
+        "description": "A static establishing shot of a gothic castle on a coastal cliff during a vibrant sunset.",
+        "direct_observation": "A static establishing shot of a gothic castle on a coastal cliff during a vibrant sunset.",
+        "inferred_interpretation": "",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          179.012,
+          179.012
+        ],
+        "description": "A black screen frame.",
+        "direct_observation": "A black screen frame.",
+        "inferred_interpretation": "",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          181.014,
+          185.018
+        ],
+        "description": "A girl holds a white, handheld vacuum-like device in a room with curved architectural features.",
+        "direct_observation": "A girl holds a white, handheld vacuum-like device in a room with curved architectural features.",
+        "inferred_interpretation": "",
+        "uncertainty": "The exact nature of the device is inferred.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          187.02,
+          194.986
+        ],
+        "description": "The girl moves through an interior space, pointing the device at a suit of armor and a glowing lamp.",
+        "direct_observation": "The girl moves through an interior space, pointing the device at a suit of armor and a glowing lamp.",
+        "inferred_interpretation": "",
+        "uncertainty": "The device's effect on the objects is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          204.996,
+          206.998
+        ],
+        "description": "The girl approaches and passes through a dark, ornate doorway.",
+        "direct_observation": "The girl approaches and passes through a dark, ornate doorway.",
+        "inferred_interpretation": "",
+        "uncertainty": "What she saw before entering is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          209.0,
+          213.004
+        ],
+        "description": "The girl enters a dining room with a set table and looks around with a wary expression.",
+        "direct_observation": "The girl enters a dining room with a set table and looks around with a wary expression.",
+        "inferred_interpretation": "",
+        "uncertainty": "Her reaction to the room's state is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          215.006,
+          223.014
+        ],
+        "description": "A ghost wraps a bandage around the girl's mouth while subtitles explain it is a friendly ghost trying to prevent her from screaming.",
+        "direct_observation": "A ghost wraps a bandage around the girl's mouth while subtitles explain it is a friendly ghost trying to prevent her from screaming.",
+        "inferred_interpretation": "",
+        "uncertainty": "The exact mechanism of the bandage appearing is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          230.981,
+          236.987
+        ],
+        "description": "The girl touches her face, remarks on the ghost's cold temperature, and the ghost floats away making a joke about heating bills.",
+        "direct_observation": "The girl touches her face, remarks on the ghost's cold temperature, and the ghost floats away making a joke about heating bills.",
+        "inferred_interpretation": "",
+        "uncertainty": "The specific location the ghost moves to is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          240.991,
+          251.001
+        ],
+        "description": "The girl walks into the dining room holding a white, rectangular device. The ghost follows her, stating it can see through her.",
+        "direct_observation": "The girl walks into the dining room holding a white, rectangular device. The ghost follows her, stating it can see through her.",
+        "inferred_interpretation": "",
+        "uncertainty": "The function of the white device is not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          257.007,
+          265.015
+        ],
+        "description": "A girl and a translucent ghost converse at a dining table; the ghost gestures and moves while subtitles discuss its composition.",
+        "direct_observation": "A girl and a translucent ghost converse at a dining table; the ghost gestures and moves while subtitles discuss its composition.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact nature of the ghost's substance is abstract.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          299.007,
+          307.015
+        ],
+        "description": "The ghost, wearing a chef's hat, is shown pouring orange juice from a blender into a glass.",
+        "direct_observation": "The ghost, wearing a chef's hat, is shown pouring orange juice from a blender into a glass.",
+        "inferred_interpretation": "",
+        "uncertainty": "The girl's reaction to the pouring is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          318.985,
+          326.993
+        ],
+        "description": "The ghost floats the juice glass to the girl, who reaches out to take it while they continue their interaction.",
+        "direct_observation": "The ghost floats the juice glass to the girl, who reaches out to take it while they continue their interaction.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the girl actually drinks the juice is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          330.997,
+          330.997
+        ],
+        "description": "The ghost and girl sit at the table, with the ghost looking down at the juice glass.",
+        "direct_observation": "The ghost and girl sit at the table, with the ghost looking down at the juice glass.",
+        "inferred_interpretation": "",
+        "uncertainty": "The scene ends abruptly after this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          332.999,
+          353.019
+        ],
+        "description": "A girl interacts with a friendly ghost wearing a chef's hat. Subtitles indicate a dialogue about the ghost's inability to cause harm, followed by the girl's hand movements.",
+        "direct_observation": "A girl interacts with a friendly ghost wearing a chef's hat. Subtitles indicate a dialogue about the ghost's inability to cause harm, followed by the girl's hand movements.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact nature of the hand gesture (magic vs. normal movement)",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          406.99,
+          414.998
+        ],
+        "description": "The girl and a man are seated at a dining table. They suddenly react with fear and duck down, seemingly avoiding an unseen threat or projectile from above.",
+        "direct_observation": "The girl and a man are seated at a dining table. They suddenly react with fear and duck down, seemingly avoiding an unseen threat or projectile from above.",
+        "inferred_interpretation": "",
+        "uncertainty": "What specifically caused them to duck (attack vs. falling object)",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          417.0,
+          419.002
+        ],
+        "description": "The camera focuses on a chandelier where wispy, spectral figures are visible, suggesting the presence of ghosts interacting with the light fixture.",
+        "direct_observation": "The camera focuses on a chandelier where wispy, spectral figures are visible, suggesting the presence of ghosts interacting with the light fixture.",
+        "inferred_interpretation": "",
+        "uncertainty": "Whether the ghosts are attacking or just present",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          421.004,
+          437.02
+        ],
+        "description": "Three translucent ghosts perform animatedly around a dining table while a man and girl observe from behind; subtitles mention smelling meat.",
+        "direct_observation": "Three translucent ghosts perform animatedly around a dining table while a man and girl observe from behind; subtitles mention smelling meat.",
+        "inferred_interpretation": "",
+        "uncertainty": "Exact causal link between ghosts' performance and human reaction.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          444.986,
+          452.994
+        ],
+        "description": "Ghosts scream with exaggerated expressions, then rapidly dissipate into a smoke cloud over the table while the girl comments on the world's wonder.",
+        "direct_observation": "Ghosts scream with exaggerated expressions, then rapidly dissipate into a smoke cloud over the table while the girl comments on the world's wonder.",
+        "inferred_interpretation": "",
+        "uncertainty": "Specific trigger causing the ghosts to dissipate.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e3",
+        "video_id": "v2",
+        "time_span": [
+          473.014,
+          477.018
+        ],
+        "description": "Ghosts reappear wearing sunglasses and holding cups, taunting the man as 'bonehead' in a new location.",
+        "direct_observation": "Ghosts reappear wearing sunglasses and holding cups, taunting the man as 'bonehead' in a new location.",
+        "inferred_interpretation": "",
+        "uncertainty": "Mechanism of ghosts' reappearance and location change.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e1",
+        "video_id": "v2",
+        "time_span": [
+          479.02,
+          479.02
+        ],
+        "description": "A man wearing glasses and a cardigan stands next to a young girl in a green shirt. He is looking towards the camera and speaking, as indicated by the subtitle.",
+        "direct_observation": "A man wearing glasses and a cardigan stands next to a young girl in a green shirt. He is looking towards the camera and speaking, as indicated by the subtitle.",
+        "inferred_interpretation": "",
+        "uncertainty": "No combat, ghosts, or specific plot devices visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          67.985,
+          76.985
+        ],
+        "description": "The man moves along the staircase, holding a long thin rod, and swings it toward translucent ghost-like figures near the wall.",
+        "direct_observation": "The man moves along the staircase, holding a long thin rod, and swings it toward translucent ghost-like figures near the wall.",
+        "inferred_interpretation": "Possible confrontation with ghost-like figures using a handheld tool.",
+        "uncertainty": "Tool function and whether figures are hostile are not directly visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          77.985,
+          82.985
+        ],
+        "description": "A wide staircase view and blurry frame precede the man standing near an arched doorway, facing a ghost-like figure while holding the rod.",
+        "direct_observation": "A wide staircase view and blurry frame precede the man standing near an arched doorway, facing a ghost-like figure while holding the rod.",
+        "inferred_interpretation": "The sequence appears to continue the staircase confrontation rather than show carpet or portal destruction.",
+        "uncertainty": "No vacuum-like device, carpet, or portal-like object is visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e1",
+        "video_id": "v1",
+        "time_span": [
+          82.985,
+          86.985
+        ],
+        "description": "A man in a beige cardigan holds a plunger on a stick and swings it at a translucent, swirling figure in a reddish hallway.",
+        "direct_observation": "A man in a beige cardigan holds a plunger on a stick and swings it at a translucent, swirling figure in a reddish hallway.",
+        "inferred_interpretation": "The man is confronting a hostile ghost with a tool.",
+        "uncertainty": "Whether the tool is a vacuum device is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e2",
+        "video_id": "v1",
+        "time_span": [
+          87.985,
+          91.985
+        ],
+        "description": "A woman in a dark purple shirt stands in a dark, mosaic-floored hallway, looking around and moving downwards out of frame.",
+        "direct_observation": "A woman in a dark purple shirt stands in a dark, mosaic-floored hallway, looking around and moving downwards out of frame.",
+        "inferred_interpretation": "The woman is reacting to the commotion.",
+        "uncertainty": "Her exact intent is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l2.e3",
+        "video_id": "v1",
+        "time_span": [
+          92.985,
+          97.985
+        ],
+        "description": "A small, pale, humanoid figure is visible near a doorway, then the woman in purple is shown lying down with her head resting near the figure's face.",
+        "direct_observation": "A small, pale, humanoid figure is visible near a doorway, then the woman in purple is shown lying down with her head resting near the figure's face.",
+        "inferred_interpretation": "The woman may have been knocked down or is comforting the figure.",
+        "uncertainty": "The nature of the interaction is not clear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          97.985,
+          105.985
+        ],
+        "description": "A girl descends a staircase in a dimly lit room with reddish walls and ornate furniture. She looks around and calls out. Subtitles '爸?' appear.",
+        "direct_observation": "A girl descends a staircase in a dimly lit room with reddish walls and ornate furniture. She looks around and calls out. Subtitles '爸?' appear.",
+        "inferred_interpretation": "The girl is searching for her father.",
+        "uncertainty": "The exact reason for her search is not visually explicit.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          106.985,
+          112.985
+        ],
+        "description": "A man in a green sweater is seen grappling with a translucent, ghostly figure. He holds a long stick-like object and swings it at the ghost. Subtitles '呀!' appear.",
+        "direct_observation": "A man in a green sweater is seen grappling with a translucent, ghostly figure. He holds a long stick-like object and swings it at the ghost. Subtitles '呀!' appear.",
+        "inferred_interpretation": "The man is fighting the ghost.",
+        "uncertainty": "The specific nature of the stick-like object is unclear.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration remains, so answer is not allowed. The strongest unresolved contrast is whether the gap after the staircase pursuit shows stair combat with a vacuum-like device or destruction of a carpet/portal. I will recover the unobserved intervals immediately following the staircase pursuit in the beginning clip to test these mechanisms before examining the ending device scenes.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.u005",
+          "v1.u006"
+        ],
+        "evidence_goal": "Observe the unobserved interval following the staircase pursuit to determine whether the man uses a vacuum-like device on hostile ghosts or interacts with or destroys a carpet or portal-like object.",
+        "next_probe_goal": "If the recovered interval shows stair combat with suction or portal destruction, select the corresponding option; if it remains ambiguous, focus the ending clip's handheld device and ghost-dissipation sequence to compare cause and effect.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Mandatory exploration has one Focus stage remaining. U01 is unresolved: v1 shows stair pursuit with an ambiguous rod/plunger, but not whether it becomes vacuum suction or a carpet/portal destruction. The executable frontier P02 targets the unobserved aftermath in v1, so recover that coverage interval to seek a locally observable discriminating transition.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v1.u007"
+        ],
+        "evidence_goal": "Resolve U01 by observing whether the post-staircase interval shows a vacuum-like suction device acting on ghosts or a carpet/portal destruction event.",
+        "next_probe_goal": "Inspect v1 97.985-112.985 for the tool's final form/action and any rug/portal energy dissipation immediately after the staircase confrontation.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Current evidence shows v1 beginning with hostile ghosts and a staircase fight where the man uses a long stick-like object, while v2 ending shows a vacuum-like device and later friendly ghosts serving fruit juice. The missing interval is best explained by the man vacuuming the hostile ghosts during the stair combat, though the stick-like object is not explicitly identified as a vacuum and fruit juice remains a secondary clue.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "E",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [],
+  "alignment_state": {
+    "evidence_revision": 3,
+    "projected_revision": 3,
+    "aligned_revision": 0,
+    "current_evidence_is_projected": true,
+    "current_evidence_is_aligned": false
+  },
+  "observation_receipts": [
+    {
+      "round": 1,
+      "request_fingerprint": "acb84a2efb5c180b",
+      "requirement_id": "U01",
+      "evidence_goal": "Observe the unobserved interval following the staircase pursuit to determine whether the man uses a vacuum-like device on hostile ghosts or interacts with or destroys a carpet or portal-like object.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            67.98458333333333,
+            82.98458333333333
+          ]
+        },
+        {
+          "video_id": "v1",
+          "time_span": [
+            82.98458333333333,
+            97.98458333333333
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2",
+        "v1.focus.r1.l2.e1",
+        "v1.focus.r1.l2.e2",
+        "v1.focus.r1.l2.e3"
+      ],
+      "gap_refs": []
+    },
+    {
+      "round": 2,
+      "request_fingerprint": "31664a97fb26246d",
+      "requirement_id": "U01",
+      "evidence_goal": "Resolve U01 by observing whether the post-staircase interval shows a vacuum-like suction device acting on ghosts or a carpet/portal destruction event.",
+      "targets": [
+        {
+          "video_id": "v1",
+          "time_span": [
+            97.98458333333333,
+            112.98458333333333
+          ]
+        }
+      ],
+      "outcome": "events",
+      "event_refs": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "gap_refs": []
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "E",
+    "evidence_refs": [
+      "v1.c002",
+      "v1.c006",
+      "v1.zoom.r2-U01-01.s01",
+      "v1.focus.r2.l1.e1",
+      "v1.focus.r2.l1.e2"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.004
+      ],
+      "resolution": "coarse",
+      "content": "A man enters a room with a red carpet, observing green smoke and a dripping stained-glass lamp.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "The source of the green smoke is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.004,
+        19.003999999999998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        19.003999999999998,
+        33.99229166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        33.992,
+        42.0
+      ],
+      "resolution": "coarse",
+      "content": "A sword attacks the man; three ghosts appear, mocking him while hovering near a glowing red lamp.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The sword's wielder is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        42.00029166666666,
+        44.002291666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        44.002,
+        52.01
+      ],
+      "resolution": "coarse",
+      "content": "The man defends himself with a plunger against the ghosts, who continue to taunt him.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The efficacy of the plunger is not established."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        52.01029166666667,
+        58.01629166666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        58.016,
+        62.02
+      ],
+      "resolution": "coarse",
+      "content": "The man strikes a ghost in the face with the plunger, causing it to recoil.",
+      "evidence": [
+        "v1-b0001-e4"
+      ],
+      "uncertainty": [
+        "The long-term effect on the ghost is unknown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        63.981,
+        65.983
+      ],
+      "resolution": "coarse",
+      "content": "A close-up of a spinning wooden object with a ghostly figure behind it, followed by a view of a red wall with a spiral design and a subtitle.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Connection between the spinning object and the wall is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-01.s01",
+      "video": "v1",
+      "time": [
+        67.98458333333333,
+        82.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "The man moves along the staircase, holding a long thin rod, and swings it toward translucent ghost-like figures near the wall. A wide staircase view and blurry frame precede the man standing near an arched doorway, facing a ghost-like figure while holding the rod.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Tool function and whether figures are hostile are not directly visible.",
+        "No vacuum-like device, carpet, or portal-like object is visible.",
+        "Inferred interpretation (not direct evidence): Possible confrontation with ghost-like figures using a handheld tool.",
+        "Inferred interpretation (not direct evidence): The sequence appears to continue the staircase confrontation rather than show carpet or portal destruction.",
+        "Unresolved: Whether a vacuum-like device is used on hostile ghosts.",
+        "Unresolved: Whether a carpet or portal-like object is interacted with or destroyed."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        67.985,
+        67.985
+      ],
+      "resolution": "coarse",
+      "content": "A man runs down a curved staircase, pursued by two white, cloud-like ghosts.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "The man's identity and the ghosts' origin are not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U01-02.s01",
+      "video": "v1",
+      "time": [
+        82.98458333333333,
+        97.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "A man in a beige cardigan holds a plunger on a stick and swings it at a translucent, swirling figure in a reddish hallway. A woman in a dark purple shirt stands in a dark, mosaic-floored hallway, looking around and moving downwards out of frame. A small, pale, humanoid figure is visible near a doorway, then the woman in purple is shown lying down with her head resting near the figure's face.",
+      "evidence": [
+        "v1.focus.r1.l2.e1",
+        "v1.focus.r1.l2.e2",
+        "v1.focus.r1.l2.e3"
+      ],
+      "uncertainty": [
+        "Whether the tool is a vacuum device is not visible.",
+        "Her exact intent is unclear.",
+        "The nature of the interaction is not clear.",
+        "Inferred interpretation (not direct evidence): The man is confronting a hostile ghost with a tool.",
+        "Inferred interpretation (not direct evidence): The woman is reacting to the commotion.",
+        "Inferred interpretation (not direct evidence): The woman may have been knocked down or is comforting the figure.",
+        "Unresolved: Whether the man uses a vacuum-like device on hostile ghosts",
+        "Unresolved: Whether the man interacts with or destroys a carpet or portal-like object"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-U01-01.s01",
+      "video": "v1",
+      "time": [
+        97.98458333333333,
+        112.98458333333333
+      ],
+      "resolution": "fine",
+      "content": "A girl descends a staircase in a dimly lit room with reddish walls and ornate furniture. She looks around and calls out. Subtitles '爸?' appear. A man in a green sweater is seen grappling with a translucent, ghostly figure. He holds a long stick-like object and swings it at the ghost. Subtitles '呀!' appear.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The exact reason for her search is not visually explicit.",
+        "The specific nature of the stick-like object is unclear.",
+        "Inferred interpretation (not direct evidence): The girl is searching for her father.",
+        "Inferred interpretation (not direct evidence): The man is fighting the ghost."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        112.98458333333333,
+        121.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        175.008,
+        177.01
+      ],
+      "resolution": "coarse",
+      "content": "A static establishing shot of a gothic castle on a coastal cliff during a vibrant sunset.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        179.012,
+        179.012
+      ],
+      "resolution": "coarse",
+      "content": "A black screen frame.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        181.014,
+        185.018
+      ],
+      "resolution": "coarse",
+      "content": "A girl holds a white, handheld vacuum-like device in a room with curved architectural features.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The exact nature of the device is inferred."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        185.01816666666667,
+        187.02016666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        187.02,
+        194.986
+      ],
+      "resolution": "coarse",
+      "content": "The girl moves through an interior space, pointing the device at a suit of armor and a glowing lamp.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The device's effect on the objects is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        194.98645833333333,
+        204.99645833333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        204.996,
+        206.998
+      ],
+      "resolution": "coarse",
+      "content": "The girl approaches and passes through a dark, ornate doorway.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "What she saw before entering is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        209.0,
+        213.004
+      ],
+      "resolution": "coarse",
+      "content": "The girl enters a dining room with a set table and looks around with a wary expression.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "Her reaction to the room's state is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        213.00445833333333,
+        215.0064583333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        215.006,
+        223.014
+      ],
+      "resolution": "coarse",
+      "content": "A ghost wraps a bandage around the girl's mouth while subtitles explain it is a friendly ghost trying to prevent her from screaming.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "The exact mechanism of the bandage appearing is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        223.01445833333332,
+        230.98075
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        230.981,
+        236.987
+      ],
+      "resolution": "coarse",
+      "content": "The girl touches her face, remarks on the ghost's cold temperature, and the ghost floats away making a joke about heating bills.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "The specific location the ghost moves to is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        238.98874999999998,
+        240.99075
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        240.991,
+        251.001
+      ],
+      "resolution": "coarse",
+      "content": "The girl walks into the dining room holding a white, rectangular device. The ghost follows her, stating it can see through her.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "The function of the white device is not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        251.00074999999998,
+        257.00675
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        257.007,
+        265.015
+      ],
+      "resolution": "coarse",
+      "content": "A girl and a translucent ghost converse at a dining table; the ghost gestures and moves while subtitles discuss its composition.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the ghost's substance is abstract."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        265.01475,
+        280.01475
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        280.01475,
+        295.01475
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        295.01475,
+        299.0070416666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        299.007,
+        307.015
+      ],
+      "resolution": "coarse",
+      "content": "The ghost, wearing a chef's hat, is shown pouring orange juice from a blender into a glass.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "The girl's reaction to the pouring is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        307.01504166666666,
+        318.9853333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        318.985,
+        326.993
+      ],
+      "resolution": "coarse",
+      "content": "The ghost floats the juice glass to the girl, who reaches out to take it while they continue their interaction.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "Whether the girl actually drinks the juice is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        326.99333333333334,
+        330.9973333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        330.997,
+        330.997
+      ],
+      "resolution": "coarse",
+      "content": "The ghost and girl sit at the table, with the ghost looking down at the juice glass.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The scene ends abruptly after this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        332.999,
+        353.019
+      ],
+      "resolution": "coarse",
+      "content": "A girl interacts with a friendly ghost wearing a chef's hat. Subtitles indicate a dialogue about the ghost's inability to cause harm, followed by the girl's hand movements.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Exact nature of the hand gesture (magic vs. normal movement)"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        339.00533333333334,
+        345.0113333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        353.01933333333335,
+        368.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        368.01933333333335,
+        383.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        383.01933333333335,
+        398.01933333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        398.01933333333335,
+        406.98991666666666
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        406.99,
+        414.998
+      ],
+      "resolution": "coarse",
+      "content": "The girl and a man are seated at a dining table. They suddenly react with fear and duck down, seemingly avoiding an unseen threat or projectile from above.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "What specifically caused them to duck (attack vs. falling object)"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        414.99791666666664,
+        416.99991666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        417.0,
+        419.002
+      ],
+      "resolution": "coarse",
+      "content": "The camera focuses on a chandelier where wispy, spectral figures are visible, suggesting the presence of ghosts interacting with the light fixture.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "Whether the ghosts are attacking or just present"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        421.004,
+        437.02
+      ],
+      "resolution": "coarse",
+      "content": "Three translucent ghosts perform animatedly around a dining table while a man and girl observe from behind; subtitles mention smelling meat.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Exact causal link between ghosts' performance and human reaction."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        425.00791666666663,
+        429.01191666666665
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        437.01991666666663,
+        444.9862083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        444.986,
+        452.994
+      ],
+      "resolution": "coarse",
+      "content": "Ghosts scream with exaggerated expressions, then rapidly dissipate into a smoke cloud over the table while the girl comments on the world's wonder.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Specific trigger causing the ghosts to dissipate."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        452.9942083333333,
+        467.9942083333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        467.9942083333333,
+        473.01420833333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        473.014,
+        477.018
+      ],
+      "resolution": "coarse",
+      "content": "Ghosts reappear wearing sunglasses and holding cups, taunting the man as 'bonehead' in a new location.",
+      "evidence": [
+        "v2-b0005-e3"
+      ],
+      "uncertainty": [
+        "Mechanism of ghosts' reappearance and location change."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        479.02,
+        479.02
+      ],
+      "resolution": "coarse",
+      "content": "A man wearing glasses and a cardigan stands next to a young girl in a green shirt. He is looking towards the camera and speaking, as indicated by the subtitle.",
+      "evidence": [
+        "v2-b0006-e1"
+      ],
+      "uncertainty": [
+        "No combat, ghosts, or specific plot devices visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

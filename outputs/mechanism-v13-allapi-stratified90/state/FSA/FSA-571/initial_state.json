@@ -1,0 +1,287 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "statement": "Video 1 shows chopped green herb and vegetable mixture being poured into a bowl containing light-colored bulgur."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "Video 1 shows a yellow spatula actively mixing the green herb mixture into the bulgur."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0008-e1"
+      ],
+      "statement": "Video 2 shows a woman adding cooked quinoa from a metal bowl into a glass bowl containing chopped vegetables and then mixing the salad ingredients."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0007-e5"
+      ],
+      "statement": "Video 2 shows a chef using a spoon to scoop cooked quinoa from a metal bowl and add it to the salad."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4"
+      ],
+      "statement": "Video 2 shows the presenter mixing ingredients in a glass bowl without detailed ingredient context."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4"
+      ],
+      "statement": "Video 2 shows chopped parsley, onion, and tomatoes being accumulated in a bowl before later seasoning and grain addition."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3",
+        "v2-b0007-e4"
+      ],
+      "statement": "Video 2 shows lemon juice, olive oil, salt, and pepper being added to a bowl containing chopped vegetables."
+    },
+    {
+      "id": "I08",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0005-e3",
+        "v2-b0005-e4"
+      ],
+      "statement": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video 1's reference step combines a chopped herb/vegetable mixture with bulgur by mixing, while Video 2 contains a candidate step that combines cooked quinoa with chopped vegetables by mixing.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0008-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video 2's multiple mixing or grain-addition events are not yet distinguishable as the functionally equivalent reference step because their visible ingredient states and transitions differ.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0007-e5",
+        "v2-b0008-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Video 2 builds a chopped vegetable mixture before adding cooked grain, which parallels Video 1's use of an already prepared chopped herb/vegetable mixture.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0007-e5"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The event in Video 2 that matches the reference mixing of chopped herb/vegetable mixture into grain remains undetermined among v2-b0001-e4, v2-b0007-e5, and v2-b0008-e1.",
+      "reason": "The reports describe only mixing without ingredients, grain addition without mixing, and grain addition with mixing but uncertain boundaries.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0007-e5",
+        "v2-b0008-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether combining grain into chopped vegetables in Video 2 is functionally equivalent to combining chopped vegetables into grain in Video 1 remains unresolved.",
+      "reason": "The reports do not state the final mixed state transition or recipe-order equivalence.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0008-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end of the mixing action in v2-b0008-e1 remain unresolved.",
+      "reason": "The event uncertainty states exact start and end of mixing action are not known.",
+      "related_events": [
+        "v2-b0008-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether v2-b0007-e5 includes or immediately precedes the active mixing needed for the reference step remains unresolved.",
+      "reason": "The description states quinoa is added to the salad but does not describe mixing.",
+      "related_events": [
+        "v2-b0007-e5"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether v2-b0001-e4 is a preview or the actual equivalent mixing step remains unresolved.",
+      "reason": "The description lacks ingredient context and occurs before detailed ingredient preparation.",
+      "related_events": [
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare v1-b0001-e3 with v2-b0008-e1 to determine whether both show a utensil actively combining grain with chopped herb/vegetable mixture.",
+      "purpose": "Resolve which Video 2 event matches the reference mixing step.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Inspect the frames around v2-b0008-e1 to identify the first and last visible moments of utensil contact with grain and chopped vegetables.",
+      "purpose": "Resolve the boundary uncertainty of the candidate mixing action.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare v2-b0007-e5 with v2-b0008-e1 to determine whether quinoa addition is followed by active mixing or only by presentation.",
+      "purpose": "Resolve whether the quinoa-adding event is part of the equivalent mixing step.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Inspect v2-b0001-e4 to determine whether the bowl contains grain plus chopped herb/vegetable mixture like the reference step or unrelated ingredients.",
+      "purpose": "Resolve whether the early mixing shot is a preview or the actual equivalent step.",
+      "related_issue": "U05"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-571",
+    "task": "FSA",
+    "ground_truth": [
+      1014,
+      1046
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-571/report.json",
+    "report_sha256": "bb8a68fc1f4c42e54e07516514c7ac51e0d638a1646f85f7c5a54c140d550b5f",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

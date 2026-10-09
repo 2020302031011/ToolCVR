@@ -1,0 +1,379 @@
+{
+  "state": {
+    "question": "How many red cars parked by the roadside does {A1} pass in total?",
+    "round_id": 4,
+    "summary": "Current state: v1 fine observations support three red parked-car passes by A1 by 14s, one in 0-4s and two in 4-14s. v2 coarse 0-4s mentions a passed red car B5 and a partially visible red car B4, but whether these are duplicate physical passes of the v1 cars or additional cars passed by A1/B1 is unresolved. v2 4-14s and both 14-15s are unobserved, so absence of further passes is not established. v2 14s shows distant red cars without a close pass, and v1 14s shows no nearby parked cars, but this does not settle the total unique count across synchronized views.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-22: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=23; declared=bicycle; A1_visible=0-449 (0.000-15.000s)/450_frames; B1_visible=15-449 (0.500-15.000s)/450_frames.",
+      "A2/B2 is source_track=50; declared=car; A2_visible=77-367 (2.567-12.267s)/450_frames; B2_visible=215-352 (7.167-11.767s)/450_frames.",
+      "A3/B3 is source_track=70; declared=car; A3_visible=0-158 (0.000-5.300s)/450_frames; B3_visible=0-204 (0.000-6.833s)/450_frames.",
+      "A4/B4 is source_track=36; declared=car; A4_visible=0-176 (0.000-5.900s)/450_frames; B4_visible=0-175 (0.000-5.867s)/450_frames.",
+      "A5/B5 is source_track=72; declared=car; A5_visible=44-188 (1.467-6.300s)/450_frames; B5_visible=0-211 (0.000-7.067s)/450_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "req1",
+        "status": "open",
+        "evidence_refs": [
+          "v2-b0001-e1",
+          "v1.focus.r2.l1.e1"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.u001",
+          "v1.focus.r3.l1.e1"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "req3",
+        "status": "open",
+        "evidence_refs": [
+          "v2-b0001-e2",
+          "v1-b0001-e2"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Subject A1 travels along a roadside lane, passing a row of parked cars. A red car is visible in the parking row in the initial frames.",
+        "uncertainty": "Total count of red cars passed is incomplete.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Subject A1 is seen in a different location, traveling on a road adjacent to a park with no visible parked cars nearby.",
+        "uncertainty": "Gap between 4s and 14s is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Camera pans right along a roadside parking area. A red car (B5) is passed. A red car (B4) is partially visible on the right edge.",
+        "uncertainty": "Whether the subject A1 is the camera or a vehicle is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          14.0
+        ],
+        "description": "Scene cuts to a wide view of a road. A blue truck passes a bicycle. Red cars are visible in the distance, but no close passes occur.",
+        "uncertainty": "No red cars are passed in this specific frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 (bicycle) moves forward along the right lane, passing a row of parked cars on the right side of the road.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A1 (yellow box) moves forward along the rightmost lane, passing a row of parked cars on the right. A distinct red car is visible in the parking lane and is passed by A1.",
+        "uncertainty": "Only one red parked car is clearly visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r3.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          4.0,
+          6.0
+        ],
+        "description": "A1 bicycle passes a red car parked on the right roadside.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v1.focus.r3.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          12.0
+        ],
+        "description": "A1 bicycle passes a second red car parked on the right roadside.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need countable evidence for early A1 red-car passes in v1 before assessing middle-interval additions.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "How many distinct roadside red cars does A1 pass in v1 from 0 to 4 seconds?",
+        "next_probe_goal": "Are there additional roadside red-car passes by A1 in v1 from 4 to 14 seconds?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need a locally visible count of distinct red roadside-parked cars passed by A1 in the v1 0.0-4.0 row.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "How many distinct red roadside-parked cars does A1 pass in v1 0.0-4.0?",
+        "next_probe_goal": "Do the v2 0.0-4.0 red B5/B4 passes duplicate physical cars from the v1 0.0-4.0 row?",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Current evidence supports at least one red parked car passed by A1 in the initial v1 fine interval, while the initial v2 coarse interval reports B5 as passed and B4 as partially visible. Distinctness, pass status, cross-view identity, and the unobserved middle intervals remain unresolved, so the total count cannot yet be fixed. Next, recover the v1 middle coverage interval to test whether A1/B1 passes additional red parked cars there; any positive passes will be added after deduplicating with the initial interval, while remaining gaps will be handled in a later cycle.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v1.u001"
+        ],
+        "evidence_goal": "Determine whether A1/B1 passes any additional red parked cars during the selected v1 middle coverage interval, recording distinct roadside parked cars and pass-by status.",
+        "next_probe_goal": "Update the physical pass count by merging any newly observed v1 middle passes with the deduplicated initial passes, then address remaining v2 middle coverage or initial-interval ambiguities if needed.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Current state: v1 fine observations support three red parked-car passes by A1 by 14s, one in 0-4s and two in 4-14s. v2 coarse 0-4s mentions a passed red car B5 and a partially visible red car B4, but whether these are duplicate physical passes of the v1 cars or additional cars passed by A1/B1 is unresolved. v2 4-14s and both 14-15s are unobserved, so absence of further passes is not established. v2 14s shows distant red cars without a close pass, and v1 14s shows no nearby parked cars, but this does not settle the total unique count across synchronized views.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['id:v2.c001']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: ['id:v2.c001']"
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A1 (yellow box) moves forward along the rightmost lane, passing a row of parked cars on the right. A distinct red car is visible in the parking lane and is passed by A1.",
+      "evidence": [
+        "v1.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Only one red parked car is clearly visible.",
+        "Unresolved: None"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r3-r3-01.s01",
+      "video": "v1",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "fine",
+      "content": "A1 bicycle passes a red car parked on the right roadside. A1 bicycle passes a second red car parked on the right roadside.",
+      "evidence": [
+        "v1.focus.r3.l1.e1",
+        "v1.focus.r3.l1.e2"
+      ],
+      "uncertainty": [],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        14.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "Subject A1 is seen in a different location, traveling on a road adjacent to a park with no visible parked cars nearby.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Gap between 4s and 14s is unobserved."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera pans right along a roadside parking area. A red car (B5) is passed. A red car (B4) is partially visible on the right edge.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Whether the subject A1 is the camera or a vehicle is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        4.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        14.0,
+        14.0
+      ],
+      "resolution": "coarse",
+      "content": "Scene cuts to a wide view of a road. A blue truck passes a bicycle. Red cars are visible in the distance, but no close passes occur.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "No red cars are passed in this specific frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        14.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Are there additional roadside red-car passes by A1 in v1 from 4 to 14 seconds?",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

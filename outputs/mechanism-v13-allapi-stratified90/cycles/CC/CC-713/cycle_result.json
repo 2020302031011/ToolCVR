@@ -1,0 +1,2310 @@
+{
+  "state": {
+    "question": "Which videos prepare the batter without using eggs?",
+    "round_id": 4,
+    "summary": "v2 is the strongest egg-use case because of visible eggshells near the pale yellow batter, making options A and B less supported. v3 has the clearest visible non-egg batter preparation evidence: beer poured into flour and later fish dipped into the prepared batter, with no eggs in the cited local spans. v4 shows a liquid mixture with orange swirls and a separate dry mixture, but no visible egg cracking or addition in the cited span; the orange swirl remains ambiguous between egg and another ingredient. v1 also lacks visible eggs, but its liquid source is unresolved. Given the available choices, C is the best-supported option, though whole-video absence of eggs is not definitively proven.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c002",
+          "v1.c003"
+        ],
+        "attempts": [
+          "v1 shows dry ingredients being combined with a white liquid and then a thick batter, but the liquid source and any earlier egg addition remain unresolved."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U02-01.s01"
+        ],
+        "attempts": [
+          "v2 shows brown eggshells adjacent to a whisked pale yellow batter, which supports that eggs were used in that batter preparation, even though the cracking moment is not visible."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v3.c001",
+          "v3.c003",
+          "v4.zoom.r2-r3-01.s01"
+        ],
+        "attempts": [
+          "v3 shows beer and flour handling followed by dipping fish into batter with no eggs in the cited spans, while v4 shows an orange-swirled liquid mixture whose origin is unresolved; neither proves whole-video absence of eggs."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          39.999,
+          42.0
+        ],
+        "description": "A glass bowl containing dry ingredients, likely flour, sits on a wooden surface. The bowl is stationary.",
+        "uncertainty": "The specific ingredients are not identified.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          44.003,
+          46.004
+        ],
+        "description": "A whisk is present in the bowl, and a white liquid is being poured into the dry ingredients.",
+        "uncertainty": "The source of the liquid is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          48.006,
+          48.006
+        ],
+        "description": "The mixture in the bowl has been stirred into a thick, lumpy batter.",
+        "uncertainty": "The action of mixing is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          424.007,
+          432.015
+        ],
+        "description": "A person prepares a pale yellow batter in a glass bowl, initially mixing by hand and subsequently using a wire whisk.",
+        "uncertainty": "Egg addition or presence is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          84.0,
+          90.0
+        ],
+        "description": "Beer is poured into a bowl with flour and whisked into a batter.",
+        "uncertainty": "Whether eggs are present or added off-camera.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          92.0,
+          92.0
+        ],
+        "description": "A man drinks from a beer bottle.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          144.0,
+          148.0
+        ],
+        "description": "A piece of fish is dipped into the prepared batter.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          150.0,
+          152.0
+        ],
+        "description": "The battered fish is lowered into hot oil and fried.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          2.002
+        ],
+        "description": "Title card 'Fishing For real' displayed against a blue background with fish silhouettes.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          6.006,
+          10.01
+        ],
+        "description": "Chef Jeremy Sewall stands in a kitchen behind a counter, introducing the topic.",
+        "uncertainty": "Audio content not analyzed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e3",
+        "video_id": "v4",
+        "time_span": [
+          12.012,
+          31.99
+        ],
+        "description": "Chef gestures towards a tray of raw cod and fillets on ice, explaining the fish selection.",
+        "uncertainty": "Specific dialogue details are not transcribed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e4",
+        "video_id": "v4",
+        "time_span": [
+          35.994,
+          42.0
+        ],
+        "description": "Close-up shots of the raw fish fillets on ice are shown, followed by the chef standing behind the counter.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e5",
+        "video_id": "v4",
+        "time_span": [
+          44.003,
+          44.003
+        ],
+        "description": "Title card 'Fish and Chips' appears on a blue background.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0002-e1",
+        "video_id": "v4",
+        "time_span": [
+          48.006,
+          54.013
+        ],
+        "description": "A person is seen preparing a white liquid mixture in a glass bowl placed on a wooden cutting board.",
+        "uncertainty": "Ingredients for the white liquid mixture are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0002-e2",
+        "video_id": "v4",
+        "time_span": [
+          58.016,
+          63.981
+        ],
+        "description": "The person dips white fillets into the liquid mixture, which now has orange swirls, coating them.",
+        "uncertainty": "The specific orange ingredient added to the batter is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0002-e3",
+        "video_id": "v4",
+        "time_span": [
+          77.995,
+          84.001
+        ],
+        "description": "The person prepares a dry mixture in a separate glass bowl, adding red powder and other ingredients to a white base.",
+        "uncertainty": "The full list of ingredients in the dry mix is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0002-e4",
+        "video_id": "v4",
+        "time_span": [
+          88.005,
+          92.009
+        ],
+        "description": "The person coats the fillets, which were previously in the liquid batter, into the dry mixture.",
+        "uncertainty": "It is not shown whether the fillets were coated in the liquid batter immediately before this step.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0003-e1",
+        "video_id": "v4",
+        "time_span": [
+          96.013,
+          98.015
+        ],
+        "description": "A person is shown preparing food at a kitchen counter, with a glass bowl of white powder and a bowl of wet batter visible.",
+        "uncertainty": "Egg addition to batter not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0003-e2",
+        "video_id": "v4",
+        "time_span": [
+          100.017,
+          104.021
+        ],
+        "description": "A piece of food is coated in batter and placed into the basket of a deep fryer, which is then lowered into hot oil.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0003-e3",
+        "video_id": "v4",
+        "time_span": [
+          105.981,
+          107.983
+        ],
+        "description": "The fryer is covered with a lid, and the digital display is set to a 'FISH' program for 5 minutes at 355°F.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0003-e4",
+        "video_id": "v4",
+        "time_span": [
+          113.989,
+          115.991
+        ],
+        "description": "The fryer basket is lifted out of the oil, revealing the cooked, golden-brown food inside.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0003-e5",
+        "video_id": "v4",
+        "time_span": [
+          123.999,
+          128.003
+        ],
+        "description": "The cooked food is removed from the fryer basket with tongs and placed on a paper towel-lined tray.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0004-e1",
+        "video_id": "v4",
+        "time_span": [
+          132.007,
+          138.013
+        ],
+        "description": "A person uses tongs to handle fried fish pieces on a paper towel-lined tray, then places them into a wire basket with french fries.",
+        "uncertainty": "The batter preparation process is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0004-e2",
+        "video_id": "v4",
+        "time_span": [
+          145.979,
+          153.987
+        ],
+        "description": "A man in a blue shirt speaks to the camera, followed by a close-up of the finished fish and chips basket, and finally a copyright screen.",
+        "uncertainty": "Dialogue content is not transcribed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          424.007,
+          424.007
+        ],
+        "description": "Wide shot shows a chef at an outdoor station with a bowl of pale yellow liquid. A small bowl containing brown eggshells is visible on the table to the left.",
+        "uncertainty": "Egg cracking action is not visible, only the resulting shells.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          425.008,
+          432.015
+        ],
+        "description": "Close-up sequence of the pale yellow batter being whisked. A spoon adds a white powder (flour) to the mixture, which is then stirred.",
+        "uncertainty": "The specific moment of adding eggs to the bowl is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          58.016,
+          63.021
+        ],
+        "description": "A person's hands place white fillets into a glass dish containing a liquid mixture with orange swirls. The orange coloration is already present in the liquid at the start of the interval.",
+        "uncertainty": "Origin of orange swirl (egg vs other ingredient) not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v3.focus.r3.l1.e1",
+        "video_id": "v3",
+        "time_span": [
+          75.0,
+          76.0
+        ],
+        "description": "Close-up of green peas cooking in a pan with a wooden spoon.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e2",
+        "video_id": "v3",
+        "time_span": [
+          77.0,
+          78.0
+        ],
+        "description": "An empty glass bowl is placed on a wooden cutting board.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e3",
+        "video_id": "v3",
+        "time_span": [
+          79.0,
+          80.0
+        ],
+        "description": "White flour is poured into the glass bowl.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e4",
+        "video_id": "v3",
+        "time_span": [
+          81.0,
+          83.0
+        ],
+        "description": "A hand pinches white powder from a small bowl and sprinkles it onto the flour.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l1.e5",
+        "video_id": "v3",
+        "time_span": [
+          84.0,
+          84.0
+        ],
+        "description": "Beer is poured from a bottle into the bowl containing the flour mixture.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l2.e1",
+        "video_id": "v3",
+        "time_span": [
+          92.0,
+          98.0
+        ],
+        "description": "Man drinks from a Samuel Adams bottle, then talks to the camera while holding the beer.",
+        "uncertainty": "No batter or eggs visible during this segment.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l2.e2",
+        "video_id": "v3",
+        "time_span": [
+          99.0,
+          105.0
+        ],
+        "description": "Hand presents peeled and unpeeled potatoes and a pile of cut fries on a white cutting board next to a peeler.",
+        "uncertainty": "No eggs or batter preparation shown.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v3.focus.r3.l2.e3",
+        "video_id": "v3",
+        "time_span": [
+          106.0,
+          107.0
+        ],
+        "description": "Cut potatoes are poured from a white plate into a stainless steel pot of boiling water.",
+        "uncertainty": "Potatoes are boiled, not mixed with batter.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local evidence in v2 batter-prep span for visible eggs to discriminate option pairs containing v2.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "In v2's batter-preparation span, are egg cracking, egg shells, or a distinct whisked egg mixture visibly present before or during formation of the pale yellow batter?",
+        "next_probe_goal": "If v2 shows no visible eggs, inspect v3's beer-and-flour batter span for egg shells or whisked eggs.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need determine if v4's orange swirls are egg yolk or another ingredient.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r3",
+        "slot_ids": [
+          "v4.c007"
+        ],
+        "evidence_goal": "In v4.c007, is the orange swirl in the liquid mixture visibly egg yolk from cracked eggs, or does it come from another ingredient?",
+        "next_probe_goal": "If v4 orange is not egg, check v3 batter mixing for egg shells or egg liquid.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The decision is currently narrowed by v2's eggshell cue and by v4's ambiguous orange swirls, but the key remaining fork between option C and option D is whether v3's beer batter includes visible eggs. v1's liquid source is also unresolved, so the next local observation should recover the unobserved v3 intervals immediately before and after the beer pour.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v3.u006",
+          "v3.u007"
+        ],
+        "evidence_goal": "Determine whether v3's batter-preparation interval before or after the beer pour shows cracked eggs, eggshells, or eggs being added to the bowl.",
+        "next_probe_goal": "If v3 shows eggs, refine v1.c002 to test whether its white liquid source is egg-based and support option D; if v3 shows no eggs, inspect v4's orange-swirl origin to support option C.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "v2 is the strongest egg-use case because of visible eggshells near the pale yellow batter, making options A and B less supported. v3 has the clearest visible non-egg batter preparation evidence: beer poured into flour and later fish dipped into the prepared batter, with no eggs in the cited local spans. v4 shows a liquid mixture with orange swirls and a separate dry mixture, but no visible egg cracking or addition in the cited span; the orange swirl remains ambiguous between egg and another ingredient. v1 also lacks visible eggs, but its liquid source is unresolved. Given the available choices, C is the best-supported option, though whole-video absence of eggs is not definitively proven.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "C",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "C",
+    "evidence_refs": [
+      "v3.c001",
+      "v3.c003",
+      "v4.zoom.r2-r3-01.s01",
+      "v2.zoom.r1-U02-01.s01",
+      "v1.c002"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 4,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        30.0,
+        39.999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        39.999,
+        42.0
+      ],
+      "resolution": "coarse",
+      "content": "A glass bowl containing dry ingredients, likely flour, sits on a wooden surface. The bowl is stationary.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "The specific ingredients are not identified."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        44.003,
+        46.004
+      ],
+      "resolution": "coarse",
+      "content": "A whisk is present in the bowl, and a white liquid is being poured into the dry ingredients.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The source of the liquid is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        48.006,
+        48.006
+      ],
+      "resolution": "coarse",
+      "content": "The mixture in the bowl has been stirred into a thick, lumpy batter.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "The action of mixing is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        48.006,
+        63.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        63.006,
+        78.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        78.006,
+        93.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        93.006,
+        108.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        108.006,
+        123.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        123.006,
+        129.129
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        30.0,
+        45.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        45.0,
+        60.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        60.0,
+        75.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        75.0,
+        90.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        90.0,
+        105.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        105.0,
+        120.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        120.0,
+        135.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        135.0,
+        150.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        150.0,
+        165.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        165.0,
+        180.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        180.0,
+        195.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        195.0,
+        210.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        210.0,
+        225.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        225.0,
+        240.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        240.0,
+        255.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        255.0,
+        270.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        270.0,
+        285.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        285.0,
+        300.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        300.0,
+        315.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        315.0,
+        330.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        330.0,
+        345.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        345.0,
+        360.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        360.0,
+        375.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        375.0,
+        390.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        390.0,
+        405.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        405.0,
+        420.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        420.0,
+        424.007
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        424.007,
+        432.015
+      ],
+      "resolution": "fine",
+      "content": "Wide shot shows a chef at an outdoor station with a bowl of pale yellow liquid. A small bowl containing brown eggshells is visible on the table to the left. Close-up sequence of the pale yellow batter being whisked. A spoon adds a white powder (flour) to the mixture, which is then stirred.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Egg cracking action is not visible, only the resulting shells.",
+        "The specific moment of adding eggs to the bowl is not shown.",
+        "Unresolved: Visual confirmation of the whisked egg mixture being distinct from the final batter."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        432.015,
+        447.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u031",
+      "video": "v2",
+      "time": [
+        447.015,
+        462.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u032",
+      "video": "v2",
+      "time": [
+        462.015,
+        477.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u033",
+      "video": "v2",
+      "time": [
+        477.015,
+        492.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u034",
+      "video": "v2",
+      "time": [
+        492.015,
+        507.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u035",
+      "video": "v2",
+      "time": [
+        507.015,
+        522.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u036",
+      "video": "v2",
+      "time": [
+        522.015,
+        537.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u037",
+      "video": "v2",
+      "time": [
+        537.015,
+        552.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u038",
+      "video": "v2",
+      "time": [
+        552.015,
+        563.229
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        15.0,
+        30.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        30.0,
+        45.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        45.0,
+        60.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        60.0,
+        75.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r1-01.s01",
+      "video": "v3",
+      "time": [
+        75.0,
+        84.0
+      ],
+      "resolution": "fine",
+      "content": "Close-up of green peas cooking in a pan with a wooden spoon. An empty glass bowl is placed on a wooden cutting board. White flour is poured into the glass bowl. A hand pinches white powder from a small bowl and sprinkles it onto the flour. Beer is poured from a bottle into the bowl containing the flour mixture.",
+      "evidence": [
+        "v3.focus.r3.l1.e1",
+        "v3.focus.r3.l1.e2",
+        "v3.focus.r3.l1.e3",
+        "v3.focus.r3.l1.e4",
+        "v3.focus.r3.l1.e5"
+      ],
+      "uncertainty": [
+        "Unresolved: Visual confirmation of eggs or eggshells being added to the bowl."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        84.0,
+        90.0
+      ],
+      "resolution": "coarse",
+      "content": "Beer is poured into a bowl with flour and whisked into a batter.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Whether eggs are present or added off-camera."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        92.0,
+        92.0
+      ],
+      "resolution": "coarse",
+      "content": "A man drinks from a beer bottle.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.zoom.r3-r1-02.s01",
+      "video": "v3",
+      "time": [
+        92.0,
+        107.0
+      ],
+      "resolution": "fine",
+      "content": "Man drinks from a Samuel Adams bottle, then talks to the camera while holding the beer. Hand presents peeled and unpeeled potatoes and a pile of cut fries on a white cutting board next to a peeler. Cut potatoes are poured from a white plate into a stainless steel pot of boiling water.",
+      "evidence": [
+        "v3.focus.r3.l2.e1",
+        "v3.focus.r3.l2.e2",
+        "v3.focus.r3.l2.e3"
+      ],
+      "uncertainty": [
+        "No batter or eggs visible during this segment.",
+        "No eggs or batter preparation shown.",
+        "Potatoes are boiled, not mixed with batter.",
+        "Unresolved: Visual confirmation of cracked eggs, eggshells, or eggs added to a bowl."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        107.0,
+        122.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        122.0,
+        137.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        137.0,
+        144.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        144.0,
+        148.0
+      ],
+      "resolution": "coarse",
+      "content": "A piece of fish is dipped into the prepared batter.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        150.0,
+        152.0
+      ],
+      "resolution": "coarse",
+      "content": "The battered fish is lowered into hot oil and fried.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        152.0,
+        167.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        167.0,
+        182.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u013",
+      "video": "v3",
+      "time": [
+        182.0,
+        197.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u014",
+      "video": "v3",
+      "time": [
+        197.0,
+        212.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u015",
+      "video": "v3",
+      "time": [
+        212.0,
+        217.36
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c001",
+      "video": "v4",
+      "time": [
+        0.0,
+        2.002
+      ],
+      "resolution": "coarse",
+      "content": "Title card 'Fishing For real' displayed against a blue background with fish silhouettes.",
+      "evidence": [
+        "v4-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        2.0020000000000002,
+        6.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        6.006,
+        10.01
+      ],
+      "resolution": "coarse",
+      "content": "Chef Jeremy Sewall stands in a kitchen behind a counter, introducing the topic.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "Audio content not analyzed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        6.006,
+        10.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u003",
+      "video": "v4",
+      "time": [
+        12.012,
+        16.016000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c003",
+      "video": "v4",
+      "time": [
+        12.012,
+        31.99
+      ],
+      "resolution": "coarse",
+      "content": "Chef gestures towards a tray of raw cod and fillets on ice, explaining the fish selection.",
+      "evidence": [
+        "v4-b0001-e3"
+      ],
+      "uncertainty": [
+        "Specific dialogue details are not transcribed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u004",
+      "video": "v4",
+      "time": [
+        16.016000000000002,
+        20.02
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u005",
+      "video": "v4",
+      "time": [
+        20.02,
+        23.983
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u006",
+      "video": "v4",
+      "time": [
+        31.990000000000002,
+        35.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c004",
+      "video": "v4",
+      "time": [
+        35.994,
+        42.0
+      ],
+      "resolution": "coarse",
+      "content": "Close-up shots of the raw fish fillets on ice are shown, followed by the chef standing behind the counter.",
+      "evidence": [
+        "v4-b0001-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u007",
+      "video": "v4",
+      "time": [
+        37.996,
+        42.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c005",
+      "video": "v4",
+      "time": [
+        44.003,
+        44.003
+      ],
+      "resolution": "coarse",
+      "content": "Title card 'Fish and Chips' appears on a blue background.",
+      "evidence": [
+        "v4-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u008",
+      "video": "v4",
+      "time": [
+        44.003,
+        48.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u009",
+      "video": "v4",
+      "time": [
+        48.006,
+        52.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c006",
+      "video": "v4",
+      "time": [
+        48.006,
+        54.013
+      ],
+      "resolution": "coarse",
+      "content": "A person is seen preparing a white liquid mixture in a glass bowl placed on a wooden cutting board.",
+      "evidence": [
+        "v4-b0002-e1"
+      ],
+      "uncertainty": [
+        "Ingredients for the white liquid mixture are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u010",
+      "video": "v4",
+      "time": [
+        54.013,
+        58.016
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-r3-01.s01",
+      "video": "v4",
+      "time": [
+        58.016,
+        63.981
+      ],
+      "resolution": "fine",
+      "content": "A person's hands place white fillets into a glass dish containing a liquid mixture with orange swirls. The orange coloration is already present in the liquid at the start of the interval.",
+      "evidence": [
+        "v4.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Origin of orange swirl (egg vs other ingredient) not visible.",
+        "Unresolved: Visual confirmation of egg cracking or ingredient addition creating the orange swirl."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u011",
+      "video": "v4",
+      "time": [
+        69.987,
+        77.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u012",
+      "video": "v4",
+      "time": [
+        77.995,
+        81.999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c008",
+      "video": "v4",
+      "time": [
+        77.995,
+        84.001
+      ],
+      "resolution": "coarse",
+      "content": "The person prepares a dry mixture in a separate glass bowl, adding red powder and other ingredients to a white base.",
+      "evidence": [
+        "v4-b0002-e3"
+      ],
+      "uncertainty": [
+        "The full list of ingredients in the dry mix is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u013",
+      "video": "v4",
+      "time": [
+        84.001,
+        88.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c009",
+      "video": "v4",
+      "time": [
+        88.005,
+        92.009
+      ],
+      "resolution": "coarse",
+      "content": "The person coats the fillets, which were previously in the liquid batter, into the dry mixture.",
+      "evidence": [
+        "v4-b0002-e4"
+      ],
+      "uncertainty": [
+        "It is not shown whether the fillets were coated in the liquid batter immediately before this step."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c010",
+      "video": "v4",
+      "time": [
+        96.013,
+        98.015
+      ],
+      "resolution": "coarse",
+      "content": "A person is shown preparing food at a kitchen counter, with a glass bowl of white powder and a bowl of wet batter visible.",
+      "evidence": [
+        "v4-b0003-e1"
+      ],
+      "uncertainty": [
+        "Egg addition to batter not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c011",
+      "video": "v4",
+      "time": [
+        100.017,
+        104.021
+      ],
+      "resolution": "coarse",
+      "content": "A piece of food is coated in batter and placed into the basket of a deep fryer, which is then lowered into hot oil.",
+      "evidence": [
+        "v4-b0003-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c012",
+      "video": "v4",
+      "time": [
+        105.981,
+        107.983
+      ],
+      "resolution": "coarse",
+      "content": "The fryer is covered with a lid, and the digital display is set to a 'FISH' program for 5 minutes at 355°F.",
+      "evidence": [
+        "v4-b0003-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u014",
+      "video": "v4",
+      "time": [
+        109.985,
+        113.989
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c013",
+      "video": "v4",
+      "time": [
+        113.989,
+        115.991
+      ],
+      "resolution": "coarse",
+      "content": "The fryer basket is lifted out of the oil, revealing the cooked, golden-brown food inside.",
+      "evidence": [
+        "v4-b0003-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u015",
+      "video": "v4",
+      "time": [
+        117.99300000000001,
+        123.99900000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c014",
+      "video": "v4",
+      "time": [
+        123.999,
+        128.003
+      ],
+      "resolution": "coarse",
+      "content": "The cooked food is removed from the fryer basket with tongs and placed on a paper towel-lined tray.",
+      "evidence": [
+        "v4-b0003-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c015",
+      "video": "v4",
+      "time": [
+        132.007,
+        138.013
+      ],
+      "resolution": "coarse",
+      "content": "A person uses tongs to handle fried fish pieces on a paper towel-lined tray, then places them into a wire basket with french fries.",
+      "evidence": [
+        "v4-b0004-e1"
+      ],
+      "uncertainty": [
+        "The batter preparation process is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u016",
+      "video": "v4",
+      "time": [
+        132.007,
+        138.013
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u017",
+      "video": "v4",
+      "time": [
+        138.013,
+        145.979
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c016",
+      "video": "v4",
+      "time": [
+        145.979,
+        153.987
+      ],
+      "resolution": "coarse",
+      "content": "A man in a blue shirt speaks to the camera, followed by a close-up of the finished fish and chips basket, and finally a copyright screen.",
+      "evidence": [
+        "v4-b0004-e2"
+      ],
+      "uncertainty": [
+        "Dialogue content is not transcribed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u018",
+      "video": "v4",
+      "time": [
+        147.981,
+        151.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u019",
+      "video": "v4",
+      "time": [
+        153.987,
+        154.738
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If v2 shows no visible eggs, inspect v3's beer-and-flour batter span for egg shells or whisked eggs.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 4,
+    "visual_calls_remaining": 4,
+    "maximum_visual_calls_for_current_stage": 4,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

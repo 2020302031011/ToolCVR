@@ -1,0 +1,202 @@
+{
+  "question": "How do the chefs differ in preparing the meat before grilling between the two videos?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2"
+      ],
+      "statement": "In v1, raw chicken breast is cut into cubes and arranged in a clear glass baking dish."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3",
+        "v1-b0001-e4"
+      ],
+      "statement": "In v1, a hand reaches toward a bowl of yellow oil near spice bowls and a lime, and a liquid mixture is whisked with white powder and ground pepper."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0002-e1"
+      ],
+      "statement": "In v1, a skewer containing raw yellow-marinated chicken and peppers is placed onto a hot grill."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "In v2, a man shakes a bottle of Great Value Italian Dressing in a kitchen."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "statement": "In v2, seasoning is sprinkled over raw meat chunks and then meat, cherry tomatoes, and green peppers are threaded onto wooden skewers."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos show meat being handled before grilling, but v1 shows chicken cubes in a dish and a yellow-marinated skewer while v2 shows seasoned meat chunks assembled onto skewers with vegetables.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v1-b0002-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 shows a whisked liquid mixture and a yellow-marinated skewer, while v2 shows an Italian dressing bottle and dry seasoning sprinkled on meat, leaving the applied treatment ambiguous.",
+      "supporting_events": [
+        "v1-b0001-e4",
+        "v1-b0002-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The specific pre-grill treatment applied to v1's chicken cubes remains unresolved.",
+      "reason": "The reports show raw chicken cubes, a whisked liquid mixture, and a yellow-marinated skewer, but no event shows the mixture or marinade being applied to the cubes.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v1-b0001-e4",
+        "v1-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The role of the Italian dressing in v2's pre-grill meat preparation remains unresolved.",
+      "reason": "The reports show the dressing bottle being shaken and seasoning sprinkled on meat, but no event shows the dressing being poured, mixed, or applied to the meat.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact comparative difference between the chefs' meat preparation before grilling remains unresolved.",
+      "reason": "Both videos omit the application or mixing step that connects the shown ingredients or seasonings to the meat before it is grilled.",
+      "related_events": [
+        "v1-b0001-e4",
+        "v1-b0002-e1",
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare v1's raw chicken cubes with the chicken on the skewer to see whether the whisked liquid or yellow marinade is visibly applied before grilling.",
+      "purpose": "To determine what pre-grill treatment is applied to v1's chicken cubes.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare v2's raw meat chunks before and after skewering to see whether Italian dressing or sprinkled seasoning is visibly applied to the meat.",
+      "purpose": "To determine whether the Italian dressing is part of v2's pre-grill meat preparation.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare visible application steps of liquid, marinade, dressing, or seasoning to the meat in v1 and v2 before grilling.",
+      "purpose": "To identify the concrete difference in how each chef prepares the meat before grilling.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CCQA-733",
+    "task": "CCQA",
+    "ground_truth": "In video A, the chef prepares a detailed marinade with olive oil, red wine vinegar, lime juice, and multiple spices to coat the chicken before grilling. Video B shows no marinade preparation - the meat is simply cut and skewered with vegetables without any pre-seasoning or liquid mixture applied.",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CCQA/CCQA-733/report.json",
+    "report_sha256": "58038c48e53d52c15b1fa0ed1c8562254ee91732f67d2522fed5f732074210ef",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

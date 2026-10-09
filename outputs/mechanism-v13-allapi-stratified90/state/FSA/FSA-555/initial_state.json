@@ -1,0 +1,207 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "In v1, a red liquid is poured into a simmering pot containing a chunky brown mixture and then stirred vigorously with a wooden spoon."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e2"
+      ],
+      "statement": "In v2, a liquid is poured into a pot, the pot is stirred, and a lid is placed on it to simmer."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e1"
+      ],
+      "statement": "In v2, crushed herbs are added to a pot containing browning meat and onions shortly before the liquid-pouring event."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e1",
+        "v2-b0004-e2"
+      ],
+      "statement": "In v2, brown broth is stirred, raw potatoes are added, and later a wooden spoon is used to stir before simmering."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 pour-and-stir action is functionally comparable to the v2 liquid-pouring-and-stirring action because both add liquid to a simmering pot and mix it.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0003-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v2 pot state before liquid addition resembles the v1 chunky brown mixture because it contains browning meat and onions.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0003-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v2 later wooden-spoon stirring occurs after potatoes and broth are present, so it may correspond to a different mixing stage than the v1 stirring immediately after liquid addition.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0004-e1",
+        "v2-b0004-e2"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the v2 liquid-pouring event matches the v1 step in liquid color, pot contents, and stirring implement remains undetermined.",
+      "reason": "v1 specifies red liquid, chunky brown mixture, and wooden spoon, while v2 only says liquid is poured and stirred without specifying color, contents at that moment, or stirring tool.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0003-e2",
+        "v2-b0003-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact start and end seconds for the equivalent pour-and-stir portion within v2-b0003-e2 remain undetermined.",
+      "reason": "The reported event combines pouring, stirring, and covering with a lid, and does not separate those subactions.",
+      "related_events": [
+        "v2-b0003-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The boundary between pouring and stirring in v1 remains undetermined.",
+      "reason": "The report gives one combined time span and states exact start and end times of pouring versus stirring are not visible.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Check whether the liquid poured in v2-b0003-e2 is red and whether the pot contains a chunky brown mixture at that moment.",
+      "purpose": "To resolve whether the v2 liquid addition is functionally equivalent to the v1 reference step.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Check whether the stirring immediately after the liquid pour in v2-b0003-e2 uses a wooden spoon.",
+      "purpose": "To resolve the implement mismatch needed for functional equivalence.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Identify the seconds where pouring stops, stirring occurs, and the lid is placed within v2-b0003-e2.",
+      "purpose": "To resolve the interval boundary for the equivalent pour-and-stir step.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Identify the seconds where pouring ends and vigorous stirring begins within v1-b0001-e1.",
+      "purpose": "To resolve the reference-step boundary needed for matching v2 subactions.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-555",
+    "task": "FSA",
+    "ground_truth": [
+      118,
+      134
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-555/report.json",
+    "report_sha256": "a5cb11083917eede8467fbd7ac1c5f73d7a3bcc809ef7b08b054443ac0ce6a01",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

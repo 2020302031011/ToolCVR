@@ -1,0 +1,426 @@
+{
+  "state": {
+    "question": "How many cars in total overtake {A2}?",
+    "round_id": 3,
+    "summary": "The only physically confirmed overtaking car of A2 is A3/B3. Possible middle-lane sedan and v2 late overtakes remain unresolved, and unobserved coverage cannot be treated as absence. With no remaining focus stages, the best-supported choice is the single confirmed overtake.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-36: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=13; declared=car; A1_visible=122-262 (4.067-8.767s)/420_frames; B1_visible=0-302 (0.000-10.100s)/420_frames.",
+      "A2/B2 is source_track=45; declared=car; A2_visible=329-419 (10.967-14.000s)/420_frames; B2_visible=3-419 (0.100-14.000s)/420_frames.",
+      "A3/B3 is source_track=63; declared=car; A3_visible=327-419 (10.900-14.000s)/420_frames; B3_visible=223-419 (7.433-14.000s)/420_frames.",
+      "A4/B4 is source_track=30; declared=person; A4_visible=202-419 (6.733-14.000s)/420_frames; B4_visible=0-419 (0.000-14.000s)/420_frames.",
+      "A5/B5 is source_track=22; declared=person; A5_visible=0-244 (0.000-8.167s)/420_frames; B5_visible=0-272 (0.000-9.100s)/420_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v1.zoom.r1-U03-01.s01"
+        ],
+        "attempts": [
+          "v1 coarse evidence confirms A3 overtakes A2, while the middle-lane sedan's relation to A2 remains unresolved in the fine zoom."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r2-r2-01.s01",
+          "v2.u003"
+        ],
+        "attempts": [
+          "v2 alias mapping supports B2 as A2, but B2 identity is distant and later overtaking candidates are not resolved; unobserved coverage is not negative evidence."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c003",
+          "v2.zoom.r2-r2-01.s01"
+        ],
+        "attempts": [
+          "Synchronized views are comparable, but duplicate reconciliation for any additional overtakes is incomplete; only the A3/B3 transition is confirmed."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Aerial view of a complex intersection with heavy traffic flow. A pedestrian (A5) is stationary on the sidewalk near a crosswalk.",
+        "uncertainty": "Target A2 is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          8.0,
+          10.0
+        ],
+        "description": "Camera pans to a multi-lane road. Vehicles travel left. Pedestrian A5 remains on the sidewalk; A4 appears on the right sidewalk.",
+        "uncertainty": "Target A2 is not visible in these frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          12.0
+        ],
+        "description": "Target vehicle A2 (white van) is detected in the rightmost lane. It is overtaken by A3 (dark car) in the adjacent lane.",
+        "uncertainty": "Only one overtaking event is visible in this single frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          12.0
+        ],
+        "description": "Sustained multi-lane traffic flow on a highway, with vehicles moving continuously in both directions.",
+        "uncertainty": "Identity of vehicle A2 is not visually established.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1.focus.r1.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          13.0
+        ],
+        "description": "A3 car travels in the left lane, moving from right to left and passing the A4 person's position.",
+        "uncertainty": "Whether A3 overtakes A2 is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r1.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          12.0,
+          13.0
+        ],
+        "description": "A dark sedan in the middle lane travels from right to left, passing the A4 person's position.",
+        "uncertainty": "Whether this sedan overtakes A2 is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          5.0
+        ],
+        "description": "B1 car (dark sedan) is stationary in foreground lane. B2 car is distant in background. B3 car is not yet visible.",
+        "uncertainty": "B2 car identity is distant and small.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          6.0,
+          8.0
+        ],
+        "description": "B1 car accelerates forward. B2 car (blue box) is visible in background lane, ahead of B1.",
+        "uncertainty": "B2 car is distant.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          9.0,
+          12.0
+        ],
+        "description": "B3 car (green box) enters view from behind B1 and moves ahead of it. B1 continues forward.",
+        "uncertainty": "B3 car is distant.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need unobserved v1 12-14s evidence to count cars overtaking A2 beyond the single 12.0s frame.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U03",
+        "slot_ids": [
+          "v1.u003"
+        ],
+        "evidence_goal": "In v1 from 12.0s to 14.0s, how many distinct cars pass A2's lane and overtake A2?",
+        "next_probe_goal": "Then refine v1.c003 to confirm the 12.0s A2/A3 overtaking transition and avoid double-counting it.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need v2 A2 identity and overtaking count in 0-12",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.c001"
+        ],
+        "evidence_goal": "In v2 0-12, identify the A2/B2 annotated car and count distinct cars that move from behind to ahead of it.",
+        "next_probe_goal": "Then recover v2.u003 to check 12-14 overtaking.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The only physically confirmed overtaking car of A2 is A3/B3. Possible middle-lane sedan and v2 late overtakes remain unresolved, and unobserved coverage cannot be treated as absence. With no remaining focus stages, the best-supported choice is the single confirmed overtake.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "A",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "A",
+    "evidence_refs": [
+      "v1.c003",
+      "v1.zoom.r1-U03-01.s01",
+      "v2.zoom.r2-r2-01.s01"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "Aerial view of a complex intersection with heavy traffic flow. A pedestrian (A5) is stationary on the sidewalk near a crosswalk.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Target A2 is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        8.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "Camera pans to a multi-lane road. Vehicles travel left. Pedestrian A5 remains on the sidewalk; A4 appears on the right sidewalk.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Target A2 is not visible in these frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        12.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "Target vehicle A2 (white van) is detected in the rightmost lane. It is overtaken by A3 (dark car) in the adjacent lane.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Only one overtaking event is visible in this single frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r1-U03-01.s01",
+      "video": "v1",
+      "time": [
+        12.0,
+        13.966666666666667
+      ],
+      "resolution": "fine",
+      "content": "A3 car travels in the left lane, moving from right to left and passing the A4 person's position. A dark sedan in the middle lane travels from right to left, passing the A4 person's position.",
+      "evidence": [
+        "v1.focus.r1.l1.e1",
+        "v1.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Whether A3 overtakes A2 is not visible.",
+        "Whether this sedan overtakes A2 is not visible.",
+        "Unresolved: Visual confirmation of cars passing A2's lane and overtaking A2."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        12.0
+      ],
+      "resolution": "fine",
+      "content": "B1 car (dark sedan) is stationary in foreground lane. B2 car is distant in background. B3 car is not yet visible. B1 car accelerates forward. B2 car (blue box) is visible in background lane, ahead of B1. B3 car (green box) enters view from behind B1 and moves ahead of it. B1 continues forward.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2",
+        "v2.focus.r2.l1.e3"
+      ],
+      "uncertainty": [
+        "B2 car identity is distant and small.",
+        "B2 car is distant.",
+        "B3 car is distant.",
+        "Unresolved: Confirm if B2 is the target A2 car."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        4.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        12.0,
+        14.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Then refine v1.c003 to confirm the 12.0s A2/A3 overtaking transition and avoid double-counting it.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

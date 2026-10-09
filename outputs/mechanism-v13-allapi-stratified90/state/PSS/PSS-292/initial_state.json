@@ -1,0 +1,372 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e5",
+        "v2-b0001-e6"
+      ],
+      "statement": "v2 shows an empty wok receiving oil or liquid, then diced garlic and dark spices being added to the oil."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5"
+      ],
+      "statement": "v1 shows raw ground meat added to a wok with sizzling aromatics, then broken apart, sauced, coated with chili paste, and stirred."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v3-b0001-e6"
+      ],
+      "statement": "v3 shows dried red chilies added to an oil-containing stainless steel pot, tofu sliced into cubes, and a later close-up of pot residue."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v4-b0001-e6"
+      ],
+      "statement": "v4 shows ground meat and aromatics simmering, dried red chilies poured into bubbling sauce, tofu cubes added, and tofu simmering in dark red sauce."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v5"
+      ],
+      "event_refs": [
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "statement": "v5 shows tofu cubes simmering in red sauce with minced meat and then topped with chopped green onions."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v2",
+        "v1"
+      ],
+      "statement": "v2's garlic-and-spice-in-oil preparation and v1's raw meat addition to sizzling aromatics provide comparable wok states involving aromatics before meat.",
+      "supporting_events": [
+        "v2-b0001-e5",
+        "v2-b0001-e6",
+        "v1-b0001-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "statement": "v1 and v4 both involve ground meat in a wok, but v1 adds dark sauce and chili paste while v4 adds dried chilies and tofu to a bubbling sauce.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v4-b0001-e1",
+        "v4-b0001-e3",
+        "v4-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "statement": "v3's chili addition and tofu cutting and v4's chili addition and tofu insertion both involve chilies and tofu, but in different described vessels.",
+      "supporting_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e3",
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v4-b0001-e3",
+        "v4-b0001-e4",
+        "v4-b0001-e5"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R04",
+      "scope": [
+        "v4",
+        "v5"
+      ],
+      "statement": "v4's tofu addition and simmering and v5's tofu simmering with green-onion topping describe a possible sauce-to-garnish continuation.",
+      "supporting_events": [
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v4-b0001-e6",
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R05",
+      "scope": [
+        "v3",
+        "v4",
+        "v5"
+      ],
+      "statement": "v3's cut tofu, v4's added tofu, and v5's simmering tofu are connected by tofu state but lack a visible transfer event.",
+      "supporting_events": [
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v5-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2",
+        "v1",
+        "v4"
+      ],
+      "issue": "The continuity from v2's empty-wok aromatics preparation to v1's meat addition and v4's meat base remains undetermined.",
+      "reason": "v1 and v4 begin with meat or aromatics already present, and no event directly links v2's garlic/spice stage to those states.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e5",
+        "v2-b0001-e6",
+        "v1-b0001-e1",
+        "v4-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v3",
+        "v4"
+      ],
+      "issue": "Whether v3's stainless steel pot with chilies is the same cooking stage as v4's wok with chilies poured into sauce remains undetermined.",
+      "reason": "The reports describe different vessels and v3 lacks the meat/sauce context shown in v4.",
+      "related_events": [
+        "v3-b0001-e1",
+        "v3-b0001-e2",
+        "v3-b0001-e3",
+        "v3-b0001-e6",
+        "v4-b0001-e1",
+        "v4-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v4"
+      ],
+      "issue": "The relative order of v1's dark-sauce/chili-paste meat stage and v4's dried-chili/tofu sauce stage remains undetermined.",
+      "reason": "Both clips show meat and sauce without a shared transition marker for paste versus dried chilies.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v1-b0001-e4",
+        "v1-b0001-e5",
+        "v4-b0001-e1",
+        "v4-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v3",
+        "v4",
+        "v5"
+      ],
+      "issue": "Whether the tofu cut in v3 is the same tofu added in v4 and simmered in v5 remains undetermined.",
+      "reason": "No event shows the transfer from cutting board to wok or the continuity of cube appearance across clips.",
+      "related_events": [
+        "v3-b0001-e4",
+        "v3-b0001-e5",
+        "v4-b0001-e4",
+        "v4-b0001-e5",
+        "v5-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U05",
+      "scope": [
+        "v1",
+        "v4",
+        "v5"
+      ],
+      "issue": "Whether v5's garnished simmering state follows all earlier meat and sauce stages remains undetermined.",
+      "reason": "Only v5 shows green onions, and no event connects its final topping to the end states of v1 or v4.",
+      "related_events": [
+        "v1-b0001-e5",
+        "v4-b0001-e6",
+        "v5-b0001-e1",
+        "v5-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2",
+        "v1",
+        "v4"
+      ],
+      "observable": "Compare the wok surface, oil color, garlic/spice residue, and first visible meat state at the end of v2, start of v1, and start of v4.",
+      "purpose": "Resolve whether v2's aromatics preparation directly precedes v1 or v4's meat stage.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v3",
+        "v4"
+      ],
+      "observable": "Compare the vessel shape, chili residue, sauce presence, and meat presence between v3's pot and v4's bubbling wok.",
+      "purpose": "Resolve whether v3's chili pot is the same stage as v4's chili addition to sauce.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v4"
+      ],
+      "observable": "Compare sauce color, chili paste versus dried chilies, and meat coating before and after the sauce additions in v1 and v4.",
+      "purpose": "Resolve the relative order of v1's paste-sauced meat and v4's dried-chili sauce.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v3",
+        "v4",
+        "v5"
+      ],
+      "observable": "Compare tofu cube size, cut surfaces, and sauce adherence from v3's board to v4's wok to v5's simmering cubes.",
+      "purpose": "Resolve whether v3's cut tofu feeds v4 and v5.",
+      "related_issue": "U04"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v1",
+        "v4",
+        "v5"
+      ],
+      "observable": "Compare the presence of minced meat, red sauce, and green onion garnish at the end of v1, end of v4, and start/end of v5.",
+      "purpose": "Resolve whether v5 is the continuation after v1 and v4 meat/sauce stages.",
+      "related_issue": "U05"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 7,
+    "covered_pair_count": 7,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 7,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v1",
+        "v5"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ],
+      [
+        "v4",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-292",
+    "task": "PSS",
+    "ground_truth": "3->2->1->4->5",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-292/report.json",
+    "report_sha256": "e0b6106e10843a34acebef329e584adecbb51a4800d1f1af63c295a15e244b61",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

@@ -1,0 +1,1828 @@
+{
+  "state": {
+    "question": "Which assembly error is directly caused by wrong action order?",
+    "round_id": 4,
+    "summary": "Current local evidence leaves v2 interpretations competing: screwdriver/chassis flip may reflect post-attachment detachment or ambiguous screw manipulation, while yellow-arm placement suggests the grey chassis was already attached. v1 and v3 intervals do not confirm whether the named attachment order directly caused the error.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "v2: replaced interval-incompatible HMC asset (32.000s for [300.000,521.000]s) with the unique same-recording RGB asset (544.100s)"
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r3-r_v2_order_error-01.s01",
+          "v2.zoom.r3-r_v2_order_error-02.s01"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v3.c007",
+          "v3.c008"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1.c002",
+          "v1.c003"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          191.0,
+          199.0
+        ],
+        "description": "Participant uses a yellow screwdriver to attach a yellow component to a grey base, which is already equipped with black wheels.",
+        "uncertainty": "Exact sequence relative to wheel attachment is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          209.0,
+          219.0
+        ],
+        "description": "Participant holds a black chassis, places it on the table, and uses the screwdriver to attach a component to it.",
+        "uncertainty": "Initial state of chassis before 209.0s is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          221.0,
+          229.0
+        ],
+        "description": "Participant places a yellow cabin on the black chassis and then uses the screwdriver to attach the cabin to the chassis.",
+        "uncertainty": "Whether this order causes an error is not visually confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e1",
+        "video_id": "v1",
+        "time_span": [
+          267.0,
+          277.0
+        ],
+        "description": "Participant holds a yellow tool and manipulates wheels on the toy chassis, which is oriented with its underside facing upward.",
+        "uncertainty": "Exact action intent (tightening or loosening) is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e2",
+        "video_id": "v1",
+        "time_span": [
+          281.0,
+          287.0
+        ],
+        "description": "Participant uses the yellow tool to fasten components on the top surface of the assembled toy vehicle.",
+        "uncertainty": "Whether this step follows correct assembly sequence is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0002-e3",
+        "video_id": "v1",
+        "time_span": [
+          289.0,
+          289.0
+        ],
+        "description": "The fully assembled yellow excavator toy is held upright by the participant.",
+        "uncertainty": "No visible assembly error is apparent in this final state.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          314.0,
+          322.0
+        ],
+        "description": "Operator uses a screwdriver on the underside of a black base component, which is resting on its wheels.",
+        "uncertainty": "Exact assembly step being performed is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          326.0,
+          328.0
+        ],
+        "description": "Operator flips the base component over, revealing its top side, and then removes one of the attached wheels.",
+        "uncertainty": "Reason for flipping and wheel removal is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          330.0,
+          342.0
+        ],
+        "description": "Operator secures the base component, now with wheels attached, using a screwdriver on its top surface.",
+        "uncertainty": "Specific parts being fastened are not clearly identifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          346.0,
+          348.0
+        ],
+        "description": "Operator continues to secure the base component with a screwdriver and then lifts the completed assembly.",
+        "uncertainty": "Final state of the assembly is not fully shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          350.0,
+          354.0
+        ],
+        "description": "Person handles a chassis assembly with two yellow wheels on the table, manipulating it with both hands.",
+        "uncertainty": "Whether this chassis is being detached or reoriented.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          396.0,
+          404.0
+        ],
+        "description": "Person uses a red screwdriver on the chassis assembly, which is now positioned vertically on a yellow base.",
+        "uncertainty": "Whether the vertical orientation indicates a sequence error.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          434.0,
+          442.0
+        ],
+        "description": "Person attaches a yellow cabin component to the grey base, followed by attaching the yellow excavator arm.",
+        "uncertainty": "Whether the cabin was attached before the base was fully secured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          444.0,
+          448.0
+        ],
+        "description": "Person tightens screws on the completed vehicle assembly and rotates it on the table.",
+        "uncertainty": "Final tightness or structural integrity is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          450.0,
+          452.0
+        ],
+        "description": "Person uses a red-handled screwdriver on the yellow arm of an upright toy truck.",
+        "uncertainty": "Specific screw being worked on is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          472.0,
+          482.0
+        ],
+        "description": "Person holds the toy truck on its side, unscrewing a central screw on the chassis/base.",
+        "uncertainty": "Whether the detachment is a correction of a prior error is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          484.0,
+          484.0
+        ],
+        "description": "Person rotates the toy truck back to an upright position on the table.",
+        "uncertainty": "The result of the previous unscrewing action is not immediately visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          492.0,
+          500.0
+        ],
+        "description": "Person flips the truck upside down again and unscrews a wheel hub.",
+        "uncertainty": "The specific component being removed is not clearly identifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e5",
+        "video_id": "v2",
+        "time_span": [
+          502.0,
+          504.0
+        ],
+        "description": "Person places the truck upright and adjusts the grey roof/cabin section.",
+        "uncertainty": "Whether this is a new attachment or a re-attachment is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          506.0,
+          510.0
+        ],
+        "description": "Participant uses an orange screwdriver on the back of a yellow toy crane truck while stabilizing the front with their left hand.",
+        "uncertainty": "Specific part being screwed is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          516.0,
+          516.0
+        ],
+        "description": "Participant holds the orange screwdriver near the back of the truck, appearing to finish the screwing action.",
+        "uncertainty": "Exact moment screwing finishes is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          518.0,
+          520.0
+        ],
+        "description": "Participant detaches the grey back chassis section from the yellow truck body and holds it in their right hand.",
+        "uncertainty": "Whether this detachment is an error is not visually explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          17.0,
+          23.0
+        ],
+        "description": "Participant holds and inspects a dark grey chassis base with both hands, manipulating it over the table.",
+        "uncertainty": "Specific assembly step or error intent is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          29.0,
+          39.0
+        ],
+        "description": "Participant uses an orange tool to interact with the dark grey base, appearing to detach or adjust components.",
+        "uncertainty": "Whether this action is corrective or part of standard assembly is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e3",
+        "video_id": "v3",
+        "time_span": [
+          41.0,
+          45.0
+        ],
+        "description": "Participant places the tool down and handles the base unit, seemingly completing the detachment or adjustment phase.",
+        "uncertainty": "Exact state of the base before re-attachment is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e4",
+        "video_id": "v3",
+        "time_span": [
+          47.0,
+          51.0
+        ],
+        "description": "Participant picks up a yellow cabin part and attaches it to the dark grey base unit.",
+        "uncertainty": "Causal link between prior tool use and this attachment is not explicit.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e1",
+        "video_id": "v3",
+        "time_span": [
+          53.0,
+          75.0
+        ],
+        "description": "Participant uses a screwdriver to fasten a component onto the underside of a yellow truck chassis held in the left hand.",
+        "uncertainty": "Whether the chassis is already attached to a base or cabin.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e2",
+        "video_id": "v3",
+        "time_span": [
+          89.0,
+          97.0
+        ],
+        "description": "Participant handles a separate grey base component, aligning it with the yellow cabin and black chassis assembly.",
+        "uncertainty": "The precise moment of mechanical connection between base and chassis.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0002-e3",
+        "video_id": "v3",
+        "time_span": [
+          109.0,
+          113.0
+        ],
+        "description": "Participant stands the yellow cabin upright on a grey perforated base and screws the top of the cabin.",
+        "uncertainty": "If this action corrects a prior assembly error.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e1",
+        "video_id": "v3",
+        "time_span": [
+          115.0,
+          117.0
+        ],
+        "description": "The subject uses a screwdriver on a vertical yellow chassis, then tilts the assembly horizontally while holding an orange tool.",
+        "uncertainty": "Exact mechanical state change during tilting is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e2",
+        "video_id": "v3",
+        "time_span": [
+          143.0,
+          145.0
+        ],
+        "description": "The subject reaches for a black wheel on the table, then holds the yellow chassis which is now resting on two attached wheels.",
+        "uncertainty": "Moment of wheel attachment occurred in the time gap.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0003-e3",
+        "video_id": "v3",
+        "time_span": [
+          147.0,
+          153.0
+        ],
+        "description": "The subject uses the screwdriver on the top of the chassis, then attaches a black wheel to the top surface, leaving it protruding vertically.",
+        "uncertainty": "Whether vertical attachment is intentional or an error is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          434.0,
+          438.0
+        ],
+        "description": "The subject holds a yellow excavator arm component and a screwdriver, manipulating the arm in the air above the truck base.",
+        "uncertainty": "The specific fastening action is obscured by the hand.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          439.0,
+          442.0
+        ],
+        "description": "The subject moves the yellow excavator arm down and places it onto the grey chassis of the truck.",
+        "uncertainty": "The screwdriver is held but not actively used during this specific placement.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          472.0,
+          476.0
+        ],
+        "description": "Person holds a yellow toy cab assembly with a screwdriver, appearing to adjust or tighten a screw on the top rear section.",
+        "uncertainty": "Whether this is attachment or detachment is unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          477.0,
+          477.0
+        ],
+        "description": "Person reaches with the left hand towards a grey chassis part lying on the table, while the right hand stabilizes the yellow toy.",
+        "uncertainty": "The grey part is not picked up in this frame.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          478.0,
+          482.0
+        ],
+        "description": "Person uses the screwdriver to work on the top of the yellow toy cab, which remains attached to the base.",
+        "uncertainty": "No detachment of the grey chassis is visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          518.0,
+          520.0
+        ],
+        "description": "Person uses a screwdriver on a yellow and grey toy truck. In the final frame, the grey back chassis is lifted off the yellow cabin.",
+        "uncertainty": "Whether this action corrects a previous wrong assembly order is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          518.0,
+          519.0
+        ],
+        "description": "The person holds a grey piece in the left hand near the yellow truck, then moves it toward the truck's cab area.",
+        "uncertainty": "The specific action is moving toward the truck, not clearly attaching.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          519.0,
+          520.0
+        ],
+        "description": "The person places the grey piece onto the yellow truck's cab area and adjusts its position with both hands.",
+        "uncertainty": "The grey piece is placed, but detachment is not visible.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          396.0,
+          398.0
+        ],
+        "description": "The person holds the chassis and reaches for a screwdriver, preparing to work on the vehicle.",
+        "uncertainty": "The specific target of the screwdriver action is not yet clear.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          399.0,
+          402.0
+        ],
+        "description": "The person uses the screwdriver to interact with the chassis, appearing to unscrew a component.",
+        "uncertainty": "It is not visible if a part is fully detached during this specific action.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          403.0,
+          404.0
+        ],
+        "description": "The person lifts the chassis assembly and flips it to reveal the yellow cabin structure attached underneath.",
+        "uncertainty": "Whether the screwdriver action was to detach or attach is not explicitly shown.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          472.0,
+          482.0
+        ],
+        "description": "A person uses a tool to manipulate screws on a yellow and grey toy vehicle, specifically focusing on the top and rear sections.",
+        "uncertainty": "Whether screws are being tightened or loosened is not clearly visible.",
+        "action": "FOCUS",
+        "round": 3
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need v2 sequence showing whether back-chassis detachment follows incorrect cabin/base attachment.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U02",
+        "slot_ids": [
+          "v2.c007",
+          "v2.c010",
+          "v2.c016"
+        ],
+        "evidence_goal": "In v2, does the unscrewing and grey back-chassis detachment follow the yellow cabin/base attachment in a way that visibly corrects a wrong assembly order?",
+        "next_probe_goal": "Compare whether base/chassis securing occurred before the cabin attachment that necessitated the detachment.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to determine if v2 grey chassis separation is a correction of wrong order or normal disassembly.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.zoom.r1-U02-03.s01"
+        ],
+        "evidence_goal": "Observe if the detachment of the grey chassis from the yellow cabin in v2 is preceded by any struggle or inability to attach, or if it follows a successful attachment sequence.",
+        "next_probe_goal": "Check v2 context around 472-482s for attachment attempts.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "All options remain viable. v2 is the most evidence-relevant because it contains base/chassis and cab/chassis manipulation around vertical orientation, flipping, and screwdriver use, but current coarse/fine observations do not determine whether the wrong action order directly caused base/chassis detachment or cabin/chassis attachment. Visual budget remains, so refine the two v2 slots that can distinguish attachment versus detachment.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r_v2_order_error",
+        "slot_ids": [
+          "v2.c006",
+          "v2.zoom.r1-U02-02.s01"
+        ],
+        "evidence_goal": "Determine whether v2 shows base/chassis being detached after an earlier cabin/chassis attachment, versus a normal cabin/chassis attachment or unrelated manipulation.",
+        "next_probe_goal": "If the refined v2 observations establish a detach base/chassis event caused by prior wrong order, select A; if they establish only attach cabin/chassis without detachment, select B; if they remain ambiguous, reassess v3/v1 with remaining budget.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Current local evidence leaves v2 interpretations competing: screwdriver/chassis flip may reflect post-attachment detachment or ambiguous screw manipulation, while yellow-arm placement suggests the grey chassis was already attached. v1 and v3 intervals do not confirm whether the named attachment order directly caused the error.",
+      "action": "STOP",
+      "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: [', v2.zoom.r3-r_v2_order_error-01.s01', ', v2.zoom.r3-r_v2_order_error-02.s01']",
+      "answer": null,
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "STOP",
+    "answer": null,
+    "evidence_refs": [],
+    "reason": "unexecutable Reasoner action: focus intent cites slots absent from current memory: [', v2.zoom.r3-r_v2_order_error-01.s01', ', v2.zoom.r3-r_v2_order_error-02.s01']"
+  },
+  "visual_calls_used": 6,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        143.0,
+        158.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        158.0,
+        173.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        173.0,
+        188.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        188.0,
+        191.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        191.0,
+        199.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses a yellow screwdriver to attach a yellow component to a grey base, which is already equipped with black wheels.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact sequence relative to wheel attachment is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        199.0,
+        209.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        209.0,
+        219.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds a black chassis, places it on the table, and uses the screwdriver to attach a component to it.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Initial state of chassis before 209.0s is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        221.0,
+        229.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant places a yellow cabin on the black chassis and then uses the screwdriver to attach the cabin to the chassis.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Whether this order causes an error is not visually confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        229.0,
+        244.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        244.0,
+        259.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        259.0,
+        267.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c004",
+      "video": "v1",
+      "time": [
+        267.0,
+        277.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds a yellow tool and manipulates wheels on the toy chassis, which is oriented with its underside facing upward.",
+      "evidence": [
+        "v1-b0002-e1"
+      ],
+      "uncertainty": [
+        "Exact action intent (tightening or loosening) is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u009",
+      "video": "v1",
+      "time": [
+        277.0,
+        281.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c005",
+      "video": "v1",
+      "time": [
+        281.0,
+        287.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses the yellow tool to fasten components on the top surface of the assembled toy vehicle.",
+      "evidence": [
+        "v1-b0002-e2"
+      ],
+      "uncertainty": [
+        "Whether this step follows correct assembly sequence is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c006",
+      "video": "v1",
+      "time": [
+        289.0,
+        289.0
+      ],
+      "resolution": "coarse",
+      "content": "The fully assembled yellow excavator toy is held upright by the participant.",
+      "evidence": [
+        "v1-b0002-e3"
+      ],
+      "uncertainty": [
+        "No visible assembly error is apparent in this final state."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u010",
+      "video": "v1",
+      "time": [
+        289.0,
+        300.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        300.0,
+        314.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        314.0,
+        322.0
+      ],
+      "resolution": "coarse",
+      "content": "Operator uses a screwdriver on the underside of a black base component, which is resting on its wheels.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact assembly step being performed is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        322.0,
+        326.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        326.0,
+        328.0
+      ],
+      "resolution": "coarse",
+      "content": "Operator flips the base component over, revealing its top side, and then removes one of the attached wheels.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Reason for flipping and wheel removal is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        330.0,
+        342.0
+      ],
+      "resolution": "coarse",
+      "content": "Operator secures the base component, now with wheels attached, using a screwdriver on its top surface.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Specific parts being fastened are not clearly identifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        342.0,
+        346.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        346.0,
+        348.0
+      ],
+      "resolution": "coarse",
+      "content": "Operator continues to secure the base component with a screwdriver and then lifts the completed assembly.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Final state of the assembly is not fully shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        350.0,
+        354.0
+      ],
+      "resolution": "coarse",
+      "content": "Person handles a chassis assembly with two yellow wheels on the table, manipulating it with both hands.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Whether this chassis is being detached or reoriented."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        354.0,
+        369.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        369.0,
+        384.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        384.0,
+        396.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r_v2_order_error-01.s01",
+      "video": "v2",
+      "time": [
+        396.0,
+        404.0
+      ],
+      "resolution": "fine",
+      "content": "The person holds the chassis and reaches for a screwdriver, preparing to work on the vehicle. The person uses the screwdriver to interact with the chassis, appearing to unscrew a component. The person lifts the chassis assembly and flips it to reveal the yellow cabin structure attached underneath.",
+      "evidence": [
+        "v2.focus.r3.l1.e1",
+        "v2.focus.r3.l1.e2",
+        "v2.focus.r3.l1.e3"
+      ],
+      "uncertainty": [
+        "The specific target of the screwdriver action is not yet clear.",
+        "It is not visible if a part is fully detached during this specific action.",
+        "Whether the screwdriver action was to detach or attach is not explicitly shown.",
+        "Unresolved: The frames show screwdriver use on the chassis followed by a flip, but do not definitively establish if the cabin was attached prior to this interval or detached during it."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        404.0,
+        419.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        419.0,
+        434.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U02-01.s01",
+      "video": "v2",
+      "time": [
+        434.0,
+        442.0
+      ],
+      "resolution": "fine",
+      "content": "The subject holds a yellow excavator arm component and a screwdriver, manipulating the arm in the air above the truck base. The subject moves the yellow excavator arm down and places it onto the grey chassis of the truck.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "The specific fastening action is obscured by the hand.",
+        "The screwdriver is held but not actively used during this specific placement.",
+        "Unresolved: The video shows the attachment of the yellow arm, but the grey back-chassis is already attached throughout the clip and is not detached."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        442.0,
+        444.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        444.0,
+        448.0
+      ],
+      "resolution": "coarse",
+      "content": "Person tightens screws on the completed vehicle assembly and rotates it on the table.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Final tightness or structural integrity is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        450.0,
+        452.0
+      ],
+      "resolution": "coarse",
+      "content": "Person uses a red-handled screwdriver on the yellow arm of an upright toy truck.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Specific screw being worked on is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        452.0,
+        467.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        467.0,
+        472.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-r_v2_order_error-02.s01",
+      "video": "v2",
+      "time": [
+        472.0,
+        482.0
+      ],
+      "resolution": "fine",
+      "content": "A person uses a tool to manipulate screws on a yellow and grey toy vehicle, specifically focusing on the top and rear sections.",
+      "evidence": [
+        "v2.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "Whether screws are being tightened or loosened is not clearly visible.",
+        "Unresolved: Whether base/chassis is being detached after an earlier cabin/chassis attachment"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        484.0,
+        484.0
+      ],
+      "resolution": "coarse",
+      "content": "Person rotates the toy truck back to an upright position on the table.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "The result of the previous unscrewing action is not immediately visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        484.0,
+        492.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        492.0,
+        500.0
+      ],
+      "resolution": "coarse",
+      "content": "Person flips the truck upside down again and unscrews a wheel hub.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The specific component being removed is not clearly identifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        502.0,
+        504.0
+      ],
+      "resolution": "coarse",
+      "content": "Person places the truck upright and adjusts the grey roof/cabin section.",
+      "evidence": [
+        "v2-b0003-e5"
+      ],
+      "uncertainty": [
+        "Whether this is a new attachment or a re-attachment is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        506.0,
+        510.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses an orange screwdriver on the back of a yellow toy crane truck while stabilizing the front with their left hand.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Specific part being screwed is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        510.0,
+        516.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        516.0,
+        516.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds the orange screwdriver near the back of the truck, appearing to finish the screwing action.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "Exact moment screwing finishes is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        518.0,
+        520.0
+      ],
+      "resolution": "fine",
+      "content": "The person holds a grey piece in the left hand near the yellow truck, then moves it toward the truck's cab area. The person places the grey piece onto the yellow truck's cab area and adjusts its position with both hands.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "The specific action is moving toward the truck, not clearly attaching.",
+        "The grey piece is placed, but detachment is not visible.",
+        "Unresolved: Detachment of the grey chassis from the yellow cabin is not visible in the supplied frames."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        520.0,
+        521.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        17.0,
+        23.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant holds and inspects a dark grey chassis base with both hands, manipulating it over the table.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific assembly step or error intent is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        23.0,
+        29.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        29.0,
+        39.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses an orange tool to interact with the dark grey base, appearing to detach or adjust components.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [
+        "Whether this action is corrective or part of standard assembly is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c003",
+      "video": "v3",
+      "time": [
+        41.0,
+        45.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant places the tool down and handles the base unit, seemingly completing the detachment or adjustment phase.",
+      "evidence": [
+        "v3-b0001-e3"
+      ],
+      "uncertainty": [
+        "Exact state of the base before re-attachment is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c004",
+      "video": "v3",
+      "time": [
+        47.0,
+        51.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant picks up a yellow cabin part and attaches it to the dark grey base unit.",
+      "evidence": [
+        "v3-b0001-e4"
+      ],
+      "uncertainty": [
+        "Causal link between prior tool use and this attachment is not explicit."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u002",
+      "video": "v3",
+      "time": [
+        53.0,
+        63.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c005",
+      "video": "v3",
+      "time": [
+        53.0,
+        75.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant uses a screwdriver to fasten a component onto the underside of a yellow truck chassis held in the left hand.",
+      "evidence": [
+        "v3-b0002-e1"
+      ],
+      "uncertainty": [
+        "Whether the chassis is already attached to a base or cabin."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u003",
+      "video": "v3",
+      "time": [
+        75.0,
+        89.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c006",
+      "video": "v3",
+      "time": [
+        89.0,
+        97.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant handles a separate grey base component, aligning it with the yellow cabin and black chassis assembly.",
+      "evidence": [
+        "v3-b0002-e2"
+      ],
+      "uncertainty": [
+        "The precise moment of mechanical connection between base and chassis."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u004",
+      "video": "v3",
+      "time": [
+        97.0,
+        109.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c007",
+      "video": "v3",
+      "time": [
+        109.0,
+        113.0
+      ],
+      "resolution": "coarse",
+      "content": "Participant stands the yellow cabin upright on a grey perforated base and screws the top of the cabin.",
+      "evidence": [
+        "v3-b0002-e3"
+      ],
+      "uncertainty": [
+        "If this action corrects a prior assembly error."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c008",
+      "video": "v3",
+      "time": [
+        115.0,
+        117.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject uses a screwdriver on a vertical yellow chassis, then tilts the assembly horizontally while holding an orange tool.",
+      "evidence": [
+        "v3-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact mechanical state change during tilting is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u005",
+      "video": "v3",
+      "time": [
+        117.0,
+        132.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u006",
+      "video": "v3",
+      "time": [
+        132.0,
+        143.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c009",
+      "video": "v3",
+      "time": [
+        143.0,
+        145.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject reaches for a black wheel on the table, then holds the yellow chassis which is now resting on two attached wheels.",
+      "evidence": [
+        "v3-b0003-e2"
+      ],
+      "uncertainty": [
+        "Moment of wheel attachment occurred in the time gap."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c010",
+      "video": "v3",
+      "time": [
+        147.0,
+        153.0
+      ],
+      "resolution": "coarse",
+      "content": "The subject uses the screwdriver on the top of the chassis, then attaches a black wheel to the top surface, leaving it protruding vertically.",
+      "evidence": [
+        "v3-b0003-e3"
+      ],
+      "uncertainty": [
+        "Whether vertical attachment is intentional or an error is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u007",
+      "video": "v3",
+      "time": [
+        153.0,
+        168.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u008",
+      "video": "v3",
+      "time": [
+        168.0,
+        183.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u009",
+      "video": "v3",
+      "time": [
+        183.0,
+        198.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u010",
+      "video": "v3",
+      "time": [
+        198.0,
+        213.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u011",
+      "video": "v3",
+      "time": [
+        213.0,
+        228.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u012",
+      "video": "v3",
+      "time": [
+        228.0,
+        237.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Compare whether base/chassis securing occurred before the cabin attachment that necessitated the detachment.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 6,
+    "visual_calls_remaining": 2,
+    "maximum_visual_calls_for_current_stage": 2,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

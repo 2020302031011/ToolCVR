@@ -1,0 +1,369 @@
+{
+  "question": "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+  "options": [
+    "A. rear left",
+    "B. front left",
+    "C. front right",
+    "D. rear right"
+  ],
+  "query_plan": {
+    "phrases": [
+      {
+        "text": "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+        "source": "original_question",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "rear left",
+        "source": "original_option_A",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "front left",
+        "source": "original_option_B",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "front right",
+        "source": "original_option_C",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "rear right",
+        "source": "original_option_D",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a person or object positioned to the rear left of another object in view B",
+        "source": "option_A",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a person or object positioned to the front left of another object in view B",
+        "source": "option_B",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a person or object positioned to the front right of another object in view B",
+        "source": "option_C",
+        "weight": 1.0,
+        "target_video_ids": []
+      },
+      {
+        "text": "a person or object positioned to the rear right of another object in view B",
+        "source": "option_D",
+        "weight": 1.0,
+        "target_video_ids": []
+      }
+    ],
+    "report_hints": [
+      "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+      "rear left",
+      "front left",
+      "front right",
+      "rear right",
+      "A. rear left",
+      "B. front left",
+      "C. front right",
+      "D. rear right",
+      "Non-retrievable condition: a person or object no longer visible in view A"
+    ]
+  },
+  "videos": [
+    {
+      "video_id": "v1",
+      "duration_seconds": 14.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 7,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          6.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v1-b0001-e1",
+          "time_span": [
+            0.0,
+            6.0
+          ],
+          "description": "A4 car and A3 person remain visible together in bottom-right corner across all frames.",
+          "evidence_frame_ids": [
+            "S1-F01",
+            "S1-F02",
+            "S1-F03",
+            "S1-F04"
+          ],
+          "confidence": 1.0,
+          "uncertainty": "A4 car not visible in any frame after S1-F03, but B1/B4 not visible in any frame."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v1\nCOVERAGE selected=4/7 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v1-b0001-e1 [0.000-6.000s] A4 car and A3 person remain visible together in bottom-right corner across all frames. | evidence=S1-F01,S1-F02,S1-F03,S1-F04 | confidence=1.000\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v1-b0001-e1 [0.000-6.000s] A4 car not visible in any frame after S1-F03, but B1/B4 not visible in any frame.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v1-b0001-e1 unresolved=B1 and B4 not visible in any provided frame for spatial comparison suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v1-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "B1 and B4 not visible in any provided frame for spatial comparison"
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v1",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    },
+    {
+      "video_id": "v2",
+      "duration_seconds": 14.0,
+      "clip_scan_stride_seconds": 2.0,
+      "clip_candidate_count": 7,
+      "cache_hit": true,
+      "observed_spans": [
+        [
+          0.0,
+          6.0
+        ]
+      ],
+      "events": [
+        {
+          "event_id": "v2-b0001-e1",
+          "time_span": [
+            0.0,
+            0.0
+          ],
+          "description": "B4 car and B2 person visible near crosswalk in frame S1-F01.",
+          "evidence_frame_ids": [
+            "S1-F01"
+          ],
+          "confidence": 0.99,
+          "uncertainty": "B4 car and B2 person not visible in later frames."
+        }
+      ],
+      "observation_gaps": [],
+      "report_batches": 1,
+      "selected_frames": 4,
+      "selection_mode": "synchronized_union",
+      "report_text": "VIDEO_REPORT v2\nCOVERAGE selected=4/7 sparse_stride=2.000s mode=synchronized_union\nCOVERAGE_CAVEAT omitted sparse candidates are unobserved, not negative evidence\nEVENT INDEX\n- v2-b0001-e1 [0.000-0.000s] B4 car and B2 person visible near crosswalk in frame S1-F01. | evidence=S1-F01 | confidence=0.990\nOBSERVATION GAPS (not visual evidence)\n- none\nUNCERTAINTY / NEEDS FOCUS\n- v2-b0001-e1 [0.000-0.000s] B4 car and B2 person not visible in later frames.\nQUERY ASSESSMENT\n- batch=1 relevance=insufficient evidence=v2-b0001-e1 unresolved=B4 car and B2 person not visible in later frames to determine relative position. suggested_tools=temporal_expand",
+      "query_assessments": [
+        {
+          "relevance": "insufficient",
+          "evidence_event_ids": [
+            "v2-b0001-e1"
+          ],
+          "unresolved_needs": [
+            "B4 car and B2 person not visible in later frames to determine relative position."
+          ],
+          "suggested_tools": [
+            "temporal_expand"
+          ]
+        }
+      ],
+      "frame_manifest": [
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F01",
+          "timeline_index": 0,
+          "requested_timestamp_seconds": 0.0,
+          "actual_timestamp_seconds": 0.0,
+          "requested_frame_index": 0,
+          "actual_frame_index": 0,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F02",
+          "timeline_index": 1,
+          "requested_timestamp_seconds": 2.0,
+          "actual_timestamp_seconds": 2.0,
+          "requested_frame_index": 60,
+          "actual_frame_index": 60,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F03",
+          "timeline_index": 2,
+          "requested_timestamp_seconds": 4.0,
+          "actual_timestamp_seconds": 4.0,
+          "requested_frame_index": 120,
+          "actual_frame_index": 120,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        },
+        {
+          "batch_index": 1,
+          "video_id": "v2",
+          "segment_id": "S1",
+          "frame_id": "S1-F04",
+          "timeline_index": 3,
+          "requested_timestamp_seconds": 6.0,
+          "actual_timestamp_seconds": 6.0,
+          "requested_frame_index": 180,
+          "actual_frame_index": 180,
+          "matched_queries": [
+            "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+            "a person or object positioned to the front left of another object in view B",
+            "a person or object positioned to the front right of another object in view B",
+            "front left",
+            "front right",
+            "rear right"
+          ]
+        }
+      ],
+      "filtered_regions_are_negative_evidence": false
+    }
+  ],
+  "run": {
+    "sample_id": "MSR-169",
+    "task": "MSR",
+    "ground_truth": "B",
+    "selection_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-selection-broad27/MSR/MSR-169/result.json",
+    "selection_sha256": "7869a57b4dac4d315336eaaff2a660a1650b187b557c0c660cca9dd34a024be0",
+    "reporter_identity": "local-qwen3vl-v6-frame-manifest:model=/media/data6/xuejj/Qwen-VL@36ed3aa315d8884d:adapter=none@none:tokens=2048:events=8:overlay=True",
+    "decode_long_edge": 1024,
+    "structured_events_compiled_to_report_text": true,
+    "free_form_summary_generation": false,
+    "batch_checkpoints_retained": false,
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-36: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=11; declared=car; A1_visible=62-419 (2.067-14.000s)/420_frames; B1_visible=105-419 (3.500-14.000s)/420_frames.",
+      "A2/B2 is source_track=17; declared=person; A2_visible=0-419 (0.000-14.000s)/420_frames; B2_visible=0-419 (0.000-14.000s)/420_frames.",
+      "A3/B3 is source_track=21; declared=person; A3_visible=0-242 (0.000-8.100s)/420_frames; B3_visible=0-270 (0.000-9.033s)/420_frames.",
+      "A4/B4 is source_track=24; declared=car; A4_visible=0-255 (0.000-8.533s)/420_frames; B4_visible=0-278 (0.000-9.300s)/420_frames.",
+      "A5/B5 is source_track=42; declared=car; A5_visible=262-419 (8.733-14.000s)/420_frames; B5_visible=0-419 (0.000-14.000s)/420_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ]
+  }
+}

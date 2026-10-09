@@ -1,0 +1,181 @@
+{
+  "question": "When {A4} completely disappears from view A, where is {B1} located relative to {B4} in view B?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A4 is visible in view A during 0.0-4.0s at the bottom right."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A4 is visible in view A during 6.0-8.0s at the bottom left edge."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B1 appears in view B at 4.0s."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "B4 is visible throughout the 0.0-8.0s v2 event."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "During 0.0-8.0s, B1 is positioned to the left of B4."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "A4 in v1 and B4 in v2 denote the same annotated physical track, so view-A timing can be aligned to view-B using the shared clock.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The reference sidecar distinguishes the view-A disappearance endpoint of A4 at 8.533s from the view-B visibility endpoint of B4 at 9.300s.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both supplied event reports stop at 8.0s, before the 8.533s synchronized trigger time, so the target B1-to-B4 state is not directly covered by the events.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The front or rear component of B1's position relative to B4 at the synchronized disappearance time remains unresolved.",
+      "reason": "The v2 event reports only lateral left-of-B4 positioning and does not report depth.",
+      "related_events": [
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the B1-left-of-B4 lateral relation still holds at the 8.533s synchronized timestamp remains unresolved.",
+      "reason": "The v2 lateral report covers 0.0-8.0s while the v1/reference disappearance timestamp is 8.533s.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0001-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "At 8.533s in view B, record whether B1 is on the left or right side of B4.",
+      "purpose": "Resolve the lateral component of the requested B1-to-B4 relation.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "At 8.533s in view B, record whether B1 is in front of or behind B4 along the scene axis.",
+      "purpose": "Resolve the front/rear component of the requested B1-to-B4 relation.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MSR-169",
+    "task": "MSR",
+    "ground_truth": "B",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/MSR/MSR-169/report.json",
+    "report_sha256": "d0c2f85e59c0b9b62165b3955a825d58dc4e1bf020fd913a4acdc139521ee1d6",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

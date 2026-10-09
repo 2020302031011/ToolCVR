@@ -1,0 +1,222 @@
+{
+  "question": "After {A4} completely leaves view A, how many red cars in view B overtake {B5}?",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A4 is visible in view A at 0.0s, and the event report does not observe its exact exit time."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1"
+      ],
+      "statement": "At 0.0s, view B shows a red bus labeled B5 moving toward the camera."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e2"
+      ],
+      "statement": "At 10.0-12.0s, red cars are visible behind B5 in view B but are not seen overtaking B5."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3"
+      ],
+      "statement": "At 14.0-16.0s, B5 moves out of the bottom of view B and no red cars overtake B5."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e3"
+      ],
+      "statement": "At 18.0-22.0s, red cars are visible in view B but none are clearly seen overtaking the stationary white box truck."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4"
+      ],
+      "statement": "At 18.0-22.0s, view B shows traffic flow with cars B1, B2, and B3 and no red cars overtake B5."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 and v2 both report A4/B4-related motion near 0.0s, but neither event report identifies the exact frame when A4 completely leaves view A.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "v1 reports red cars near a stationary truck at 18.0-22.0s while v2 reports B5 leaving view B by 14.0-16.0s, so v1's later red-car observations may not overlap B5 visibility.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both v1 and v2 report red cars in view B without a clear overtaking event involving B5 or the stationary truck during the intervals they cover.",
+      "supporting_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The number of distinct red cars in view B that overtake B5 after A4 completely leaves view A remains unresolved among one, two, three, or four.",
+      "reason": "The reports show no clear overtaking in the sampled intervals and do not establish which distinct red cars, if any, pass B5 between the protocol-derived A4 exit time and B5's reported departure.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e2",
+        "v2-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the red cars observed in v1 at 18.0-22.0s are relevant to overtaking B5 remains unresolved.",
+      "reason": "v1 does not label B5 in those red-car frames, while v2 reports B5 leaving view B before that interval.",
+      "related_events": [
+        "v1-b0001-e3",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v2"
+      ],
+      "issue": "Whether the event-described red bus labeled B5 corresponds to the annotated B5 target remains unresolved.",
+      "reason": "The event reports call B5 a red bus, while the reference protocol declares B5 as a person track, and the reports do not reconcile the visual target identity.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the number of distinct physical red cars that move from behind B5 to ahead of B5 in view B between 2.567s and 13.533s against the counts 1, 2, 3, and 4.",
+      "purpose": "This would resolve the number of red cars overtaking B5 after A4 leaves view A and distinguish options A, B, C, and D.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare whether the red cars visible in v1 at 18.0-22.0s can be tied to any B5 overtaking event before B5's reported departure in v2.",
+      "purpose": "This would resolve whether v1's later red-car observations contribute to the post-trigger B5 overtaking count.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the visual red bus labeled B5 in v2 with the annotated B5 target identity to determine which target should be used for overtaking counts.",
+      "purpose": "This would resolve the target-identity uncertainty for the B5 overtaking count.",
+      "related_issue": "U03"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "MOC-81",
+    "task": "MOC",
+    "ground_truth": "D",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v12-allapi-broad27/reports/MOC/MOC-81/report.json",
+    "report_sha256": "a794e680290cde36f051c6864f2a0532d38643d3365011506640eace4ebddec8",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

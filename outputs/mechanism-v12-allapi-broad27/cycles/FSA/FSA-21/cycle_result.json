@@ -1,0 +1,1132 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "Reference function and v2 equivalent pan-cooking transition are supported; the best interval is v2 76.009 to 93.994, covering placement/cooking/pressing through golden-brown flip before transfer.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c002"
+        ],
+        "attempts": [
+          "v1.c002 describes scoops of batter placed in a pan and cooked/spread with heat adjustment, establishing the reference function as batter placement and cooking rather than only heat adjustment or mixing."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c002",
+          "v2.zoom.r1-U01-01.s01",
+          "v2.zoom.r2-r2-01.s01",
+          "v2.c014"
+        ],
+        "attempts": [
+          "v2 shows portions placed in a cast-iron pan, cooked, pressed/flipped, and turned golden-brown, matching the physical placement-to-cooking transition in v1.c002."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-02.s01",
+          "v2.zoom.r2-r2-01.s01",
+          "v2.c014"
+        ],
+        "attempts": [
+          "The equivalent v2 step is bounded from the first observed placement slot, which also includes pan oiling, through the golden-brown flip before transfer/plating."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          215.015,
+          216.983
+        ],
+        "description": "Oil is poured from a bottle into a grey non-stick pan on a hot plate, next to a bowl of batter.",
+        "uncertainty": "Exact start of pouring action not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          232.999,
+          273.006
+        ],
+        "description": "Scoops of batter are placed in the pan (2 then 3) and cooked; a spoon spreads one, and heat is adjusted.",
+        "uncertainty": "Moment of third scoop placement is in a gap.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          2.002,
+          8.008
+        ],
+        "description": "A montage of various plated dishes is shown, featuring soups, meats, salads, and desserts, overlaid with the title 'The Dish'.",
+        "uncertainty": "Specific cooking steps are not visible, only finished presentations.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.01,
+          12.012
+        ],
+        "description": "The scene transitions to the exterior sign of 'Paddy Mac's' restaurant, followed by an interior shot of the empty dining room.",
+        "uncertainty": "The transition between the montage and the restaurant location is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          14.014,
+          16.016
+        ],
+        "description": "Chef Monica Rojas is introduced with a lower-third graphic, first in a close-up interview shot and then standing in a kitchen setting.",
+        "uncertainty": "The specific dialogue or introduction speech is not audible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          17.985,
+          17.985
+        ],
+        "description": "A close-up shot displays a finished appetizer: three potato pancakes topped with smoked salmon roses and cream.",
+        "uncertainty": "The preparation of this specific dish is not shown in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          19.987,
+          29.997
+        ],
+        "description": "The 'INGREDIENTS' title card appears, followed by shots of the chef presenting raw components including flour, herbs, eggs, and heavy cream.",
+        "uncertainty": "The actual cooking process involving these ingredients has not yet begun.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          31.999,
+          38.005
+        ],
+        "description": "Chef presents ingredients in ramekins: bacon bits, sour cream, chives, and a bowl of shredded potatoes.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          42.009,
+          42.009
+        ],
+        "description": "Chef stands at a stainless steel table with multiple metal mixing bowls containing ingredients.",
+        "uncertainty": "Specific contents of bowls are not clearly visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          46.013,
+          51.985
+        ],
+        "description": "Chef combines shredded potatoes and bacon bits into a large mixing bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          55.989,
+          61.995
+        ],
+        "description": "Chef adds a liquid mixture and a white powder (likely seasoning or flour) to the bowl.",
+        "uncertainty": "Exact identity of the liquid and powder is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          63.997,
+          70.003
+        ],
+        "description": "Chef mixes the ingredients thoroughly and pours heavy cream from a carton into the bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          72.005,
+          74.007
+        ],
+        "description": "Chef mixes a pale batter or shredded mixture in a stainless steel bowl using a utensil.",
+        "uncertainty": "Exact ingredients are not identifiable.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          76.009,
+          78.011
+        ],
+        "description": "Chef squeezes oil from a yellow bottle onto a black cast-iron skillet, then uses a green-handled scoop to place a portion of the mixture into the hot pan.",
+        "uncertainty": "Whether oil was pre-heated before this clip is unknown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          80.013,
+          85.986
+        ],
+        "description": "The mixture cooks in the skillet; by 85.986s, three distinct fritters are visible, and the chef uses a spatula to move them.",
+        "uncertainty": "The exact moment the second and third fritters were added is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          91.992,
+          93.994
+        ],
+        "description": "Chef flips the fritters in the skillet, revealing golden-brown cooked surfaces, and prepares to transfer them.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e5",
+        "video_id": "v2",
+        "time_span": [
+          100.0,
+          104.004
+        ],
+        "description": "Chef plates the cooked fritters onto a white dish and adds a dollop of white cream or sauce on top.",
+        "uncertainty": "The specific type of white topping is not confirmed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e6",
+        "video_id": "v2",
+        "time_span": [
+          106.006,
+          110.01
+        ],
+        "description": "Chef begins assembling a salmon garnish or roll, handling a slice of smoked salmon with gloved hands.",
+        "uncertainty": "The final form of the salmon garnish is not yet visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          114.014,
+          117.985
+        ],
+        "description": "A chef wearing white gloves places rolled slices of smoked salmon onto dollops of white cream on top of small pancakes, then sprinkles chopped chives over the plated dish.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          121.989,
+          121.989
+        ],
+        "description": "A female chef wearing a white toque is shown in a medium close-up shot, appearing to speak.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          123.991,
+          134.001
+        ],
+        "description": "End credits roll on a black screen, listing the host, videography, animation, editing, and visual effects, followed by a website URL.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          76.009,
+          77.01
+        ],
+        "description": "A gloved hand pours oil from a yellow squeeze bottle into a black cast iron pan.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          78.011,
+          78.011
+        ],
+        "description": "A gloved hand uses a green-handled tool to place shredded food into the pan.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          80.013,
+          82.015
+        ],
+        "description": "A single portion of dough is visible in the cast iron pan, cooking on the stovetop.",
+        "uncertainty": "Oiling action not visible in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          83.016,
+          85.018
+        ],
+        "description": "A second portion of dough is added to the pan, followed by a wider shot of the chef at the stove.",
+        "uncertainty": "Exact method of portion placement is partially obscured.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          85.986,
+          91.992
+        ],
+        "description": "A gloved hand uses a metal spatula to flip and press three dough portions cooking in a black cast-iron skillet.",
+        "uncertainty": "Continuity between sparse frames is inferred, not shown.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need v2 evidence for continuous oiling/placement-to-cooking transition to set equivalent-step start and middle.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c012",
+          "v2.c013"
+        ],
+        "evidence_goal": "Do v2.c012 and v2.c013 show oiling and first portion placement immediately followed by continuous cooking of multiple portions without an intervening separate step?",
+        "next_probe_goal": "Then determine whether v2.c014 flipping is part of the equivalent pan-cooking step or begins a later transfer step.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need v2 evidence for continuous pan cooking between portion placement and flipping to decide if equivalent step extends to 93.994.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.u006"
+        ],
+        "evidence_goal": "Does v2 from 85.986 to 91.992 show the same pan portions cooking continuously without separate intervening steps?",
+        "next_probe_goal": "If continuous, determine whether v2.c014 flipping is part of the same pan-cooking step or a later transfer step.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Reference function and v2 equivalent pan-cooking transition are supported; the best interval is v2 76.009 to 93.994, covering placement/cooking/pressing through golden-brown flip before transfer.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[76.009,93.994]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[76.009,93.994]",
+    "evidence_refs": [
+      "v1.c002",
+      "v2.zoom.r1-U01-01.s01",
+      "v2.zoom.r1-U01-02.s01",
+      "v2.zoom.r2-r2-01.s01",
+      "v2.c014"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        215.015,
+        216.983
+      ],
+      "resolution": "coarse",
+      "content": "Oil is poured from a bottle into a grey non-stick pan on a hot plate, next to a bowl of batter.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact start of pouring action not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        216.98343333333335,
+        231.98343333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        231.98343333333335,
+        232.99943333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        232.999,
+        273.006
+      ],
+      "resolution": "coarse",
+      "content": "Scoops of batter are placed in the pan (2 then 3) and cooked; a spoon spreads one, and heat is adjusted.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Moment of third scoop placement is in a gap."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        232.99943333333334,
+        239.00543333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        239.00543333333334,
+        254.00543333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u005",
+      "video": "v1",
+      "time": [
+        254.00543333333334,
+        254.98806666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u006",
+      "video": "v1",
+      "time": [
+        254.98806666666667,
+        269.98806666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u007",
+      "video": "v1",
+      "time": [
+        269.98806666666667,
+        271.0040666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u008",
+      "video": "v1",
+      "time": [
+        273.0060666666667,
+        274.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        2.002,
+        8.008
+      ],
+      "resolution": "coarse",
+      "content": "A montage of various plated dishes is shown, featuring soups, meats, salads, and desserts, overlaid with the title 'The Dish'.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "Specific cooking steps are not visible, only finished presentations."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.01,
+        12.012
+      ],
+      "resolution": "coarse",
+      "content": "The scene transitions to the exterior sign of 'Paddy Mac's' restaurant, followed by an interior shot of the empty dining room.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "The transition between the montage and the restaurant location is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        14.014,
+        16.016
+      ],
+      "resolution": "coarse",
+      "content": "Chef Monica Rojas is introduced with a lower-third graphic, first in a close-up interview shot and then standing in a kitchen setting.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "The specific dialogue or introduction speech is not audible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        17.985,
+        17.985
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shot displays a finished appetizer: three potato pancakes topped with smoked salmon roses and cream.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "The preparation of this specific dish is not shown in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        19.987,
+        29.997
+      ],
+      "resolution": "coarse",
+      "content": "The 'INGREDIENTS' title card appears, followed by shots of the chef presenting raw components including flour, herbs, eggs, and heavy cream.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "The actual cooking process involving these ingredients has not yet begun."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        31.999,
+        38.005
+      ],
+      "resolution": "coarse",
+      "content": "Chef presents ingredients in ramekins: bacon bits, sour cream, chives, and a bowl of shredded potatoes.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        42.008633333333336,
+        46.01263333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        42.009,
+        42.009
+      ],
+      "resolution": "coarse",
+      "content": "Chef stands at a stainless steel table with multiple metal mixing bowls containing ingredients.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Specific contents of bowls are not clearly visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        46.01263333333333,
+        50.01663333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        46.013,
+        51.985
+      ],
+      "resolution": "coarse",
+      "content": "Chef combines shredded potatoes and bacon bits into a large mixing bowl.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        51.98526666666667,
+        55.98926666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        55.989,
+        61.995
+      ],
+      "resolution": "coarse",
+      "content": "Chef adds a liquid mixture and a white powder (likely seasoning or flour) to the bowl.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "Exact identity of the liquid and powder is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        55.98926666666667,
+        59.99326666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        63.997,
+        70.003
+      ],
+      "resolution": "coarse",
+      "content": "Chef mixes the ingredients thoroughly and pours heavy cream from a carton into the bowl.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        72.005,
+        74.007
+      ],
+      "resolution": "coarse",
+      "content": "Chef mixes a pale batter or shredded mixture in a stainless steel bowl using a utensil.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact ingredients are not identifiable."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        76.009,
+        78.011
+      ],
+      "resolution": "fine",
+      "content": "A gloved hand pours oil from a yellow squeeze bottle into a black cast iron pan. A gloved hand uses a green-handled tool to place shredded food into the pan.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "Unresolved: Continuous cooking of multiple portions after first placement",
+        "Unresolved: Presence or absence of intervening separate steps"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        80.013,
+        85.986
+      ],
+      "resolution": "fine",
+      "content": "A single portion of dough is visible in the cast iron pan, cooking on the stovetop. A second portion of dough is added to the pan, followed by a wider shot of the chef at the stove.",
+      "evidence": [
+        "v2.focus.r1.l2.e1",
+        "v2.focus.r1.l2.e2"
+      ],
+      "uncertainty": [
+        "Oiling action not visible in these frames.",
+        "Exact method of portion placement is partially obscured.",
+        "Unresolved: Visibility of the oiling step",
+        "Unresolved: Confirmation of the first portion placement"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        80.01326666666667,
+        83.9839
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        85.9859,
+        91.9919
+      ],
+      "resolution": "fine",
+      "content": "A gloved hand uses a metal spatula to flip and press three dough portions cooking in a black cast-iron skillet.",
+      "evidence": [
+        "v2.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "Continuity between sparse frames is inferred, not shown.",
+        "Unresolved: Verify no separate steps occurred between 1-second frame gaps."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        91.992,
+        93.994
+      ],
+      "resolution": "coarse",
+      "content": "Chef flips the fritters in the skillet, revealing golden-brown cooked surfaces, and prepares to transfer them.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        100.0,
+        104.004
+      ],
+      "resolution": "coarse",
+      "content": "Chef plates the cooked fritters onto a white dish and adds a dollop of white cream or sauce on top.",
+      "evidence": [
+        "v2-b0003-e5"
+      ],
+      "uncertainty": [
+        "The specific type of white topping is not confirmed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        106.00590000000001,
+        110.0099
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        106.006,
+        110.01
+      ],
+      "resolution": "coarse",
+      "content": "Chef begins assembling a salmon garnish or roll, handling a slice of smoked salmon with gloved hands.",
+      "evidence": [
+        "v2-b0003-e6"
+      ],
+      "uncertainty": [
+        "The final form of the salmon garnish is not yet visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        110.0099,
+        114.0139
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        114.014,
+        117.985
+      ],
+      "resolution": "coarse",
+      "content": "A chef wearing white gloves places rolled slices of smoked salmon onto dollops of white cream on top of small pancakes, then sprinkles chopped chives over the plated dish.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        117.98453333333335,
+        121.98853333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        121.989,
+        121.989
+      ],
+      "resolution": "coarse",
+      "content": "A female chef wearing a white toque is shown in a medium close-up shot, appearing to speak.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        123.99053333333335,
+        127.99453333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        123.991,
+        134.001
+      ],
+      "resolution": "coarse",
+      "content": "End credits roll on a black screen, listing the host, videography, animation, editing, and visual effects, followed by a website URL.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        129.99653333333333,
+        134.00053333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Then determine whether v2.c014 flipping is part of the equivalent pan-cooking step or begins a later transfer step.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

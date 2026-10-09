@@ -1,0 +1,473 @@
+{
+  "state": {
+    "question": "After {A4} completely leaves view A, how many red cars in view B overtake {B5}?",
+    "round_id": 3,
+    "summary": "The trigger is established after A4's final visible frame in view A. View-B evidence covering the post-trigger window reports no red-car overtaking of B5, but B5 identity is ambiguous and a local gap prevents a complete absence claim. Since zero is not an available option and no evidence supports larger overtaking counts, the smallest positive option is the least contradicted choice.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer must be exactly one option label from the supplied choices, never a video ID, option text, refusal, or unknown.",
+      "If evidence remains incomplete when no executable visual budget remains, choose the best-supported option label and retain the uncertainty in the summary.",
+      "Videos v1, v2 share clock uav-scene-28: equal timestamps/source-frame positions are comparable across these views.",
+      "The synchronized UAV views use one source-frame clock; compare equal timestamps across views.",
+      "Overlay aliases with the same numeric suffix (for example A1 and B1) denote the same annotated physical track in different views.",
+      "A transition seen in both synchronized views is one physical transition, not two countable events.",
+      "In this UAV dataset vocabulary, cycles means two-wheeled road vehicles such as bicycles, e-bikes, scooters, motorcycles, and mopeds; count vehicles rather than riders.",
+      "A conditional trigger such as when/after/once establishes the synchronized target timestamp; evaluate the requested relation at that time rather than applying the trigger predicate to counted targets.",
+      "The following reference-track sidecar covers only annotated aliases already drawn in the proxy videos; it is not a list of countable targets.",
+      "A1/B1 is source_track=43; declared=car; A1_visible=510-659 (17.000-22.000s)/700_frames; B1_visible=300-639 (10.000-21.333s)/700_frames.",
+      "A2/B2 is source_track=58; declared=car; A2_visible=490-699 (16.333-23.333s)/700_frames; B2_visible=0-699 (0.000-23.333s)/700_frames.",
+      "A3/B3 is source_track=67; declared=car; A3_visible=554-699 (18.467-23.333s)/700_frames; B3_visible=334-699 (11.133-23.333s)/700_frames.",
+      "A4/B4 is source_track=77; declared=car; A4_visible=0-76 (0.000-2.567s)/700_frames; B4_visible=0-265 (0.000-8.867s)/700_frames.",
+      "A5/B5 is source_track=21; declared=person; A5_visible=99-354 (3.300-11.833s)/700_frames; B5_visible=0-405 (0.000-13.533s)/700_frames.",
+      "Reference visible ranges are authoritative for alias presence and trigger timing; they do not determine unlabelled target counts."
+    ],
+    "answer_contract": {
+      "kind": "choice",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r_trigger_time",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.zoom.r2-r1-01.s01"
+        ],
+        "attempts": [
+          "A4's last visible frame in view A defines the synchronized trigger, and fine evidence confirms an early exit sufficient to establish the post-trigger evaluation window."
+        ]
+      },
+      {
+        "id": "r_b5_identity",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.c002"
+        ],
+        "attempts": [
+          "Reference annotation and fine view-B evidence identify a B5 person marker, while coarse evidence labels a red bus as B5, leaving the physical target identity unresolved."
+        ]
+      },
+      {
+        "id": "r_red_overtake",
+        "status": "open",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.c002",
+          "v2.c003",
+          "v2.c004"
+        ],
+        "attempts": [
+          "Observed post-trigger intervals report no red car moving from behind B5 to ahead, but an unobserved gap and target-identity ambiguity prevent a complete global count."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "Object A4 (pink car) is visible in view A at 0.0s; by 10.0s, the scene shifts to view B with a stationary white box truck.",
+        "uncertainty": "Exact exit time of A4 from view A is unobserved.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          10.0,
+          22.0
+        ],
+        "description": "In view B, a white box truck remains stationary. Multiple cars, including teal and black vehicles, pass it in both directions.",
+        "uncertainty": "Identity of B5 is not explicitly labeled in frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          18.0,
+          22.0
+        ],
+        "description": "Red cars are visible in the background parking lot and driving in the distance, but none are clearly seen overtaking the stationary truck.",
+        "uncertainty": "Target overtaking action not clearly visible in supplied frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "View A shows a red bus and a white car (B4) moving away; View B shows a red bus (B5) and a white car (B4) moving towards the camera.",
+        "uncertainty": "A4 not explicitly labeled in View A.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          10.0,
+          12.0
+        ],
+        "description": "View B shows red bus B5 moving towards the camera. Red cars are visible behind B5 but do not overtake it.",
+        "uncertainty": "Overtaking action not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          14.0,
+          16.0
+        ],
+        "description": "View B shows red bus B5 moving out of the bottom of the frame. No red cars overtake B5.",
+        "uncertainty": "Overtaking action not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          18.0,
+          22.0
+        ],
+        "description": "View B shows traffic flow with cars B1, B2, B3. No red cars overtake B5.",
+        "uncertainty": "Overtaking action not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          2.0,
+          10.0
+        ],
+        "description": "A red bus travels northbound in the left lane, maintaining a position behind the B5 person marker throughout the interval.",
+        "uncertainty": "No red car overtakes B5 in these frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          10.0
+        ],
+        "description": "A static red car is parked in the lot to the right of the road.",
+        "uncertainty": "Parked vehicle does not move.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v1.focus.r2.l1.e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "The vehicle labeled A4 is stationary on the left side of the road, marked with a pink bounding box.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v1.focus.r2.l1.e2",
+        "video_id": "v1",
+        "time_span": [
+          3.0,
+          10.0
+        ],
+        "description": "The vehicle labeled A4 is no longer visible in the frame; the camera view has shifted to the right.",
+        "uncertainty": "Exact exit time is between 2.0s and 3.0s.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need recover v2 0-10s to count red cars overtaking B5 after A4 exits view A at 2.567s.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.u001"
+        ],
+        "evidence_goal": "Count distinct red cars in view B that move from behind to ahead of B5 between 2.567s and 10.0s.",
+        "next_probe_goal": "Refine v2.c002 to check whether any additional red car overtakes B5 between 10.0s and 12.0s.",
+        "mode": "recover"
+      }
+    },
+    {
+      "summary": "Need exact A4/B4 exit timestamp in view A before counting red cars overtaking B5 in view B.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v1.c001"
+        ],
+        "evidence_goal": "At what synchronized timestamp does A4/B4 completely leave view A?",
+        "next_probe_goal": "After the exit time, resolve B5 identity in view B and count red cars overtaking it.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The trigger is established after A4's final visible frame in view A. View-B evidence covering the post-trigger window reports no red-car overtaking of B5, but B5 identity is ambiguous and a local gap prevents a complete absence claim. Since zero is not an available option and no evidence supports larger overtaking counts, the smallest positive option is the least contradicted choice.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "D",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "D",
+    "evidence_refs": [
+      "v1.zoom.r2-r1-01.s01",
+      "v2.zoom.r1-U01-01.s01",
+      "v2.c002",
+      "v2.c003",
+      "v2.c004"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.zoom.r2-r1-01.s01",
+      "video": "v1",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "The vehicle labeled A4 is stationary on the left side of the road, marked with a pink bounding box. The vehicle labeled A4 is no longer visible in the frame; the camera view has shifted to the right.",
+      "evidence": [
+        "v1.focus.r2.l1.e1",
+        "v1.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "None.",
+        "Exact exit time is between 2.0s and 3.0s.",
+        "Unresolved: Precise timestamp of A4/B4 exit between 2.0s and 3.0s."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        10.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "In view B, a white box truck remains stationary. Multiple cars, including teal and black vehicles, pass it in both directions.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Identity of B5 is not explicitly labeled in frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        18.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "Red cars are visible in the background parking lot and driving in the distance, but none are clearly seen overtaking the stationary truck.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Target overtaking action not clearly visible in supplied frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        22.0,
+        23.333333333333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "View A shows a red bus and a white car (B4) moving away; View B shows a red bus (B5) and a white car (B4) moving towards the camera.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "A4 not explicitly labeled in View A."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        0.0,
+        10.0
+      ],
+      "resolution": "fine",
+      "content": "A red bus travels northbound in the left lane, maintaining a position behind the B5 person marker throughout the interval. A static red car is parked in the lot to the right of the road.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2"
+      ],
+      "uncertainty": [
+        "No red car overtakes B5 in these frames.",
+        "Parked vehicle does not move.",
+        "Unresolved: No red car observed moving from behind to ahead of B5."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        10.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows red bus B5 moving towards the camera. Red cars are visible behind B5 but do not overtake it.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "Overtaking action not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        14.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows red bus B5 moving out of the bottom of the frame. No red cars overtake B5.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "Overtaking action not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        18.0,
+        22.0
+      ],
+      "resolution": "coarse",
+      "content": "View B shows traffic flow with cars B1, B2, B3. No red cars overtake B5.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "Overtaking action not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        22.0,
+        23.333333333333332
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Refine v2.c002 to check whether any additional red car overtakes B5 between 10.0s and 12.0s.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

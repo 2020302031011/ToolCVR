@@ -1,0 +1,117 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "Person adds liquid from small bowl into large mixing bowl with chopped ingredients."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "A hand adds minced garlic to a bowl of liquid, then stirs with a fork."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e6"
+      ],
+      "statement": "The prepared dressing is poured over the salad ingredients in the bowl."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "Both videos involve adding ingredients to a bowl and mixing them.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e1",
+        "v2-b0002-e6"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact functional equivalence of the cooking step in v1 to a specific interval in v2 remains undetermined.",
+      "reason": "The events in v2 do not clearly match the functional step of adding liquid to a bowl with chopped ingredients as described in v1.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e1",
+        "v2-b0002-e6"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Identify the interval in v2 where a liquid is added to a bowl with chopped ingredients and mixed.",
+      "purpose": "To resolve the functional equivalence of the step in v1 to a specific interval in v2.",
+      "related_issue": "U01"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-574",
+    "task": "FSA",
+    "ground_truth": [
+      139,
+      146
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v10-unicvr-protocol-broad27/reports/FSA/FSA-574/report.json",
+    "report_sha256": "59f4630c11cd4e98e2bcc2b13780918f927e6e0b30701640fddea59272f5718c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:Qwen3-14B",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

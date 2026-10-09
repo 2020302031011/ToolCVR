@@ -1,0 +1,1268 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "The v1 reference step is supported as forming a patty with a round metal ring mold and lifting the mold away. The v2 fine observation at 168.001-183.001 contains the same functional transition: meat compacted in a round metal ring mold and the mold lifted away to reveal a formed patty. Later v2 patty-handling observations lack a visible lifted mold and are not preferred equivalents.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c002"
+        ],
+        "attempts": [
+          "v1.c002 explicitly describes a metal ring mold being used to shape ground meat into a patty and then lifted away, establishing the reference step as patty formation by mold removal rather than merely talking or mixing."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-01.s01"
+        ],
+        "attempts": [
+          "v2.zoom.r1-U01-01.s01 shows gloved hands compacting meat in a round metal ring mold and lifting the mold away to reveal a formed patty, which is functionally equivalent to the v1 reference step."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "contradicted",
+        "evidence_refs": [
+          "v2.zoom.r1-U01-02.s01",
+          "v2.zoom.r1-U01-02.s02"
+        ],
+        "attempts": [
+          "Later v2 fine observations show already formed patties or hand shaping without a visible lifted metal ring mold, so they do not provide a better functional equivalent to the v1 mold-lifting step."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          68.001,
+          76.009
+        ],
+        "description": "Greg, wearing a Ballistic BBQ cap and blue shirt, stands in the kitchen talking, likely explaining the process.",
+        "uncertainty": "Audio content is not available.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          70.003,
+          82.015
+        ],
+        "description": "A metal ring mold is used to shape ground meat into a patty, then lifted away to reveal the formed patty.",
+        "uncertainty": "Exact timing of mold placement is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          2.002
+        ],
+        "description": "Video intro sequence featuring the eHow logo animation.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          6.006,
+          14.014
+        ],
+        "description": "Chef Brian Scheehser is introduced in a commercial kitchen setting, standing behind a counter with ingredients.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          16.016,
+          16.016
+        ],
+        "description": "Close-up shot of four formed raw hamburger patties on a white square plate.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          23.991,
+          40.007
+        ],
+        "description": "Chef gestures towards bowls of ground meat and water on the cutting board, explaining the process.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          55.989,
+          68.001
+        ],
+        "description": "Chef adds chopped green and white vegetables (likely scallions or celery) from a cup into the bowl of ground meat.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          80.013,
+          106.006
+        ],
+        "description": "Chef puts on white disposable gloves, preparing to handle the food mixture.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          116.016,
+          116.016
+        ],
+        "description": "Chef mixes the ground meat and vegetable ingredients together by hand inside the glass bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          129.997,
+          151.985
+        ],
+        "description": "Chef wearing gloves mixes ground meat with herbs by hand in a clear glass bowl on a wooden board.",
+        "uncertainty": "exact mixing duration within gaps not visible",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          168.001,
+          191.992
+        ],
+        "description": "Chef presses the mixed meat into a round metal ring mold on plastic wrap to form a patty.",
+        "uncertainty": "mold removal timing not captured",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          204.004,
+          229.996
+        ],
+        "description": "Two formed patties rest on plastic; chef shapes a third smaller patty by hand beside them.",
+        "uncertainty": "transition between patty counts not continuous",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          240.006,
+          244.01
+        ],
+        "description": "Seasoning is visible on the patties; chef stands behind the board with hands resting, then holds tongs.",
+        "uncertainty": "exact moment of seasoning application not shown",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          259.993,
+          259.993
+        ],
+        "description": "End-credit title card displaying 'video filmed by Jay Windland' on a black background.",
+        "uncertainty": "No cooking activity is visible in this frame.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          168.001,
+          172.005
+        ],
+        "description": "Gloved hands press down on plastic wrap covering a round metal ring mold filled with ground meat, compacting the contents.",
+        "uncertainty": "Exact moment compaction finishes is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          173.006,
+          175.008
+        ],
+        "description": "The round metal ring mold is lifted away from the meat, revealing a formed round patty on the plastic wrap.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          176.009,
+          183.016
+        ],
+        "description": "The chef mixes ground meat in a glass bowl; the formed patty and ring mold rest on the table nearby.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          183.016,
+          185.986
+        ],
+        "description": "Chef shapes ground meat into a patty in gloved hands over a bowl, then moves to place it onto the work surface.",
+        "uncertainty": "Exact moment of placement on surface is between frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          185.986,
+          189.99
+        ],
+        "description": "Chef uses a round metal ring mold to press and shape a patty on the wooden board.",
+        "uncertainty": "Whether the mold is lifted during this specific window is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          189.99,
+          190.991
+        ],
+        "description": "The round metal ring mold is lifted away from the meat, revealing a formed patty on the board.",
+        "uncertainty": "Lifting action occurs between the two frames.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e1",
+        "video_id": "v2",
+        "time_span": [
+          204.004,
+          205.005
+        ],
+        "description": "Gloved hands manipulate a plastic bag containing two formed meat patties and a third smaller patty, sliding the bag on a wooden board.",
+        "uncertainty": "Specific action between patties unclear.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e2",
+        "video_id": "v2",
+        "time_span": [
+          206.006,
+          215.015
+        ],
+        "description": "Three raw meat patties rest on a plastic sheet on a wooden board; a gloved hand briefly adjusts the leftmost patty before exiting the frame.",
+        "uncertainty": "No metal mold visible to lift.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l3.e3",
+        "video_id": "v2",
+        "time_span": [
+          216.016,
+          219.019
+        ],
+        "description": "A gloved hand enters from the left and presses down on the leftmost meat patty, shaping or flattening it against the board.",
+        "uncertainty": "Hand obscures specific tool use if present.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e1",
+        "video_id": "v2",
+        "time_span": [
+          219.019,
+          220.987
+        ],
+        "description": "Gloved hands press and shape a small round patty of ground meat on a sheet of plastic wrap.",
+        "uncertainty": "Whether a mold was used or removed is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e2",
+        "video_id": "v2",
+        "time_span": [
+          221.988,
+          227.994
+        ],
+        "description": "Four formed raw patties sit on a wooden board; a hand sprinkles seasoning over them.",
+        "uncertainty": "The specific tool used for seasoning is not clearly visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l4.e3",
+        "video_id": "v2",
+        "time_span": [
+          228.995,
+          228.995
+        ],
+        "description": "A gloved hand grips and pulls away a clear plastic sheet from underneath one of the large patties.",
+        "uncertainty": "The full extent of the lifting motion is not shown.",
+        "action": "FOCUS",
+        "round": 1
+      }
+    ],
+    "gaps": [
+      {
+        "id": "v2.focus.r2.l1.g1",
+        "video_id": "v2",
+        "time_span": [
+          183.01616666666666,
+          190.9908
+        ],
+        "reason": "VLM output remained invalid: VLM event report must be an object containing an events list",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ]
+  },
+  "turns": [
+    {
+      "summary": "Need to verify if v2.c009 includes the mold lift-away and reveal, and check if v2.c010 shows the third patty being formed with the mold or by hand.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c009",
+          "v2.c010"
+        ],
+        "evidence_goal": "Observe whether the round metal ring mold is lifted away to reveal a formed patty during or immediately after v2.c009.",
+        "next_probe_goal": "Observe whether the third patty in v2.c010 is shaped with the metal ring mold or only by hand.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need to check whether the selected v2 fine slot is a separate ring-mold lift-away or only continuation/adjacent frames of the earlier lift-away.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r2",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s02"
+        ],
+        "evidence_goal": "Does this slot show a distinct round metal ring mold lifted away to reveal a formed patty, or only adjacent frames of the earlier lift-away event?",
+        "next_probe_goal": "If distinct, compare its state transition with v1.c002 to decide which v2 interval is the single functional match.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "The v1 reference step is supported as forming a patty with a round metal ring mold and lifting the mold away. The v2 fine observation at 168.001-183.001 contains the same functional transition: meat compacted in a round metal ring mold and the mold lifted away to reveal a formed patty. Later v2 patty-handling observations lack a visible lifted mold and are not preferred equivalents.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[168.001,183.001]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[168.001,183.001]",
+    "evidence_refs": [
+      "v1.c002",
+      "v2.zoom.r1-U01-01.s01",
+      "v2.zoom.r1-U01-02.s01",
+      "v2.zoom.r1-U01-02.s02"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 5,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        68.001,
+        76.009
+      ],
+      "resolution": "coarse",
+      "content": "Greg, wearing a Ballistic BBQ cap and blue shirt, stands in the kitchen talking, likely explaining the process.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Audio content is not available."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        70.003,
+        82.015
+      ],
+      "resolution": "coarse",
+      "content": "A metal ring mold is used to shape ground meat into a patty, then lifted away to reveal the formed patty.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Exact timing of mold placement is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        70.00326666666668,
+        74.00726666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        76.00926666666668,
+        80.01326666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        2.002
+      ],
+      "resolution": "coarse",
+      "content": "Video intro sequence featuring the eHow logo animation.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        2.0020000000000002,
+        6.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        6.006,
+        14.014
+      ],
+      "resolution": "coarse",
+      "content": "Chef Brian Scheehser is introduced in a commercial kitchen setting, standing behind a counter with ingredients.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        10.01,
+        14.014000000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        16.016,
+        16.016
+      ],
+      "resolution": "coarse",
+      "content": "Close-up shot of four formed raw hamburger patties on a white square plate.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        16.016000000000002,
+        23.990633333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        23.990633333333335,
+        38.990633333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        23.991,
+        40.007
+      ],
+      "resolution": "coarse",
+      "content": "Chef gestures towards bowls of ground meat and water on the cutting board, explaining the process.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        38.990633333333335,
+        40.00663333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        40.00663333333333,
+        55.00663333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        55.00663333333333,
+        55.98926666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        55.989,
+        68.001
+      ],
+      "resolution": "coarse",
+      "content": "Chef adds chopped green and white vegetables (likely scallions or celery) from a cup into the bowl of ground meat.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        55.98926666666667,
+        65.99926666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        68.00126666666667,
+        80.01326666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        80.013,
+        106.006
+      ],
+      "resolution": "coarse",
+      "content": "Chef puts on white disposable gloves, preparing to handle the food mixture.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        80.01326666666667,
+        89.9899
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        89.9899,
+        104.9899
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        104.9899,
+        106.00590000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        106.00590000000001,
+        116.0159
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        116.0159,
+        129.99653333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        116.016,
+        116.016
+      ],
+      "resolution": "coarse",
+      "content": "Chef mixes the ground meat and vegetable ingredients together by hand inside the glass bowl.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        129.99653333333333,
+        136.00253333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        129.997,
+        151.985
+      ],
+      "resolution": "coarse",
+      "content": "Chef wearing gloves mixes ground meat with herbs by hand in a clear glass bowl on a wooden board.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "exact mixing duration within gaps not visible"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        136.00253333333333,
+        151.00253333333333
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        151.00253333333333,
+        151.9851666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        151.9851666666667,
+        166.9851666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        166.9851666666667,
+        168.00116666666668
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        168.001,
+        183.001
+      ],
+      "resolution": "fine",
+      "content": "Gloved hands press down on plastic wrap covering a round metal ring mold filled with ground meat, compacting the contents. The round metal ring mold is lifted away from the meat, revealing a formed round patty on the plastic wrap. The chef mixes ground meat in a glass bowl; the formed patty and ring mold rest on the table nearby.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "Exact moment compaction finishes is not visible.",
+        "None."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        168.00116666666668,
+        176.0091666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        176.0091666666667,
+        191.0091666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r2-01.s01",
+      "video": "v2",
+      "time": [
+        183.001,
+        191.992
+      ],
+      "resolution": "fine",
+      "content": "Observation gap: VLM output remained invalid: VLM event report must be an object containing an events list",
+      "evidence": [
+        "v2.focus.r2.l1.g1"
+      ],
+      "uncertainty": [
+        "Gap 183.016-190.991s: VLM output remained invalid: VLM event report must be an object containing an events list",
+        "Unresolved: This local frame batch has no validated visual description."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        191.0091666666667,
+        191.9918
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        191.9918,
+        204.0038
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        204.0038,
+        219.0038
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s01",
+      "video": "v2",
+      "time": [
+        204.004,
+        219.004
+      ],
+      "resolution": "fine",
+      "content": "Gloved hands manipulate a plastic bag containing two formed meat patties and a third smaller patty, sliding the bag on a wooden board. Three raw meat patties rest on a plastic sheet on a wooden board; a gloved hand briefly adjusts the leftmost patty before exiting the frame. A gloved hand enters from the left and presses down on the leftmost meat patty, shaping or flattening it against the board.",
+      "evidence": [
+        "v2.focus.r1.l3.e1",
+        "v2.focus.r1.l3.e2",
+        "v2.focus.r1.l3.e3"
+      ],
+      "uncertainty": [
+        "Specific action between patties unclear.",
+        "No metal mold visible to lift.",
+        "Hand obscures specific tool use if present.",
+        "Unresolved: Presence of a round metal ring mold during patty formation",
+        "Unresolved: Action of lifting a mold away from a patty"
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        219.0038,
+        219.98643333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-02.s02",
+      "video": "v2",
+      "time": [
+        219.004,
+        229.996
+      ],
+      "resolution": "fine",
+      "content": "Gloved hands press and shape a small round patty of ground meat on a sheet of plastic wrap. Four formed raw patties sit on a wooden board; a hand sprinkles seasoning over them. A gloved hand grips and pulls away a clear plastic sheet from underneath one of the large patties.",
+      "evidence": [
+        "v2.focus.r1.l4.e1",
+        "v2.focus.r1.l4.e2",
+        "v2.focus.r1.l4.e3"
+      ],
+      "uncertainty": [
+        "Whether a mold was used or removed is not visible.",
+        "The specific tool used for seasoning is not clearly visible.",
+        "The full extent of the lifting motion is not shown.",
+        "Unresolved: Visual confirmation of a round metal ring mold being lifted away."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        219.98643333333334,
+        229.99643333333336
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        229.99643333333336,
+        240.00643333333335
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        240.006,
+        244.01
+      ],
+      "resolution": "coarse",
+      "content": "Seasoning is visible on the patties; chef stands behind the board with hands resting, then holds tongs.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "exact moment of seasoning application not shown"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        240.00643333333335,
+        244.01043333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        244.01043333333334,
+        250.01643333333334
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        259.993,
+        259.993
+      ],
+      "resolution": "coarse",
+      "content": "End-credit title card displaying 'video filmed by Jay Windland' on a black background.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "No cooking activity is visible in this frame."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        259.99306666666666,
+        260.8939666666667
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "Observe whether the third patty in v2.c010 is shaped with the metal ring mold or only by hand.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 5,
+    "visual_calls_remaining": 3,
+    "maximum_visual_calls_for_current_stage": 3,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

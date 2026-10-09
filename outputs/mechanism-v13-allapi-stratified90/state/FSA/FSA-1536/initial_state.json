@@ -1,0 +1,186 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A knife is used to spread a white feta and cream cheese mix onto a slice of bread in v1 from 39.998 to 44.002 seconds."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "The spreading of the white mixture on the bread continues in v1 from 58.016 to 63.981 seconds without showing completion."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e4"
+      ],
+      "statement": "In v2, sandwich assembly in a grill pan includes bread toasting, cheese addition, and sandwich closing from 50.017 to 80.013 seconds."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "In v2, sandwich base assembly begins with bread and cheese followed by tomato slices from 121.989 to 125.993 seconds."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "In v2, the top toasted bread slice is placed on the sandwich and the completed structure is displayed from 136.003 to 140.007 seconds."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference describes a continuous cheese-spreading action on bread, while the supplied v2 assembly events mention cheese being added but do not explicitly describe a spreading action.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 bread-and-cheese state transition may correspond to one of the v2 intervals where bread and cheese are combined, but the reports do not settle which interval shows the same functional step.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2"
+      ],
+      "issue": "It remains unresolved whether any supplied v2 interval shows cheese being spread onto bread rather than merely placed or added during assembly.",
+      "reason": "The v2 reports describe cheese addition in assembly intervals but do not specify the tool motion or bread-state transition needed to match the v1 spreading step.",
+      "related_events": [
+        "v2-b0001-e4",
+        "v2-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact v2 sub-interval corresponding to the functionally equivalent bread-and-cheese preparation step remains unresolved.",
+      "reason": "The v2 assembly events combine multiple substeps such as toasting, cheese addition, topping placement, and closing within broader time spans.",
+      "related_events": [
+        "v2-b0001-e4",
+        "v2-b0002-e1",
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Whether cheese is spread onto a bread slice with a knife or utensil during the v2 grill-pan assembly interval.",
+      "purpose": "To determine whether v2-b0001-e4 contains the functional equivalent of the v1 spreading step.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Whether cheese is spread onto bread during the v2 sandwich-base assembly interval or simply placed as a slice.",
+      "purpose": "To determine whether v2-b0002-e1 contains the functional equivalent of the v1 spreading step.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "The narrower time span within v2 where the bread state changes from plain bread to bread with cheese applied.",
+      "purpose": "To refine the boundary of the functionally equivalent step after identifying the correct assembly interval.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 0,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-1536",
+    "task": "FSA",
+    "ground_truth": [
+      118,
+      139
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-1536/report.json",
+    "report_sha256": "e9af6211b2c32359afb54a76a0518bb52ba2d14a40adaacfa8d99cc9d8091b0f",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

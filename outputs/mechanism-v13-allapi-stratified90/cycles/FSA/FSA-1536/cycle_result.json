@@ -1,0 +1,1077 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 3,
+    "summary": "v1 is a knife-spreading white topping onto bread. v2 contains a functionally equivalent broader topping-application step where orange cheese is sprinkled onto bread, observed across v2.zoom.r2-r1-01.s01 and v2.zoom.r2-r1-01.s02 before the flip/lid/plating sequence. The best-supported v2 interval is [50.017, 80.013].",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "supported",
+        "evidence_refs": [
+          "v1.c001",
+          "v2.zoom.r2-r1-01.s01",
+          "v2.zoom.r2-r1-01.s02"
+        ],
+        "attempts": [
+          "v1 shows knife-spreading a white topping onto bread, and v2 shows a broader topping-application transition by sprinkling orange cheese onto bread, satisfying the allowed functional match."
+        ]
+      },
+      {
+        "id": "r2",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-01.s01",
+          "v2.zoom.r2-r1-01.s02",
+          "v2.c005"
+        ],
+        "attempts": [
+          "The v2 topping-application interval occurs before the flip/lid/plating sequence and is bounded by the observed sprinkling and completion of cheese coverage."
+        ]
+      },
+      {
+        "id": "r3",
+        "status": "supported",
+        "evidence_refs": [
+          "v2.zoom.r2-r1-01.s01",
+          "v2.zoom.r2-r1-01.s02"
+        ],
+        "attempts": [
+          "The orange-cheese sprinkling intervals can serve as the equivalent step boundaries under the broader topping-application interpretation, despite not matching the exact knife/white-ingredient tool."
+        ]
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          39.998,
+          44.002
+        ],
+        "description": "A knife is used to spread a white feta and cream cheese mix onto a slice of bread.",
+        "uncertainty": "Exact start of the spreading action is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          58.016,
+          63.981
+        ],
+        "description": "The woman in the teal shirt continues to spread the white mixture on the bread slice.",
+        "uncertainty": "The video segment ends before the spreading action is completed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          16.016
+        ],
+        "description": "Finished grilled cheese sandwich with bacon and lettuce is displayed on a white plate.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          25.993,
+          25.993
+        ],
+        "description": "Raw bacon strips are placed in a black frying pan on a stovetop.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          42.009,
+          42.009
+        ],
+        "description": "A hand holds a slice of white bread over a plate of other slices.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          50.017,
+          80.013
+        ],
+        "description": "Assembly of the sandwich occurs in a grill pan: bread is toasted, cheese is added, and the sandwich is closed.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          87.988,
+          104.004
+        ],
+        "description": "The sandwich is flipped with a spatula, revealing golden-brown toasted sides.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          108.008,
+          108.008
+        ],
+        "description": "A glass lid is placed on the pan to steam the sandwich.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          114.014,
+          117.985
+        ],
+        "description": "The cooked sandwich is plated and cut diagonally with a knife.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          121.989,
+          125.993
+        ],
+        "description": "Assembly of the sandwich base begins with bread and cheese, followed by the placement of two tomato slices.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          129.997,
+          134.001
+        ],
+        "description": "Green lettuce leaves are added on top of the tomatoes, followed by strips of bacon.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          136.003,
+          140.007
+        ],
+        "description": "The top slice of toasted bread is placed on the sandwich, and the completed structure is displayed on a plate.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          146.013,
+          151.985
+        ],
+        "description": "The sandwich is cut in half diagonally, revealing the cross-section of ingredients including cheese, bacon, lettuce, and tomato.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          121.987,
+          121.987
+        ],
+        "description": "A slice of cheese is already resting on top of the bread, with no active spreading motion visible in this frame.",
+        "uncertainty": "The method of cheese application is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          122.988,
+          123.989
+        ],
+        "description": "A hand places slices of tomato onto the cheese-topped bread.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          124.99,
+          125.991
+        ],
+        "description": "The sandwich is shown with two tomato slices resting on the cheese layer.",
+        "uncertainty": "",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r2.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          50.016,
+          57.023
+        ],
+        "description": "A hand places slices of plain bread onto a round pan on a stovetop. The bread appears dry with no visible spreading or topping.",
+        "uncertainty": "No knife or white feta/cream cheese is visible in this interval.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          58.024,
+          65.031
+        ],
+        "description": "A hand sprinkles shredded orange cheese from a white plate onto the bread slices in the pan.",
+        "uncertainty": "The action is sprinkling, not spreading with a knife.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          65.031,
+          67.033
+        ],
+        "description": "A hand sprinkles shredded orange cheese from a white plate onto bread slices resting in a frying pan.",
+        "uncertainty": "No knife or white feta/cream cheese mixture is visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          68.001,
+          72.005
+        ],
+        "description": "The bread slices in the pan are fully covered with the orange shredded cheese, and the hand is withdrawn.",
+        "uncertainty": "No knife or white feta/cream cheese mixture is visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      },
+      {
+        "id": "v2.focus.r2.l2.e3",
+        "video_id": "v2",
+        "time_span": [
+          73.006,
+          79.011
+        ],
+        "description": "A hand places plain slices of white bread on top of the cheese-covered bread, forming sandwiches in the pan.",
+        "uncertainty": "No knife or white feta/cream cheese mixture is visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "summary": "Need local visual evidence on whether v2 sandwich-base assembly shows cheese spread onto bread rather than merely placed.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v2.c008"
+        ],
+        "evidence_goal": "During v2.c008, is cheese actively spread onto bread with a knife or utensil rather than simply placed as a slice?",
+        "next_probe_goal": "If no spreading is visible, inspect v2.c004 for a bread-to-cheese-applied state transition.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "Need Video 2 cheese application method: knife-spread white feta/cream mixture versus placed slice.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v2.c004"
+        ],
+        "evidence_goal": "Does v2.c004 show a knife actively spreading a white feta/cream cheese mixture onto bread?",
+        "next_probe_goal": "If no spreading is visible, identify whether cheese appears as a slice placed onto bread.",
+        "mode": "refine"
+      }
+    },
+    {
+      "summary": "v1 is a knife-spreading white topping onto bread. v2 contains a functionally equivalent broader topping-application step where orange cheese is sprinkled onto bread, observed across v2.zoom.r2-r1-01.s01 and v2.zoom.r2-r1-01.s02 before the flip/lid/plating sequence. The best-supported v2 interval is [50.017, 80.013].",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "[50.017, 80.013]",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[50.017, 80.013]",
+    "evidence_refs": [
+      "v1.c001",
+      "v2.zoom.r2-r1-01.s01",
+      "v2.zoom.r2-r1-01.s02",
+      "v2.c005"
+    ],
+    "reason": ""
+  },
+  "visual_calls_used": 3,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        39.998,
+        44.002
+      ],
+      "resolution": "coarse",
+      "content": "A knife is used to spread a white feta and cream cheese mix onto a slice of bread.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "Exact start of the spreading action is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        40.0,
+        44.00228888888889
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        44.00228888888889,
+        58.016288888888894
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        58.016,
+        63.981
+      ],
+      "resolution": "coarse",
+      "content": "The woman in the teal shirt continues to spread the white mixture on the bread slice.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "The video segment ends before the spreading action is completed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u003",
+      "video": "v1",
+      "time": [
+        58.016288888888894,
+        63.98058888888889
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u004",
+      "video": "v1",
+      "time": [
+        63.98058888888889,
+        65.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        0.0,
+        15.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        16.016
+      ],
+      "resolution": "coarse",
+      "content": "Finished grilled cheese sandwich with bacon and lettuce is displayed on a white plate.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        15.0,
+        16.016000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        16.016000000000002,
+        25.993000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        25.993,
+        25.993
+      ],
+      "resolution": "coarse",
+      "content": "Raw bacon strips are placed in a black frying pan on a stovetop.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        25.993000000000002,
+        40.993
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        40.993,
+        42.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        42.009,
+        42.009
+      ],
+      "resolution": "coarse",
+      "content": "A hand holds a slice of white bread over a plate of other slices.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        42.009,
+        50.017
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        50.017,
+        57.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s01",
+      "video": "v2",
+      "time": [
+        50.017,
+        65.017
+      ],
+      "resolution": "fine",
+      "content": "A hand places slices of plain bread onto a round pan on a stovetop. The bread appears dry with no visible spreading or topping. A hand sprinkles shredded orange cheese from a white plate onto the bread slices in the pan.",
+      "evidence": [
+        "v2.focus.r2.l1.e1",
+        "v2.focus.r2.l1.e2"
+      ],
+      "uncertainty": [
+        "No knife or white feta/cream cheese is visible in this interval.",
+        "The action is sprinkling, not spreading with a knife.",
+        "Unresolved: Visual confirmation of a knife spreading white feta/cream cheese onto bread."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        57.991,
+        63.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        63.997,
+        70.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r2-r1-01.s02",
+      "video": "v2",
+      "time": [
+        65.017,
+        80.013
+      ],
+      "resolution": "fine",
+      "content": "A hand sprinkles shredded orange cheese from a white plate onto bread slices resting in a frying pan. The bread slices in the pan are fully covered with the orange shredded cheese, and the hand is withdrawn. A hand places plain slices of white bread on top of the cheese-covered bread, forming sandwiches in the pan.",
+      "evidence": [
+        "v2.focus.r2.l2.e1",
+        "v2.focus.r2.l2.e2",
+        "v2.focus.r2.l2.e3"
+      ],
+      "uncertainty": [
+        "No knife or white feta/cream cheese mixture is visible in these frames.",
+        "Unresolved: Visual confirmation of a knife spreading a white feta/cream cheese mixture onto bread."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        70.003,
+        74.007
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        74.007,
+        80.013
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        80.013,
+        87.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        87.988,
+        102.002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        87.988,
+        104.004
+      ],
+      "resolution": "coarse",
+      "content": "The sandwich is flipped with a spatula, revealing golden-brown toasted sides.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        104.004,
+        108.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        108.008,
+        108.008
+      ],
+      "resolution": "coarse",
+      "content": "A glass lid is placed on the pan to steam the sandwich.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        108.008,
+        114.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        114.014,
+        117.985
+      ],
+      "resolution": "coarse",
+      "content": "The cooked sandwich is plated and cut diagonally with a knife.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        114.014,
+        117.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        117.985,
+        121.989
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r1-U01-01.s01",
+      "video": "v2",
+      "time": [
+        121.989,
+        125.993
+      ],
+      "resolution": "fine",
+      "content": "A slice of cheese is already resting on top of the bread, with no active spreading motion visible in this frame. A hand places slices of tomato onto the cheese-topped bread. The sandwich is shown with two tomato slices resting on the cheese layer.",
+      "evidence": [
+        "v2.focus.r1.l1.e1",
+        "v2.focus.r1.l1.e2",
+        "v2.focus.r1.l1.e3"
+      ],
+      "uncertainty": [
+        "The method of cheese application is not visible.",
+        "Unresolved: Visual confirmation of the specific action used to apply the cheese."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        125.99300000000001,
+        129.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        129.997,
+        134.001
+      ],
+      "resolution": "coarse",
+      "content": "Green lettuce leaves are added on top of the tomatoes, followed by strips of bacon.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        129.997,
+        134.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        136.003,
+        140.007
+      ],
+      "resolution": "coarse",
+      "content": "The top slice of toasted bread is placed on the sandwich, and the completed structure is displayed on a plate.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        136.003,
+        140.007
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        140.007,
+        146.013
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        146.013,
+        150.017
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        146.013,
+        151.985
+      ],
+      "resolution": "coarse",
+      "content": "The sandwich is cut in half diagonally, revealing the cross-section of ingredients including cheese, bacon, lettuce, and tomato.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        151.985,
+        153.385
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If no spreading is visible, inspect v2.c004 for a bread-to-cheese-applied state transition.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 3,
+    "visual_calls_remaining": 5,
+    "maximum_visual_calls_for_current_stage": 5,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

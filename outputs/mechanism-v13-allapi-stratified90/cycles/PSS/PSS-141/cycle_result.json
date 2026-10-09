@@ -1,0 +1,1008 @@
+{
+  "state": {
+    "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+    "round_id": 3,
+    "summary": "v5 shows eggs cracked and cream added, so it is first. v3 shows active whisking in the white bowl with butter and cheese staged, placing it after v5. v4 shows a uniform pale yellow liquid with eggshells and butter, indicating post-whisking and before pan pouring. v2 shows whisking, butter melting, and pouring the yellow mixture into the pan, so it follows v4. v1 shows cheese grated into the pan mixture and thickening, so it is last.",
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision -> fresh state projection; completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is one ->-joined sequence containing exactly these input video IDs once each: v1, v2, v3, v4, v5. Slot IDs and evidence IDs are invalid answer items.",
+      "Videos v1, v2, v3, v4, v5 are independent logical clips with clip-local clocks. Their timestamps and frame positions are not comparable across clips and contain no original-source ordering information; infer chronology only from visible state transitions.",
+      "The inputs are shuffled segments from one source video; input numbering and rendered slot order are not chronological evidence.",
+      "Infer order from visible state transitions. A visual call reports local states only and must not decide cross-segment chronology.",
+      "The final sequence contains each input video ID exactly once; slot IDs and evidence IDs are never answer items."
+    ],
+    "answer_contract": {
+      "kind": "sequence",
+      "required_video_ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "status": "open",
+        "evidence_refs": [
+          "v4.focus.r2.l1.e1",
+          "v5-b0001-e3"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r2",
+        "status": "open",
+        "evidence_refs": [
+          "v3-b0001-e2",
+          "v2-b0001-e7"
+        ],
+        "attempts": []
+      },
+      {
+        "id": "r3",
+        "status": "open",
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v2-b0001-e7"
+        ],
+        "attempts": []
+      }
+    ],
+    "candidate_observations": []
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A person uses a handheld grater to grate parmesan cheese directly into a pan containing a yellow liquid mixture.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          16.0,
+          20.0
+        ],
+        "description": "The mixture in the pan has thickened significantly into a solid, creamy mass, which is being stirred and folded with a wooden spatula.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          8.0
+        ],
+        "description": "Whisking a yellow mixture in a bowl. Placing a knob of butter into a pan. Adding sea salt flakes to the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          12.0,
+          12.0
+        ],
+        "description": "Butter knob sitting in the pan with salt flakes visible.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          16.0,
+          16.0
+        ],
+        "description": "Whisking the yellow mixture while the butter sits in the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          32.0,
+          32.0
+        ],
+        "description": "The butter begins to melt in the pan; the bowl sits beside it.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          40.0,
+          44.0
+        ],
+        "description": "Person speaking, then holding a wooden spoon while the butter melts.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          48.0,
+          50.0
+        ],
+        "description": "Swirling the pan to coat the bottom with melted butter.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e7",
+        "video_id": "v2",
+        "time_span": [
+          56.0,
+          56.0
+        ],
+        "description": "Pouring the yellow mixture into the pan.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e8",
+        "video_id": "v2",
+        "time_span": [
+          60.0,
+          62.0
+        ],
+        "description": "Holding the pan handle while the mixture cooks.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          68.001,
+          70.001
+        ],
+        "description": "A person holds a frying pan containing a thin, pale yellow crepe or omelet base, swirling it to cook evenly.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          86.001,
+          86.001
+        ],
+        "description": "A close-up view shows the surface of the cooking crepe, which now has a textured, bubbly appearance.",
+        "uncertainty": "Exact state change from previous clip is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e1",
+        "video_id": "v3",
+        "time_span": [
+          0.0,
+          2.0
+        ],
+        "description": "A person stands near a stove and then begins whisking a yellow mixture in a white bowl.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v3-b0001-e2",
+        "video_id": "v3",
+        "time_span": [
+          12.0,
+          12.0
+        ],
+        "description": "Whisking continues in the white bowl; two small glass bowls containing butter and shredded cheese are visible.",
+        "uncertainty": "",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "A hand holds a frying pan above a stovetop, with ingredients including eggs and butter visible nearby.",
+        "uncertainty": "Whether the pan is placed on the burner immediately follows.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4-b0001-e2",
+        "video_id": "v4",
+        "time_span": [
+          8.0,
+          8.0
+        ],
+        "description": "A frying pan rests on a stovetop burner, with a person standing behind it.",
+        "uncertainty": "The specific moment the pan was placed down is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e1",
+        "video_id": "v5",
+        "time_span": [
+          0.0,
+          0.0
+        ],
+        "description": "Ingredients are staged on the counter: a white bowl, ramekin of three whole eggs, butter, and sugar.",
+        "uncertainty": "Action order is inferred from ingredient state.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e2",
+        "video_id": "v5",
+        "time_span": [
+          4.0,
+          10.0
+        ],
+        "description": "Eggs are cracked into the white bowl, progressing from one to three yolks; shell fragments accumulate in the ramekin.",
+        "uncertainty": "The third egg crack occurs between frames.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v5-b0001-e3",
+        "video_id": "v5",
+        "time_span": [
+          16.0,
+          18.0
+        ],
+        "description": "Cream is poured into the bowl containing the three eggs, covering the yolks.",
+        "uncertainty": "Pouring ends between 16s and 18s.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v4.focus.r1.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "Across the entire visible interval, a white ramekin near the pan contains a cracked brown eggshell with a whole egg resting on top. A separate white bowl holds a yellow liquid mixture.",
+        "uncertainty": "Whether the yellow liquid in the white bowl is beaten egg.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v4.focus.r2.l1.e1",
+        "video_id": "v4",
+        "time_span": [
+          0.0,
+          4.0
+        ],
+        "description": "A bowl containing a uniform pale yellow liquid is visible on the counter alongside a ramekin with eggshells and a small dish of butter.",
+        "uncertainty": "No whisking action is visible in these frames.",
+        "action": "FOCUS",
+        "round": 2
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "updates": [],
+      "summary": "Need local egg state in v4 to place pan positioning relative to v5 egg cracking and v2 butter placement",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "U01",
+        "slot_ids": [
+          "v4.c001"
+        ],
+        "evidence_goal": "In v4.c001, are the eggs near the pan still whole in a ramekin or already cracked into the white bowl?",
+        "next_probe_goal": "If whole, check whether the pan is empty before butter placement in v2; if cracked, check whether pan contents indicate a later stage.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "v4 yellow liquid state relative to v5",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "requirement_id": "r1",
+        "slot_ids": [
+          "v4.zoom.r1-U01-01.s01"
+        ],
+        "evidence_goal": "Is the yellow liquid in v4 a pre-mixing state (unbeaten yolks) or a post-whisking state (uniform pale yellow, frothy, or mixed with cream)?",
+        "next_probe_goal": "If pre-mixing, check v5 for initial egg cracking to confirm v4 precedes v5; if post-whisking, check v3/v2 for transition to pan.",
+        "mode": "refine"
+      }
+    },
+    {
+      "updates": [],
+      "summary": "v5 shows eggs cracked and cream added, so it is first. v3 shows active whisking in the white bowl with butter and cheese staged, placing it after v5. v4 shows a uniform pale yellow liquid with eggshells and butter, indicating post-whisking and before pan pouring. v2 shows whisking, butter melting, and pouring the yellow mixture into the pan, so it follows v4. v1 shows cheese grated into the pan mixture and thickening, so it is last.",
+      "action": "ANSWER",
+      "reason": "",
+      "answer": "v5->v3->v4->v2->v1",
+      "focus_intent": null
+    }
+  ],
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "v5->v3->v4->v2->v1",
+    "evidence_refs": [
+      "v5-b0001-e3",
+      "v3-b0001-e2",
+      "v4.focus.r2.l1.e1",
+      "v2-b0001-e7",
+      "v1-b0001-e1"
+    ],
+    "reason": "",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 2,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coarse",
+      "content": "A person uses a handheld grater to grate parmesan cheese directly into a pan containing a yellow liquid mixture.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u001",
+      "video": "v1",
+      "time": [
+        4.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        16.0,
+        20.0
+      ],
+      "resolution": "coarse",
+      "content": "The mixture in the pan has thickened significantly into a solid, creamy mass, which is being stirred and folded with a wooden spatula.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.u002",
+      "video": "v1",
+      "time": [
+        20.0,
+        21.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "Whisking a yellow mixture in a bowl. Placing a knob of butter into a pan. Adding sea salt flakes to the pan.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        8.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        12.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "Butter knob sitting in the pan with salt flakes visible.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        12.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        16.0,
+        16.0
+      ],
+      "resolution": "coarse",
+      "content": "Whisking the yellow mixture while the butter sits in the pan.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        16.0,
+        31.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        31.0,
+        32.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        32.0,
+        32.0
+      ],
+      "resolution": "coarse",
+      "content": "The butter begins to melt in the pan; the bowl sits beside it.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        32.0,
+        40.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        40.0,
+        44.0
+      ],
+      "resolution": "coarse",
+      "content": "Person speaking, then holding a wooden spoon while the butter melts.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        44.0,
+        48.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        48.0,
+        50.0
+      ],
+      "resolution": "coarse",
+      "content": "Swirling the pan to coat the bottom with melted butter.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        50.001,
+        56.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        56.0,
+        56.0
+      ],
+      "resolution": "coarse",
+      "content": "Pouring the yellow mixture into the pan.",
+      "evidence": [
+        "v2-b0001-e7"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        56.001000000000005,
+        60.001000000000005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        60.0,
+        62.0
+      ],
+      "resolution": "coarse",
+      "content": "Holding the pan handle while the mixture cooks.",
+      "evidence": [
+        "v2-b0001-e8"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        62.001000000000005,
+        68.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        68.001,
+        70.001
+      ],
+      "resolution": "coarse",
+      "content": "A person holds a frying pan containing a thin, pale yellow crepe or omelet base, swirling it to cook evenly.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        70.001,
+        85.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        85.001,
+        86.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        86.001,
+        86.001
+      ],
+      "resolution": "coarse",
+      "content": "A close-up view shows the surface of the cooking crepe, which now has a textured, bubbly appearance.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact state change from previous clip is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        86.001,
+        87.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c001",
+      "video": "v3",
+      "time": [
+        0.0,
+        2.0
+      ],
+      "resolution": "coarse",
+      "content": "A person stands near a stove and then begins whisking a yellow mixture in a white bowl.",
+      "evidence": [
+        "v3-b0001-e1"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.u001",
+      "video": "v3",
+      "time": [
+        2.0,
+        12.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v3.c002",
+      "video": "v3",
+      "time": [
+        12.0,
+        12.0
+      ],
+      "resolution": "coarse",
+      "content": "Whisking continues in the white bowl; two small glass bowls containing butter and shredded cheese are visible.",
+      "evidence": [
+        "v3-b0001-e2"
+      ],
+      "uncertainty": [],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.zoom.r2-r1-01.s01",
+      "video": "v4",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "fine",
+      "content": "A bowl containing a uniform pale yellow liquid is visible on the counter alongside a ramekin with eggshells and a small dish of butter.",
+      "evidence": [
+        "v4.focus.r2.l1.e1"
+      ],
+      "uncertainty": [
+        "No whisking action is visible in these frames."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u001",
+      "video": "v4",
+      "time": [
+        0.0,
+        8.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.c002",
+      "video": "v4",
+      "time": [
+        8.0,
+        8.0
+      ],
+      "resolution": "coarse",
+      "content": "A frying pan rests on a stovetop burner, with a person standing behind it.",
+      "evidence": [
+        "v4-b0001-e2"
+      ],
+      "uncertainty": [
+        "The specific moment the pan was placed down is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v4.u002",
+      "video": "v4",
+      "time": [
+        8.0,
+        9.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c001",
+      "video": "v5",
+      "time": [
+        0.0,
+        0.0
+      ],
+      "resolution": "coarse",
+      "content": "Ingredients are staged on the counter: a white bowl, ramekin of three whole eggs, butter, and sugar.",
+      "evidence": [
+        "v5-b0001-e1"
+      ],
+      "uncertainty": [
+        "Action order is inferred from ingredient state."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u001",
+      "video": "v5",
+      "time": [
+        0.0,
+        4.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c002",
+      "video": "v5",
+      "time": [
+        4.0,
+        10.0
+      ],
+      "resolution": "coarse",
+      "content": "Eggs are cracked into the white bowl, progressing from one to three yolks; shell fragments accumulate in the ramekin.",
+      "evidence": [
+        "v5-b0001-e2"
+      ],
+      "uncertainty": [
+        "The third egg crack occurs between frames."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.u002",
+      "video": "v5",
+      "time": [
+        10.0,
+        16.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v5.c003",
+      "video": "v5",
+      "time": [
+        16.0,
+        18.0
+      ],
+      "resolution": "coarse",
+      "content": "Cream is poured into the bowl containing the three eggs, covering the yolks.",
+      "evidence": [
+        "v5-b0001-e3"
+      ],
+      "uncertainty": [
+        "Pouring ends between 16s and 18s."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": {
+      "goal": "If whole, check whether the pan is empty before butter placement in v2; if cracked, check whether pan contents indicate a later stage.",
+      "created_after_stage": 0
+    },
+    "visual_calls_used": 2,
+    "visual_calls_remaining": 6,
+    "maximum_visual_calls_for_current_stage": 6,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result will replace its coarse memory and trigger fresh reprojection."
+  }
+}

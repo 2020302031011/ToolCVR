@@ -1,0 +1,239 @@
+{
+  "question": "Which video uniquely uses fresh citrus juice to enhance the broth's flavor profile?",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "A lime is cut and manually squeezed so fresh juice drips directly into a broth jug."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v3"
+      ],
+      "event_refs": [
+        "v3-b0002-e1"
+      ],
+      "statement": "A person holds a red citrus half near a stove while holding a spice shaker, with no squeezing or juice addition visible."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3"
+      ],
+      "statement": "The finished soup is poured into bowls containing noodles and bean sprouts, with no citrus fruit visible during plating."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1",
+        "v4-b0001-e2"
+      ],
+      "statement": "Bowls of corn and sliced green onions are shown, followed by a red packet of soup base."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v3"
+      ],
+      "statement": "The lime juice addition in v1 is shown as a completed squeeze into broth, while the citrus-related moment in v3 is shown as a held red citrus half without a visible squeeze.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v3-b0002-e1"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "statement": "The reported broth-handling steps in v2 and v4 show no visible citrus-squeezing action, whereas v1's reported broth jug receives squeezed lime juice.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0002-e1",
+        "v4-b0001-e2"
+      ],
+      "status": "evidence_partial",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "issue": "Whether a completed fresh citrus juice addition to broth occurs in more than one video remains unresolved because the reported events show one completed squeeze, one incomplete citrus-related action, and two broth-related steps without a reported squeeze.",
+      "reason": "The supplied events do not establish whether the completed squeeze is shared by another video.",
+      "related_events": [
+        "v1-b0001-e2",
+        "v2-b0003-e3",
+        "v3-b0002-e1",
+        "v4-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1"
+      ],
+      "issue": "Whether the lime juice added to the broth jug in v1 is used to enhance the broth's flavor profile remains unresolved because the reports show the action but not its sensory purpose.",
+      "reason": "The event description identifies fresh juice entering the broth jug but does not state whether it functions as a flavor enhancer.",
+      "related_events": [
+        "v1-b0001-e2"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v3"
+      ],
+      "issue": "Whether the red citrus half shown in v3 is squeezed into the broth remains unresolved because v3-b0002-e1 shows holding the fruit without a visible juice-addition action.",
+      "reason": "The event captures only a held citrus half and a spice shaker, leaving the squeezing and broth-contact steps undetermined.",
+      "related_events": [
+        "v3-b0002-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "issue": "Whether v2 or v4 contains a fresh citrus juice addition to broth outside the reported broth or soup-base steps remains unresolved because the supplied events do not show a citrus-squeezing action.",
+      "reason": "The cited events show broth transfer, plating, or soup-base presentation without covering any possible citrus addition.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v4-b0001-e2"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "observable": "Compare whether any video shows fresh citrus juice being squeezed directly into a broth container.",
+      "purpose": "This would determine whether the completed citrus-to-broth action is unique to one video or also appears in another.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Compare whether the lime juice enters the broth jug before the broth is boiled or only at serving.",
+      "purpose": "This would clarify whether the observed citrus addition serves to enhance the broth's flavor profile.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1",
+        "v3"
+      ],
+      "observable": "Compare whether v3's red citrus half is squeezed into broth in the same completed manner as v1's lime.",
+      "purpose": "This would resolve whether v3's citrus-related moment constitutes a fresh juice addition.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v1",
+        "v2",
+        "v4"
+      ],
+      "observable": "Compare whether v2 or v4 shows a fresh citrus juice addition to broth analogous to v1's lime squeeze.",
+      "purpose": "This would resolve whether the reported broth or soup-base steps omit a possible citrus enhancement.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 6,
+    "covered_pair_count": 6,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 6,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ],
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v4"
+      ],
+      [
+        "v2",
+        "v3"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v4"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "2 relations are evidence_partial: at least one video in scope either contributed no cited event or is still named by an unresolved issue",
+    "2 of those overlap an unresolved issue, so citing one event per video in scope was not enough to call them covered"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "CC-693",
+    "task": "CC",
+    "ground_truth": "A",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/CC/CC-693/report.json",
+    "report_sha256": "2738116627bf2dfa3332f626b9d68da61f133f19f4e93222aeb3e4e55658054b",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

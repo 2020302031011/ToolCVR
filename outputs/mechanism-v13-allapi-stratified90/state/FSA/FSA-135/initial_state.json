@@ -1,0 +1,261 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "A woman pours a white liquid from a floral cup into a stainless steel pan containing brown sauce."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e2"
+      ],
+      "statement": "The woman turns away from the stove and then returns to stir the pan contents with a wooden spoon."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e5"
+      ],
+      "statement": "The host melts butter in a pan and adds chopped pancetta while stirring."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e1"
+      ],
+      "statement": "A cook adds ingredients to a pan containing sizzling meat and stirs with a green spatula."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e2"
+      ],
+      "statement": "A cook pours tomato sauce from a can into the pan and stirs with the green spatula."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0002-e3"
+      ],
+      "statement": "A cook adds a white substance from a small bowl into red sauce and whisks it vigorously."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e1"
+      ],
+      "statement": "Pasta is added to red sauce, mixed, and then poured onto a floral serving plate."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 white-liquid addition and the v2 white-substance addition both introduce a white item into a sauce base, but the sauce color and ingredient identity differ.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 post-pour stirring and the v2 post-addition whisking both mix a newly introduced ingredient into the pan, though the utensils and motion differ.",
+      "supporting_events": [
+        "v1-b0001-e2",
+        "v2-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 brown-sauce stage and the v2 red-sauce stage indicate the compared events may belong to different recipe transitions.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1"
+      ],
+      "issue": "The identity and functional role of the white liquid poured in v1 remain missing.",
+      "reason": "The v1 event uncertainty states the liquid identity is not explicitly visible and no other v1 event describes it.",
+      "related_events": [
+        "v1-b0001-e1"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The identity and functional role of the white substance whisked into v2 red sauce remain missing.",
+      "reason": "The v2 event uncertainty states the specific ingredient being whisked in is not identified.",
+      "related_events": [
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "Whether the v2 white-substance addition is functionally equivalent to the v1 white-liquid addition and stirring remains missing.",
+      "reason": "The events share a visual addition-to-sauce pattern but differ in sauce color, utensil, and unconfirmed ingredient identities.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U04",
+      "scope": [
+        "v2"
+      ],
+      "issue": "The exact v2 interval boundaries for a functionally equivalent step remain missing.",
+      "reason": "Adjacent v2 events describe ingredient additions, sauce pouring, and whisking without clear start and end points for the equivalent transition.",
+      "related_events": [
+        "v2-b0002-e1",
+        "v2-b0002-e2",
+        "v2-b0002-e3"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the container, color, viscosity, and amount of the white liquid in v1-b0001-e1 with the white substance in v2-b0002-e3.",
+      "purpose": "Determine whether the added items are functionally the same ingredient at the same sauce stage.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the sauce base immediately before and after the addition in v1-b0001-e1/e2 and v2-b0002-e3.",
+      "purpose": "Determine whether the state transition matches the reference step.",
+      "related_issue": "U03"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "Inspect nearby v1 frames for labels, packaging, or ingredient cues that identify the poured white liquid.",
+      "purpose": "Resolve the missing identity of the reference ingredient.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Inspect nearby v2 frames for labels, packaging, or ingredient cues that identify the whisked white substance.",
+      "purpose": "Resolve the missing identity of the candidate ingredient.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q05",
+      "target_videos": [
+        "v2"
+      ],
+      "observable": "Compare the start and end of v2-b0002-e3 with v2-b0002-e1 and v2-b0002-e2 to locate where the white substance addition and incorporation begin and finish.",
+      "purpose": "Resolve boundary uncertainty for the candidate interval.",
+      "related_issue": "U04"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-135",
+    "task": "FSA",
+    "ground_truth": [
+      208,
+      227
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-135/report.json",
+    "report_sha256": "4756b8a3572f250059ab63e838d15e1b55b769c2085030b6b308366b64becc2c",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

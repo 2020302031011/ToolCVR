@@ -1,0 +1,3709 @@
+{
+  "state": {
+    "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+    "round_id": 8,
+    "summary": "Visual budget is exhausted and current evidence is aligned. The best-supported functionally equivalent step in v2 is the combining/mixing of cooked quinoa with the seasoned chopped vegetable mixture, locally bounded from the quinoa-transfer/mixing sequence through active mixing and before the finished-bowl presentation.",
+    "review": {
+      "outcome": "initial",
+      "reason": "FOCUS committed for Recover the earliest and latest locally visible boundaries of the Video 2 step that combines cooked quinoa with the seasoned chopped vegetable mixture and actively mixes it.; semantic synthesis is pending Reasoner ALIGN.",
+      "evidence_refs": [
+        "v2.focus.r6.l1.e1",
+        "v2.focus.r6.l1.e2",
+        "v2.focus.r6.l2.e1",
+        "v2.focus.r6.l2.e2"
+      ],
+      "answer_ready": false
+    },
+    "inference_protocol": [
+      "Video IDs identify the normalized input clips/views and must never be inferred from event or slot IDs.",
+      "A reasoning cycle is PLAN -> local FOCUS observation -> memory revision; Reasoner ALIGN may then rebuild the evidence synthesis when useful. Completing one cycle does not imply sufficient evidence.",
+      "FOCUS evidence is valid only for its cited video and time span; it cannot prove whole-video or cross-video absence.",
+      "Count physical entities or transitions, not frames, mentions, or duplicate observations of the same event.",
+      "The final answer is exactly one ordered numeric interval [start_seconds, end_seconds] with start_seconds < end_seconds.",
+      "v1 is the fixed reference segment and v2 is the search video; their clocks are independent.",
+      "Match functional step and state transition before refining boundaries; local visual resemblance alone is insufficient.",
+      "The final answer is exactly one ordered [start_seconds, end_seconds] interval in v2 local seconds."
+    ],
+    "answer_contract": {
+      "kind": "interval",
+      "required_video_ids": []
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "statement": "Video 1's reference step is adding a prepared chopped green herb/vegetable mixture into light-colored grain and then actively mixing it in the bowl.",
+        "videos": [
+          "v1"
+        ],
+        "evidence_refs": [
+          "v1-b0001-e1",
+          "v1-b0001-e2",
+          "v1-b0001-e3"
+        ]
+      },
+      {
+        "id": "F02",
+        "statement": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2-b0005-e3",
+          "v2-b0005-e4"
+        ]
+      },
+      {
+        "id": "F03",
+        "statement": "Video 2 shows parsley, onion, and tomatoes being chopped into a bowl and then seasoned with lemon juice, olive oil, and salt.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2-b0006-e2",
+          "v2-b0006-e3",
+          "v2-b0006-e4",
+          "v2-b0007-e1",
+          "v2-b0007-e2",
+          "v2-b0007-e3"
+        ]
+      },
+      {
+        "id": "F04",
+        "statement": "Video 2 contains an early glass-bowl mixing shot whose ingredient context is not established by the answer evidence.",
+        "videos": [
+          "v2"
+        ],
+        "evidence_refs": [
+          "v2-b0001-e4"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "U01",
+        "question": "The exact Video 2 interval for the step that combines cooked quinoa with the seasoned chopped vegetable mixture and actively mixes it remains unresolved.",
+        "videos": [
+          "v2"
+        ],
+        "related_evidence_refs": []
+      },
+      {
+        "id": "U02",
+        "question": "Whether the early Video 2 glass-bowl mixing shot is a preview or finished-dish shot rather than the functionally equivalent combining/mixing step remains unresolved.",
+        "videos": [
+          "v2"
+        ],
+        "related_evidence_refs": [
+          "v2-b0001-e4"
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "events": [
+      {
+        "id": "v1-b0001-e1",
+        "video_id": "v1",
+        "time_span": [
+          329.029,
+          329.029
+        ],
+        "description": "A large stainless steel bowl containing light-colored bulgur sits stationary on a red checkered mat.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e2",
+        "video_id": "v1",
+        "time_span": [
+          331.031,
+          331.031
+        ],
+        "description": "Chopped green herb and vegetable mixture is poured from a clear container into the bowl with the bulgur.",
+        "uncertainty": "Source of mixture.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v1-b0001-e3",
+        "video_id": "v1",
+        "time_span": [
+          333.033,
+          335.035
+        ],
+        "description": "A yellow spatula actively mixes the green herb mixture into the bulgur inside the bowl.",
+        "uncertainty": "Duration of mixing.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e1",
+        "video_id": "v2",
+        "time_span": [
+          0.0,
+          12.012
+        ],
+        "description": "Title cards display 'Healthytarian', the topic 'Quinoa Tabbouleh Salad', and the presenter's name and credentials.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e2",
+        "video_id": "v2",
+        "time_span": [
+          16.016,
+          19.987
+        ],
+        "description": "Presenter stands in kitchen, speaking to the camera with ingredients visible on the counter.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e3",
+        "video_id": "v2",
+        "time_span": [
+          31.999,
+          36.003
+        ],
+        "description": "A finished bowl of quinoa tabbouleh is shown, followed by the presenter speaking again.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e4",
+        "video_id": "v2",
+        "time_span": [
+          48.015,
+          51.985
+        ],
+        "description": "The presenter is seen mixing ingredients in a glass bowl, then speaking to the camera.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e5",
+        "video_id": "v2",
+        "time_span": [
+          63.997,
+          68.001
+        ],
+        "description": "A close-up of raw ingredients is shown, followed by the presenter speaking.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0001-e6",
+        "video_id": "v2",
+        "time_span": [
+          100.0,
+          123.991
+        ],
+        "description": "The presenter speaks, followed by a 'Meal Characteristics' title card and a list of dietary traits.",
+        "uncertainty": "None",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e1",
+        "video_id": "v2",
+        "time_span": [
+          131.999,
+          187.988
+        ],
+        "description": "A woman in a pink sweater stands in a kitchen, speaking and gesturing while a list of dietary benefits scrolls on the left side of the screen.",
+        "uncertainty": "Audio content of the speech is not available.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e2",
+        "video_id": "v2",
+        "time_span": [
+          191.992,
+          195.996
+        ],
+        "description": "A transition sequence occurs, displaying the text 'Ingredient Nutrition' followed by a close-up shot of fresh parsley sprigs.",
+        "uncertainty": "Exact transition timing between text and image is approximate.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e3",
+        "video_id": "v2",
+        "time_span": [
+          200.0,
+          212.012
+        ],
+        "description": "The presenter gestures towards ingredients on the counter, including a plate with tomatoes, onion, and lemon, and a bunch of parsley.",
+        "uncertainty": "Specific verbal instructions are unknown without audio.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e4",
+        "video_id": "v2",
+        "time_span": [
+          244.01,
+          251.985
+        ],
+        "description": "The presenter continues speaking, and a close-up shot reveals a finished tabbouleh-style salad containing parsley, tomatoes, and grains.",
+        "uncertainty": "The mixing process leading to the final dish is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0002-e5",
+        "video_id": "v2",
+        "time_span": [
+          272.005,
+          272.005
+        ],
+        "description": "The scene cuts to an outdoor shot of a parsley plant growing in a garden bed covered with wood chips.",
+        "uncertainty": "Context of the garden shot relative to the cooking steps is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e1",
+        "video_id": "v2",
+        "time_span": [
+          276.009,
+          323.99
+        ],
+        "description": "Presenter holds a glass measuring cup containing dry, uncooked quinoa, gesturing while explaining.",
+        "uncertainty": "Exact cooking state change is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e2",
+        "video_id": "v2",
+        "time_span": [
+          340.006,
+          355.989
+        ],
+        "description": "Presenter continues to hold the measuring cup with quinoa, discussing protein myths.",
+        "uncertainty": "Whether the quinoa is cooked or raw is ambiguous.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e3",
+        "video_id": "v2",
+        "time_span": [
+          359.993,
+          372.005
+        ],
+        "description": "Presenter switches from holding the measuring cup to holding a red tomato.",
+        "uncertainty": "The exact moment the cup was set down is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0003-e4",
+        "video_id": "v2",
+        "time_span": [
+          387.988,
+          404.004
+        ],
+        "description": "Presenter holds a small white onion after discussing the tomato.",
+        "uncertainty": "The transition from tomato to onion is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e1",
+        "video_id": "v2",
+        "time_span": [
+          412.012,
+          459.993
+        ],
+        "description": "The presenter stands in a kitchen and gestures while introducing ingredients, specifically holding up a lemon and then a bottle of olive oil.",
+        "uncertainty": "Specific dialogue content is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e2",
+        "video_id": "v2",
+        "time_span": [
+          480.013,
+          480.013
+        ],
+        "description": "A close-up shot displays a bottle of Maison Orphée Extra-Virgin Olive Oil next to a jar of Virgin Coconut Oil.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e3",
+        "video_id": "v2",
+        "time_span": [
+          487.988,
+          512.012
+        ],
+        "description": "The presenter discusses the oil, followed by a close-up of a finished tabbouleh salad, then returns to the presenter.",
+        "uncertainty": "The exact transition point between the salad shot and the presenter is not captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e4",
+        "video_id": "v2",
+        "time_span": [
+          519.986,
+          523.99
+        ],
+        "description": "A close-up shows ingredients including cayenne pepper, pepper blend, and sea salt. The presenter then makes a hand gesture.",
+        "uncertainty": "The specific meaning of the hand gesture is unclear without audio.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e5",
+        "video_id": "v2",
+        "time_span": [
+          531.998,
+          531.998
+        ],
+        "description": "A title card appears with the text 'Tools Needed'.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0004-e6",
+        "video_id": "v2",
+        "time_span": [
+          536.002,
+          587.987
+        ],
+        "description": "The presenter continues speaking and gesturing, with a text overlay appearing at the end indicating '2 - 4 Servings'.",
+        "uncertainty": "The specific tools mentioned are not visible in this batch.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e1",
+        "video_id": "v2",
+        "time_span": [
+          591.991,
+          640.006
+        ],
+        "description": "The presenter introduces and displays ingredients for a quinoa salad, holding up a measuring cup of dry quinoa, fresh parsley, an onion, and tomatoes.",
+        "uncertainty": "Exact quantities of spices and oil are shown in text but not weighed.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e2",
+        "video_id": "v2",
+        "time_span": [
+          648.014,
+          663.997
+        ],
+        "description": "The presenter holds the measuring cup of dry quinoa and gestures while explaining the next step, likely regarding rinsing or cooking the grain.",
+        "uncertainty": "Specific verbal instructions during the gesturing are not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e3",
+        "video_id": "v2",
+        "time_span": [
+          691.991,
+          695.995
+        ],
+        "description": "The dry quinoa is shown being rinsed in a mesh strainer under running tap water in a kitchen sink.",
+        "uncertainty": "The duration of the rinsing process is not fully captured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0005-e4",
+        "video_id": "v2",
+        "time_span": [
+          704.003,
+          712.011
+        ],
+        "description": "The presenter pours water from a glass bowl into a stainless steel saucepan, turns on the stovetop burner, and then adds the rinsed quinoa to the pot.",
+        "uncertainty": "The specific amount of water poured into the pot is not measured.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e1",
+        "video_id": "v2",
+        "time_span": [
+          716.015,
+          723.99
+        ],
+        "description": "The woman adjusts a stove knob and then transitions to holding a glass measuring cup, indicating the end of a cooking phase.",
+        "uncertainty": "Exact contents of the measuring cup are unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e2",
+        "video_id": "v2",
+        "time_span": [
+          744.01,
+          795.995
+        ],
+        "description": "The woman prepares parsley, moving it from a plate to a cutting board and chopping it with a knife.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e3",
+        "video_id": "v2",
+        "time_span": [
+          799.999,
+          823.99
+        ],
+        "description": "The woman chops an onion and adds it to a bowl containing the previously chopped parsley.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0006-e4",
+        "video_id": "v2",
+        "time_span": [
+          827.994,
+          855.988
+        ],
+        "description": "The woman chops tomatoes and adds them to the bowl with the parsley and onion mixture.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e1",
+        "video_id": "v2",
+        "time_span": [
+          868.0,
+          891.991
+        ],
+        "description": "Chef cuts a lemon and squeezes the juice through a strainer into a glass bowl containing chopped vegetables.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e2",
+        "video_id": "v2",
+        "time_span": [
+          895.995,
+          904.003
+        ],
+        "description": "Chef holds a bottle of olive oil and pours it into the mixing bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e3",
+        "video_id": "v2",
+        "time_span": [
+          923.99,
+          931.998
+        ],
+        "description": "Chef holds a blue and white salt container and sprinkles salt into the bowl.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e4",
+        "video_id": "v2",
+        "time_span": [
+          948.014,
+          963.996
+        ],
+        "description": "Chef seasons the salad with black pepper from a grinder and then adds red pepper flakes.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0007-e5",
+        "video_id": "v2",
+        "time_span": [
+          976.008,
+          1008.007
+        ],
+        "description": "Chef uses a spoon to scoop cooked quinoa from a metal bowl and adds it to the salad.",
+        "uncertainty": "None.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e1",
+        "video_id": "v2",
+        "time_span": [
+          1016.015,
+          1031.998
+        ],
+        "description": "The woman adds cooked quinoa from a metal bowl into a glass bowl containing chopped vegetables, then mixes the salad ingredients together.",
+        "uncertainty": "Exact start and end of mixing action.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e2",
+        "video_id": "v2",
+        "time_span": [
+          1040.006,
+          1084.016
+        ],
+        "description": "The woman holds the bowl of finished quinoa salad, presenting it to the camera and gesturing while speaking.",
+        "uncertainty": "Specific dialogue content is not visible.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e3",
+        "video_id": "v2",
+        "time_span": [
+          1080.012,
+          1080.012
+        ],
+        "description": "A static shot displays the raw ingredients: parsley, tomatoes, lemon, onion, and quinoa.",
+        "uncertainty": "Context of this shot relative to the timeline is unclear.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2-b0008-e4",
+        "video_id": "v2",
+        "time_span": [
+          1091.991,
+          1099.999
+        ],
+        "description": "The finished quinoa salad is shown plated in a white bowl, followed by the woman holding the plated dish.",
+        "uncertainty": "Transition time between mixing and plating is not shown.",
+        "action": "SCAN",
+        "round": 0
+      },
+      {
+        "id": "v2.focus.r1.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          1016.015,
+          1023.015
+        ],
+        "description": "A woman pours cooked grains from a metal pot into a glass bowl containing chopped herbs and tomatoes, using her hand to scrape the pot clean.",
+        "uncertainty": "Exact moment pot becomes empty is obscured by transition.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          1024.015,
+          1025.015
+        ],
+        "description": "The woman turns to face the camera and gestures with her open hand while holding the pot handle, pausing the physical task.",
+        "uncertainty": "Content of speech is not visible.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          1026.015,
+          1031.015
+        ],
+        "description": "The woman reaches into the bowl with both hands and vigorously tosses and mixes the grains with the raw vegetables.",
+        "uncertainty": "Mixing continues past the end of the clip.",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r1.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          1031.015,
+          1031.015
+        ],
+        "description": "Person in a pink sweater is actively mixing a salad with green vegetables in a glass bowl using their hands.",
+        "uncertainty": "Ingredient addition not visible",
+        "action": "FOCUS",
+        "round": 1
+      },
+      {
+        "id": "v2.focus.r3.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          1016.015,
+          1023.015
+        ],
+        "description": "A woman in a pink sweater pours cooked grains from a metal pot into a glass bowl containing chopped vegetables and herbs.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          1024.015,
+          1025.015
+        ],
+        "description": "The woman pauses the food preparation to speak and gesture with her hands while holding a utensil.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l1.e3",
+        "video_id": "v2",
+        "time_span": [
+          1026.015,
+          1031.015
+        ],
+        "description": "The woman uses a spoon and her hand to mix the cooked grains with the chopped vegetables in the bowl.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r3.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          1031.015,
+          1031.015
+        ],
+        "description": "Person in pink sweater mixes chopped vegetable salad in clear glass bowl using both hands.",
+        "uncertainty": "No cooked grain addition visible in this frame",
+        "action": "FOCUS",
+        "round": 3
+      },
+      {
+        "id": "v2.focus.r5.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          1008.007,
+          1013.007
+        ],
+        "description": "The woman holds a spoon and pot of cooked quinoa, speaking and gesturing above a bowl of chopped vegetables.",
+        "uncertainty": "The quinoa is not yet being added to the vegetable mixture.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v2.focus.r5.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          1014.007,
+          1016.007
+        ],
+        "description": "The woman tilts the pot to pour cooked quinoa into the glass bowl containing the seasoned vegetable mixture.",
+        "uncertainty": "The pouring action is captured, but the subsequent mixing is not visible.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v2.focus.r5.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          1031.998,
+          1035.998
+        ],
+        "description": "A woman in a pink sweater actively stirs a green vegetable mixture in a glass bowl using a fork and spoon.",
+        "uncertainty": "No quinoa addition visible in these frames.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v2.focus.r5.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          1036.998,
+          1039.998
+        ],
+        "description": "The woman holds the bowl of mixed vegetables facing the camera, smiling and talking.",
+        "uncertainty": "Presentation state; mixing action has ceased.",
+        "action": "FOCUS",
+        "round": 5
+      },
+      {
+        "id": "v2.focus.r6.l1.e1",
+        "video_id": "v2",
+        "time_span": [
+          1016.015,
+          1023.015
+        ],
+        "description": "The person pours cooked quinoa from a metal pot into a glass bowl containing a seasoned chopped vegetable mixture.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v2.focus.r6.l1.e2",
+        "video_id": "v2",
+        "time_span": [
+          1026.015,
+          1031.015
+        ],
+        "description": "The person uses a spoon to actively mix the quinoa with the vegetable mixture in the glass bowl.",
+        "uncertainty": "None.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v2.focus.r6.l2.e1",
+        "video_id": "v2",
+        "time_span": [
+          1031.998,
+          1035.998
+        ],
+        "description": "A person in a pink top uses a utensil to actively mix a chopped green and red vegetable salad in a clear glass bowl.",
+        "uncertainty": "Quinoa addition not visible; mixing may be vegetables only.",
+        "action": "FOCUS",
+        "round": 6
+      },
+      {
+        "id": "v2.focus.r6.l2.e2",
+        "video_id": "v2",
+        "time_span": [
+          1036.998,
+          1039.998
+        ],
+        "description": "The person holds the bowl of mixed salad facing the camera and speaks, with the utensil resting inside.",
+        "uncertainty": "End of mixing step not clearly bounded before holding.",
+        "action": "FOCUS",
+        "round": 6
+      }
+    ],
+    "gaps": []
+  },
+  "turns": [
+    {
+      "synthesis": [],
+      "summary": "Video 1 establishes a reference step in which a chopped herb/vegetable mixture is combined with grain by active mixing. Video 2 has a later cooked-grain addition and mixing candidate that must be refined to determine whether it is the functionally equivalent step and to obtain its boundaries.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.c035"
+        ],
+        "evidence_goal": "Determine whether the selected Video 2 grain-addition and mixing event is the functionally equivalent reference step by observing the ingredient states and the active mixing transition, and refine its event boundaries.",
+        "next_probe_goal": "If this event matches the reference function, use its refined boundaries as the candidate answer; if it does not, inspect the competing grain-addition or mixing event.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e1",
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "statement": "Video 1's reference step combines a chopped green herb/vegetable mixture with light-colored bulgur by pouring the mixture into the bowl and actively mixing it with a spatula."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0005-e3",
+            "v2-b0005-e4"
+          ],
+          "statement": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0006-e2",
+            "v2-b0006-e3",
+            "v2-b0006-e4",
+            "v2-b0007-e1",
+            "v2-b0007-e2",
+            "v2-b0007-e3"
+          ],
+          "statement": "Video 2 shows chopped parsley, onion, and tomatoes being accumulated in a bowl and then seasoned with lemon juice, olive oil, salt, and pepper."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Video 2 contains a mixing event in a glass bowl without detailed ingredient context in the available evidence."
+        },
+        {
+          "id": "F05",
+          "kind": "finding",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e2",
+            "v2-b0006-e2",
+            "v2-b0006-e3",
+            "v2-b0006-e4",
+            "v2-b0007-e1",
+            "v2-b0007-e2",
+            "v2-b0007-e3"
+          ],
+          "statement": "Video 2's sequence builds a chopped vegetable mixture before grain preparation and seasoning, which parallels Video 1's use of a prepared chopped herb/vegetable mixture."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e2",
+            "v1-b0001-e3",
+            "v2-b0001-e4"
+          ],
+          "statement": "Whether the cooked-grain addition and active mixing in Video 2 is functionally equivalent to Video 1's chopped-mixture-into-grain step remains unresolved."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [],
+          "statement": "The exact Video 2 start and end seconds for the equivalent grain-addition/mixing step remain unresolved."
+        },
+        {
+          "id": "U03",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Whether the earlier Video 2 bowl-mixing event is a preview or finished-dish shot rather than the equivalent step remains unresolved."
+        }
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled.",
+      "action": "ALIGN",
+      "reason": "A newer evidence revision needs synthesis to separate confirmed Video 1 and Video 2 preparation facts from the unresolved functional equivalence and boundary questions.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Video 1 establishes the reference step: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has a candidate equivalent event involving cooked grains being poured and then mixed, but functional equivalence and the exact v2 interval still need local confirmation. One mandatory focus stage remains, so the next action is a targeted PLAN.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U01",
+        "slot_ids": [
+          "v2.zoom.r1-U01-01.s01",
+          "v2.zoom.r1-U01-01.s02"
+        ],
+        "evidence_goal": "Determine whether the cooked-grain addition and subsequent mixing in v2 is functionally equivalent to v1's chopped-mixture-into-grain step, and identify the local interval of that state transition.",
+        "next_probe_goal": "Observe the ingredient states during the cooked-grain pour and the active mixing transition to confirm that cooked grains are combined with the prepared chopped mixture and to refine the event boundaries.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e1",
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "statement": "Video 1's reference step is the addition of a chopped green herb/vegetable mixture into light-colored bulgur followed by active mixing in the bowl."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0005-e3",
+            "v2-b0005-e4"
+          ],
+          "statement": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0006-e2",
+            "v2-b0006-e3",
+            "v2-b0006-e4",
+            "v2-b0007-e1",
+            "v2-b0007-e2",
+            "v2-b0007-e3"
+          ],
+          "statement": "Video 2 shows parsley, onion, and tomatoes being chopped into a bowl and then receiving lemon juice, olive oil, and salt."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Video 2 contains an early glass-bowl mixing shot whose ingredient context is not established by the answer evidence."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v1",
+            "v2"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e1",
+            "v1-b0001-e2",
+            "v1-b0001-e3",
+            "v2-b0001-e4",
+            "v2-b0005-e3",
+            "v2-b0005-e4",
+            "v2-b0006-e2",
+            "v2-b0006-e3"
+          ],
+          "statement": "Whether a Video 2 step combines cooked quinoa with the seasoned chopped vegetable mixture in a way functionally equivalent to Video 1's chopped-mixture-into-grain step remains unresolved."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [],
+          "statement": "The exact Video 2 interval for the functionally equivalent combining/mixing step remains unresolved."
+        },
+        {
+          "id": "U03",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Whether the early Video 2 glass-bowl mixing shot is a preview or finished-dish shot rather than the equivalent step remains unresolved."
+        }
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step.",
+      "action": "ALIGN",
+      "reason": "Rebuild the question-conditioned synthesis because the current evidence separates Video 1 reference, Video 2 component preparation, and an unresolved equivalent combining step rather than treating prior parallelism as settled.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Video 1 establishes the target transition: a prepared chopped green mixture is added to grain and then actively mixed. Video 2 now has fine evidence of cooked quinoa being poured into the chopped vegetable mixture and mixing beginning shortly afterward, but the exact start and end of that equivalent combining/mixing step remain unresolved. Remaining focus stages are zero, yet open questions remain and visual calls are available, so the next step is boundary recovery rather than answering.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U02",
+        "slot_ids": [
+          "v2.u079",
+          "v2.u081"
+        ],
+        "evidence_goal": "Determine the earliest and latest locally visible boundaries of the Video 2 step in which cooked quinoa is added to the seasoned chopped vegetable mixture and the combined mixture is actively mixed.",
+        "next_probe_goal": "Recover the unobserved intervals immediately before the fine pouring evidence and immediately after the fine mixing evidence to establish whether the equivalent combining/mixing step starts earlier or continues later.",
+        "mode": "recover"
+      }
+    },
+    {
+      "synthesis": [],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and then actively mixing it. Video 2 has fine candidate evidence of cooked quinoa being poured into the seasoned chopped vegetable mixture and active mixing afterward, but the exact start and end of that equivalent combining/mixing step are unresolved. With no remaining focus stages but two visual calls available, the next step is a minimal boundary-refinement probe rather than an answer.",
+      "action": "PLAN",
+      "reason": "",
+      "answer": null,
+      "focus_intent": {
+        "question_id": "U02",
+        "slot_ids": [
+          "v2.zoom.r3-U01-01.s01",
+          "v2.zoom.r5-U02-02.s01"
+        ],
+        "evidence_goal": "Recover the earliest and latest locally visible boundaries of the Video 2 step that combines cooked quinoa with the seasoned chopped vegetable mixture and actively mixes it.",
+        "next_probe_goal": "Confirm that the pouring shot marks the functional start and that the active stirring shot marks the functional end, without treating the later finished-dish presentation as part of the step.",
+        "mode": "refine"
+      }
+    },
+    {
+      "synthesis": [
+        {
+          "id": "F01",
+          "kind": "finding",
+          "videos": [
+            "v1"
+          ],
+          "evidence_refs": [
+            "v1-b0001-e1",
+            "v1-b0001-e2",
+            "v1-b0001-e3"
+          ],
+          "statement": "Video 1's reference step is adding a prepared chopped green herb/vegetable mixture into light-colored grain and then actively mixing it in the bowl."
+        },
+        {
+          "id": "F02",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0005-e3",
+            "v2-b0005-e4"
+          ],
+          "statement": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop."
+        },
+        {
+          "id": "F03",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0006-e2",
+            "v2-b0006-e3",
+            "v2-b0006-e4",
+            "v2-b0007-e1",
+            "v2-b0007-e2",
+            "v2-b0007-e3"
+          ],
+          "statement": "Video 2 shows parsley, onion, and tomatoes being chopped into a bowl and then seasoned with lemon juice, olive oil, and salt."
+        },
+        {
+          "id": "F04",
+          "kind": "finding",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Video 2 contains an early glass-bowl mixing shot whose ingredient context is not established by the answer evidence."
+        },
+        {
+          "id": "U01",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [],
+          "statement": "The exact Video 2 interval for the step that combines cooked quinoa with the seasoned chopped vegetable mixture and actively mixes it remains unresolved."
+        },
+        {
+          "id": "U02",
+          "kind": "open_question",
+          "videos": [
+            "v2"
+          ],
+          "evidence_refs": [
+            "v2-b0001-e4"
+          ],
+          "statement": "Whether the early Video 2 glass-bowl mixing shot is a preview or finished-dish shot rather than the functionally equivalent combining/mixing step remains unresolved."
+        }
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2.",
+      "action": "ALIGN",
+      "reason": "Evidence revision 5 is newer than the last aligned revision, and the synthesis must be rebuilt around the confirmed preparation steps while preserving the unresolved Video 2 interval boundary.",
+      "answer": null,
+      "focus_intent": null
+    },
+    {
+      "synthesis": [],
+      "summary": "Visual budget is exhausted and current evidence is aligned. The best-supported functionally equivalent step in v2 is the combining/mixing of cooked quinoa with the seasoned chopped vegetable mixture, locally bounded from the quinoa-transfer/mixing sequence through active mixing and before the finished-bowl presentation.",
+      "action": "ANSWER",
+      "reason": "budget_exhausted_best_effort",
+      "answer": "[1008.007,1040.006]",
+      "focus_intent": null
+    }
+  ],
+  "alignment_history": [
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F01",
+      "objective": "Video 1's reference step combines a chopped green herb/vegetable mixture with light-colored bulgur by pouring the mixture into the bowl and actively mixing it with a spatula.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F02",
+      "objective": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0005-e3",
+        "v2-b0005-e4"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F03",
+      "objective": "Video 2 shows chopped parsley, onion, and tomatoes being accumulated in a bowl and then seasoned with lemon juice, olive oil, salt, and pepper.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F04",
+      "objective": "Video 2 contains a mixing event in a glass bowl without detailed ingredient context in the available evidence.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "F05",
+      "objective": "Video 2's sequence builds a chopped vegetable mixture before grain preparation and seasoning, which parallels Video 1's use of a prepared chopped herb/vegetable mixture.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e2",
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U01",
+      "objective": "Whether the cooked-grain addition and active mixing in Video 2 is functionally equivalent to Video 1's chopped-mixture-into-grain step remains unresolved.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U02",
+      "objective": "The exact Video 2 start and end seconds for the equivalent grain-addition/mixing step remain unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 2,
+      "evidence_revision": 2,
+      "requirement_id": "U03",
+      "objective": "Whether the earlier Video 2 bowl-mixing event is a preview or finished-dish shot rather than the equivalent step remains unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 clearly establishes the reference action: a chopped herb/vegetable mixture is added to bulgur and actively mixed. Video 2 has confirmed vegetable-chopping, seasoning, and dry-quinoa cooking preparation, plus an early mixing shot, but the later cooked-grain addition/mixing equivalence and its precise interval are not yet settled."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F01",
+      "objective": "Video 1's reference step is the addition of a chopped green herb/vegetable mixture into light-colored bulgur followed by active mixing in the bowl.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F02",
+      "objective": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0005-e3",
+        "v2-b0005-e4"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F03",
+      "objective": "Video 2 shows parsley, onion, and tomatoes being chopped into a bowl and then receiving lemon juice, olive oil, and salt.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "F04",
+      "objective": "Video 2 contains an early glass-bowl mixing shot whose ingredient context is not established by the answer evidence.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U01",
+      "objective": "Whether a Video 2 step combines cooked quinoa with the seasoned chopped vegetable mixture in a way functionally equivalent to Video 1's chopped-mixture-into-grain step remains unresolved.",
+      "videos": [
+        "v1",
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0005-e3",
+        "v2-b0005-e4",
+        "v2-b0006-e2",
+        "v2-b0006-e3"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U02",
+      "objective": "The exact Video 2 interval for the functionally equivalent combining/mixing step remains unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 4,
+      "evidence_revision": 3,
+      "requirement_id": "U03",
+      "objective": "Whether the early Video 2 glass-bowl mixing shot is a preview or finished-dish shot rather than the equivalent step remains unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 defines the target transition as adding a prepared chopped green mixture to grain and mixing it. Video 2 evidence confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot, but the answer evidence does not yet pin a grounded Video 2 interval for the later grain-to-vegetable combining/mixing step."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "F01",
+      "objective": "Video 1's reference step is adding a prepared chopped green herb/vegetable mixture into light-colored grain and then actively mixing it in the bowl.",
+      "videos": [
+        "v1"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v1-b0001-e1",
+        "v1-b0001-e2",
+        "v1-b0001-e3"
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "F02",
+      "objective": "Video 2 shows dry quinoa being rinsed and then added to water in a saucepan on the stovetop.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0005-e3",
+        "v2-b0005-e4"
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "F03",
+      "objective": "Video 2 shows parsley, onion, and tomatoes being chopped into a bowl and then seasoned with lemon juice, olive oil, and salt.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0006-e2",
+        "v2-b0006-e3",
+        "v2-b0006-e4",
+        "v2-b0007-e1",
+        "v2-b0007-e2",
+        "v2-b0007-e3"
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "F04",
+      "objective": "Video 2 contains an early glass-bowl mixing shot whose ingredient context is not established by the answer evidence.",
+      "videos": [
+        "v2"
+      ],
+      "status": "supported",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "U01",
+      "objective": "The exact Video 2 interval for the step that combines cooked quinoa with the seasoned chopped vegetable mixture and actively mixes it remains unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    },
+    {
+      "round": 7,
+      "evidence_revision": 5,
+      "requirement_id": "U02",
+      "objective": "Whether the early Video 2 glass-bowl mixing shot is a preview or finished-dish shot rather than the functionally equivalent combining/mixing step remains unresolved.",
+      "videos": [
+        "v2"
+      ],
+      "status": "open",
+      "evidence_refs": [
+        "v2-b0001-e4"
+      ],
+      "summary": "Video 1 defines the target as adding a prepared chopped mixture to grain and actively mixing. Video 2 confirms separate quinoa cooking and chopped/seasoned vegetable preparation, plus an early ambiguous mixing shot; current answer evidence does not settle the exact equivalent combining/mixing interval in Video 2."
+    }
+  ],
+  "alignment_state": {
+    "evidence_revision": 5,
+    "aligned_revision": 5,
+    "current_evidence_is_aligned": true
+  },
+  "final_action": {
+    "kind": "ANSWER",
+    "answer": "[1008.007,1040.006]",
+    "evidence_refs": [
+      "v1.c001",
+      "v1.c002",
+      "v1.c003",
+      "v2.c024",
+      "v2.c025",
+      "v2.c027",
+      "v2.c028",
+      "v2.c032"
+    ],
+    "reason": "budget_exhausted_best_effort",
+    "termination_origin": "reasoner"
+  },
+  "visual_calls_used": 8,
+  "semantic_zoom_memory": [
+    {
+      "slot_id": "v1.c001",
+      "video": "v1",
+      "time": [
+        329.029,
+        329.029
+      ],
+      "resolution": "coarse",
+      "content": "A large stainless steel bowl containing light-colored bulgur sits stationary on a red checkered mat.",
+      "evidence": [
+        "v1-b0001-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c002",
+      "video": "v1",
+      "time": [
+        331.031,
+        331.031
+      ],
+      "resolution": "coarse",
+      "content": "Chopped green herb and vegetable mixture is poured from a clear container into the bowl with the bulgur.",
+      "evidence": [
+        "v1-b0001-e2"
+      ],
+      "uncertainty": [
+        "Source of mixture."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v1.c003",
+      "video": "v1",
+      "time": [
+        333.033,
+        335.035
+      ],
+      "resolution": "coarse",
+      "content": "A yellow spatula actively mixes the green herb mixture into the bulgur inside the bowl.",
+      "evidence": [
+        "v1-b0001-e3"
+      ],
+      "uncertainty": [
+        "Duration of mixing."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c001",
+      "video": "v2",
+      "time": [
+        0.0,
+        12.012
+      ],
+      "resolution": "coarse",
+      "content": "Title cards display 'Healthytarian', the topic 'Quinoa Tabbouleh Salad', and the presenter's name and credentials.",
+      "evidence": [
+        "v2-b0001-e1"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c002",
+      "video": "v2",
+      "time": [
+        16.016,
+        19.987
+      ],
+      "resolution": "coarse",
+      "content": "Presenter stands in kitchen, speaking to the camera with ingredients visible on the counter.",
+      "evidence": [
+        "v2-b0001-e2"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u001",
+      "video": "v2",
+      "time": [
+        19.987000000000002,
+        31.999000000000002
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c003",
+      "video": "v2",
+      "time": [
+        31.999,
+        36.003
+      ],
+      "resolution": "coarse",
+      "content": "A finished bowl of quinoa tabbouleh is shown, followed by the presenter speaking again.",
+      "evidence": [
+        "v2-b0001-e3"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u002",
+      "video": "v2",
+      "time": [
+        36.003,
+        48.015
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c004",
+      "video": "v2",
+      "time": [
+        48.015,
+        51.985
+      ],
+      "resolution": "coarse",
+      "content": "The presenter is seen mixing ingredients in a glass bowl, then speaking to the camera.",
+      "evidence": [
+        "v2-b0001-e4"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u003",
+      "video": "v2",
+      "time": [
+        51.985,
+        63.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c005",
+      "video": "v2",
+      "time": [
+        63.997,
+        68.001
+      ],
+      "resolution": "coarse",
+      "content": "A close-up of raw ingredients is shown, followed by the presenter speaking.",
+      "evidence": [
+        "v2-b0001-e5"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u004",
+      "video": "v2",
+      "time": [
+        68.001,
+        83.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u005",
+      "video": "v2",
+      "time": [
+        83.001,
+        98.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u006",
+      "video": "v2",
+      "time": [
+        98.001,
+        100.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u007",
+      "video": "v2",
+      "time": [
+        100.0,
+        112.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c006",
+      "video": "v2",
+      "time": [
+        100.0,
+        123.991
+      ],
+      "resolution": "coarse",
+      "content": "The presenter speaks, followed by a 'Meal Characteristics' title card and a list of dietary traits.",
+      "evidence": [
+        "v2-b0001-e6"
+      ],
+      "uncertainty": [
+        "None"
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u008",
+      "video": "v2",
+      "time": [
+        116.016,
+        123.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u009",
+      "video": "v2",
+      "time": [
+        123.991,
+        131.999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c007",
+      "video": "v2",
+      "time": [
+        131.999,
+        187.988
+      ],
+      "resolution": "coarse",
+      "content": "A woman in a pink sweater stands in a kitchen, speaking and gesturing while a list of dietary benefits scrolls on the left side of the screen.",
+      "evidence": [
+        "v2-b0002-e1"
+      ],
+      "uncertainty": [
+        "Audio content of the speech is not available."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u010",
+      "video": "v2",
+      "time": [
+        136.003,
+        148.01500000000004
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u011",
+      "video": "v2",
+      "time": [
+        151.985,
+        166.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u012",
+      "video": "v2",
+      "time": [
+        166.985,
+        176.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u013",
+      "video": "v2",
+      "time": [
+        180.013,
+        187.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c008",
+      "video": "v2",
+      "time": [
+        191.992,
+        195.996
+      ],
+      "resolution": "coarse",
+      "content": "A transition sequence occurs, displaying the text 'Ingredient Nutrition' followed by a close-up shot of fresh parsley sprigs.",
+      "evidence": [
+        "v2-b0002-e2"
+      ],
+      "uncertainty": [
+        "Exact transition timing between text and image is approximate."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u014",
+      "video": "v2",
+      "time": [
+        200.0,
+        208.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c009",
+      "video": "v2",
+      "time": [
+        200.0,
+        212.012
+      ],
+      "resolution": "coarse",
+      "content": "The presenter gestures towards ingredients on the counter, including a plate with tomatoes, onion, and lemon, and a bunch of parsley.",
+      "evidence": [
+        "v2-b0002-e3"
+      ],
+      "uncertainty": [
+        "Specific verbal instructions are unknown without audio."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u015",
+      "video": "v2",
+      "time": [
+        212.012,
+        227.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u016",
+      "video": "v2",
+      "time": [
+        227.012,
+        242.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u017",
+      "video": "v2",
+      "time": [
+        242.012,
+        244.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c010",
+      "video": "v2",
+      "time": [
+        244.01,
+        251.985
+      ],
+      "resolution": "coarse",
+      "content": "The presenter continues speaking, and a close-up shot reveals a finished tabbouleh-style salad containing parsley, tomatoes, and grains.",
+      "evidence": [
+        "v2-b0002-e4"
+      ],
+      "uncertainty": [
+        "The mixing process leading to the final dish is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u018",
+      "video": "v2",
+      "time": [
+        251.985,
+        266.985
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u019",
+      "video": "v2",
+      "time": [
+        266.985,
+        272.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c011",
+      "video": "v2",
+      "time": [
+        272.005,
+        272.005
+      ],
+      "resolution": "coarse",
+      "content": "The scene cuts to an outdoor shot of a parsley plant growing in a garden bed covered with wood chips.",
+      "evidence": [
+        "v2-b0002-e5"
+      ],
+      "uncertainty": [
+        "Context of the garden shot relative to the cooking steps is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c012",
+      "video": "v2",
+      "time": [
+        276.009,
+        323.99
+      ],
+      "resolution": "coarse",
+      "content": "Presenter holds a glass measuring cup containing dry, uncooked quinoa, gesturing while explaining.",
+      "evidence": [
+        "v2-b0003-e1"
+      ],
+      "uncertainty": [
+        "Exact cooking state change is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u020",
+      "video": "v2",
+      "time": [
+        287.988,
+        302.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u021",
+      "video": "v2",
+      "time": [
+        302.988,
+        317.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u022",
+      "video": "v2",
+      "time": [
+        317.988,
+        319.986
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u023",
+      "video": "v2",
+      "time": [
+        323.99,
+        338.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u024",
+      "video": "v2",
+      "time": [
+        338.99,
+        340.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u025",
+      "video": "v2",
+      "time": [
+        340.006,
+        348.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c013",
+      "video": "v2",
+      "time": [
+        340.006,
+        355.989
+      ],
+      "resolution": "coarse",
+      "content": "Presenter continues to hold the measuring cup with quinoa, discussing protein myths.",
+      "evidence": [
+        "v2-b0003-e2"
+      ],
+      "uncertainty": [
+        "Whether the quinoa is cooked or raw is ambiguous."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u026",
+      "video": "v2",
+      "time": [
+        348.014,
+        355.98900000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c014",
+      "video": "v2",
+      "time": [
+        359.993,
+        372.005
+      ],
+      "resolution": "coarse",
+      "content": "Presenter switches from holding the measuring cup to holding a red tomato.",
+      "evidence": [
+        "v2-b0003-e3"
+      ],
+      "uncertainty": [
+        "The exact moment the cup was set down is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u027",
+      "video": "v2",
+      "time": [
+        372.005,
+        387.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u028",
+      "video": "v2",
+      "time": [
+        387.005,
+        387.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c015",
+      "video": "v2",
+      "time": [
+        387.988,
+        404.004
+      ],
+      "resolution": "coarse",
+      "content": "Presenter holds a small white onion after discussing the tomato.",
+      "evidence": [
+        "v2-b0003-e4"
+      ],
+      "uncertainty": [
+        "The transition from tomato to onion is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u029",
+      "video": "v2",
+      "time": [
+        391.992,
+        404.004
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u030",
+      "video": "v2",
+      "time": [
+        404.004,
+        412.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u031",
+      "video": "v2",
+      "time": [
+        412.012,
+        423.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c016",
+      "video": "v2",
+      "time": [
+        412.012,
+        459.993
+      ],
+      "resolution": "coarse",
+      "content": "The presenter stands in a kitchen and gestures while introducing ingredients, specifically holding up a lemon and then a bottle of olive oil.",
+      "evidence": [
+        "v2-b0004-e1"
+      ],
+      "uncertainty": [
+        "Specific dialogue content is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u032",
+      "video": "v2",
+      "time": [
+        423.99,
+        438.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u033",
+      "video": "v2",
+      "time": [
+        438.99,
+        453.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u034",
+      "video": "v2",
+      "time": [
+        453.99,
+        455.98900000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u035",
+      "video": "v2",
+      "time": [
+        459.993,
+        474.993
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u036",
+      "video": "v2",
+      "time": [
+        474.993,
+        480.01300000000003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c017",
+      "video": "v2",
+      "time": [
+        480.013,
+        480.013
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shot displays a bottle of Maison Orphée Extra-Virgin Olive Oil next to a jar of Virgin Coconut Oil.",
+      "evidence": [
+        "v2-b0004-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u037",
+      "video": "v2",
+      "time": [
+        480.01300000000003,
+        487.988
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c018",
+      "video": "v2",
+      "time": [
+        487.988,
+        512.012
+      ],
+      "resolution": "coarse",
+      "content": "The presenter discusses the oil, followed by a close-up of a finished tabbouleh salad, then returns to the presenter.",
+      "evidence": [
+        "v2-b0004-e3"
+      ],
+      "uncertainty": [
+        "The exact transition point between the salad shot and the presenter is not captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u038",
+      "video": "v2",
+      "time": [
+        491.992,
+        506.992
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u039",
+      "video": "v2",
+      "time": [
+        506.992,
+        508.00800000000004
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u040",
+      "video": "v2",
+      "time": [
+        512.0120000000001,
+        519.986
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c019",
+      "video": "v2",
+      "time": [
+        519.986,
+        523.99
+      ],
+      "resolution": "coarse",
+      "content": "A close-up shows ingredients including cayenne pepper, pepper blend, and sea salt. The presenter then makes a hand gesture.",
+      "evidence": [
+        "v2-b0004-e4"
+      ],
+      "uncertainty": [
+        "The specific meaning of the hand gesture is unclear without audio."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u041",
+      "video": "v2",
+      "time": [
+        523.99,
+        531.998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c020",
+      "video": "v2",
+      "time": [
+        531.998,
+        531.998
+      ],
+      "resolution": "coarse",
+      "content": "A title card appears with the text 'Tools Needed'.",
+      "evidence": [
+        "v2-b0004-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c021",
+      "video": "v2",
+      "time": [
+        536.002,
+        587.987
+      ],
+      "resolution": "coarse",
+      "content": "The presenter continues speaking and gesturing, with a text overlay appearing at the end indicating '2 - 4 Servings'.",
+      "evidence": [
+        "v2-b0004-e6"
+      ],
+      "uncertainty": [
+        "The specific tools mentioned are not visible in this batch."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u042",
+      "video": "v2",
+      "time": [
+        536.0020000000001,
+        551.0020000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u043",
+      "video": "v2",
+      "time": [
+        551.0020000000001,
+        566.0020000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u044",
+      "video": "v2",
+      "time": [
+        566.0020000000001,
+        568.001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u045",
+      "video": "v2",
+      "time": [
+        568.001,
+        580.013
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u046",
+      "video": "v2",
+      "time": [
+        580.013,
+        587.987
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c022",
+      "video": "v2",
+      "time": [
+        591.991,
+        640.006
+      ],
+      "resolution": "coarse",
+      "content": "The presenter introduces and displays ingredients for a quinoa salad, holding up a measuring cup of dry quinoa, fresh parsley, an onion, and tomatoes.",
+      "evidence": [
+        "v2-b0005-e1"
+      ],
+      "uncertainty": [
+        "Exact quantities of spices and oil are shown in text but not weighed."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u047",
+      "video": "v2",
+      "time": [
+        599.999,
+        608.0070000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u048",
+      "video": "v2",
+      "time": [
+        612.011,
+        619.986
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u049",
+      "video": "v2",
+      "time": [
+        619.986,
+        627.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u050",
+      "video": "v2",
+      "time": [
+        631.998,
+        640.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u051",
+      "video": "v2",
+      "time": [
+        640.006,
+        648.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u052",
+      "video": "v2",
+      "time": [
+        648.014,
+        663.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c023",
+      "video": "v2",
+      "time": [
+        648.014,
+        663.997
+      ],
+      "resolution": "coarse",
+      "content": "The presenter holds the measuring cup of dry quinoa and gestures while explaining the next step, likely regarding rinsing or cooking the grain.",
+      "evidence": [
+        "v2-b0005-e2"
+      ],
+      "uncertainty": [
+        "Specific verbal instructions during the gesturing are not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u053",
+      "video": "v2",
+      "time": [
+        663.014,
+        663.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u054",
+      "video": "v2",
+      "time": [
+        663.997,
+        678.997
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u055",
+      "video": "v2",
+      "time": [
+        678.997,
+        691.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c024",
+      "video": "v2",
+      "time": [
+        691.991,
+        695.995
+      ],
+      "resolution": "coarse",
+      "content": "The dry quinoa is shown being rinsed in a mesh strainer under running tap water in a kitchen sink.",
+      "evidence": [
+        "v2-b0005-e3"
+      ],
+      "uncertainty": [
+        "The duration of the rinsing process is not fully captured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u056",
+      "video": "v2",
+      "time": [
+        695.995,
+        704.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c025",
+      "video": "v2",
+      "time": [
+        704.003,
+        712.011
+      ],
+      "resolution": "coarse",
+      "content": "The presenter pours water from a glass bowl into a stainless steel saucepan, turns on the stovetop burner, and then adds the rinsed quinoa to the pot.",
+      "evidence": [
+        "v2-b0005-e4"
+      ],
+      "uncertainty": [
+        "The specific amount of water poured into the pot is not measured."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c026",
+      "video": "v2",
+      "time": [
+        716.015,
+        723.99
+      ],
+      "resolution": "coarse",
+      "content": "The woman adjusts a stove knob and then transitions to holding a glass measuring cup, indicating the end of a cooking phase.",
+      "evidence": [
+        "v2-b0006-e1"
+      ],
+      "uncertainty": [
+        "Exact contents of the measuring cup are unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u057",
+      "video": "v2",
+      "time": [
+        723.99,
+        738.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u058",
+      "video": "v2",
+      "time": [
+        738.99,
+        744.01
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u059",
+      "video": "v2",
+      "time": [
+        744.01,
+        755.989
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c027",
+      "video": "v2",
+      "time": [
+        744.01,
+        795.995
+      ],
+      "resolution": "coarse",
+      "content": "The woman prepares parsley, moving it from a plate to a cutting board and chopping it with a knife.",
+      "evidence": [
+        "v2-b0006-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u060",
+      "video": "v2",
+      "time": [
+        755.989,
+        770.989
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u061",
+      "video": "v2",
+      "time": [
+        770.989,
+        772.005
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u062",
+      "video": "v2",
+      "time": [
+        776.009,
+        791.009
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u063",
+      "video": "v2",
+      "time": [
+        791.009,
+        795.995
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c028",
+      "video": "v2",
+      "time": [
+        799.999,
+        823.99
+      ],
+      "resolution": "coarse",
+      "content": "The woman chops an onion and adds it to a bowl containing the previously chopped parsley.",
+      "evidence": [
+        "v2-b0006-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u064",
+      "video": "v2",
+      "time": [
+        808.0070000000001,
+        819.986
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u065",
+      "video": "v2",
+      "time": [
+        827.994,
+        842.994
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c029",
+      "video": "v2",
+      "time": [
+        827.994,
+        855.988
+      ],
+      "resolution": "coarse",
+      "content": "The woman chops tomatoes and adds them to the bowl with the parsley and onion mixture.",
+      "evidence": [
+        "v2-b0006-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u066",
+      "video": "v2",
+      "time": [
+        842.994,
+        851.984
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u067",
+      "video": "v2",
+      "time": [
+        855.988,
+        868.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u068",
+      "video": "v2",
+      "time": [
+        868.0,
+        883.0
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c030",
+      "video": "v2",
+      "time": [
+        868.0,
+        891.991
+      ],
+      "resolution": "coarse",
+      "content": "Chef cuts a lemon and squeezes the juice through a strainer into a glass bowl containing chopped vegetables.",
+      "evidence": [
+        "v2-b0007-e1"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u069",
+      "video": "v2",
+      "time": [
+        883.0,
+        884.016
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c031",
+      "video": "v2",
+      "time": [
+        895.995,
+        904.003
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds a bottle of olive oil and pours it into the mixing bowl.",
+      "evidence": [
+        "v2-b0007-e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u070",
+      "video": "v2",
+      "time": [
+        895.995,
+        904.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u071",
+      "video": "v2",
+      "time": [
+        904.003,
+        919.003
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u072",
+      "video": "v2",
+      "time": [
+        919.003,
+        923.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c032",
+      "video": "v2",
+      "time": [
+        923.99,
+        931.998
+      ],
+      "resolution": "coarse",
+      "content": "Chef holds a blue and white salt container and sprinkles salt into the bowl.",
+      "evidence": [
+        "v2-b0007-e3"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u073",
+      "video": "v2",
+      "time": [
+        931.998,
+        946.998
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u074",
+      "video": "v2",
+      "time": [
+        946.998,
+        948.014
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c033",
+      "video": "v2",
+      "time": [
+        948.014,
+        963.996
+      ],
+      "resolution": "coarse",
+      "content": "Chef seasons the salad with black pepper from a grinder and then adds red pepper flakes.",
+      "evidence": [
+        "v2-b0007-e4"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u075",
+      "video": "v2",
+      "time": [
+        963.996,
+        976.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u076",
+      "video": "v2",
+      "time": [
+        976.008,
+        991.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c034",
+      "video": "v2",
+      "time": [
+        976.008,
+        1008.007
+      ],
+      "resolution": "coarse",
+      "content": "Chef uses a spoon to scoop cooked quinoa from a metal bowl and adds it to the salad.",
+      "evidence": [
+        "v2-b0007-e5"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u077",
+      "video": "v2",
+      "time": [
+        991.008,
+        1006.008
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u078",
+      "video": "v2",
+      "time": [
+        1006.008,
+        1008.0070000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r5-U02-01.s01",
+      "video": "v2",
+      "time": [
+        1008.0070000000001,
+        1016.015
+      ],
+      "resolution": "fine",
+      "content": "The woman holds a spoon and pot of cooked quinoa, speaking and gesturing above a bowl of chopped vegetables. The woman tilts the pot to pour cooked quinoa into the glass bowl containing the seasoned vegetable mixture.",
+      "evidence": [
+        "v2.focus.r5.l1.e1",
+        "v2.focus.r5.l1.e2"
+      ],
+      "uncertainty": [
+        "The quinoa is not yet being added to the vegetable mixture.",
+        "The pouring action is captured, but the subsequent mixing is not visible.",
+        "Unresolved: The active mixing of the combined quinoa and vegetable mixture is not visible in this batch."
+      ],
+      "revision": 1,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u080",
+      "video": "v2",
+      "time": [
+        1016.015,
+        1023.99
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r6-U02-01.s01",
+      "video": "v2",
+      "time": [
+        1016.015,
+        1031.0149999999999
+      ],
+      "resolution": "fine",
+      "content": "The person pours cooked quinoa from a metal pot into a glass bowl containing a seasoned chopped vegetable mixture. The person uses a spoon to actively mix the quinoa with the vegetable mixture in the glass bowl.",
+      "evidence": [
+        "v2.focus.r6.l1.e1",
+        "v2.focus.r6.l1.e2"
+      ],
+      "uncertainty": [
+        "None."
+      ],
+      "revision": 3,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r3-U01-02.s01",
+      "video": "v2",
+      "time": [
+        1031.0149999999999,
+        1031.998
+      ],
+      "resolution": "fine",
+      "content": "Person in pink sweater mixes chopped vegetable salad in clear glass bowl using both hands.",
+      "evidence": [
+        "v2.focus.r3.l2.e1"
+      ],
+      "uncertainty": [
+        "No cooked grain addition visible in this frame",
+        "Unresolved: cooked-grain addition event",
+        "Unresolved: mixing after grain addition",
+        "Unresolved: state transition interval"
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.zoom.r6-U02-02.s01",
+      "video": "v2",
+      "time": [
+        1031.998,
+        1040.006
+      ],
+      "resolution": "fine",
+      "content": "A person in a pink top uses a utensil to actively mix a chopped green and red vegetable salad in a clear glass bowl. The person holds the bowl of mixed salad facing the camera and speaks, with the utensil resting inside.",
+      "evidence": [
+        "v2.focus.r6.l2.e1",
+        "v2.focus.r6.l2.e2"
+      ],
+      "uncertainty": [
+        "Quinoa addition not visible; mixing may be vegetables only.",
+        "End of mixing step not clearly bounded before holding.",
+        "Unresolved: Earliest boundary of quinoa being added to the vegetable mixture.",
+        "Unresolved: Latest boundary of active mixing before the bowl is presented."
+      ],
+      "revision": 2,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u082",
+      "video": "v2",
+      "time": [
+        1040.006,
+        1055.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c036",
+      "video": "v2",
+      "time": [
+        1040.006,
+        1084.016
+      ],
+      "resolution": "coarse",
+      "content": "The woman holds the bowl of finished quinoa salad, presenting it to the camera and gesturing while speaking.",
+      "evidence": [
+        "v2-b0008-e2"
+      ],
+      "uncertainty": [
+        "Specific dialogue content is not visible."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u083",
+      "video": "v2",
+      "time": [
+        1055.006,
+        1070.006
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u084",
+      "video": "v2",
+      "time": [
+        1070.006,
+        1072.0040000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u085",
+      "video": "v2",
+      "time": [
+        1072.0040000000001,
+        1080.012
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c037",
+      "video": "v2",
+      "time": [
+        1080.012,
+        1080.012
+      ],
+      "resolution": "coarse",
+      "content": "A static shot displays the raw ingredients: parsley, tomatoes, lemon, onion, and quinoa.",
+      "evidence": [
+        "v2-b0008-e3"
+      ],
+      "uncertainty": [
+        "Context of this shot relative to the timeline is unclear."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u086",
+      "video": "v2",
+      "time": [
+        1084.016,
+        1091.991
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.c038",
+      "video": "v2",
+      "time": [
+        1091.991,
+        1099.999
+      ],
+      "resolution": "coarse",
+      "content": "The finished quinoa salad is shown plated in a white bowl, followed by the woman holding the plated dish.",
+      "evidence": [
+        "v2-b0008-e4"
+      ],
+      "uncertainty": [
+        "Transition time between mixing and plating is not shown."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u087",
+      "video": "v2",
+      "time": [
+        1091.991,
+        1099.999
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    },
+    {
+      "slot_id": "v2.u088",
+      "video": "v2",
+      "time": [
+        1104.003,
+        1106.0710000000001
+      ],
+      "resolution": "coverage",
+      "content": "Unobserved warm-scan interval; no positive or negative visual claim is available.",
+      "evidence": [],
+      "uncertainty": [
+        "This interval was not selected for warm VLM observation."
+      ],
+      "revision": 0,
+      "focusable": true
+    }
+  ],
+  "exploration_agenda": {
+    "minimum_focus_stages": 2,
+    "completed_focus_stages": 2,
+    "remaining_focus_stages": 0,
+    "phase": "answer_or_continue",
+    "require_follow_up_reservation": false,
+    "reserved_complementary_probe": null,
+    "visual_calls_used": 8,
+    "visual_calls_remaining": 0,
+    "maximum_visual_calls_for_current_stage": 0,
+    "instruction": "This is a sequential evidence-collection agenda, not a confidence check. Before its required stages are complete, select a PLAN rather than ANSWER. A new Focus result updates evidence memory; Reasoner decides whether a fresh ALIGN is useful."
+  }
+}

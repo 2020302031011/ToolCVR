@@ -1,0 +1,212 @@
+{
+  "question": "Video 1 is a reference cooking step. Find the functionally equivalent step in Video 2. Return only its Video 2 interval as [start_seconds, end_seconds].",
+  "video_ids": [
+    "v1",
+    "v2"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v1"
+      ],
+      "event_refs": [
+        "v1-b0001-e1"
+      ],
+      "statement": "The v1 reference step shows ingredients being added to a wok and rice being stirred with a red spatula."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e3"
+      ],
+      "statement": "A v2 cook stir-fries ingredients in a wok over high flame, adding greens and then rice."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0003-e4"
+      ],
+      "statement": "A v2 cook adds liquids from bottles and seasons the fried rice mixture in the wok."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e1"
+      ],
+      "statement": "A v2 cook adds liquid seasoning into a wok containing stir-fried rice and vegetables."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e2"
+      ],
+      "statement": "A v2 cook actively stir-fries the rice mixture in the wok using a spatula and tossing motion."
+    },
+    {
+      "id": "I06",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0004-e6"
+      ],
+      "statement": "A v2 cook resumes stir-frying the rice in the wok, mixing the ingredients thoroughly."
+    },
+    {
+      "id": "I07",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0005-e1"
+      ],
+      "statement": "A v2 cook stir-fries noodles in a wok using a spatula to toss and mix the ingredients."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference step and v2-b0003-e3 both show ingredients being added to a wok and mixed.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0003-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference step and v2-b0004-e6 both show stir-frying and thorough mixing of rice in a wok.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0004-e6"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    },
+    {
+      "id": "R03",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "statement": "The v1 reference step is described with rice, while v2-b0005-e1 is described with noodles.",
+      "supporting_events": [
+        "v1-b0001-e1",
+        "v2-b0005-e1"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The exact v2 interval that is functionally equivalent to the v1 reference step remains unresolved.",
+      "reason": "The v2 reports describe separate ingredient-addition, seasoning, and stir-frying intervals but do not specify which continuous interval matches the v1 transition.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0003-e3",
+        "v2-b0003-e4",
+        "v2-b0004-e1",
+        "v2-b0004-e2",
+        "v2-b0004-e6"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v2"
+      ],
+      "issue": "The equivalence of the v2-b0005-e1 noodle stir-frying interval to the v1 rice-mixing step remains unresolved.",
+      "reason": "The reports identify different food items but similar mixing actions.",
+      "related_events": [
+        "v1-b0001-e1",
+        "v2-b0005-e1"
+      ],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the ingredient-addition and mixing transition in v1-b0001-e1 with the v2 interval spanning v2-b0003-e3 through v2-b0004-e6 to determine whether they form one equivalent step.",
+      "purpose": "Resolve the functionally equivalent v2 interval and its boundaries.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1",
+        "v2"
+      ],
+      "observable": "Compare the food item and state transition in v1-b0001-e1 with v2-b0005-e1 to determine whether v2-b0005-e1 is rice mixing or noodle stir-frying.",
+      "purpose": "Resolve whether v2-b0005-e1 can be the equivalent step.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 1,
+    "covered_pair_count": 1,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 1,
+    "required_pairs": [
+      [
+        "v1",
+        "v2"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "FSA-82",
+    "task": "FSA",
+    "ground_truth": [
+      115,
+      137
+    ],
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/FSA/FSA-82/report.json",
+    "report_sha256": "6880bba2da63c16aaa5241b535d302737bb92c65e152b741a7cb444babab683d",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}

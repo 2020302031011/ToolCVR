@@ -1,0 +1,203 @@
+{
+  "question": "These numbered clips are shuffled segments from one cooking video. Determine their chronological order. Return only clip numbers joined by ->.",
+  "video_ids": [
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5"
+  ],
+  "observed_information": [
+    {
+      "id": "I01",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e1",
+        "v2-b0001-e2"
+      ],
+      "statement": "v2 reports cooking oil being added to the pan before tofu is added."
+    },
+    {
+      "id": "I02",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e3",
+        "v2-b0001-e4",
+        "v2-b0001-e5",
+        "v2-b0001-e7",
+        "v2-b0001-e8"
+      ],
+      "statement": "v2 reports tofu being stirred with a spatula at multiple points after it is added."
+    },
+    {
+      "id": "I03",
+      "videos": [
+        "v2"
+      ],
+      "event_refs": [
+        "v2-b0001-e6"
+      ],
+      "statement": "v2 reports chopped garlic and shallot being added to the pan after tofu has been stirred."
+    },
+    {
+      "id": "I04",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e1"
+      ],
+      "statement": "v4 reports a pan containing noodles, bean sprouts, and egg with a text overlay instructing to add grounded peanut."
+    },
+    {
+      "id": "I05",
+      "videos": [
+        "v4"
+      ],
+      "event_refs": [
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "statement": "v4 reports crushed peanuts visible on the noodle mixture and then a spoon dispensing more crushed peanuts."
+    }
+  ],
+  "working_relations": [
+    {
+      "id": "R01",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "statement": "v2 depicts a tofu-centered pan stage, while v4 depicts a noodle, bean sprout, egg, and peanut stage.",
+      "supporting_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e6",
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "status": "unresolved",
+      "status_source": "derived_by_module"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "id": "U01",
+      "scope": [
+        "v2",
+        "v4"
+      ],
+      "issue": "The relative chronological stage between v2 and v4 remains unresolved.",
+      "reason": "The events show different ingredient sets but no shared transition linking the tofu/aromatic stage to the noodle/peanut stage.",
+      "related_events": [
+        "v2-b0001-e1",
+        "v2-b0001-e2",
+        "v2-b0001-e6",
+        "v4-b0001-e1",
+        "v4-b0001-e2",
+        "v4-b0001-e3"
+      ],
+      "filled_by_module": false
+    },
+    {
+      "id": "U02",
+      "scope": [
+        "v1",
+        "v3",
+        "v5"
+      ],
+      "issue": "The chronological positions of v1, v3, and v5 relative to v2 and v4 remain unresolved.",
+      "reason": "No valid event descriptions are supplied for these clips, so their visible pan states cannot be compared to the observed stages.",
+      "related_events": [],
+      "filled_by_module": false
+    }
+  ],
+  "candidate_requests": [
+    {
+      "id": "Q01",
+      "target_videos": [
+        "v2",
+        "v4"
+      ],
+      "observable": "Whether v2 contains noodles, bean sprouts, egg, or peanuts, and whether v4 contains tofu, oil, garlic, or shallot.",
+      "purpose": "This would determine whether the v2 and v4 ingredient stages overlap or connect.",
+      "related_issue": "U01"
+    },
+    {
+      "id": "Q02",
+      "target_videos": [
+        "v1"
+      ],
+      "observable": "The pan contents at the beginning and end of v1.",
+      "purpose": "This would determine whether v1 matches the v2 tofu stage, the v4 noodle/peanut stage, or another stage.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q03",
+      "target_videos": [
+        "v3"
+      ],
+      "observable": "The pan contents at the beginning and end of v3.",
+      "purpose": "This would determine whether v3 matches the v2 tofu stage, the v4 noodle/peanut stage, or another stage.",
+      "related_issue": "U02"
+    },
+    {
+      "id": "Q04",
+      "target_videos": [
+        "v5"
+      ],
+      "observable": "The pan contents at the beginning and end of v5.",
+      "purpose": "This would determine whether v5 matches the v2 tofu stage, the v4 noodle/peanut stage, or another stage.",
+      "related_issue": "U02"
+    }
+  ],
+  "coverage": {
+    "required_pair_count": 4,
+    "covered_pair_count": 4,
+    "module_filled_pair_count": 0,
+    "unresolved_pair_count": 4,
+    "required_pairs": [
+      [
+        "v1",
+        "v3"
+      ],
+      [
+        "v1",
+        "v5"
+      ],
+      [
+        "v2",
+        "v4"
+      ],
+      [
+        "v3",
+        "v5"
+      ]
+    ],
+    "module_filled_pairs": []
+  },
+  "validation_notes": [
+    "information I06 dropped: incomplete after validation"
+  ],
+  "contains_answer": false,
+  "contains_completion_decision": false,
+  "model_reported_confidence": false,
+  "run": {
+    "sample_id": "PSS-229",
+    "task": "PSS",
+    "ground_truth": "5->2->1->3->4",
+    "report_source": "/media/data6/xuejj/ToolCVR/outputs/mechanism-v13-allapi-stratified90/reports/PSS/PSS-229/report.json",
+    "report_sha256": "ac33aecbfadda321abe4412aca50dd5b72f077188382227dcfefe51e018f72e0",
+    "builder_identity": "openai-compatible-v3-anchored-local-summary:qwen3.8-flash",
+    "stages_executed": [
+      "initial_state_formation"
+    ],
+    "executed_candidate_requests": false,
+    "generated_answer": false
+  }
+}
